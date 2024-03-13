@@ -5625,6 +5625,11 @@ Move_QUICK_GUARD:
 	end
 
 Move_ALLY_SWITCH:
+	call SetPsychicBackground
+	createvisualtask AnimTask_AllySwitchAttacker, 2
+	createvisualtask AnimTask_AllySwitchPartner, 2
+	call DoubleTeamAnimRet
+	call UnsetPsychicBg
 	end
 
 Move_SCALD:
@@ -9210,12 +9215,13 @@ Boomburst_Doubles:
 	goto Boomburst_Last
 
 Move_FAIRY_LOCK::
-	loadspritegfx ANIM_TAG_FAIRY_LOCK_CHAINS
+	loadspritegfx ANIM_TAG_CHAIN_LINK @Chain Colour
+	loadspritegfx ANIM_TAG_FAIRY_LOCK_CHAINS @AnimTask is missing for Fairy Lock Chain
 	setalpha 8, 8
 	monbg ANIM_ATK_PARTNER
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6B1F
 	waitforvisualfinish
-	loopsewithpan SE_M_SCRATCH, SOUND_PAN_TARGET, 0x6, 0x9
+	loopsewithpan SE_M_SCRATCH, SOUND_PAN_TARGET, 0x6, 0x4
 	createvisualtask AnimTask_VoltTackleBolt, 0x5, 0x7
 	createvisualtask AnimTask_VoltTackleBolt, 0x5, 0x33
 	createvisualtask AnimTask_VoltTackleBolt, 0x5, 0x2
@@ -9541,7 +9547,7 @@ Move_EERIE_IMPULSE::
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 32, 30, 0, 40, 0
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 32, 30, 0, 40, 1
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 32, 30, 0, 40, 0
-	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 32, 30, 0, 40, 2
+ 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 32, 30, 0, 40, 2
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 48, 30, 0, 40, 0
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 48, 30, 0, 40, 1
 	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 10, 0, 48, 30, 0, 40, 0
@@ -10206,7 +10212,7 @@ Move_THOUSAND_WAVES::
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER            @I placed this one here, because it ruins the teleport animation
 	loopsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET, 0x3, 0x15
-	call ThousandWavesRecover
+ 	call ThousandWavesRecover
 	createsprite gThousandWavesGreenRecoverTemplate, ANIM_ATTACKER, 2, 0x28, 0xfff6, 0xd
 	delay 0x3
 	createsprite gThousandWavesGreenRecoverTemplate, ANIM_ATTACKER, 2, 0xffdd, 0x8, 0xd
@@ -10434,7 +10440,7 @@ Move_ORIGIN_PULSE::
 	delay 0x10
 	createsprite gOriginPulseRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x0, 0x0, 0x1F, 0x8
 	playsewithpan SE_INTRO_BLAST, SOUND_PAN_ATTACKER
-	waitforvisualfinish
+ 	waitforvisualfinish
 	createsprite gOriginPulseOrbTemplate, ANIM_ATTACKER, 2, 0x0
 	createsprite gOriginPulseOrbTemplate, ANIM_ATTACKER, 2, 0x2b
 	createsprite gOriginPulseOrbTemplate, ANIM_ATTACKER, 2, 0x55
@@ -12017,7 +12023,7 @@ Move_CORE_ENFORCER::
 	delay 0x1
 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0xfffa, 0xffe2, 0x1, 0x3
 	delay 0x1
-	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0xffff, 0xffe2, 0x1, 0x3
+ 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0xffff, 0xffe2, 0x1, 0x3
 	delay 0x1
 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0x5, 0xffe2, 0x1, 0x3
 	delay 0x1
@@ -12060,7 +12066,7 @@ Move_CORE_ENFORCER::
 	createsprite gCoreEnforcerBeamTemplate, ANIM_TARGET, 3, 0xf, 0x0, 0x14, 0x5
 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0x7, 0x3, 0x1, 0x3
 	delay 0x1
-	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0xC, 0x3, 0x1, 0x3
+ 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0xC, 0x3, 0x1, 0x3
 	delay 0x1
 	createsprite gCoreEnforcerImpactTemplate, ANIM_TARGET, 3, 0x11, 0x3, 0x1, 0x3
 	delay 0x1
@@ -13501,7 +13507,7 @@ Move_PHOTON_GEYSER::
 	unloadspritegfx ANIM_TAG_YELLOW_BALL @confuse ray (for zap cannon)
 	unloadspritegfx ANIM_TAG_BLACK_BALL_2 @zap cannon
 	unloadspritegfx ANIM_TAG_AIR_WAVE_2 @white/gray color
-	@Shoot beam to the sky
+    @Shoot beam to the sky
 	loadspritegfx ANIM_TAG_STRAIGHT_BEAM
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x6, 0x0, 0x10, 0x43FF  @Light yellow
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 4, 0, 96, 1
@@ -13623,7 +13629,7 @@ Move_SNIPE_SHOT::
 	loadspritegfx ANIM_TAG_LEER
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 0, 16, 0 @;Black
 	waitforvisualfinish
-	createsprite gLeerSpriteTemplate, ANIM_TARGET, 2, 0x18, -12
+ 	createsprite gLeerSpriteTemplate, ANIM_TARGET, 2, 0x18, -12
 	playsewithpan SE_M_DETECT, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	delay 0x20
@@ -16927,6 +16933,29 @@ ChillyReceptionSnowballs:
 	delay 3
 	return
 
+Move_BURNING_BULWARK::
+	goto Move_PROTECT
+
+Move_ALLURING_VOICE::
+	loadspritegfx ANIM_TAG_THIN_RING
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayCryWithEcho, 5, FALSE
+	createsprite gHyperVoiceRingSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	delay 0xA
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 26, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 26, 1
+	waitforvisualfinish
+	createvisualtask SoundTask_WaitForCry, 0x5
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x8, 0x0, 0x6e7d
+	waitforvisualfinish
+	end
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_LAST_RESPECTS::
@@ -16978,13 +17007,11 @@ Move_IVY_CUDGEL::
 Move_ELECTRO_SHOT::
 Move_TERA_STARSTORM::
 Move_FICKLE_BEAM::
-Move_BURNING_BULWARK::
 Move_THUNDERCLAP::
 Move_MIGHTY_CLEAVE::
 Move_TACHYON_CUTTER::
 Move_HARD_PRESS::
 Move_DRAGON_CHEER::
-Move_ALLURING_VOICE::
 Move_TEMPER_FLARE::
 Move_SUPERCELL_SLAM::
 Move_PSYCHIC_NOISE::
@@ -19352,8 +19379,7 @@ Move_TELEPORT:
 	waitforvisualfinish
 	end
 
-Move_DOUBLE_TEAM:
-	createvisualtask AnimTask_DoubleTeam, 2
+DoubleTeamAnimRet:
 	setalpha 12, 8
 	monbg ANIM_ATK_PARTNER
 	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
@@ -19377,6 +19403,11 @@ Move_DOUBLE_TEAM:
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
 	delay 1
+	return
+
+Move_DOUBLE_TEAM:
+	createvisualtask AnimTask_DoubleTeam, 2
+	call DoubleTeamAnimRet
 	end
 
 Move_MINIMIZE:

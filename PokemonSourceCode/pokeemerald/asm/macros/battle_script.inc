@@ -980,7 +980,7 @@
 	.byte 0xbb
 	.endm
 
-	.macro maxattackhalvehp failInstr:req
+	.macro halvehp failInstr:req
 	.byte 0xbc
 	.4byte \failInstr
 	.endm
@@ -1087,8 +1087,9 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trycopyability failInstr:req
+	.macro trycopyability battler:req, failInstr:req
 	.byte 0xd3
+	.byte \battler
 	.4byte \failInstr
 	.endm
 
@@ -1312,6 +1313,15 @@
 	.byte \battler
 	.4byte \jumpInstr
 	.endm
+	
+	.macro allyswitchswapbattlers
+	callnative BS_AllySwitchSwapBattler
+	.endm
+	
+	.macro allyswitchfailchance jumpInstr:req
+	callnative BS_AllySwitchFailChance
+	.4byte \jumpInstr
+	.endm
 
 	.macro jumpifholdeffect battler:req, holdEffect:req, jumpInstr:req
 	callnative BS_JumpIfHoldEffect
@@ -1332,14 +1342,12 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro itemrestorehp jumpInstr:req
+	.macro itemrestorehp
 	callnative BS_ItemRestoreHP
-	.4byte \jumpInstr
 	.endm
 
-	.macro itemcurestatus jumpInstr:req
+	.macro itemcurestatus
 	callnative BS_ItemCureStatus
-	.4byte \jumpInstr
 	.endm
 
 	.macro itemincreasestat
@@ -2322,6 +2330,15 @@
 	goto \jumpInstr
 	1:
 	subbyte gBattlerTarget, 0x2
+	goto \jumpInstr
+	.endm
+
+	.macro setallytonextattacker jumpInstr:req
+	jumpifbyte CMP_GREATER_THAN, gBattlerAttacker, 0x1, 1f
+	addbyte gBattlerAttacker, 0x2
+	goto \jumpInstr
+	1:
+	subbyte gBattlerAttacker, 0x2
 	goto \jumpInstr
 	.endm
 

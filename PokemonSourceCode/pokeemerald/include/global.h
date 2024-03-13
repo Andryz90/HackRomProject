@@ -61,7 +61,7 @@
 // Used in cases where division by 0 can occur in the retail version.
 // Avoids invalid opcodes on some emulators, and the otherwise UB.
 #ifdef UBFIX
-#define SAFE_DIV(a, b) (((b) != 0) ? (a) / (b) : 0)
+#define SAFE_DIV(a, b) ((b) ? (a) / (b) : 0)
 #else
 #define SAFE_DIV(a, b) ((a) / (b))
 #endif
@@ -129,8 +129,8 @@
 #define CAT(a, b) CAT_(a, b)
 #define CAT_(a, b) a ## b
 
-#define STR(a) STR_(a)
-#define STR_(a) #a
+#define STR(...) STR_(__VA_ARGS__)
+#define STR_(...) #__VA_ARGS__
 
 // Converts a string to a compound literal, essentially making it a pointer to const u8
 #define COMPOUND_STRING(str) (const u8[]) _(str)
@@ -509,7 +509,7 @@ struct SaveBlock2
     /*0x90*/ u8 filler_90[0x8];
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;
-    /*0xA8*/ u32 gcnLinkFlags; // Read by Pokemon Colosseum/XD
+    /*0xA8*/ u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
     /*0xAC*/ u32 encryptionKey;
     /*0xB0*/ struct PlayersApprentice playerApprentice;
     /*0xDC*/ struct Apprentice apprentices[APPRENTICE_COUNT];
@@ -738,7 +738,8 @@ struct ContestWinner
     u8 contestCategory;
     u8 monName[POKEMON_NAME_LENGTH + 1];
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    u8 contestRank;
+    u8 contestRank:7;
+    bool8 isShiny:1;
     //u8 padding;
 };
 

@@ -23,7 +23,6 @@ static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
 
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 
-#include "data/text/item_descriptions.h"
 #include "data/items.h"
 
 static u16 GetBagItemQuantity(u16 *quantity)
@@ -879,7 +878,7 @@ const u8 *ItemId_GetName(u16 itemId)
     return gItems[SanitizeItemId(itemId)].name;
 }
 
-u16 ItemId_GetPrice(u16 itemId)
+u32 ItemId_GetPrice(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].price;
 }
@@ -974,11 +973,11 @@ u32 GetItemStatus1Mask(u16 itemId)
         case ITEM3_BURN:
             return STATUS1_BURN;
         case ITEM3_POISON:
-            return STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER;
+            return STATUS1_POISON | STATUS1_TOXIC_POISON;
         case ITEM3_SLEEP:
             return STATUS1_SLEEP;
         case ITEM3_STATUS_ALL:
-            return STATUS1_ANY | STATUS1_TOXIC_COUNTER;
+            return STATUS1_ANY;
     }
     return 0;
 }
