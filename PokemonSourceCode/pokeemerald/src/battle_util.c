@@ -4644,8 +4644,32 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
-        }
-        break;
+            //WIP
+        case ABILITY_WIND_GLIDER: 
+            if (!(gSideStatuses[side] & SIDE_STATUS_TAILWIND)) {
+
+                gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
+                gSideTimers[side].tailwindBattlerId = gBattlerAttacker;
+                gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS;
+                effect++;
+            }
+            else {
+                // If present, add the remain turns to the move
+                gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS;
+                effect++;
+            }   
+            
+            if (!gSpecialStatuses[battler].switchInAbilityDone){
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_WIND_GLIDER;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+            } 
+            else {
+                BattleScriptPushCursorAndCallback(BattleScript_WindGliderActivates);
+            }
+            break;
+	}
+    break;
     case ABILITYEFFECT_ENDTURN: // 1
         if (gBattleMons[battler].hp != 0)
         {
@@ -5949,6 +5973,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
 
     return effect;
 }
+
 
 bool32 TryPrimalReversion(u32 battler)
 {
@@ -8861,6 +8886,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     case ABILITY_SUPREME_OVERLORD:
         modifier = uq4_12_multiply(modifier, gBattleStruct->supremeOverlordModifier[battlerAtk]);
         break;
+    case ABILITY_WIND_GLIDER:
+        if ((gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TAILWIND) && (gBattleMoves[move].windMove == TRUE)){
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        }
     }
 
     // field abilities

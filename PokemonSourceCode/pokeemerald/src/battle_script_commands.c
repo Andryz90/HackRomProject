@@ -84,7 +84,6 @@
 #define CMD_ARGS(...) const struct __attribute__((packed)) { u8 opcode; MEMBERS(__VA_ARGS__) const u8 nextInstr[0]; } *const cmd UNUSED = (const void *)gBattlescriptCurrInstr
 #define VARIOUS_ARGS(...) CMD_ARGS(u8 battler, u8 id, ##__VA_ARGS__)
 #define NATIVE_ARGS(...) CMD_ARGS(void (*func)(void), ##__VA_ARGS__)
-
 #define MEMBERS(...) VARARG_8(MEMBERS_, __VA_ARGS__)
 #define MEMBERS_0()
 #define MEMBERS_1(a) a;
@@ -1757,6 +1756,7 @@ static void Cmd_accuracycheck(void)
     u32 abilityAtk = GetBattlerAbility(gBattlerAttacker);
     u32 abilityDef = GetBattlerAbility(gBattlerTarget);
     u32 holdEffectAtk = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+    u32 side = GetBattlerSide(gBattlerAttacker);
 
     if (move == ACC_CURR_MOVE)
         move = gCurrentMove;
@@ -1771,9 +1771,10 @@ static void Cmd_accuracycheck(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
-        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
-        && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
-        || !(gBattleMoves[move].effect == EFFECT_TRIPLE_KICK || gBattleMoves[move].effect == EFFECT_POPULATION_BOMB))))
+            || (gSpecialStatuses[gBattlerAttacker].multiHitOn
+            && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
+            || !(gBattleMoves[move].effect == EFFECT_TRIPLE_KICK || gBattleMoves[move].effect == EFFECT_POPULATION_BOMB)))
+            || ((gBattleMoves[move].windMove == TRUE) && (gSideStatuses[side] & SIDE_STATUS_TAILWIND))) //Wind moves skip accuracy check if Tailwind is active
     {
         // No acc checks for second hit of Parental Bond or multi hit moves, except Triple Kick/Triple Axel/Population Bomb
         gBattlescriptCurrInstr = cmd->nextInstr;

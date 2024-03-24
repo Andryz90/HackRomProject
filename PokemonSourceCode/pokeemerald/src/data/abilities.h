@@ -2599,4 +2599,10 @@ const struct Ability gAbilities[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+    [ABILITY_WIND_GLIDER] = 
+    {
+        .name = _("Wind Glider"),
+        .description = COMPOUND_STRING("Set Tailwind and Boost wind moves."),
+        .aiRating = 10,
+    }
 };

@@ -10899,3 +10899,11 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setsnow
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_WindGliderActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_WIND_GLIDER
+	waitmessage B_WAIT_TIME_LONG
+	end3
+	
