@@ -5145,6 +5145,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         MACHAMP_MISC_INFO,
         .height = 16,
         .weight = 1300,
+        .arms = 4,
         .description = COMPOUND_STRING(
             "It is impossible to defend against punches\n"
             "and chops doled out by its four arms.\n"
@@ -8087,6 +8088,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .categoryName = _("Punching"),
         .height = 14,
         .weight = 502,
+        .arms = 2,
         .description = COMPOUND_STRING(
             "A Hitmonchan is said to possess the\n"
             "spirit of a boxer who aimed to become the\n"

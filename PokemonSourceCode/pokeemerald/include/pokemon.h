@@ -381,6 +381,7 @@ struct SpeciesInfo /*0x8C*/
  /* 0x2E */ u16 natDexNum;
  /* 0x30 */ u16 height; //in decimeters
  /* 0x32 */ u16 weight; //in hectograms
+            u8 arms;
  /* 0x34 */ u16 pokemonScale;
  /* 0x36 */ u16 pokemonOffset;
  /* 0x38 */ u16 trainerScale;
@@ -439,6 +440,7 @@ struct SpeciesInfo /*0x8C*/
  /* 0x88 */ const struct Evolution *evolutions;
  /* 0x84 */ const u16 *formSpeciesIdTable;
  /* 0x84 */ const struct FormChange *formChangeTable;
+ 
 };
 
 struct BattleMove
@@ -453,7 +455,6 @@ struct BattleMove
     u16 criticalHitStage:2;
     u8 pp;
     u8 secondaryEffectChance;
-
     u16 target;
     s8 priority;
     union {

@@ -761,6 +761,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .categoryName = _("Five Star"),
         .height = 14,
         .weight = 356,
+        .arms = 6,
         .description = COMPOUND_STRING(
             "It is said that in lands with clean air,\n"
             "where the stars fill the sky, there live\n"

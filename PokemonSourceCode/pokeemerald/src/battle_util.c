@@ -3563,7 +3563,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
-
+                u8 arms = gSpeciesInfo[gBattleMons[gBattlerAttacker].species].arms;
                 if (ability == ABILITY_SKILL_LINK)
                 {
                     gMultiHitCounter = 5;
@@ -3573,6 +3573,10 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 && gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA_ASH)
                 {
                     gMultiHitCounter = 3;
+                }
+                else if(gCurrentMove == MOVE_COMBO_PUNCH) {
+
+                    gMultiHitCounter = arms;
                 }
                 else
                 {
@@ -4644,7 +4648,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
-            //WIP
+            
         case ABILITY_WIND_GLIDER: 
             if (!(gSideStatuses[side] & SIDE_STATUS_TAILWIND)) {
 
@@ -4654,7 +4658,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             else {
-                // If present, add the remain turns to the move
+                // If present, restore turns
                 gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS;
                 effect++;
             }   

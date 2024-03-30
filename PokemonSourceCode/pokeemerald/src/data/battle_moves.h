@@ -15281,5 +15281,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .category = BATTLE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
-
+        [MOVE_COMBO_PUNCH] =
+    {
+        .power = 25,
+        .effect = EFFECT_MULTI_HIT,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = BATTLE_CATEGORY_PHYSICAL,
+        .punchingMove = TRUE,
+        .ballisticMove = FALSE,
+        .metronomeBanned = TRUE,
+    },
 };

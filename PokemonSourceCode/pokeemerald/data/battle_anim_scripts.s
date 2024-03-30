@@ -875,6 +875,7 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
+	.4byte Move_COMBO_PUNCH
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -33617,6 +33618,10 @@ Move_G_MAX_GOLD_RUSH:
 	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
 	waitforvisualfinish
 	goto Move_PAY_DAY
+	end
+
+Move_COMBO_PUNCH::
+	goto Move_COMET_PUNCH
 	end
 
 @@@ DYNAMAX AND MAX RAIDS
