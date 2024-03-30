@@ -4650,27 +4650,20 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
             
         case ABILITY_WIND_GLIDER: 
-            if (!(gSideStatuses[side] & SIDE_STATUS_TAILWIND)) {
 
-                gSideStatuses[side] |= SIDE_STATUS_TAILWIND;
-                gSideTimers[side].tailwindBattlerId = gBattlerAttacker;
-                gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS;
-                effect++;
-            }
-            else {
-                // If present, restore turns
-                gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS;
-                effect++;
-            }   
-            
-            if (!gSpecialStatuses[battler].switchInAbilityDone){
+            side = GetBattlerSide(battler);
+            gSideStatuses[side] |= SIDE_STATUS_TAILWIND;  
+            gSideTimers[side].tailwindBattlerId = gBattlerAttacker;
+            gSideTimers[side].tailwindTimer = B_TAILWIND_TURNS >= GEN_5 ? 4 : 3; 
+                
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_WIND_GLIDER;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
-            } 
-            else {
-                BattleScriptPushCursorAndCallback(BattleScript_WindGliderActivates);
+                effect++;
             }
+            
             break;
 	}
     break;
