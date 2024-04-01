@@ -10906,4 +10906,3 @@ BattleScript_WindGliderActivates::
 	printstring STRINGID_WIND_GLIDER
 	waitmessage B_WAIT_TIME_LONG
 	end3
-	

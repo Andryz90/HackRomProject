@@ -3331,6 +3331,7 @@ static const u8 sUpperHandDescription[] = _(
 static const u8 sMalignantChainDescription[] = _(
     "A corrosive chain attack\n"
     "that may badly poison.");
+
 // Space for custom moves
 static const u8 sComboPunchDescription[] = _(
     "Rapid strike with every arm.");
@@ -4195,4 +4196,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
     //Begin of Custom Moves
     [MOVE_COMBO_PUNCH - 1] = sComboPunchDescription,    
+    [MOVE_POISON_DRAIN - 1] = sGigaDrainDescription,
 };

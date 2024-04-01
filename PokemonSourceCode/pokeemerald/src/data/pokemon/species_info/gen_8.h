@@ -2679,7 +2679,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 42,
         .baseSpAttack  = 70,
         .baseSpDefense = 80,
-        .types = { TYPE_FIGHTING, TYPE_FIGHTING },
+        .types = { TYPE_WATER, TYPE_FIGHTING },
         .catchRate = 45,
         .expYield = 168,
         .evYield_Attack = 2,
@@ -2696,6 +2696,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .categoryName = _("Jujitsu"),
         .height = 16,
         .weight = 390,
+        .arms = 8,
         .description = COMPOUND_STRING(
             "A body made up of nothing but muscle makes\n"
             "the grappling moves this Pokémon performs\n"

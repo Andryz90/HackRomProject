@@ -15281,6 +15281,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .category = BATTLE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
+
+    // Custom Moves
         [MOVE_COMBO_PUNCH] =
     {
         .power = 25,
@@ -15295,5 +15297,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .punchingMove = TRUE,
         .ballisticMove = FALSE,
         .metronomeBanned = TRUE,
+    },
+        [MOVE_POISON_DRAIN] =
+    {
+        .power = 75,
+        .pp = 10,
+        .effect = EFFECT_ABSORB,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = BATTLE_CATEGORY_SPECIAL,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_5, // && B_UPDATED_MOVE_FLAGS > GEN_2
+        .healBlockBanned = B_HEAL_BLOCKING >= GEN_6,
     },
 };
