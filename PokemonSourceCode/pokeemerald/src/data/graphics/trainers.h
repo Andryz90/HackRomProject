@@ -292,17 +292,18 @@ const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steve
 const u32 gTrainerBackPicPalette_Red[] = INCBIN_U32("graphics/trainers/back_pics/red.gbapal.lz");
 const u32 gTrainerBackPicPalette_Leaf[] = INCBIN_U32("graphics/trainers/back_pics/leaf.gbapal.lz");
 
-static const union AnimCmd *const sAnims_Trainer[] ={
-    sAnim_GeneralFrame0,
-};
-
-#define TRAINER_SPRITE(trainerPic, file)                                                  \
+// The first two parameters invoke a front pic and palette by
+// calling a "TRAINER_PIC" constant (e.g. TRAINER_PIC_HIKER), and
+// gTrainerFrontPic/gTrainerPalette pointers, (e.g "gTrainerFrontPic_Hiker" and "gTrainerPalette_Hiker").
+// The last three parameters control the X and Y coordinates and rotation of the mugshot on the screen.
+// They default to 0, 0, and 0x200 which are default values used by the majority of the game's trainer sprites.
+#define TRAINER_SPRITE(trainerPic, file, ...)                                             \
     [TRAINER_PIC_##trainerPic] =                                                          \
     {                                                                                     \
-        .y_offset = 8,                                                                    \
         .frontPic = {gTrainerFrontPic_##file, TRAINER_PIC_SIZE, TRAINER_PIC_##trainerPic},\
         .palette = {gTrainerPalette_##file, TRAINER_PIC_##trainerPic},                    \
-        .animation = sAnims_Trainer,                                                      \
+        .mugshotCoords = {DEFAULT(0, __VA_ARGS__), DEFAULT_2(0, __VA_ARGS__)},            \
+        .mugshotRotation = DEFAULT_3(0x200, __VA_ARGS__),                                 \
     }
 
 const struct TrainerSprite gTrainerSprites[] =
@@ -345,8 +346,8 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(GENTLEMAN, Gentleman),
     TRAINER_SPRITE(ELITE_FOUR_SIDNEY, EliteFourSidney),
     TRAINER_SPRITE(ELITE_FOUR_PHOEBE, EliteFourPhoebe),
-    TRAINER_SPRITE(ELITE_FOUR_GLACIA, EliteFourGlacia),
-    TRAINER_SPRITE(ELITE_FOUR_DRAKE, EliteFourDrake),
+    TRAINER_SPRITE(ELITE_FOUR_GLACIA, EliteFourGlacia, -4, 4, 0x1B0),
+    TRAINER_SPRITE(ELITE_FOUR_DRAKE, EliteFourDrake, 0, 5, 0x1A0),
     TRAINER_SPRITE(LEADER_ROXANNE, LeaderRoxanne),
     TRAINER_SPRITE(LEADER_BRAWLY, LeaderBrawly),
     TRAINER_SPRITE(LEADER_WATTSON, LeaderWattson),
@@ -361,7 +362,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(POKEFAN_M, PokefanM),
     TRAINER_SPRITE(POKEFAN_F, PokefanF),
     TRAINER_SPRITE(YOUNGSTER, Youngster),
-    TRAINER_SPRITE(CHAMPION_WALLACE, ChampionWallace),
+    TRAINER_SPRITE(CHAMPION_WALLACE, ChampionWallace, -8, 7, 0x188),
     TRAINER_SPRITE(FISHERMAN, Fisherman),
     TRAINER_SPRITE(CYCLING_TRIATHLETE_M, CyclingTriathleteM),
     TRAINER_SPRITE(CYCLING_TRIATHLETE_F, CyclingTriathleteF),
@@ -388,7 +389,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(YOUNG_COUPLE, YoungCouple),
     TRAINER_SPRITE(OLD_COUPLE, OldCouple),
     TRAINER_SPRITE(SIS_AND_BRO, SisAndBro),
-    TRAINER_SPRITE(STEVEN, Steven),
+    TRAINER_SPRITE(STEVEN, Steven, 0, 7, 0x188),
     TRAINER_SPRITE(SALON_MAIDEN_ANABEL, SalonMaidenAnabel),
     TRAINER_SPRITE(DOME_ACE_TUCKER, DomeAceTucker),
     TRAINER_SPRITE(PALACE_MAVEN_SPENSER, PalaceMavenSpenser),

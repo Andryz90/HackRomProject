@@ -36,13 +36,14 @@ else
 EXE :=
 endif
 
-TITLE       := POKEMON EMER
-GAME_CODE   := BPEE
-MAKER_CODE  := 01
-REVISION    := 0
-MODERN      ?= 1
-TEST        ?= 0
-ANALYZE     ?= 0
+TITLE        := POKEMON EMER
+GAME_CODE    := BPEE
+MAKER_CODE   := 01
+REVISION     := 0
+MODERN       ?= 1
+TEST         ?= 0
+ANALYZE      ?= 0
+UNUSED_ERROR ?= 0
 
 ifeq (agbcc,$(MAKECMDGOALS))
   MODERN := 0
@@ -127,6 +128,12 @@ override CFLAGS += -mthumb -mthumb-interwork -O2 -mabi=apcs-gnu -mtune=arm7tdmi 
 ifeq ($(ANALYZE),1)
 override CFLAGS += -fanalyzer
 endif
+# Only throw an error for unused elements if its RH-Hideout's repo
+ifeq ($(UNUSED_ERROR),0)
+ifneq ($(GITHUB_REPOSITORY_OWNER),rh-hideout)
+override CFLAGS += -Wno-error=unused-variable -Wno-error=unused-const-variable -Wno-error=unused-parameter -Wno-error=unused-function -Wno-error=unused-but-set-parameter -Wno-error=unused-but-set-variable -Wno-error=unused-value -Wno-error=unused-local-typedefs
+endif
+endif
 ROM := $(MODERN_ROM_NAME)
 OBJ_DIR := $(MODERN_OBJ_DIR_NAME)
 LIBPATH := -L "$(dir $(shell $(PATH_MODERNCC) -mthumb -print-file-name=libgcc.a))" -L "$(dir $(shell $(PATH_MODERNCC) -mthumb -print-file-name=libnosys.a))" -L "$(dir $(shell $(PATH_MODERNCC) -mthumb -print-file-name=libc.a))"
@@ -156,7 +163,6 @@ RAMSCRGEN := tools/ramscrgen/ramscrgen$(EXE)
 FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
-SCRIPT := tools/poryscript/poryscript$(EXE)
 PATCHELF := tools/patchelf/patchelf$(EXE)
 ROMTEST ?= $(shell { command -v mgba-rom-test || command -v tools/mgba/mgba-rom-test$(EXE); } 2>/dev/null)
 ROMTESTHYDRA := tools/mgba-rom-test-hydra/mgba-rom-test-hydra$(EXE)
@@ -287,7 +293,6 @@ mostlyclean: tidynonmodern tidymodern tidycheck
 	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
 	rm -f $(AUTO_GEN_TARGETS)
 	@$(MAKE) clean -C libagbsyscall
-	rm -f $(patsubst %.pory,%.inc,$(shell find data/ -type f -name '*.pory'))
 
 tidy: tidynonmodern tidymodern tidycheck
 
@@ -317,7 +322,6 @@ include songs.mk
 %.png: ;
 %.pal: ;
 %.aif: ;
-%.pory: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
@@ -330,7 +334,6 @@ include songs.mk
 $(CRY_SUBDIR)/uncomp_%.bin: $(CRY_SUBDIR)/uncomp_%.aif ; $(AIF) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fc tools/poryscript/font_config.json
 
 
 ifeq ($(MODERN),0)
@@ -457,6 +460,10 @@ $(OBJ_DIR)/sym_common.ld: sym_common.txt $(C_OBJS) $(wildcard common_syms/*.txt)
 
 $(OBJ_DIR)/sym_ewram.ld: sym_ewram.txt
 	$(RAMSCRGEN) ewram_data $< ENGLISH > $@
+
+# NOTE: Depending on event_scripts.o is hacky, but we want to depend on everything event_scripts.s depends on without having to alter scaninc
+$(DATA_SRC_SUBDIR)/pokemon/teachable_learnsets.h: $(DATA_ASM_BUILDDIR)/event_scripts.o
+	python3 tools/learnset_helpers/teachable.py
 
 # NOTE: Based on C_DEP above, but without NODEP and KEEP_TEMPS handling.
 define TEST_DEP

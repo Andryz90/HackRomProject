@@ -1,5 +1,7 @@
 # pokeemerald-expansion
 
+### Important: DO NOT use GitHub's "Download Zip" option. Using this option will not download the commit history required to update your expansion version or merge other feature branches. Instead, please read [this guide](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/wiki/The-Basics-of-GitHub) to learn how to fork the repository and clone locally from there.
+
 ## What is pokeemerald-expansion?
 
 pokeemerald-expansion is a decomp hack base project based off pret's [pokeemerald](https://github.com/pret/pokeemerald) decompilation project. It's recommended that any new projects that plan on using it, to clone this repository instead of pret's vanilla repository, as we regurlarly incorporate pret's documentation changes. This is ***NOT*** a standalone romhack, and as such, most features will be unavailable and/or unbalanced if played as is.
@@ -7,7 +9,7 @@ pokeemerald-expansion is a decomp hack base project based off pret's [pokeemeral
 If you use pokeemerald-expansion in your hack, please add RHH (Rom Hacking Hideout) to your credits list. Optionally, you can list the version used, so it can help players know what features to expect.
 You can phrase it as the following:
 ```
-Based off RHH's pokeemerald-expansion v1.7.1 https://github.com/rh-hideout/pokeemerald-expansion/
+Based off RHH's pokeemerald-expansion v1.8.0 https://github.com/rh-hideout/pokeemerald-expansion/
 ```
 
 ## What features are included?
@@ -25,24 +27,23 @@ Based off RHH's pokeemerald-expansion v1.7.1 https://github.com/rh-hideout/pokee
     - Physical/Special/Status Category (configurable).
     - New moves and abilities up to Scarlet and Violet.
         - Custom Contest data up to SwSh, newer moves are WIP. ([source](https://pokemonurpg.com/info/contests/rse-move-list/))
-    - Mega Evolution
-    - Primal Reversion
-    - Ultra Burst
-    - Z-Moves
-        - Gen 8+ damaging moves are given power extrapolated from Gen 7.
-        - Gen 8+ status moves have no additional effects, like Healing Wish.
-    - Dynamax
-        - Gigantamax forms
+    - Battle gimmick support:
+        - Mega Evolution
+        - Primal Reversion
+        - Ultra Burst
+        - Z-Moves
+            - Gen 8+ damaging moves are given power extrapolated from Gen 7.
+            - Gen 8+ status moves have no additional effects, like Healing Wish.
+        - Dynamax and Gigantamax
     - Initial battle parameters
         - Queueing stat boosts (aka, Totem Boosts)
         - Setting Terrains.
     - Mid-turn speed recalculation.
     - Quick Poké Ball selection in Wild Battles
-        - Press `R` to use last selected Poké Ball.
         - Hold `R` to change selection with the D-Pad.
+        - Press `R` to use last selected Poké Ball.
     - Run option shortcut
-    - Faster battle intro
-        - Message and animation/cry happens at the same time.
+    - Faster battle intro - Message and animation/cry happens at the same time.
     - Faster HP drain.
     - Battle Debug menu.
         - Accessed by pressing `Select` on the "Fight/Bag/Pokémon/Run" menu.
@@ -105,7 +106,8 @@ Based off RHH's pokeemerald-expansion v1.7.1 https://github.com/rh-hideout/pokee
     - HP Threshold (eg. Darmanitan)
     - Weather (eg. Castform)
     - End of turn (eg. Morpeko)
-    - Time of day (Shaymin)
+    - Time of day (eg. Shaymin)
+    - Fusions (eg. Kyurem)
 - ***Breeding Improvements***
     - Incense Baby Pokémon now happen automatically (configurable).
     - Level 1 eggs (configurable).
@@ -118,9 +120,6 @@ Based off RHH's pokeemerald-expansion v1.7.1 https://github.com/rh-hideout/pokee
     - Berserk Gene
     - Most battle items from Gen 4+
     - Existing item data but missing effects:
-        - Mints
-        - Dynamax Candy
-        - Mulches
         - Gimmighoul Coin
         - Booster Energy
         - Tera Shards
@@ -133,7 +132,7 @@ Based off RHH's pokeemerald-expansion v1.7.1 https://github.com/rh-hideout/pokee
         - Accesible by pressing `R + Start` in the overworld by default.
         - **Additional features**:
             - *Clear Boxes*: cleans every Pokémon from the Boxes.
-            - *Hatch an Egg*: lets you choose an Egg in your party and immediatly hatch it.
+            - *Hatch an Egg*: lets you choose an Egg in your party and immediately hatch it.
     - [HGSS Pokédex](https://github.com/TheXaman/pokeemerald/tree/tx_pokedexPlus_hgss) by @TheXaman
         - May be disabled.
         - **Additional features**:
@@ -167,7 +166,7 @@ With this, you'll get the latest version of pokeemerald-expansion, plus a couple
 
 ## **How do I update my version of pokeemerald-expansion?**
 - If you haven't set up a remote, run the command `git remote add RHH https://github.com/rh-hideout/pokeemerald-expansion`.
-- Once you have your remote set up, run the command `git pull RHH expansion/1.7.1`.
+- Once you have your remote set up, run the command `git pull RHH expansion/1.8.1`.
 
 ### Please consider crediting the entire [list of contributors](https://github.com/rh-hideout/pokeemerald-expansion/wiki/Credits) in your project, as they have all worked hard to develop this project :)
 

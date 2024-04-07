@@ -904,7 +904,6 @@ static const bool8 sValidApprenticeMoves[MOVES_COUNT] =
     [MOVE_SHEER_COLD] = TRUE,
     [MOVE_MUDDY_WATER] = TRUE,
     [MOVE_BULLET_SEED] = FALSE,
-    [MOVE_COMBO_PUNCH] = FALSE,
     [MOVE_AERIAL_ACE] = TRUE,
     [MOVE_ICICLE_SPEAR] = FALSE,
     [MOVE_IRON_DEFENSE] = TRUE,

@@ -17,6 +17,7 @@
 * LocalRandom(*val) allows you to have local random states that are the same
 * type as the global states regardless of HQ_RANDOM setting, which is useful
 * if you want to be able to set them from or assign them to gRngValue.
+* LocalRandomSeed(u32) returns a properly seeded rng_value_t.
 *
 * Random2_32() was added to HQ_RANDOM because the output of the generator is
 * always 32 bits and Random()/Random2() are just wrappers in that mode. It is
@@ -59,6 +60,10 @@ static inline u16 Random(void)
     return Random32() >> 16;
 }
 
+void SeedRng(u32 seed);
+void SeedRng2(u32 seed);
+rng_value_t LocalRandomSeed(u32 seed);
+
 static inline u16 Random2(void)
 {
     return Random2_32() >> 16;
@@ -73,6 +78,10 @@ typedef u32 rng_value_t;
 //Returns a 16-bit pseudorandom number
 u16 Random(void);
 u16 Random2(void);
+
+//Sets the initial seed value of the pseudorandom number generator
+void SeedRng(u16 seed);
+void SeedRng2(u16 seed);
 
 //Returns a 32-bit pseudorandom number
 #define Random32() (Random() | (Random() << 16))
@@ -89,14 +98,15 @@ static inline void AdvanceRandom(void)
     Random();
 }
 
+static inline rng_value_t LocalRandomSeed(u32 seed)
+{
+    return seed;
+}
+
 #endif
 
 extern rng_value_t gRngValue;
 extern rng_value_t gRng2Value;
-
-//Sets the initial seed value of the pseudorandom number generator
-void SeedRng(u16 seed);
-void SeedRng2(u16 seed);
 
 void Shuffle8(void *data, size_t n);
 void Shuffle16(void *data, size_t n);
@@ -167,13 +177,13 @@ enum RandomTag
     RNG_POISON_POINT,
     RNG_RAMPAGE_TURNS,
     RNG_SECONDARY_EFFECT,
+    RNG_SECONDARY_EFFECT_2,
+    RNG_SECONDARY_EFFECT_3,
     RNG_SLEEP_TURNS,
     RNG_SPEED_TIE,
     RNG_STATIC,
     RNG_STENCH,
     RNG_TRI_ATTACK,
-    RNG_TRIPLE_ARROWS_DEFENSE_DOWN,
-    RNG_TRIPLE_ARROWS_FLINCH,
     RNG_QUICK_DRAW,
     RNG_QUICK_CLAW,
     RNG_TRACE,
