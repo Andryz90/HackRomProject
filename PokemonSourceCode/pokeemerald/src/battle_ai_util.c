@@ -1267,6 +1267,8 @@ bool32 IsSemiInvulnerable(u32 battlerDef, u32 move)
 bool32 IsMoveEncouragedToHit(u32 battlerAtk, u32 battlerDef, u32 move)
 {
     u32 weather;
+    u32 atkSide = GetBattlerSide(battlerAtk);
+
     if (IsSemiInvulnerable(battlerDef, move))
         return FALSE;
 
@@ -1296,7 +1298,12 @@ bool32 IsMoveEncouragedToHit(u32 battlerAtk, u32 battlerDef, u32 move)
         return TRUE;
     if (gMovesInfo[move].accuracy == 0)
         return TRUE;
-
+    if ((gMovesInfo[move].recoil > 0) && AI_DATA ->abilities[battlerAtk] == ABILITY_ROCK_HEAD){
+        return TRUE;
+    }
+    if ((atkSide & SIDE_STATUS_TAILWIND) && (gMovesInfo[move].windMove)) {
+        return TRUE;
+    }
     return FALSE;
 }
 

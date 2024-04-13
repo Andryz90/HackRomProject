@@ -531,7 +531,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ROCK_HEAD] =
     {
         .name = _("Rock Head"),
-        .description = COMPOUND_STRING("Prevents recoil damage."),
+        .description = COMPOUND_STRING("Prevents recoil damage, boosts the accuracy."),
         .aiRating = 5,
     },
 
@@ -1640,7 +1640,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_CORROSION] =
     {
         .name = _("Corrosion"),
-        .description = COMPOUND_STRING("Poisons any type."),
+        .description = COMPOUND_STRING("Poison now affects steel."),
         .aiRating = 5,
     },
 

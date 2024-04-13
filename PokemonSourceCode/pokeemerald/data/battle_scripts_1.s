@@ -2617,6 +2617,7 @@ BattleScript_EffectTailwind::
 BattleScript_TryTailwindAbilitiesLoop:
 	savetarget
 	setbyte gBattlerTarget, 0
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 BattleScript_TryTailwindAbilitiesLoop_Iter:
 	trywindriderpower BS_TARGET, BattleScript_TryTailwindAbilitiesLoop_Increment
 	jumpifability BS_TARGET, ABILITY_WIND_RIDER, BattleScript_TryTailwindAbilitiesLoop_WindRider

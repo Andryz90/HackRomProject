@@ -1672,6 +1672,10 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (IS_MOVE_PHYSICAL(move))
             calc = (calc * 80) / 100; // 1.2 hustle loss
         break;
+    case ABILITY_ROCK_HEAD:
+        if (gMovesInfo[move].recoil > 0) {
+             calc = (calc * 110) / 100; // 1.1 
+        }
     }
 
     // Target's ability
@@ -1747,6 +1751,7 @@ static void Cmd_accuracycheck(void)
     u32 abilityAtk = GetBattlerAbility(gBattlerAttacker);
     u32 abilityDef = GetBattlerAbility(gBattlerTarget);
     u32 holdEffectAtk = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+    u32 side = GetBattlerSide(gBattlerAttacker);
 
     if (move == ACC_CURR_MOVE)
         move = gCurrentMove;
@@ -1761,9 +1766,11 @@ static void Cmd_accuracycheck(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
-        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
+        || ((gMovesInfo[move].windMove == TRUE) && (gSideStatuses[side] & SIDE_STATUS_TAILWIND)) //Wind moves skip accuracy check if Tailwind is active
+        ||(gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
-        || !(gMovesInfo[move].effect == EFFECT_TRIPLE_KICK || gMovesInfo[move].effect == EFFECT_POPULATION_BOMB))))
+        || !(gMovesInfo[move].effect == EFFECT_TRIPLE_KICK || gMovesInfo[move].effect == EFFECT_POPULATION_BOMB)))) 
+		
     {
         // No acc checks for second hit of Parental Bond or multi hit moves, except Triple Kick/Triple Axel/Population Bomb
         gBattlescriptCurrInstr = cmd->nextInstr;

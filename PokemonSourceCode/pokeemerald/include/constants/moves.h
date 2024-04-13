@@ -910,8 +910,9 @@
 //Custom moves
 #define MOVE_COMBO_PUNCH 848
 #define MOVE_POISON_DRAIN 849
+#define MOVE_DETERIO 850
 
-#define MOVES_COUNT_GEN9 850
+#define MOVES_COUNT_GEN9 851
 
 #define MOVES_COUNT         MOVES_COUNT_GEN9
 

@@ -61,7 +61,6 @@ static u32 GetFlingPowerFromItemId(u32 itemId);
 static void SetRandomMultiHitCounter();
 static u32 GetBattlerItemHoldEffectParam(u32 battler, u32 item);
 static bool32 CanBeInfinitelyConfused(u32 battler);
-
 extern const u8 *const gBattlescriptsForRunningByItem[];
 extern const u8 *const gBattlescriptsForUsingItem[];
 extern const u8 *const gBattlescriptsForSafariActions[];
@@ -8802,7 +8801,9 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     u32 basePower = CalcMoveBasePower(move, battlerAtk, battlerDef, defAbility, weather);
     uq4_12_t holdEffectModifier;
     uq4_12_t modifier = UQ_4_12(1.0);
-    u32 atkSide = GetBattlerSide(battlerAtk);
+    u32 atkSide = GetBattlerSide(battlerAtk);  
+    u32 species = gBattleMons[battlerDef].species;
+    u32 illusionSpecies = GetIllusionMonSpecies(battlerDef);
 
     // move effect
     switch (gMovesInfo[move].effect)
@@ -8840,7 +8841,6 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     }
-
     // various effects
     if (gProtectStructs[battlerAtk].helpingHand)
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
@@ -9011,6 +9011,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if ((gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TAILWIND) && (gMovesInfo[move].windMove == TRUE)){
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         }
+        break;
     }
 
     // field abilities
@@ -9927,6 +9928,12 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
         mod = UQ_4_12(2.0);
+    if ((moveType == TYPE_POISON && defType == TYPE_STEEL) && (abilityAtk == ABILITY_CORROSION)){
+        mod = UQ_4_12(1.0);
+    }
+    if (gMovesInfo[move].effect == EFFECT_DETERIO && defType == TYPE_STEEL) {
+        mod = UQ_4_12(2.0);
+    }
 
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon
     if (gBattleWeather & B_WEATHER_STRONG_WINDS && WEATHER_HAS_EFFECT)
@@ -10016,6 +10023,7 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
     {
         modifier = UQ_4_12(1.0);
     }
+    
 
     if (((defAbility == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0))
         || (defAbility == ABILITY_TELEPATHY && battlerDef == BATTLE_PARTNER(battlerAtk)))
