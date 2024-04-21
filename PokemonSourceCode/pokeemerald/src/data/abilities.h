@@ -2610,4 +2610,27 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = FALSE,
     },
+
+        [ABILITY_SPIRIT_BODY] =
+    {
+ 
+        .name = _("Spirit Body"),
+        .description = COMPOUND_STRING("Immune to contact moves"),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = TRUE,
+    },
+    [ABILITY_MIND_POWER] =
+    {
+ 
+        .name = _("Mind Power"),
+        .description = COMPOUND_STRING("Power Ups Psychic moves."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = TRUE,
+    },
 };

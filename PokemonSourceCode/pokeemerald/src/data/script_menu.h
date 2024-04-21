@@ -788,7 +788,18 @@ struct MultichoiceListStruct
     const struct MenuAction *list;
     u8 count;
 };
-
+static const struct MenuAction MultiRegionchoiceList_Exit[] =
+{
+    {gText_Kanto},
+    {gText_Johto},
+    {gText_Hoenn},
+    {gText_Sinnoh},
+    {gText_Unima},
+    {gText_Kalos},
+    {gText_Alola},
+    {gText_Galar},
+    {gText_Paldea},
+};
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -800,7 +811,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BASE_PC_WITH_REGISTRY]      = MULTICHOICE(MultichoiceList_BasePCWithRegistry),
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
-    [MULTI_UNUSED_9]                   = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_REGION_CHOOSER]             = MULTICHOICE(MultiRegionchoiceList_Exit),
     [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),

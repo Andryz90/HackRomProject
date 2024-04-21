@@ -414,6 +414,11 @@ bool32 IsDamageMoveUsable(u32 move, u32 battlerAtk, u32 battlerDef)
         if (moveType == TYPE_GROUND)
             return TRUE;
         break;
+    
+    case ABILITY_SPIRIT_BODY:
+        if (!(moveType == TYPE_GHOST || moveType == TYPE_DARK ) && (gMovesInfo[move].makesContact)) {
+            return TRUE;
+        }
     }
 
     switch (gMovesInfo[move].effect)
@@ -439,7 +444,6 @@ bool32 IsDamageMoveUsable(u32 move, u32 battlerAtk, u32 battlerDef)
             return TRUE;
         break;
     }
-
     return FALSE;
 }
 

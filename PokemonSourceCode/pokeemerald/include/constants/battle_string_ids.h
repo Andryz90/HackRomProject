@@ -708,7 +708,8 @@
 #define STRINGID_BIZARREAREACREATED                   706
 #define STRINGID_TIDYINGUPCOMPLETE                    707
 #define STRINGID_WIND_GLIDER                          708
-#define BATTLESTRINGS_COUNT                           709
+#define STRINGID_SPIRITBODY                           709
+#define BATTLESTRINGS_COUNT                           710
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -947,6 +948,7 @@
 #define B_MSG_SWITCHIN_PASTEL_VEIL      15
 #define B_MSG_SWITCHIN_NEUTRALIZING_GAS 16
 #define B_MSG_SWITCHIN_WIND_GLIDER      17
+#define B_MSG_SWITCHIN_SPIRITBODY       18
 
 // gMentalHerbCureStringIds
 #define B_MSG_MENTALHERBCURE_INFATUATION       0

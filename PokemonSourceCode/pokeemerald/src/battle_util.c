@@ -4779,6 +4779,17 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             
             break;
+        case ABILITY_SPIRIT_BODY: 
+                        
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SPIRITBODY;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            
+            break;
 	}
     break;
     case ABILITYEFFECT_ENDTURN: // 1
@@ -8976,6 +8987,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if (moveType == TYPE_ROCK)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_MIND_POWER:
+    if (moveType == TYPE_PSYCHIC)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
     case ABILITY_PROTOSYNTHESIS:
         {
             u8 atkHighestStat = GetHighestStatId(battlerAtk);
@@ -9900,6 +9915,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
 {
     uq4_12_t mod = GetTypeModifier(moveType, defType);
     u32 abilityAtk = GetBattlerAbility(battlerAtk);
+    u32 abilityDef = GetBattlerAbility(battlerDef);
 
     if (mod == UQ_4_12(0.0) && GetBattlerHoldEffect(battlerDef, TRUE) == HOLD_EFFECT_RING_TARGET)
     {
@@ -9933,6 +9949,17 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     }
     if (gMovesInfo[move].effect == EFFECT_DETERIO && defType == TYPE_STEEL) {
         mod = UQ_4_12(2.0);
+    }
+
+    //Any pokemon with Spirit Body is immune to contact moves except they are of ghost or dark types.
+    if ((gMovesInfo[move].makesContact == TRUE) && (gBattleMons[battlerDef].ability == ABILITY_SPIRIT_BODY)) {
+        if (!(moveType == TYPE_GHOST || moveType == TYPE_DARK)) {
+            
+            mod = UQ_4_12(0.0);
+            if (recordAbilities)
+            RecordAbilityBattle(battlerDef, abilityDef);
+
+        }
     }
 
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon

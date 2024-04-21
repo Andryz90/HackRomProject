@@ -845,6 +845,7 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_WindGlider[] = _("Strong tailwind is actived!\n");
+static const u8 sText_SpiritBody[] = _("A cold strange presence\nseems to be appeared");
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
@@ -1544,6 +1545,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
     [STRINGID_WIND_GLIDER - BATTLESTRINGS_TABLE_START] = sText_WindGlider,
+    [STRINGID_SPIRITBODY - BATTLESTRINGS_TABLE_START] = sText_SpiritBody,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1644,6 +1646,7 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
     [B_MSG_SWITCHIN_WIND_GLIDER] = STRINGID_WIND_GLIDER,
+    [B_MSG_SWITCHIN_SPIRITBODY] = STRINGID_SPIRITBODY,
 };
 
 const u16 gMissStringIds[] =

@@ -2,6 +2,7 @@
 .set LOCALID_MOM, 4
 .set LOCALID_RIVAL, 7
 .set LOCALID_BIRCH, 8
+.set LOCALID_WINGULL, 9
 
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
@@ -83,11 +84,14 @@ LittlerootTown_EventScript_SetTwinPos::
 	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
 	setobjectxyperm LOCALID_TWIN, 10, 1
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm LOCALID_WINGULL, 13, 2
+	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
 	setobjectxyperm LOCALID_TWIN, 7, 2
-	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_DOWN
+	setobjectxyperm LOCALID_WINGULL, 13, 2
+	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
@@ -377,6 +381,47 @@ LittlerootTown_Movement_TwinReturnRight:
 	walk_in_place_faster_down
 	step_end
 
+Wingull_Return::
+	face_right
+	walk_right
+	walk_right
+	face_original_direction
+	step_end
+
+Wingull_Trainer_Chase::
+	walk_left
+	walk_left
+	face_player
+	step_end
+	
+
+LittlerootTown_EventScript_Wingull_StaticDialog::
+	lockall 
+	applymovement LOCALID_WINGULL Common_Movement_FacePlayer
+	waitmovement LOCALID_WINGULL
+	msgbox  LittlerootTown_Text_Wingull MSGBOX_DEFAULT
+	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
+	releaseall
+	end
+
+Wingull_Region_Text_0::
+	.string "So you're from Kanto, huh?$"
+Wingull_Region_Text_1::
+	.string "So you're from Johto, huh?$"
+Wingull_Region_Text_2::
+	.string "So you're from here, huh?$"
+Wingull_Region_Text_3::
+	.string "So you're from Sinnoh, huh?$"
+Wingull_Region_Text_4::
+	.string "So you're from Unima, huh?$"
+Wingull_Region_Text_5::
+	.string "So you're from Kalos, huh?$"
+Wingull_Region_Text_6::
+	.string "So you're from Alola, huh?$"
+Wingull_Region_Text_7::
+	.string "So you're from Galar, huh?$"
+Wingull_Region_Text_8::
+	.string "So you're from Paldea, huh?$"
 LittlerootTown_EventScript_GoSaveBirchTrigger::
 	lockall
 	applymovement LOCALID_TWIN, Common_Movement_WalkInPlaceFasterRight
@@ -389,6 +434,90 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+	LittlerootTown_EventScript_Wingull_RegionSelect::
+		setflag FLAG_WINGULL_STATE
+		applymovement LOCALID_WINGULL Common_Movement_ExclamationMark 
+		waitmovement  LOCALID_WINGULL  
+		applymovement LOCALID_WINGULL Wingull_Trainer_Chase
+		waitmovement  LOCALID_WINGULL 
+		setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_UP
+		applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+		msgbox LitlerootTown_Text_Wingull MSGBOX_AUTOCLOSE
+		Region_Selection_PoryScript::
+			multichoice 17, 0, MULTI_REGION_CHOOSER, TRUE
+			switch VAR_RESULT
+			case 0, Region_Selection_PoryScript_0
+			case 1, Region_Selection_PoryScript_1
+			case 2, Region_Selection_PoryScript_2
+			case 3, Region_Selection_PoryScript_3
+			case 4, Region_Selection_PoryScript_4
+			case 5, Region_Selection_PoryScript_5
+			case 6, Region_Selection_PoryScript_6
+			case 7, Region_Selection_PoryScript_7
+			case 8, Region_Selection_PoryScript_8
+		Region_Selection_PoryScript_0:
+			msgbox Wingull_Region_Text_0 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL
+			end
+
+		Region_Selection_PoryScript_1:
+			msgbox Wingull_Region_Text_1 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL
+			end
+
+		Region_Selection_PoryScript_2:
+			msgbox Wingull_Region_Text_2 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL
+			end
+
+		Region_Selection_PoryScript_3:
+			msgbox Wingull_Region_Text_3 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+
+		Region_Selection_PoryScript_4:
+			msgbox Wingull_Region_Text_4 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+
+		Region_Selection_PoryScript_5:
+			msgbox Wingull_Region_Text_5 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+
+		Region_Selection_PoryScript_6:
+			msgbox Wingull_Region_Text_6 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+
+		Region_Selection_PoryScript_7:
+			msgbox Wingull_Region_Text_7 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+		Region_Selection_PoryScript_8:
+			msgbox Wingull_Region_Text_8 MSGBOX_AUTOCLOSE
+			copyvar VAR_VARIOUS_STARTER, VAR_RESULT
+			applymovement LOCALID_WINGULL Wingull_Return
+			waitmovement  LOCALID_WINGULL 
+			end
+
+	call LittlerootTown_EventScript_Wingull_RegionSelect
 	releaseall
 	end
 
@@ -1019,3 +1148,11 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+	
+LitlerootTown_Text_Wingull:
+	.string "So you're new in the town, right?\n"
+	.string "Hope you find yourself well here.\p"
+	.string "Where are you from {PLAYER}?$"
+
+LittlerootTown_Text_Wingull:
+	.string "Enjoy our hack rom {PLAYER} :3.$"
