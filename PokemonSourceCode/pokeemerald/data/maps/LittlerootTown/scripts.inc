@@ -598,6 +598,12 @@ LittlerootTown_EventScript_GiveRunningShoesTrigger5::
 	setvar VAR_0x8008, 5
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
+LittlerootTown_RaraCandies::
+	.string "Here, take this too.$"
+LittlerootTown_Give_IRC::
+	msgbox LittlerootTown_RaraCandies, MSGBOX_DEFAULT
+    giveitem ITEM_RARE_CANDY_KEY_ITEM
+    return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger::
 	checkplayergender
@@ -1034,6 +1040,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
+	call LittlerootTown_Give_IRC
 	closemessage
 	delay 30
 	return

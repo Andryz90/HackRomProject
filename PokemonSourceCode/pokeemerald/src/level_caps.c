@@ -7,9 +7,23 @@
 
 u32 GetCurrentLevelCap(void)
 {
+    // Da aggiustare i livelli in base al gioco
     static const u32 sLevelCapFlagMap[][2] =
     {
-        {FLAG_BADGE01_GET, 15},
+        {FLAG_BADGE01_GET, 5},
+        {FLAG_BADGE02_GET, 19},
+        {FLAG_BADGE03_GET, 24},
+        {FLAG_BADGE04_GET, 29},
+        {FLAG_BADGE05_GET, 31},
+        {FLAG_BADGE06_GET, 33},
+        {FLAG_BADGE07_GET, 42},
+        {FLAG_BADGE08_GET, 46},
+        {FLAG_IS_CHAMPION, 58},
+    };
+
+        static const u32 sLevelCapFlagMap_Hard[][2] =
+    {
+        {FLAG_BADGE01_GET, 5},
         {FLAG_BADGE02_GET, 19},
         {FLAG_BADGE03_GET, 24},
         {FLAG_BADGE04_GET, 29},
@@ -24,10 +38,18 @@ u32 GetCurrentLevelCap(void)
 
     if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
     {
-        for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
-        {
-            if (!FlagGet(sLevelCapFlagMap[i][0]))
-                return sLevelCapFlagMap[i][1];
+        if (B_EXP_CAP_TYPE == EXP_CAP_SOFT) {
+            for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
+            {
+                if (!FlagGet(sLevelCapFlagMap[i][0]))
+                    return sLevelCapFlagMap[i][1];
+            }
+        } else if (B_EXP_CAP_TYPE == EXP_CAP_HARD) {
+            for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap_Hard); i++)
+            {
+                if (!FlagGet(sLevelCapFlagMap[i][0]))
+                    return sLevelCapFlagMap[i][1];
+            }
         }
     }
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_VARIABLE)
@@ -57,21 +79,9 @@ u32 GetSoftLevelCapExpValue(u32 level, u32 expValue)
         else
             return expValue + (expValue / sExpScalingUp[levelDifference]);
     }
-    else if (B_EXP_CAP_TYPE == EXP_CAP_SOFT && level >= currentLevelCap)
-    {
-        levelDifference = level - currentLevelCap;
-        if (levelDifference > ARRAY_COUNT(sExpScalingDown))
-            return expValue / sExpScalingDown[ARRAY_COUNT(sExpScalingDown) - 1];
-        else
-            return expValue / sExpScalingDown[levelDifference];
-    }
     else if (level < currentLevelCap)
     {
        return expValue;
     }
-    else
-    {
-        return 0;
-    }
-
+    return 0;
 }

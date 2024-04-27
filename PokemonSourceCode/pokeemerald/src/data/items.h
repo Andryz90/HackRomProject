@@ -1710,6 +1710,20 @@ const struct Item gItemsInfo[] =
         .flingPower = 30,
     },
 
+// Infinite Candy
+    [ITEM_RARE_CANDY_KEY_ITEM] =
+    {
+        .name = _("Infnte Rare Candies"),
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon below\n"
+            "the lvl cap."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+    },
+
     [ITEM_EXP_CANDY_XS] =
     {
         .name = _("Exp.Candy XS"),
