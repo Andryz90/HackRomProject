@@ -2633,4 +2633,15 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeTraced = FALSE,
         .breakable = TRUE,
     },
+    [ABILITY_LIFEDRAINER] =
+    {
+ 
+        .name = _("Life Drainer"),
+        .description = COMPOUND_STRING("Power Ups Absorb moves."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    },
 };
