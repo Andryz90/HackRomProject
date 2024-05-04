@@ -97,7 +97,7 @@ static const MainCallback sItemUseCallbacks[] =
 };
 
 static const u8 sClockwiseDirections[] = {DIR_NORTH, DIR_EAST, DIR_SOUTH, DIR_WEST};
-
+static u16* itemPtr = &gSpecialVar_ItemId;
 static const struct YesNoFuncTable sUseTMHMYesNoFuncTable =
 {
     .yesFunc = UseTMHM,
@@ -229,7 +229,27 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 #endif
 }
-
+void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
+{
+    if (IsRepelActive())
+    {
+        PlaySE(SE_PC_OFF);
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_InfiniteRepelOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_InfiniteRepelOff, CloseItemMessage);
+    }
+    else
+    {
+        PlaySE(SE_REPEL);
+        gTasks[taskId].func = Task_StartUseRepel;
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_InfiniteRepel, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_InfiniteRepel, CloseItemMessage);
+    }
+    FlagToggle(FLAG_INFINITE_REPEL);
+}
 void ItemUseOutOfBattle_Bike(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -934,13 +954,16 @@ static void Task_StartUseRepel(u8 taskId)
 
 static void Task_UseRepel(u8 taskId)
 {
+    
     if (!IsSEPlaying())
     {
         VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
     #if VAR_LAST_REPEL_LURE_USED != 0
         VarSet(VAR_LAST_REPEL_LURE_USED, gSpecialVar_ItemId);
     #endif
+    if (!(*itemPtr == ITEM_INFINITE_REPEL)){
         RemoveUsedItem();
+    }
         if (!InBattlePyramid())
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
         else

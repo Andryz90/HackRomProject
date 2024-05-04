@@ -11160,6 +11160,11 @@ bool32 IsGen6ExpShareEnabled(void)
     return FlagGet(I_EXP_SHARE_FLAG);
 }
 
+bool32 IsRepelActive(void) {
+    if (FLAG_INFINITE_REPEL <= TEMP_FLAGS_END)
+        return FALSE;
+    return FlagGet(FLAG_INFINITE_REPEL);
+}   
 
 bool32 MoveHasAdditionalEffect(u32 move, u32 moveEffect)
 {

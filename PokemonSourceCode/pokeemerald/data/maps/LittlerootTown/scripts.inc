@@ -599,10 +599,11 @@ LittlerootTown_EventScript_GiveRunningShoesTrigger5::
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 LittlerootTown_RaraCandies::
-	.string "Here, take this too.$"
-LittlerootTown_Give_IRC::
+	.string "Here, take these too.$"
+LittlerootTown_Give_KeyItems::
 	msgbox LittlerootTown_RaraCandies, MSGBOX_DEFAULT
     giveitem ITEM_RARE_CANDY_KEY_ITEM
+	giveitem ITEM_INFINITE_REPEL
     return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger::
@@ -1040,7 +1041,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
-	call LittlerootTown_Give_IRC
+	call LittlerootTown_Give_KeyItems
 	closemessage
 	delay 30
 	return

@@ -129,6 +129,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_REPEL] = {gItemIcon_Repel, gItemIconPalette_Repel},
     [ITEM_SUPER_REPEL] = {gItemIcon_Repel, gItemIconPalette_SuperRepel},
     [ITEM_MAX_REPEL] = {gItemIcon_Repel, gItemIconPalette_MaxRepel},
+    [ITEM_INFINITE_REPEL] = {gItemIcon_Repel, gItemIconPalette_MaxRepel},
     [ITEM_LURE] = {gItemIcon_Lure, gItemIconPalette_Lure},
     [ITEM_SUPER_LURE] = {gItemIcon_Lure, gItemIconPalette_SuperLure},
     [ITEM_MAX_LURE] = {gItemIcon_Lure, gItemIconPalette_MaxLure},
