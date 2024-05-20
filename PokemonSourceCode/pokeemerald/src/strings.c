@@ -1582,6 +1582,10 @@ const u8 gText_ByeByeVar1[] = _("Bye-bye, {STR_VAR_2}!");
 const u8 gText_XSentOverY[] = _("{STR_VAR_1} sent over {STR_VAR_3}.");
 const u8 gText_TakeGoodCareOfX[] = _("Take good care of {STR_VAR_3}!");
 
+const u8 gText_Standard[] = _("Standard Mode");
+const u8 gText_Hardcore[] = _("Hardcore Mode");
+const u8 gText_Nuzlocke[] = _("Nuzlocke Mode");
+
 // Easy chat group names
 const u8 gEasyChatGroupName_Pokemon[] = _("POKéMON");
 const u8 gEasyChatGroupName_Trainer[] = _("TRAINER");

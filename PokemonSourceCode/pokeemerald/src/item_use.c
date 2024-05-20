@@ -82,7 +82,7 @@ static bool32 IsValidLocationForVsSeeker(void);
 
 // EWRAM variables
 EWRAM_DATA static void(*sItemUseOnFieldCB)(u8 taskId) = NULL;
-
+EWRAM_DATA static u16* itemPtr = &gSpecialVar_ItemId;
 // Below is set TRUE by UseRegisteredKeyItemOnField
 #define tUsingRegisteredKeyItem  data[3]
 
@@ -97,7 +97,7 @@ static const MainCallback sItemUseCallbacks[] =
 };
 
 static const u8 sClockwiseDirections[] = {DIR_NORTH, DIR_EAST, DIR_SOUTH, DIR_WEST};
-static u16* itemPtr = &gSpecialVar_ItemId;
+
 static const struct YesNoFuncTable sUseTMHMYesNoFuncTable =
 {
     .yesFunc = UseTMHM,

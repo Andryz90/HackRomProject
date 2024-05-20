@@ -800,6 +800,13 @@ static const struct MenuAction MultiRegionchoiceList_Exit[] =
     {gText_Galar},
     {gText_Paldea},
 };
+
+static const struct MenuAction MultiGameMode_List[] =
+{
+    {gText_Standard},
+    {gText_Hardcore},
+    {gText_Nuzlocke},
+};
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -812,7 +819,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_REGION_CHOOSER]             = MULTICHOICE(MultiRegionchoiceList_Exit),
-    [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_GAME_MODE_CHOICE]           = MULTICHOICE(MultiGameMode_List),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),
     [MULTI_STATUS_INFO]                = MULTICHOICE(MultichoiceList_StatusInfo),

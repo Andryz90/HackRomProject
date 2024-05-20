@@ -156,7 +156,7 @@ extern const u8 gText_Cushion[];
 extern const u8 gText_Decorate[];
 extern const u8 gText_PutAway[];
 extern const u8 gText_Toss2[];
-
+//Region Selection
 extern const u8 gText_Hoenn[];
 extern const u8 gText_Kanto[];
 extern const u8 gText_Johto[];
@@ -166,6 +166,11 @@ extern const u8 gText_Kalos[];
 extern const u8 gText_Alola[];
 extern const u8 gText_Galar[];
 extern const u8 gText_Paldea[];
+
+//Game Mode
+extern const u8 gText_Standard[];
+extern const u8 gText_Hardcore[];
+extern const u8 gText_Nuzlocke[];
 
 extern const u8 gText_Ferry[];
 extern const u8 gText_SecretBase[];
@@ -355,6 +360,7 @@ extern const u8 gText_Birch_BoyOrGirl[];
 extern const u8 gText_Birch_WhatsYourName[];
 extern const u8 gText_Birch_SoItsPlayer[];
 extern const u8 gText_Birch_YourePlayer[];
+
 extern const u8 gText_Birch_AreYouReady[];
 extern const u8 gText_ContinueMenuPlayer[];
 extern const u8 gText_ContinueMenuTime[];

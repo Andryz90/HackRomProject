@@ -3,12 +3,14 @@
 #include "event_data.h"
 #include "level_caps.h"
 #include "pokemon.h"
+#include "../include/constants/vars.h"
 
-
+static EWRAM_DATA u8 B_EXP_CAP_TYPE = EXP_CAP_NONE;              // [EXP_CAP_NONE, EXP_CAP_HARD, EXP_CAP_SOFT] choose the type of level cap to apply
+static EWRAM_DATA u8 B_LEVEL_CAP_TYPE = LEVEL_CAP_NONE;          // [LEVEL_CAP_NONE, LEVEL_CAP_FLAG_LIST, LEVEL_CAP_VARIABLE] choose the method to derive the level cap
 u32 GetCurrentLevelCap(void)
 {
     // Da aggiustare i livelli in base al gioco
-    static const u32 sLevelCapFlagMap[][2] =
+    static const u32 sLevelCapFlagMap_Nuzlocke[][2] =
     {
         {FLAG_BADGE01_GET, 15},
         {FLAG_BADGE02_GET, 19},
@@ -23,7 +25,7 @@ u32 GetCurrentLevelCap(void)
 
         static const u32 sLevelCapFlagMap_Hard[][2] =
     {
-        {FLAG_BADGE01_GET, 15},
+        {FLAG_BADGE01_GET, 10},
         {FLAG_BADGE02_GET, 19},
         {FLAG_BADGE03_GET, 24},
         {FLAG_BADGE04_GET, 29},
@@ -36,19 +38,28 @@ u32 GetCurrentLevelCap(void)
 
     u32 i;
 
+        //Check the var for the game mode selection
+    if (VAR_GAME_MODE == 1) {
+        B_EXP_CAP_TYPE = EXP_CAP_HARD;
+        B_LEVEL_CAP_TYPE = LEVEL_CAP_FLAG_LIST;
+    } else if (VAR_GAME_MODE == 2){
+        B_EXP_CAP_TYPE = EXP_CAP_SOFT;
+        B_LEVEL_CAP_TYPE = LEVEL_CAP_FLAG_LIST;
+    }
+
     if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
     {
         if (B_EXP_CAP_TYPE == EXP_CAP_SOFT) {
-            for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
+            for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap_Nuzlocke); i++)
             {
-                if (!FlagGet(sLevelCapFlagMap[i][0]))
-                    return sLevelCapFlagMap[i][1];
+                if (!FlagGet(sLevelCapFlagMap_Nuzlocke[i][0]))
+                    return sLevelCapFlagMap_Nuzlocke[i][1];
             }
         } else if (B_EXP_CAP_TYPE == EXP_CAP_HARD) {
             for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap_Hard); i++)
             {
-                if (!FlagGet(sLevelCapFlagMap[i][0]))
-                    return sLevelCapFlagMap[i][1];
+                if (!FlagGet(sLevelCapFlagMap_Hard[i][0]))
+                    return sLevelCapFlagMap_Hard[i][1];
             }
         }
     }

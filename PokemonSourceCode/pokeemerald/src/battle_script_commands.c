@@ -9659,7 +9659,7 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS(const u8 *failInstr);
         if (GetBattlerType(gBattlerTarget, 0) == gMovesInfo[gCurrentMove].type
-            && GetBattlerType(gBattlerTarget, 1) == gMovesInfo[gCurrentMove].type)
+            || GetBattlerType(gBattlerTarget, 1) == gMovesInfo[gCurrentMove].type)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
