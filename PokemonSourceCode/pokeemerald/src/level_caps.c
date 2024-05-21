@@ -5,8 +5,7 @@
 #include "pokemon.h"
 #include "../include/constants/vars.h"
 
-static EWRAM_DATA u8 B_EXP_CAP_TYPE = EXP_CAP_NONE;              // [EXP_CAP_NONE, EXP_CAP_HARD, EXP_CAP_SOFT] choose the type of level cap to apply
-static EWRAM_DATA u8 B_LEVEL_CAP_TYPE = LEVEL_CAP_NONE;          // [LEVEL_CAP_NONE, LEVEL_CAP_FLAG_LIST, LEVEL_CAP_VARIABLE] choose the method to derive the level cap
+
 u32 GetCurrentLevelCap(void)
 {
     // Da aggiustare i livelli in base al gioco
@@ -37,29 +36,21 @@ u32 GetCurrentLevelCap(void)
     };
 
     u32 i;
-
+    u16* ptr = GetVarPointer(VAR_GAME_MODE);
         //Check the var for the game mode selection
-    if (VAR_GAME_MODE == 1) {
-        B_EXP_CAP_TYPE = EXP_CAP_HARD;
-        B_LEVEL_CAP_TYPE = LEVEL_CAP_FLAG_LIST;
-    } else if (VAR_GAME_MODE == 2){
-        B_EXP_CAP_TYPE = EXP_CAP_SOFT;
-        B_LEVEL_CAP_TYPE = LEVEL_CAP_FLAG_LIST;
-    }
-
     if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
     {
-        if (B_EXP_CAP_TYPE == EXP_CAP_SOFT) {
+        if (*ptr == EXP_CAP_NUZLOCKE) {
             for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap_Nuzlocke); i++)
             {
                 if (!FlagGet(sLevelCapFlagMap_Nuzlocke[i][0]))
                     return sLevelCapFlagMap_Nuzlocke[i][1];
             }
-        } else if (B_EXP_CAP_TYPE == EXP_CAP_HARD) {
+        } else if (*ptr == EXP_CAP_HARD) {
             for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap_Hard); i++)
             {
                 if (!FlagGet(sLevelCapFlagMap_Hard[i][0]))
-                    return sLevelCapFlagMap_Hard[i][1];
+                    return sLevelCapFlagMap_Hard[i][1]; 
             }
         }
     }
@@ -78,8 +69,9 @@ u32 GetSoftLevelCapExpValue(u32 level, u32 expValue)
 
     u32 levelDifference;
     u32 currentLevelCap = GetCurrentLevelCap();
-
-    if (B_EXP_CAP_TYPE == EXP_CAP_NONE)
+    u16* ptr = GetVarPointer(VAR_GAME_MODE);
+    
+    if (*ptr == EXP_CAP_NONE)
         return expValue;
 
     if (B_LEVEL_CAP_EXP_UP && level < currentLevelCap)
