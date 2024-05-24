@@ -4794,8 +4794,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             {
                 SET_STATCHANGER(STAT_SPDEF, 1, FALSE);
                 PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPDEF);
-                BattleScriptPush(cmd->nextInstr);
-                gBattlescriptCurrInstr = BattleScript_AttackerAbilityStatRaise;   
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaise);    
                 effect++;
             }
             break;
@@ -4804,8 +4803,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             {
                 SET_STATCHANGER(STAT_SPATK, 1, FALSE);
                 PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPATK);
-                BattleScriptPush(cmd->nextInstr);
-                gBattlescriptCurrInstr = BattleScript_AttackerAbilityStatRaise;   
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaise);   
                 effect++;
             }
             break;
