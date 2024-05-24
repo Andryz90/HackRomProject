@@ -4788,7 +4788,26 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
                 effect++;
             }
-            
+            break;
+        case ABILITY_MISTY_PELT:
+            if (gFieldStatuses & BG_MISTY_TERRAIN && CompareStat(battler, STAT_SPDEF, MAX_STAT_STAGE, CMP_LESS_THAN))
+            {
+                SET_STATCHANGER(STAT_SPDEF, 1, FALSE);
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPDEF);
+                BattleScriptPush(cmd->nextInstr);
+                gBattlescriptCurrInstr = BattleScript_AttackerAbilityStatRaise;   
+                effect++;
+            }
+            break;
+        case ABILITY_PSYCHIC_PELT:          
+            if (gFieldStatuses & BG_PSYCHIC_TERRAIN && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN))
+            {
+                SET_STATCHANGER(STAT_SPATK, 1, FALSE);
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPATK);
+                BattleScriptPush(cmd->nextInstr);
+                gBattlescriptCurrInstr = BattleScript_AttackerAbilityStatRaise;   
+                effect++;
+            }
             break;
 	}
     break;
@@ -6636,7 +6655,6 @@ u8 TryHandleSeed(u32 battler, u32 terrainFlag, u8 statId, u16 itemId, bool32 exe
     }
     return 0;
 }
-
 static u32 ItemRestorePp(u32 battler, u32 itemId, bool32 execute)
 {
     struct Pokemon *party = GetBattlerParty(battler);
@@ -8899,6 +8917,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if (gMovesInfo[move].punchingMove)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_IRON_KICK:
+        if (gMovesInfo[move].kickingMove)
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
     case ABILITY_SHEER_FORCE:
         if (MoveIsAffectedBySheerForce(move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -9027,6 +9049,11 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         }
         break;
+    case ABILITY_LIFEDRAINER:
+        if(gMovesInfo[move].effect ==  EFFECT_ABSORB) {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.25));
+            break;
+        }
     }
 
     // field abilities
@@ -9295,11 +9322,14 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-    case ABILITY_LIFEDRAINER:
-        if(gMovesInfo[move].effect ==  EFFECT_ABSORB) {
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.25));
-            break;
+    case ABILITY_ELECTRIC_PELT:
+        if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
+        {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+            if (updateFlags)
+                RecordAbilityBattle(battlerAtk, ABILITY_ELECTRIC_PELT);
         }
+        break;
     }
 
     // target's abilities

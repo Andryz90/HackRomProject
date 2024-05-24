@@ -1358,10 +1358,33 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_GRASS_PELT] =
     {
         .name = _("Grass Pelt"),
-        .description = COMPOUND_STRING("Ups Defense in grass."),
+        .description = COMPOUND_STRING("Ups Defense in GrassT."),
         .aiRating = 2,
         .breakable = TRUE,
     },
+
+    [ABILITY_PSYCHIC_PELT] =
+    {
+        .name = _("Psychic Pelt"),
+        .description = COMPOUND_STRING("Ups Sp.Atk in PsychicT."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+        [ABILITY_MISTY_PELT] =
+    {
+        .name = _("Misty Pelt"),
+        .description = COMPOUND_STRING("Ups Sp.Def in MistyT."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+        [ABILITY_ELECTRIC_PELT] =
+    {
+        .name = _("Electric Pelt"),
+        .description = COMPOUND_STRING("Ups Atk in ElectrT."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+    
 
     [ABILITY_SYMBIOSIS] =
     {

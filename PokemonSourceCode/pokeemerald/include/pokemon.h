@@ -480,6 +480,7 @@ struct MoveInfo
     u32 ignoresKingsRock:1;
     u32 punchingMove:1;
     u32 bitingMove:1;
+    u32 kickingMove:1;
     u32 pulseMove:1;
     u32 soundMove:1;
     u32 ballisticMove:1;
