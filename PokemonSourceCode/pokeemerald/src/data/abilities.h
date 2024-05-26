@@ -1358,7 +1358,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_GRASS_PELT] =
     {
         .name = _("Grass Pelt"),
-        .description = COMPOUND_STRING("Ups Defense in GrassT."),
+        .description = COMPOUND_STRING("Ups Defense in Grassy Terrain."),
         .aiRating = 2,
         .breakable = TRUE,
     },
@@ -1366,21 +1366,21 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_PSYCHIC_PELT] =
     {
         .name = _("Psychic Pelt"),
-        .description = COMPOUND_STRING("Ups Sp.Atk in PsychicT."),
+        .description = COMPOUND_STRING("Ups Sp.Atk in Psychic Terrain."),
         .aiRating = 2,
         .breakable = TRUE,
     },
         [ABILITY_MISTY_PELT] =
     {
         .name = _("Misty Pelt"),
-        .description = COMPOUND_STRING("Ups Sp.Def in MistyT."),
+        .description = COMPOUND_STRING("Ups Sp.Def in Misty Terrain."),
         .aiRating = 2,
         .breakable = TRUE,
     },
         [ABILITY_ELECTRIC_PELT] =
     {
         .name = _("Electric Pelt"),
-        .description = COMPOUND_STRING("Ups Atk in ElectrT."),
+        .description = COMPOUND_STRING("Ups Atk in Electr Terrain."),
         .aiRating = 2,
         .breakable = TRUE,
     },
@@ -2661,6 +2661,17 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
  
         .name = _("Life Drainer"),
         .description = COMPOUND_STRING("Power Ups Absorb moves."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    },
+    [ABILITY_FORMATION] =
+    {
+ 
+        .name = _("Formation"),
+        .description = COMPOUND_STRING("Every move becomes multi-hit."),
         .aiRating = 10,
         .cantBeCopied = FALSE,
         .cantBeSwapped = FALSE,

@@ -4790,20 +4790,42 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_MISTY_PELT:
-            if (gFieldStatuses & BG_MISTY_TERRAIN && CompareStat(battler, STAT_SPDEF, MAX_STAT_STAGE, CMP_LESS_THAN))
+            if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN && CompareStat(battler, STAT_SPDEF, MAX_STAT_STAGE, CMP_LESS_THAN && !gSpecialStatuses[battler].switchInAbilityDone))
             {
                 SET_STATCHANGER(STAT_SPDEF, 1, FALSE);
                 PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPDEF);
-                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaise);    
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);    
                 effect++;
             }
             break;
         case ABILITY_PSYCHIC_PELT:          
-            if (gFieldStatuses & BG_PSYCHIC_TERRAIN && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN))
+            if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN && !gSpecialStatuses[battler].switchInAbilityDone))
             {
                 SET_STATCHANGER(STAT_SPATK, 1, FALSE);
                 PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_SPATK);
-                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaise);   
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);   
+                effect++;
+            }
+            break;
+        case ABILITY_GRASS_PELT:          
+            if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && CompareStat(battler, STAT_DEF, MAX_STAT_STAGE, CMP_LESS_THAN && !gSpecialStatuses[battler].switchInAbilityDone))
+            {
+                SET_STATCHANGER(STAT_DEF, 1, FALSE);
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_DEF);
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);   
+                effect++;
+            }
+            break;
+        case ABILITY_ELECTRIC_PELT:          
+            if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && CompareStat(battler, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN && !gSpecialStatuses[battler].switchInAbilityDone))
+            {
+                SET_STATCHANGER(STAT_ATK, 1, FALSE);
+                PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_ATK);
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);   
                 effect++;
             }
             break;
@@ -9320,16 +9342,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
-    case ABILITY_ELECTRIC_PELT:
-        if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
-        {
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-            if (updateFlags)
-                RecordAbilityBattle(battlerAtk, ABILITY_ELECTRIC_PELT);
-        }
-        break;
     }
-
     // target's abilities
     switch (defAbility)
     {
@@ -9483,15 +9496,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
             if (updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_FUR_COAT);
         }
-        break;
-    case ABILITY_GRASS_PELT:
-        if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && usesDefStat)
-        {
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-            if (updateFlags)
-                RecordAbilityBattle(battlerDef, ABILITY_GRASS_PELT);
-        }
-        break;
+        break;       
     case ABILITY_FLOWER_GIFT:
         if (gBattleMons[battlerDef].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(battlerDef, B_WEATHER_SUN) && !usesDefStat)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
@@ -9585,7 +9590,13 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
         return UQ_4_12(1.0);
     return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
 }
-
+static inline uq4_12_t GetFalinksModifier (u32 battlerAtk) {
+    if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_STARTED)
+        return UQ_4_12(1.0);
+    if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS) {
+        return UQ_4_12(gMultiHitCounter / 5.0);
+    }
+}
 static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveType, u32 move, u32 abilityAtk)
 {
     if (gBattleStruct->pledgeMove && IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), moveType))
@@ -9881,6 +9892,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     dmg = CalculateBaseDamage(gBattleMovePower, userFinalAttack, gBattleMons[battlerAtk].level, targetFinalDefense);
     DAMAGE_APPLY_MODIFIER(GetTargetDamageModifier(move, battlerAtk, battlerDef));
     DAMAGE_APPLY_MODIFIER(GetParentalBondModifier(battlerAtk));
+    DAMAGE_APPLY_MODIFIER(GetFalinksModifier(battlerAtk));
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(battlerAtk, move, moveType, holdEffectAtk, holdEffectDef, weather));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));

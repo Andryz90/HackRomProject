@@ -940,7 +940,7 @@ static const struct WindowTemplate sUnusedWinTemplate =
 
 static const u16 sLevelUpBanner_Pal[] = INCBIN_U16("graphics/battle_interface/level_up_banner.gbapal");
 static const u32 sLevelUpBanner_Gfx[] = INCBIN_U32("graphics/battle_interface/level_up_banner.4bpp.lz");
-
+extern void SetRandomMultiHitCounter();
 static const struct OamData sOamData_MonIconOnLvlUpBanner =
 {
     .y = 0,
@@ -1288,6 +1288,7 @@ static void Cmd_attackcanceler(void)
     }
     if (B_STANCE_CHANGE_FAIL < GEN_7 && TryAegiFormChange())
         return;
+
     if (AtkCanceller_UnableToUseMove(moveType))
         return;
 
@@ -1308,7 +1309,17 @@ static void Cmd_attackcanceler(void)
             return;
         }
     }
-
+    if (attackerAbility == ABILITY_FORMATION 
+        && gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_OFF
+        && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)) { 
+        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
+        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT || gMovesInfo[gCurrentMove].strikeCount < 2) {
+            gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
+            RecordAbilityBattle(gBattlerAttacker, ABILITY_FORMATION);
+            return;
+        }
+    }
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
     && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
     && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
@@ -1317,10 +1328,9 @@ static void Cmd_attackcanceler(void)
     {
         gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_1ST_HIT;
         gMultiHitCounter = 2;
-        PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+        PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
         return;
     }
-
     // Check Protean activation.
     if (ProteanTryChangeType(gBattlerAttacker, attackerAbility, gCurrentMove, moveType))
     {
@@ -1468,12 +1478,15 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
 
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT)
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+            || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED )
         {
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF; // No second hit if first hit was blocked
+            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gMultiHitCounter = 0;
         }
+
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -2198,7 +2211,8 @@ static void Cmd_attackanimation(void)
     }
     else
     {
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT) // No animation on second hit
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
+            || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_IN_PROGRESS) // No animation on second hit
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -2778,11 +2792,13 @@ void SetMoveEffect(bool32 primary, bool32 certain)
     u16 battlerAbility;
     bool8 activateAfterFaint = FALSE;
 
+    battlerAbility = GetBattlerAbility(gEffectBattler);
     // NULL move effect
     if (gBattleScripting.moveEffect == 0)
         return;
 
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+    if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT 
+        || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED)
         && gBattleMons[gBattlerTarget].hp != 0
         && IsFinalStrikeEffect(gBattleScripting.moveEffect))
     {
@@ -2821,7 +2837,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
         gBattleScripting.battler = gBattlerAttacker;
     }
 
-    battlerAbility = GetBattlerAbility(gEffectBattler);
+    
 
      // Just in case this flag is still set
     gBattleScripting.moveEffect &= ~MOVE_EFFECT_CERTAIN;
@@ -3212,7 +3228,9 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 break;
             case MOVE_EFFECT_PAYDAY:
                 // Don't scatter coins on the second hit of Parental Bond
-                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && gSpecialStatuses[gBattlerAttacker].parentalBondState!= PARENTAL_BOND_2ND_HIT)
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && 
+                    (gSpecialStatuses[gBattlerAttacker].parentalBondState!= PARENTAL_BOND_2ND_HIT 
+                    || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_IN_PROGRESS))
                 {
                     u16 payday = gPaydayMoney;
                     u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
@@ -5944,6 +5962,7 @@ static void Cmd_moveend(void)
             && !(gMovesInfo[gCurrentMove].effect == EFFECT_PRESENT && gBattleStruct->presentBasePower == 0)) // Silly edge case
             {
                 gBattleScripting.multihitString[4]++;
+
                 if (--gMultiHitCounter == 0)
                 {
                     if (gMovesInfo[gCurrentMove].argument == MOVE_EFFECT_SCALE_SHOT && !NoAliveMonsForEitherParty())
@@ -5951,10 +5970,12 @@ static void Cmd_moveend(void)
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
-
+                    if (gSpecialStatuses[gBattlerAttacker].formationstate)
+                        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MultiHitPrintStrings;
                     effect = TRUE;
+                    
                 }
                 else
                 {
@@ -5968,9 +5989,13 @@ static void Cmd_moveend(void)
                     && (gChosenMove == MOVE_SLEEP_TALK || !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP))
                     && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE))
                     {
+                            //Parental Bond
                         if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                             gSpecialStatuses[gBattlerAttacker].parentalBondState--;
-
+                            //Formation Ability
+                        if (gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED)
+                            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_IN_PROGRESS;
+                        
                         gHitMarker |= (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING);
                         gBattleScripting.animTargetsHit = 0;
                         gBattleScripting.moveendState = 0;
@@ -5993,6 +6018,7 @@ static void Cmd_moveend(void)
             }
             gMultiHitCounter = 0;
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF;
+            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gBattleScripting.moveendState++;
             break;
@@ -6282,7 +6308,8 @@ static void Cmd_moveend(void)
         case MOVEEND_SAME_MOVE_TURNS:
             if (gCurrentMove != gLastResultingMoves[gBattlerAttacker] || gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                 gBattleStruct->sameMoveTurns[gBattlerAttacker] = 0;
-            else if (gCurrentMove == gLastResultingMoves[gBattlerAttacker] && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT)
+            else if (gCurrentMove == gLastResultingMoves[gBattlerAttacker] && 
+                     (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED))
                 gBattleStruct->sameMoveTurns[gBattlerAttacker]++;
             gBattleScripting.moveendState++;
             break;
@@ -11348,7 +11375,8 @@ static void Cmd_stockpiletobasedamage(void)
         if (gBattleCommunication[MISS_TYPE] != B_MSG_PROTECTED)
             gBattleScripting.animTurn = gDisableStructs[gBattlerAttacker].stockpileCounter;
 
-        if (!(gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT && gBattleMons[gBattlerTarget].hp != 0))
+        if (!(gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT && gBattleMons[gBattlerTarget].hp != 0)
+            || !(gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED && gBattleMons[gBattlerTarget].hp != 0))
         {
             gBattleStruct->moveEffect2 = MOVE_EFFECT_STOCKPILE_WORE_OFF;
         }
@@ -13308,7 +13336,8 @@ static void Cmd_handlefurycutter(void)
     else
     {
         if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 5
-            && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT) // Don't increment counter on first hit
+            && (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT 
+            || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_STARTED)) // Don't increment counter on first hit
             gDisableStructs[gBattlerAttacker].furyCutterCounter++;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -13343,7 +13372,8 @@ static void Cmd_presentdamagecalculation(void)
      * damage, the second strike will always deal damage too. This is a simple way
      * to replicate that effect.
      */
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT
+        || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_IN_PROGRESS)
     {
         if (rand < 102)
         {

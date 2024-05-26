@@ -214,6 +214,7 @@ struct SpecialStatus
     u8 gemBoost:1;
     u8 rototillerAffected:1;  // to be affected by rototiller
     u8 parentalBondState:2;
+    u8 formationstate:2;
     u8 multiHitOn:1;
     u8 announceNeutralizingGas:1;   // See Cmd_switchineffects
     u8 neutralizingGasRemoved:1;    // See VARIOUS_TRY_END_NEUTRALIZING_GAS
