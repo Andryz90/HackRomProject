@@ -824,5 +824,5 @@ extern const u8 BattleScript_EffectFilletAway[];
 extern const u8 BattleScript_EffectShedTail[];
 extern const u8 BattleScript_EffectUpperHand[];
 extern const u8 BattleScript_EffectTidyUp[];
-
+extern const u8 BattleScript_Formation[];
 #endif // GUARD_BATTLE_SCRIPTS_H

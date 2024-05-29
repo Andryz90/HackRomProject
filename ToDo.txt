@@ -1,0 +1,5 @@
+1) Inserire un evento che abiliti il move relearner, deleter, nickname change, gender swap e altre meccaniche definite nel debug
+2) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro (aggiornando anche le icone degli sprite nella borsa)
+3) Programmare le nuove mega.
+4) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
+5) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.

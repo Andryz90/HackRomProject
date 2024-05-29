@@ -9945,3 +9945,8 @@ BattleScript_WindGliderActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_Formation::
+	pause B_WAIT_TIME_SHORTEST	
+	call BattleScript_AbilityPopUp
+	return
+	

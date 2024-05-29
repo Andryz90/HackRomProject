@@ -940,7 +940,6 @@ static const struct WindowTemplate sUnusedWinTemplate =
 
 static const u16 sLevelUpBanner_Pal[] = INCBIN_U16("graphics/battle_interface/level_up_banner.gbapal");
 static const u32 sLevelUpBanner_Gfx[] = INCBIN_U32("graphics/battle_interface/level_up_banner.4bpp.lz");
-extern void SetRandomMultiHitCounter();
 static const struct OamData sOamData_MonIconOnLvlUpBanner =
 {
     .y = 0,
@@ -1184,6 +1183,7 @@ static const u8 sBattlePalaceNatureToFlavorTextId[NUM_NATURES] =
     [NATURE_CAREFUL] = B_MSG_GROWL_DEEPLY,
     [NATURE_QUIRKY]  = B_MSG_EAGER_FOR_MORE,
 };
+EWRAM_DATA u8 ptr_multihit = 0;
 
 static bool32 NoTargetPresent(u8 battler, u32 move)
 {
@@ -1313,10 +1313,12 @@ static void Cmd_attackcanceler(void)
         && gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_OFF
         && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)) { 
         gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
-        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT || gMovesInfo[gCurrentMove].strikeCount < 2) {
+        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2) {
             gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);
+            ptr_multihit = gMultiHitCounter;
             PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
-            RecordAbilityBattle(gBattlerAttacker, ABILITY_FORMATION);
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_Formation;
             return;
         }
     }
