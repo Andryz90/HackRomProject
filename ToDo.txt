@@ -1,4 +1,10 @@
-1) Inserire un evento che abiliti il move relearner, deleter, nickname change, gender swap e altre meccaniche definite nel debug
+1) Inserire un evento che abiliti:
+	- Move Relearner
+	- Move Deleter
+	- Nickname changer
+	- Gender swap 
+	- Pre status a pokemon (Se concesso dai type compatibility)
+	- Pre damage a pokemon
 2) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro (aggiornando anche le icone degli sprite nella borsa)
 3) Programmare le nuove mega.
 4) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)

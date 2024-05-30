@@ -21244,7 +21244,7 @@
       {
         "Level": 58,
         "Move": "MOVE_HARD_PRESS"
-      },
+      }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -23887,7 +23887,7 @@
     "PreEvoMoves": [],
     "TMMoves": [
       "MOVE_MOONBLAST",
-      "MOVE_ALLURING_VOICE",
+      "MOVE_ALLURING_VOICE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -25729,7 +25729,7 @@
       {
         "Level": 50,
         "Move": "MOVE_WATER_SPOUT"
-      },
+      }
     ],
     "PreEvoMoves": [
       "MOVE_U_TURN",
@@ -32929,7 +32929,7 @@
       {
         "Level": 25,
         "Move": "MOVE_JUNGLE_HEALING"
-      }
+      },
       {
         "Level": 30,
         "Move": "MOVE_WIDE_GUARD"
@@ -33103,7 +33103,7 @@
       {
         "Level": 50,
         "Move": "MOVE_PSYCHIC"
-      },
+      }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -37068,6 +37068,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_BOOMBURST",
       "MOVE_TAKE_DOWN",
       "MOVE_PROTECT",
       "MOVE_STRUGGLE_BUG",
@@ -37220,6 +37221,10 @@
   "LUXIO": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_PURSUIT"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_TACKLE"
       },
@@ -37270,6 +37275,10 @@
       {
         "Level": 60,
         "Move": "MOVE_SWAGGER"
+      },
+      {
+        "Level": 64,
+        "Move": "MOVE_SUCKER_PUNCH"
       },
       {
         "Level": 68,
@@ -37371,6 +37380,10 @@
         "Move": "MOVE_SCARY_FACE"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_SUCKER_PUNCH"
+      },
+      {
         "Level": 48,
         "Move": "MOVE_THUNDER_WAVE"
       },
@@ -37385,6 +37398,10 @@
       {
         "Level": 72,
         "Move": "MOVE_SWAGGER"
+      },
+      {
+        "Level": 76,
+        "Move": "MOVE_KNOCK_OFF"
       },
       {
         "Level": 80,
@@ -37629,6 +37646,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_WILD_CHARGE",
       "MOVE_TAKE_DOWN",
       "MOVE_MUD_SLAP",
       "MOVE_SCARY_FACE",
