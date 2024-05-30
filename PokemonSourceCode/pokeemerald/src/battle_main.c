@@ -115,7 +115,6 @@ static void HandleEndTurn_MonFled(void);
 static void HandleEndTurn_FinishBattle(void);
 static void SpriteCB_UnusedBattleInit(struct Sprite *sprite);
 static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
-static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
 
@@ -3254,11 +3253,13 @@ static void ClearSetBScriptingStruct(void)
 {
     // windowsType is set up earlier in BattleInitBgsAndWindows, so we need to save the value
     u32 temp = gBattleScripting.windowsType;
+    u32 specialBattleType = gBattleScripting.specialTrainerBattleType;
     memset(&gBattleScripting, 0, sizeof(gBattleScripting));
 
     gBattleScripting.windowsType = temp;
     gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
     gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
+    gBattleScripting.specialTrainerBattleType = specialBattleType;
 }
 
 static void BattleStartClearSetData(void)
@@ -3499,6 +3500,7 @@ void SwitchInClearSetData(u32 battler)
     // Reset damage to prevent things like red card activating if the switched-in mon is holding it
     gSpecialStatuses[battler].physicalDmg = 0;
     gSpecialStatuses[battler].specialDmg = 0;
+    gBattleStruct->enduredDamage &= ~gBitTable[battler];
 
     // Reset G-Max Chi Strike boosts.
     gBattleStruct->bonusCritStages[battler] = 0;
@@ -3581,7 +3583,6 @@ const u8* FaintClearSetData(u32 battler)
     gProtectStructs[battler].flinchImmobility = FALSE;
     gProtectStructs[battler].notFirstStrike = FALSE;
     gProtectStructs[battler].usedHealBlockedMove = FALSE;
-    gProtectStructs[battler].usesBouncedMove = FALSE;
     gProtectStructs[battler].usedGravityPreventedMove = FALSE;
     gProtectStructs[battler].usedThroatChopPreventedMove = FALSE;
     gProtectStructs[battler].statRaised = FALSE;
@@ -4207,11 +4208,11 @@ void BattleTurnPassed(void)
         if (DoBattlerEndTurnEffects())
             return;
     }
+    if (HandleWishPerishSongOnTurnEnd())
+        return;
     if (HandleFaintedMonActions())
         return;
     gBattleStruct->faintedActionsState = 0;
-    if (HandleWishPerishSongOnTurnEnd())
-        return;
 
     TurnValuesCleanUp(FALSE);
     gHitMarker &= ~HITMARKER_NO_ATTACKSTRING;
@@ -5068,31 +5069,27 @@ s32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
 {
     u32 strikesFirst = 0;
 
-    if (priority1 == priority2)
+if (priority1 == priority2)
     {
-        // QUICK CLAW / CUSTAP - always first
-        // LAGGING TAIL - always last
-        // STALL - always last
+        // Quick Claw / Quick Draw / Custap Berry - always first
+        // Stall / Mycelium Might - last but before Lagging Tail
+        // Lagging Tail - always last
+        bool32 battler1HasQuickEffect = gProtectStructs[battler1].quickDraw || gProtectStructs[battler1].usedCustapBerry;
+        bool32 battler2HasQuickEffect = gProtectStructs[battler2].quickDraw || gProtectStructs[battler2].usedCustapBerry;
+        bool32 battler1HasStallingAbility = ability1 == ABILITY_STALL || (ability1 == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gChosenMoveByBattler[battler1]));
+        bool32 battler2HasStallingAbility = ability2 == ABILITY_STALL || (ability2 == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gChosenMoveByBattler[battler2]));
 
-        if (gProtectStructs[battler1].quickDraw && !gProtectStructs[battler2].quickDraw)
+        if (battler1HasQuickEffect && !battler2HasQuickEffect)
             strikesFirst = 1;
-        else if (!gProtectStructs[battler1].quickDraw && gProtectStructs[battler2].quickDraw)
-            strikesFirst = -1;
-        else if (gProtectStructs[battler1].usedCustapBerry && !gProtectStructs[battler2].usedCustapBerry)
-            strikesFirst = 1;
-        else if (gProtectStructs[battler2].usedCustapBerry && !gProtectStructs[battler1].usedCustapBerry)
+        else if (battler2HasQuickEffect && !battler1HasQuickEffect)
             strikesFirst = -1;
         else if (holdEffectBattler1 == HOLD_EFFECT_LAGGING_TAIL && holdEffectBattler2 != HOLD_EFFECT_LAGGING_TAIL)
             strikesFirst = -1;
         else if (holdEffectBattler2 == HOLD_EFFECT_LAGGING_TAIL && holdEffectBattler1 != HOLD_EFFECT_LAGGING_TAIL)
             strikesFirst = 1;
-        else if (ability1 == ABILITY_STALL && ability2 != ABILITY_STALL)
+        else if (battler1HasStallingAbility && !battler2HasStallingAbility)
             strikesFirst = -1;
-        else if (ability2 == ABILITY_STALL && ability1 != ABILITY_STALL)
-            strikesFirst = 1;
-        else if (ability1 == ABILITY_MYCELIUM_MIGHT && ability2 != ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gChosenMoveByBattler[battler1]))
-            strikesFirst = -1;
-        else if (ability2 == ABILITY_MYCELIUM_MIGHT && ability1 != ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gChosenMoveByBattler[battler2]))
+        else if (battler2HasStallingAbility && !battler1HasStallingAbility)
             strikesFirst = 1;
         else
         {
@@ -5743,7 +5740,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS == TRUE)
+        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 
         // Undo Dynamax HP multiplier before recalculating stats.
@@ -5807,7 +5804,7 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
                 || gBattleOutcome == B_OUTCOME_WON
                 || gBattleOutcome == B_OUTCOME_CAUGHT))
         {
-            gBattleMainFunc = TrySpecialEvolution;
+            gBattleMainFunc = TryEvolvePokemon;
         }
         else
         {
@@ -5825,43 +5822,24 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
     }
 }
 
-static void TrySpecialEvolution(void) // Attempts to perform non-level related battle evolutions (not the script command).
+static void TryEvolvePokemon(void)
 {
     s32 i;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_BATTLE_SPECIAL, i, NULL);
-        if (species != SPECIES_NONE && !(sTriedEvolving & gBitTable[i]))
+        if (!(sTriedEvolving & gBitTable[i]))
         {
+            u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_BATTLE_SPECIAL, i, NULL);
             sTriedEvolving |= gBitTable[i];
-            FreeAllWindowBuffers();
-            gBattleMainFunc = WaitForEvoSceneToFinish;
-            EvolutionScene(&gPlayerParty[i], species, TRUE, i);
-            return;
-        }
-    }
-    sTriedEvolving = 0;
-    gBattleMainFunc = TryEvolvePokemon;
-}
 
-static void TryEvolvePokemon(void)
+
+            if (species == SPECIES_NONE && (gLeveledUpInBattle & gBitTable[i]))
 {
-    s32 i;
+                gLeveledUpInBattle &= ~(gBitTable[i]);
+                species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, gLeveledUpInBattle, NULL);
+            }
 
-    while (gLeveledUpInBattle != 0)
-    {
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (gLeveledUpInBattle & gBitTable[i])
-            {
-                u16 species;
-                u8 levelUpBits = gLeveledUpInBattle;
-
-                levelUpBits &= ~(gBitTable[i]);
-                gLeveledUpInBattle = levelUpBits;
-
-                species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
                 if (species != SPECIES_NONE)
                 {
                     FreeAllWindowBuffers();
@@ -5871,7 +5849,8 @@ static void TryEvolvePokemon(void)
                 }
             }
         }
-    }
+    sTriedEvolving = 0;
+    gLeveledUpInBattle = 0;
 
     gBattleMainFunc = ReturnFromBattleToOverworld;
 }
@@ -5879,7 +5858,7 @@ static void TryEvolvePokemon(void)
 static void WaitForEvoSceneToFinish(void)
 {
     if (gMain.callback2 == BattleMainCB2)
-        gBattleMainFunc = TrySpecialEvolution;
+        gBattleMainFunc = TryEvolvePokemon;
 }
 
 static void ReturnFromBattleToOverworld(void)

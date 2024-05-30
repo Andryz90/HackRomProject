@@ -25,7 +25,7 @@
 #include "constants/weather.h"
 
 extern const u8 EventScript_SprayWoreOff[];
-extern bool32 IsRepelActive(void);
+
 
 #define MAX_ENCOUNTER_RATE 2880
 
@@ -948,15 +948,6 @@ bool8 UpdateRepelCounter(void)
         return FALSE;
     if (InUnionRoom() == TRUE)
         return FALSE;
-    if (!IsRepelActive()) 
-    {
-        VarSet(VAR_REPEL_STEP_COUNT, 0);
-        return FALSE;
-    } 
-    else 
-    {
-        steps = 250;
-    }
     if (steps != 0)
     {
         

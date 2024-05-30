@@ -75,12 +75,6 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
-#if (DECAP_ENABLED) && (DECAP_MIRRORING) && !(DECAP_PARTY_MENU)
-#define gStringVar4 (MirrorPtr(gStringVar4))
-#define AddTextPrinterParameterized4(a, b, c, d, e, f, g, h, str) (AddTextPrinterParameterized4(a, b, c, d, e, f, g, h, MirrorPtr(str)))
-#define AddTextPrinterParameterized3(a, b, c, d, e, f, str) AddTextPrinterParameterized3(a, b, c, d, e, f, MirrorPtr(str))
-#endif
-
 enum {
     MENU_SUMMARY,
     MENU_SWITCH,
@@ -2093,7 +2087,7 @@ u8 GetAilmentFromStatus(u32 status)
     if (status & STATUS1_BURN)
         return AILMENT_BRN;
     if (status & STATUS1_FROSTBITE)
-        return AILMENT_FSB;
+        return AILMENT_FRB;
     return AILMENT_NONE;
 }
 
@@ -2752,10 +2746,7 @@ static void PrintMessage(const u8 *text)
 {
     DrawStdFrameWithCustomTileAndPalette(WIN_MSG, FALSE, 0x4F, 13);
     gTextFlags.canABSpeedUpPrint = TRUE;
-    if (DECAP_ENABLED && DECAP_MIRRORING && !DECAP_PARTY_MENU)
-        AddTextPrinterParameterized2(WIN_MSG, FONT_NORMAL, MirrorPtr(text), GetPlayerTextSpeedDelay(), 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
-    else
-        AddTextPrinterParameterized2(WIN_MSG, FONT_NORMAL, text, GetPlayerTextSpeedDelay(), 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+    AddTextPrinterParameterized2(WIN_MSG, FONT_NORMAL, text, GetPlayerTextSpeedDelay(), 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
 }
 
 static void PartyMenuDisplayYesNoMenu(void)
@@ -4595,7 +4586,8 @@ void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
         gBattleStruct->itemPartyIndex[gBattlerInMenuId] = GetPartyIdFromBattleSlot(gPartyMenu.slotId);
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_SELECT);
-        RemoveBagItem(gSpecialVar_ItemId, 1);
+        if (!IsItemFlute(gSpecialVar_ItemId))
+            RemoveBagItem(gSpecialVar_ItemId, 1);
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = task;
     }
@@ -5532,10 +5524,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u16 *itemPtr = &gSpecialVar_ItemId;
     bool8 cannotUseEffect;
     u8 holdEffectParam = ItemId_GetHoldEffectParam(*itemPtr);
-    u8 itemID = *itemPtr;
 
     sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
-    if (!(itemID != ITEM_RARE_CANDY_KEY_ITEM && sInitialLevel >= GetCurrentLevelCap()))
+    if (!(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()))
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
