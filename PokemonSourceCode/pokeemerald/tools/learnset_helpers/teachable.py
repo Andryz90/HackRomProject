@@ -25,7 +25,7 @@ if len(incs_to_check) == 0: # disabled if no jsons present
     quit()
 
 for file in incs_to_check:
-    with open(file, 'r') as f2:
+    with open(file, 'r', encoding="utf8") as f2:
         raw = f2.read()
     if 'special ChooseMonForMoveTutor' in raw:
         for x in re.findall(r'setvar VAR_0x8005, (MOVE_.*)', raw):
