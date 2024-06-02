@@ -138,14 +138,25 @@ for mon in list_of_mons:
     if not mon_parsed in compatibility_dict:
         print("Unable to find %s in json" % mon)
         continue
-    for move in tm_moves:
-        if move in universal_moves:
+    
+    for move in compatibility_dict[mon_parsed]:
+        if move in tutor_moves:
             continue
         if move in tm_learnset:
             continue
-        if move in compatibility_dict[mon_parsed]:
-            tm_learnset.append(move)
+        if move in universal_moves:
             continue
+        tm_learnset.append(move)
+
+    # for move in tm_moves:
+    #     if move in universal_moves:
+    #         continue
+    #     if move in tm_learnset:
+    #         continue
+    #     if move in compatibility_dict[mon_parsed]:
+    #         tm_learnset.append(move)
+    #         continue
+        
     for move in tutor_moves:
         if move in universal_moves:
             continue
