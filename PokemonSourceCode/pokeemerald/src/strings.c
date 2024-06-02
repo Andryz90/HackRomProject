@@ -2,6 +2,7 @@
 #include "strings.h"
 #include "battle_pyramid_bag.h"
 #include "item_menu.h"
+#include "text.h"
 
 ALIGNED(4)
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
@@ -1558,6 +1559,14 @@ const u8 gText_PokedexDiploma[] = _("PLAYER: {CLEAR 0x10}{COLOR RED}{SHADOW LIGH
 const u8 gJPText_GameFreak[] = _("{COLOR RED}{SHADOW LIGHT_RED}ゲ-ムフリ-ク"); // Unused
 const u8 gText_DiplomaEmpty[] = _("{COLOR RED}{SHADOW LIGHT_RED}"); // Unused
 const u8 gText_Hoenn[] = _("HOENN");
+const u8 gText_Kanto[] = _("Kanto");
+const u8 gText_Johto[] = _("Johto");
+const u8 gText_Sinnoh[] = _("Sinnoh");
+const u8 gText_Unima[] = _("Unima");
+const u8 gText_Kalos[] = _("Kalos");
+const u8 gText_Alola[] = _("Alola");
+const u8 gText_Galar[] = _("Galar");
+const u8 gText_Paldea[] = _("Paldea");
 const u8 gText_OhABite[] = _("Oh! A bite!");
 const u8 gText_PokemonOnHook[] = _("A POKéMON's on the hook!{PAUSE_UNTIL_PRESS}");
 const u8 gText_NotEvenANibble[] = _("Not even a nibble…{PAUSE_UNTIL_PRESS}");
@@ -1566,6 +1575,10 @@ const u8 gText_XWillBeSentToY[] = _("{STR_VAR_2} will be\nsent to {STR_VAR_1}.")
 const u8 gText_ByeByeVar1[] = _("Bye-bye, {STR_VAR_2}!");
 const u8 gText_XSentOverY[] = _("{STR_VAR_1} sent over {STR_VAR_3}.");
 const u8 gText_TakeGoodCareOfX[] = _("Take good care of {STR_VAR_3}!");
+
+const u8 gText_Standard[] = _("Standard Mode");
+const u8 gText_Hardcore[] = _("Hardcore Mode");
+const u8 gText_Nuzlocke[] = _("Nuzlocke Mode");
 
 // Easy chat group names
 const u8 gEasyChatGroupName_Pokemon[] = _("POKéMON");
@@ -1846,6 +1859,8 @@ const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
+const u8 gText_InfiniteRepel[] = _("The Repel has been turned on.{PAUSE_UNTIL_PRESS}");
+const u8 gText_InfiniteRepelOff[] = _("The Repel has been turned off.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 const u8 gText_Fertilize[] = _("FERTILIZE");
 const u8 gText_PlantBerry[] = _("PLANT BERRY");

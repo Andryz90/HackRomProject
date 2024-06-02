@@ -548,35 +548,6 @@ BattleScript_EffectShellTrap::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectMaxHp50Recoil::
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_SteelBeamMiss, ACC_CURR_MOVE
-	call BattleScript_EffectHit_RetFromCritCalc
-	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_SteelBeamAfterSelfDamage
-	call BattleScript_SteelBeamSelfDamage
-BattleScript_SteelBeamAfterSelfDamage::
-	waitstate
-	tryfaintmon BS_ATTACKER
-	tryfaintmon BS_TARGET
-	goto BattleScript_MoveEnd
-BattleScript_SteelBeamMiss::
-	pause B_WAIT_TIME_SHORT
-	effectivenesssound
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MoveEnd
-	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
-	call BattleScript_SteelBeamSelfDamage
-	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
-	goto BattleScript_SteelBeamAfterSelfDamage
-
-BattleScript_SteelBeamSelfDamage::
-	dmg_1_2_attackerhp
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	return
 
 BattleScript_EffectCourtChange::
 	attackcanceler
@@ -1764,6 +1735,7 @@ BattleScript_EffectHitSwitchTarget::
 	tryfaintmon BS_TARGET
 	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
+	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
 	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
 	jumpiftargetdynamaxed BattleScript_HitSwitchTargetDynamaxed
 	tryhitswitchtarget BattleScript_MoveEnd
@@ -2710,12 +2682,11 @@ BattleScript_EffectHealBlock::
 BattleScript_EffectHitEscape::
 	call BattleScript_EffectHit_Ret
 	jumpifmovehadnoeffect BattleScript_MoveEnd
-	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	moveendto MOVEEND_ATTACKER_VISIBLE
 	moveendfrom MOVEEND_TARGET_VISIBLE
 	jumpifbattleend BattleScript_HitEscapeEnd
-	jumpifbyte CMP_NOT_EQUAL gBattleOutcome 0, BattleScript_HitEscapeEnd
+	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_HitEscapeEnd
 	jumpifemergencyexited BS_TARGET, BattleScript_HitEscapeEnd
 	goto BattleScript_MoveSwitch
 BattleScript_HitEscapeEnd:
@@ -2969,36 +2940,6 @@ BattleScript_AbsorbHealBlock::
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectExplosion_AnimDmgRet:
-	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionAnimRet
-	call BattleScript_PreserveMissedBitDoMoveAnim
-	goto BattleScript_ExplosionDmgRet
-BattleScript_ExplosionAnimRet:
-	attackanimation
-	waitanimation
-BattleScript_ExplosionDmgRet:
-	movevaluescleanup
-	critcalc
-	damagecalc
-	adjustdamage
-	accuracycheck BattleScript_ExplosionMissedRet, ACC_CURR_MOVE
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-BattleScript_ExplosionAnimEndRet_Return:
-	return
-BattleScript_ExplosionMissedRet:
-	effectivenesssound
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_ExplosionAnimEndRet_Return
 
 BattleScript_EffectExplosion::
 	attackcanceler
