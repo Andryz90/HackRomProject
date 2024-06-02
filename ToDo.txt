@@ -1,3 +1,8 @@
+
+- Modificare il .py in modo che:
+	. Possa anche andare a leggere i level up moves dal json e copiarli nella corrispettiva gen_x.h 
+- Aggiungere lo script per il tutor move dei Pokemon.
+
 1) Inserire un evento che abiliti:
 	- Move Relearner
 	- Move Deleter
