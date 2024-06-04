@@ -1671,7 +1671,7 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
     {
         if (learnset[i].level > level)
-            break;
+           continue;
         if (learnset[i].level == 0)
             continue;
         if (GiveMoveToBoxMon(boxMon, learnset[i].move) == MON_HAS_MAX_MOVES)
@@ -1699,7 +1699,7 @@ void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) //Credit: Asparagu
         s32 j;
         bool32 alreadyKnown = FALSE;
         if (learnset[i].level > level)
-            break;
+           continue;
         if (learnset[i].level == 0)
             continue;
 

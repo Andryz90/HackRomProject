@@ -1320,7 +1320,8 @@ static void Cmd_attackcanceler(void)
     }
     if (attackerAbility == ABILITY_FORMATION 
         && gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_OFF
-        && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)) { 
+        && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
+        && gMovesInfo[gCurrentMove].category != DAMAGE_CATEGORY_STATUS) { 
         gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
         if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2) {
             gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);

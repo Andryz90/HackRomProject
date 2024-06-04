@@ -10384,7 +10384,7 @@
       },
       {
         "Level": 70,
-        "Move": "MOVE_PLASMA_FIST"
+        "Move": "MOVE_PLASMA_FISTS"
       }
     ],
     "PreEvoMoves": [],
@@ -11529,7 +11529,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
-      "MOVE_TRASH",
+      "MOVE_THRASH",
       "MOVE_HEADLONG_RUSH",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
@@ -14179,7 +14179,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_IDRO_LOCK"
+        "Move": "MOVE_IDROLOCK"
       },
       {
         "Level": 37,
@@ -17472,7 +17472,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_FIRE_BURST"
+        "Move": "MOVE_FLAME_BURST"
       },
       {
         "Level": 1,
@@ -42591,14 +42591,14 @@
       },
       {
         "Level": 75,
-        "Move": "MOVE_PLASMA_FIST"
+        "Move": "MOVE_PLASMA_FISTS"
       }
     ],
     "PreEvoMoves": [
       "MOVE_MACH_PUNCH"
     ],
     "TMMoves": [
-      "MOVE_PLASMA_FIST",
+      "MOVE_PLASMA_FISTS",
       "MOVE_CLOSE_COMBAT",
       "MOVE_VOLT_TACKLE",
       "MOVE_SUPERCELL_SLAM",
@@ -57121,6 +57121,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HEAVY_SLAM",
       "MOVE_TAKE_DOWN",
       "MOVE_MUD_SLAP",
       "MOVE_SCARY_FACE",
@@ -57526,6 +57527,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_MOONBLAST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_AGILITY",
@@ -58708,6 +58710,10 @@
         "Move": "MOVE_RAZOR_LEAF"
       },
       {
+        "Level": 18,
+        "Move": "MOVE_LEAF_TORNADO"
+      },
+      {
         "Level": 20,
         "Move": "MOVE_WISH"
       },
@@ -58809,6 +58815,10 @@
       {
         "Level": 15,
         "Move": "MOVE_RAZOR_LEAF"
+      },      
+      {
+        "Level": 18,
+        "Move": "MOVE_LEAF_TORNADO"
       },
       {
         "Level": 20,
@@ -58897,6 +58907,10 @@
   "FLORGES": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_LEAF_STORM"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_SOLAR_BEAM"
       },
@@ -58941,12 +58955,23 @@
         "Move": "MOVE_MISTY_TERRAIN"
       },
       {
+        "Level": 1,
+        "Move": "MOVE_LEAF_TORNADO"
+      },
+      {
         "Level": 5,
         "Move": "MOVE_MOONBLAST"
+      },
+      {
+        "Level": 80,
+        "Move": "MOVE_SEED_FLARE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_LEECH_SEED",
+      "MOVE_LEAF_STORM",
       "MOVE_CHARM",
       "MOVE_PROTECT",
       "MOVE_DISARMING_VOICE",
@@ -60171,6 +60196,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HYDRO_CANNON",
       "MOVE_TAKE_DOWN",
       "MOVE_MUD_SLAP",
       "MOVE_SCARY_FACE",
@@ -61037,6 +61063,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_EARTH_POWER",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_PROTECT",
@@ -61259,7 +61286,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_FOREST\u2019S_CURSE"
+        "Move": "MOVE_FORESTS_CURSE"
       }
     ],
     "PreEvoMoves": [],
@@ -61381,7 +61408,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_FOREST\u2019S_CURSE"
+        "Move": "MOVE_FORESTS_CURSE"
       }
     ],
     "PreEvoMoves": [],
@@ -64936,11 +64963,15 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_SUCKER_PUNCH"
+        "Move": "MOVE_HIGH_HORSEPOWER"
       },
       {
         "Level": 1,
         "Move": "MOVE_ACCELEROCK"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_SUCKER_PUNCH"
       },
       {
         "Level": 1,
@@ -64995,6 +65026,10 @@
         "Move": "MOVE_CRUNCH"
       },
       {
+        "Level": 46,
+        "Move": "MOVE_EARTHQUAKE"
+      },
+      {
         "Level": 48,
         "Move": "MOVE_SCARY_FACE"
       },
@@ -65005,10 +65040,15 @@
       {
         "Level": 60,
         "Move": "MOVE_STONE_EDGE"
+      },
+      {
+        "Level": 68,
+        "Move": "MOVE_SHORE_UP"
       }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_EARTHQUAKE",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_AGILITY",
@@ -66395,6 +66435,10 @@
         "Move": "MOVE_STOMP"
       },
       {
+        "Level": 30,
+        "Move": "MOVE_DOUBLE_KICK"
+      },
+      {
         "Level": 34,
         "Move": "MOVE_TEETER_DANCE"
       },
@@ -66403,8 +66447,16 @@
         "Move": "MOVE_AROMATIC_MIST"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_JUMP_KICK"
+      },
+      {
         "Level": 46,
         "Move": "MOVE_LEAF_STORM"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_ROLLING_KICK"
       },
       {
         "Level": 58,
@@ -71643,9 +71695,24 @@
     "TutorMoves": []
   },
   "GRAPPLOCT": {
-    "LevelMoves": [],
+    "LevelMoves": [      
+    {
+      "Level": 1,
+      "Move": "MOVE_AQUA_JET"
+    },
+    {
+      "Level": 32,
+      "Move": "MOVE_CRABHAMMER"
+    },
+    {
+      "Level": 86,
+      "Move": "MOVE_SURGING_STRIKES"
+    }
+  ],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_WATERFALL"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -72836,6 +72903,10 @@
         "Move": "MOVE_BULK_UP"
       },
       {
+        "Level": 22,
+        "Move": "MOVE_BULLET_PUNCH"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_ENDURE"
       },
@@ -72852,6 +72923,10 @@
         "Move": "MOVE_NO_RETREAT"
       },
       {
+        "Level": 42,
+        "Move": "MOVE_SMART_STRIKE"
+      },
+      {
         "Level": 45,
         "Move": "MOVE_IRON_DEFENSE"
       },
@@ -72866,6 +72941,10 @@
       {
         "Level": 60,
         "Move": "MOVE_COUNTER"
+      },
+      {
+        "Level": 80,
+        "Move": "MOVE_DOUBLE_IRON_BASH"
       }
     ],
     "PreEvoMoves": [],
@@ -97982,12 +98061,20 @@
         "Move": "MOVE_BITE"
       },
       {
+        "Level": 22,
+        "Move": "MOVE_PURSUIT"
+      },
+      {
         "Level": 24,
         "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 30,
         "Move": "MOVE_ROAR"
+      },
+      {
+        "Level": 33,
+        "Move": "MOVE_OBSTRUCT"
       },
       {
         "Level": 36,
@@ -97998,8 +98085,16 @@
         "Move": "MOVE_CRUNCH"
       },
       {
+        "Level": 46,
+        "Move": "MOVE_DARKEST_LARIAT"
+      },
+      {
         "Level": 48,
         "Move": "MOVE_SCARY_FACE"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_PUNISHMENT"
       },
       {
         "Level": 54,
@@ -98008,6 +98103,10 @@
       {
         "Level": 60,
         "Move": "MOVE_STONE_EDGE"
+      },
+      {
+        "Level": 68,
+        "Move": "MOVE_PARTING_SHOT"
       }
     ],
     "PreEvoMoves": [],
@@ -98068,7 +98167,8 @@
       "MOVE_DOUBLE_EDGE",
       "MOVE_ENDEAVOR",
       "MOVE_THROAT_CHOP",
-      "MOVE_UPPER_HAND"
+      "MOVE_UPPER_HAND",
+      "MOVE_EARTHQUAKE"
     ],
     "EggMoves": [
       "MOVE_ENDEAVOR",
@@ -98174,6 +98274,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_EARTHQUAKE",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_SCARY_FACE",

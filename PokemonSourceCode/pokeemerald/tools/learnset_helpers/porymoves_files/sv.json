@@ -10384,7 +10384,7 @@
       },
       {
         "Level": 70,
-        "Move": "MOVE_PLASMA_FIST"
+        "Move": "MOVE_PLASMA_FISTS"
       }
     ],
     "PreEvoMoves": [],
@@ -11529,7 +11529,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
-      "MOVE_TRASH",
+      "MOVE_THRASH",
       "MOVE_HEADLONG_RUSH",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
@@ -14179,7 +14179,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_IDRO_LOCK"
+        "Move": "MOVE_IDROLOCK"
       },
       {
         "Level": 37,
@@ -17472,7 +17472,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_FIRE_BURST"
+        "Move": "MOVE_FLAME_BURST"
       },
       {
         "Level": 1,
@@ -42666,14 +42666,14 @@
       },
       {
         "Level": 75,
-        "Move": "MOVE_PLASMA_FIST"
+        "Move": "MOVE_PLASMA_FISTS"
       }
     ],
     "PreEvoMoves": [
       "MOVE_MACH_PUNCH"
     ],
     "TMMoves": [
-      "MOVE_PLASMA_FIST",
+      "MOVE_PLASMA_FISTS",
       "MOVE_CLOSE_COMBAT",
       "MOVE_VOLT_TACKLE",
       "MOVE_SUPERCELL_SLAM",
@@ -49708,7 +49708,7 @@
       {
         "Level": 66,
         "Move": "MOVE_FISSURE"
-      },
+      }
     ],
     "PreEvoMoves": [],
     "TMMoves": [],
@@ -61446,7 +61446,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_FOREST\u2019S_CURSE"
+        "Move": "MOVE_FORESTS_CURSE"
       }
     ],
     "PreEvoMoves": [],
@@ -61568,7 +61568,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_FOREST\u2019S_CURSE"
+        "Move": "MOVE_FORESTS_CURSE"
       }
     ],
     "PreEvoMoves": [],
