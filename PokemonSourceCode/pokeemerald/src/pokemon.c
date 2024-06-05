@@ -5307,6 +5307,42 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
+u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
+{
+    u16 learnedMoves[4];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    int i, j, k;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    
+
+        if (teachableLearnset[i] == MOVE_UNAVAILABLE)
+            break;
+
+
+            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
+                ;
+
+            if (j == MAX_MON_MOVES)
+            {
+                for (k = 0; k < numMoves && moves[k] != teachableLearnset[i]; k++)
+                    ;
+
+                if (k == numMoves)
+                    moves[numMoves++] = teachableLearnset[i];
+            }
+        
+    
+
+    return numMoves;
+}
+
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 {
     u8 numMoves = 0;
@@ -5362,7 +5398,47 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
     return numMoves;
 }
+u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
+{
+    u16 learnedMoves[MAX_MON_MOVES];
+    u16 moves[MAX_LEVEL_UP_MOVES];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    int i, j, k;
 
+    if (species == SPECIES_EGG)
+        return 0;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+    {
+        if (teachableLearnset[i] == LEVEL_UP_MOVE_END)
+            break;
+
+
+
+
+        
+            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
+                ;
+
+            if (j == MAX_MON_MOVES)
+            {
+                for (k = 0; k < numMoves && moves[k] != teachableLearnset[i]; k++)
+                    ;
+
+                if (k == numMoves)
+                    moves[numMoves++] = teachableLearnset[i];
+            }
+    }
+
+
+    return numMoves;
+}
 u16 SpeciesToPokedexNum(u16 species)
 {
     if (IsNationalPokedexEnabled())
