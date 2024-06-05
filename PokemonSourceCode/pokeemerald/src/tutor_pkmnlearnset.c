@@ -157,16 +157,16 @@ enum {
 #define GFXTAG_UI       5525
 #define PALTAG_UI       5526
 
-#define MAX_Tutor_MOVES max(MAX_LEVEL_UP_MOVES, 25)
+
 
 static EWRAM_DATA struct
 {
     u8 state;
     u8 heartSpriteIds[16];                               /*0x001*/
-    u16 movesToLearn[MAX_Tutor_MOVES];               /*0x01A*/
+    u16 movesToLearn[MAX_TUTOR_MOVES];                   /*0x01A*/
     u8 partyMon;                                         /*0x044*/
     u8 moveSlot;                                         /*0x045*/
-    struct ListMenuItem menuItems[MAX_Tutor_MOVES];  /*0x0E8*/
+    struct ListMenuItem menuItems[MAX_TUTOR_MOVES];      /*0x0E8*/
     u8 numMenuChoices;                                   /*0x110*/
     u8 numToShowAtOnce;                                  /*0x111*/
     u8 moveListMenuTask;                                 /*0x112*/

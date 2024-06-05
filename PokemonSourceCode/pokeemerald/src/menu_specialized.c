@@ -34,7 +34,7 @@ static void MailboxMenu_MoveCursorFunc(s32, bool8, struct ListMenu *);
 static void ConditionGraph_CalcRightHalf(struct ConditionGraph *);
 static void ConditionGraph_CalcLeftHalf(struct ConditionGraph *);
 static void MoveRelearnerCursorCallback(s32, bool8, struct ListMenu *);
-static void MoveTutorCursorCallback(bool8 onInit, struct ListMenu *list)
+static void MoveTutorCursorCallback(s32, bool8, struct ListMenu *);
 static void MoveRelearnerDummy(void);
 static void SetNextConditionSparkle(struct Sprite *);
 static void SpriteCB_ConditionSparkle(struct Sprite *);
@@ -947,7 +947,7 @@ static void MoveTutorLoadBattleMoveDescription(u32 chosenMove)
     FillWindowPixelBuffer(TUTORWIN_DESC_BATTLE, PIXEL_FILL(1));
     str = gText_MoveRelearnerBattleMoves;
     x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 128);
-    AddTextPrinterParameterized(TUTORWIN_DESC_BATTLE FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(TUTORWIN_DESC_BATTLE, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerPP;
     AddTextPrinterParameterized(TUTORWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 41, TEXT_SKIP_DRAW, NULL);

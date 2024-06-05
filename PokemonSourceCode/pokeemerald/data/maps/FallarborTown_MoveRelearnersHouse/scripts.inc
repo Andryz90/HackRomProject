@@ -105,7 +105,7 @@ FallarborTownTutor_EventScript::
 	goto_if_set FLAG_TEMP_1, FallarborTown_Tutor_EventScript_AskTeachMove
 	msgbox FallarborTown_Tutor_Text_ImTheMoveTutor, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_1
-	goto Tutor_EventScript_AskTeachMove
+	goto FallarborTown_Tutor_EventScript_AskTeachMove
 	end
 
 FallarborTown_Tutor_EventScript_AskTeachMove::
@@ -125,10 +125,10 @@ FallarborTown_TutorHouse_EventScript_ChooseMon::
 	special IsSelectedMonEgg
 	goto_if_eq VAR_RESULT, TRUE, FallarborTown_Tutor_EventScript_CantTeachEgg
 	goto_if_eq VAR_0x8005, 0, FallarborTown_Tutor_EventScript_NoMoveToTeachMon
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove
+	goto FallarborTown_Tutor_EventScript_ChooseMove
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove::
+FallarborTown_Tutor_EventScript_ChooseMove::
 	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
 	special TeachTutorMove
 	waitstate
@@ -149,10 +149,10 @@ FallarborTown_Tutor_EventScript_CantTeachEgg::
 	end
 
 FallarborTown_Tutor_EventScript_ComeBackWithHeartScale::
-	msgbox FallarborTown_Tutor_EventScript_ComeBackWithHeartScale, MSGBOX_DEFAULT
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
 	releaseall
 	end
 
 FallarborTown_Tutor_Text_ImTheMoveTutor:
-	.string "Yeah, I'm the same as\p the other guy"
+	.string "Yeah, I'm the same as the other guy\n"
 	.string "but for Tutor moves.$"
