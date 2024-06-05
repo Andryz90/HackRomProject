@@ -3583,6 +3583,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_MAT_BLOCK;
                     gProtectStructs[gBattlerTarget].spikyShielded = FALSE;
                     gProtectStructs[gBattlerTarget].kingsShielded = FALSE;
+                    gProtectStructs[gBattlerTarget].shieldGuarded = FALSE;
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
@@ -5483,6 +5484,14 @@ static void Cmd_moveend(void)
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].shieldGuarded) {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_DEF_PLUS_1; //theoretically the def raise should apply on the pokemon that used the move
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+
                 }
                 else if (gProtectStructs[gBattlerTarget].banefulBunkered)
                 {
@@ -10956,6 +10965,11 @@ static void Cmd_setprotectlike(void)
             else if (gCurrentMove == MOVE_KINGS_SHIELD)
             {
                 gProtectStructs[gBattlerAttacker].kingsShielded = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
+            else if (gCurrentMove == MOVE_SHIELD_GUARD)
+            {
+                gProtectStructs[gBattlerAttacker].shieldGuarded = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
             else if (gCurrentMove == MOVE_BANEFUL_BUNKER)

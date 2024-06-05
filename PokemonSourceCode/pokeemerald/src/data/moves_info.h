@@ -17207,7 +17207,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .metronomeBanned = TRUE,
         .instructBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_RECHARGE,
+            .moveEffect = MOVE_EFFECT_THRASH,
             .self = TRUE,
         }),
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
@@ -18021,7 +18021,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -21086,8 +21086,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
     },
-        // Custom Moves
-        [MOVE_COMBO_PUNCH] =
+    // Custom Moves
+    [MOVE_COMBO_PUNCH] =
     {
         .name = COMPOUND_STRING("Combo Punch"),
         .description = COMPOUND_STRING("Hits as many times as\n"
@@ -21107,7 +21107,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_FOCUS_ENERGY},
     },
-        [MOVE_POISON_DRAIN] =
+    [MOVE_POISON_DRAIN] =
     {
         .name = COMPOUND_STRING("Poison Drain"),
         .description = sMegaDrainDescription,
@@ -21129,5 +21129,120 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_GROWTH},
     },
-
+    [MOVE_DETERIO] =
+    {
+        .name = COMPOUND_STRING("Deterio"),
+        .description = COMPOUND_STRING("Supereffective on steel type."),
+        .power = 80,
+        .pp = 10,
+        .effect = EFFECT_DETERIO,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_POISON,
+            .chance = 10,
+        }),
+        .ignoresKingsRock = (B_UPDATED_MOVE_FLAGS == GEN_3 || B_UPDATED_MOVE_FLAGS == GEN_4),
+        .contestEffect = CONTEST_EFFECT_STARTLE_PREV_MON,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH},
+    },
+    [MOVE_SNOW_SLIDE] =
+    {
+        .name = COMPOUND_STRING("Snow Slide"),
+        .description = COMPOUND_STRING(
+            "Large frozen boulders are hurled.\n"
+            "May cause flinching."),
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_ICE,
+        .accuracy = 90,
+        .pp = 10,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_FLINCH,
+            .chance = 30,
+        }),
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_ROCK_THROW},
+    },
+    [MOVE_POISON_DRILL] =
+    {
+        .name = COMPOUND_STRING("Poison Drill"),
+        .description = COMPOUND_STRING(
+            "Charge the enemy with its drill\n"
+            "filled with poison. May toxic."),
+        .effect = EFFECT_HIT,
+        .power = 95,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 5,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_TOXIC,
+            .chance = 30,
+        }),
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
+    [MOVE_TECTONIC_POWER] =
+    {
+        .name = COMPOUND_STRING("Tectionic Power"),
+        .description = COMPOUND_STRING(
+            "Makes the ground shake and erupt\n"
+            "with power. May lower Sp. Def."),
+        .effect = EFFECT_HIT,
+        .power = 95,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .skyBattleBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SP_DEF_MINUS_1,
+            .chance = 10,
+        }),
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
+    [MOVE_SHIELD_GUARD] =
+    {
+        .name = HANDLE_EXPANDED_MOVE_NAME("Shld Guard", "Shield Guard"),
+        .description = COMPOUND_STRING(
+            "Evades damage, and slightly\n"
+            "reduces Defense if struck."),
+        .effect = EFFECT_PROTECT,
+        .power = 0,
+        .type = TYPE_FIGHTING,
+        .accuracy = 0,
+        .pp = 10,
+        .target = MOVE_TARGET_USER,
+        .priority = 4,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .instructBanned = TRUE,
+        .assistBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_AVOID_STARTLE,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
 };

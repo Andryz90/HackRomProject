@@ -8391,6 +8391,8 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return TRUE;
     else if (gProtectStructs[battler].kingsShielded && gMovesInfo[move].power != 0)
         return TRUE;
+    else if (gProtectStructs[battler].shieldGuarded && gMovesInfo[move].power != 0)
+        return TRUE;
     else if (gProtectStructs[battler].maxGuarded)
         return TRUE;
     else if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_QUICK_GUARD

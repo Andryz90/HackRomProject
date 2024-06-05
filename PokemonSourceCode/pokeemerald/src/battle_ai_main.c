@@ -3666,7 +3666,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
             {
                 ADJUST_SCORE(GOOD_EFFECT);
                 break;
-            }
+            }    
             //fallthrough
         default: // protect
             ProtectChecks(battlerAtk, battlerDef, move, predictedMove, &score);
