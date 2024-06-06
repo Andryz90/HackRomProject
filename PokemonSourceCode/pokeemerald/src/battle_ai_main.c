@@ -852,6 +852,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 case EFFECT_WILL_O_WISP:
                 case EFFECT_TOXIC:
                 case EFFECT_LEECH_SEED:
+                case EFFECT_HOARFROST:
                     ADJUST_SCORE(-5);
                     break;
                 case EFFECT_CURSE:
@@ -1051,7 +1052,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_HIT: // only applies to Vital Throw
             if (gMovesInfo[move].priority < 0 && AI_STRIKES_FIRST(battlerAtk, battlerDef, move) && aiData->hpPercents[battlerAtk] < 40)
                 ADJUST_SCORE(-2);    // don't want to move last
-            break;
+                break;
         default:
             break;  // check move damage
         case EFFECT_SLEEP:
@@ -1738,6 +1739,10 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (B_MENTAL_HERB >= GEN_5 && aiData->holdEffects[battlerDef] == HOLD_EFFECT_MENTAL_HERB)
                 ADJUST_SCORE(-6);
             break;
+        case EFFECT_HOARFROST:
+            if(!AI_CanGiveFrostbite(battlerAtk, battlerDef, aiData->abilities[battlerDef], BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
+                ADJUST_SCORE(-10);
+            break;
         case EFFECT_WILL_O_WISP:
             if (!AI_CanBurn(battlerAtk, battlerDef, aiData->abilities[battlerDef], BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
@@ -2330,6 +2335,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_DETERIO:
+            if ((gBattleMons[battlerDef].type1 == TYPE_STEEL || gBattleMons[battlerDef].type2 == TYPE_STEEL))
+                ADJUST_SCORE(GOOD_EFFECT);
         case EFFECT_ION_DELUGE:
             if (gFieldStatuses & STATUS_FIELD_ION_DELUGE
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
@@ -3508,7 +3516,8 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
           || HasMoveEffect(battlerDef, EFFECT_PARALYZE)
           || HasMoveEffect(battlerDef, EFFECT_WILL_O_WISP)
           || HasMoveEffect(battlerDef, EFFECT_CONFUSE)
-          || HasMoveEffect(battlerDef, EFFECT_LEECH_SEED))
+          || HasMoveEffect(battlerDef, EFFECT_LEECH_SEED)
+          || HasMoveEffect(battlerDef, EFFECT_HOARFROST))
             ADJUST_SCORE(GOOD_EFFECT);
         if (!gBattleMons[battlerDef].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION && aiData->hpPercents[battlerAtk] > 70))
             ADJUST_SCORE(WEAK_EFFECT);
@@ -3891,6 +3900,9 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         break;
     case EFFECT_WILL_O_WISP:
         IncreaseBurnScore(battlerAtk, battlerDef, move, &score);
+        break;
+    case EFFECT_HOARFROST:
+        IncreaseFrostbiteScore(battlerAtk, battlerDef, move, &score);
         break;
     case EFFECT_FOLLOW_ME:
         if (isDoubleBattle
@@ -4780,6 +4792,7 @@ static s32 AI_SetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_TORMENT:
     case EFFECT_FLATTER:
     case EFFECT_WILL_O_WISP:
+    case EFFECT_HOARFROST:
     case EFFECT_INGRAIN:
     case EFFECT_IMPRISON:
     case EFFECT_TICKLE:

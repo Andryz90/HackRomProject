@@ -9927,3 +9927,13 @@ BattleScript_Formation::
 	call BattleScript_AbilityPopUp
 	return
 	
+BattleScript_Putifying_Water::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	jumpiftype BS_TARGET, TYPE_WATER, BattleScript_EffectSoftboiled
+	jumpifnottype BS_TARGET, TYPE_WATER, BattleScript_EffectHit
+	goto BattleScript_MoveEnd

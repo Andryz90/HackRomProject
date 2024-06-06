@@ -7165,6 +7165,10 @@
         "Move": "MOVE_BRINE"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 39,
         "Move": "MOVE_HYPER_VOICE"
       },
@@ -7195,6 +7199,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_SCALD",
       "MOVE_THUNDER",
       "MOVE_TAKE_DOWN",
@@ -10870,6 +10875,10 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_GROWL"
       },
       {
@@ -14189,7 +14198,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_IDROLOCK"
+        "Move": "MOVE_WATER_FANGS"
       },
       {
         "Level": 37,
@@ -33392,6 +33401,10 @@
         "Move": "MOVE_ICE_FANG"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 47,
         "Move": "MOVE_SNOWSCAPE"
       },
@@ -41979,6 +41992,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_MUD_SLAP",
       "MOVE_PROTECT",
@@ -42086,6 +42100,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_FRENZY_PLANT",
       "MOVE_FREEZE_DRY",
       "MOVE_TAKE_DOWN",
@@ -43279,6 +43294,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_FAKE_TEARS",
@@ -43547,6 +43563,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_MUD_SLAP",
@@ -44331,6 +44348,10 @@
       {
         "Level": 40,
         "Move": "MOVE_SNOWSCAPE"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 47,
@@ -53551,6 +53572,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_WATERFALL",
       "MOVE_LIQUIDATION",
       "MOVE_TAKE_DOWN",
@@ -53665,6 +53687,10 @@
       {
         "Level": 28,
         "Move": "MOVE_SLASH"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 32,
@@ -73393,6 +73419,10 @@
         "Move": "MOVE_DEFOG"
       },
       {
+        "Level": 19,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 21,
         "Move": "MOVE_FEATHER_DANCE"
       },
@@ -86546,6 +86576,10 @@
         "Move": "MOVE_SNOWSCAPE"
       },
       {
+        "Level": 75,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 77,
         "Move": "MOVE_HYDRO_PUMP"
       },
@@ -86562,6 +86596,7 @@
       "MOVE_ELECTRIC_TERRAIN"
     ],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_AGILITY",
       "MOVE_PROTECT",
@@ -91125,6 +91160,10 @@
       },
       {
         "Level": 24,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 26,
         "Move": "MOVE_AURORA_BEAM"
       },
       {
@@ -91145,7 +91184,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_AURORA_VEIL"
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 48,
@@ -91158,6 +91197,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_FAKE_TEARS",
@@ -91284,6 +91324,7 @@
       }
     ],
     "PreEvoMoves": [
+      "MOVE_HOARFROST",
       "MOVE_DISABLE",
       "MOVE_MIST",
       "MOVE_ICE_BEAM",
@@ -93173,7 +93214,7 @@
     "LevelMoves": [      
       {
       "Level": 0,
-      "Move": "MOVE_SHIELD_GUARD"
+      "Move": "MOVE_ROYAL_GUARD"
     },
     {
       "Level": 40,
@@ -97292,6 +97333,10 @@
       {
         "Level": 55,
         "Move": "MOVE_UPROAR"
+      },
+      {
+        "Level": 60,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "PreEvoMoves": [],

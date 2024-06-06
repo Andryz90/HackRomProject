@@ -467,8 +467,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "Cuts the foe with sharp\n"
             "scythes, claws, etc."),
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 60,
+        .type = TYPE_BUG,
         .accuracy = 95,
         .pp = 30,
         .target = MOVE_TARGET_SELECTED,
@@ -476,6 +476,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .slicingMove = TRUE,
+        .criticalHitStage = 1,
         .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_MONS_WITH_GOOD_APPEALS,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
@@ -1786,7 +1787,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "then slams the foe."),
         .effect = EFFECT_HIT,
         .power = 80,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FIGHT,
         .accuracy = 100,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
@@ -3655,13 +3656,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "Looses a powerful blast of\n"
             "light that cuts accuracy."),
         .effect = EFFECT_ACCURACY_DOWN,
-        .power = 0,
-        .type = TYPE_NORMAL,
+        .power = 50,
+        .type = TYPE_ELECTRIC,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_4 ? 100 : 70,
         .pp = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_STATUS,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .zMove = { .effect = Z_EFFECT_EVSN_UP_1 },
         .magicCoatAffected = TRUE,
         .contestEffect = CONTEST_EFFECT_SHIFT_JUDGE_ATTENTION,
@@ -3857,7 +3858,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = 95,
         .pp = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -13936,7 +13937,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .effect = EFFECT_HIT,
         .power = 90,
         .type = TYPE_FAIRY,
-        .accuracy = 90,
+        .accuracy = 95,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -21159,7 +21160,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_ICE,
-        .accuracy = 90,
+        .accuracy = 95,
         .pp = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -21219,9 +21220,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestComboStarterId = 0,
         .contestComboMoves = {0}
     },
-    [MOVE_SHIELD_GUARD] =
+    [MOVE_ROYAL_GUARD] =
     {
-        .name = HANDLE_EXPANDED_MOVE_NAME("Shld Guard", "Shield Guard"),
+        .name = HANDLE_EXPANDED_MOVE_NAME("Shield Guard", "Shield Guard"),
         .description = COMPOUND_STRING(
             "Evades damage, and slightly\n"
             "reduces Defense if struck."),
@@ -21242,6 +21243,171 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .assistBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_AVOID_STARTLE,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
+    [MOVE_IRON_GRIP] =
+    {
+        .name = COMPOUND_STRING("Iron Grip"),
+        .description = COMPOUND_STRING(
+            "Traps and squeezes the\n"
+            "foe for "BINDING_TURNS" turns."),
+        .effect = EFFECT_HIT,
+        .power = 50,
+        .type = TYPE_STEEL,
+        .accuracy = 90,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_3,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_WRAP,
+        }),
+        .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_RAIN_DANCE},
+    },
+    [MOVE_SISMA] =
+    {
+        .name = COMPOUND_STRING("Sisma"),
+        .description = COMPOUND_STRING(
+            "A powerful quake, but has\n"
+            "no effect on flying foes."),
+        .effect = EFFECT_EARTHQUAKE,
+        .power = 100,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_3,
+        .damagesUnderground = TRUE,
+        .skyBattleBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = COMBO_STARTER_EARTHQUAKE,
+        .contestComboMoves = {0}
+    },
+    [MOVE_PIXIE_DRAIN] =
+    {
+        .name = COMPOUND_STRING("Pixie Drain"),
+        .description = COMPOUND_STRING(
+            "An attack that steals half\n"
+            "the damage inflicted."),
+        .effect = EFFECT_ABSORB,
+        .power = 75,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .ignoresKingsRock = (B_UPDATED_MOVE_FLAGS == GEN_3 || B_UPDATED_MOVE_FLAGS == GEN_4),
+        .healingMove = B_HEAL_BLOCKING >= GEN_6,
+        .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_GROWTH},
+    },
+    [MOVE_WATER_FANGS] =
+    {
+        .name = COMPOUND_STRING("Water Fangs"),
+        .description = COMPOUND_STRING(
+            "Lock the target with the jaw.\n"
+            "May cause flinching."),
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_WATER,
+        .accuracy = 95,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .bitingMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS(
+        {
+            .moveEffect = MOVE_EFFECT_FLINCH,
+            .chance = 10,
+        }),
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = COMBO_STARTER_FIRE_FANG,
+        .contestComboMoves = {COMBO_STARTER_ICE_FANG, COMBO_STARTER_THUNDER_FANG},
+    },
+        [MOVE_PIXIE_FANGS] =
+    {
+        .name = COMPOUND_STRING("Pixie Fangs"),
+        .description = COMPOUND_STRING(
+            "Lock the target with the jaw.\n"
+            "May cause flinching."),
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_FAIRY,
+        .accuracy = 95,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .bitingMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS(
+        {
+            .moveEffect = MOVE_EFFECT_FLINCH,
+            .chance = 10,
+        }),
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = COMBO_STARTER_FIRE_FANG,
+        .contestComboMoves = {COMBO_STARTER_ICE_FANG, COMBO_STARTER_THUNDER_FANG},
+    },
+    [MOVE_HOARFROST] =
+    {
+        .name = COMPOUND_STRING("Hoarfrost"),
+        .description = COMPOUND_STRING(
+            "Inflicts frostbite status on the foe\n"
+            "with cold water."),
+        .effect = EFFECT_HOARFROST,
+        .power = 0,
+        .type = TYPE_ICE,
+        .accuracy = 85,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .additionalEffects = ADDITIONAL_EFFECTS(
+        {
+            .moveEffect = MOVE_EFFECT_FROSTBITE,
+            .chance = 100,
+        }),
+        .zMove = { .effect = Z_EFFECT_ATK_UP_1 },
+        .magicCoatAffected = TRUE,
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_SUNNY_DAY},
+    },
+    [MOVE_PURIFYING_WATER] =
+    {
+        .name = HANDLE_EXPANDED_MOVE_NAME("Purify Water", "Purifying Water"),
+        .description = COMPOUND_STRING(
+            "Damage on foes, but\n"
+            "restores water Pokemon's HP."),
+        .effect = EFFECT_PURIFYING_WATER,
+        .power = 70,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .ballisticMove = TRUE,
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
         .contestComboStarterId = 0,
         .contestComboMoves = {0}
     },

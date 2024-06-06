@@ -14189,7 +14189,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_IDROLOCK"
+        "Move": "MOVE_WATER_FANGS"
       },
       {
         "Level": 37,
@@ -93173,7 +93173,7 @@
     "LevelMoves": [      
       {
       "Level": 0,
-      "Move": "MOVE_SHIELD_GUARD"
+      "Move": "MOVE_ROYAL_GUARD"
     },
     {
       "Level": 40,

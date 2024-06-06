@@ -1807,6 +1807,7 @@ static void Cmd_accuracycheck(void)
     }
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
         || ((gMovesInfo[move].windMove == TRUE) && (gSideStatuses[side] & SIDE_STATUS_TAILWIND)) //Wind moves skip accuracy check if Tailwind is active
+        || ((move == MOVE_LOVELY_KISS || move == MOVE_SWEET_KISS) && abilityAtk == ABILITY_CUTE_CHARM) // If you have Cute Charm skip the accuracy for kisses moves
         ||(gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
         || !(gMovesInfo[move].effect == EFFECT_TRIPLE_KICK || gMovesInfo[move].effect == EFFECT_POPULATION_BOMB)))) 
@@ -10967,7 +10968,7 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].kingsShielded = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
-            else if (gCurrentMove == MOVE_SHIELD_GUARD)
+            else if (gCurrentMove == MOVE_ROYAL_GUARD)
             {
                 gProtectStructs[gBattlerAttacker].shieldGuarded = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
