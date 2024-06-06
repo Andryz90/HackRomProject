@@ -1987,7 +1987,7 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon)
             break;                                      \
         }                                               \
         break;                                          \
-    }
+    }                                                                   \
 
 static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 substructType)
 {

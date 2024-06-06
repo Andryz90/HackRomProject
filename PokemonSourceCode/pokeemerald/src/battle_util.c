@@ -9659,16 +9659,21 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
 static inline uq4_12_t GetFalinksModifier (u32 battlerAtk) {
     u8 rolls [4] = {0.8, 0.75, 0.6, 0.5};
     u8 delta_hit;
-
-    delta_hit = ptr_multihit - gMultiHitCounter;
-    if (delta_hit > 4)
-    {
-        delta_hit = 4;
+    if (gBattleMons[battlerAtk].ability == ABILITY_FORMATION){
+        delta_hit = ptr_multihit - gMultiHitCounter;
+        if (delta_hit > 4)
+        {
+            delta_hit = 4;
+        }
+        if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_STARTED)
+           return UQ_4_12(1.0);
+        if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS) {
+            return UQ_4_12(rolls[delta_hit - 1]);
+        } 
     }
-    if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_STARTED)
-       return UQ_4_12(1.0);
-    if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS) {
-        return UQ_4_12(rolls[delta_hit - 1]);
+    else 
+    {
+        return UQ_4_12(1.0);
     }
 }
 static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveType, u32 move, u32 abilityAtk)
