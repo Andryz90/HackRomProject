@@ -881,11 +881,18 @@ gBattleAnims_Moves::
 	.4byte Move_SNOW_SLIDE
 	.4byte Move_POISON_DRILL
 	.4byte Move_TECTONIC_POWER
-	.4byte MOVE_ROYAL_GUARD
-	.4byte Move_IRON_GRIP
-	.4byte MOVE_SISMA
+	.4byte Move_ROYAL_GUARD
+	.4byte Move_PIXIE_DRAIN
+	.4byte Move_WATER_FANGS
+	.4byte Move_SISMA
 	.4byte Move_HOARFROST
-	.4byte MOVE_PURIFYING_WATER
+	.4byte Move_PURIFYING_WATER
+	.4byte Move_WINDSOM_OF_CHANGE
+	.4byte Move_REWIND 
+	.4byte Move_SEASON_POWER 
+	.4byte Move_PIXIE_FANGS 
+	.4byte Move_IRON_GRIP
+
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -29981,7 +29988,6 @@ HydroVortexWhirlpoolHurricane:
 	delay 0x2
 	return
 
-
 Move_BLOOM_DOOM::
 	loadspritegfx ANIM_TAG_FLOWER @petal
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge
@@ -34499,11 +34505,12 @@ Move_G_MAX_GOLD_RUSH:
 	goto Move_PAY_DAY
 	end
 
+@@@ Custom Moves
 
-Move_COMBO_PUNCH:
+Move_COMBO_PUNCH::
 	goto Move_COMET_PUNCH
 
-Move_POISON_DRAIN:
+Move_POISON_DRAIN::
 	loadspritegfx ANIM_TAG_ORBS
 	loadspritegfx ANIM_TAG_BLUE_STAR
 	loadspritegfx ANIM_TAG_IMPACT
@@ -34534,8 +34541,8 @@ Move_POISON_DRAIN:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
-@@@ Custom Moves
-Move_Deterio:
+
+Move_Deterio::
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	call SludgeBombProjectile
 	call SludgeBombProjectile
@@ -34581,11 +34588,10 @@ Move_Deterio:
 	waitforvisualfinish
 	end
 
-Move_SNOW_SLIDE:
+Move_SNOW_SLIDE::
 	goto Move_AVALANCHE
-	end
-
-Move_POISON_DRILL:
+	
+Move_POISON_DRILL::
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_DEF_PARTNER
@@ -34638,7 +34644,7 @@ DrillInContest:
 	createvisualtask AnimTask_StartSlidingBg, 5, -2304, 768, 1, -1
 	end
 
-Move_TECTONIC_POWER:
+Move_TECTONIC_POWER::
 	loadspritegfx ANIM_TAG_MUD_SAND
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	loadspritegfx ANIM_TAG_FIRE_PLUME
@@ -34677,37 +34683,44 @@ Move_TECTONIC_POWER:
 	createsprite gSlideMonToOriginalPosSpriteTemplate, 194, 3, 0, 0, 4
 	waitforvisualfinish
 	end
-
-MOVE_ROYAL_GUARD:
+Move_ROYAL_GUARD::
 	goto Move_KINGS_SHIELD
+
+Move_PIXIE_DRAIN::
+	loadspritegfx ANIM_TAG_PINK_HEART
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_RED_HEART
+	loadspritegfx ANIM_TAG_ANGEL
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 12, RGB(31,24,25)
+	waitforvisualfinish
+	createsprite gAngelSpriteTemplate, ANIM_TARGET, 2, 16, -48
+	playsewithpan SE_M_HEAL_BELL, SOUND_PAN_TARGET
+	delay 15
+	playsewithpan SE_M_HEAL_BELL, SOUND_PAN_TARGET
+	delay 15
+	playsewithpan SE_M_HEAL_BELL, SOUND_PAN_TARGET
+	waitforvisualfinish
+	playsewithpan SE_M_ABSORB, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
+	delay 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	waitforvisualfinish
+	delay 3
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 12, 0, RGB(31,24,25)
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end
 
-Move_IRON_GRIP:
-	goto Move_CLAMP
-	end
-MOVE_SISMA:
-	loadspritegfx ANIM_TAG_MUD_SAND
-	playsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET
-	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_RIGHT, 10, 50
-	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 10, 50
-	playsewithpan SE_M_EARTHQUAKE, 0
-	delay 10
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	delay 16
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	call FissureDirtPlumeFar
-	delay 50
-	fadetobg BG_FISSURE
-	waitbgfadeout
-	createvisualtask AnimTask_PositionFissureBgOnBattler, 5, ANIM_TARGET, 5, -1
-	waitbgfadein
-	delay 40
-	restorebg
-	waitbgfadeout
-	setarg 7, -1
-	waitbgfadein
-	end
-MOVE_WATER_FANGS:
+
+Move_WATER_FANGS:
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
@@ -34726,12 +34739,7 @@ MOVE_WATER_FANGS:
 	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 4, 0, -819, 10
 	playsewithpan SE_M_BITE, SOUND_PAN_TARGET
 	delay 10
-	waitforvisualfinish
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 2
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 7, 1
-	call WaterBubblesEffectShort
-	delay 4
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 23, 1
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 0, 9, 0, RGB_BLUE
 	waitforvisualfinish
@@ -34739,7 +34747,182 @@ MOVE_WATER_FANGS:
 	blendoff
 	delay 1
 	end
-MOVE_PIXIE_FANGS:
+
+Move_SISMA:
+	loadspritegfx ANIM_TAG_MUD_SAND
+	playsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_RIGHT, 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 8
+	call FissureDirtPlumeFar
+	delay 15
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 15
+	call FissureDirtPlumeClose
+	delay 15
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 15
+	call FissureDirtPlumeFar
+	delay 15
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 15
+	call FissureDirtPlumeClose
+	delay 50
+	fadetobg BG_FISSURE
+	waitbgfadeout
+	createvisualtask AnimTask_PositionFissureBgOnBattler, 5, ANIM_TARGET, 5, -1
+	call FissureDirtPlumeFar
+	delay 15
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 15
+	call FissureDirtPlumeClose
+	call FissureDirtPlumeFar
+	delay 15
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 15
+	call FissureDirtPlumeClose
+	waitbgfadein
+	delay 40
+	restorebg
+	waitbgfadeout
+	setarg 7, -1
+	waitbgfadein
+	end
+
+Move_HOARFROST:
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_ICE_SPIKES
+	monbg ANIM_DEF_PARTNER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_ATK_SIDE, 4, 0, 4, RGB_BLACK
+	fadetobg BG_ICE
+	waitbgfadeout
+	playsewithpan SE_M_ICY_WIND, 0
+	waitbgfadein
+	waitforvisualfinish
+	panse SE_M_GUST, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	call IcyWindSwirlingSnowballs
+	delay 5
+	playsewithpan SE_M_GUST2, SOUND_PAN_TARGET
+	delay 45
+	call IceSpikesEffectLong
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	restorebg
+	waitbgfadeout
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_ATK_SIDE, 4, 4, 0, RGB_BLACK
+	waitbgfadein
+	call Status_Freeze
+
+Move_PURIFYING_WATER::
+	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createvisualtask AnimTask_WaterSpoutLaunch, 5
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	delay 44
+	playsewithpan SE_M_DIVE, -64
+	waitforvisualfinish
+	delay 16
+	createvisualtask AnimTask_WaterSpoutRain, 5
+	playsewithpan SE_M_SURF, +63
+	clearmonbg ANIM_DEF_PARTNER
+	waitforvisualfinish
+	blendoff
+	createvisualtask AnimTask_IsTargetWaterType, 1
+	jumpargeq 7, 1, WaterHealing
+	blendoff
+	end
+WaterHealing:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	call HealingEffect2
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_WINDSOM_OF_CHANGE::
+	loadspritegfx ANIM_TAG_WHITE_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_GUST
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS @crabhammer bubbles
+	loadspritegfx ANIM_TAG_WATER_ORB @whirlpool
+	fadetobg BG_WATER_PULSE
+	waitbgfadeout
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_ATTACKER, 8, 60
+	playsewithpan SE_M_WHIRLPOOL, SOUND_PAN_TARGET
+	createsprite gHydroVortexHurricaneSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff0
+	createsprite gHydroVortexImpactSpriteTemplate, ANIM_ATTACKER, 3, 0xfff6, 0xfff8, 0x1, 0x1
+	createvisualtask AnimTask_AnimateGustTornadoPalette, 0x5, 0x1, 0x46
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x1c, 0x180, 0x32, 0x8, 0x32, 0x1
+	delay 0x2
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x20, 0xf0, 0x28, 0xb, 0xffd2, 0x1
+	delay 0x2
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x21, 0x1a0, 0x28, 0x4, 0x2a, 0x1
+	delay 0x2
+	createsprite gHydroVortexImpactSpriteTemplate, ANIM_ATTACKER, 3, 0xa, 0xfff8, 0x1, 0x1
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x1f, 0x120, 0x2d, 0x6, 0xffd6, 0x1
+	delay 0x2
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x1c, 0x1c0, 0x2d, 0xb, 0x2e, 0x1
+	createsprite gHydroVortexHurricaneSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff0
+	createvisualtask AnimTask_AnimateGustTornadoPalette, 0x5, 0x1, 0x46
+	delay 0x2
+	createsprite gWhirlpoolSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x21, 0x1d0, 0x32, 0xa, 0xffce, 0x1
+	delay 0x2
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, 0x4, 0x2, 0x10, 0x0, 0x5da0
+	blendoff
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	waitbgfadein
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	playsewithpan SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER
+	createsprite gLusterPurgeCircleSpriteTemplate, ANIM_ATTACKER, 41, 0, 0, 0, 0
+	delay 20
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 0, 16, RGB_WHITEALPHA
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_WHITE_CIRCLE_OF_LIGHT, 2, 0, 16, RGB_WHITEALPHA
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_IMPACT, 0, 12, 12, RGB(0, 0, 23)
+	waitforvisualfinish
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	delay 3
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	delay 3
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	delay 3
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	delay 3
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	delay 3
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, ANIM_TARGET, 2
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 16, 0, RGB_WHITEALPHA
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	call UnsetPsychicBg
+	end
+
+Move_REWIND::
+	goto Move_10000000_VOLT_THUNDERBOLT
+
+Move_SEASON_POWER::
+	goto Move_ACID_DOWNPOUR
+
+Move_PIXIE_FANGS:
 	loadspritegfx ANIM_TAG_PINK_HEART
 	loadspritegfx ANIM_TAG_SHARP_TEETH
 	loadspritegfx ANIM_TAG_IMPACT
@@ -34753,10 +34936,8 @@ MOVE_PIXIE_FANGS:
 	createsprite gPinkHeartSpriteTemplate, ANIM_TARGET, 3, 416, -38
 	createsprite gPinkHeartSpriteTemplate, ANIM_TARGET, 3, -128, -22
 	playsewithpan SE_M_ATTRACT, SOUND_PAN_TARGET
-	waitforvisualfinish
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 2
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 7, 1
-	waitforvisualfinish
+	delay 10
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 23, 1
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 0, 9, 0, RGB(31,24,25)
 	waitforvisualfinish
@@ -34764,42 +34945,9 @@ MOVE_PIXIE_FANGS:
 	blendoff
 	delay 1
 	end
-Move_HOARFROST:
-	loadspritegfx ANIM_TAG_ICE_CRYSTALS
-	loadspritegfx ANIM_TAG_ICE_SPIKES
-	monbg ANIM_DEF_PARTNER
-	playsewithpan SE_M_ICY_WIND, 0
-	waitforvisualfinish
-	panse SE_M_GUST, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
-	loadspritegfx ANIM_TAG_ICE_CUBE
-	createvisualtask AnimTask_FrozenIceCube, 2
-	waitplaysewithpan SE_M_HAIL, SOUND_PAN_TARGET, 17
-	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 9, 0, RGB(12, 26, 31)
-	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7, 0, RGB_BLACK
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
-	end
-MOVE_PURIFYING_WATER:
-	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
-	loadspritegfx ANIM_TAG_WATER_IMPACT
-	monbg ANIM_DEF_PARTNER
-	setalpha 12, 8
-	playsewithpan SE_M_DIVE, -64
-	waitforvisualfinish
-	delay 16
-	createvisualtask AnimTask_WaterSpoutRain, 5
-	playsewithpan SE_M_SURF, +63
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
-	jumpargeq 0x0, TYPE_WATER, WaterHealing
-	end
-WaterHealing:
-	clearmonbg ANIM_ATK_PARTNER
-	call HealingEffect2
-	end
+
+Move_IRON_GRIP:
+	goto Move_CLAMP
 
 @@@ DYNAMAX AND MAX RAIDS
 General_DynamaxGrowth:: @ PORTED FROM CFRU

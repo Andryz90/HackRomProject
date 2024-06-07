@@ -2232,12 +2232,17 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     },
     [EFFECT_HOARFROST] =
     {
-        .battleScript = BattleScript_EffectHit,
+        .battleScript = BattleScript_EffectHoarfrost,
         .battleTvScore = 1,
     },
     [EFFECT_PURIFYING_WATER] =
     {
         .battleScript = BattleScript_Putifying_Water,
+        .battleTvScore = 1,
+    },
+    [EFFECT_WINDSOM_OF_CHANGE] =
+    {
+        .battleScript = BattleScript_EffectWoC,
         .battleTvScore = 1,
     },
 };

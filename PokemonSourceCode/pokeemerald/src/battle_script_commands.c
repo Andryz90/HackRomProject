@@ -1808,6 +1808,7 @@ static void Cmd_accuracycheck(void)
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
         || ((gMovesInfo[move].windMove == TRUE) && (gSideStatuses[side] & SIDE_STATUS_TAILWIND)) //Wind moves skip accuracy check if Tailwind is active
         || ((move == MOVE_LOVELY_KISS || move == MOVE_SWEET_KISS) && abilityAtk == ABILITY_CUTE_CHARM) // If you have Cute Charm skip the accuracy for kisses moves
+        || (gMovesInfo[move].soundMove) //Sound moves should skip accuracy check
         ||(gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
         || !(gMovesInfo[move].effect == EFFECT_TRIPLE_KICK || gMovesInfo[move].effect == EFFECT_POPULATION_BOMB)))) 
