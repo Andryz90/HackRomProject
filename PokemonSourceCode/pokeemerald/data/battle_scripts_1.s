@@ -1651,22 +1651,11 @@ BattleScript_DefogTryHazardsWithAnim:
 
 	
 BattleScript_DefogWorks2:
-	attackstring
-	ppreduce
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogTryHazardsWithAnim2
-	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim2
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogTryHazardsWithAnim2
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogTryHazards2
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogTryHazards2
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_DefogPrintString2
-BattleScript_DefogTryHazardsWithAnim2::
-	attackanimation
-	waitanimation
-	goto BattleScript_DefogTryHazards2
-BattleScript_DefogDoAnim2::
-	attackanimation
-	waitanimation
-	setgraphicalstatchangevalues
-	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 BattleScript_DefogPrintString2::
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -1674,8 +1663,7 @@ BattleScript_DefogTryHazards2::
 	copybyte gEffectBattler, gBattlerAttacker
 	trydefog TRUE, NULL
 	copybyte gBattlerAttacker, gEffectBattler
-	goto BattleScript_EffectHit
-
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectCopycat::
 	attackcanceler
@@ -9987,6 +9975,17 @@ BattleScript_Putifying_Water::
 	
 BattleScript_EffectWoC::
 	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	call BattleScript_Hit_RetFromAtkAnimation
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, FALSE, BattleScript_EffectWoC_End
+	end
+BattleScript_EffectWoC_End:
 	setstatchanger STAT_ACC, 1, TRUE
 	jumpifsubstituteblocks BattleScript_DefogIfCanClearHazards
-	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MIN_STAT_STAGE, BattleScript_DefogWorks2
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_EVASION, MIN_STAT_STAGE, BattleScript_DefogWorks2
