@@ -20591,89 +20591,109 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_VINE_LASH] =
     {
-        .name = COMPOUND_STRING("G-Max Vine Lash"),
-        .description = sNullDescription,    //ANIM TODO
-        .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .name = COMPOUND_STRING("Vine Lash"),
+        .description = COMPOUND_STRING(
+            "Uses its vine to deal damage\n"
+            "and damage overtime foes side."
+        ),   
+        .effect = EFFECT_MAX_MOVE, //ANIM TODO
+        .power = 65,
         .type = TYPE_GRASS,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_VINE_LASH,
     },
 
     [MOVE_G_MAX_WILDFIRE] =
     {
-        .name = COMPOUND_STRING("G-Max Wildfire"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Wildfire"),
+        .description = COMPOUND_STRING(
+            "Uses its fury to deal damage\n"
+            "and damage overtime foes side."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_FIRE,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_WILDFIRE,
     },
 
     [MOVE_G_MAX_CANNONADE] =
     {
-        .name = COMPOUND_STRING("G-Max Canonade"),
-        .description = sNullDescription,    //ANIM TODO
+        .name = COMPOUND_STRING(" Canonade"),
+        .description = COMPOUND_STRING(
+            "Uses its cannon to deal damage\n"
+            "and damage overtime foes side."
+        ),   //ANIM TODO
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_WATER,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .pulseMove = TRUE,
         .argument = MAX_EFFECT_CANNONADE,
     },
 
     [MOVE_G_MAX_BEFUDDLE] =
     {
-        .name = COMPOUND_STRING("G-Max Befuddle"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Befuddle"),
+        .description = COMPOUND_STRING(
+            "Damage and apply a random\n"
+            "status except freeze."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_BUG,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_EFFECT_SPORE_FOES,
     },
 
     [MOVE_G_MAX_VOLT_CRASH] =
     {
-        .name = COMPOUND_STRING("G-Max Volt Crash"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Volt Crash"),
+        .description = COMPOUND_STRING(
+            "Damage with its body the\n."
+            "enemies, causing paralysis."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_ELECTRIC,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
+        .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_PARALYZE_FOES,
     },
 
     [MOVE_G_MAX_GOLD_RUSH] =
     {
-        .name = COMPOUND_STRING("G-Max Gold Rush"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Gold Rush"),
+        .description = COMPOUND_STRING(
+            "Damage with coins the\n."
+            "enemies, causing confusion."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_CONFUSE_FOES_PAY_DAY,
@@ -20681,175 +20701,217 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_CHI_STRIKE] =
     {
-        .name = COMPOUND_STRING("G-Max Chi Strike"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Chi Strike"),
+        .description = COMPOUND_STRING(
+            "Strike a succession of\n."
+            "punches, raising crit ratio."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_FIGHTING,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
+        .makesContact = TRUE,
+        .punchingMove = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_CRIT_PLUS,
     },
 
     [MOVE_G_MAX_TERROR] =
     {
-        .name = COMPOUND_STRING("G-Max Terror"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Max Terror"),
+        .description = COMPOUND_STRING(
+            "Scare the target making\n."
+            "it unable to switch."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_GHOST,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_MEAN_LOOK,
     },
 
     [MOVE_G_MAX_FOAM_BURST] =
     {
-        .name = COMPOUND_STRING("G-Max Foam Burst"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Foam Burst"),
+        .description = COMPOUND_STRING(
+            "Create an immense foam\n."
+            "that slow down the enemies."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_WATER,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
+        .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_SPEED_2_FOES,
     },
 
     [MOVE_G_MAX_RESONANCE] =
     {
-        .name = COMPOUND_STRING("G-Max Resonance"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Resonance"),
+        .description = COMPOUND_STRING(
+            "Deal damage and set\n."
+            "aurora veil if hailing."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_ICE,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_AURORA_VEIL,
     },
 
     [MOVE_G_MAX_CUDDLE] =
     {
-        .name = COMPOUND_STRING("G-Max Cuddle"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Max Cuddle"),
+        .description = COMPOUND_STRING(
+            "Cuddles the enemy make\n."
+            "it fall in love."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
+        .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_INFATUATE_FOES,
     },
 
     [MOVE_G_MAX_REPLENISH] =
     {
-        .name = COMPOUND_STRING("G-Max Replenish"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Replenish"),
+        .description = COMPOUND_STRING(
+            "Deals damage and restore\n"
+            "the berry if eaten."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
+        .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RECYCLE_BERRIES,
     },
 
     [MOVE_G_MAX_MALODOR] =
     {
-        .name = COMPOUND_STRING("G-Max Malodor"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Malodor"),
+        .description = COMPOUND_STRING(
+            "Deals damage and poison\n"
+            "the enemies with its smell."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_POISON,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_POISON_FOES,
     },
 
     [MOVE_G_MAX_MELTDOWN] =
     {
-        .name = COMPOUND_STRING("G-Max Meltdown"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Meltdown"),
+        .description = COMPOUND_STRING(
+            "Deals damage and prevents\n"
+            "the opponents to use the same move."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_STEEL,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .punchingMove = TRUE,
         .argument = MAX_EFFECT_TORMENT_FOES,
     },
 
     [MOVE_G_MAX_DRUM_SOLO] =
     {
-        .name = COMPOUND_STRING("G-Max Drum Solo"),
-        .description = sNullDescription,    //ANIM TODO
+        .name = COMPOUND_STRING("Drum Solo"),
+        .description = COMPOUND_STRING(
+            "Play the drum dealing\n"
+            "damag and ignoring ability."
+        ),    
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 90,
         .type = TYPE_GRASS,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
+        .soundMove = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
-        .argument = MAX_EFFECT_FIXED_POWER, //EFFECT TODO
+        .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
     },
 
     [MOVE_G_MAX_FIREBALL] =
     {
-        .name = COMPOUND_STRING("G-Max Fireball"),
-        .description = sNullDescription,    //ANIM TODO
+        .name = COMPOUND_STRING("Max Fireball"),
+        .description = COMPOUND_STRING(
+            "A fireball that ignores\n"
+            "the target's ability."
+        ),    
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 90,
         .type = TYPE_FIRE,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
-        .argument = MAX_EFFECT_FIXED_POWER, //EFFECT TODO
+        .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
     },
 
     [MOVE_G_MAX_HYDROSNIPE] =
     {
-        .name = COMPOUND_STRING("G-Max Hydrosnipe"),
-        .description = sNullDescription,    //ANIM TODO
+        .name = COMPOUND_STRING("Hydrosnipe"),
+        .description = COMPOUND_STRING(
+            "A perfect shot that\n"
+            "that lands critical hit."
+        ),    
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 65,
         .type = TYPE_WATER,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
-        .argument = MAX_EFFECT_FIXED_POWER, //EFFECT TODO
+        .alwaysCriticalHit = TRUE,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
     },
 
     [MOVE_G_MAX_WIND_RAGE] =
     {
-        .name = COMPOUND_STRING("G-Max Wind Rage"),
+        .name = COMPOUND_STRING("Wind Rage"),
         .description = sNullDescription,
         .effect = EFFECT_MAX_MOVE,
         .power = 10,
@@ -21423,6 +21485,26 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .ignoresSubstitute = TRUE,
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
+    [MOVE_SEASON_POWER] =
+    {
+        .name = COMPOUND_STRING("Season Power"),
+        .description = COMPOUND_STRING(
+            "The type varies with \n"
+            "the Season."),
+        .effect = EFFECT_CHANGE_TYPE,
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .metronomeBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
+        .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {0}
     },

@@ -731,7 +731,8 @@ void BS_SetMaxMoveEffect(void)
             }
             break;
         case MAX_EFFECT_AURORA_VEIL:
-            if (!(gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_AURORA_VEIL))
+            if (!(gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_AURORA_VEIL) 
+                && (gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW))) //Now checks the presence of the weather
             {
                 gSideStatuses[GetBattlerSide(gBattlerAttacker)] |= SIDE_STATUS_AURORA_VEIL;
                 if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LIGHT_CLAY)
@@ -829,7 +830,6 @@ void BS_SetMaxMoveEffect(void)
             }
             // fall through
         case MAX_EFFECT_CONFUSE_FOES:
-        case MAX_EFFECT_INFATUATE_FOES:
         case MAX_EFFECT_TORMENT_FOES:
         case MAX_EFFECT_MEAN_LOOK:
             BattleScriptPush(gBattlescriptCurrInstr + 1);

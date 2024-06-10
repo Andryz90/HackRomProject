@@ -5919,7 +5919,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 {
     u32 moveType, ateType, attackerAbility;
     u16 holdEffect = GetBattlerHoldEffect(battlerAtk, TRUE);
-
+    u8 ptype = gBattleMons[battlerAtk].type1
     if (move == MOVE_STRUGGLE)
         return;
 
@@ -5962,6 +5962,11 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     else if (gMovesInfo[move].effect == EFFECT_CHANGE_TYPE_ON_ITEM && holdEffect == gMovesInfo[move].argument)
     {
         gBattleStruct->dynamicMoveType = ItemId_GetSecondaryId(gBattleMons[battlerAtk].item) | F_DYNAMIC_TYPE_SET;
+    }
+    else if (gMovesInfo[move].effect == EFFECT_CHANGE_TYPE)
+    {
+        gBattleStruct->dynamicMoveType = ptype | F_DYNAMIC_TYPE_SET;
+
     }
     else if (gMovesInfo[move].effect == EFFECT_REVELATION_DANCE)
     {
@@ -6014,6 +6019,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
              && gMovesInfo[move].effect != EFFECT_HIDDEN_POWER
              && gMovesInfo[move].effect != EFFECT_WEATHER_BALL
              && gMovesInfo[move].effect != EFFECT_CHANGE_TYPE_ON_ITEM
+             && gMovesInfo[move].effect != EFFECT_CHANGE_TYPE
              && gMovesInfo[move].effect != EFFECT_NATURAL_GIFT
              && ((attackerAbility == ABILITY_PIXILATE && (ateType = TYPE_FAIRY))
                  || (attackerAbility == ABILITY_REFRIGERATE && (ateType = TYPE_ICE))

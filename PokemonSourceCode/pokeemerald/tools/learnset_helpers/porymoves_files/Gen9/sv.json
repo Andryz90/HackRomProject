@@ -292,6 +292,10 @@
       {
         "Level": 58,
         "Move": "MOVE_SOLAR_BEAM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VINE_LASH"
       }
     ],
     "PreEvoMoves": [],
@@ -626,6 +630,10 @@
       {
         "Level": 62,
         "Move": "MOVE_FLARE_BLITZ"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_WILDFIRE"
       }
     ],
     "PreEvoMoves": [],
@@ -977,6 +985,10 @@
       {
         "Level": 56,
         "Move": "MOVE_WAVE_CRASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CANNONADE"
       }
     ],
     "PreEvoMoves": [],
@@ -1061,6 +1073,10 @@
       {
         "Level": 44,
         "Move": "MOVE_TAILWIND"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_BEFUDDLE"
       }
     ],
     "PreEvoMoves": [],
@@ -1563,6 +1579,10 @@
       {
         "Level": 44,
         "Move": "MOVE_THUNDER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VOLT_CRASH"
       }
     ],
     "PreEvoMoves": [],
@@ -3949,6 +3969,10 @@
       {
         "Level": 44,
         "Move": "MOVE_PLAY_ROUGH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_GOLD_RUSH"
       }
     ],
     "PreEvoMoves": [],
@@ -5343,7 +5367,10 @@
     "TutorMoves": []
   },
   "MACHAMP": {
-    "LevelMoves": [],
+    "LevelMoves": [      {
+      "Level": 70,
+      "Move": "MOVE_G_MAX_CHI_STRIKE"
+    }],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -8083,6 +8110,10 @@
       {
         "Level": 60,
         "Move": "MOVE_DREAM_EATER"
+      }, 
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CHI_STRIKE"
       }
     ],
     "PreEvoMoves": [],
@@ -8475,6 +8506,10 @@
       {
         "Level": 58,
         "Move": "MOVE_METEOR_MASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FOAM_BURST"
       }
     ],
     "PreEvoMoves": [],
@@ -10936,6 +10971,10 @@
       {
         "Level": 65,
         "Move": "MOVE_SHEER_COLD"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_RESONANCE"
       }
     ],
     "PreEvoMoves": [],
@@ -11082,7 +11121,12 @@
       {
         "Level": 55,
         "Move": "MOVE_LAST_RESORT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CUDDLE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -11864,6 +11908,10 @@
       {
         "Level": 56,
         "Move": "MOVE_GIGA_IMPACT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_REPLENISH"
       }
     ],
     "PreEvoMoves": [],
@@ -50101,7 +50149,12 @@
     "TutorMoves": []
   },
   "GARBODOR": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_MALODOR"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [
       "MOVE_DETERIO"
@@ -68944,7 +68997,12 @@
     "TutorMoves": []
   },
   "MELMETAL": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_MELTDOWN"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -69213,6 +69271,10 @@
       {
         "Level": 62,
         "Move": "MOVE_BOOMBURST"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_DRUM_SOLO"
       }
     ],
     "PreEvoMoves": [],
@@ -69531,10 +69593,15 @@
       {
         "Level": 62,
         "Move": "MOVE_COURT_CHANGE"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FIREBALL"
       }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_PLAY_ROUGH",
       "MOVE_TAKE_DOWN",
       "MOVE_AGILITY",
       "MOVE_MUD_SLAP",
@@ -69829,6 +69896,10 @@
       {
         "Level": 62,
         "Move": "MOVE_HYDRO_PUMP"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_HYDROSNIPE"
       }
     ],
     "PreEvoMoves": [],

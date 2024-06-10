@@ -2245,4 +2245,9 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleScript = BattleScript_EffectWoC,
         .battleTvScore = 1,
     },
+    [EFFECT_CHANGE_TYPE] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 1,
+    },
 };

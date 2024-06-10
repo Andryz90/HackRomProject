@@ -34370,8 +34370,13 @@ Move_G_MAX_MALODOR:
 	goto Move_GUNK_SHOT
 	end
 
-Move_G_MAX_WILDFIRE:
 Move_G_MAX_FIREBALL:
+	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
+	waitforvisualfinish
+	goto Move_PYRO_BALL
+	end
+
+Move_G_MAX_WILDFIRE:
 Move_G_MAX_CENTIFERNO:
 Move_MAX_FLARE:
 	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
@@ -34379,17 +34384,25 @@ Move_MAX_FLARE:
 	goto Move_BLAST_BURN
 	end
 
-Move_G_MAX_CANNONADE:
 Move_G_MAX_HYDROSNIPE:
+	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
+	waitforvisualfinish
+	goto Move_SNIPE_SHOT
+	end
+Move_G_MAX_CANNONADE:
 Move_G_MAX_FOAM_BURST:
 Move_MAX_GEYSER:
 	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
 	waitforvisualfinish
 	goto Move_HYDRO_CANNON
 	end
-
-Move_G_MAX_VINE_LASH:
+	
 Move_G_MAX_DRUM_SOLO:
+	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
+	waitforvisualfinish
+	goto Move_DRUM_BEATING
+	end
+Move_G_MAX_VINE_LASH:
 Move_G_MAX_TARTNESS:
 Move_G_MAX_SWEETNESS:
 Move_MAX_OVERGROWTH:
@@ -34739,7 +34752,23 @@ Move_WATER_FANGS:
 	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 4, 0, -819, 10
 	playsewithpan SE_M_BITE, SOUND_PAN_TARGET
 	delay 10
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 23, 1
+	loopsewithpan SE_M_CRABHAMMER, SOUND_PAN_TARGET, 20, 3
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 8, 1
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 10, 10, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 20, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -15, 15, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -10, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 16, -8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 5, 8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, 20, ANIM_TARGET
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 0, 9, 0, RGB_BLUE
 	waitforvisualfinish
@@ -34920,8 +34949,121 @@ Move_REWIND::
 	goto Move_10000000_VOLT_THUNDERBOLT
 
 Move_SEASON_POWER::
-	goto Move_ACID_DOWNPOUR
+	createvisualtask AnimTask_SeasonPW, 0x5
+	jumpargeq 0x0, TYPE_ICE, SeasonPWIce
+	jumpargeq 0x0, TYPE_FAIRY, SeasonPWFairy
+	jumpargeq 0x0, TYPE_FIGHT, SeasonPWFighting
+	jumpargeq 0x0, TYPE_FIRE,  SeasonPWFire
 
+SeasonPWIce:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	fadetobg BG_ICE
+	waitbgfadeout
+	loopsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER, 9, 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 2, 0, 15, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 2, 0, 11, RGB(0, 20, 31)
+	monbg ANIM_DEF_PARTNER
+	call IceCrystalEffectSelf_Short
+	loadspritegfx ANIM_TAG_HORN_HIT_2
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	jumpifcontest DrillInContest
+	createvisualtask AnimTask_StartSlidingBg, 5, -2304, 768, 1, -1
+	call DrillContinue
+
+IceCrystalEffectSelf_Short:
+	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_ATTACKER, 2, 10, 20, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_ATTACKER, 2, -5, 10, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_ATTACKER, 2, 17, -12, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_ATTACKER, 2, -15, 15, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	delay 4
+	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_ATTACKER, 2, 20, 2, 0
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	return
+
+SeasonPWFire:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	fadetobg BG_FIRE
+	waitbgfadeout
+	loopsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER, 9, 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 2, 0, 15, 1
+	monbg ANIM_DEF_PARTNER
+	call FireSpinEffectSelf_Short
+	loadspritegfx ANIM_TAG_HORN_HIT_2
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	jumpifcontest DrillInContest
+	createvisualtask AnimTask_StartSlidingBg, 5, -2304, 768, 1, -1
+	call DrillContinue
+	
+FireSpinEffectSelf_Short:
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 28, 528, 30, 13, 50, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 480, 20, 16, -46, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 33, 576, 20, 8, 42, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 31, 400, 25, 11, -42, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 28, 512, 25, 16, 46, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 33, 464, 30, 15, -50, ANIM_ATTACKER
+	delay 2
+	return
+
+SeasonPWFairy:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loopsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER, 9, 2
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 12, RGB(31,24,25)
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 2, 0, 15, 1
+	monbg ANIM_DEF_PARTNER
+	loadspritegfx ANIM_TAG_HORN_LEECH @Horn
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	createsprite gHornLeechHornTemplate, ANIM_TARGET, 2, 0x0, 0x0, 0x25
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x1, 0x1
+	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SeasonPWFighting:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loopsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER, 9, 2
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 2, 0, 11, RGB(18, 8, 6)
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	jumpifcontest DrillInContest
+	createvisualtask AnimTask_StartSlidingBg, 5, -2304, 768, 1, -1
+	call DrillContinue
+	
 Move_PIXIE_FANGS:
 	loadspritegfx ANIM_TAG_PINK_HEART
 	loadspritegfx ANIM_TAG_SHARP_TEETH

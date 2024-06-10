@@ -8568,7 +8568,19 @@ void AnimTask_TechnoBlast(u8 taskId)
         gBattleAnimArgs[0] = 0;
     DestroyAnimVisualTask(taskId);
 }
-
+void AnimTask_SeasonPW(u8 taskId)
+{
+    if (gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK
+        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_WINTER
+        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_AUTUMN
+        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_SPRING
+        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_SUMMER)
+    
+        gBattleAnimArgs[0] = gBattleMons[gBattleAnimAttacker].type1;
+    else
+        gBattleAnimArgs[0] = 0;
+    DestroyAnimVisualTask(taskId);
+}
 // Z MOVES
 //Creates a twinkle at the location the target was knocked too in Twinkle Tackle
 static void SpriteCB_TwinkleOnBattler(struct Sprite *sprite)
