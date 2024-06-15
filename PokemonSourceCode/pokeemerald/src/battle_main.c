@@ -5919,7 +5919,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 {
     u32 moveType, ateType, attackerAbility;
     u16 holdEffect = GetBattlerHoldEffect(battlerAtk, TRUE);
-    u8 ptype = gBattleMons[battlerAtk].type1
+    u8 ptype = gBattleMons[battlerAtk].type1;
     if (move == MOVE_STRUGGLE)
         return;
 

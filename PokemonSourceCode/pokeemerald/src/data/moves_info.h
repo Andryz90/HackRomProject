@@ -21492,8 +21492,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Season Power"),
         .description = COMPOUND_STRING(
-            "The type varies with \n"
-            "the Season."),
+            "The power of the season\n."
+            "changing type for each form."),
         .effect = EFFECT_CHANGE_TYPE,
         .power = 90,
         .type = TYPE_NORMAL,
@@ -21501,7 +21501,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_SPECIAL,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
         .contestCategory = CONTEST_CATEGORY_COOL,
