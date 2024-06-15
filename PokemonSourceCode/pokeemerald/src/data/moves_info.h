@@ -20316,6 +20316,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .target = MOVE_TARGET_USER,
         .priority = 4,
         .category = DAMAGE_CATEGORY_STATUS,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_FLARE] =
@@ -20331,6 +20332,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_SUN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_FLUTTERBY] =
@@ -20346,6 +20348,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_SP_ATK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_LIGHTNING] =
@@ -20361,6 +20364,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_ELECTRIC_TERRAIN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_STRIKE] =
@@ -20376,6 +20380,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_SPEED,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_KNUCKLE] =
@@ -20391,6 +20396,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAISE_TEAM_ATTACK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_PHANTASM] =
@@ -20406,6 +20412,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_DEFENSE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_HAILSTORM] =
@@ -20421,6 +20428,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_HAIL,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_OOZE] =
@@ -20436,6 +20444,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAISE_TEAM_SP_ATK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_GEYSER] =
@@ -20451,6 +20460,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAIN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_AIRSTREAM] =
@@ -20466,6 +20476,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAISE_TEAM_SPEED,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_STARFALL] =
@@ -20481,6 +20492,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_MISTY_TERRAIN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_WYRMWIND] =
@@ -20496,6 +20508,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_ATTACK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_MINDSTORM] =
@@ -20511,6 +20524,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_PSYCHIC_TERRAIN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_ROCKFALL] =
@@ -20526,6 +20540,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_SANDSTORM,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_QUAKE] =
@@ -20542,6 +20557,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAISE_TEAM_SP_DEF,
         .skyBattleBanned = B_EXTRAPOLATED_MOVE_FLAGS,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_DARKNESS] =
@@ -20557,6 +20573,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_SP_DEF,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_OVERGROWTH] =
@@ -20572,6 +20589,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_GRASSY_TERRAIN,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_MAX_STEELSPIKE] =
@@ -20587,6 +20605,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RAISE_TEAM_DEFENSE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_VINE_LASH] =
@@ -20605,6 +20624,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_VINE_LASH,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_WILDFIRE] =
@@ -20623,11 +20643,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_WILDFIRE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_CANNONADE] =
     {
-        .name = COMPOUND_STRING(" Canonade"),
+        .name = COMPOUND_STRING("Canonade"),
         .description = COMPOUND_STRING(
             "Uses its cannon to deal damage\n"
             "and damage overtime foes side."
@@ -20642,6 +20663,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .pulseMove = TRUE,
         .argument = MAX_EFFECT_CANNONADE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_BEFUDDLE] =
@@ -20660,6 +20682,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_EFFECT_SPORE_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_VOLT_CRASH] =
@@ -20679,6 +20702,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_PARALYZE_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_GOLD_RUSH] =
@@ -20697,6 +20721,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_CONFUSE_FOES_PAY_DAY,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_CHI_STRIKE] =
@@ -20717,6 +20742,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .punchingMove = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_CRIT_PLUS,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_TERROR] =
@@ -20735,6 +20761,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_MEAN_LOOK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_FOAM_BURST] =
@@ -20754,6 +20781,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_SPEED_2_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_RESONANCE] =
@@ -20772,6 +20800,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_AURORA_VEIL,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_CUDDLE] =
@@ -20791,6 +20820,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_INFATUATE_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_REPLENISH] =
@@ -20810,6 +20840,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_RECYCLE_BERRIES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_MALODOR] =
@@ -20828,6 +20859,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_POISON_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_MELTDOWN] =
@@ -20848,6 +20880,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .punchingMove = TRUE,
         .argument = MAX_EFFECT_TORMENT_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_DRUM_SOLO] =
@@ -20868,6 +20901,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_FIREBALL] =
@@ -20887,6 +20921,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_HYDROSNIPE] =
@@ -20907,6 +20942,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_FIXED_POWER, 
         .ignoresTargetAbility = TRUE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_WIND_RAGE] =
@@ -20922,6 +20958,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_DEFOG,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_GRAVITAS] =
@@ -20937,6 +20974,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_GRAVITY,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_STONESURGE] =
@@ -20952,6 +20990,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_STEALTH_ROCK,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_VOLCALITH] =
@@ -20967,6 +21006,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_VOLCALITH,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_TARTNESS] =
@@ -20982,6 +21022,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_LOWER_EVASIVENESS_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_SWEETNESS] =
@@ -20997,6 +21038,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_AROMATHERAPY,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_SANDBLAST] =
@@ -21012,6 +21054,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_SANDBLAST_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_STUN_SHOCK] =
@@ -21027,6 +21070,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_POISON_PARALYZE_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_CENTIFERNO] =
@@ -21042,6 +21086,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_FIRE_SPIN_FOES,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_SMITE] =
@@ -21057,6 +21102,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_CONFUSE_FOES,
+        .isMaxMove = TRUE,
     },
 
 
@@ -21073,6 +21119,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_YAWN_FOE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_FINALE] =
@@ -21088,6 +21135,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_HEAL_TEAM,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_STEELSURGE] =
@@ -21103,6 +21151,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_STEELSURGE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_DEPLETION] =
@@ -21118,6 +21167,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_SPITE,
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_ONE_BLOW] =
@@ -21133,6 +21183,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
+        .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_RAPID_FLOW] =
@@ -21148,6 +21199,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_BYPASS_PROTECT, //EFFECT TODO
+        .isMaxMove = TRUE,
     },
     // Custom Moves
     [MOVE_COMBO_PUNCH] =
@@ -21492,8 +21544,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Season Power"),
         .description = COMPOUND_STRING(
-            "The type varies with \n"
-            "the Season."),
+            "The power of the season\n."
+            "changing type for each form."),
         .effect = EFFECT_CHANGE_TYPE,
         .power = 90,
         .type = TYPE_NORMAL,
@@ -21501,7 +21553,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_SPECIAL,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
         .metronomeBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST,
         .contestCategory = CONTEST_CATEGORY_COOL,

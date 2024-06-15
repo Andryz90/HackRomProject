@@ -9601,7 +9601,7 @@ BattleScript_TargetAbilityStatRaiseRet_End:
 @@@ MAX MOVES @@@
 BattleScript_EffectMaxMove::
 	attackcanceler
-	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
 	critcalc

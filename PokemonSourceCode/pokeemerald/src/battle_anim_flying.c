@@ -374,7 +374,14 @@ void AnimEllipticalGust(struct Sprite *sprite)
     sprite->callback = AnimEllipticalGust_Step;
     sprite->callback(sprite);
 }
-
+void AnimEllipticalGust2(struct Sprite *sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, FALSE);
+    sprite->y += 20;
+    sprite->data[1] = 191;
+    sprite->callback = AnimEllipticalGust_Step;
+    sprite->callback(sprite);
+}
 static void AnimEllipticalGust_Step(struct Sprite *sprite)
 {
     sprite->x2 = Sin(sprite->data[1], 32);

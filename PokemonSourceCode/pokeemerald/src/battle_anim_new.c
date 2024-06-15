@@ -5272,6 +5272,16 @@ const struct SpriteTemplate gHydroVortexHurricaneSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimEllipticalGust
 };
+const struct SpriteTemplate gHydroVortexHurricaneSpriteTemplate2 =
+{
+    .tileTag = ANIM_TAG_GUST,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEllipticalGust2
+};
 const struct SpriteTemplate gHydroVortexImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMPACT,

@@ -5605,7 +5605,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && gBattleMons[gBattlerTarget].hp != 0
              && RandomWeighted(RNG_CUTE_CHARM, 2, 1)
              && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
-             && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+             && AreBattlersInfatuable(gBattlerAttacker, gBattlerTarget)
              && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS
              && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
              && IsMoveMakingContact(move, gBattlerAttacker)
@@ -8920,7 +8920,8 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     uq4_12_t holdEffectModifier;
     uq4_12_t modifier = UQ_4_12(1.0);
     u32 atkSide = GetBattlerSide(battlerAtk);  
-
+    u8 gender1 = GetBattlerGender(battlerAtk);
+    u8 gender2 = GetBattlerGender(battlerDef);
 
     // move effect
     switch (gMovesInfo[move].effect)
@@ -9018,10 +9019,19 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_RIVALRY:
-        if (AreBattlersOfSameGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
-        else if (AreBattlersOfOppositeGender(battlerAtk, battlerDef))
-            modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+        if (gender1 != MON_GENDERLESS || gender2 != MON_GENDERLESS) 
+        {
+            if (gender1 == gender2) 
+            {
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
+            }                
+            else
+            {
+                modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+            }
+        break;
+        }
+        modifier = uq4_12_multiply(modifier, UQ_4_12(1.0));
         break;
     case ABILITY_ANALYTIC:
         if (GetBattlerTurnOrderNum(battlerAtk) == gBattlersCount - 1 && move != MOVE_FUTURE_SIGHT && move != MOVE_DOOM_DESIRE)
@@ -11302,20 +11312,19 @@ u8 GetBattlerGender(u32 battler)
                                               gBattleMons[battler].personality);
 }
 
-bool32 AreBattlersOfOppositeGender(u32 battler1, u32 battler2)
+bool32 AreBattlersInfatuable(u32 battler1, u32 battler2)
 {
     u8 gender1 = GetBattlerGender(battler1);
     u8 gender2 = GetBattlerGender(battler2);
-
-    return (gender1 != MON_GENDERLESS && gender2 != MON_GENDERLESS); //Now pokemon of the same sex can be infatuated
+    if (gender1 != MON_GENDERLESS && gender2 != MON_GENDERLESS) //Now pokemon of the same sex can be infatuated
+        return TRUE;
+    return FALSE; 
 }
 
 bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 {
-    u8 gender1 = GetBattlerGender(battler1);
-    u8 gender2 = GetBattlerGender(battler2);
 
-    return (gender1 != MON_GENDERLESS && gender2 != MON_GENDERLESS && gender1 == gender2);
+    return AreBattlersInfatuable(battler1, battler2);
 }
 
 u32 CalcSecondaryEffectChance(u32 battler, u32 battlerAbility, const struct AdditionalEffect *additionalEffect)

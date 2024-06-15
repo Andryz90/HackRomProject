@@ -12473,7 +12473,7 @@ static void Cmd_tryinfatuating(void)
     else
     {
         if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION
-            || !AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+            || !AreBattlersInfatuable(gBattlerAttacker, gBattlerTarget))
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -15681,7 +15681,7 @@ static void Cmd_jumpifoppositegenders(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
-    if (AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+    if (AreBattlersInfatuable(gBattlerAttacker, gBattlerTarget))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

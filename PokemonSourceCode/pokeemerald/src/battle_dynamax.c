@@ -33,40 +33,40 @@ struct GMaxMove
 
 static const struct GMaxMove sGMaxMoveTable[] =
 {
-    {SPECIES_VENUSAUR_GIGANTAMAX,                   TYPE_GRASS,      MOVE_G_MAX_VINE_LASH},
-    {SPECIES_BLASTOISE_GIGANTAMAX,                  TYPE_WATER,      MOVE_G_MAX_CANNONADE},
-    {SPECIES_CHARIZARD_GIGANTAMAX,                  TYPE_FIRE,       MOVE_G_MAX_WILDFIRE},
-    {SPECIES_BUTTERFREE_GIGANTAMAX,                 TYPE_BUG,        MOVE_G_MAX_BEFUDDLE},
-    {SPECIES_PIKACHU_GIGANTAMAX,                    TYPE_ELECTRIC,   MOVE_G_MAX_VOLT_CRASH},
-    {SPECIES_MEOWTH_GIGANTAMAX,                     TYPE_NORMAL,     MOVE_G_MAX_GOLD_RUSH},
-    {SPECIES_MACHAMP_GIGANTAMAX,                    TYPE_FIGHTING,   MOVE_G_MAX_CHI_STRIKE},
-    {SPECIES_GENGAR_GIGANTAMAX,                     TYPE_GHOST,      MOVE_G_MAX_TERROR},
-    {SPECIES_KINGLER_GIGANTAMAX,                    TYPE_WATER,      MOVE_G_MAX_FOAM_BURST},
-    {SPECIES_LAPRAS_GIGANTAMAX,                     TYPE_ICE,        MOVE_G_MAX_RESONANCE},
-    {SPECIES_EEVEE_GIGANTAMAX,                      TYPE_NORMAL,     MOVE_G_MAX_CUDDLE},
-    {SPECIES_SNORLAX_GIGANTAMAX,                    TYPE_NORMAL,     MOVE_G_MAX_REPLENISH},
-    {SPECIES_GARBODOR_GIGANTAMAX,                   TYPE_POISON,     MOVE_G_MAX_MALODOR},
-    {SPECIES_MELMETAL_GIGANTAMAX,                   TYPE_STEEL,      MOVE_G_MAX_MELTDOWN},
-    {SPECIES_RILLABOOM_GIGANTAMAX,                  TYPE_GRASS,      MOVE_G_MAX_DRUM_SOLO},
-    {SPECIES_CINDERACE_GIGANTAMAX,                  TYPE_FIRE,       MOVE_G_MAX_FIREBALL},
-    {SPECIES_INTELEON_GIGANTAMAX,                   TYPE_WATER,      MOVE_G_MAX_HYDROSNIPE},
-    {SPECIES_CORVIKNIGHT_GIGANTAMAX,                TYPE_FLYING,     MOVE_G_MAX_WIND_RAGE},
-    {SPECIES_ORBEETLE_GIGANTAMAX,                   TYPE_PSYCHIC,    MOVE_G_MAX_GRAVITAS},
-    {SPECIES_DREDNAW_GIGANTAMAX,                    TYPE_WATER,      MOVE_G_MAX_STONESURGE},
-    {SPECIES_COALOSSAL_GIGANTAMAX,                  TYPE_ROCK,       MOVE_G_MAX_VOLCALITH},
-    {SPECIES_FLAPPLE_GIGANTAMAX,                    TYPE_GRASS,      MOVE_G_MAX_TARTNESS},
-    {SPECIES_APPLETUN_GIGANTAMAX,                   TYPE_GRASS,      MOVE_G_MAX_SWEETNESS},
-    {SPECIES_SANDACONDA_GIGANTAMAX,                 TYPE_GROUND,     MOVE_G_MAX_SANDBLAST},
-    {SPECIES_TOXTRICITY_AMPED_GIGANTAMAX,           TYPE_ELECTRIC,   MOVE_G_MAX_STUN_SHOCK},
-    {SPECIES_TOXTRICITY_LOW_KEY_GIGANTAMAX,         TYPE_ELECTRIC,   MOVE_G_MAX_STUN_SHOCK},
-    {SPECIES_CENTISKORCH_GIGANTAMAX,                TYPE_FIRE,       MOVE_G_MAX_CENTIFERNO},
-    {SPECIES_HATTERENE_GIGANTAMAX,                  TYPE_FAIRY,      MOVE_G_MAX_SMITE},
-    {SPECIES_GRIMMSNARL_GIGANTAMAX,                 TYPE_DARK,       MOVE_G_MAX_SNOOZE},
-    {SPECIES_ALCREMIE_GIGANTAMAX,                   TYPE_FAIRY,      MOVE_G_MAX_FINALE},
-    {SPECIES_COPPERAJAH_GIGANTAMAX,                 TYPE_STEEL,      MOVE_G_MAX_STEELSURGE},
-    {SPECIES_DURALUDON_GIGANTAMAX,                  TYPE_DRAGON,     MOVE_G_MAX_DEPLETION},
-    {SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX,TYPE_DARK,       MOVE_G_MAX_ONE_BLOW},
-    {SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX, TYPE_WATER,      MOVE_G_MAX_RAPID_FLOW},
+    {SPECIES_VENUSAUR,                   TYPE_GRASS,      MOVE_G_MAX_VINE_LASH},
+    {SPECIES_BLASTOISE,                  TYPE_WATER,      MOVE_G_MAX_CANNONADE},
+    {SPECIES_CHARIZARD,                  TYPE_FIRE,       MOVE_G_MAX_WILDFIRE},
+    {SPECIES_BUTTERFREE,                 TYPE_BUG,        MOVE_G_MAX_BEFUDDLE},
+    {SPECIES_PIKACHU,                    TYPE_ELECTRIC,   MOVE_G_MAX_VOLT_CRASH},
+    {SPECIES_MEOWTH,                     TYPE_NORMAL,     MOVE_G_MAX_GOLD_RUSH},
+    {SPECIES_MACHAMP,                    TYPE_FIGHTING,   MOVE_G_MAX_CHI_STRIKE},
+    {SPECIES_GENGAR,                     TYPE_GHOST,      MOVE_G_MAX_TERROR},
+    {SPECIES_KINGLER,                    TYPE_WATER,      MOVE_G_MAX_FOAM_BURST},
+    {SPECIES_LAPRAS,                     TYPE_ICE,        MOVE_G_MAX_RESONANCE},
+    {SPECIES_EEVEE,                      TYPE_NORMAL,     MOVE_G_MAX_CUDDLE},
+    {SPECIES_SNORLAX,                    TYPE_NORMAL,     MOVE_G_MAX_REPLENISH},
+    {SPECIES_GARBODOR,                   TYPE_POISON,     MOVE_G_MAX_MALODOR},
+    {SPECIES_MELMETAL,                   TYPE_STEEL,      MOVE_G_MAX_MELTDOWN},
+    {SPECIES_RILLABOOM,                  TYPE_GRASS,      MOVE_G_MAX_DRUM_SOLO},
+    {SPECIES_CINDERACE,                  TYPE_FIRE,       MOVE_G_MAX_FIREBALL},
+    {SPECIES_INTELEON,                   TYPE_WATER,      MOVE_G_MAX_HYDROSNIPE},
+    {SPECIES_CORVIKNIGHT,                TYPE_FLYING,     MOVE_G_MAX_WIND_RAGE},
+    {SPECIES_ORBEETLE,                   TYPE_PSYCHIC,    MOVE_G_MAX_GRAVITAS},
+    {SPECIES_DREDNAW,                    TYPE_WATER,      MOVE_G_MAX_STONESURGE},
+    {SPECIES_COALOSSAL,                  TYPE_ROCK,       MOVE_G_MAX_VOLCALITH},
+    {SPECIES_FLAPPLE,                    TYPE_GRASS,      MOVE_G_MAX_TARTNESS},
+    {SPECIES_APPLETUN,                   TYPE_GRASS,      MOVE_G_MAX_SWEETNESS},
+    {SPECIES_SANDACONDA,                 TYPE_GROUND,     MOVE_G_MAX_SANDBLAST},
+    {SPECIES_TOXTRICITY_AMPED,           TYPE_ELECTRIC,   MOVE_G_MAX_STUN_SHOCK},
+    {SPECIES_TOXTRICITY_LOW_KEY,         TYPE_ELECTRIC,   MOVE_G_MAX_STUN_SHOCK},
+    {SPECIES_CENTISKORCH,                TYPE_FIRE,       MOVE_G_MAX_CENTIFERNO},
+    {SPECIES_HATTERENE,                  TYPE_FAIRY,      MOVE_G_MAX_SMITE},
+    {SPECIES_GRIMMSNARL,                 TYPE_DARK,       MOVE_G_MAX_SNOOZE},
+    {SPECIES_ALCREMIE,                   TYPE_FAIRY,      MOVE_G_MAX_FINALE},
+    {SPECIES_COPPERAJAH,                 TYPE_STEEL,      MOVE_G_MAX_STEELSURGE},
+    {SPECIES_DURALUDON,                  TYPE_DRAGON,     MOVE_G_MAX_DEPLETION},
+    {SPECIES_URSHIFU_SINGLE_STRIKE_STYLE ,TYPE_DARK,      MOVE_G_MAX_ONE_BLOW},
+    {SPECIES_URSHIFU_RAPID_STRIKE_STYLE, TYPE_WATER,      MOVE_G_MAX_RAPID_FLOW},
 };
 
 // forward declarations
@@ -257,7 +257,10 @@ bool32 ShouldUseMaxMove(u16 battlerId, u16 baseMove)
     // TODO: Raid bosses do not always use Max Moves.
     // if (IsRaidBoss(battlerId))
     //   return !IsRaidBossUsingRegularMove(battlerId, baseMove);
-    return IsDynamaxed(battlerId) || gBattleStruct->dynamax.toDynamax & gBitTable[battlerId];
+    if (gMovesInfo[baseMove].isMaxMove)
+        return TRUE;
+    else
+        return IsDynamaxed(battlerId) || gBattleStruct->dynamax.toDynamax & gBitTable[battlerId];
 }
 
 static u16 GetTypeBasedMaxMove(u16 battlerId, u16 type)
@@ -267,20 +270,20 @@ static u16 GetTypeBasedMaxMove(u16 battlerId, u16 type)
     u16 species = gBattleMons[battlerId].species;
     u16 targetSpecies = SPECIES_NONE;
 
-    if (!gSpeciesInfo[species].isGigantamax)
-        targetSpecies = GetBattleFormChangeTargetSpecies(battlerId, FORM_CHANGE_BATTLE_GIGANTAMAX);
+    //if (!gSpeciesInfo[species].isGigantamax)
+    //    targetSpecies = GetBattleFormChangeTargetSpecies(battlerId, FORM_CHANGE_BATTLE_GIGANTAMAX);
+//
+    //if (targetSpecies != SPECIES_NONE)
+    //    species = targetSpecies;
 
-    if (targetSpecies != SPECIES_NONE)
-        species = targetSpecies;
-
-    if (gSpeciesInfo[species].isGigantamax)
-    {
+    //if (gSpeciesInfo[species].isGigantamax)
+    //{
         for (i = 0; i < ARRAY_COUNT(sGMaxMoveTable); i++)
         {
-            if (sGMaxMoveTable[i].species == species && sGMaxMoveTable[i].moveType == type)
+            if (sGMaxMoveTable[i].moveType == type && species == sGMaxMoveTable[i].species)
                 return sGMaxMoveTable[i].gmaxMove;
         }
-    }
+    //}
 
     // Regular Max Move
     if (gTypesInfo[type].maxMove == MOVE_NONE) // failsafe
@@ -830,6 +833,7 @@ void BS_SetMaxMoveEffect(void)
             }
             // fall through
         case MAX_EFFECT_CONFUSE_FOES:
+        case MAX_EFFECT_INFATUATE_FOES:
         case MAX_EFFECT_TORMENT_FOES:
         case MAX_EFFECT_MEAN_LOOK:
             BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -961,7 +965,6 @@ void BS_TrySetStatus2(void)
             if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
                 && gBattleMons[gBattlerTarget].ability != ABILITY_OBLIVIOUS
                 && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
-                && atkGender != defGender
                 && atkGender != MON_GENDERLESS
                 && defGender != MON_GENDERLESS)
             {
