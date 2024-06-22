@@ -10636,6 +10636,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .categoryName = _("Punching"),
         .height = 14,
         .weight = 502,
+        .arms = 2,
         .description = COMPOUND_STRING(
             "A Hitmonchan is said to possess the\n"
             "spirit of a boxer who aimed to become the\n"

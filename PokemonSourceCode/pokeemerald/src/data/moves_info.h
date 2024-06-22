@@ -20948,13 +20948,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     [MOVE_G_MAX_WIND_RAGE] =
     {
         .name = COMPOUND_STRING("Wind Rage"),
-        .description = sNullDescription,
+        .description = COMPOUND_STRING(
+            "A wind shot that deals\n"
+            "damage and remove hazards."
+        ),  
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_FLYING,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_DEFOG,
@@ -20963,29 +20966,35 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_GRAVITAS] =
     {
-        .name = COMPOUND_STRING("G-Max Gravitas"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Gravitas"),
+        .description = COMPOUND_STRING(
+            "Psychic force that deals\n"
+            "damage and set gravity."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_PSYCHIC,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_GRAVITY,
         .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_STONESURGE] =
     {
-        .name = COMPOUND_STRING("G-Max Stonesurge"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Stonesurge"),
+        .description = COMPOUND_STRING(
+            "Water force that deals\n"
+            "damage and set rocks."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_WATER,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
@@ -20995,14 +21004,17 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_VOLCALITH] =
     {
-        .name = COMPOUND_STRING("G-Max Volcalith"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Volcalith"),
+        .description = COMPOUND_STRING(
+            "A giant boulder that deal damage\n"
+            "and damage overtime foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_ROCK,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_VOLCALITH,
@@ -21011,13 +21023,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_TARTNESS] =
     {
-        .name = COMPOUND_STRING("G-Max Tartness"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Tartness"),
+        .description = COMPOUND_STRING(
+            "Giant apples that deal damage\n"
+            "and lower evasiveness."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_GRASS,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
@@ -21027,30 +21042,36 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_SWEETNESS] =
     {
-        .name = COMPOUND_STRING("G-Max Sweetness"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Sweetness"),
+        .description = COMPOUND_STRING(
+            "Strong scent deal damage\n"
+            "and cure statuses of allies."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_GRASS,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_AROMATHERAPY,
         .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_SANDBLAST] =
     {
-        .name = COMPOUND_STRING("G-Max Sandblast"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Sandblast"),
+        .description = COMPOUND_STRING(
+            "Strong sandstorm that deals\n"
+            "damage and bind the foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_GROUND,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_SANDBLAST_FOES,
@@ -21059,30 +21080,37 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_STUN_SHOCK] =
     {
-        .name = COMPOUND_STRING("G-Max Stun Shock"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Stun Shock"),
+        .description = COMPOUND_STRING(
+            "An electric sound that\n"
+            "damage and status the foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_ELECTRIC,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
+        .soundMove = TRUE,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_POISON_PARALYZE_FOES,
         .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_CENTIFERNO] =
     {
-        .name = COMPOUND_STRING("G-Max Centiferno"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Centiferno"),
+        .description = COMPOUND_STRING(
+            "Strong eruption that deals\n"
+            "damage and bind the foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_FIRE,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .argument = MAX_EFFECT_FIRE_SPIN_FOES,
@@ -21091,16 +21119,19 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_SMITE] =
     {
-        .name = COMPOUND_STRING("G-Max Smite"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Smite"),
+        .description = COMPOUND_STRING(
+            "Fairy star that deals\n"
+            "damage and confuse the foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_FAIRY,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_CONFUSE_FOES,
         .isMaxMove = TRUE,
     },
@@ -21108,45 +21139,54 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_SNOOZE] =
     {
-        .name = COMPOUND_STRING("G-Max Snooze"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Giga Snooze"),
+        .description = COMPOUND_STRING(
+            "Snooze that deals\n"
+            "damage and loafs the foes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_DARK,
-        .accuracy = 0,
-        .pp = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_YAWN_FOE,
         .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_FINALE] =
     {
-        .name = COMPOUND_STRING("G-Max Finale"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Finale"),
+        .description = COMPOUND_STRING(
+            "A final exhibition that\n"
+            "deal damage and heals allies."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_FAIRY,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = DAMAGE_CATEGORY_SPECIAL,
         .argument = MAX_EFFECT_HEAL_TEAM,
         .isMaxMove = TRUE,
     },
 
     [MOVE_G_MAX_STEELSURGE] =
     {
-        .name = COMPOUND_STRING("G-Max Steelsurge"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Steelsurge"),
+        .description = COMPOUND_STRING(
+            "An attack that deals\n"
+            "damage and set steel spikes."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_STEEL,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
@@ -21156,13 +21196,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_G_MAX_DEPLETION] =
     {
-        .name = COMPOUND_STRING("G-Max Depletion"),
-        .description = sNullDescription,
+        .name = COMPOUND_STRING("Depletion"),
+        .description = COMPOUND_STRING(
+            "An attack that deals\n"
+            "damage and lower move's pp."
+        ),
         .effect = EFFECT_MAX_MOVE,
-        .power = 10,
+        .power = 70,
         .type = TYPE_DRAGON,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,

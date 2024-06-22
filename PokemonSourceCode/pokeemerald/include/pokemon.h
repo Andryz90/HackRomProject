@@ -384,7 +384,7 @@ struct SpeciesInfo /*0x8C*/
  /* 0x2E */ u16 natDexNum;
  /* 0x30 */ u16 height; //in decimeters
  /* 0x32 */ u16 weight; //in hectograms
-            u8 arms;
+            u8  arms;
  /* 0x34 */ u16 pokemonScale;
  /* 0x36 */ u16 pokemonOffset;
  /* 0x38 */ u16 trainerScale;

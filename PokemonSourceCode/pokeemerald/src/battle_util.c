@@ -3568,6 +3568,10 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
                 u8 arms = gSpeciesInfo[gBattleMons[gBattlerAttacker].species].arms;
+                if (arms == 0) 
+                {
+                    arms = 2; // If arms is not specified in the species struct, it will be set as 2 as default value.
+                }
                 if (ability == ABILITY_SKILL_LINK)
                 {
                     gMultiHitCounter = 5;

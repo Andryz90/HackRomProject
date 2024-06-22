@@ -70404,6 +70404,10 @@
       {
         "Level": 50,
         "Move": "MOVE_BRAVE_BIRD"
+      }, 
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_WIND_RAGE"
       }
     ],
     "PreEvoMoves": [],
@@ -70479,7 +70483,12 @@
     "TutorMoves": []
   },
   "ORBEETLE": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_GRAVITAS"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -70659,7 +70668,12 @@
       {
         "Level": 66,
         "Move": "MOVE_HEAD_SMASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STONESURGE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -70978,6 +70992,10 @@
       {
         "Level": 63,
         "Move": "MOVE_STONE_EDGE"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VOLCALITH"
       }
     ],
     "PreEvoMoves": [],
@@ -71133,6 +71151,10 @@
       {
         "Level": 44,
         "Move": "MOVE_DRAGON_RUSH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_TARTNESS"
       }
     ],
     "PreEvoMoves": [],
@@ -71253,6 +71275,10 @@
       {
         "Level": 44,
         "Move": "MOVE_ENERGY_BALL"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SWEETNESS"
       }
     ],
     "PreEvoMoves": [],
@@ -71450,6 +71476,10 @@
       {
         "Level": 51,
         "Move": "MOVE_SAND_TOMB"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SANDBLAST"
       }
     ],
     "PreEvoMoves": [],
@@ -71923,6 +71953,10 @@
       {
         "Level": 52,
         "Move": "MOVE_SHIFT_GEAR"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STUN_SHOCK"
       }
     ],
     "PreEvoMoves": [],
@@ -71998,7 +72032,12 @@
     "TutorMoves": []
   },
   "CENTISKORCH": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CENTIFERNO"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -72028,7 +72067,8 @@
   ],
     "PreEvoMoves": [],
     "TMMoves": [
-      "MOVE_WATERFALL"
+      "MOVE_WATERFALL",
+      "MOVE_COMBO_PUNCH"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -72477,6 +72517,10 @@
       {
         "Level": 64,
         "Move": "MOVE_MAGIC_POWDER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SMITE"
       }
     ],
     "PreEvoMoves": [],
@@ -72803,6 +72847,10 @@
       {
         "Level": 64,
         "Move": "MOVE_HAMMER_ARM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SNOOZE"
       }
     ],
     "PreEvoMoves": [],
@@ -73149,6 +73197,10 @@
       {
         "Level": 50,
         "Move": "MOVE_ENTRAINMENT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FINALE"
       }
     ],
     "PreEvoMoves": [],
@@ -74174,7 +74226,12 @@
       {
         "Level": 65,
         "Move": "MOVE_SUPERPOWER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STEELSURGE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -74317,6 +74374,10 @@
       {
         "Level": 66,
         "Move": "MOVE_HYPER_BEAM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_DEPLETION"
       }
     ],
     "PreEvoMoves": [],
@@ -98770,6 +98831,10 @@
       {
         "Level": 52,
         "Move": "MOVE_MAGNETIC_FLUX"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STUN_SHOCK"
       }
     ],
     "PreEvoMoves": [],

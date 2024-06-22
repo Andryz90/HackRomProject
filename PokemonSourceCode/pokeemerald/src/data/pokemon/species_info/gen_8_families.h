@@ -3297,6 +3297,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .categoryName = _("Tantrum"),
         .height = 6,
         .weight = 40,
+        .arms = 2,
         .description = COMPOUND_STRING(
             "It's very curious, but its means of\n"
             "investigating things is to try to punch\n"
@@ -4279,6 +4280,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .categoryName = _("Formation"),
         .height = 30,
         .weight = 620,
+        .arms = 6,
         .description = COMPOUND_STRING(
             "Five of them are troopers, and one is the\n"
             "brass. The brass's orders are absolute."),
