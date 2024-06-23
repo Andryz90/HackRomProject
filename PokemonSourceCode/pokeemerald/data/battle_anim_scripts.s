@@ -888,7 +888,6 @@ gBattleAnims_Moves::
 	.4byte Move_HOARFROST
 	.4byte Move_PURIFYING_WATER
 	.4byte Move_WINDSOM_OF_CHANGE
-	.4byte Move_REWIND 
 	.4byte Move_SEASON_POWER 
 	.4byte Move_PIXIE_FANGS 
 	.4byte Move_IRON_GRIP
@@ -34937,9 +34936,6 @@ Move_WINDSOM_OF_CHANGE::
 	blendoff
 	call UnsetPsychicBg
 	end
-
-Move_REWIND::
-	goto Move_10000000_VOLT_THUNDERBOLT
 
 Move_SEASON_POWER::
 	createvisualtask AnimTask_SeasonPW, 0x5

@@ -5230,25 +5230,48 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
     u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
     const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    u16 tms [NUM_TECHIDDEN_MACHINES];
+    bool16 done = FALSE;
     int i, j, k;
+
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
+    	/*Fill the TMs/HMs move array to prevent the pokemon to learns it*/
+    for (k = 0; k < NUM_TECHIDDEN_MACHINES; k++)
     {
-        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
-            ;
+        tms[k] = ItemIdToBattleMoveId(ITEM_TM01 + k);
+    }
+    for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE && i < MAX_TUTOR_MOVES; i++)
+    {
+            //Skip if the Pokemon already knows the move, is invalid or is a TH/HM
+            for (k = 0; k < NUM_TECHIDDEN_MACHINES && !done; k++)
+            {
+                if (teachableLearnset[i] == tms[k])
+                    done = TRUE;
+            }
+            for (j = 0; j < MAX_MON_MOVES && !done; j++)
+            {
 
-        if (j == MAX_MON_MOVES)
-        {
-            for (k = 0; k < numMoves && moves[k] != teachableLearnset[i]; k++)
-                ;
-
-            if (k == numMoves)
-                moves[numMoves++] = teachableLearnset[i];
-        }
+                if (teachableLearnset[i] == learnedMoves[j] || teachableLearnset[i] == MOVE_NONE)
+                {
+                    done = TRUE;
+                
+                }
+            }
+            if (done)
+            {
+                done = FALSE;
+                continue;
+            }
+            else
+            {
+                moves[numMoves] = teachableLearnset[i];
+                numMoves++;
+            }
     }
     return numMoves;
 }
@@ -5316,6 +5339,7 @@ u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
     const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    u16 tms [NUM_TECHIDDEN_MACHINES];
     int i, j, k;
 
     if (species == SPECIES_EGG)
@@ -5326,11 +5350,11 @@ u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
 
     for (i = 0; i < MAX_TUTOR_MOVES && teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
     {
-        if (teachableLearnset[i] == MOVE_NONE)
-            continue;
         
         for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
+        {
             ;
+        }
 
         if (j == MAX_MON_MOVES)
         {

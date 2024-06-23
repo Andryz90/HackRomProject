@@ -23946,7 +23946,11 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_REWIND"
+        "Move": "MOVE_ROAR_OF_TIME"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_JUNGLE_HEALING"
       },
       {
         "Level": 15,
