@@ -344,6 +344,8 @@ static const u16 sWhiteOutBadgeMoney[9] = { 8, 16, 24, 36, 48, 64, 80, 100, 120 
 
 #define TAG_LVLUP_BANNER_MON_ICON 55130
 
+void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId);
+
 static void TrySetDestinyBondToHappen(void);
 static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr);
 static bool32 IsMonGettingExpSentOut(void);
@@ -1713,9 +1715,16 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
             calc = (calc * 80) / 100; // 1.2 hustle loss
         break;
     case ABILITY_ROCK_HEAD:
-        if (gMovesInfo[move].recoil > 0) {
+        if (gMovesInfo[move].recoil > 0) 
              calc = (calc * 110) / 100; // 1.1 
-        }
+        
+    case ABILITY_BAD_DREAMS:
+        if (gMovesInfo[move].effect == EFFECT_SLEEP)
+            calc *= 120 / 100; //x1.2
+    case ABILITY_ILLUMINATE:
+        if ((gSpeciesInfo[battlerDef].types[0] || gSpeciesInfo[battlerDef].types[1]) != TYPE_ELECTRIC
+            && defAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
+            calc = (calc * 90) / 100;
     }
 
     // Target's ability
@@ -1943,7 +1952,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     s32 critChance = 0;
 
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT
-        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR)
+        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || ABILITY_MAGMA_ARMOR)
     {
         critChance = -1;
     }
@@ -1966,7 +1975,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + gBattleStruct->bonusCritStages[gBattlerAttacker];
 
         // Record ability only if move had at least +3 chance to get a crit
-        if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR))
+        if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || ABILITY_MAGMA_ARMOR))
             RecordAbilityBattle(battlerDef, abilityDef);
 
         if (critChance >= ARRAY_COUNT(sCriticalHitChance))
@@ -14372,7 +14381,7 @@ static void Cmd_setdamagetohealthdifference(void)
     }
 }
 
-static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
+void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
 {
     if (gFieldStatuses & statusFlag)
     {

@@ -2631,7 +2631,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
  
         .name = _("Wind Glider"),
         .description = COMPOUND_STRING("Set tailwind and boost wind moves"),
-        .aiRating = 8,
+        .aiRating = 10,
         .cantBeCopied = FALSE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = FALSE,
@@ -2657,7 +2657,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = FALSE,
         .cantBeSwapped = FALSE,
         .cantBeTraced = FALSE,
-        .breakable = TRUE,
+        .breakable = FALSE,
     },
     [ABILITY_LIFEDRAINER] =
     {
@@ -2681,4 +2681,14 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeTraced = FALSE,
         .breakable = FALSE,
     },
+    [ABILITY_DISTORSION_DATA] =
+    {
+        .name = _("Distorsion Data"),
+        .description = COMPOUND_STRING("Set Trick Room on switch-in"),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    }
 };

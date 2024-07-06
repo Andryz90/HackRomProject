@@ -419,7 +419,7 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
         break;
     
     case ABILITY_SPIRIT_BODY:
-        if (!(moveType == TYPE_GHOST || moveType == TYPE_DARK ) && (gMovesInfo[move].makesContact)) {
+        if (!(moveType == TYPE_GHOST || moveType == TYPE_DARK || GetBattlerAbility(battlerAtk) == ABILITY_SCRAPPY) && (gMovesInfo[move].makesContact)) {
             return TRUE;
         }
     }
@@ -2654,6 +2654,7 @@ static bool32 AI_CanBePoisoned(u32 battlerAtk, u32 battlerDef, u32 move)
      || gBattleMons[battlerDef].status1 & STATUS1_ANY
      || ability == ABILITY_IMMUNITY
      || ability == ABILITY_COMATOSE
+     || ability == ABILITY_TOXIC_BOOST
      || AI_IsAbilityOnSide(battlerDef, ABILITY_PASTEL_VEIL)
      || gBattleMons[battlerDef].status1 & STATUS1_ANY
      || IsAbilityStatusProtected(battlerDef)
