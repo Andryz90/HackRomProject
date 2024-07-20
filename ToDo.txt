@@ -14,3 +14,9 @@
 3) Programmare le nuove mega.
 4) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
 5) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
+
+
+
+------------------------------------------
+Map Editing:
+- Route 103 - Fisherman: Ti da Old Rood

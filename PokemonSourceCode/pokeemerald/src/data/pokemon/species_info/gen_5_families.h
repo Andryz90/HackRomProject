@@ -3270,6 +3270,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sLilligantHisuianLevelUpLearnset,
         .teachableLearnset = sLilligantHisuianTeachableLearnset,
         .formSpeciesIdTable = sLilligantFormSpeciesIdTable,
+        
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_PETILIL
@@ -3288,7 +3289,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .expYield = 161,
         .evYield_Speed = 2,
         .itemRare = ITEM_DEEP_SEA_TOOTH,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_MALE,
         .eggCycles = 40,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -3328,6 +3329,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sBasculinLevelUpLearnset,
         .teachableLearnset = sBasculinTeachableLearnset,
         .formSpeciesIdTable = sBasculinFormSpeciesIdTable,
+        .evolutions = EVOLUTION({EVO_LEVEL_RECOIL_DAMAGE_MALE, 294, SPECIES_BASCULEGION_MALE}),
     },
 
     [SPECIES_BASCULIN_BLUE_STRIPED] =
@@ -3343,7 +3345,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .expYield = 161,
         .evYield_Speed = 2,
         .itemRare = ITEM_DEEP_SEA_SCALE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_FEMALE,
         .eggCycles = 40,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -3383,6 +3385,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sBasculinLevelUpLearnset,
         .teachableLearnset = sBasculinTeachableLearnset,
         .formSpeciesIdTable = sBasculinFormSpeciesIdTable,
+        .evolutions = EVOLUTION({EVO_LEVEL_RECOIL_DAMAGE_MALE, 294, SPECIES_BASCULEGION_FEMALE}),
     },
 
 #if P_HISUIAN_FORMS

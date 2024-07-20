@@ -82739,6 +82739,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_SMACK_DOWN",
       "MOVE_FAKE_TEARS",
       "MOVE_PROTECT",
       "MOVE_THIEF",
@@ -88444,6 +88445,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_FIRE_PUNCH",
       "MOVE_TAKE_DOWN",
       "MOVE_AGILITY",
       "MOVE_MUD_SLAP",

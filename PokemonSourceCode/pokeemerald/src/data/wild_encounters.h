@@ -16,10 +16,10 @@
 #define ENCOUNTER_CHANCE_LAND_MONS_SLOT_10 ENCOUNTER_CHANCE_LAND_MONS_SLOT_9 + 1
 #define ENCOUNTER_CHANCE_LAND_MONS_SLOT_11 ENCOUNTER_CHANCE_LAND_MONS_SLOT_10 + 1
 #define ENCOUNTER_CHANCE_LAND_MONS_TOTAL (ENCOUNTER_CHANCE_LAND_MONS_SLOT_11)
-#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_0 60 
+#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_0 30 
 #define ENCOUNTER_CHANCE_WATER_MONS_SLOT_1 ENCOUNTER_CHANCE_WATER_MONS_SLOT_0 + 30
-#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 ENCOUNTER_CHANCE_WATER_MONS_SLOT_1 + 5
-#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 + 4
+#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 ENCOUNTER_CHANCE_WATER_MONS_SLOT_1 + 10
+#define ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 + 5
 #define ENCOUNTER_CHANCE_WATER_MONS_SLOT_4 ENCOUNTER_CHANCE_WATER_MONS_SLOT_3 + 1
 #define ENCOUNTER_CHANCE_WATER_MONS_TOTAL (ENCOUNTER_CHANCE_WATER_MONS_SLOT_4)
 #define ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_0 60 
@@ -28,53 +28,51 @@
 #define ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_3 ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_2 + 4
 #define ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_4 ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_3 + 1
 #define ENCOUNTER_CHANCE_ROCK_SMASH_MONS_TOTAL (ENCOUNTER_CHANCE_ROCK_SMASH_MONS_SLOT_4)
-#define ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2 60 
-#define ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_2 + 20
-#define ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4 ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_3 + 20
-#define ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_TOTAL (ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_SLOT_4)
 #define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 70 
-#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 + 30
-#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_TOTAL (ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1)
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5 40 
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_5 + 40
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7 ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_6 + 15
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_7 + 4
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9 ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_8 + 1
-#define ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_TOTAL (ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_SLOT_9)
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_0 + 60
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_2 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_1 + 40
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_3 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_2 + 40
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_4 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_3 + 30
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_5 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_4 + 20
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_6 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_5 + 15
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_7 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_6 + 10
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_8 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_7 + 5
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_9 ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_8 + 1
+#define ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_TOTAL (ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_SLOT_9)
 
 
 
 const struct WildPokemon gRoute101_LandMons[] =
 {
-    { 2, 2, SPECIES_WURMPLE },
-    { 2, 2, SPECIES_POOCHYENA },
-    { 2, 2, SPECIES_WURMPLE },
-    { 3, 3, SPECIES_WURMPLE },
-    { 3, 3, SPECIES_POOCHYENA },
-    { 3, 3, SPECIES_POOCHYENA },
-    { 3, 3, SPECIES_WURMPLE },
-    { 3, 3, SPECIES_POOCHYENA },
+    { 2, 2, SPECIES_RATTATA },
+    { 2, 2, SPECIES_MEOWTH },
     { 2, 2, SPECIES_ZIGZAGOON },
-    { 2, 2, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_ZIGZAGOON },
+    { 3, 3, SPECIES_PATRAT },
+    { 3, 3, SPECIES_PATRAT },
+    { 3, 3, SPECIES_RATTATA_ALOLAN },
+    { 3, 3, SPECIES_SKWOVET },
+    { 3, 3, SPECIES_ZIGZAGOON_GALARIAN },
+    { 2, 2, SPECIES_YUNGOOS },
+    { 2, 2, SPECIES_YUNGOOS },
+    { 3, 3, SPECIES_SENTRET },
+    { 3, 3, SPECIES_SENTRET },
 };
 
 const struct WildPokemonInfo gRoute101_LandMonsInfo = { 20, gRoute101_LandMons };
 const struct WildPokemon gRoute102_LandMons[] =
 {
-    { 3, 3, SPECIES_POOCHYENA },
-    { 3, 3, SPECIES_WURMPLE },
-    { 4, 4, SPECIES_POOCHYENA },
-    { 4, 4, SPECIES_WURMPLE },
-    { 3, 3, SPECIES_LOTAD },
-    { 4, 4, SPECIES_LOTAD },
-    { 3, 3, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_ZIGZAGOON },
-    { 4, 4, SPECIES_ZIGZAGOON },
-    { 4, 4, SPECIES_RALTS },
-    { 4, 4, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_SEEDOT },
+    { 3, 5, SPECIES_SHINX },
+    { 3, 5, SPECIES_PAWMI },
+    { 4, 5, SPECIES_BUNNELBY },
+    { 4, 5, SPECIES_BUNNELBY },
+    { 3, 5, SPECIES_PURRLOIN },
+    { 4, 5, SPECIES_SKITTY },
+    { 3, 5, SPECIES_DEERLING },
+    { 3, 5, SPECIES_DEERLING },
+    { 4, 5, SPECIES_RALTS },
+    { 4, 5, SPECIES_RALTS },
+    { 4, 5, SPECIES_EEVEE },
+    { 3, 5, SPECIES_EEVEE },
 };
 
 const struct WildPokemonInfo gRoute102_LandMonsInfo = { 20, gRoute102_LandMons };
@@ -90,33 +88,33 @@ const struct WildPokemon gRoute102_WaterMons[] =
 const struct WildPokemonInfo gRoute102_WaterMonsInfo = { 4, gRoute102_WaterMons };
 const struct WildPokemon gRoute102_FishingMons[] =
 {
-    { 5, 10, SPECIES_MAGIKARP },
-    { 5, 10, SPECIES_GOLDEEN },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_GOLDEEN },
-    { 10, 30, SPECIES_CORPHISH },
-    { 25, 30, SPECIES_CORPHISH },
-    { 30, 35, SPECIES_CORPHISH },
-    { 20, 25, SPECIES_CORPHISH },
-    { 35, 40, SPECIES_CORPHISH },
-    { 40, 45, SPECIES_CORPHISH },
+    { 6, 8, SPECIES_POLIWAG },
+    { 6, 8, SPECIES_POLIWAG },
+    { 6, 8, SPECIES_WIGLETT },
+    { 6, 8, SPECIES_WIGLETT },
+    { 6, 8, SPECIES_SKRELP },
+    { 6, 8, SPECIES_FINNEON },
+    { 6, 8, SPECIES_FINNEON },
+    { 6, 8, SPECIES_LOTAD },
+    { 6, 8, SPECIES_LOTAD },
+    { 6, 8, SPECIES_LOTAD },
 };
 
-const struct WildPokemonInfo gRoute102_FishingMonsInfo = { 30, gRoute102_FishingMons };
+const struct WildPokemonInfo gRoute102_FishingMonsInfo = { 100, gRoute102_FishingMons };
 const struct WildPokemon gRoute103_LandMons[] =
 {
-    { 2, 2, SPECIES_POOCHYENA },
+    { 2, 2, SPECIES_WOOLOO },
+    { 3, 3, SPECIES_WOOLOO },
+    { 3, 3, SPECIES_WOOLOO },
+    { 4, 4, SPECIES_MAREEP },
+    { 2, 2, SPECIES_MAREEP },
+    { 3, 3, SPECIES_MAREEP },
+    { 3, 3, SPECIES_LECHONK },
+    { 4, 4, SPECIES_LECHONK },
     { 3, 3, SPECIES_POOCHYENA },
     { 3, 3, SPECIES_POOCHYENA },
-    { 4, 4, SPECIES_POOCHYENA },
-    { 2, 2, SPECIES_WINGULL },
-    { 3, 3, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_ZIGZAGOON },
-    { 4, 4, SPECIES_ZIGZAGOON },
-    { 3, 3, SPECIES_WINGULL },
-    { 3, 3, SPECIES_WINGULL },
-    { 2, 2, SPECIES_WINGULL },
-    { 4, 4, SPECIES_WINGULL },
+    { 2, 2, SPECIES_BIDOOF },
+    { 4, 4, SPECIES_BIDOOF },
 };
 
 const struct WildPokemonInfo gRoute103_LandMonsInfo = { 20, gRoute103_LandMons };
@@ -132,58 +130,58 @@ const struct WildPokemon gRoute103_WaterMons[] =
 const struct WildPokemonInfo gRoute103_WaterMonsInfo = { 4, gRoute103_WaterMons };
 const struct WildPokemon gRoute103_FishingMons[] =
 {
-    { 5, 10, SPECIES_MAGIKARP },
-    { 5, 10, SPECIES_TENTACOOL },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_TENTACOOL },
-    { 10, 30, SPECIES_WAILMER },
-    { 30, 35, SPECIES_SHARPEDO },
-    { 30, 35, SPECIES_WAILMER },
-    { 25, 30, SPECIES_WAILMER },
-    { 35, 40, SPECIES_WAILMER },
-    { 40, 45, SPECIES_WAILMER },
+    { 5, 6, SPECIES_PSYDUCK },
+    { 5, 6, SPECIES_PSYDUCK },
+    { 3, 5, SPECIES_SHELLOS_EAST_SEA },
+    { 3, 5, SPECIES_SHELLOS_EAST_SEA },
+    { 3, 5, SPECIES_SHELLOS_WEST_SEA },
+    { 3, 5, SPECIES_SHELLOS_WEST_SEA },
+    { 5, 5, SPECIES_SLOWPOKE },
+    { 5, 5, SPECIES_SLOWPOKE },
+    { 5, 5, SPECIES_PIPLUP },
+    { 5, 5, SPECIES_PIPLUP },
 };
 
-const struct WildPokemonInfo gRoute103_FishingMonsInfo = { 30, gRoute103_FishingMons };
+const struct WildPokemonInfo gRoute103_FishingMonsInfo = { 100, gRoute103_FishingMons };
 const struct WildPokemon gRoute104_LandMons[] =
 {
-    { 4, 4, SPECIES_POOCHYENA },
-    { 4, 4, SPECIES_WURMPLE },
-    { 5, 5, SPECIES_POOCHYENA },
-    { 5, 5, SPECIES_MARILL },
-    { 4, 4, SPECIES_MARILL },
-    { 5, 5, SPECIES_POOCHYENA },
-    { 4, 4, SPECIES_TAILLOW },
-    { 5, 5, SPECIES_TAILLOW },
-    { 4, 4, SPECIES_WINGULL },
-    { 4, 4, SPECIES_WINGULL },
-    { 3, 3, SPECIES_WINGULL },
-    { 5, 5, SPECIES_WINGULL },
+    { 8, 12, SPECIES_PIDOVE },
+    { 8, 12, SPECIES_PIKIPEK },
+    { 8, 12, SPECIES_WINGULL },
+    { 8, 12, SPECIES_WINGULL },
+    { 8, 12, SPECIES_STARLY },
+    { 8, 12, SPECIES_STARLY },
+    { 8, 12, SPECIES_FLETCHLING },
+    { 8, 12, SPECIES_FLETCHLING },
+    { 8, 12, SPECIES_ROOKIDEE },
+    { 8, 12, SPECIES_ROOKIDEE },
+    { 8, 12, SPECIES_TAILLOW },
+    { 8, 12, SPECIES_TAILLOW },
 };
 
 const struct WildPokemonInfo gRoute104_LandMonsInfo = { 20, gRoute104_LandMons };
 const struct WildPokemon gRoute104_WaterMons[] =
 {
     { 10, 30, SPECIES_WINGULL },
-    { 15, 25, SPECIES_WINGULL },
-    { 15, 25, SPECIES_WINGULL },
-    { 25, 30, SPECIES_PELIPPER },
+    { 15, 25, SPECIES_TENTACOOL },
+    { 15, 25, SPECIES_LANTURN },
+    { 25, 30, SPECIES_TENTACRUEL },
     { 25, 30, SPECIES_PELIPPER },
 };
 
 const struct WildPokemonInfo gRoute104_WaterMonsInfo = { 4, gRoute104_WaterMons };
 const struct WildPokemon gRoute104_FishingMons[] =
 {
-    { 5, 10, SPECIES_MAGIKARP },
-    { 5, 10, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 25, 30, SPECIES_MAGIKARP },
-    { 30, 35, SPECIES_MAGIKARP },
-    { 20, 25, SPECIES_MAGIKARP },
-    { 35, 40, SPECIES_MAGIKARP },
-    { 40, 45, SPECIES_MAGIKARP },
+    { 5, 10, SPECIES_SKRELP },
+    { 5, 10, SPECIES_SKRELP },
+    { 5, 10, SPECIES_BARBOACH },
+    { 5, 10, SPECIES_BARBOACH },
+    { 5, 10, SPECIES_SEEL },
+    { 5, 10, SPECIES_MAREANIE },
+    { 5, 10, SPECIES_MAREANIE },
+    { 5, 10, SPECIES_MAREANIE },
+    { 5, 10, SPECIES_FINIZEN },
+    { 5, 10, SPECIES_FINIZEN },
 };
 
 const struct WildPokemonInfo gRoute104_FishingMonsInfo = { 30, gRoute104_FishingMons };
@@ -2442,6 +2440,23 @@ const struct WildPokemon gEverGrandeCity_FishingMons[] =
 };
 
 const struct WildPokemonInfo gEverGrandeCity_FishingMonsInfo = { 10, gEverGrandeCity_FishingMons };
+const struct WildPokemon gPetalburgCity_LandMons[] =
+{
+    { 8, 10, SPECIES_YAMPER },
+    { 8, 10, SPECIES_SMOLIV },
+    { 8, 10, SPECIES_SMOLIV },
+    { 8, 10, SPECIES_HOOTHOOT },
+    { 8, 10, SPECIES_FIDOUGH },
+    { 8, 10, SPECIES_MEOWTH },
+    { 8, 10, SPECIES_SKWOVET },
+    { 8, 10, SPECIES_GROWLITHE },
+    { 8, 10, SPECIES_AZURILL },
+    { 8, 10, SPECIES_AZURILL },
+    { 8, 10, SPECIES_LITTEN },
+    { 8, 10, SPECIES_LITTEN },
+};
+
+const struct WildPokemonInfo gPetalburgCity_LandMonsInfo = { 10, gPetalburgCity_LandMons };
 const struct WildPokemon gPetalburgCity_WaterMons[] =
 {
     { 20, 30, SPECIES_MARILL },
@@ -2454,19 +2469,19 @@ const struct WildPokemon gPetalburgCity_WaterMons[] =
 const struct WildPokemonInfo gPetalburgCity_WaterMonsInfo = { 1, gPetalburgCity_WaterMons };
 const struct WildPokemon gPetalburgCity_FishingMons[] =
 {
-    { 5, 10, SPECIES_MAGIKARP },
-    { 5, 10, SPECIES_GOLDEEN },
-    { 10, 30, SPECIES_MAGIKARP },
-    { 10, 30, SPECIES_GOLDEEN },
-    { 10, 30, SPECIES_CORPHISH },
-    { 25, 30, SPECIES_CORPHISH },
-    { 30, 35, SPECIES_CORPHISH },
-    { 20, 25, SPECIES_CORPHISH },
-    { 35, 40, SPECIES_CORPHISH },
-    { 40, 45, SPECIES_CORPHISH },
+    { 10, 15, SPECIES_DUCKLETT },
+    { 10, 15, SPECIES_DUCKLETT },
+    { 10, 15, SPECIES_DEWPIDER },
+    { 10, 15, SPECIES_DEWPIDER },
+    { 10, 15, SPECIES_ARROKUDA },
+    { 10, 15, SPECIES_ARROKUDA },
+    { 10, 15, SPECIES_SURSKIT },
+    { 10, 15, SPECIES_SURSKIT },
+    { 10, 15, SPECIES_SOBBLE },
+    { 10, 15, SPECIES_SOBBLE },
 };
 
-const struct WildPokemonInfo gPetalburgCity_FishingMonsInfo = { 10, gPetalburgCity_FishingMons };
+const struct WildPokemonInfo gPetalburgCity_FishingMonsInfo = { 100, gPetalburgCity_FishingMons };
 const struct WildPokemon gUnderwater_Route124_WaterMons[] =
 {
     { 20, 30, SPECIES_CLAMPERL },
@@ -3064,6 +3079,38 @@ const struct WildPokemon gMeteorFalls_StevensCave_LandMons[] =
 };
 
 const struct WildPokemonInfo gMeteorFalls_StevensCave_LandMonsInfo = { 10, gMeteorFalls_StevensCave_LandMons };
+const struct WildPokemon gLittlerootTown0_FishingMons[] =
+{
+    { 3, 5, SPECIES_LUVDISC },
+    { 3, 5, SPECIES_LUVDISC },
+    { 3, 5, SPECIES_GOLDEEN },
+    { 3, 5, SPECIES_GOLDEEN },
+    { 3, 5, SPECIES_FINNEON },
+    { 3, 5, SPECIES_FINNEON },
+    { 3, 5, SPECIES_LOTAD },
+    { 3, 5, SPECIES_LOTAD },
+    { 3, 5, SPECIES_SURSKIT },
+    { 3, 5, SPECIES_SURSKIT },
+};
+
+const struct WildPokemonInfo gLittlerootTown0_FishingMonsInfo = { 30, gLittlerootTown0_FishingMons };
+const struct WildPokemon gOldaleTown0_LandMons[] =
+{
+    { 5, 5, SPECIES_YAMPER },
+    { 5, 5, SPECIES_YAMPER },
+    { 5, 5, SPECIES_FIDOUGH },
+    { 5, 5, SPECIES_FIDOUGH },
+    { 5, 5, SPECIES_BOUNSWEET },
+    { 5, 5, SPECIES_BOUNSWEET },
+    { 5, 5, SPECIES_SHINX },
+    { 5, 5, SPECIES_SHINX },
+    { 5, 5, SPECIES_SEEDOT },
+    { 5, 5, SPECIES_GROWLITHE },
+    { 5, 5, SPECIES_SUNKERN },
+    { 5, 5, SPECIES_SUNKERN },
+};
+
+const struct WildPokemonInfo gOldaleTown0_LandMonsInfo = { 25, gOldaleTown0_LandMons };
 
 const struct WildPokemonHeader gWildMonHeaders[] =
 {
@@ -3790,7 +3837,7 @@ const struct WildPokemonHeader gWildMonHeaders[] =
     {
         .mapGroup = MAP_GROUP(PETALBURG_CITY),
         .mapNum = MAP_NUM(PETALBURG_CITY),
-        .landMonsInfo = NULL,
+        .landMonsInfo = &gPetalburgCity_LandMonsInfo,
         .waterMonsInfo = &gPetalburgCity_WaterMonsInfo,
         .rockSmashMonsInfo = NULL,
         .fishingMonsInfo = &gPetalburgCity_FishingMonsInfo,
@@ -4055,6 +4102,22 @@ const struct WildPokemonHeader gWildMonHeaders[] =
         .mapGroup = MAP_GROUP(METEOR_FALLS_STEVENS_CAVE),
         .mapNum = MAP_NUM(METEOR_FALLS_STEVENS_CAVE),
         .landMonsInfo = &gMeteorFalls_StevensCave_LandMonsInfo,
+        .waterMonsInfo = NULL,
+        .rockSmashMonsInfo = NULL,
+        .fishingMonsInfo = NULL,
+    },
+    {
+        .mapGroup = MAP_GROUP(LITTLEROOT_TOWN),
+        .mapNum = MAP_NUM(LITTLEROOT_TOWN),
+        .landMonsInfo = NULL,
+        .waterMonsInfo = NULL,
+        .rockSmashMonsInfo = NULL,
+        .fishingMonsInfo = &gLittlerootTown0_FishingMonsInfo,
+    },
+    {
+        .mapGroup = MAP_GROUP(OLDALE_TOWN),
+        .mapNum = MAP_NUM(OLDALE_TOWN),
+        .landMonsInfo = &gOldaleTown0_LandMonsInfo,
         .waterMonsInfo = NULL,
         .rockSmashMonsInfo = NULL,
         .fishingMonsInfo = NULL,

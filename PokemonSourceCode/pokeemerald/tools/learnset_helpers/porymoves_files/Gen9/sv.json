@@ -82890,6 +82890,10 @@
         "Move": "MOVE_FAKE_OUT"
       },
       {
+        "Level": 41,
+        "Move": "MOVE_SMACK_DOWN"
+      },
+      {
         "Level": 43,
         "Move": "MOVE_FLATTER"
       },

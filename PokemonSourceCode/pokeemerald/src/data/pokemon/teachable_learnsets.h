@@ -81317,6 +81317,7 @@ static const u16 sKoraidonTeachableLearnset[] = {
     MOVE_BODY_SLAM,
     MOVE_DOUBLE_EDGE,
     MOVE_ENDURE,
+    MOVE_FIRE_PUNCH,
     MOVE_MUD_SLAP,
     MOVE_SLEEP_TALK,
     MOVE_SUBSTITUTE,
