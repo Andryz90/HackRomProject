@@ -78,6 +78,10 @@ static const u8 sEvolutionStoneDesc[] = _("Makes certain\n"
                                           "species of Pokémon\n"
                                           "evolve.");
 
+static const u8 sHisuianAmDesc[] =      _("Makes hisuian\n"
+                                          "Pokemon species\n"
+                                          "to evolve.");
+
 static const u8 sNectarDesc[]         = _("Flower nectar that\n"
                                           "changes the form\n"
                                           "of certain Pokémon.");
@@ -3534,7 +3538,17 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_EvoItem,
         .flingPower = 80,
     },
-
+    [ITEM_HISUIAN_AMULET] =
+    {
+        .name = _("Hisuian Amulet"),
+        .price = 5000,
+        .description = sHisuianAmDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .effect = gItemEffect_EvoItem,
+        .flingPower = 80,
+    },
     [ITEM_SWEET_APPLE] =
     {
         .name = _("Sweet Apple"),

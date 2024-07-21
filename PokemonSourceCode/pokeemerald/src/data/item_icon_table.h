@@ -242,6 +242,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SHINY_STONE] = {gItemIcon_ShinyStone, gItemIconPalette_ShinyStone},
     [ITEM_DUSK_STONE] = {gItemIcon_DuskStone, gItemIconPalette_DuskStone},
     [ITEM_DAWN_STONE] = {gItemIcon_DawnStone, gItemIconPalette_DawnStone},
+    [ITEM_HISUIAN_AMULET] = {gItemIcon_ClearAmulet, gItemIconPalette_ClearAmulet},
     [ITEM_SWEET_APPLE] = {gItemIcon_SweetApple, gItemIconPalette_SweetApple},
     [ITEM_TART_APPLE] = {gItemIcon_TartApple, gItemIconPalette_TartApple},
     [ITEM_CRACKED_POT] = {gItemIcon_CrackedPot, gItemIconPalette_Pot},
