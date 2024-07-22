@@ -2,7 +2,6 @@
 #include "strings.h"
 #include "battle_pyramid_bag.h"
 #include "item_menu.h"
-#include "text.h"
 
 ALIGNED(4)
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
@@ -221,20 +220,20 @@ const u8 gText_xVar1[] = _("×{STR_VAR_1}");
 const u8 gText_Berry2[] = _(" BERRY"); // Unused
 const u8 gText_Coins[] = _("{STR_VAR_1} COINS");
 const u8 gText_CloseBag[] = _("CLOSE BAG");
-const u8 gText_Var1IsSelected[] = _("{STR_VAR_1} is\nselected.");
+const u8 gText_Var1IsSelected[] = _("{STR_VAR_1}\nis selected.");
 const u8 gText_CantWriteMail[] = _("You can't write\nMAIL here.");
 const u8 gText_NoPokemon[] = _("There is no\nPOKéMON.");
 const u8 gText_MoveVar1Where[] = _("Move the\n{STR_VAR_1}\nwhere?");
 const u8 gText_Var1CantBeHeld[] = _("The {STR_VAR_1} can't be held.");
 const u8 gText_Var1CantBeHeldHere[] = _("The {STR_VAR_1} can't be held\nhere.");
-const u8 gText_DepositHowManyVar1[] = _("Deposit how many\n{STR_VAR_1}(s)?");
-const u8 gText_DepositedVar2Var1s[] = _("Deposited {STR_VAR_2}\n{STR_VAR_1}(s).");
+const u8 gText_DepositHowManyVar1[] = _("Deposit how many\n{STR_VAR_1}?");
+const u8 gText_DepositedVar2Var1s[] = _("Deposited {STR_VAR_2}\n{STR_VAR_1}.");
 const u8 gText_NoRoomForItems[] = _("There's no room to\nstore items.");
 const u8 gText_CantStoreImportantItems[] = _("Important items\ncan't be stored in\nthe PC!");
 const u8 gText_TooImportantToToss[] = _("That's much too\nimportant to toss\nout!");
-const u8 gText_TossHowManyVar1s[] = _("Toss out how many\n{STR_VAR_1}(s)?");
-const u8 gText_ThrewAwayVar2Var1s[] = _("Threw away {STR_VAR_2}\n{STR_VAR_1}(s).");
-const u8 gText_ConfirmTossItems[] = _("Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}(s)?");
+const u8 gText_TossHowManyVar1s[] = _("Toss out how many\n{STR_VAR_1}?");
+const u8 gText_ThrewAwayVar2Var1s[] = _("Threw away {STR_VAR_2}\n{STR_VAR_1}.");
+const u8 gText_ConfirmTossItems[] = _("Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}?");
 const u8 gText_DadsAdvice[] = _("DAD's advice…\n{PLAYER}, there's a time and place for\leverything!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
@@ -597,8 +596,8 @@ const u8 gText_TakeOutItemsFromPC[] = _("Take out items from the PC.");
 const u8 gText_ThrowAwayItemsInPC[] = _("Throw away items stored in the PC.");
 const u8 gText_NoItems[] = _("There are no items.{PAUSE_UNTIL_PRESS}");
 const u8 gText_NoRoomInBag[] = _("There is no more\nroom in the BAG.");
-const u8 gText_WithdrawHowManyItems[] = _("Withdraw how many\n{STR_VAR_1}(s)?");
-const u8 gText_WithdrawXItems[] = _("Withdrew {STR_VAR_2}\n{STR_VAR_1}(s).");
+const u8 gText_WithdrawHowManyItems[] = _("Withdraw how many\n{STR_VAR_1}?");
+const u8 gText_WithdrawXItems[] = _("Withdrew {STR_VAR_2}\n{STR_VAR_1}.");
 const u8 gText_Read[] = _("READ");
 const u8 gText_MoveToBag[] = _("MOVE TO BAG");
 const u8 gText_Give2[] = _("GIVE");
@@ -1559,14 +1558,6 @@ const u8 gText_PokedexDiploma[] = _("PLAYER: {CLEAR 0x10}{COLOR RED}{SHADOW LIGH
 const u8 gJPText_GameFreak[] = _("{COLOR RED}{SHADOW LIGHT_RED}ゲ-ムフリ-ク"); // Unused
 const u8 gText_DiplomaEmpty[] = _("{COLOR RED}{SHADOW LIGHT_RED}"); // Unused
 const u8 gText_Hoenn[] = _("HOENN");
-const u8 gText_Kanto[] = _("Kanto");
-const u8 gText_Johto[] = _("Johto");
-const u8 gText_Sinnoh[] = _("Sinnoh");
-const u8 gText_Unima[] = _("Unima");
-const u8 gText_Kalos[] = _("Kalos");
-const u8 gText_Alola[] = _("Alola");
-const u8 gText_Galar[] = _("Galar");
-const u8 gText_Paldea[] = _("Paldea");
 const u8 gText_OhABite[] = _("Oh! A bite!");
 const u8 gText_PokemonOnHook[] = _("A POKéMON's on the hook!{PAUSE_UNTIL_PRESS}");
 const u8 gText_NotEvenANibble[] = _("Not even a nibble…{PAUSE_UNTIL_PRESS}");
@@ -1575,10 +1566,6 @@ const u8 gText_XWillBeSentToY[] = _("{STR_VAR_2} will be\nsent to {STR_VAR_1}.")
 const u8 gText_ByeByeVar1[] = _("Bye-bye, {STR_VAR_2}!");
 const u8 gText_XSentOverY[] = _("{STR_VAR_1} sent over {STR_VAR_3}.");
 const u8 gText_TakeGoodCareOfX[] = _("Take good care of {STR_VAR_3}!");
-
-const u8 gText_Standard[] = _("Standard Mode");
-const u8 gText_Hardcore[] = _("Hardcore Mode");
-const u8 gText_Nuzlocke[] = _("Nuzlocke Mode");
 
 // Easy chat group names
 const u8 gEasyChatGroupName_Pokemon[] = _("POKéMON");
@@ -1622,23 +1609,6 @@ const u8 gText_PkmnsNickname[] = _("{STR_VAR_1}'s nickname?");
 const u8 gText_TellHimTheWords[] = _("Tell him the words.");
 const u8 gText_MoveOkBack[] = _("{DPAD_NONE}MOVE  {A_BUTTON}OK  {B_BUTTON}BACK");
 const u8 gText_CallCantBeMadeHere[] = _("A call can't be made from here.");
-const u8 gText_ContestLady_Handsome[] = _("HANDSOME");
-const u8 gText_ContestLady_Vinny[] = _("VINNY");
-const u8 gText_ContestLady_Moreme[] = _("MOREME");
-const u8 gText_ContestLady_Ironhard[] = _("IRONHARD");
-const u8 gText_ContestLady_Muscle[] = _("MUSCLE");
-const u8 gText_ContestLady_Coolness[] = _("coolness");
-const u8 gText_ContestLady_Beauty[] = _("beauty");
-const u8 gText_ContestLady_Cuteness[] = _("cuteness");
-const u8 gText_ContestLady_Smartness[] = _("smartness");
-const u8 gText_ContestLady_Toughness[] = _("toughness");
-const u8 gText_QuizLady_Lady[] = _("Lady");
-const u8 gText_FavorLady_Slippery[] = _("slippery");
-const u8 gText_FavorLady_Roundish[] = _("roundish");
-const u8 gText_FavorLady_Whamish[] = _("wham-ish");
-const u8 gText_FavorLady_Shiny[] = _("shiny");
-const u8 gText_FavorLady_Sticky[] = _("sticky");
-const u8 gText_FavorLady_Pointy[] = _("pointy");
 const u8 gText_RentalPkmn2[] = _("RENTAL POKéMON");
 const u8 gText_SelectFirstPkmn[] = _("Select the first POKéMON.");
 const u8 gText_SelectSecondPkmn[] = _("Select the second POKéMON.");
@@ -1859,8 +1829,8 @@ const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
-const u8 gText_InfiniteRepel[] = _("The Repel has been turned on.{PAUSE_UNTIL_PRESS}");
-const u8 gText_InfiniteRepelOff[] = _("The Repel has been turned off.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 const u8 gText_Fertilize[] = _("FERTILIZE");
 const u8 gText_PlantBerry[] = _("PLANT BERRY");
+const u8 gText_AM[] = _("AM");
+const u8 gText_PM[] = _("PM");

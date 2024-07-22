@@ -2027,6 +2027,7 @@ const u32 gItemIconPalette_FairyTeraShard[] = INCBIN_U32("graphics/items/icon_pa
 
 const u32 gItemIcon_StellarTeraShard[] = INCBIN_U32("graphics/items/icons/stellar_tera_shard.4bpp.lz");
 const u32 gItemIconPalette_StellarTeraShard[] = INCBIN_U32("graphics/items/icon_palettes/stellar_tera_shard.gbapal.lz");
+
 // Mochi
 
 const u32 gItemIcon_Mochi[] = INCBIN_U32("graphics/items/icons/mochi.4bpp.lz");

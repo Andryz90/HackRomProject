@@ -332,8 +332,8 @@ static u16 GetRandomAlternateMove(u8 monId)
 
     for (j = 0; learnset[j].move != LEVEL_UP_MOVE_END; j++)
     {
-        //if (learnset[j].level > level)
-        //    break;
+        if (learnset[j].level > level)
+            break;
     }
 
     numLearnsetMoves = j;
@@ -450,7 +450,7 @@ static void GetLatestLearnedMoves(u16 species, u16 *moves)
     for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
     {
         if (learnset[i].level > level)
-           continue;
+            break;
     }
 
     numLearnsetMoves = i;

@@ -1,1 +1,0 @@
-Thanks to AsparagusEduardo for sharing these!

@@ -241,16 +241,7 @@ const struct SpriteTemplate gIceCrystalHitLargeSpriteTemplate =
     .affineAnims = gAffineAnims_IceCrystalHit,
     .callback = AnimIceEffectParticle,
 };
-const struct SpriteTemplate gIceCrystalHitLargeSpriteTemplate2 =
-{
-    .tileTag = ANIM_TAG_ICE_CRYSTALS,
-    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
-    .oam = &gOamData_AffineNormal_ObjBlend_8x16,
-    .anims = gAnims_IceCrystalLarge,
-    .images = NULL,
-    .affineAnims = gAffineAnims_IceCrystalHit,
-    .callback = AnimIceEffectParticle2,
-};
+
 const struct SpriteTemplate gIceCrystalHitSmallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ICE_CRYSTALS,
@@ -736,7 +727,7 @@ void AnimIceEffectParticle(struct Sprite *sprite)
     }
     else
     {
-       SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &sprite->x, &sprite->y);
+        SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &sprite->x, &sprite->y);
         if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
             gBattleAnimArgs[0] = -gBattleAnimArgs[0];
 
@@ -747,25 +738,7 @@ void AnimIceEffectParticle(struct Sprite *sprite)
     StoreSpriteCallbackInData6(sprite, AnimFlickerIceEffectParticle);
     sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
 }
-void AnimIceEffectParticle2(struct Sprite *sprite)
-{
-    if (gBattleAnimArgs[2] == 0)
-    {
-        InitSpritePosToAnimAttacker(sprite, TRUE);
-    }
-    else
-    {
-       SetAverageBattlerPositions(gBattleAnimAttacker, TRUE, &sprite->x, &sprite->y);
-        if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
-            gBattleAnimArgs[0] = -gBattleAnimArgs[0];
 
-        sprite->x += gBattleAnimArgs[0];
-        sprite->y += gBattleAnimArgs[1];
-    }
-
-    StoreSpriteCallbackInData6(sprite, AnimFlickerIceEffectParticle);
-    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
-}
 static void AnimFlickerIceEffectParticle(struct Sprite *sprite)
 {
     sprite->invisible ^= 1;

@@ -23,15 +23,6 @@ enum {
     RELEARNERWIN_MSG,
     RELEARNERWIN_YESNO,
 };
-// Win IDs for the tutor move
-enum {
-    TUTORWIN_DESC_BATTLE,
-    TUTORWIN_DESC_CONTEST,
-    TUTORWIN_MOVE_LIST,
-    TUTORWIN_MSG,
-    TUTORWIN_YESNO,
-
-};
 
 enum {
     TAG_CONDITION_MON = 100,
@@ -136,15 +127,11 @@ void FreeConditionSparkles(struct Sprite **sprites);
 
 // Move relearner
 void MoveRelearnerPrintMessage(u8 *str);
-void MoveTutorPrintMessage(u8 *str);
 bool16 MoveRelearnerRunTextPrinters(void);
-bool16 MoveTutorRunTextPrinters(void);
 void MoveRelearnerCreateYesNoMenu(void);
-void MoveTutorCreateYesNoMenu(void);
 u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
-u8 LoadMoveTutorMovesList(const struct ListMenuItem *items, u16 numChoices);
 void InitMoveRelearnerWindows(bool8 useContestWindow);
-void InitMoveTutorWindows(bool8 useContestWindow);
+
 // Level up window
 void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bgClr, u8 fgClr, u8 shadowClr);
 void DrawLevelUpWindowPg2(u16 windowId, u16 *currStats, u8 bgClr, u8 fgClr, u8 shadowClr);

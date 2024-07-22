@@ -1,1 +1,0 @@
-Lucas and Dawn front and back sprites by Farore

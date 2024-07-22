@@ -203,10 +203,10 @@ u8 GetBattlerSpriteDefault_Y(u8 battlerId);
 u8 GetSubstituteSpriteDefault_Y(u8 battlerId);
 
 // battle_anim_status_effects.c
-#define STAT_ANIM_PLUS1  MOVE_EFFECT_ATK_PLUS_1 - 1
-#define STAT_ANIM_PLUS2  MOVE_EFFECT_ATK_PLUS_2 - 1
-#define STAT_ANIM_MINUS1 MOVE_EFFECT_ATK_MINUS_1 - 1
-#define STAT_ANIM_MINUS2 MOVE_EFFECT_ATK_MINUS_2 - 1
+#define STAT_ANIM_PLUS1  (MOVE_EFFECT_ATK_PLUS_1 - 1)
+#define STAT_ANIM_PLUS2  (MOVE_EFFECT_ATK_PLUS_2 - 1)
+#define STAT_ANIM_MINUS1 (MOVE_EFFECT_ATK_MINUS_1 - 1)
+#define STAT_ANIM_MINUS2 (MOVE_EFFECT_ATK_MINUS_2 - 1)
 #define STAT_ANIM_MULTIPLE_PLUS1 55
 #define STAT_ANIM_MULTIPLE_PLUS2 56
 #define STAT_ANIM_MULTIPLE_MINUS1 57
@@ -354,7 +354,6 @@ void AnimFlyBallAttack_Step(struct Sprite *sprite);
 void AnimFlyBallUp_Step(struct Sprite *sprite);
 void AnimBounceBallLand(struct Sprite *);
 void AnimEllipticalGust(struct Sprite *);
-void AnimEllipticalGust2(struct Sprite *sprite);
 extern const union AnimCmd *const gAffineAnims_AirWaveCrescent[];
 extern const union AffineAnimCmd *const gAffineAnims_FlyBallUp[];
 extern const union AffineAnimCmd *const gAffineAnims_FlyBallAttack[];
@@ -518,7 +517,6 @@ void AnimMissileArc_Step(struct Sprite *sprite);
 void AnimThrowMistBall(struct Sprite *sprite);
 void AnimMoveParticleBeyondTarget(struct Sprite *sprite);
 void AnimIceEffectParticle(struct Sprite *sprite);
-void AnimIceEffectParticle2(struct Sprite *sprite);
 void AnimSwirlingSnowball_Step1(struct Sprite *sprite);
 extern const union AnimCmd *const gAnims_Snowball[];
 extern const union AffineAnimCmd *const gAffineAnims_IceCrystalHit[];
@@ -539,6 +537,9 @@ extern const union AnimCmd *const gAnims_WillOWispOrb[];
 extern const union AnimCmd *const gAnims_FirePlume[];
 
 // battle_anim_dragon.c
+extern const union AnimCmd *const gAnims_DreepyMissilePlayer[];
+extern const union AnimCmd *const gAnims_DreepyMissileOpponent[];
+extern const union AnimCmd *const gAnims_DreepyMissileOpponentNotDrag[];
 extern const union AnimCmd *const gAnims_DragonBreathFire[];
 extern const union AnimCmd *const gAnims_DragonRageFirePlume[];
 extern const union AffineAnimCmd *const gAffineAnims_DragonRageFire[];

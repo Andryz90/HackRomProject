@@ -3712,12 +3712,42 @@ const struct SpriteTemplate gMagicPowderBluePowderTemplate =
 };
 
 //dreepy missile
-const struct SpriteTemplate gDreepyMissileTemplate =
+const struct SpriteTemplate gDreepyMissilePlayerTemplate =
 {
     .tileTag = ANIM_TAG_DREEPY,
     .paletteTag = ANIM_TAG_DREEPY,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = gDummySpriteAnimTable,
+    .anims = gAnims_DreepyMissilePlayer,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShadowBall
+};
+const struct SpriteTemplate gDreepyMissileOpponentTemplate =
+{
+    .tileTag = ANIM_TAG_DREEPY,
+    .paletteTag = ANIM_TAG_DREEPY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_DreepyMissileOpponent,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShadowBall
+};
+const struct SpriteTemplate gDreepyMissilePlayerShinyTemplate =
+{
+    .tileTag = ANIM_TAG_DREEPY,
+    .paletteTag = ANIM_TAG_DREEPY_SHINY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_DreepyMissilePlayer,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShadowBall
+};
+const struct SpriteTemplate gDreepyMissileOpponentShinyTemplate =
+{
+    .tileTag = ANIM_TAG_DREEPY,
+    .paletteTag = ANIM_TAG_DREEPY_SHINY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_DreepyMissileOpponent,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimShadowBall
@@ -5271,16 +5301,6 @@ const struct SpriteTemplate gHydroVortexHurricaneSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimEllipticalGust
-};
-const struct SpriteTemplate gHydroVortexHurricaneSpriteTemplate2 =
-{
-    .tileTag = ANIM_TAG_GUST,
-    .paletteTag = ANIM_TAG_WATER_ORB,
-    .oam = &gOamData_AffineOff_ObjNormal_32x64,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimEllipticalGust2
 };
 const struct SpriteTemplate gHydroVortexImpactSpriteTemplate =
 {
@@ -8578,19 +8598,7 @@ void AnimTask_TechnoBlast(u8 taskId)
         gBattleAnimArgs[0] = 0;
     DestroyAnimVisualTask(taskId);
 }
-void AnimTask_SeasonPW(u8 taskId)
-{
-    if (gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK
-        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_WINTER
-        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_AUTUMN
-        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_SPRING
-        || gBattleMons[gBattleAnimAttacker].species == SPECIES_SAWSBUCK_SUMMER)
-    
-        gBattleAnimArgs[0] = gBattleMons[gBattleAnimAttacker].type1;
-    else
-        gBattleAnimArgs[0] = 0;
-    DestroyAnimVisualTask(taskId);
-}
+
 // Z MOVES
 //Creates a twinkle at the location the target was knocked too in Twinkle Tackle
 static void SpriteCB_TwinkleOnBattler(struct Sprite *sprite)

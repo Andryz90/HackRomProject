@@ -997,13 +997,11 @@
 #define ITEM_SWAP_SNACK 825
 #define ITEM_TWICE_SPICED_RADISH 826
 #define ITEM_POKESHI_DOLL 827
-#define ITEM_RARE_CANDY_KEY_ITEM 828
-#define ITEM_INFINITE_REPEL 829
-#define ITEM_HISUIAN_AMULET 830
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 831
+#define ITEMS_COUNT 828
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -1033,9 +1031,9 @@
 #define MAIL_NONE 0xFF
 #define ITEM_TO_MULCH(itemId)(((itemId) - ITEM_GROWTH_MULCH) + 1)
 
-#define NUM_TECHNICAL_MACHINES        100
-#define NUM_HIDDEN_MACHINES             8
-#define NUM_TECHIDDEN_MACHINES        (NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES)
+#define NUM_TECHNICAL_MACHINES 100
+#define NUM_HIDDEN_MACHINES 8
+
 #define MAX_BAG_ITEM_CAPACITY         999
 #define MAX_PC_ITEM_CAPACITY          999
 #define MAX_PYRAMID_BAG_ITEM_CAPACITY  99 // Values higher than 255 require free SaveBlock2 space.
