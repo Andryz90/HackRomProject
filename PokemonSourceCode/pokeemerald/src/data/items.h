@@ -82,6 +82,10 @@ static const u8 sEvolutionStoneDesc[] = _("Makes certain\n"
                                           "species of Pokémon\n"
                                           "evolve.");
 
+static const u8 sHisuianAmDesc[] =      _("Makes hisuian\n"
+                                          "Pokemon species\n"
+                                          "to evolve.");
+
 static const u8 sNectarDesc[]         = _("Flower nectar that\n"
                                           "changes the form\n"
                                           "of certain Pokémon.");
@@ -1920,6 +1924,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_RareCandy,
     },
 
+// Infinite Candy
+    [ITEM_RARE_CANDY_KEY_ITEM] =
+    {
+        .name = _("Endless Rare Candies"),
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon below\n"
+            "the lvl cap."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
+    },
+
     [ITEM_EXP_CANDY_XS] =
     {
         .name = HANDLE_EXPANDED_ITEM_NAME("Exp.Candy XS", "Exp. Candy XS"),
@@ -2172,6 +2192,20 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Repel,
         .flingPower = 30,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_MaxRepel,
+    },
+        [ITEM_INFINITE_REPEL] =
+    {
+        .name = _("Infinite Repel"),
+        .holdEffectParam = 1,
+        .description = COMPOUND_STRING(
+            "Repels weak wild\n"
+            "Pokemon until \n"
+            "deactivated."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
         .iconPic = gItemIcon_Repel,
         .iconPalette = gItemIconPalette_MaxRepel,
     },
@@ -3954,7 +3988,20 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_DawnStone,
         .iconPalette = gItemIconPalette_DawnStone,
     },
-
+    [ITEM_HISUIAN_AMULET] =
+    {
+        .name = _("Hisuian Amulet"),
+        .price = 5000,
+        .description = sHisuianAmDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .effect = gItemEffect_EvoItem,
+        .flingPower = 80,
+        .iconPic = gItemIcon_ClearAmulet,
+        .iconPalette = gItemIcon_ClearAmulet,
+        
+    },
     [ITEM_SWEET_APPLE] =
     {
         .name = _("Sweet Apple"),

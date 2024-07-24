@@ -2255,4 +2255,29 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points
     },
+    [EFFECT_DETERIO] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 1,
+    },
+    [EFFECT_HOARFROST] =
+    {
+        .battleScript = BattleScript_EffectHoarfrost,
+        .battleTvScore = 1,
+    },
+    [EFFECT_PURIFYING_WATER] =
+    {
+        .battleScript = BattleScript_Putifying_Water,
+        .battleTvScore = 1,
+    },
+    [EFFECT_WINDSOM_OF_CHANGE] =
+    {
+        .battleScript = BattleScript_EffectWoC,
+        .battleTvScore = 1,
+    },
+    [EFFECT_CHANGE_TYPE] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 1,
+    },
 };

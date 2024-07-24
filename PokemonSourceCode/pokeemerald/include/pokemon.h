@@ -387,6 +387,7 @@ struct SpeciesInfo /*0xC4*/
  /* 0x2E */ u16 natDexNum;
  /* 0x30 */ u16 height; //in decimeters
  /* 0x32 */ u16 weight; //in hectograms
+            u8  arms;
  /* 0x34 */ u16 pokemonScale;
  /* 0x36 */ u16 pokemonOffset;
  /* 0x38 */ u16 trainerScale;
@@ -492,6 +493,7 @@ struct MoveInfo
     u32 ignoresKingsRock:1;
     u32 punchingMove:1;
     u32 bitingMove:1;
+    u32 kickingMove:1;
     u32 pulseMove:1;
     u32 soundMove:1;
     u32 ballisticMove:1;
@@ -512,6 +514,7 @@ struct MoveInfo
     u32 ignoresSubstitute:1;
     u32 forcePressure:1;
     u32 cantUseTwice:1;
+    u32 isMaxMove: 1;
 
     // Ban flags
     u32 gravityBanned:1;
@@ -700,6 +703,7 @@ extern const u32 sExpCandyExperienceTable[];
 extern const struct Ability gAbilitiesInfo[];
 extern const struct NatureInfo gNaturesInfo[];
 
+
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);
 void ZeroPlayerPartyMons(void);
@@ -732,6 +736,8 @@ void SetMonMoveSlot(struct Pokemon *mon, u16 move, u8 slot);
 void SetBattleMonMoveSlot(struct BattlePokemon *mon, u16 move, u8 slot);
 void GiveMonInitialMoveset(struct Pokemon *mon);
 void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon);
+void GiveMonInitialMoveset_Fast(struct Pokemon *mon);
+void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon);
 u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove);
 void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move);
 void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
@@ -822,8 +828,10 @@ void PartySpreadPokerus(struct Pokemon *party);
 bool8 TryIncrementMonLevel(struct Pokemon *mon);
 u8 CanLearnTeachableMove(u16 species, u16 move);
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves);
+u8 GetTutorMoves(struct Pokemon *mon, u16 *moves);
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves);
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon);
+u8 GetNumberOfTeachableMoves(struct Pokemon *mon);
 u16 SpeciesToPokedexNum(u16 species);
 bool32 IsSpeciesInHoennDex(u16 species);
 u16 GetBattleBGM(void);

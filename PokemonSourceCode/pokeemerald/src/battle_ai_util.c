@@ -454,6 +454,11 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
         if (moveType == TYPE_GROUND)
             return TRUE;
         break;
+    
+    case ABILITY_SPIRIT_BODY:
+        if (!(moveType == TYPE_GHOST || moveType == TYPE_DARK || GetBattlerAbility(battlerAtk) == ABILITY_SCRAPPY) && (gMovesInfo[move].makesContact)) {
+            return TRUE;
+        }
     }
 
     switch (gMovesInfo[move].effect)
@@ -1410,6 +1415,7 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_POISON:
     case EFFECT_PARALYZE:
     case EFFECT_WILL_O_WISP:
+    case EFFECT_HOARFROST:
     case EFFECT_YAWN:
         return TRUE;
     default:
@@ -2940,7 +2946,7 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
     if ((gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
       || AI_DATA->effectiveness[battlerAtk][battlerDef][AI_THINKING_STRUCT->movesetIndex] == AI_EFFECTIVENESS_x0
       || defAbility == ABILITY_OBLIVIOUS
-      || !AreBattlersOfOppositeGender(battlerAtk, battlerDef)
+      || !AreBattlersInfatuable(battlerAtk, battlerDef)
       || AI_IsAbilityOnSide(battlerDef, ABILITY_AROMA_VEIL))
         return FALSE;
     return TRUE;
@@ -3239,7 +3245,8 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gMovesInfo[partnerMove].effect == EFFECT_TOXIC
        || gMovesInfo[partnerMove].effect == EFFECT_PARALYZE
        || gMovesInfo[partnerMove].effect == EFFECT_WILL_O_WISP
-       || gMovesInfo[partnerMove].effect == EFFECT_YAWN))
+       || gMovesInfo[partnerMove].effect == EFFECT_YAWN
+       || gMovesInfo[partnerMove].effect == EFFECT_HOARFROST))
         return TRUE;
     return FALSE;
 }
@@ -3913,7 +3920,8 @@ bool32 AI_ShouldSetUpHazards(u32 battlerAtk, u32 battlerDef, struct AiLogicData 
     if (aiData->abilities[battlerDef] == ABILITY_MAGIC_BOUNCE
      || CountUsablePartyMons(battlerDef) == 0
      || HasMoveWithAdditionalEffect(battlerDef, MOVE_EFFECT_RAPID_SPIN)
-     || HasMoveEffect(battlerDef, EFFECT_DEFOG))
+     || HasMoveEffect(battlerDef, EFFECT_DEFOG)
+     || HasMoveEffect(battlerDef, EFFECT_WINDSOM_OF_CHANGE))
         return FALSE;
 
     return TRUE;

@@ -110,13 +110,61 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-static const u16 sStarterMon[STARTER_MON_COUNT] =
+static const u16 sStarterMon[27] =
 {
     SPECIES_TREECKO,
     SPECIES_TORCHIC,
     SPECIES_MUDKIP,
-};
 
+};
+static const u16 sTripleStarter[9][3] =
+{
+    {   SPECIES_BULBASAUR,
+        SPECIES_CHARMANDER,
+        SPECIES_SQUIRTLE,
+    }, 
+    {
+        SPECIES_CHIKORITA,
+        SPECIES_CYNDAQUIL,
+        SPECIES_TOTODILE,
+    }, 
+    {
+        SPECIES_TREECKO,
+        SPECIES_TORCHIC,
+        SPECIES_MUDKIP,
+
+    }, 
+    {
+        SPECIES_TURTWIG,
+        SPECIES_CHIMCHAR,
+        SPECIES_PIPLUP,
+    }, 
+    {
+        SPECIES_SNIVY,
+        SPECIES_TEPIG,
+        SPECIES_OSHAWOTT,
+    },
+    {
+        SPECIES_CHESPIN,
+        SPECIES_FENNEKIN,
+        SPECIES_FROAKIE,
+    },
+    {
+        SPECIES_ROWLET,
+        SPECIES_LITTEN,
+        SPECIES_POPPLIO,
+    },
+    {
+        SPECIES_GROOKEY,
+        SPECIES_SCORBUNNY,
+        SPECIES_SOBBLE,
+    },
+    {
+        SPECIES_SPRIGATITO,
+        SPECIES_SKELEDIRGE,
+        SPECIES_QUAXLY,
+    },
+};
 static const struct BgTemplate sBgTemplates[3] =
 {
     {
@@ -350,9 +398,11 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
+    u16* ptr = GetVarPointer(VAR_VARIOUS_STARTER);
+    u16 index = *ptr;
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+    return sTripleStarter[index][chosenStarterId];
 }
 
 static void VblankCB_StarterChoose(void)
@@ -484,7 +534,7 @@ static void Task_StarterChoose(u8 taskId)
 static void Task_HandleStarterChooseInput(u8 taskId)
 {
     u8 selection = gTasks[taskId].tStarterSelection;
-
+    
     if (JOY_NEW(A_BUTTON))
     {
         u8 spriteId;

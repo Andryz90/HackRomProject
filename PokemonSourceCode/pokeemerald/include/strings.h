@@ -156,7 +156,22 @@ extern const u8 gText_Cushion[];
 extern const u8 gText_Decorate[];
 extern const u8 gText_PutAway[];
 extern const u8 gText_Toss2[];
+//Region Selection
 extern const u8 gText_Hoenn[];
+extern const u8 gText_Kanto[];
+extern const u8 gText_Johto[];
+extern const u8 gText_Sinnoh[];
+extern const u8 gText_Unima[];
+extern const u8 gText_Kalos[];
+extern const u8 gText_Alola[];
+extern const u8 gText_Galar[];
+extern const u8 gText_Paldea[];
+
+//Game Mode
+extern const u8 gText_Standard[];
+extern const u8 gText_Hardcore[];
+extern const u8 gText_Nuzlocke[];
+
 extern const u8 gText_Ferry[];
 extern const u8 gText_SecretBase[];
 extern const u8 gText_Hideout[];
@@ -3036,6 +3051,10 @@ extern const u8 gText_TellHimTheWords[];
 // Exp. Share
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
+
+//Inf. Repel
+extern const u8 gText_InfiniteRepel[];
+extern const u8 gText_InfiniteRepelOff[];
 
 extern const u8 gText_BasePointsResetToZero[];
 

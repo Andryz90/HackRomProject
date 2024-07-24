@@ -531,7 +531,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ROCK_HEAD] =
     {
         .name = _("Rock Head"),
-        .description = COMPOUND_STRING("Prevents recoil damage."),
+        .description = COMPOUND_STRING("Prevents recoil damage, boosts the accuracy."),
         .aiRating = 5,
     },
 
@@ -1363,10 +1363,33 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_GRASS_PELT] =
     {
         .name = _("Grass Pelt"),
-        .description = COMPOUND_STRING("Ups Defense in grass."),
+        .description = COMPOUND_STRING("Ups Defense in Grassy Terrain."),
         .aiRating = 2,
         .breakable = TRUE,
     },
+
+    [ABILITY_PSYCHIC_PELT] =
+    {
+        .name = _("Psychic Pelt"),
+        .description = COMPOUND_STRING("Ups Sp.Atk in Psychic Terrain."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+        [ABILITY_MISTY_PELT] =
+    {
+        .name = _("Misty Pelt"),
+        .description = COMPOUND_STRING("Ups Sp.Def in Misty Terrain."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+        [ABILITY_ELECTRIC_PELT] =
+    {
+        .name = _("Electric Pelt"),
+        .description = COMPOUND_STRING("Ups Atk in Electr Terrain."),
+        .aiRating = 2,
+        .breakable = TRUE,
+    },
+    
 
     [ABILITY_SYMBIOSIS] =
     {
@@ -1646,7 +1669,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_CORROSION] =
     {
         .name = _("Corrosion"),
-        .description = COMPOUND_STRING("Poisons any type."),
+        .description = COMPOUND_STRING("Poison now affects steel."),
         .aiRating = 5,
     },
 
@@ -2607,4 +2630,70 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_WIND_GLIDER] =
+    {
+ 
+        .name = _("Wind Glider"),
+        .description = COMPOUND_STRING("Set tailwind and boost wind moves"),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = FALSE,
+    },
+
+        [ABILITY_SPIRIT_BODY] =
+    {
+ 
+        .name = _("Spirit Body"),
+        .description = COMPOUND_STRING("Immune to contact moves"),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = TRUE,
+    },
+    [ABILITY_MIND_POWER] =
+    {
+ 
+        .name = _("Mind Power"),
+        .description = COMPOUND_STRING("Power Ups Psychic moves."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    },
+    [ABILITY_LIFEDRAINER] =
+    {
+ 
+        .name = _("Life Drainer"),
+        .description = COMPOUND_STRING("Power Ups Absorb moves."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    },
+    [ABILITY_FORMATION] =
+    {
+ 
+        .name = _("Formation"),
+        .description = COMPOUND_STRING("Every move becomes multi-hit."),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    },
+    [ABILITY_DISTORSION_DATA] =
+    {
+        .name = _("Distorsion Data"),
+        .description = COMPOUND_STRING("Set Trick Room on switch-in"),
+        .aiRating = 10,
+        .cantBeCopied = FALSE,
+        .cantBeSwapped = FALSE,
+        .cantBeTraced = FALSE,
+        .breakable = FALSE,
+    }
 };

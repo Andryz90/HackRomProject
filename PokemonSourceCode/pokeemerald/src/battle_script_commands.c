@@ -1101,6 +1101,8 @@ static const u8 sTerrainToType[BATTLE_TERRAIN_COUNT] =
     [BATTLE_TERRAIN_PLAIN]            = (B_CAMOUFLAGE_TYPES >= GEN_4 ? TYPE_GROUND : TYPE_NORMAL),
 };
 
+EWRAM_DATA u8 ptr_multihit = 0;
+
 static bool32 NoTargetPresent(u8 battler, u32 move)
 {
     if (!IsBattlerAlive(gBattlerTarget))
@@ -1238,7 +1240,20 @@ static void Cmd_attackcanceler(void)
             return;
         }
     }
-
+    if (attackerAbility == ABILITY_FORMATION 
+        && gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_OFF
+        && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
+        && gMovesInfo[gCurrentMove].category != DAMAGE_CATEGORY_STATUS) { 
+        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
+        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2) {
+            gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);
+            ptr_multihit = gMultiHitCounter;
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_Formation;
+            return;
+        }
+    }
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
     && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
     && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
@@ -1414,9 +1429,11 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
 
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT)
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+            || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED )
         {
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF; // No second hit if first hit was blocked
+            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gMultiHitCounter = 0;
         }
@@ -1618,6 +1635,19 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (IS_MOVE_PHYSICAL(move))
             calc = (calc * 80) / 100; // 1.2 hustle loss
         break;
+    case ABILITY_ROCK_HEAD:
+        if (gMovesInfo[move].recoil > 0) 
+             calc = (calc * 110) / 100; // 1.1 
+        break;
+    case ABILITY_BAD_DREAMS:
+        if (gMovesInfo[move].effect == EFFECT_SLEEP)
+            calc *= 120 / 100; //x1.2
+        break;
+    case ABILITY_ILLUMINATE:
+        if ((gSpeciesInfo[battlerDef].types[0] != TYPE_ELECTRIC || gSpeciesInfo[battlerDef].types[1] != TYPE_ELECTRIC) 
+            && defAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
+            calc = (calc * 90) / 100;
+        break;
     }
 
     // Target's ability
@@ -1694,7 +1724,8 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
     u32 abilityAtk = GetBattlerAbility(gBattlerAttacker);
     u32 abilityDef = GetBattlerAbility(gBattlerTarget);
     u32 holdEffectAtk = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
-
+    u32 side = GetBattlerSide(gBattlerAttacker);
+    
     if (move == ACC_CURR_MOVE)
         move = gCurrentMove;
 
@@ -1708,7 +1739,10 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
             gBattlescriptCurrInstr = nextInstr;
     }
     else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
-        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
+        || ((gMovesInfo[move].windMove == TRUE) && (gSideStatuses[side] & SIDE_STATUS_TAILWIND)) //Wind moves skip accuracy check if Tailwind is active
+        || ((move == MOVE_LOVELY_KISS || move == MOVE_SWEET_KISS) && abilityAtk == ABILITY_CUTE_CHARM) // If you have Cute Charm skip the accuracy for kisses moves
+        || (gMovesInfo[move].soundMove) //Sound moves should skip accuracy check
+        ||(gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
         || !(gMovesInfo[move].effect == EFFECT_TRIPLE_KICK || gMovesInfo[move].effect == EFFECT_POPULATION_BOMB))))
     {
@@ -1870,7 +1904,8 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
 {
     s32 critChance = 0;
 
-    if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT)
+    if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT
+        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || ABILITY_MAGMA_ARMOR)
     {
         critChance = -1;
     }
@@ -2182,7 +2217,8 @@ static void Cmd_attackanimation(void)
     }
     else
     {
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT) // No animation on second hit
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
+            || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_IN_PROGRESS) // No animation on second hit
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -2766,6 +2802,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
     u16 battlerAbility;
     bool8 activateAfterFaint = FALSE;
 
+    battlerAbility = GetBattlerAbility(gEffectBattler);
     // NULL move effect
     if (gBattleScripting.moveEffect == 0)
         return;
@@ -3206,7 +3243,9 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                 break;
             case MOVE_EFFECT_PAYDAY:
                 // Don't scatter coins on the second hit of Parental Bond
-                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && gSpecialStatuses[gBattlerAttacker].parentalBondState!= PARENTAL_BOND_2ND_HIT)
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && 
+                    (gSpecialStatuses[gBattlerAttacker].parentalBondState!= PARENTAL_BOND_2ND_HIT 
+                    || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_IN_PROGRESS))
                 {
                     u16 payday = gPaydayMoney;
                     u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
@@ -3519,6 +3558,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_MAT_BLOCK;
                     gProtectStructs[gBattlerTarget].spikyShielded = FALSE;
                     gProtectStructs[gBattlerTarget].kingsShielded = FALSE;
+                    gProtectStructs[gBattlerTarget].shieldGuarded = FALSE;
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
@@ -4240,7 +4280,8 @@ static void Cmd_getexp(void)
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
-
+    u16* B_EXP_CAP_TYPE = GetVarPointer(VAR_GAME_MODE);
+    
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
 
     switch (gBattleScripting.getexpState)
@@ -4388,7 +4429,7 @@ static void Cmd_getexp(void)
 
                     ApplyExperienceMultipliers(&gBattleMoveDamage, *expMonId, gBattlerFainted);
 
-                    if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleMoveDamage != 0)
+                    if (*B_EXP_CAP_TYPE != EXP_CAP_NONE && gBattleMoveDamage != 0)
                     {
                         u32 growthRate = gSpeciesInfo[GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES)].growthRate;
                         u32 currentExp = GetMonData(&gPlayerParty[*expMonId], MON_DATA_EXP);
@@ -5443,6 +5484,14 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
                 }
+                else if (gProtectStructs[gBattlerTarget].shieldGuarded) {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_DEF_PLUS_1; //theoretically the def raise should apply on the pokemon that used the move
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+
+                }
                 else if (gProtectStructs[gBattlerTarget].banefulBunkered)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
@@ -5999,7 +6048,8 @@ static void Cmd_moveend(void)
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
-
+                    if (gSpecialStatuses[gBattlerAttacker].formationstate)
+                        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MultiHitPrintStrings;
                     effect = TRUE;
@@ -6017,9 +6067,13 @@ static void Cmd_moveend(void)
                     && (gChosenMove == MOVE_SLEEP_TALK || !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP))
                     && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE))
                     {
+                            //Parental Bond
                         if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                             gSpecialStatuses[gBattlerAttacker].parentalBondState--;
-
+                            //Formation Ability
+                        if (gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED)
+                            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_IN_PROGRESS;
+                        
                         gHitMarker |= (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING);
                         gBattleScripting.animTargetsHit = 0;
                         gBattleScripting.moveendState = 0;
@@ -6042,6 +6096,7 @@ static void Cmd_moveend(void)
             }
             gMultiHitCounter = 0;
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF;
+            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gBattleScripting.moveendState++;
             break;
@@ -10996,6 +11051,11 @@ static void Cmd_setprotectlike(void)
                 gProtectStructs[gBattlerAttacker].kingsShielded = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
+            else if (gCurrentMove == MOVE_ROYAL_GUARD)
+            {
+                gProtectStructs[gBattlerAttacker].shieldGuarded = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
             else if (gCurrentMove == MOVE_BANEFUL_BUNKER)
             {
                 gProtectStructs[gBattlerAttacker].banefulBunkered = TRUE;
@@ -12451,7 +12511,7 @@ static void Cmd_tryinfatuating(void)
     else
     {
         if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION
-            || !AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+            || !AreBattlersInfatuable(gBattlerAttacker, gBattlerTarget))
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -15693,7 +15753,7 @@ static void Cmd_jumpifoppositegenders(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
-    if (AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+    if (AreBattlersInfatuable(gBattlerAttacker, gBattlerTarget))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

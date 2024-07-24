@@ -1730,6 +1730,22 @@ BattleScript_DefogTryHazardsWithAnim:
 	waitanimation
 	goto BattleScript_DefogTryHazards
 
+
+BattleScript_DefogWorks2::
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogTryHazards2
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogTryHazards2
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_DefogPrintString2
+BattleScript_DefogPrintString2::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefogTryHazards2::
+	copybyte gEffectBattler, gBattlerAttacker
+	trydefog TRUE, NULL
+	copybyte gBattlerAttacker, gEffectBattler
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectCopycat::
 	attackcanceler
 	attackstring
@@ -7272,6 +7288,11 @@ BattleScript_MoveUsedIsFrozen::
 	waitmessage B_WAIT_TIME_LONG
 	statusanimation BS_ATTACKER
 	goto BattleScript_MoveEnd
+BattleScript_AlreadyFrozen::
+	printstring STRINGID_ALREADYFROZEN
+	waitmessage B_WAIT_TIME_LONG
+	statusanimation BS_ATTACKER
+	goto BattleScript_MoveEnd
 
 BattleScript_MoveUsedUnfroze::
 	printfromtable gGotDefrostedStringIds
@@ -10033,3 +10054,60 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_WindGliderActivates::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_WIND_GLIDER
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_Formation::
+	pause B_WAIT_TIME_SHORTEST	
+	call BattleScript_AbilityPopUp
+	return
+	
+BattleScript_EffectHoarfrost::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_FROSTBITE, BattleScript_AlreadyFrozen
+	jumpiftype BS_TARGET, TYPE_ICE, BattleScript_NotAffected
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
+	jumpifflowerveil BattleScript_FlowerVeilProtects
+	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	seteffectprimary MOVE_EFFECT_FROSTBITE
+	goto BattleScript_MoveEnd
+
+BattleScript_Putifying_Water::
+	jumpiftype BS_TARGET, TYPE_WATER, BattleScript_EffectSoftboiled
+	jumpifnottype BS_TARGET, TYPE_WATER, BattleScript_EffectHit
+	goto BattleScript_MoveEnd
+	
+
+BattleScript_EffectWoC_End::
+	setstatchanger STAT_ACC, 1, TRUE
+	jumpifsubstituteblocks BattleScript_DefogIfCanClearHazards
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_EVASION, MIN_STAT_STAGE, BattleScript_DefogWorks2
+
+BattleScript_EffectWoC::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	call BattleScript_Hit_RetFromAtkAnimation
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, FALSE, BattleScript_EffectWoC_End
+	end

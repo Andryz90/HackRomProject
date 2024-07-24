@@ -40,6 +40,7 @@
 #include "task.h"
 #include "text.h"
 #include "trainer_hill.h"
+#include "tutor_pkmnlearnset.h"
 #include "util.h"
 #include "constants/abilities.h"
 #include "constants/battle_frontier.h"
@@ -1949,17 +1950,41 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon) //Credit: AsparagusEdua
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromBoxMonExp(boxMon);
     s32 i;
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+
+    for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
+    {
+        if (learnset[i].level > level)
+            continue;
+        if (learnset[i].level == 0)
+            continue;
+        if (GiveMoveToBoxMon(boxMon, learnset[i].move) == MON_HAS_MAX_MOVES)
+            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, learnset[i].move);
+    }
+}
+
+void GiveMonInitialMoveset_Fast(struct Pokemon *mon)
+{
+    GiveBoxMonInitialMoveset_Fast(&mon->box);
+}
+
+void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) // Credit: AsparagusEduardo
+{
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
+    s32 level = GetLevelFromBoxMonExp(boxMon);
+    s32 i;
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE};
     u8 addedMoves = 0;
     const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
     for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
+
     {
         s32 j;
         bool32 alreadyKnown = FALSE;
 
         if (learnset[i].level > level)
-            break;
+            continue;
         if (learnset[i].level == 0)
             continue;
 
@@ -3763,6 +3788,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     s8 evChange;
     u16 evCount;
 
+    u16 *B_EXP_CAP_TYPE = GetVarPointer(VAR_GAME_MODE);
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
@@ -3803,8 +3829,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         // Handle ITEM3 effects (Guard Spec, Rare Candy, cure status)
         case 3:
             // Rare Candy / EXP Candy
-            if ((itemEffect[i] & ITEM3_LEVEL_UP)
-             && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
+            if ((itemEffect[i] & ITEM3_LEVEL_UP) && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
             {
                 u8 param = ItemId_GetHoldEffectParam(item);
                 dataUnsigned = 0;
@@ -3817,8 +3842,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 {
                     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
                     dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
-
-                    if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
+                    if (B_RARE_CANDY_CAP && *B_EXP_CAP_TYPE != EXP_CAP_NONE)
                     {
                         u32 currentLevelCap = GetCurrentLevelCap();
                         if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap])
@@ -5605,6 +5629,56 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     return numMoves;
 }
 
+u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
+{
+    u16 learnedMoves[MAX_MON_MOVES];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
+    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    u16 tms [NUM_TECHIDDEN_MACHINES];
+    bool16 done = FALSE;
+    int i, j, k;
+
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    	/*Fill the TMs/HMs move array to prevent the pokemon to learns it*/
+    for (k = 0; k < NUM_TECHIDDEN_MACHINES; k++)
+    {
+        tms[k] = ItemIdToBattleMoveId(ITEM_TM01 + k);
+    }
+    for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE && i < MAX_TUTOR_MOVES; i++)
+    {
+            //Skip if the Pokemon already knows the move, is invalid or is a TH/HM
+            for (k = 0; k < NUM_TECHIDDEN_MACHINES && !done; k++)
+            {
+                if (teachableLearnset[i] == tms[k])
+                    done = TRUE;
+            }
+            for (j = 0; j < MAX_MON_MOVES && !done; j++)
+            {
+
+                if (teachableLearnset[i] == learnedMoves[j] || teachableLearnset[i] == MOVE_NONE)
+                {
+                    done = TRUE;
+                
+                }
+            }
+            if (done)
+            {
+                done = FALSE;
+                continue;
+            }
+            else
+            {
+                moves[numMoves] = teachableLearnset[i];
+                numMoves++;
+            }
+    }
+    return numMoves;
+}
+
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 {
     u8 numMoves = 0;
@@ -5612,9 +5686,9 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
     const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
     for (i = 0; i < MAX_LEVEL_UP_MOVES && learnset[i].move != LEVEL_UP_MOVE_END; i++)
-         moves[numMoves++] = learnset[i].move;
+        moves[numMoves++] = learnset[i].move;
 
-     return numMoves;
+    return numMoves;
 }
 
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
@@ -5660,7 +5734,43 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
     return numMoves;
 }
+u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
+{
+    u16 learnedMoves[MAX_MON_MOVES];
+    u16 moves[MAX_TUTOR_MOVES];
+    u8 numMoves = 0;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+    //u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    //u16 tms [NUM_TECHIDDEN_MACHINES];
+    int i, j, k;
 
+    if (species == SPECIES_EGG)
+        return 0;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < MAX_TUTOR_MOVES && teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
+    {
+        
+        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
+        {
+            ;
+        }
+
+        if (j == MAX_MON_MOVES)
+        {
+            for (k = 0; k < numMoves && moves[k] != teachableLearnset[i]; k++)
+                ;
+
+            if (k == numMoves)
+                moves[numMoves++] = teachableLearnset[i];
+        }
+    }
+
+    return numMoves;
+}
 u16 SpeciesToPokedexNum(u16 species)
 {
     if (IsNationalPokedexEnabled())

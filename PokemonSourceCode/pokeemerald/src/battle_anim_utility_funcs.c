@@ -1131,3 +1131,13 @@ void AnimTask_SetAnimTargetToAttackerOpposite(u8 taskId)
     gBattleAnimTarget = BATTLE_OPPOSITE(gBattleAnimAttacker);
     DestroyAnimVisualTask(taskId);
 }
+
+void AnimTask_IsTargetWaterType(u8 taskId)
+{
+    if (gBattleMons[gBattleAnimTarget].type1 == TYPE_WATER ||gBattleMons[gBattleAnimTarget].type2 == TYPE_WATER)
+        gBattleAnimArgs[ARG_RET_ID] = TRUE;
+    else
+        gBattleAnimArgs[ARG_RET_ID] = FALSE;
+
+    DestroyAnimVisualTask(taskId);
+}

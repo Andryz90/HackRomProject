@@ -509,12 +509,7 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 	$(FIX) $@ -p --silent
 
-# Uncomment the next line, and then comment the 4 lines after it to reenable agbcc.
-#agbcc: all
-agbcc:
-	@echo "'make agbcc' is deprecated as of pokeemerald-expansion 1.9 and will be removed in 1.10."
-	@echo "Search for 'agbcc: all' in Makefile to reenable agbcc."
-	@exit 1
+agbcc: all
 
 modern: all
 

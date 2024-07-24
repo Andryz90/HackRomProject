@@ -467,7 +467,9 @@ static void Task_ChooseContestMon(u8 taskId);
 static void CB2_ChooseContestMon(void);
 static void Task_ChoosePartyMon(u8 taskId);
 static void Task_ChooseMonForMoveRelearner(u8);
+static void Task_ChooseMonForTutor(u8);
 static void CB2_ChooseMonForMoveRelearner(void);
+static void CB2_ChooseMonForTutor(void);
 static void Task_BattlePyramidChooseMonHeldItems(u8);
 static void ShiftMoveSlot(struct Pokemon *, u8, u8);
 static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
@@ -5254,15 +5256,69 @@ u16 ItemIdToBattleMoveId(u16 item)
 {
     return (ItemId_GetPocket(item) == POCKET_TM_HM) ? gItemsInfo[item].secondaryId : MOVE_NONE;
 }
-
+bool8 PlayerHasMove(u16 move)
+{
+    u16 item;
+    switch (move)
+    {
+    case MOVE_SECRET_POWER:
+        item = ITEM_TM43;
+        break;
+    case MOVE_CUT:
+        item = ITEM_HM01;
+        break;
+    case MOVE_FLY:
+        item = ITEM_HM02;
+        break;
+    case MOVE_SURF:
+        item = ITEM_HM03;
+        break;
+    case MOVE_STRENGTH:
+        item = ITEM_HM04;
+        break;
+    case MOVE_FLASH:
+        item = ITEM_HM05;
+        break;
+    case MOVE_ROCK_SMASH:
+        item = ITEM_HM06;
+        break;
+    case MOVE_WATERFALL:
+        item = ITEM_HM07;
+        break;
+    case MOVE_DIVE:
+        item = ITEM_HM08;
+        break;
+    default:
+        return FALSE;
+        break;
+    }
+    return CheckBagHasItem(item, 1);
+}
 bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 {
-    u8 i;
+    u8 i, j;
+    const u16 *teachableLearnset;
+    u16 species;
 
-    for (i = 0; i < MAX_MON_MOVES; i++)
+    //Check if the player has the move in the bag and if the pokemons in the party can learn it
+     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(mon, MON_DATA_MOVE1 + i) == move)
-            return TRUE;
+        species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        if (!species)
+        {
+            break;
+        }
+        else
+        {
+            teachableLearnset = GetSpeciesTeachableLearnset (species);
+            for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
+            {
+                if (species != SPECIES_EGG && PlayerHasMove (move) && teachableLearnset[j] == move)
+                {
+                    return TRUE;
+                }
+            }
+        }
     }
     return FALSE;
 }
@@ -7619,7 +7675,12 @@ void ChooseMonForMoveRelearner(void)
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChooseMonForMoveRelearner, 10);
 }
-
+void ChooseMonForTutor(void)
+{
+    LockPlayerFieldControls();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_ChooseMonForTutor, 10);
+}
 static void Task_ChooseMonForMoveRelearner(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -7629,7 +7690,15 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
         DestroyTask(taskId);
     }
 }
-
+static void Task_ChooseMonForTutor(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenu(PARTY_MENU_TYPE_MOVE_RELEARNER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForTutor);
+        DestroyTask(taskId);
+    }
+}
 static void CB2_ChooseMonForMoveRelearner(void)
 {
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
@@ -7640,7 +7709,16 @@ static void CB2_ChooseMonForMoveRelearner(void)
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
-
+static void CB2_ChooseMonForTutor(void)
+{
+    gSpecialVar_0x8004 = GetCursorSelectionMonId();
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
+    else
+        gSpecialVar_0x8005 = GetNumberOfTeachableMoves(&gPlayerParty[gSpecialVar_0x8004]);
+    gFieldCallback2 = CB2_FadeFromPartyMenu;
+    SetMainCallback2(CB2_ReturnToField);
+}
 void DoBattlePyramidMonsHaveHeldItem(void)
 {
     u8 i;

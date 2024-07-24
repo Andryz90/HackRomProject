@@ -879,6 +879,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 case EFFECT_WILL_O_WISP:
                 case EFFECT_TOXIC:
                 case EFFECT_LEECH_SEED:
+                case EFFECT_HOARFROST:
                     ADJUST_SCORE(-5);
                     break;
                 case EFFECT_CURSE:
@@ -887,6 +888,13 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     break;
                 }
                 break;
+            case ABILITY_TOXIC_BOOST:
+                switch (moveEffect)
+                {
+                case EFFECT_POISON:
+                        ADJUST_SCORE(-5);
+                    break;
+                }
             case ABILITY_WONDER_GUARD:
                 if (effectiveness < AI_EFFECTIVENESS_x2)
                     return 0;
@@ -1423,7 +1431,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_CAPTIVATE:
-            if (!AreBattlersOfOppositeGender(battlerAtk, battlerDef))
+            if (!AreBattlersInfatuable(battlerAtk, battlerDef))
                 ADJUST_SCORE(-10);
             break;
     // other
@@ -1789,6 +1797,10 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (B_MENTAL_HERB >= GEN_5 && aiData->holdEffects[battlerDef] == HOLD_EFFECT_MENTAL_HERB)
                 ADJUST_SCORE(-6);
             break;
+        case EFFECT_HOARFROST:
+            if(!AI_CanGiveFrostbite(battlerAtk, battlerDef, aiData->abilities[battlerDef], BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
+                ADJUST_SCORE(-10);
+            break;
         case EFFECT_WILL_O_WISP:
             if (!AI_CanBurn(battlerAtk, battlerDef, aiData->abilities[battlerDef], BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
@@ -2069,6 +2081,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
                 ADJUST_SCORE(-9);
             break;
+        case EFFECT_WINDSOM_OF_CHANGE:
         case EFFECT_DEFOG:
             if (gSideStatuses[GetBattlerSide(battlerDef)]
              & (SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHTSCREEN | SIDE_STATUS_AURORA_VEIL | SIDE_STATUS_SAFEGUARD | SIDE_STATUS_MIST)
@@ -2382,6 +2395,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_DETERIO:
+            if ((gBattleMons[battlerDef].type1 == TYPE_STEEL || gBattleMons[battlerDef].type2 == TYPE_STEEL))
+                ADJUST_SCORE(GOOD_EFFECT);
         case EFFECT_ION_DELUGE:
             if (gFieldStatuses & STATUS_FIELD_ION_DELUGE
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
@@ -3950,6 +3966,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         // else if (IsPredictedToUsePursuitableMove(battlerDef, battlerAtk) && !MoveWouldHitFirst(move, battlerAtk, battlerDef)) //Pursuit against fast U-Turn
         //     ADJUST_SCORE(GOOD_EFFECT);
         // break;
+    case EFFECT_WINDSOM_OF_CHANGE:
     case EFFECT_DEFOG:
         if ((gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerAtk) != 0)
             || (gSideStatuses[GetBattlerSide(battlerDef)] & (SIDE_STATUS_SCREEN_ANY | SIDE_STATUS_SAFEGUARD | SIDE_STATUS_MIST)))
@@ -3972,6 +3989,9 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         break;
     case EFFECT_WILL_O_WISP:
         IncreaseBurnScore(battlerAtk, battlerDef, move, &score);
+        break;
+    case EFFECT_HOARFROST:
+        IncreaseFrostbiteScore(battlerAtk, battlerDef, move, &score);
         break;
     case EFFECT_FOLLOW_ME:
         if (isDoubleBattle
@@ -4847,6 +4867,7 @@ static s32 AI_SetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_TORMENT:
     case EFFECT_FLATTER:
     case EFFECT_WILL_O_WISP:
+    case EFFECT_HOARFROST:
     case EFFECT_INGRAIN:
     case EFFECT_IMPRISON:
     case EFFECT_TICKLE:

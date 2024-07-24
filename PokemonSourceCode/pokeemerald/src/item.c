@@ -321,7 +321,9 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
     if (ItemId_GetPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
         return FALSE;
-
+    if (itemId == ITEM_RARE_CANDY_KEY_ITEM) {
+        return FALSE;
+    }
     // check Battle Pyramid Bag
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
     {
