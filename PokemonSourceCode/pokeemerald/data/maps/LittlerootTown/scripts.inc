@@ -422,19 +422,8 @@ Wingull_Region_Text_7::
 	.string "So you're from Galar, huh?$"
 Wingull_Region_Text_8::
 	.string "So you're from Paldea, huh?$"
-LittlerootTown_EventScript_GoSaveBirchTrigger::
-	lockall
-	applymovement LOCALID_TWIN, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	special GetPlayerBigGuyGirlString
-	msgbox LittlerootTown_Text_CanYouGoSeeWhatsHappening, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	setvar VAR_LITTLEROOT_TOWN_STATE, 2
-	LittlerootTown_EventScript_Wingull_RegionSelect::
+
+LittlerootTown_EventScript_Wingull_RegionSelect::
 		setflag FLAG_WINGULL_STATE
 		applymovement LOCALID_WINGULL Common_Movement_ExclamationMark 
 		waitmovement  LOCALID_WINGULL  
@@ -517,7 +506,20 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 			waitmovement  LOCALID_WINGULL 
 			end
 
-	call LittlerootTown_EventScript_Wingull_RegionSelect
+LittlerootTown_EventScript_GoSaveBirchTrigger::
+	lockall
+	applymovement LOCALID_TWIN, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	special GetPlayerBigGuyGirlString
+	msgbox LittlerootTown_Text_CanYouGoSeeWhatsHappening, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	setvar VAR_LITTLEROOT_TOWN_STATE, 2
+	@call LittlerootTown_EventScript_Wingull_RegionSelect
+	setvar VAR_VARIOUS_STARTER, 2 @placeholder to have Hoenn starter
 	releaseall
 	end
 
