@@ -41,7 +41,7 @@
 #include "constants/songs.h"
 
 #define TAG_SCROLL_ARROW   2100
-#define TAG_ITEM_ICON_BASE 2110
+#define TAG_ITEM_ICON_BASE 9110
 
 #define MAX_ITEMS_SHOWN 8
 
@@ -935,7 +935,7 @@ static void BuyMenuDrawObjectEvents(void)
     }
 
     gWeatherPtr->palProcessingState = weatherTemp; // restore weather state
-    CpuFastCopy(gPlttBufferFaded + 16*16, gPlttBufferUnfaded + 16*16, PLTT_BUFFER_SIZE);
+    CpuFastCopy(gPlttBufferFaded + PLTT_ID(16), gPlttBufferUnfaded + PLTT_ID(16), PLTT_BUFFER_SIZE);
 }
 
 static bool8 BuyMenuCheckIfObjectEventOverlapsMenuBg(s16 *object)

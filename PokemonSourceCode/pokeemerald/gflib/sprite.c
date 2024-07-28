@@ -1465,7 +1465,7 @@ u16 LoadSpriteSheet(const struct SpriteSheet *sheet)
 }
 
 // Like LoadSpriteSheet, but checks if already loaded, and uses template image frames
-u16 LoadSpriteSheetByTemplate(const struct SpriteTemplate *template, u32 frame, s32 offset)
+u16 LoadSpriteSheetByTemplate_Offset(const struct SpriteTemplate *template, u32 frame, s32 offset)
 {
     u16 tileStart;
     struct SpriteSheet sheet;
@@ -1598,7 +1598,7 @@ void LoadSpritePalettes(const struct SpritePalette *palettes)
 
 void DoLoadSpritePalette(const u16 *src, u16 paletteOffset)
 {
-    LoadPalette(src, OBJ_PLTT_OFFSET + paletteOffset, PLTT_SIZE_4BPP);
+    LoadPaletteFast(src, paletteOffset + OBJ_PLTT_OFFSET, PLTT_SIZE_4BPP);
 }
 
 u8 AllocSpritePalette(u16 tag)
@@ -1624,12 +1624,10 @@ u8 IndexOfSpritePaletteTag(u16 tag)
 
     return 0xFF;
 }
-
 u16 GetSpritePaletteTagByPaletteNum(u8 paletteNum)
 {
     return sSpritePaletteTags[paletteNum];
 }
-
 void FreeSpritePaletteByTag(u16 tag)
 {
     u8 index = IndexOfSpritePaletteTag(tag);
@@ -1740,6 +1738,7 @@ bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u
 }
 
 static const u8 sSpanPerImage[4][4] =
+
 {
     [ST_OAM_SQUARE] =
     {
@@ -1763,4 +1762,18 @@ static const u8 sSpanPerImage[4][4] =
 u32 GetSpanPerImage(u32 shape, u32 size)
 {
     return sSpanPerImage[shape][size];
+}
+u16 LoadSpriteSheetByTemplate(const struct SpriteTemplate *template, u8 frame)
+{
+    u16 tileStart;
+    struct SpriteSheet tempSheet;
+    if (!template || template->tileTag == TAG_NONE || !template->images)
+        return TAG_NONE;
+    tileStart = GetSpriteTileStartByTag(template->tileTag);
+    if (tileStart != TAG_NONE)
+        return tileStart;
+    tempSheet.data = template->images[frame].data;
+    tempSheet.size = template->images[frame].size;
+    tempSheet.tag = template->tileTag;
+    return LoadSpriteSheet(&tempSheet);
 }

@@ -320,7 +320,7 @@ static const union AnimCmd *const sSpriteAnimTable_Emotes[] =
     sSpriteAnim_Emotes9,
     sSpriteAnim_Emotes10,
 };
-
+#define OBJ_EVENT_PAL_TAG_MAY 0x1110
 static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
 {
     .tileTag = TAG_NONE,
@@ -335,7 +335,7 @@ static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
 static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
 {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
+    .paletteTag = FLDEFF_PAL_TAG_NPC_1,
     .oam = &sOamData_Icons,
     .anims = sSpriteAnimTable_Icons,
     .images = sSpriteImageTable_HeartIcon,

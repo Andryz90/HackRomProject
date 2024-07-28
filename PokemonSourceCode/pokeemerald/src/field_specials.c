@@ -3160,7 +3160,43 @@ void ScrollableMultichoice_ClosePersistentMenu(void)
         DestroyTask(taskId);
     }
 }
+/*void GetBattleFrontierTutorMoveIndex(void)
+{
+    u8 i;
+    u16 moveTutor = 0;
+    u16 moveIndex = 0;
+    gSpecialVar_0x8005 = 0;
 
+    moveTutor = VarGet(VAR_TEMP_FRONTIER_TUTOR_ID);
+    moveIndex = VarGet(VAR_TEMP_FRONTIER_TUTOR_SELECTION);
+
+    if (moveTutor != 0)
+    {
+        i = 0;
+        do
+        {
+            if (gTutorMoves[i] == sBattleFrontier_TutorMoves2[moveIndex])
+            {
+                gSpecialVar_0x8005 = i;
+                break;
+            }
+            i++;
+        } while (i < TUTOR_MOVE_COUNT);
+    }
+    else
+    {
+        i = 0;
+        do
+        {
+            if (gTutorMoves[i] == sBattleFrontier_TutorMoves1[moveIndex])
+            {
+                gSpecialVar_0x8005 = i;
+                break;
+            }
+            i++;
+        } while (i < TUTOR_MOVE_COUNT);
+    }
+}*/
 // Undefine Scrollable Multichoice task data macros
 #undef tMaxItemsOnScreen
 #undef tNumItems
@@ -3258,6 +3294,7 @@ static void ChangeDeoxysRockLevel(u8 rockLevel)
 {
     u8 paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_BIRTH_ISLAND_STONE);
     LoadPalette(&sDeoxysRockPalettes[rockLevel], OBJ_PLTT_ID(paletteNum), PLTT_SIZEOF(4));
+    UpdateSpritePaletteWithWeather(paletteNum, FALSE);
 
     if (rockLevel == 0)
         PlaySE(SE_M_CONFUSE_RAY); // Failure sound

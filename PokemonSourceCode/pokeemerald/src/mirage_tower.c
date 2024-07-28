@@ -20,6 +20,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "field_effect.h"
 
 struct MirageTowerPulseBlend
 {
@@ -152,6 +153,7 @@ static const union AnimCmd *const sAnims_FallingFossil[] =
     sAnim_FallingFossil,
 };
 
+#define OBJ_EVENT_PAL_TAG_NPC_1 0x1103
 static const struct SpriteTemplate sSpriteTemplate_FallingFossil =
 {
     .tileTag = TAG_NONE,
@@ -700,8 +702,13 @@ static void Task_FossilFallAndSink(u8 taskId)
         break;
     case 6:
         // Randomize disintegration pattern
-        Shuffle(sFallingFossil->disintegrateRand, FOSSIL_DISINTEGRATE_LENGTH,
-            sizeof(sFallingFossil->disintegrateRand[0]));
+        for (i = 0; i < FOSSIL_DISINTEGRATE_LENGTH * sizeof(u16); i++)
+        {
+            u16 rand1, rand2, temp;
+            rand1 = Random() % FOSSIL_DISINTEGRATE_LENGTH;
+            rand2 = Random() % FOSSIL_DISINTEGRATE_LENGTH;
+            SWAP(sFallingFossil->disintegrateRand[rand2], sFallingFossil->disintegrateRand[rand1], temp);
+        }
         gSprites[sFallingFossil->spriteId].callback = SpriteCB_FallingFossil;
         break;
     case 7:

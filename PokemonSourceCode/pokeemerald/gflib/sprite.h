@@ -302,7 +302,6 @@ void FreeOamMatrix(u8 matrixNum);
 void InitSpriteAffineAnim(struct Sprite *sprite);
 void SetOamMatrixRotationScaling(u8 matrixNum, s16 xScale, s16 yScale, u16 rotation);
 u16 LoadSpriteSheet(const struct SpriteSheet *sheet);
-u16 LoadSpriteSheetByTemplate(const struct SpriteTemplate *template, u32 frame, s32 offset);
 void LoadSpriteSheets(const struct SpriteSheet *sheets);
 s16 AllocSpriteTiles(u16 tileCount);
 u16 AllocTilesForSpriteSheet(struct SpriteSheet *sheet);
@@ -330,6 +329,7 @@ void CopyFromSprites(u8 *dest);
 u8 SpriteTileAllocBitmapOp(u16 bit, u8 op);
 void ClearSpriteCopyRequests(void);
 void ResetAffineAnimData(void);
+u16 LoadSpriteSheetByTemplate_Offset(const struct SpriteTemplate *template, u32 frame, s32 offset);
+u16 LoadSpriteSheetByTemplate(const struct SpriteTemplate *template, u8 frame);
 u32 GetSpanPerImage(u32 shape, u32 size);
-
 #endif //GUARD_SPRITE_H
