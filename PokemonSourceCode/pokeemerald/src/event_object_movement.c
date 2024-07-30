@@ -3071,10 +3071,12 @@ static void UNUSED LoadObjectEventPaletteSet(u16 *paletteTags)
 static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette)
 {
     u8 paletteNum = IndexOfSpritePaletteTag(spritePalette->tag);
-    if (paletteNum != 0xFF) // don't load twice; return
-        UpdateSpritePaletteWithWeather(paletteNum, FALSE);
+    if (paletteNum != 0xFF)
         return paletteNum;
     paletteNum = LoadSpritePalette(spritePalette);
+    if (paletteNum != 0xFF)
+        UpdateSpritePaletteWithWeather(paletteNum, FALSE);
+
     return paletteNum;
 }
 
