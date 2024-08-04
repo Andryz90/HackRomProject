@@ -3994,8 +3994,8 @@ const struct Item gItemsInfo[] =
         .price = 5000,
         .description = sHisuianAmDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .type = EVO_HELD_ITEM_TYPE,
+        .fieldUseFunc = EVO_HELD_ITEM_FIELD_FUNC,
         .effect = gItemEffect_EvoItem,
         .flingPower = 80,
         .iconPic = gItemIcon_ClearAmulet,
@@ -11257,16 +11257,20 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_HOARFROST, 
     },
 
-    [ITEM_TM55] =
+    [ITEM_TM_X_SCISSOR] =
     {
         .name = _("TM55"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user slashes at foe\n" 
+            "by crossing its scythes or claws\n"
+            "as if they were a pair of scissors."
+        ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_X_SCISSOR, 
     },
 
     [ITEM_TM56] =
@@ -11293,16 +11297,19 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_NONE, // Todo
     },
 
-    [ITEM_TM58] =
+    [ITEM_TM_FLIP_TURN] =
     {
-        .name = _("TM58"),
+        .name = _("TM55"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "After making the atk\n"
+            "the user switches\nout."
+        ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FLIP_TURN, 
     },
 
     [ITEM_TM59] =

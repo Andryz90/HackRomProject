@@ -482,7 +482,7 @@
     },
     {
       "map_section": "MAPSEC_ALTERNATIVE_FOREST",
-      "name": "ALTERNATIVE FOREST",
+      "name": "ALTERNATIVE FRST",
       "x": 0,
       "y": 8,
       "width": 1,
@@ -1712,8 +1712,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_TRAINER_HILL",
-      "name": "TRAINER HILL",
+      "map_section": "MAPSEC_SEASPRAY_CAVE",
+      "name": "SEASPRAY CAVE",
       "x": 8,
       "y": 4,
       "width": 1,

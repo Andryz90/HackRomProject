@@ -49,6 +49,34 @@ RustboroCity_House1_EventScript_Hiker::
 	msgbox RustboroCity_House1_Text_AllSortsOfPlaces, MSGBOX_NPC
 	end
 
+RustboroCity_House1_Hisuian_Thankful::
+	msgbox RustboroCity_House1_Text_Hisuian_Thankful, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_House1_Give_HisuianAmulet::
+	msgbox RustboroCity_House1_Text_Hisuian_Found, MSGBOX_DEFAULT
+	giveitem ITEM_HISUIAN_AMULET
+	setflag FLAG_RUSTBORO_HISUI_FLAG
+	call RustboroCity_House1_Hisuian_Thankful
+	return
+
+RustboroCity_House1_Hisuian_Rejected::
+	msgbox RustboroCity_House1_Text_Hisuian_Rejected, MSGBOX_DEFAULT
+	release
+	return
+
+RustboroCity_House1_EventScript_Hisuian_Collector::
+	lock
+	faceplayer
+	goto_if_set FLAG_RUSTBORO_HISUI_FLAG, RustboroCity_House1_Hisuian_Thankful
+	msgbox RustboroCity_House1_Text_Hisuian, MSGBOX_DEFAULT
+	setvar VAR_0x8008, 548 @petilil
+	copyvar VAR_0x8000, VAR_0x8008
+	specialvar VAR_RESULT CheckMonParty
+	call_if_eq VAR_RESULT, TRUE, RustboroCity_House1_Give_HisuianAmulet
+	call_if_eq VAR_RESULT, FALSE, RustboroCity_House1_Hisuian_Rejected
+	end
 RustboroCity_House1_Text_IllTradeIfYouWant:
 	.string "Huh? My POKéMON is cute?\n"
 	.string "Sure, I knew that.\p"
@@ -79,3 +107,17 @@ RustboroCity_House1_Text_AllSortsOfPlaces:
 	.string "I find that fascinating, so I go to all\n"
 	.string "sorts of places.$"
 
+RustboroCity_House1_Text_Hisuian:
+	.string "I used to be a trainer for long time,\n"
+	.string "but I never saw the new Pokemon's form.\p"
+	.string "I want to see a Pokemon change into the\n"
+	.string "hisuian evolution.\p"
+	.string "Do you happen to have a Petilil?$"
+RustboroCity_House1_Text_Hisuian_Found:
+	.string "Oh you have it! Take this as reward.$"
+RustboroCity_House1_Text_Hisuian_Thankful:
+	.string "Thanks, now I can finally see my favorite\n"
+	.string "hisuian evolution!$"
+
+RustboroCity_House1_Text_Hisuian_Rejected:
+	.string "Seems you don't have it.$"

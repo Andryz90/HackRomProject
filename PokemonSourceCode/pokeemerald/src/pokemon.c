@@ -1030,6 +1030,14 @@ STATIC_ASSERT(MAX_DYNAMAX_LEVEL < (1 << 4), PokemonSubstruct3_dynamaxLevel_TooSm
 STATIC_ASSERT(MAX_PER_STAT_IVS < (1 << 5), PokemonSubstruct3_ivs_TooSmall);
 STATIC_ASSERT(NUM_NATURES <= (1 << 5), BoxPokemon_hiddenNatureModifier_TooSmall);
 
+
+typedef struct 
+{
+    u16 species;
+    u8 level;
+
+} Pokemon_Level_evo;
+
 static u32 CompressStatus(u32 status)
 {
     s32 i;
@@ -4432,6 +4440,27 @@ static u32 GetGMaxTargetSpecies(u32 species)
     return SPECIES_NONE;
 }
 
+static u8 LevelEvoHisuianForm (u16 species)
+{
+    u8 i;
+    // The global definition caused buil'd issues
+    Pokemon_Level_evo Pokemon_Level_evos[7] = 
+{
+    {SPECIES_QUILAVA,   36},
+    {SPECIES_DEWOTT,    36},
+    {SPECIES_PETILIL,   30},
+    {SPECIES_RUFFLET,   35},
+    {SPECIES_GOOMY,     40},
+    {SPECIES_BERGMITE,  37},
+    {SPECIES_DARTRIX,   36}
+};
+    for (i = 0; i < sizeof(Pokemon_Level_evos); i++)
+    {
+        if (species == Pokemon_Level_evos[i].species)
+            return Pokemon_Level_evos[i].level;
+    }
+    return 0;
+}
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, struct Pokemon *tradePartner)
 {
     int i, j;
@@ -4709,8 +4738,23 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_ITEM_HOLD:
                 if (heldItem == evolutions[i].param)
                 {
-                    targetSpecies = evolutions[i].targetSpecies;
-                    consumeItem = TRUE;
+                    u8 evo_level = LevelEvoHisuianForm(species);
+                    if (evo_level == 0) //is not hisuian form
+                    {
+                        targetSpecies = evolutions[i].targetSpecies;
+                        consumeItem = TRUE;
+                        break;
+                    }
+                    else
+                    {
+                        if (level >= evo_level)
+                        {
+                            targetSpecies = evolutions[i].targetSpecies;
+                            consumeItem = TRUE;
+                        }
+                        break;   
+                    }
+
                 }
                 break;
             case EVO_USE_MOVE_TWENTY_TIMES:

@@ -1076,3 +1076,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/AlternativeForest/scripts.inc"
+
+	.include "data/maps/Seaspray_Cave/scripts.inc"
+	.include "data/maps/Seaspray_Cave_B1F/scripts.inc"

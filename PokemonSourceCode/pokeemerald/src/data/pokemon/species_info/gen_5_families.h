@@ -560,7 +560,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sDewottLevelUpLearnset,
         .teachableLearnset = sDewottTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SAMUROTT},
-                                {EVO_ITEM, ITEM_HISUIAN_AMULET, SPECIES_SAMUROTT_HISUIAN}),
+                                {EVO_ITEM_HOLD, ITEM_HISUIAN_AMULET, SPECIES_SAMUROTT_HISUIAN}),
     },
 
     [SPECIES_SAMUROTT] =
@@ -3639,7 +3639,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sPetililLevelUpLearnset,
         .teachableLearnset = sPetililTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_SHINY_STONE, SPECIES_LILLIGANT},
-                                {EVO_ITEM, ITEM_HISUIAN_AMULET, SPECIES_LILLIGANT_HISUIAN}),
+                                {EVO_ITEM_HOLD, ITEM_HISUIAN_AMULET, SPECIES_LILLIGANT_HISUIAN}),
     },
 
     [SPECIES_LILLIGANT] =
@@ -10045,7 +10045,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sRuffletLevelUpLearnset,
         .teachableLearnset = sRuffletTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 54, SPECIES_BRAVIARY},
-                                {EVO_ITEM, ITEM_HISUIAN_AMULET, SPECIES_BRAVIARY_HISUIAN}),
+                                {EVO_ITEM_HOLD, ITEM_HISUIAN_AMULET, SPECIES_BRAVIARY_HISUIAN}),
     },
 
     [SPECIES_BRAVIARY] =

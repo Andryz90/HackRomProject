@@ -1200,6 +1200,18 @@ void ResetTrickHouseNuggetFlag(void)
     FlagClear(flag);
 }
 
+bool8 CheckMonParty (void)
+{
+    u8 i;
+    u8 party_size = CalculatePlayerPartyCount();
+    u16* species = GetVarPointer(VAR_0x8000);
+    for (i = 0; i < party_size; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == *species)
+            return TRUE;
+    }
+    return FALSE;
+}
 bool8 CheckLeadMonCool(void)
 {
     if (GetMonData(&gPlayerParty[GetLeadMonIndex()], MON_DATA_COOL) < 200)

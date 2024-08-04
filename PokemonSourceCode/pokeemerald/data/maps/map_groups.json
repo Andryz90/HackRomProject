@@ -430,7 +430,9 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "AlternativeForest"
+    "AlternativeForest",
+    "Seaspray_Cave",
+    "Seaspray_Cave_B1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -43,3 +43,5 @@ prefabs.json
 /PokemonSourceCode/pokeemerald/*.gba
 PokemonSourceCode/pokeemerald/data/layouts/NewLab/border.bin
 PokemonSourceCode/pokeemerald/data/layouts/NewLab/map.bin
+/porymap-windows-5.4.0/porytiles_maps
+/PokemonSourceCode/porytiles_dir

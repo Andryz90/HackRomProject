@@ -334,10 +334,10 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 36,
-      "y": 10,
+      "x": 9,
+      "y": 70,
       "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_map": "MAP_SEASPRAY_CAVE",
       "dest_warp_id": "0"
     }
   ],
