@@ -328,6 +328,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_MAPSEC(MAPSEC_PETALBURG_WOODS),
+            MATCH_MAPSEC(MAPSEC_ALTERNATIVE_FOREST),
         },
     },
     [COND_MSG_ICE] =

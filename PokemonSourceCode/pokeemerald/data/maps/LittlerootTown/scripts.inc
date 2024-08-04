@@ -84,14 +84,14 @@ LittlerootTown_EventScript_SetTwinPos::
 	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
 	setobjectxyperm LOCALID_TWIN, 10, 1
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_UP
-	setobjectxyperm LOCALID_WINGULL, 13, 2
-	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	@setobjectxyperm LOCALID_WINGULL, 13, 2
+	@setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
 	setobjectxyperm LOCALID_TWIN, 7, 2
-	setobjectxyperm LOCALID_WINGULL, 13, 2
-	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	@setobjectxyperm LOCALID_WINGULL, 13, 2
+	@setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
@@ -400,6 +400,7 @@ LittlerootTown_EventScript_Wingull_StaticDialog::
 	applymovement LOCALID_WINGULL Common_Movement_FacePlayer
 	waitmovement LOCALID_WINGULL
 	msgbox  LittlerootTown_Text_Wingull MSGBOX_DEFAULT
+	giveitem ITEM_POTION
 	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
 	releaseall
 	end
@@ -1165,4 +1166,5 @@ LitlerootTown_Text_Wingull:
 	.string "Where are you from {PLAYER}?$"
 
 LittlerootTown_Text_Wingull:
-	.string "Enjoy our hack rom {PLAYER} :3.$"
+	.string "Enjoy our hack rom {PLAYER} :3\n"
+	.string "take this as gift!$"

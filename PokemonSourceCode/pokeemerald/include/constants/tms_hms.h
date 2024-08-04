@@ -8,20 +8,20 @@
     F(CALM_MIND) \
     F(ROAR) \
     F(TOXIC) \
-    F(HAIL) \
+    F(VENOSHOCK) \
     F(BULK_UP) \
     F(BULLET_SEED) \
     F(HIDDEN_POWER) \
-    F(SUNNY_DAY) \
+    F(ALLURING_VOICE) \
     F(TAUNT) \
     F(ICE_BEAM) \
     F(BLIZZARD) \
     F(HYPER_BEAM) \
     F(LIGHT_SCREEN) \
-    F(PROTECT) \
-    F(RAIN_DANCE) \
+    F(PSYSHOCK) \
+    F(DRAGON_CHEER) \
     F(GIGA_DRAIN) \
-    F(SAFEGUARD) \
+    F(PSYCHIC_NOISE) \
     F(FRUSTRATION) \
     F(SOLAR_BEAM) \
     F(IRON_TAIL) \
@@ -33,12 +33,12 @@
     F(PSYCHIC) \
     F(SHADOW_BALL) \
     F(BRICK_BREAK) \
-    F(DOUBLE_TEAM) \
+    F(PLAY_ROUGH) \
     F(REFLECT) \
     F(SHOCK_WAVE) \
     F(FLAMETHROWER) \
     F(SLUDGE_BOMB) \
-    F(SANDSTORM) \
+    F(DAZZLING_GLEAM) \
     F(FIRE_BLAST) \
     F(ROCK_TOMB) \
     F(AERIAL_ACE) \
@@ -46,12 +46,63 @@
     F(FACADE) \
     F(SECRET_POWER) \
     F(REST) \
-    F(ATTRACT) \
+    F(DARK_PULSE) \
     F(THIEF) \
     F(STEEL_WING) \
     F(SKILL_SWAP) \
     F(SNATCH) \
-    F(OVERHEAT)
+    F(OVERHEAT) \
+    F(FLASH_CANNON) \
+    F(LEECH_LIFE) \
+    F(IRON_HEAD) \
+    F(HOARFROST) \
+    F(X_SCISSOR) \
+    F(DRILL_RUN) \
+    F(LIQUIDATION) \
+    F(FLIP_TURN) \
+    F(AURA_SPHERE) \
+    F(POLLEN_PUFF) \
+    F(EARTH_POWER) \
+    F(STONE_EDGE) \
+    F(FOCUS_BLAST) \
+    F(GRASS_KNOT) \
+    F(BUG_BUZZ) \
+    F(STEEL_BEAM) \
+    F(POLTERGEIST) \
+    F(MISTY_EXPLOSION) \
+    F(SUPERCELL_SLAM) \
+    F(ELECTROWEB) \
+    F(TRIPLE_AXEL) \
+    F(SLUDGE_WAVE) \
+    F(SCORCHING_SANDS) \
+    F(METEOR_BEAM) \
+    F(THROAT_CHOP) \
+    F(COACHING) \
+    F(TEMPER_FALRE) \
+    F(DUAL_WINGBEAT) \
+    F(BURNING_JEALOUSY) \
+    F(HIGH_HORSEPOWER) \
+    F(BUG_BITE) \
+    F(LUNGE) \
+    F(CLOSE_COMBAT) \
+    F(CRUNCH) \
+    F(METRONOME) \
+    F(SNARL) \
+    F(DISARMING_VOICE) \
+    F(DRAINING_KISS) \
+    F(WORK_UP) \
+    F(BULLDOZE) \
+    F(ROOST) \
+    F(AGILITY) \
+    F(CHARM) \
+    F(TRAILBLAZE) \
+    F(CHILLING_WATER) \
+    F(GUNK_SHOT) \
+    F(POISON_JAB) \
+    F(ZEN_HEADBUTT) \
+    F(U_TURN) \
+    F(VOLT_SWITCH) \
+    F(SEED_BOMB) 
 
 #define FOREACH_HM(F) \
     F(CUT) \
