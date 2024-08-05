@@ -11273,28 +11273,35 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_X_SCISSOR, 
     },
 
-    [ITEM_TM56] =
+    [ITEM_TM_DRILL_RUN] =
     {
         .name = _("TM56"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "User crashes into the\n"
+            "the target rotaeting.\n"
+            "Critical hits rate up."), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRILL_RUN, 
     },
 
-    [ITEM_TM57] =
+    [ITEM_TM_LIQUIDATION] =
     {
         .name = _("TM57"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user slams the target.\n"
+            "This may also lower\n"
+            "the target's Defense."
+            ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_LIQUIDATION, 
     },
 
     [ITEM_TM_FLIP_TURN] =
@@ -11312,40 +11319,51 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_FLIP_TURN, 
     },
 
-    [ITEM_TM59] =
+    [ITEM_TM_AURA_SPHERE] =
     {
         .name = _("TM59"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "A power aura shot\n"
+            "that never misses."
+        ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_AURA_SPHERE, 
     },
 
-    [ITEM_TM60] =
+    [ITEM_TM_POLLEN_PUFF] =
     {
         .name = _("TM60"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "Attack with a pollen\n"
+            "puff. If target is\n"
+            "an ally resore HP."
+        ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_POLLEN_PUFF, 
     },
 
-    [ITEM_TM61] =
+    [ITEM_TM_EARTH_POWER] =
     {
         .name = _("TM61"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "Makes the ground\n"
+            "erupt with power.\n"
+            "May Lower Sp. Def."
+        ), 
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_EARTH_POWER, 
     },
 
     [ITEM_TM62] =
