@@ -1360,6 +1360,9 @@ extern const struct SpriteFrameImage sPicTable_BallLight[];
 const struct SpriteFrameImage sPicTable_GoldItemBall[] = {
     obj_frame_tiles(gObjectEventPic_GoldItemBall),
 };
+const struct SpriteFrameImage sPicTable_TempItemBall[] = {
+    obj_frame_tiles(gObjectEventPic_TempItemBall),
+};
 
 const struct SpriteFrameImage sPicTable_MegaStone[] = {
     overworld_frame(gObjectEventPic_MegaStone, 2, 2, 0),
@@ -1372,3 +1375,35 @@ const struct SpriteFrameImage sPicTable_MegaStone[] = {
     overworld_frame(gObjectEventPic_MegaStone, 2, 2, 0),
     overworld_frame(gObjectEventPic_MegaStone, 2, 2, 0),
 };
+
+const struct SpriteFrameImage sPicTable_RollingSpheal[] = 
+{
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 0),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 1),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 2),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 3),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 4),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 5),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 6),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 7),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 8),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 9),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 10),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 11),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 12),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 13),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 14),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 15),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 16),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 17),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 18),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 19),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 20),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 21),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 22),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 23),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 24),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 25),
+    overworld_frame(gObjectEventPic_RollingSpheal, 4, 4, 26),
+};
+

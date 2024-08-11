@@ -19,4 +19,7 @@
 
 ------------------------------------------
 Map Editing:
-- Route 103 - Fisherman: Ti da Old Rood
+- Aggiungere l'NPC nel Pokecenter
+- Aggiustare i team nemici
+- Aggiungere le mt/mn
+- Modificare la nuova mappa a nord di Rustboro

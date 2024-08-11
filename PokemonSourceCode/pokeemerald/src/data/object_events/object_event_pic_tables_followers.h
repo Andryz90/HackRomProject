@@ -2483,6 +2483,7 @@ static const struct SpriteFrameImage sPicTable_Froslass[] = {
 static const struct SpriteFrameImage sPicTable_Spheal[] = {
     overworld_ascending_frames(gObjectEventPic_Spheal, 4, 4),
 };
+
 static const struct SpriteFrameImage sPicTable_Sealeo[] = {
     overworld_ascending_frames(gObjectEventPic_Sealeo, 4, 4),
 };
