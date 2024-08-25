@@ -91267,10 +91267,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_AURORA_VEIL"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_TAIL_WHIP"
       },
       {
@@ -91297,8 +91293,7 @@
       "MOVE_EXTRASENSORY",
       "MOVE_NASTY_PLOT",
       "MOVE_ICE_SHARD",
-      "MOVE_FREEZE_DRY",
-      "MOVE_AURORA_VEIL"
+      "MOVE_FREEZE_DRY"
     ],
     "TMMoves": [
       "MOVE_TAKE_DOWN",

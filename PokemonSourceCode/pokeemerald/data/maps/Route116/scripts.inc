@@ -464,10 +464,8 @@ Route116_Text_TrainerTipsBToStopEvolution:
 	.string "This is called an evolution cancel.$"
 
 Route116_Text_TrainerTipsBagHasPockets:
-	.string "TRAINER TIPS\p"
-	.string "Your BAG has several POCKETS.\p"
-	.string "Items you obtain are automatically\n"
-	.string "placed in the appropriate POCKETS.\p"
-	.string "No TRAINER can afford to be without\n"
-	.string "a BAG of their own.$"
+	.string "TEMP ITEMS\p"
+	.string "On the left there's a Jolly Mint,\n"
+	.string "on the right a Timid Mint.\p"
+	.string "Which one you want? Choose wisely.$"
 

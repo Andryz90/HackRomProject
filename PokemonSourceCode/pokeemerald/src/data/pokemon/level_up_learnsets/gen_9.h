@@ -949,7 +949,6 @@ static const struct LevelUpMove sNinetalesLevelUpLearnset[] = {
 
 #if P_ALOLAN_FORMS
 static const struct LevelUpMove sVulpixAlolanLevelUpLearnset[] = {
-        LEVEL_UP_MOVE(44, MOVE_AURORA_VEIL),
         LEVEL_UP_MOVE(48, MOVE_SHEER_COLD),
         LEVEL_UP_MOVE(52, MOVE_GRUDGE),
         LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
@@ -973,6 +972,7 @@ static const struct LevelUpMove sVulpixAlolanLevelUpLearnset[] = {
 static const struct LevelUpMove sNinetalesAlolanLevelUpLearnset[] = {
         LEVEL_UP_MOVE(1, MOVE_SHEER_COLD),
         LEVEL_UP_MOVE(1, MOVE_GRUDGE),
+        LEVEL_UP_MOVE(1, MOVE_AURORA_VEIL),
         LEVEL_UP_MOVE(0, MOVE_DAZZLING_GLEAM),
         LEVEL_UP_MOVE(1, MOVE_DISABLE),
         LEVEL_UP_MOVE(1, MOVE_MIST),
@@ -985,7 +985,6 @@ static const struct LevelUpMove sNinetalesAlolanLevelUpLearnset[] = {
         LEVEL_UP_MOVE(1, MOVE_NASTY_PLOT),
         LEVEL_UP_MOVE(1, MOVE_ICE_SHARD),
         LEVEL_UP_MOVE(1, MOVE_FREEZE_DRY),
-        LEVEL_UP_MOVE(1, MOVE_AURORA_VEIL),
         LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
         LEVEL_UP_MOVE(1, MOVE_BLIZZARD),
         LEVEL_UP_MOVE(1, MOVE_ICY_WIND),
@@ -12373,21 +12372,21 @@ static const struct LevelUpMove sSnoverLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAbomasnowLevelUpLearnset[] = {
-        LEVEL_UP_MOVE(1, MOVE_AURORA_VEIL),
         LEVEL_UP_MOVE(0, MOVE_ICE_PUNCH),
-        LEVEL_UP_MOVE(1, MOVE_LEER),
-        LEVEL_UP_MOVE(1, MOVE_MIST),
+        LEVEL_UP_MOVE(1, MOVE_AURORA_VEIL),
         LEVEL_UP_MOVE(1, MOVE_POWDER_SNOW),
+        LEVEL_UP_MOVE(1, MOVE_LEER),
         LEVEL_UP_MOVE(1, MOVE_LEAFAGE),
+        LEVEL_UP_MOVE(1, MOVE_MIST),
         LEVEL_UP_MOVE(15, MOVE_ICE_SHARD),
         LEVEL_UP_MOVE(20, MOVE_RAZOR_LEAF),
         LEVEL_UP_MOVE(25, MOVE_ICY_WIND),
         LEVEL_UP_MOVE(30, MOVE_SWAGGER),
         LEVEL_UP_MOVE(35, MOVE_INGRAIN),
-        LEVEL_UP_MOVE(40, MOVE_FREEZE_DRY),
         LEVEL_UP_MOVE(43, MOVE_WOOD_HAMMER),
         LEVEL_UP_MOVE(49, MOVE_BLIZZARD),
         LEVEL_UP_MOVE(56, MOVE_SHEER_COLD),
+        LEVEL_UP_MOVE(40, MOVE_FREEZE_DRY),
         LEVEL_UP_END
 };
 #endif //P_FAMILY_SNOVER

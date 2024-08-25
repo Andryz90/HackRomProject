@@ -733,10 +733,6 @@
   "VULPIX_ALOLAN": {
     "LevelMoves": [
       {
-        "Move": "MOVE_AURORA_VEIL",
-        "Level": 44
-      },
-      {
         "Move": "MOVE_SHEER_COLD",
         "Level": 48
       },
@@ -754,6 +750,10 @@
       },
       {
         "Move": "MOVE_GRUDGE",
+        "Level": 1
+      },
+      {
+        "Move": "MOVE_AURORA_VEIL",
         "Level": 1
       }
     ]
@@ -9041,12 +9041,7 @@
     ]
   },
   "ABOMASNOW": {
-    "LevelMoves": [
-      {
-        "Move": "MOVE_AURORA_VEIL",
-        "Level": 1
-      }
-    ]
+    "LevelMoves": []
   },
   "ROTOM": {
     "LevelMoves": [

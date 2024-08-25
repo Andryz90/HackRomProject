@@ -2195,7 +2195,7 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_Repel,
         .iconPalette = gItemIconPalette_MaxRepel,
     },
-        [ITEM_INFINITE_REPEL] =
+    [ITEM_INFINITE_REPEL] =
     {
         .name = _("Infinite Repel"),
         .holdEffectParam = 1,
@@ -2520,8 +2520,8 @@ const struct Item gItemsInfo[] =
 
     [ITEM_MAX_MUSHROOMS] =
     {
-        .name = HANDLE_EXPANDED_ITEM_NAME("MaxMushrooms", "Max Mushrooms"),
-        .pluralName = HANDLE_EXPANDED_ITEM_NAME("MaxMushrooms", "Max Mushrooms"),
+        .name = HANDLE_EXPANDED_ITEM_NAME("GMaxMushrooms", "GMax Mushrooms"),
+        .pluralName = HANDLE_EXPANDED_ITEM_NAME("GMaxMushrooms", "GMax Mushrooms"),
         .price = 8000,
         .description = COMPOUND_STRING(
             "Raises every stat\n"
@@ -10694,8 +10694,9 @@ const struct Item gItemsInfo[] =
         .name = _("TM17"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Psychic moves that deals\n"
-            "damage based on defense."),
+            "Psychic moves that\n"
+            "deals damage based\n"
+            "on foes defense."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,

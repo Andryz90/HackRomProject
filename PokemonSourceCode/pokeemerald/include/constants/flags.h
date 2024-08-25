@@ -49,7 +49,7 @@
 #define FLAG_SLOWBRONITE     0x24 
 #define FLAG_FLIPTURN_TM     0x25 
 #define FLAG_RUSTBORO_HISUI_FLAG    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
+#define FLAG_MYSTIC_WATER    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_LANDMARK_SEASPRAY_CAVE         0x29
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
@@ -506,7 +506,7 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_DEFEATED_ABOMASNOW              0x1DA // Unused Flag
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC
@@ -652,7 +652,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 #define FLAG_HISUIAN_AMULET_FOREST                           (FLAG_HIDDEN_ITEMS_START + 0x70) 
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
+#define FLAG_HIDE_PETALBURG_CITY_RIVAL  0x265 // Unused Flag
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag

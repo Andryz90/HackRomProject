@@ -3,6 +3,7 @@
 .set LOCALID_WALLYS_DAD, 5
 .set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
+.set LOCALID_RIVAL, 14
 
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
@@ -501,6 +502,302 @@ PetalburgCity_Movement_PlayerWalkToGym3:
 	walk_up
 	walk_up
 	step_end
+
+
+PetalburgCity_MayDownMovement0::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgCity_PlayerDownMovement0::
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_MayDownMovement1::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_PlayerDownMovement1::
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_MayDownMovement2::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_PlayerDownMovement2::
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_MayDownMovement3::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+PetalburgCity_PlayerDownMovement3::
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgCity_MayShowingMovement0::
+	walk_right
+	step_end
+PetalburgCity_MayShowingMovement1::
+	walk_down
+	walk_right
+	step_end
+
+PetalburgCity_MayShowingMovement2::
+	walk_down
+	walk_down
+	walk_right
+	step_end
+PetalburgCity_MayShowingMovement3::
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	step_end
+
+PetalburgCity_Movement_Movement_MayShowing0::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayShowingMovement0
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayShowing1::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayShowingMovement1
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayShowing2::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayShowingMovement2
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayShowing3::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayShowingMovement3
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayDown0::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayDownMovement0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerDownMovement0
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayDown1::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayDownMovement1
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerDownMovement1
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayDown2::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayDownMovement2
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerDownMovement2
+	waitmovement 0
+	return 
+PetalburgCity_Movement_Movement_MayDown3::
+	applymovement LOCALID_RIVAL, PetalburgCity_MayDownMovement3
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_PlayerDownMovement3
+	waitmovement 0
+	return 
+
+PetalburgCity_EventScript_May0::
+	lockall
+	faceplayer
+	setvar VAR_0x8008, 0
+	goto PetalburgCity_EventScript_MayShowItemBalls
+	end
+PetalburgCity_EventScript_May1::
+	lockall
+	faceplayer
+	setvar VAR_0x8008, 1
+	goto PetalburgCity_EventScript_MayShowItemBalls
+	end
+PetalburgCity_EventScript_May2::
+	lockall
+	faceplayer
+	setvar VAR_0x8008, 2
+	goto PetalburgCity_EventScript_MayShowItemBalls
+	end
+PetalburgCity_EventScript_May3::
+	lockall
+	faceplayer
+	setvar VAR_0x8008, 3
+	goto PetalburgCity_EventScript_MayShowItemBalls
+	end
+	
+PetalburgCity_Movement_MayShowFirstBall::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+PetalburgCity_Movement_PlayerShowFirstBall::
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+PetalburgCity_Movement_MayShowSecondBall::
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PetalburgCity_Movement_PlayerShowSecondBall::
+	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+PetalburgCity_Movement_MayShowLeaving::
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+PetabulgCity_Text_May_Approach::
+	.string "Ehy {PLAYER}, did you catch\n"
+	.string "new Pokemons?\p"
+	.string "Let me show you something.$"
+PetabulgCity_Text_May_Explanation::
+	.string "Do you see that Pokeball?\p"
+	.string "That's called Temporary\n"
+	.string "Pokeball. Allow you to choose\p"
+	.string "and pick between two items\n"
+	.string "that are linked to each other.$"
+
+PetabulgCity_Text_May_ExplanationLast::
+	.string "This is the other one linked\n"
+	.string "with the other we just saw.\p"
+	.string "If you pick one, the other dissapears,\n"
+	.string "so choose wisely!\p"
+	.string "This has a Rare Candy\n"
+	.string "the other one an Heart Scale.\p"
+	.string "Which do you need the most?\n"
+	.string "I'll let you decide.\p"
+	.string "Now I'm leaving to catch more Pokemon.\n"
+	.string "Take care!$"
+
+PetalburgCity_EventScript_MayShowItemBalls::
+	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
+	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
+	playse SE_PIN
+	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_Delay48
+	waitmovement 0
+	call_if_eq VAR_0x8008, 0, PetalburgCity_Movement_Movement_MayShowing0
+	call_if_eq VAR_0x8008, 1, PetalburgCity_Movement_Movement_MayShowing1
+	call_if_eq VAR_0x8008, 2, PetalburgCity_Movement_Movement_MayShowing2
+	call_if_eq VAR_0x8008, 3, PetalburgCity_Movement_Movement_MayShowing3
+	msgbox PetabulgCity_Text_May_Approach, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 0, PetalburgCity_Movement_Movement_MayDown0
+	call_if_eq VAR_0x8008, 1, PetalburgCity_Movement_Movement_MayDown1
+	call_if_eq VAR_0x8008, 2, PetalburgCity_Movement_Movement_MayDown2
+	call_if_eq VAR_0x8008, 3, PetalburgCity_Movement_Movement_MayDown3
+	applymovement LOCALID_RIVAL, PetalburgCity_Movement_MayShowFirstBall
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerShowFirstBall
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFasterUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox PetabulgCity_Text_May_Explanation, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RIVAL, PetalburgCity_Movement_MayShowSecondBall
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerShowSecondBall
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox PetabulgCity_Text_May_ExplanationLast, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RIVAL, PetalburgCity_Movement_MayShowLeaving
+	waitmovement 0
+	fadedefaultbgm
+	setvar VAR_RIVAL_PETALBURG, 1
+	setflag FLAG_HIDE_PETALBURG_CITY_RIVAL
+	removeobject LOCALID_RIVAL
+	releaseall
+	end
 
 PetalburgCity_EventScript_Scott0::
 	lockall

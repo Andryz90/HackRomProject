@@ -23,3 +23,4 @@ Map Editing:
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
 - Modificare la nuova mappa a nord di Rustboro
+- Powerbank
