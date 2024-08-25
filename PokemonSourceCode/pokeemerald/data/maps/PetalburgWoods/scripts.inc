@@ -317,6 +317,41 @@ PetalburgWoods_EventScript_JamesRematch::
 	trainerbattle_rematch TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
+PetalburgWoods_Bugsy_Lost::
+	setflag FLAG_RECEIVED_U_TURN
+	giveitem ITEM_TM98
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox PetalburgWoods_Text_Bugsy_Explaining, MSGBOX_DEFAULT
+	releaseall
+	end
+PetalburgWoods_EventScript_Bugsy_CheckBadge::
+	goto_if_unset FLAG_BADGE02_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
+	msgbox PetalburgWoods_Text_Bugsy_BadgeBlock, MSGBOX_DEFAULT
+	releaseall
+	end
+PetalburgWoods_EventScript_Bugsy_BattleBegin::
+	trainerbattle_single TRAINER_BUGSY, PetalburgWoods_Text_Bugsy_Accepted, PetalburgWoods_Text_Bugsy_Lost, PetalburgWoods_Bugsy_Lost, NO_MUSIC
+	releaseall
+	end
+PetalburgWoods_Bugsy_NotReady::
+	msgbox PetalburgWoods_Text_Bugsy_NotReady, MSGBOX_DEFAULT
+	releaseall
+	end
+PetalburgWoods_EventScript_Bugsy_Begin::
+	msgbox PetalburgWoods_Text_Bugsy, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, PetalburgWoods_EventScript_Bugsy_CheckBadge
+	case NO, PetalburgWoods_Bugsy_NotReady
+	releaseall
+	end
+PetalburgWoods_EventScript_Bugsy::
+	faceplayer
+	lockall
+	goto_if_unset FLAG_RECEIVED_U_TURN, PetalburgWoods_EventScript_Bugsy_Begin
+	msgbox PetalburgWoods_Text_Bugsy_Normal, MSGBOX_DEFAULT
+	releaseall
+	end
+
 
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
@@ -474,3 +509,32 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_Bugsy::
+	.string "I flew here in Hoenn doing research\n"
+	.string "and found interesting POKéMON.\p"
+	.string "Do you want to see what I discovered?\p"
+	.string "I battle only with unexperienced\n"
+	.string "trainers that have 2 Badges tough.$"
+
+
+PetalburgWoods_Text_Bugsy_NotReady::
+	.string "Oh I see, not everybody is fan\n"
+	.string "of bug types afterall.$"
+
+PetalburgWoods_Text_Bugsy_Accepted::
+	.string "You'll see the power of Johto's\n"
+	.string "Gym Leader!$"
+
+PetalburgWoods_Text_Bugsy_Lost::
+	.string "Wow, you're powerful as well.\p"
+	.string "Here, take this to prove that\n"
+	.string "you beat me, you can't find it here.$"
+PetalburgWoods_Text_Bugsy_Explaining::
+	.string "The MT is U-Turn, deals damage\n"
+	.string "and allow your POKéMON to switch out!\p"
+	.string "It's my favorite move.$"
+PetalburgWoods_Text_Bugsy_BadgeBlock::
+	.string "I'm sorry, but it seems that\n"
+	.string "you have too many badges.$"
+PetalburgWoods_Text_Bugsy_Normal::
+	.string "This is such a lovely place!$"

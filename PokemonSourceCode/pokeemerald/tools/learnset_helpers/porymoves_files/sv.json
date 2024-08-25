@@ -93881,7 +93881,9 @@
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+      "MOVE_PURSUIT"
+    ]
   },
   "LINOONE_GALARIAN": {
     "LevelMoves": [

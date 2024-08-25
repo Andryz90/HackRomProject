@@ -50,7 +50,7 @@
 #define FLAG_FLIPTURN_TM     0x25 
 #define FLAG_RUSTBORO_HISUI_FLAG    0x26 // Unused Flag
 #define FLAG_MYSTIC_WATER    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
+#define FLAG_RECEIVED_U_TURN    0x28 // Unused Flag
 #define FLAG_LANDMARK_SEASPRAY_CAVE         0x29
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag

@@ -145,6 +145,9 @@ const u32 gTrainerPalette_LeaderTateAndLiza[] = INCBIN_U32("graphics/trainers/fr
 const u32 gTrainerFrontPic_LeaderJuan[] = INCBIN_U32("graphics/trainers/front_pics/leader_juan.4bpp.lz");
 const u32 gTrainerPalette_LeaderJuan[] = INCBIN_U32("graphics/trainers/front_pics/leader_juan.gbapal.lz");
 
+const u32 gTrainerFrontPic_LeaderBugsy[] = INCBIN_U32("graphics/trainers/front_pics/leader_bugsy.4bpp.lz");
+const u32 gTrainerPalette_LeaderBugsy[] = INCBIN_U32("graphics/trainers/front_pics/leader_bugsy.gbapal.lz");
+
 const u32 gTrainerFrontPic_SchoolKidM[] = INCBIN_U32("graphics/trainers/front_pics/school_kid_m.4bpp.lz");
 const u32 gTrainerPalette_SchoolKidM[] = INCBIN_U32("graphics/trainers/front_pics/school_kid_m.gbapal.lz");
 
@@ -401,6 +404,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(LEADER_BUGSY, LeaderBugsy),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

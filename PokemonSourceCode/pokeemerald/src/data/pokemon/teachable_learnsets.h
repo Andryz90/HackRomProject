@@ -30366,6 +30366,7 @@ static const u16 sZigzagoonGalarianTeachableLearnset[] = {
     MOVE_PAYBACK,
     MOVE_PIN_MISSILE,
     MOVE_PROTECT,
+    MOVE_PURSUIT,
     MOVE_QUICK_GUARD,
     MOVE_RAIN_DANCE,
     MOVE_REST,

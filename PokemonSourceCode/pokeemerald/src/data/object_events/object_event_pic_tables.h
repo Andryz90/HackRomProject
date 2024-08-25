@@ -639,6 +639,9 @@ static const struct SpriteFrameImage sPicTable_Steven[] = {
 static const struct SpriteFrameImage sPicTable_Wally[] = {
     overworld_ascending_frames(gObjectEventPic_Wally, 2, 4),
 };
+static const struct SpriteFrameImage sPicTable_Bugsy[] = {
+    overworld_ascending_frames(gTrainerPic_Bugsy, 2, 4),
+};
 
 static const struct SpriteFrameImage sPicTable_RubySapphireLittleBoy[] = {
     overworld_ascending_frames(gObjectEventPic_RubySapphireLittleBoy, 2, 2),

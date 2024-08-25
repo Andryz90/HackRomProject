@@ -12,9 +12,9 @@ u32 GetCurrentLevelCap(void)
     // Da aggiustare i livelli in base al gioco
     static const u32 sLevelCapFlagMap_Nuzlocke[][2] =
     {
-        {FLAG_BADGE01_GET, 15},
-        {FLAG_BADGE02_GET, 19},
-        {FLAG_BADGE03_GET, 24},
+        {FLAG_BADGE01_GET, 20},
+        {FLAG_BADGE02_GET, 25},
+        {FLAG_BADGE03_GET, 27},
         {FLAG_BADGE04_GET, 29},
         {FLAG_BADGE05_GET, 31},
         {FLAG_BADGE06_GET, 33},
