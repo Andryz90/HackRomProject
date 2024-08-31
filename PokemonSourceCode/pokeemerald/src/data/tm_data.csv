@@ -1,0 +1,102 @@
+TM_Name;description;secondaryID
+TM01;;MOVE_FOCUS_PUNCH
+TM02;;MOVE_DRAGON_CLAW
+TM03;;MOVE_WATER_PULSE
+TM04;;MOVE_CALM_MIND
+TM05;;MOVE_ROAR
+TM06;;MOVE_TOXIC
+TM07;;MOVE_VENOSHOCK
+TM08;;MOVE_BULK_UP
+TM09;;MOVE_BULLET_SEED
+TM10;;MOVE_HIDDEN_POWER
+TM11;;MOVE_ALLURING_VOICE
+TM12;;MOVE_TAUNT
+TM13;;MOVE_ICE_BEAM
+TM14;;MOVE_BLIZZARD
+TM15;;MOVE_HYPER_BEAM
+TM16;;MOVE_LIGHT_SCREEN
+TM17;;MOVE_PSYSHOCK
+TM18;;MOVE_DRAGON_CHEER
+TM19;;MOVE_GIGA_DRAIN
+TM20;;MOVE_PSYCHIC_NOISE
+TM21;;MOVE_FRUSTRATION
+TM22;;MOVE_SOLAR_BEAM
+TM23;;MOVE_IRON_TAIL
+TM24;;MOVE_THUNDERBOLT
+TM25;;MOVE_THUNDER
+TM26;;MOVE_EARTHQUAKE
+TM27;;MOVE_RETURN
+TM28;;MOVE_DIG
+TM29;;MOVE_PSYCHIC
+TM30;;MOVE_SHADOW_BALL
+TM31;;MOVE_BRICK_BREAK
+TM32;;MOVE_PLAY_ROUGH
+TM33;;MOVE_REFLECT
+TM34;;MOVE_SHOCK_WAVE
+TM35;;MOVE_FLAMETHROWER
+TM36;;MOVE_SLUDGE_BOMB
+TM37;;MOVE_DAZZLING_GLEAM
+TM38;;MOVE_FIRE_BLAST
+TM39;;MOVE_ROCK_TOMB
+TM40;;MOVE_AERIAL_ACE
+TM41;;MOVE_TORMENT
+TM42;;MOVE_FACADE
+TM43;;MOVE_SECRET_POWER
+TM44;;MOVE_REST
+TM45;;MOVE_DARK_PULSE
+TM46;;MOVE_THIEF
+TM47;;MOVE_STEEL_WING
+TM48;;MOVE_SKILL_SWAP
+TM49;;MOVE_SNATCH
+TM50;;MOVE_OVERHEAT
+TM51;;MOVE_FLASH_CANNON
+TM52;;MOVE_LEECH_LIFE
+TM53;;MOVE_IRON_HEAD
+TM54;;MOVE_HOARFROST
+TM55;;MOVE_X_SCISSOR
+TM56;;MOVE_DRILL_RUN
+TM57;;MOVE_LIQUIDATION
+TM58;;MOVE_FLIP_TURN
+TM59;;MOVE_AURA_SPHERE
+TM60;;MOVE_POLLEN_PUFF
+TM61;;MOVE_EARTH_POWER
+TM62;The user stabs the foe with a sharpened stone. It has a high critical-hit ratio;MOVE_STONE_EDGE
+TM63;The user heightens its mental focus and unleashes its power. It may also lower the target's Sp. Def;MOVE_FOCUS_BLAST
+TM64;The user snares the foe with grass and trips it. The heavier the foe, the greater the damage.;MOVE_GRASS_KNOT
+TM65;The user vibrates its wings to generate a damaging sound wave. It may also lower the foe's Sp. Def stat.;MOVE_BUG_BUZZ
+TM66;The user fires a beam of steel that it collected from its entire body. This also damages the user.;MOVE_STEEL_BEAM
+TM67;The user attacks the target by controlling the target's item. The move fails if the target doesn't have an item.;MOVE_POLTERGEIST
+TM68;The user attacks everything around it and faints upon using this move. This move's power is increased on Misty Terrain.;MOVE_MISTY_EXPLOSION
+TM69;The user electrifies its body and drops onto the target to inflict damage. If this move misses, the user takes damage instead.;MOVE_SUPERCELL_SLAM
+TM70;The user attacks and captures opposing Pokémon using an electric net. This lowers their Speed stat.;MOVE_ELECTROWEB
+TM71;A consecutive three-kick attack that becomes more powerful with each successful hit.;MOVE_TRIPLE_AXEL
+TM72;It swamps the area around the user with a giant sludge wave. It may also poison those hit.;MOVE_SLUDGE_WAVE
+TM73;The user throws scorching sand at the target to attack. This may also leave the target with a burn;MOVE_SCORCHING_SANDS
+TM74;The user gathers energy from space and boosts its Sp. Atk stat on the first turn, then attacks on the next turn.;MOVE_METEOR_BEAM
+TM75;The user attacks the target's throat, and the resultant suffering prevents the target from using moves that emit sound for two turns;MOVE_THROAT_CHOP
+TM76;The user properly coaches its ally Pokémon, boosting their Attack and Defense stats.;MOVE_COACHING
+TM77;Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed.;MOVE_TEMPER_FALRE
+TM78;The user slams the target with its wings. The target is hit twice in a row;MOVE_DUAL_WINGBEAT
+TM79;The user attacks with energy from jealousy. This leaves all opposing Pokémon that have had their stats boosted during the turn with a burn;MOVE_BURNING_JEALOUSY
+TM80;The user fiercely attacks the target using its entire body.;MOVE_HIGH_HORSEPOWER
+TM81;The user bites the foe. If the foe is holding a Berry, the user eats it and gains its effect.;MOVE_BUG_BITE
+TM82;The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat.;MOVE_LUNGE
+TM83;The user fights the foe in close without guarding itself. It also cuts the user's Defense and Sp. Def.;MOVE_CLOSE_COMBAT
+TM84;Crunches with sharp fangs. May lower Sp. Def.;MOVE_CRUNCH
+TM85;Waggles a finger to use any Pokémon move at random.;MOVE_METRONOME
+TM86;The user yells as if it is ranting about something, making the target's Sp. Atk stat decrease.;MOVE_SNARL
+TM87;Letting out a charming cry, the user does emotional damage to opposing Pokémon. This attack never misses.;MOVE_DISARMING_VOICE
+TM88;The user steals the target's energy with a kiss. The user's HP is restored by over half of the damage taken by the target.;MOVE_DRAINING_KISS
+TM89;The user is roused, and its Attack and Sp. Atk stats increase.;MOVE_WORK_UP
+TM90;The user stomps down on the ground and attacks everything in the area. Hit Pokémon's Speed stat is reduced.;MOVE_BULLDOZE
+TM91;The user lands and rests its body. It restores the user's HP by up to half of its max HP.;MOVE_ROOST
+TM92;Sharply increases the user's Speed.;MOVE_AGILITY
+TM93;Charms the foe and sharply reduces its Attack.;MOVE_CHARM
+TM94;The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat.ù;MOVE_TRAILBLAZE
+TM95;The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat.;MOVE_CHILLING_WATER
+TM96;The user shoots filthy garbage at the foe to attack. It may also poison the target.;MOVE_GUNK_SHOT
+TM97;The target is stabbed with a tentacle or arm steeped in poison. It may also poison the target.;MOVE_POISON_JAB
+TM98;The user focuses its willpower to its head and rams the foe. It may also make the target flinch.;MOVE_ZEN_HEADBUTT
+TM99;After making its attack, the user rushes back to switch places with a party Pokémon in waiting.;MOVE_U_TURN
+TM100;After making its attack, the user rushes back to switch places with a party Pokémon in waiting.;MOVE_VOLT_SWITCH
+TM101;;MOVE_SEED_BOMB
