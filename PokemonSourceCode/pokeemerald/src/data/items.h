@@ -10440,6 +10440,8 @@ const struct Item gItemsInfo[] =
 
 // TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId.
 
+// TM START
+
     [ITEM_TM_FOCUS_PUNCH] =
     {
         .name = _("TM01"),
@@ -11833,6 +11835,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_NONE, // Todo
     },
+
+// TM END
 
     [ITEM_HM_CUT] =
     {
