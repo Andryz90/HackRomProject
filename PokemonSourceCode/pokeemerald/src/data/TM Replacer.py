@@ -102,7 +102,7 @@ def process_header_file(header_file, tm_data):
 
                 block = re.sub(r'(\.secondaryId\s*=\s*)[^,]*,', rf'\1{secondary_id},', block)
 
-                item_tm_name_replacement = f"ITEM_{desc_data['secondaryID'].replace('MOVE_', '')}"
+                item_tm_name_replacement = f"ITEM_TM_{desc_data['secondaryID'].replace('MOVE_', '')}"
                 updated_tm_blocks.append(f'    [{item_tm_name_replacement}] = {{\n{block}}}')
             else:
                 updated_tm_blocks.append(f'    [{item_tm_name}] = {{\n{block}}}')
