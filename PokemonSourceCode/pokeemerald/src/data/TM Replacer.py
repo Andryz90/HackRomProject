@@ -52,11 +52,11 @@ def process_header_file(header_file, tm_data):
 
         # Separate the data before, within, and after the TM section
         data_before_tm_section = file_data[:tm_start].rstrip()
-        tm_section = file_data[tm_start:tm_end_adjusted].strip()
+        tm_section = file_data[tm_start:tm_end_adjusted]
         data_after_tm_section = file_data[tm_end_adjusted:].lstrip()
 
         # Prepare to update the TM section
-        updated_tm_section = ""
+        updated_tm_blocks = []
 
         # Regex patterns
         converted_pattern = re.compile(r'\[ITEM_TM_[A-Z_]+\] =\s*{[^}]*}', re.DOTALL)
@@ -64,7 +64,7 @@ def process_header_file(header_file, tm_data):
 
         # Add already converted TM blocks to the updated section
         for match in converted_pattern.finditer(tm_section):
-            updated_tm_section += match.group() + "," + "\n"
+            updated_tm_blocks.append(match.group())
 
         # Process unconverted TM blocks
         for match in unconverted_pattern.finditer(tm_section):
@@ -103,12 +103,13 @@ def process_header_file(header_file, tm_data):
                 block = re.sub(r'(\.secondaryId\s*=\s*)[^,]*,', rf'\1{secondary_id},', block)
 
                 item_tm_name_replacement = f"ITEM_{desc_data['secondaryID'].replace('MOVE_', '')}"
-                updated_tm_section += f'    [{item_tm_name_replacement}] = {{\n{block}}},\n'
+                updated_tm_blocks.append(f'    [{item_tm_name_replacement}] = {{\n{block}}}')
             else:
-                updated_tm_section += f'    [{item_tm_name}] = {{\n{block}}},\n'
+                updated_tm_blocks.append(f'    [{item_tm_name}] = {{\n{block}}}')
 
-        # Combine the sections with the updated TM section
-        updated_file_data = data_before_tm_section + "\n// TM START\n" + updated_tm_section.strip() + "\n// TM END" + data_after_tm_section
+        # Combine the sections with the updated TM section, ensuring proper formatting
+        updated_tm_section = ",\n".join(updated_tm_blocks)  # Join with a comma and newline
+        updated_file_data = data_before_tm_section + "\n// TM START\n" + updated_tm_section + "\n\n// TM END" + data_after_tm_section
 
         # Write the updated data back to the file
         with open(header_file, 'w') as file:
