@@ -11904,16 +11904,16 @@ const struct Item gItemsInfo[] =
         .name = _("TM95"),
         .price = 3000,
         .description = COMPOUND_STRING(
-    "The user attacks\n"
-    "the target by\n"
-    "showering it with\n
-    "water that's so\n"
-    "cold it saps the\n"
-    "target's power.\n"
-    "This also lowers\n"
-    "the target's\n"
-    "Attack stat."
-), // Todo
+        "The user attacks\n"
+        "the target by\n"
+        "showering it with\n"
+        "water that's so\n"
+        "cold it saps the\n"
+        "target's power.\n"
+        "This also lowers\n"
+        "the target's\n"
+        "Attack stat."
+        ), // Todo
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
