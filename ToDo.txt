@@ -1,8 +1,4 @@
 
-- Modificare il .py in modo che:
-	. Possa anche andare a leggere i level up moves dal json e copiarli nella corrispettiva gen_x.h (Fatto, da ottimizzare e da aggiungere (facoltativo) un modo per fare il sort finale di quello che ci mette per ordinare le mosse per livello)
-- Aggiungere lo script per il tutor move dei Pokemon.
-
 1) Inserire un evento che abiliti:
 	- Move Relearner
 	- Move Deleter
@@ -23,4 +19,7 @@ Map Editing:
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
 - Modificare la nuova mappa a nord di Rustboro
-- Powerbank
+
+--------------------------------------------
+After Test:
+

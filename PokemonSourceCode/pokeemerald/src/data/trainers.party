@@ -233,7 +233,7 @@ AI: Check Bad Move
 
 Skrelp  
 Ability: Adaptability  
-Level: 16  
+Level: 13  
 Modest Nature  
 IVs: 0 Atk  
 - Water Gun  
@@ -243,29 +243,30 @@ IVs: 0 Atk
 
 Carvanha  
 Ability: Rough Skin  
-Level: 17  
+Level: 14   
 Jolly Nature  
 - Aqua Jet  
-- Crunch  
+- Assurance  
 - Poison Fang  
 - Leer  
 
 Poochyena  
 Ability: Strong Jaw  
-Level: 17  
+Level: 14  
 Jolly Nature  
-- Bite  
+- Pursuit  
 - Thunder Fang  
 - Ice Fang  
 - Poison Fang  
 
 Chewtle  
 Ability: Strong Jaw  
-Level: 18  
+Level: 15  
 - Bite  
 - Water Pulse  
 - Headbutt  
 - Rock Throw  
+
 
 === TRAINER_MARCEL ===
 Name: MARCEL
@@ -2118,8 +2119,7 @@ AI: Check Bad Move
 
 Skitty (F) @ Oran Berry  
 Ability: Cute Charm  
-Level: 15  
-Tera Type: Normal  
+Level: 11    
 Adamant Nature  
 - Attract  
 - Fake Out  
@@ -2128,8 +2128,7 @@ Adamant Nature
 
 Clefairy (F) @ Oran Berry  
 Ability: Cute Charm  
-Level: 15  
-Tera Type: Fairy  
+Level: 12   
 Modest Nature  
 IVs: 0 Atk  
 - Attract  
@@ -2139,8 +2138,7 @@ IVs: 0 Atk
 
 Jigglypuff (F) @ Oran Berry  
 Ability: Cute Charm  
-Level: 15  
-Tera Type: Normal  
+Level: 12    
 Relaxed Nature  
 - Attract  
 - Sing  
@@ -2149,8 +2147,7 @@ Relaxed Nature
 
 Togepi (F) @ Oran Berry  
 Ability: Serene Grace  
-Level: 16  
-Tera Type: Fairy  
+Level: 13   
 - Attract  
 - Life Dew  
 - Metronome  
@@ -2547,9 +2544,19 @@ Music: Rich
 Double Battle: No
 AI: Check Bad Move
 
-Zigzagoon @ Nugget
-Level: 7
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Furfrou-Diamond-Trim  
+Ability: Fur Coat  
+Level: 13    
+- Headbutt  
+- Baby-Doll Eyes  
+- Bite  
+
+Carbink @ Oran Berry  
+Ability: Clear Body  
+Level: 13   
+- Smack Down  
+- Flail  
+- Harden  
 
 === TRAINER_MOLLIE ===
 Name: MOLLIE
@@ -4869,7 +4876,36 @@ Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Omniscient / Smart Switching
+
+Glimmet (F) @ Focus Sash  
+Ability: Toxic Debris  
+Level: 15  
+Timid Nature  
+IVs: 0 Atk / 30 SpA  
+- Stealth Rock  
+- Hidden Power
+- Venoshock  
+- Ancient Power 
+
+Archen  
+Ability: Defiant  
+Level: 16    
+Adamant Nature  
+- Pluck  
+- Rock Tomb  
+- Roost  
+- Quick Attack  
+
+Lileep @ Sitrus Berry  
+Ability: Storm Drain  
+Level: 16    
+Modest Nature  
+IVs: 0 Atk  
+- Mega Drain  
+- Acid  
+- Ancient Power  
+- Recover  
 
 Nosepass (M) @ Shuca Berry  
 Ability: Sand Force  
@@ -4879,35 +4915,6 @@ Level: 17
 - Sandstorm  
 - Spark  
 
-Archen  
-Ability: Defiant  
-Level: 17    
-Adamant Nature  
-- Pluck  
-- Rock Tomb  
-- Roost  
-- Quick Attack  
-
-Glimmet (F) @ Focus Sash  
-Ability: Toxic Debris  
-Level: 16    
-Timid Nature  
-IVs: 0 Atk  
-- Stealth Rock  
-- Hidden Power  
-- Venoshock  
-- Ancient Power  
-
-Lileep @ Sitrus Berry  
-Ability: Storm Drain  
-Level: 17   
-Modest Nature  
-IVs: 0 Atk  
-- Mega Drain  
-- Acid  
-- Ancient Power  
-- Recover  
-
 Carkol (M) @ Passho Berry  
 Ability: Steam Engine  
 Level: 18    
@@ -4915,7 +4922,8 @@ Adamant Nature
 - Rock Tomb  
 - Heavy Slam  
 - Temper Flare  
-- Body Press  
+- Will-O-Wisp  
+ 
 
 === TRAINER_BRAWLY_1 ===
 Name: BRAWLY
@@ -5340,9 +5348,32 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Shroomish
-Level: 9
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Marill @ Oran Berry  
+Ability: Huge Power  
+Level: 15   
+Adamant Nature  
+- Aqua Jet  
+- Aqua Tail  
+- Bounce  
+- Charm  
+
+Shroomish @ Toxic Orb  
+Ability: Poison Heal  
+Level: 14  
+Serious Nature  
+- Mega Drain  
+- Leech Seed  
+- Headbutt  
+- Stun Spore  
+
+Vulpix  
+Ability: Flash Fire  
+Level: 16  
+- Incinerate  
+- Draining Kiss  
+- Quick Attack  
+- Disable  
+
 
 === TRAINER_GEORGIA ===
 Name: GEORGIA
@@ -6039,7 +6070,7 @@ AI: Check Bad Move
 
 Zigzagoon @ Oran Berry  
 Ability: Gluttony  
-Level: 8  
+Level: 7  
 - Tackle  
 - Sand Attack  
 - Covet  
@@ -6047,8 +6078,7 @@ Level: 8
 
 Yamper  
 Ability: Rattled  
-Level: 8  
-Tera Type: Electric  
+Level: 7    
 Jolly Nature  
 - Nuzzle  
 - Tackle  
@@ -6057,7 +6087,7 @@ Jolly Nature
 
 Zigzagoon-Galar @ Oran Berry  
 Ability: Gluttony  
-Level: 9  
+Level: 8  
 Adamant Nature  
 - Lick  
 - Pursuit  
@@ -6075,9 +6105,10 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
+
 Rattata-Alola  
 Ability: Hustle  
-Level: 13  
+Level: 11   
 - Quick Attack  
 - Pursuit  
 - Tackle  
@@ -6085,20 +6116,19 @@ Level: 13
 
 Lillipup  
 Ability: Vital Spirit  
-Level: 13   
+Level: 11    
 - Covet  
 - Retaliate  
 - Work Up  
 - Bite  
 
-Bibarel  
-Ability: Moody  
-Level: 15   
-- Aqua Jet  
-- Bite  
-- Defense Curl  
-- Rollout  
-
+Smoliv @ Oran Berry  
+Ability: Harvest  
+Level: 11
+Serious Nature  
+- Absorb  
+- Growth  
+- Tackle  
 
 
 === TRAINER_JOSH ===
@@ -6110,10 +6140,34 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Geodude
-Level: 10
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
+Dwebble  
+Ability: Shell Armor  
+Level: 15   
+Adamant Nature  
+- Bug Bite  
+- Smack Down  
+- Fury Cutter  
+- Sand Attack  
+
+Rockruff @ Oran Berry  
+Ability: Steadfast  
+Level: 16    
+Jolly Nature  
+- Howl  
+- Bite  
+- Rock Throw  
+- Sand Attack  
+
+Onix  
+Ability: Sturdy  
+Level: 16   
+Jolly Nature  
+- Bulldoze  
+- Smack Down  
+- Curse  
+- Bind  
+
+
 
 === TRAINER_TOMMY ===
 Name: TOMMY
@@ -6122,15 +6176,23 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle 
 
-Geodude
-Level: 8
-IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
+Rhyhorn @ Rindo Berry  
+Ability: Reckless  
+Level: 16   
+- Take Down  
+- Smack Down  
+- Horn Attack  
+- Sandstorm
 
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+Cranidos  
+Ability: Sheer Force  
+Level: 16   
+Adamant Nature  
+- Headbutt  
+- Rock Smash  
+- Rock Tomb
 
 === TRAINER_JOEY ===
 Name: JOEY
@@ -6141,9 +6203,40 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Machop
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Munchlax @ Sitrus Berry  
+Ability: Gluttony  
+Level: 15   
+Adamant Nature  
+- Curse  
+- Bulldoze  
+- Recycle  
+- Tackle  
+
+Litleo @ Metronome  
+Ability: Rivalry  
+Level: 15   
+Modest Nature  
+IVs: 0 Atk  
+- Echoed Voice  
+
+Bibarel  
+Ability: Moody  
+Level: 15   
+- Aqua Jet  
+- Bite  
+- Defense Curl  
+- Rollout  
+
+Roselia  
+Ability: Poison Point  
+Level: 15  
+Modest Nature  
+IVs: 0 Atk  
+- Mega Drain  
+- Sludge Bomb  
+- Leech Seed  
+- Grass Whistle  
+
 
 === TRAINER_BEN ===
 Name: BEN
@@ -6346,7 +6439,7 @@ AI: Check Bad Move
 
 Rookidee  
 Ability: Unnerve  
-Level: 10  
+Level: 9  
 - Pluck  
 - Leer  
 - Hone Claws  
@@ -6354,7 +6447,7 @@ Level: 10
 
 Taillow  
 Ability: Guts  
-Level: 10    
+Level: 9    
 Jolly Nature  
 - Quick Attack  
 - Roost  
@@ -8949,15 +9042,42 @@ Pic: Twins
 Gender: Male
 Music: Twins
 Double Battle: Yes
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle
 
-Seedot
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Riolu @ Oran Berry  
+Ability: Prankster  
+Level: 15   
+Adamant Nature  
+- Coaching  
+- Force Palm  
+- Helping Hand  
+- Follow Me  
 
-Lotad
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Trapinch  
+Ability: Sheer Force  
+Level: 15  
+Adamant Nature  
+- Rock Throw
+- Bite  
+- Bulldoze  
+
+Murkrow  
+Ability: Prankster  
+Level: 15  
+- Tailwind  
+- Roost  
+- Aerial Ace  
+- Snarl  
+
+Lombre @ Oran Berry  
+Ability: Rain Dish  
+Level: 15  
+- Fake Out  
+- Mega Drain  
+- Bubble Beam  
+- Rain Dance  
+
+
 
 === TRAINER_MIU_AND_YUKI ===
 Name: MIU & YUKI
@@ -10697,15 +10817,22 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle
 
-Geodude
-Level: 8
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+Geodude-Alola  
+Ability: Galvanize  
+Level: 16   
+Adamant Nature  
+- Self-Destruct
 
-Geodude
-Level: 8
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+Larvitar  
+Ability: Sand Veil  
+Level: 16  
+Adamant Nature  
+- Rock Slide  
+- Bite  
+- Stomping Tantrum  
+- Protect
 
 === TRAINER_BRENDEN ===
 Name: BRENDEN
@@ -11196,21 +11323,22 @@ Level: 1
 - Endeavor  
 - Fairy Wind  
 
+Swirlix @ Oran Berry  
+Ability: Unburden  
+Level: 11   
+- Covet  
+- Leer  
+- Tackle
+- Fairy Wind
+
 Morelull  
 Ability: Illuminate  
-Level: 13    
+Level: 12    
 Bold Nature  
 - Mega Drain  
 - Confuse Ray  
 - Ingrain  
 - Flash  
-
-Swirlix @ Oran Berry  
-Ability: Unburden  
-Level: 13   
-- Covet  
-- Leer  
-- Tackle
 
 === TRAINER_HALEY_1 ===
 Name: HALEY
@@ -11221,13 +11349,30 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move
 
-Lotad
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tangela (F)  
+Ability: Thick Fat  
+Level: 14    
+- Mega Drain  
+- Growth  
+- Bind  
 
-Shroomish
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mareep (F)  
+Ability: Transistor  
+Level: 14    
+- Thunder Shock  
+- Thunder Wave  
+- Charge  
+- Tackle  
+
+Eevee (F)  
+Ability: Adaptability  
+Level: 14   
+- Fake Out  
+- Baby-Doll Eyes  
+- Covet  
+- Quick Attack  
+
+
 
 === TRAINER_JANICE ===
 Name: JANICE
@@ -11406,7 +11551,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Setup First Turn
 
 Ledyba  
 Ability: Swarm  
@@ -11419,7 +11564,7 @@ Bold Nature
 
 Venipede  
 Ability: Speed Boost  
-Level: 9  
+Level: 8  
 Adamant Nature
 - Defense Curl  
 - Rollout  
@@ -11444,21 +11589,22 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Nymble  
+Ability: Tinted Lens  
+Level: 14  
+- First Impression  
+- Bug Bite  
+- Assurance  
 
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Yanma  
+Ability: Speed Boost  
+Level: 14  
+- Sonic Boom  
+- Air Cutter  
+- Struggle Bug  
+- Quick Attack  
 
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Wurmple
-Level: 3
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_JOSE ===
 Name: JOSE
@@ -11469,13 +11615,30 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Wurmple
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Surskit  
+Ability: Swift Swim  
+Level: 14  
+- Rain Dance  
+- Water Gun  
+- Quick Attack  
+- Struggle Bug  
 
-Nincada
-Level: 8
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Dewpider @ Oran Berry  
+Ability: Water Bubble  
+Level: 14  
+- Infestation  
+- Bubble Beam  
+- Bug Bite  
+- Aqua Ring  
+
+Paras @ Oran Berry  
+Ability: Damp  
+Level: 14  
+- Bug Bite  
+- Fury Cutter  
+- Spore  
+- Seed Bomb  
+
 
 === TRAINER_DOUG ===
 Name: DOUG
@@ -11533,13 +11696,38 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Nincada
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vivillon-Pokeball  
+Ability: Compound Eyes  
+Level: 14  
+IVs: 0 Atk  
+- Sleep Powder  
+- Struggle Bug  
+- Air Cutter  
 
-Nincada
-Level: 6
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Beedrill  
+Ability: Adaptability  
+Level: 15   
+- Fury Cutter  
+- Cross Poison  
+- Peck  
+
+Butterfree  
+Ability: Tinted Lens  
+Level: 15  
+IVs: 0 Atk  
+- Silver Wind  
+- Air Cutter  
+- Sleep Powder  
+
+Poltchageist  
+Ability: Heatproof  
+Level: 14  
+IVs: 0 Atk  
+- Hex  
+- Life Dew  
+- Absorb  
+
+
 
 === TRAINER_JAMES_2 ===
 Name: JAMES
@@ -11719,9 +11907,32 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sandygast @ Absorb Bulb  
+Ability: Water Compaction  
+Level: 15  
+Calm Nature  
+- Sandstorm  
+- Mega Drain  
+- Sand Tomb  
+- Hex
+
+Sandshrew  
+Ability: Sand Force  
+Level: 15  
+Adamant Nature  
+- Bulldoze  
+- Rapid Spin  
+- Rock Throw  
+- Poison Jab  
+
+Wooper-Paldea  
+Ability: Water Absorb  
+Level: 15  
+Adamant Nature  
+- Poison Tail  
+- Bulldoze  
+- Toxic  
+- Tail Whip
 
 === TRAINER_ERIC ===
 Name: ERIC
@@ -13140,7 +13351,7 @@ AI: Check Bad Move
 
 Magikarp  
 Ability: Rattled  
-Level: 15    
+Level: 12    
 - Hydro Pump  
 - Flail  
 
@@ -13152,13 +13363,13 @@ Level: 15
 
 Wishiwashi  
 Ability: Schooling  
-Level: 15   
+Level: 12   
 - Hydro Pump  
 - Flail  
 
 Luvdisc  
 Ability: Hydration  
-Level: 15   
+Level: 12   
 - Hydro Pump  
 - Flail 
 
@@ -14037,15 +14248,35 @@ Pic: Hiker
 Gender: Male
 Music: Hiker
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle
 
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Salandit (M) @ Oran Berry  
+Ability: Corrosion  
+Level: 15   
+Modest Nature  
+- Poison Fang  
+- Will-O-Wisp  
+- Incinerate  
+- Belch
 
-Geodude
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ponyta  
+Ability: Flash Fire  
+Level: 15  
+Adamant Nature  
+- Flame Charge  
+- Flame Wheel  
+- Stomp  
+- Tail Whip
+
+Toedscool  
+Ability: Mycelium Might  
+Level: 16  
+Modest Nature  
+IVs: 0 Atk  
+- Stun Spore  
+- Mega Drain  
+- Mud Shot  
+- Hex
 
 === TRAINER_JOHNSON ===
 Name: JOHNSON
@@ -14054,15 +14285,34 @@ Pic: Youngster
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle
 
-Shroomish
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Shellos  
+Ability: Storm Drain  
+Level: 15  
+IVs: 0 Atk  
+- Recover  
+- Water Pulse  
+- Mud Bomb  
+- Ancient Power
 
-Lotad
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tentacool @ Black Sludge  
+Ability: Liquid Ooze  
+Level: 16  
+IVs: 0 Atk  
+- Water Pulse  
+- Acid  
+- Supersonic
+
+Panpour @ Petaya Berry  
+Ability: Gluttony  
+Level: 15  
+IVs: 0 Atk / 0 Def  
+Timid Nature  
+- Water Pulse  
+- Work Up  
+- Hidden Power
+- Lick
 
 === TRAINER_MELINA ===
 Name: MELINA

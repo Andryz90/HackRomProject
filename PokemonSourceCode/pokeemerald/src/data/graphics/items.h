@@ -1761,6 +1761,8 @@ const u32 gItemIconPalette_ExpCharm[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIcon_GlimmeringCharm[] = INCBIN_U32("graphics/items/icons/glimmering_charm.4bpp.lz");
 const u32 gItemIconPalette_GlimmeringCharm[] = INCBIN_U32("graphics/items/icon_palettes/glimmering_charm.gbapal.lz");
 
+const u32 gItemIcon_PokeVial[] = INCBIN_U32("graphics/items/icons/poke_vial.4bpp.lz");
+const u32 gItemIconPalette_PokeVial[] = INCBIN_U32("graphics/items/icon_palettes/poke_vial.gbapal.lz");
 // Form-changing Key Items
 
 const u32 gItemIcon_RotomCatalog[] = INCBIN_U32("graphics/items/icons/rotom_catalog.4bpp.lz");

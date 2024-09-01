@@ -426,6 +426,7 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
             return TRUE;
         break;
     case ABILITY_STORM_DRAIN:
+    case ABILITY_WATER_COMPACTION:
         if (B_REDIRECT_ABILITY_IMMUNITY < GEN_5)
             break;
         // Fallthrough

@@ -42,17 +42,17 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_WINGULL_STATE   0x20 // Unused Flag
-#define FLAG_INFINITE_REPEL  0x21 // Unused Flag
-#define FLAG_EXPSHARE        0x22 // Unused Flag
-#define FLAG_BLASTOISITE     0x23 
-#define FLAG_SLOWBRONITE     0x24 
-#define FLAG_FLIPTURN_TM     0x25 
-#define FLAG_RUSTBORO_HISUI_FLAG    0x26 // Unused Flag
-#define FLAG_MYSTIC_WATER    0x27 // Unused Flag
-#define FLAG_RECEIVED_U_TURN    0x28 // Unused Flag
+#define FLAG_WINGULL_STATE                  0x20 
+#define FLAG_INFINITE_REPEL                 0x21 
+#define FLAG_EXPSHARE                       0x22 
+#define FLAG_BLASTOISITE                    0x23 
+#define FLAG_SLOWBRONITE                    0x24 
+#define FLAG_FLIPTURN_TM                    0x25 
+#define FLAG_RUSTBORO_HISUI_FLAG            0x26 
+#define FLAG_MYSTIC_WATER                   0x27 
+#define FLAG_RECEIVED_U_TURN                0x28 
 #define FLAG_LANDMARK_SEASPRAY_CAVE         0x29
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_PETALBURG_WOODS                0x2A 
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag

@@ -393,14 +393,20 @@ Wingull_Trainer_Chase::
 	walk_left
 	face_player
 	step_end
-	
 
+LittlerootTown_Wingull_NoItem::
+	msgbox  LittlerootTown_Text_Wingull MSGBOX_DEFAULT
+	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
+	releaseall
+	end
 LittlerootTown_EventScript_Wingull_StaticDialog::
 	lockall 
 	applymovement LOCALID_WINGULL Common_Movement_FacePlayer
 	waitmovement LOCALID_WINGULL
+	goto_if_set FLAG_INFINITE_REPEL, LittlerootTown_Wingull_NoItem
 	msgbox  LittlerootTown_Text_Wingull MSGBOX_DEFAULT
 	giveitem ITEM_POTION
+	setflag FLAG_INFINITE_REPEL @was unused so I'm using it here
 	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
 	releaseall
 	end

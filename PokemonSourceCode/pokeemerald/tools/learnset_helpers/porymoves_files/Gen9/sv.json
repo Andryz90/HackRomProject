@@ -1541,10 +1541,6 @@
         "Move": "MOVE_THUNDER_WAVE"
       },
       {
-        "Level": 8,
-        "Move": "MOVE_DOUBLE_TEAM"
-      },
-      {
         "Level": 12,
         "Move": "MOVE_ELECTRO_BALL"
       },
@@ -1719,10 +1715,6 @@
       {
         "Level": 1,
         "Move": "MOVE_TAIL_WHIP"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_DOUBLE_TEAM"
       },
       {
         "Level": 1,
@@ -14629,11 +14621,12 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_ECHOED_VOICE"
+        "Move": "MOVE_CONFUSION"
       },
       {
         "Level": 9,
-        "Move": "MOVE_CONFUSION"
+        "Move": "MOVE_DEFOG"
+        
       },
       {
         "Level": 12,
@@ -14641,7 +14634,7 @@
       },
       {
         "Level": 15,
-        "Move": "MOVE_DEFOG"
+        "Move": "MOVE_ECHOED_VOICE"
       },
       {
         "Level": 18,

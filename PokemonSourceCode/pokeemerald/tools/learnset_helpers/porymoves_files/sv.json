@@ -24743,50 +24743,46 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_ROCK_SMASH"
+        "Move": "MOVE_MUD_SLAP"
       },
       {
         "Level": 9,
         "Move": "MOVE_ROCK_THROW"
       },
       {
-        "Level": 12,
-        "Move": "MOVE_PROTECT"
-      },
-      {
         "Level": 15,
-        "Move": "MOVE_SUPERSONIC"
-      },
-      {
-        "Level": 18,
-        "Move": "MOVE_WATER_PULSE"
+        "Move": "MOVE_ROCK_SMASH"
       },
       {
         "Level": 21,
-        "Move": "MOVE_ROCK_SLIDE"
+        "Move": "MOVE_WATER_PULSE"
       },
       {
         "Level": 24,
-        "Move": "MOVE_TAKE_DOWN"
+        "Move": "MOVE_ROCK_SLIDE"
       },
       {
         "Level": 27,
-        "Move": "MOVE_AMNESIA"
+        "Move": "MOVE_TAKE_DOWN"
       },
       {
         "Level": 30,
-        "Move": "MOVE_SURF"
+        "Move": "MOVE_AMNESIA"
       },
       {
         "Level": 33,
-        "Move": "MOVE_SCREECH"
+        "Move": "MOVE_SURF"
       },
       {
         "Level": 36,
-        "Move": "MOVE_ENDEAVOR"
+        "Move": "MOVE_SCREECH"
       },
       {
         "Level": 39,
+        "Move": "MOVE_ENDEAVOR"
+      },
+      {
+        "Level": 42,
         "Move": "MOVE_HYDRO_PUMP"
       }
     ],
@@ -24868,12 +24864,8 @@
         "Move": "MOVE_WATER_GUN"
       },
       {
-        "Level": 9,
-        "Move": "MOVE_ROCK_THROW"
-      },
-      {
         "Level": 12,
-        "Move": "MOVE_PROTECT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 15,
@@ -24999,12 +24991,8 @@
         "Move": "MOVE_MUD_SHOT"
       },
       {
-        "Level": 9,
-        "Move": "MOVE_ROCK_THROW"
-      },
-      {
         "Level": 12,
-        "Move": "MOVE_PROTECT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 15,
