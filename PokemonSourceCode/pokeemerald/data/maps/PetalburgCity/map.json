@@ -178,7 +178,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_HEART_SCALE",
-      "script": "Common_EventScript_FindItem",
+      "script": "Common_EventScript_FindItem_Temp",
       "flag": "FLAG_ITEM_PETALBURG_CITY_HEART_CANDY_SWITCH"
     },
     {
@@ -191,7 +191,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
-      "script": "Common_EventScript_FindItem",
+      "script": "Common_EventScript_FindItem_Temp",
       "flag": "FLAG_ITEM_PETALBURG_CITY_HEART_CANDY_SWITCH"
     },
     {

@@ -11531,7 +11531,7 @@ const struct Item gItemsInfo[] =
             .fieldUseFunc = ItemUseOutOfBattle_TMHM,
             .secondaryId = MOVE_COACHING, // Todo
         },
-        [ITEM_TM_TEMPER_FALRE] = {
+        [ITEM_TM_TEMPER_FLARE] = {
 
             .name = _("TM77"), .price = 3000,
             .description = COMPOUND_STRING("Spurred by\n"

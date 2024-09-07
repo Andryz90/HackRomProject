@@ -52,7 +52,7 @@
 #define FLAG_MYSTIC_WATER                   0x27 
 #define FLAG_RECEIVED_U_TURN                0x28 
 #define FLAG_LANDMARK_SEASPRAY_CAVE         0x29
-#define FLAG_PETALBURG_WOODS                0x2A 
+#define FLAG_UNUSED_0x02A                0x2A 
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
@@ -1501,7 +1501,7 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
+#define FLAG_PETALBURG_WOODS                        (SYSTEM_FLAGS + 0x85) 
 #define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
 #define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag

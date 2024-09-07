@@ -639,6 +639,7 @@ PetalburgCity_EventScript_May0::
 	end
 PetalburgCity_EventScript_May1::
 	lockall
+	call RustboroCity_EventScript_PlayRivalMusic
 	faceplayer
 	setvar VAR_0x8008, 1
 	goto PetalburgCity_EventScript_MayShowItemBalls

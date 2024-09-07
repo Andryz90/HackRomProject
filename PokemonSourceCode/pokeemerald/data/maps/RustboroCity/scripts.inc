@@ -834,7 +834,7 @@ RustboroCity_EventScript_RivalEncounter::
 
 RustboroCity_EventScript_MayEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_MayBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayAskToBattle
+	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayBrineyHint @If you say no you can't try anymore
 	setflag FLAG_MET_RIVAL_RUSTBORO
 	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
@@ -862,6 +862,34 @@ RustboroCity_EventScript_MayAskToBattle::
 	msgbox RustboroCity_Text_MayOhHaventRaisedPokemonEnough, MSGBOX_DEFAULT
 	releaseall
 	end
+RustBoroCity_Gives_RareCandy:
+	giveitem ITEM_RARE_CANDY
+	msgbox RustBoroCity_Temp_TextMay2, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_MayBrineyHint
+	end
+
+RustBoroCity_Gives_HeartScale:
+	giveitem ITEM_HEART_SCALE
+	msgbox RustBoroCity_Temp_TextMay2, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_MayBrineyHint
+	end 
+
+RustBoroCity_Temp_TextMay:
+	.string "MAY: Since you beat me,\n"
+	.string "I have a present for you!$"
+
+RustBoroCity_Temp_TextMay2:
+	.string "MAY: It's the other item\n"
+	.string "from the temp balls, remember?$"
+	
+RustBoroCity_Temp_TextBrendan:
+	.string "BRENDAN: Since you beat me,\n"
+	.string "I have a present for you!$"
+
+RustBoroCity_Temp_TextBrendan2:
+	.string "BRENDAN: It's the other item\n"
+	.string "from the temp balls, remember?$"
+
 
 RustboroCity_EventScript_BattleMay::
 	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
@@ -885,24 +913,34 @@ RustboroCity_EventScript_RestoreBgm::
 RustboroCity_EventScript_BattleMayTreecko::
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TREECKO, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
-	goto RustboroCity_EventScript_MayBrineyHint
+	msgbox RustBoroCity_Temp_TextMay, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
 	end
 
 RustboroCity_EventScript_BattleMayTorchic::
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TORCHIC, RustboroCity_Text_MayDefeat
+	msgbox RustBoroCity_Temp_TextMay, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	msgbox RustBoroCity_Temp_TextMay2, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BattleMayMudkip::
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MUDKIP, RustboroCity_Text_MayDefeat
+	msgbox RustBoroCity_Temp_TextMay, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	msgbox RustBoroCity_Temp_TextMay2, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BrendanEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanAskToBattle
+	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanBrineyHint
 	setflag FLAG_MET_RIVAL_RUSTBORO
 	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
@@ -946,18 +984,30 @@ RustboroCity_EventScript_BrendanBrineyHint::
 RustboroCity_EventScript_BattleBrendanTreecko::
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TREECKO, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustBoroCity_Temp_TextBrendan, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	msgbox RustBoroCity_Temp_TextBrendan2, MSGBOX_DEFAULT
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
 RustboroCity_EventScript_BattleBrendanTorchic::
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TORCHIC, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustBoroCity_Temp_TextBrendan, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	msgbox RustBoroCity_Temp_TextBrendan2, MSGBOX_DEFAULT
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 
 RustboroCity_EventScript_BattleBrendanMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_MUDKIP, RustboroCity_Text_BrendanDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustBoroCity_Temp_TextBrendan, MSGBOX_DEFAULT
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
+	msgbox RustBoroCity_Temp_TextBrendan2, MSGBOX_DEFAULT
 	goto RustboroCity_EventScript_BrendanBrineyHint
 	end
 

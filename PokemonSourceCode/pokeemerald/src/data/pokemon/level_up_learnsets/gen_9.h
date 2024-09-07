@@ -531,6 +531,7 @@ static const struct LevelUpMove sPichuLevelUpLearnset[] = {
 
 static const struct LevelUpMove sPikachuLevelUpLearnset[] = {
         LEVEL_UP_MOVE(15, MOVE_SWIFT),
+        LEVEL_UP_MOVE(8, MOVE_DOUBLE_TEAM),
         LEVEL_UP_MOVE(1, MOVE_NUZZLE),
         LEVEL_UP_MOVE(1, MOVE_NASTY_PLOT),
         LEVEL_UP_MOVE(1, MOVE_CHARM),
@@ -541,7 +542,6 @@ static const struct LevelUpMove sPikachuLevelUpLearnset[] = {
         LEVEL_UP_MOVE(1, MOVE_THUNDER_SHOCK),
         LEVEL_UP_MOVE(1, MOVE_GROWL),
         LEVEL_UP_MOVE(4, MOVE_THUNDER_WAVE),
-        LEVEL_UP_MOVE(8, MOVE_DOUBLE_TEAM),
         LEVEL_UP_MOVE(12, MOVE_ELECTRO_BALL),
         LEVEL_UP_MOVE(16, MOVE_FEINT),
         LEVEL_UP_MOVE(20, MOVE_SPARK),
@@ -557,6 +557,7 @@ static const struct LevelUpMove sPikachuLevelUpLearnset[] = {
 
 static const struct LevelUpMove sRaichuLevelUpLearnset[] = {
         LEVEL_UP_MOVE(15, MOVE_SWIFT),
+        LEVEL_UP_MOVE(1, MOVE_DOUBLE_TEAM),
         LEVEL_UP_MOVE(0, MOVE_THUNDER_PUNCH),
         LEVEL_UP_MOVE(1, MOVE_ELECTRO_BALL),
         LEVEL_UP_MOVE(1, MOVE_DISCHARGE),
@@ -575,7 +576,6 @@ static const struct LevelUpMove sRaichuLevelUpLearnset[] = {
         LEVEL_UP_MOVE(1, MOVE_THUNDER_SHOCK),
         LEVEL_UP_MOVE(1, MOVE_GROWL),
         LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
-        LEVEL_UP_MOVE(1, MOVE_DOUBLE_TEAM),
         LEVEL_UP_MOVE(1, MOVE_LIGHT_SCREEN),
         LEVEL_UP_MOVE(5, MOVE_THUNDERBOLT),
         LEVEL_UP_END
@@ -12372,21 +12372,21 @@ static const struct LevelUpMove sSnoverLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAbomasnowLevelUpLearnset[] = {
-        LEVEL_UP_MOVE(0, MOVE_ICE_PUNCH),
         LEVEL_UP_MOVE(1, MOVE_AURORA_VEIL),
-        LEVEL_UP_MOVE(1, MOVE_POWDER_SNOW),
+        LEVEL_UP_MOVE(0, MOVE_ICE_PUNCH),
         LEVEL_UP_MOVE(1, MOVE_LEER),
-        LEVEL_UP_MOVE(1, MOVE_LEAFAGE),
         LEVEL_UP_MOVE(1, MOVE_MIST),
+        LEVEL_UP_MOVE(1, MOVE_POWDER_SNOW),
+        LEVEL_UP_MOVE(1, MOVE_LEAFAGE),
         LEVEL_UP_MOVE(15, MOVE_ICE_SHARD),
         LEVEL_UP_MOVE(20, MOVE_RAZOR_LEAF),
         LEVEL_UP_MOVE(25, MOVE_ICY_WIND),
         LEVEL_UP_MOVE(30, MOVE_SWAGGER),
         LEVEL_UP_MOVE(35, MOVE_INGRAIN),
+        LEVEL_UP_MOVE(40, MOVE_FREEZE_DRY),
         LEVEL_UP_MOVE(43, MOVE_WOOD_HAMMER),
         LEVEL_UP_MOVE(49, MOVE_BLIZZARD),
         LEVEL_UP_MOVE(56, MOVE_SHEER_COLD),
-        LEVEL_UP_MOVE(40, MOVE_FREEZE_DRY),
         LEVEL_UP_END
 };
 #endif //P_FAMILY_SNOVER

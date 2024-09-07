@@ -2,6 +2,7 @@
 .set LOCALID_BRINEY, 5
 .set LOCALID_GRUNT, 6
 .set LOCALID_PEEKO, 7
+.set LOCALID_WALLY, 11
 .equ LOCALID_WANDA, 10
 
 RusturfTunnel_MapScripts::
@@ -19,8 +20,9 @@ RusturfTunnel_OnTransition:
 	end
 
 RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos::
-	setobjectxyperm LOCALID_PEEKO, 13, 4
-	setobjectxyperm LOCALID_GRUNT, 13, 5
+	setobjectxyperm LOCALID_PEEKO, 18, 4
+	setobjectxyperm LOCALID_GRUNT, 18, 5
+	setobjectxyperm LOCALID_WALLY 19, 5
 	return
 
 RusturfTunnel_EventScript_Wanda::
@@ -274,22 +276,78 @@ RusturfTunnel_EventScript_TunnelBlockagePos3::
 
 RusturfTunnel_EventScript_AquaGruntBackUp::
 	lockall
+	msgbox RusturfTunnel_WallyIntro, MSGBOX_DEFAULT
 	msgbox RusturfTunnel_Text_ComeAndGetSome, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntAndPeekoBackUp
-	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_GruntAndPeekoBackUp
-	waitmovement 0
 	copyobjectxytoperm LOCALID_GRUNT
 	copyobjectxytoperm LOCALID_PEEKO
+	copyobjectxytoperm LOCALID_WALLY
 	setvar VAR_RUSTURF_TUNNEL_STATE, 3
 	releaseall
 	end
+
+RusturfTunnel_WallyIntro:
+	.string "WALLY: {PLAYER}! I was trying to return\n"
+	.string "to my hometown when this guy blocked me.$"
+RusturfTunnel_WallyHelp:
+	.string "WALLY: {PLAYER}, please help me!$"
+RusturfTunnel_WallyHelpBattling:
+	.string "WALLY: {PLAYER}, lets battle together!\n"
+	.string "E-even though I'm not exeperience yet,\p"
+	.string "WALLY: I'll try my best to help you!$"
+
+RusturfTunnel_WallyBattleEnd:
+	.string "WALLY: Wow, you are so strong!\n"
+	.string "I had a lot of fun, I like battling!\p"
+	.string "WALLY: The good thing is that Peeko is\n"
+	.string "safe now and nobody was hurt.\p"
+	.string "WALLY: Who was that, in the first place?\n"
+	.string "I don't like it...$"
+RusturfTunnel_WallyBattleLeaving:
+	.string "WALLY: The path is blocked by boulders\n"
+	.string "and I can't break them right now.\p"
+	.string "WALLY: I'll take the long path,\n"
+	.string "passing through Dewford Town.$"
+RusturfTunnel_WallyBattleLeaving2:
+	.string "WALLY: You should do the same {PLAYER},\n"
+	.string "thanks again for the help. See you later.$"
+
+MeteorFalls_1F_1R_Text_ChooseMons:
+	.string "Choose which Pokémon will battle.$"
+
+RusturfTunnel_Movement_Player:
+	walk_right
+	walk_right
+	step_end
+
+RusturfTunnel_Movement_Wally:
+	walk_left
+	step_end
+
+RusturfTunnel_Movement_WallyLeaving:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 RusturfTunnel_Movement_GruntAndPeekoBackUp:
 	lock_facing_direction
 	walk_right
 	unlock_facing_direction
 	step_end
+
+
+RusturfTunnel_EventScript_Lost::
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
+	waitstate
 
 RusturfTunnel_EventScript_Peeko::
 	lock
@@ -300,13 +358,30 @@ RusturfTunnel_EventScript_Peeko::
 	waitmoncry
 	release
 	end
+RusturTunnel_MultiBattle::
+	choose_mons
+	compare VAR_RESULT, FALSE
+	call_if_eq RusturTunnel_EventScript_ChooseMons
+    multi_2_vs_1 TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_Text_GruntDefeat,  PARTNER_WALLY
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq RusturfTunnel_EventScript_Lost
+    return 
+
+RusturTunnel_EventScript_ChooseMons::
+    msgbox MeteorFalls_1F_1R_Text_ChooseMons, MSGBOX_DEFAULT
+    choose_mons
+	compare VAR_RESULT, FALSE
+	call_if_eq RusturTunnel_MultiBattle
+    return
 
 RusturfTunnel_EventScript_Grunt::
 	lock
 	faceplayer
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	msgbox RusturfTunnel_Text_GruntIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_Text_GruntDefeat
+	msgbox RusturfTunnel_WallyHelpBattling, MSGBOX_DEFAULT
+	call RusturTunnel_MultiBattle
 	msgbox RusturfTunnel_Text_GruntTakePackage, MSGBOX_DEFAULT
 	giveitem ITEM_DEVON_GOODS
 	closemessage
@@ -335,6 +410,18 @@ RusturfTunnel_EventScript_Grunt::
 	applymovement LOCALID_BRINEY, RusturfTunnel_Movement_BrineyExit
 	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_PeekoExit
 	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_WALLY, RusturfTunnel_Movement_Wally
+	msgbox RusturfTunnel_WallyBattleEnd, MSGBOX_DEFAULT
+	applymovement LOCALID_WALLY, Common_Movement_FaceRight
+	msgbox RusturfTunnel_WallyBattleLeaving, MSGBOX_DEFAULT
+	applymovement LOCALID_WALLY, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox RusturfTunnel_WallyBattleLeaving2, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_WALLY, RusturfTunnel_Movement_WallyLeaving
+	waitmovement 0
+	removeobject LOCALID_WALLY
 	removeobject LOCALID_BRINEY
 	removeobject LOCALID_PEEKO
 	clearflag FLAG_DEVON_GOODS_STOLEN
@@ -378,6 +465,11 @@ RusturfTunnel_Movement_BrineyApproachPeeko1:
 	walk_right
 	walk_right
 	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	face_player
 	step_end
 
 RusturfTunnel_Movement_BrineyExit:
@@ -424,14 +516,14 @@ RusturfTunnel_EventScript_Mike::
 	end
 
 RusturfTunnel_Text_ComeAndGetSome:
-	.string "What, are you coming?\n"
+	.string "GRUNT: What, are you coming too?\n"
 	.string "Come and get some, then!$"
 
 RusturfTunnel_Text_Peeko:
 	.string "PEEKO: Pii pihyoh!$"
 
 RusturfTunnel_Text_GruntIntro:
-	.string "Grah, keelhaul it all!\p"
+	.string "GRUNT: Grah, keelhaul it all!\p"
 	.string "That hostage POKéMON turned out to\n"
 	.string "be worthless!\p"
 	.string "And to think I made a getaway…\n"
@@ -440,11 +532,11 @@ RusturfTunnel_Text_GruntIntro:
 	.string "So you want to battle me?$"
 
 RusturfTunnel_Text_GruntDefeat:
-	.string "Urrrggh! My career in crime comes to\n"
+	.string "GRUNT: Urrrggh! My career in crime comes to\n"
 	.string "a dead end!$"
 
 RusturfTunnel_Text_GruntTakePackage:
-	.string "This is plain not right…\p"
+	.string "GRUNT: This is plain not right…\p"
 	.string "The BOSS told me this would be a\n"
 	.string "slick-and-easy job to pull.\p"
 	.string "All I had to do was steal some package\n"
