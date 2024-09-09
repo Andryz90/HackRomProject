@@ -1593,8 +1593,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
     evasionStage = gBattleMons[battlerDef].statStages[STAT_EVASION];
-    if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
-            || (B_ILLUMINATE_EFFECT >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))
+    if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE || (B_ILLUMINATE_EFFECT >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))
         evasionStage = DEFAULT_STAT_STAGE;
     if (gMovesInfo[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;
@@ -1644,8 +1643,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
             calc *= 120 / 100; //x1.2
         break;
     case ABILITY_ILLUMINATE:
-        if ((gSpeciesInfo[battlerDef].types[0] != TYPE_ELECTRIC || gSpeciesInfo[battlerDef].types[1] != TYPE_ELECTRIC) 
-            && defAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
+        if ((gSpeciesInfo[battlerDef].types[0] != TYPE_ELECTRIC || gSpeciesInfo[battlerDef].types[1] != TYPE_ELECTRIC) && defAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
             calc = (calc * 90) / 100;
         break;
     }
@@ -1905,7 +1903,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     s32 critChance = 0;
 
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT
-        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || ABILITY_MAGMA_ARMOR)
+        || abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || abilityDef == ABILITY_MAGMA_ARMOR)
     {
         critChance = -1;
     }

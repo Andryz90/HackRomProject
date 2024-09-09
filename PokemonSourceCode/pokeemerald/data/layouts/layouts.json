@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Seaspray_Cave_B1F/border.bin",
       "blockdata_filepath": "data/layouts/Seaspray_Cave_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_MEADOW",
+      "name": "DewfordMeadow_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/DewfordMeadow/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordMeadow/map.bin"
     }
   ]
 }

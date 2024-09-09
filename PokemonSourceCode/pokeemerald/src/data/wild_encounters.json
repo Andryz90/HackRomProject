@@ -309,37 +309,37 @@
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_WOOLOO"
+                "species": "SPECIES_MAREEP"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_WOOLOO"
+                "species": "SPECIES_LECHONK"
               },
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_MAREEP"
+                "species": "SPECIES_LECHONK"
               },
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_MAREEP"
+                "species": "SPECIES_YUNGOOS"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_MAREEP"
+                "species": "SPECIES_YUNGOOS"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_LECHONK"
+                "species": "SPECIES_PURRLOIN"
               },
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_LECHONK"
+                "species": "SPECIES_PURRLOIN"
               },
               {
                 "min_level": 3,

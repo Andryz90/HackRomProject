@@ -1718,6 +1718,15 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DEWFORD_MEADOW",
+      "name": "DEWFORD MEADOW",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+      
     }
   ]
 }

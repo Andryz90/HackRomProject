@@ -395,7 +395,7 @@ Wingull_Trainer_Chase::
 	step_end
 
 LittlerootTown_Wingull_NoItem::
-	msgbox  LittlerootTown_Text_WingullItem MSGBOX_DEFAULT
+	msgbox  LittlerootTown_Text_WingullBasic MSGBOX_DEFAULT
 	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
 	releaseall
 	end
@@ -403,10 +403,10 @@ LittlerootTown_EventScript_Wingull_StaticDialog::
 	lockall 
 	applymovement LOCALID_WINGULL Common_Movement_FacePlayer
 	waitmovement LOCALID_WINGULL
-	goto_if_set FLAG_INFINITE_REPEL, LittlerootTown_Wingull_NoItem
-	msgbox  LittlerootTown_Text_WingullBasic MSGBOX_DEFAULT
+	goto_if_set FLAG_WINGULL_POTION, LittlerootTown_Wingull_NoItem
+	msgbox  LittlerootTown_Text_WingullItem MSGBOX_DEFAULT
 	giveitem ITEM_POTION
-	setflag FLAG_INFINITE_REPEL @was unused so I'm using it here
+	setflag FLAG_WINGULL_POTION
 	applymovement LOCALID_WINGULL Common_Movement_FaceOriginalDirection
 	releaseall
 	end
@@ -1176,4 +1176,4 @@ LittlerootTown_Text_WingullItem:
 	.string "take this as gift!$"
 
 LittlerootTown_Text_WingullBasic:
-	.string "Enjoy our hack rom {PLAYER} :3\n"
+	.string "Enjoy our hack rom {PLAYER} :3$"

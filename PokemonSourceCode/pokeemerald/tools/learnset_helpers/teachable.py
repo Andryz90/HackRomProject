@@ -246,10 +246,11 @@ def construct_compatibility_levelset(force_custom_check):
     dict_out = {}
     json_gen_string = ''
     done = False
+    move_level_begin = False
     for pth in glob.glob('./tools/learnset_helpers/porymoves_files/Gen9/*.json'):
         f = open(pth, 'r')
         data = json.load(f)
-        if pth != './tools/learnset_helpers/porymoves_files/Gen9/\\custom.json':
+        if pth != './tools/learnset_helpers/porymoves_files/Gen9\\zcustom.json':
             for mon in data.keys():
                 if not mon in dict_out:
                     dict_out[mon] = []
@@ -284,9 +285,13 @@ def construct_compatibility_levelset(force_custom_check):
                     dict_out[mon] = []
                     level_for_moves[mon] = []
                 for move in data[mon]['LevelMoves']:
-                    if not move['Move'] in dict_out[mon]:
+                    move_level_begin = False
+                    if move['Level'] == 1 or move['Level'] == 0:
+                        move_level_begin = True
+                    if not move['Move'] in dict_out[mon] and (move['Level'] in level_for_moves[mon] and move_level_begin):
                         dict_out[mon].append(move['Move'])
                         level_for_moves[mon].append(move['Level'])
+                        move_level_begin = False
         
 
             
@@ -318,7 +323,7 @@ def construct_compatibility_levelset(force_custom_check):
                         custom_teachable_compatibilities[monname]["Moves"].append(move)
                         custom_teachable_compatibilities[monname]["Level"].append(level)
                 else:
-                    # this mon is known, so check if the moves in the old teachable_learnsets.h are not in the jsons
+                    # this mon is known, so check if the moves in the old levelup_learnsets.h are not in the jsons
                     for move in compatibility: 
                         move = move.strip()
                         if (move != 'LEVEL_UP_END' and len(move) > 0):
@@ -333,8 +338,8 @@ def construct_compatibility_levelset(force_custom_check):
                                 custom_teachable_compatibilities[monname]["Level"].append(int(level))
                             
             # actually store the data in custom.json
-            if os.path.exists("./tools/learnset_helpers/porymoves_files/Gen9/custom.json"):
-                f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/custom.json", "r")
+            if os.path.exists("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json"):
+                f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json", "r")
                 custom_json = json.load(f2)
                 f2.close()
             else:
@@ -348,7 +353,7 @@ def construct_compatibility_levelset(force_custom_check):
                 for move in custom_teachable_compatibilities[x]["Moves"]:
                     custom_json[x]["LevelMoves"].append({"Move":move, 'Level':custom_teachable_compatibilities[x]["Level"][index]})
                     index+=1       
-                f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/custom.json", "w")
+                f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json", "w")
                 f2.write(json.dumps(custom_json, indent=2))
                 f2.close()
             print("FIRST RUN: Updated custom.json with Gen9_Learnset.h's data")
@@ -366,6 +371,7 @@ for mon in list_of_mons:
     levelup_moves = []
     levels = []
     index = 0
+    move_index = 0
     index_lenght = 0
     if mon_parsed == "NONE":
         continue

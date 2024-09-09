@@ -11508,12 +11508,10 @@ Level: 11
 
 Morelull  
 Ability: Illuminate  
-Level: 12    
-Bold Nature  
+Level: 11    
 - Mega Drain  
 - Confuse Ray  
 - Ingrain  
-- Flash  
 
 === TRAINER_HALEY_1 ===
 Name: HALEY
@@ -11766,19 +11764,17 @@ AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Awa
 
 Nymble  
 Ability: Tinted Lens  
-Level: 14  
+Level: 12  
 - First Impression  
 - Bug Bite  
 - Assurance  
 
 Yanma  
 Ability: Speed Boost  
-Level: 14  
-- Sonic Boom  
-- Air Cutter  
+Level: 12  
+- Gust
 - Struggle Bug  
 - Quick Attack  
-
 
 
 === TRAINER_JOSE ===
@@ -13532,7 +13528,7 @@ Level: 12
 
 Feebas  
 Ability: Oblivious  
-Level: 15    
+Level: 12    
 - Hydro Pump  
 - Flail  
 
