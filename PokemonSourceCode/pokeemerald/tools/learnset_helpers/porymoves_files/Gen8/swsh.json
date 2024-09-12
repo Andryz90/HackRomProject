@@ -1212,8 +1212,8 @@
         "Move": "MOVE_BUG_BUZZ"
       },
       {
-        "Level": 36,
-        "Move": "MOVE_TAILWIND"
+        "Level": 35,
+        "Move": "MOVE_QUIVER_DANCE"
       },
       {
         "Level": 40,
@@ -1221,7 +1221,11 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_QUIVER_DANCE"
+        "Move": "MOVE_TAILWIND"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_BEFUDDLE"
       }
     ],
     "PreEvoMoves": [],
@@ -39783,12 +39787,12 @@
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 16,
-        "Move": "MOVE_TORMENT"
+        "Level": 14,
+        "Move": "MOVE_ASSURANCE"
       },
       {
-        "Level": 21,
-        "Move": "MOVE_ASSURANCE"
+        "Level": 18,
+        "Move": "MOVE_TORMENT"
       },
       {
         "Level": 24,
@@ -39866,6 +39870,10 @@
   "LIEPARD": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_SUCKER_PUNCH"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_SCRATCH"
       },
@@ -39899,7 +39907,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SUCKER_PUNCH"
+        "Move": "MOVE_KNOCK_OFF"
       },
       {
         "Level": 40,

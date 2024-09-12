@@ -4475,7 +4475,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     u16 heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 level;
-    u16 friendship;
+    u16 friendship; 
     u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, 0);
     u16 upperPersonality = personality >> 16;
     u32 holdEffect, currentMap, partnerSpecies, partnerHeldItem, partnerHoldEffect;
@@ -4536,18 +4536,17 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
 
             switch (evolutions[i].method)
             {
-            case EVO_FRIENDSHIP:
-                if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
+            case EVO_FRIENDSHIP: //No friendship allowed
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
                 UpdateTimeOfDay();
-                if (gTimeOfDay == TIME_OF_DAY_DAY && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (gTimeOfDay == TIME_OF_DAY_DAY) //No friendship allowed
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 UpdateTimeOfDay();
-                if (GetTimeOfDay() == TIME_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (GetTimeOfDay() == TIME_NIGHT) //No friendship allowed
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:
@@ -4636,15 +4635,13 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
-                if (friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                
+                for (j = 0; j < MAX_MON_MOVES; j++)
                 {
-                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    if (gMovesInfo[GetMonData(mon, MON_DATA_MOVE1 + j, NULL)].type == evolutions[i].param)
                     {
-                        if (gMovesInfo[GetMonData(mon, MON_DATA_MOVE1 + j, NULL)].type == evolutions[i].param)
-                        {
-                            targetSpecies = evolutions[i].targetSpecies;
-                            break;
-                        }
+                        targetSpecies = evolutions[i].targetSpecies;
+                        break;
                     }
                 }
                 break;

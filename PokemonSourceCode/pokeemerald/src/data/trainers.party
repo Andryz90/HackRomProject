@@ -229,35 +229,24 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move /Check Viability / HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Skrelp  
-Ability: Adaptability  
+Ability: Poison Touch  
 Level: 13  
 Modest Nature  
 IVs: 0 Atk  
 - Water Gun  
 - Acid  
-- Acid Armor  
-- Toxic Spikes  
+- Acid Armor   
 
 Carvanha  
 Ability: Rough Skin  
 Level: 14   
 Jolly Nature  
 - Aqua Jet  
-- Assurance  
-- Poison Fang  
+- Assurance   
 - Leer  
-
-Poochyena  
-Ability: Strong Jaw  
-Level: 14  
-Jolly Nature  
-- Pursuit  
-- Thunder Fang  
-- Ice Fang  
-- Poison Fang  
 
 Chewtle  
 Ability: Strong Jaw  
@@ -2164,16 +2153,6 @@ Adamant Nature
 - Fake Out  
 - Covet  
 - Last Resort  
-
-Clefairy (F) @ Oran Berry  
-Ability: Cute Charm  
-Level: 12   
-Modest Nature  
-IVs: 0 Atk  
-- Attract  
-- Charm  
-- Fairy Wind  
-- Sing  
 
 Jigglypuff (F) @ Oran Berry  
 Ability: Cute Charm  
@@ -4928,7 +4907,7 @@ IVs: 0 Atk / 30 SpA
 - Ancient Power 
 
 Archen  
-Ability: Defiant  
+Ability: Defeatist  
 Level: 16    
 Adamant Nature  
 - Pluck  
@@ -4943,7 +4922,7 @@ Modest Nature
 IVs: 0 Atk  
 - Mega Drain  
 - Acid  
-- Ancient Power  
+- Rock Tomb  
 - Recover  
 
 Nosepass (M) @ Shuca Berry  
@@ -6228,7 +6207,6 @@ Level: 16
 Cranidos  
 Ability: Sheer Force  
 Level: 16   
-Adamant Nature  
 - Headbutt  
 - Rock Smash  
 - Rock Tomb
@@ -9083,7 +9061,7 @@ Music: Twins
 Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Riolu @ Oran Berry  
+Riolu 
 Ability: Prankster  
 Level: 15   
 Adamant Nature  
@@ -9100,15 +9078,14 @@ Adamant Nature
 - Bite  
 - Bulldoze  
 
-Murkrow  
-Ability: Prankster  
-Level: 15  
-- Tailwind  
-- Roost  
-- Aerial Ace  
-- Snarl  
+Zubat  
+Ability: Inner Focus  
+Level: 15   
+- Bite  
+- Absorb  
+- Poison Fang
 
-Lombre @ Oran Berry  
+Lombre 
 Ability: Rain Dish  
 Level: 15  
 - Fake Out  
@@ -11881,14 +11858,6 @@ Level: 15
 - Fury Cutter  
 - Cross Poison  
 - Peck  
-
-Butterfree  
-Ability: Tinted Lens  
-Level: 15  
-IVs: 0 Atk  
-- Silver Wind  
-- Air Cutter  
-- Sleep Powder  
 
 Poltchageist  
 Ability: Heatproof  

@@ -396,6 +396,9 @@ const u32 gObjectEventPic_MegaStone[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_RollingSpheal[] = INCBIN_U32("graphics/object_events/pics/people/spheal.4bpp");
 const u16 gObjectEventPal_RollingSpheal[] = INCBIN_U16("graphics/object_events/pics/people/spheal.gbapal");
 
+const u32 gTrainerPic_EdoCap[] = INCBIN_U32("graphics/object_events/pics/people/edo_cap_sprite.4bpp");   //Edo Cappellino LMFAO
+const u16 gTrainerPal_EdoCap[] = INCBIN_U16("graphics/object_events/pics/people/edo_cap_sprite.gbapal"); //Edo Cappellino LMFAO
+
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
 const u32 gObjectEventPic_UltraBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_ultra.4bpp");

@@ -338,12 +338,7 @@ def construct_compatibility_levelset(force_custom_check):
                                 custom_teachable_compatibilities[monname]["Level"].append(int(level))
                             
             # actually store the data in custom.json
-            if os.path.exists("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json"):
-                f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json", "r")
-                custom_json = json.load(f2)
-                f2.close()
-            else:
-                custom_json = {}
+            custom_json = {}
             for x in custom_teachable_compatibilities:
                 if len(custom_teachable_compatibilities[x]) == 0:
                     continue
@@ -355,6 +350,8 @@ def construct_compatibility_levelset(force_custom_check):
                     index+=1       
                 f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json", "w")
                 f2.write(json.dumps(custom_json, indent=2))
+                if os.path.exists("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json"):
+                    os.remove("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json") #Remove it to have a clean run next time
                 f2.close()
             print("FIRST RUN: Updated custom.json with Gen9_Learnset.h's data")
             # rerun the process
