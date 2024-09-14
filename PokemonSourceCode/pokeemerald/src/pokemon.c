@@ -4549,6 +4549,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (GetTimeOfDay() == TIME_NIGHT) //No friendship allowed
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
+            case EVO_LEVEL_DAY:
+                if ((GetTimeOfDay() == TIME_DAY || GetTimeOfDay() != TIME_MORNING) && evolutions[i].param <= level)
+                    targetSpecies = evolutions[i].targetSpecies;
+                break;
             case EVO_LEVEL_NIGHT:
                 if (GetTimeOfDay() == TIME_NIGHT && evolutions[i].param <= level)
                     targetSpecies = evolutions[i].targetSpecies;

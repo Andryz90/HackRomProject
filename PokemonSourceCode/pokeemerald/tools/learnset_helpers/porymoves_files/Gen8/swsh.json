@@ -6229,6 +6229,7 @@
         "Level": 10,
         "Move": "MOVE_EMBER"
       },
+      
       {
         "Level": 15,
         "Move": "MOVE_FLAME_CHARGE"
@@ -69907,6 +69908,10 @@
       {
         "Level": 48,
         "Move": "MOVE_PSYCHIC_TERRAIN"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_GRAVITAS"
       }
     ],
     "PreEvoMoves": [],
@@ -72307,6 +72312,10 @@
       {
         "Level": 67,
         "Move": "MOVE_BURN_UP"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CENTIFERNO"
       }
     ],
     "PreEvoMoves": [],
@@ -79185,6 +79194,10 @@
         "Move": "MOVE_GROWL"
       },
       {
+        "Level": 22,
+        "Move": "MOVE_AGILITY"
+      },
+      {
         "Level": 5,
         "Move": "MOVE_TAIL_WHIP"
       },
@@ -79198,7 +79211,7 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_AGILITY"
+        "Move": "MOVE_DRAINING_KISS"
       },
       {
         "Level": 25,
@@ -79276,7 +79289,19 @@
     "LevelMoves": [
       {
         "Level": 0,
+        "Move": "MOVE_DRAINING_KISS"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_PSYCHO_CUT"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_PSYSHOCK"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_MOONBLAST"
       },
       {
         "Level": 1,

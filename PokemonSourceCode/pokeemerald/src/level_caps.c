@@ -14,7 +14,8 @@ u32 GetCurrentLevelCap(void)
     {
         {FLAG_PETALBURG_WOODS, 15},
         {FLAG_BADGE01_GET, 18},
-        {FLAG_BADGE02_GET, 25},
+        {FLAG_WALLY_RUSTURF, 22},
+        {FLAG_BADGE02_GET, 24},
         {FLAG_BADGE03_GET, 27},
         {FLAG_BADGE04_GET, 29},
         {FLAG_BADGE05_GET, 31},

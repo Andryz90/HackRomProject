@@ -13,30 +13,31 @@ Gender: Male
 Music: Male
 
 
-Fletchinder (M) @ Focus Sash  
-Ability: Gale Wings  
-Level: 20  
-- Tailwind  
-- Flame Charge  
-- Peck  
-- Quick Attack  
+Kirlia @ Sitrus Berry  
+Ability: Trace  
+Level: 22   
+Modest Nature  
+IVs: 0 Atk  
+- Psybeam  
+- Life Dew  
+- Draining Kiss  
 
-Azumarill (M)  
+Azumarill (M)
 Ability: Huge Power  
-Level: 21  
+Level: 21    
+Adamant Nature  
 - Helping Hand  
 - Aqua Tail  
 - Bounce  
 - Charm  
 
-Kirlia @ Sitrus Berry  
-Ability: Trace  
-Level: 22  
-IVs: 0 Atk  
-- Psybeam  
-- Life Dew  
+Dedenne @ Oran Berry  
+Ability: Cheek Pouch  
+Level: 21  
+- Nuzzle  
 - Draining Kiss  
-- Hypnosis  
+- Thunder Shock  
+- Thunder Wave  
 
 === PARTNER_STEVEN ===
 Name: STEVEN

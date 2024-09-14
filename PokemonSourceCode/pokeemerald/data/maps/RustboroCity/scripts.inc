@@ -834,7 +834,7 @@ RustboroCity_EventScript_RivalEncounter::
 
 RustboroCity_EventScript_MayEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, RustboroCity_EventScript_MayBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayBrineyHint @If you say no you can't try anymore
+	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayAskToBattle 
 	setflag FLAG_MET_RIVAL_RUSTBORO
 	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
@@ -892,13 +892,19 @@ RustBoroCity_Temp_TextBrendan2:
 
 
 RustboroCity_EventScript_BattleMay::
-	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
+	goto_if_unset FLAG_BADGE02_GET, RustboroCity_EventScript_BattleMayBadgeAccepted
+	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_MayRefuse, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_MayBrineyHint
+	releaseall
+	end
+
+RustboroCity_EventScript_BattleMayBadgeAccepted::
 	switch VAR_STARTER_MON
 	case 0, RustboroCity_EventScript_BattleMayTreecko
 	case 1, RustboroCity_EventScript_BattleMayTorchic
 	case 2, RustboroCity_EventScript_BattleMayMudkip
 	end
-
 RustboroCity_EventScript_MayBrineyHint::
 	msgbox RustboroCity_Text_MayMrBrineyHint, MSGBOX_DEFAULT
 	call_if_eq VAR_0x8008, 0, RustboroCity_EventScript_RestoreBgm
@@ -916,6 +922,7 @@ RustboroCity_EventScript_BattleMayTreecko::
 	msgbox RustBoroCity_Temp_TextMay, MSGBOX_DEFAULT
 	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_HEART_SCALE,  RustBoroCity_Gives_RareCandy
 	goto_if_eq VAR_FOR_TEMP_ITEM, ITEM_RARE_CANDY, RustBoroCity_Gives_HeartScale
+	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BattleMayTorchic::
@@ -966,8 +973,15 @@ RustboroCity_EventScript_BrendanAskToBattle::
 	msgbox RustboroCity_Text_BrendanNoConfidenceInPokemon, MSGBOX_DEFAULT
 	releaseall
 	end
-
 RustboroCity_EventScript_BattleBrendan::
+	goto_if_unset FLAG_BADGE02_GET, RustboroCity_EventScript_BattleBrendonBadgeAccepted
+	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	msgbox RustboroCity_Text_BrendanRefuse, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_BrendanBrineyHint
+	releaseall
+	end
+
+RustboroCity_EventScript_BattleBrendonBadgeAccepted::
 	msgbox RustboroCity_Text_BrendanIWontGoEasy, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, RustboroCity_EventScript_BattleBrendanTreecko
@@ -1215,6 +1229,13 @@ RustboroCity_Text_MayOhHaventRaisedPokemonEnough:
 RustboroCity_Text_MayWantToBattle:
 	.string "MAY: So, what do you think?\n"
 	.string "How about a little battle here?$"
+RustboroCity_Text_BrendanRefuse:
+	.string "BRENDAN: Mmhh I think you're too strong,\n"
+	.string "I might train more my Pokémon.$"
+
+RustboroCity_Text_MayRefuse:
+	.string "MAY: Mmhh I think you're too strong,\n"
+	.string "I might train more my Pokémon.$"
 
 RustboroCity_Text_MayImNotGoingToLose:
 	.string "MAY: You just became a TRAINER,\n"

@@ -46,7 +46,7 @@ Optional fields for Pokemon:
           (Order does not matter)
     - EVs (252 HP / 128 Spe / 48 Def, defaults to all 0, is not capped at 512 total)
           (Order does not matter)
-    - Ball (Poke Ball or ITEM_POKE_BALL, defaults to Poke Ball
+    - Ball Poke Ball or ITEM_POKE_BALL, defaults to Poke Ball
     - Happiness (Number between 1 and 255)
     - Nature (Rash or NATURE_RASH, defaults to Hardy)
     - Shiny (Yes/No, defaults to No)
@@ -354,10 +354,9 @@ Level: 21
 Noctowl @ Wise Glasses  
 Ability: Mind Power
 Level: 20  
-IVs: 0 Atk  
-- Roost  
+IVs: 0 Atk    
 - Snarl  
-- Extrasensory  
+- Psybeam  
 - Air Slash  
 
 Cramorant (M)  
@@ -375,16 +374,6 @@ Level: 22
 - Fire Fang  
 - Poison Fang  
 - Thunder Fang  
-
-Qwilfish-Hisui  
-Ability: Intimidate  
-Level: 22  
-- Fell Stinger  
-- Barb Barrage  
-- Bite  
-- Water Pulse  
-
-
 
 === TRAINER_GRUNT_WEATHER_INST_1 ===
 Name: GRUNT
@@ -11132,33 +11121,34 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar  
+Ability: Scrappy  
+Level: 21
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter  
+
 Seadra @ Scope Lens  
 Ability: Sniper  
-Level: 23  
+Level: 21
 IVs: 0 Atk  
 - Focus Energy  
 - Dragon Breath  
 - Bubble Beam  
 - Icy Wind  
 
-Farfetchd-Galar  
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
-
-Granbull @ Expert Belt  
+Snubbull @ Expert Belt  
 Ability: Strong Jaw  
+Level: 21
 - Jaw Lock  
-- Drain Punch  
+- Power-up-Punch
 - Ice Fang  
-- Pixie Fangs
+- Covet
 
 Combusken  
 Ability: Speed Boost  
-Level: 25  
+Level: 23
 Adamant Nature  
 - Bulk Up  
 - Double Kick  
@@ -11167,7 +11157,7 @@ Adamant Nature
 
 Petilil  
 Ability: Leaf Guard  
-Level: 23  
+Level: 22
 Timid Nature  
 IVs: 30 SpA / 30 SpD / 30 Spe  
 - Sleep Powder  
@@ -11185,9 +11175,17 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar 
+Ability: Scrappy  
+Level: 21
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter 
+
 Grovyle @ Miracle Seed  
 Ability: Technician  
-Level: 25  
+Level: 23
 - X-Scissor  
 - Giga Drain  
 - Assurance  
@@ -11195,7 +11193,7 @@ Level: 25
 
 Growlithe-Hisui @ Charcoal  
 Ability: Intimidate  
-Level: 22  
+Level: 22
 - Fire Fang  
 - Bite  
 - Rock Tomb  
@@ -11203,27 +11201,21 @@ Level: 22
 
 Seadra @ Scope Lens  
 Ability: Sniper  
-Level: 23  
+Level: 21
 IVs: 0 Atk  
 - Focus Energy  
 - Dragon Breath  
 - Bubble Beam  
 - Icy Wind  
 
-Farfetchd-Galar 
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
 
-Granbull @ Expert Belt  
+Snubbull @ Expert Belt  
 Ability: Strong Jaw  
+Level: 21
 - Jaw Lock  
-- Drain Punch  
+- Power-up-Punch
 - Ice Fang  
-- Pixie Fangs
+- Covet
 
 === TRAINER_PAXTON ===
 Name: PAXTON
@@ -11323,9 +11315,17 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar 
+Ability: Scrappy  
+Level: 21
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter  
+
 Marshtomp  
 Ability: Immunity  
-Level: 25  
+Level: 23
 - Rock Slide  
 - Water Pulse  
 - Rock Smash  
@@ -11333,23 +11333,15 @@ Level: 25
 
 Growlithe-Hisui @ Charcoal  
 Ability: Intimidate  
-Level: 22  
+Level: 22
 - Fire Fang  
 - Bite  
 - Rock Tomb  
 - Retaliate  
 
-Farfetchd-Galar 
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
-
 Petilil  
 Ability: Leaf Guard  
-Level: 23  
+Level: 22
 Timid Nature  
 IVs: 30 SpA / 30 SpD / 30 Spe  
 - Sleep Powder  
@@ -11357,11 +11349,13 @@ IVs: 30 SpA / 30 SpD / 30 Spe
 - Leech Seed  
 - Hidden Power 
 
-Granbull @ Expert Belt  
+Snubbull @ Expert Belt  
 Ability: Strong Jaw  
+Level: 21
 - Jaw Lock  
-- Drain Punch  
+- Power-up-Punch
 - Thunder Fang  
+- Covet 
 
 === TRAINER_MAY_RUSTBORO_MUDKIP ===
 Name: MAY
@@ -11372,9 +11366,17 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar 
+Ability: Scrappy  
+Level: 21
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter  
+
 Grovyle @ Miracle Seed  
 Ability: Technician  
-Level: 25  
+Level: 23
 - X-Scissor  
 - Giga Drain  
 - Assurance  
@@ -11382,7 +11384,7 @@ Level: 25
 
 Growlithe-Hisui @ Charcoal  
 Ability: Intimidate  
-Level: 22  
+Level: 22
 - Fire Fang  
 - Bite  
 - Rock Tomb  
@@ -11390,24 +11392,16 @@ Level: 22
 
 Seadra @ Scope Lens  
 Ability: Sniper  
-Level: 23  
+Level: 21
 IVs: 0 Atk  
 - Focus Energy  
 - Dragon Breath  
 - Bubble Beam  
 - Icy Wind  
 
-Farfetchd-Galar 
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
-
-Rapidash-Galar 
+Ponyta-Galar 
 Ability: Adaptability  
-Level: 23  
+Level: 21
 Modest Nature  
 IVs: 0 Atk  
 - Confusion  
@@ -11506,7 +11500,7 @@ Level: 14
 - Growth  
 - Bind  
 
-Mareep (F)  
+Flaaffy (F)  
 Ability: Transistor  
 Level: 14    
 - Thunder Shock  
@@ -11521,7 +11515,6 @@ Level: 14
 - Baby-Doll Eyes  
 - Covet  
 - Quick Attack  
-
 
 
 === TRAINER_JANICE ===
@@ -14695,9 +14688,17 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar 
+Ability: Scrappy  
+Level: 21
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter  
+
 Combusken  
 Ability: Speed Boost  
-Level: 25  
+Level: 23
 Adamant Nature  
 - Bulk Up  
 - Double Kick  
@@ -14706,24 +14707,16 @@ Adamant Nature
 
 Seadra @ Scope Lens  
 Ability: Sniper  
-Level: 23  
+Level: 21
 IVs: 0 Atk  
 - Focus Energy  
 - Dragon Breath  
 - Bubble Beam  
 - Icy Wind  
 
-Farfetchd-Galar 
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
-
 Petilil  
 Ability: Leaf Guard  
-Level: 23  
+Level: 22  
 Timid Nature  
 IVs: 30 SpA / 30 SpD / 30 Spe  
 - Sleep Powder  
@@ -14731,9 +14724,9 @@ IVs: 30 SpA / 30 SpD / 30 Spe
 - Leech Seed  
 - Hidden Power  
 
-Rapidash-Galar
+Ponyta-Galar
 Ability: Adaptability  
-Level: 23  
+Level: 21  
 Modest Nature  
 IVs: 0 Atk  
 - Confusion  
@@ -14750,9 +14743,17 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Farfetchd-Galar 
+Ability: Scrappy  
+Level: 21  
+- Rock Smash  
+- Brutal Swing  
+- Peck  
+- Fury Cutter  
+
 Marshtomp  
 Ability: Immunity  
-Level: 25  
+Level: 23  
 - Rock Slide  
 - Water Pulse  
 - Rock Smash  
@@ -14766,9 +14767,9 @@ Level: 22
 - Rock Tomb  
 - Retaliate  
 
-Rapidash-Galar
+Ponyta-Galar
 Ability: Adaptability  
-Level: 23  
+Level: 21  
 Modest Nature  
 IVs: 0 Atk  
 - Confusion  
@@ -14776,17 +14777,9 @@ IVs: 0 Atk
 - Earth Power  
 - Calm Mind  
 
-Farfetchd-Galar 
-Ability: Scrappy  
-Level: 24  
-- Rock Smash  
-- Brutal Swing  
-- Peck  
-- Fury Cutter  
-
 Petilil  
 Ability: Leaf Guard  
-Level: 23  
+Level: 22  
 Timid Nature  
 IVs: 30 SpA / 30 SpD / 30 Spe  
 - Sleep Powder  

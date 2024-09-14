@@ -292,6 +292,10 @@
       {
         "Level": 58,
         "Move": "MOVE_SOLAR_BEAM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VINE_LASH"
       }
     ],
     "PreEvoMoves": [],
@@ -626,6 +630,10 @@
       {
         "Level": 62,
         "Move": "MOVE_FLARE_BLITZ"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_WILDFIRE"
       }
     ],
     "PreEvoMoves": [],
@@ -977,6 +985,10 @@
       {
         "Level": 56,
         "Move": "MOVE_WAVE_CRASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CANNONADE"
       }
     ],
     "PreEvoMoves": [],
@@ -1053,16 +1065,7 @@
     "TutorMoves": []
   },
   "BUTTERFREE": {
-    "LevelMoves": [
-      {
-        "Level": 35,
-        "Move": "MOVE_QUIVER_DANCE"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_TAILWIND"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -1659,6 +1662,10 @@
       {
         "Level": 44,
         "Move": "MOVE_THUNDER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VOLT_CRASH"
       }
     ],
     "PreEvoMoves": [],
@@ -1795,10 +1802,6 @@
       {
         "Level": 1,
         "Move": "MOVE_TAIL_WHIP"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_DOUBLE_TEAM"
       },
       {
         "Level": 1,
@@ -4056,6 +4059,10 @@
       {
         "Level": 44,
         "Move": "MOVE_PLAY_ROUGH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_GOLD_RUSH"
       }
     ],
     "PreEvoMoves": [],
@@ -5454,7 +5461,10 @@
     "TutorMoves": []
   },
   "MACHAMP": {
-    "LevelMoves": [],
+    "LevelMoves": [      {
+      "Level": 70,
+      "Move": "MOVE_G_MAX_CHI_STRIKE"
+    }],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -7312,6 +7322,10 @@
         "Move": "MOVE_BRINE"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 39,
         "Move": "MOVE_HYPER_VOICE"
       },
@@ -7342,6 +7356,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_SCALD",
       "MOVE_THUNDER",
       "MOVE_TAKE_DOWN",
@@ -8225,6 +8240,10 @@
       {
         "Level": 60,
         "Move": "MOVE_DREAM_EATER"
+      }, 
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CHI_STRIKE"
       }
     ],
     "PreEvoMoves": [],
@@ -8617,6 +8636,10 @@
       {
         "Level": 58,
         "Move": "MOVE_METEOR_MASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FOAM_BURST"
       }
     ],
     "PreEvoMoves": [],
@@ -11017,6 +11040,10 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_GROWL"
       },
       {
@@ -11074,6 +11101,10 @@
       {
         "Level": 65,
         "Move": "MOVE_SHEER_COLD"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_RESONANCE"
       }
     ],
     "PreEvoMoves": [],
@@ -11220,7 +11251,12 @@
       {
         "Level": 55,
         "Move": "MOVE_LAST_RESORT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_CUDDLE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -12002,6 +12038,10 @@
       {
         "Level": 56,
         "Move": "MOVE_GIGA_IMPACT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_REPLENISH"
       }
     ],
     "PreEvoMoves": [],
@@ -14723,11 +14763,12 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_ECHOED_VOICE"
+        "Move": "MOVE_CONFUSION"
       },
       {
         "Level": 9,
-        "Move": "MOVE_CONFUSION"
+        "Move": "MOVE_DEFOG"
+        
       },
       {
         "Level": 12,
@@ -14735,7 +14776,7 @@
       },
       {
         "Level": 15,
-        "Move": "MOVE_DEFOG"
+        "Move": "MOVE_ECHOED_VOICE"
       },
       {
         "Level": 18,
@@ -17779,7 +17820,7 @@
       {
         "Level": 4,
         "Move": "MOVE_GUST"
-      }
+      },
       {
         "Level": 6,
         "Move": "MOVE_QUICK_ATTACK"
@@ -24047,6 +24088,14 @@
   "CELEBI": {
     "LevelMoves": [
       {
+        "Level": 1,
+        "Move": "MOVE_ROAR_OF_TIME"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_JUNGLE_HEALING"
+      },
+      {
         "Level": 15,
         "Move": "MOVE_FAIRY_WIND"
       },
@@ -24198,6 +24247,10 @@
   },
   "GROVYLE": {
     "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_AERIAL_ACE"
+      },
       {
         "Level": 1,
         "Move": "MOVE_FALSE_SWIPE"
@@ -24744,7 +24797,7 @@
       {
         "Level": 1,
         "Move": "MOVE_CLOSE_COMBAT"
-      }
+      },
       {
         "Level": 1,
         "Move": "MOVE_EMBER"
@@ -33559,6 +33612,10 @@
         "Move": "MOVE_ICE_FANG"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 47,
         "Move": "MOVE_SNOWSCAPE"
       },
@@ -42174,6 +42231,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_MUD_SLAP",
       "MOVE_PROTECT",
@@ -42285,6 +42343,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_FRENZY_PLANT",
       "MOVE_FREEZE_DRY",
       "MOVE_TAKE_DOWN",
@@ -43494,6 +43553,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_FAKE_TEARS",
@@ -43766,6 +43826,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_MUD_SLAP",
@@ -44550,6 +44611,10 @@
       {
         "Level": 40,
         "Move": "MOVE_SNOWSCAPE"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 47,
@@ -50299,7 +50364,12 @@
     "TutorMoves": []
   },
   "GARBODOR": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_MALODOR"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [
       "MOVE_DETERIO"
@@ -53770,6 +53840,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_WATERFALL",
       "MOVE_LIQUIDATION",
       "MOVE_TAKE_DOWN",
@@ -53884,6 +53955,10 @@
       {
         "Level": 28,
         "Move": "MOVE_SLASH"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 32,
@@ -66739,6 +66814,10 @@
   "STEENEE": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_DOUBLE_KICK"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_RAZOR_LEAF"
       },
@@ -69137,7 +69216,12 @@
     "TutorMoves": []
   },
   "MELMETAL": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_MELTDOWN"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -69406,6 +69490,10 @@
       {
         "Level": 62,
         "Move": "MOVE_BOOMBURST"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_DRUM_SOLO"
       }
     ],
     "PreEvoMoves": [],
@@ -69724,10 +69812,15 @@
       {
         "Level": 62,
         "Move": "MOVE_COURT_CHANGE"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FIREBALL"
       }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_PLAY_ROUGH",
       "MOVE_TAKE_DOWN",
       "MOVE_AGILITY",
       "MOVE_MUD_SLAP",
@@ -70022,6 +70115,10 @@
       {
         "Level": 62,
         "Move": "MOVE_HYDRO_PUMP"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_HYDROSNIPE"
       }
     ],
     "PreEvoMoves": [],
@@ -70526,6 +70623,10 @@
       {
         "Level": 50,
         "Move": "MOVE_BRAVE_BIRD"
+      }, 
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_WIND_RAGE"
       }
     ],
     "PreEvoMoves": [],
@@ -70781,6 +70882,10 @@
       {
         "Level": 66,
         "Move": "MOVE_HEAD_SMASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STONESURGE"
       }
     ],
     "PreEvoMoves": [],
@@ -71100,6 +71205,10 @@
       {
         "Level": 63,
         "Move": "MOVE_STONE_EDGE"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_VOLCALITH"
       }
     ],
     "PreEvoMoves": [],
@@ -71255,6 +71364,10 @@
       {
         "Level": 44,
         "Move": "MOVE_DRAGON_RUSH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_TARTNESS"
       }
     ],
     "PreEvoMoves": [],
@@ -71375,6 +71488,10 @@
       {
         "Level": 44,
         "Move": "MOVE_ENERGY_BALL"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SWEETNESS"
       }
     ],
     "PreEvoMoves": [],
@@ -71572,6 +71689,10 @@
       {
         "Level": 51,
         "Move": "MOVE_SAND_TOMB"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SANDBLAST"
       }
     ],
     "PreEvoMoves": [],
@@ -72045,6 +72166,10 @@
       {
         "Level": 52,
         "Move": "MOVE_SHIFT_GEAR"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STUN_SHOCK"
       }
     ],
     "PreEvoMoves": [],
@@ -72589,6 +72714,10 @@
       {
         "Level": 64,
         "Move": "MOVE_MAGIC_POWDER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SMITE"
       }
     ],
     "PreEvoMoves": [],
@@ -72915,6 +73044,10 @@
       {
         "Level": 64,
         "Move": "MOVE_HAMMER_ARM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_SNOOZE"
       }
     ],
     "PreEvoMoves": [],
@@ -73261,6 +73394,10 @@
       {
         "Level": 50,
         "Move": "MOVE_ENTRAINMENT"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FINALE"
       }
     ],
     "PreEvoMoves": [],
@@ -73601,6 +73738,10 @@
       {
         "Level": 16,
         "Move": "MOVE_DEFOG"
+      },
+      {
+        "Level": 19,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 21,
@@ -74283,7 +74424,12 @@
       {
         "Level": 65,
         "Move": "MOVE_SUPERPOWER"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STEELSURGE"
       }
+      
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -74426,6 +74572,10 @@
       {
         "Level": 66,
         "Move": "MOVE_HYPER_BEAM"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_DEPLETION"
       }
     ],
     "PreEvoMoves": [],
@@ -82934,6 +83084,10 @@
         "Move": "MOVE_FAKE_OUT"
       },
       {
+        "Level": 41,
+        "Move": "MOVE_SMACK_DOWN"
+      },
+      {
         "Level": 43,
         "Move": "MOVE_FLATTER"
       },
@@ -86755,6 +86909,10 @@
       {
         "Level": 70,
         "Move": "MOVE_SNOWSCAPE"
+      },
+      {
+        "Level": 75,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 77,
@@ -91337,6 +91495,10 @@
       },
       {
         "Level": 24,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 26,
         "Move": "MOVE_AURORA_BEAM"
       },
       {
@@ -91357,7 +91519,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_AURORA_VEIL"
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 48,
@@ -91437,7 +91599,7 @@
       {
         "Level": 1,
         "Move": "MOVE_SHEER_COLD"
-      }
+      },
       {
         "Level": 1,
         "Move": "MOVE_MIST"
@@ -91496,6 +91658,7 @@
       }
     ],
     "PreEvoMoves": [
+      "MOVE_HOARFROST",
       "MOVE_DISABLE",
       "MOVE_MIST",
       "MOVE_ICE_BEAM",
@@ -93027,41 +93190,14 @@
     "TutorMoves": []
   },
   "PONYTA_GALARIAN": {
-    "LevelMoves": [      {
-      "Level": 20,
-      "Move": "MOVE_DRAINING_KISS"
-    },
-    {
-      "Level": 22,
-      "Move": "MOVE_AGILITY"
-    },
-    {
-      "Level": 32,
-      "Move": "MOVE_DRAINING_KISS"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "RAPIDASH_GALARIAN": {
-    "LevelMoves": [      
-    {
-      "Level": 0,
-      "Move": "MOVE_DRAINING_KISS"
-    },
-    {
-      "Level": 1,
-      "Move": "MOVE_PSYCHO_CUT"
-    }
-    {
-      "Level": 37,
-      "Move": "MOVE_PSYSHOCK"
-    },
-    {
-      "Level": 40,
-      "Move": "MOVE_MOONBLAST"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [
       "MOVE_PSYCHIC_NOISE",
@@ -97509,6 +97645,10 @@
       {
         "Level": 55,
         "Move": "MOVE_UPROAR"
+      },
+      {
+        "Level": 60,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "PreEvoMoves": [],
@@ -98871,6 +99011,10 @@
       {
         "Level": 52,
         "Move": "MOVE_MAGNETIC_FLUX"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_STUN_SHOCK"
       }
     ],
     "PreEvoMoves": [],
