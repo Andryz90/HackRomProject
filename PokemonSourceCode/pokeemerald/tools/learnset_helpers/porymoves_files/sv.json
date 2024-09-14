@@ -1108,19 +1108,67 @@
         "Move": "MOVE_AERIAL_ACE"
       },
       {
-        "Level": 20,
+        "Level": 1,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_SAND_ATTACK"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_GUST"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_SAND_ATTACK"
+      },
+      {
+        "Level": 9,
+        "Move": "MOVE_GUST"
+      },
+      {
+        "Level": 13,
+        "Move": "MOVE_QUICK_ATTACK"
+      },
+      {
+        "Level": 17,
         "Move": "MOVE_WHIRLWIND"
       },
       {
+        "Level": 22,
+        "Move": "MOVE_TWISTER"
+      },
+      {
+        "Level": 27,
+        "Move": "MOVE_FEATHER_DANCE"
+      },
+      {
         "Level": 32,
+        "Move": "MOVE_AGILITY"
+      },
+      {
+        "Level": 37,
         "Move": "MOVE_WING_ATTACK"
       },
       {
-        "Level": 38,
+        "Level": 42,
+        "Move": "MOVE_ROOST"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_TAILWIND"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_MIRROR_MOVE"
+      },
+      {
+        "Level": 57,
         "Move": "MOVE_AIR_SLASH"
       },
       {
-        "Level": 56,
+        "Level": 62,
         "Move": "MOVE_HURRICANE"
       },
       {
@@ -1142,16 +1190,64 @@
       "Move": "MOVE_WING_ATTACK"
     },
     {
+      "Level": 1,
+      "Move": "MOVE_HURRICANE"
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_TACKLE"
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_SAND_ATTACK"
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_GUST"
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_QUICK_ATTACK"
+    },
+    {
+      "Level": 5,
+      "Move": "MOVE_SAND_ATTACK"
+    },
+    {
+      "Level": 9,
+      "Move": "MOVE_GUST"
+    },
+    {
+      "Level": 13,
+      "Move": "MOVE_QUICK_ATTACK"
+    },
+    {
       "Level": 17,
       "Move": "MOVE_AERIAL_ACE"
     },
     {
-      "Level": 20,
-      "Move": "MOVE_WHIRLWIND"
+      "Level": 22,
+      "Move": "MOVE_TWISTER"
+    },
+    {
+      "Level": 27,
+      "Move": "MOVE_FEATHER_DANCE"
+    },
+    {
+      "Level": 32,
+      "Move": "MOVE_WING_ATTACK"
     },
     {
       "Level": 38,
       "Move": "MOVE_AIR_SLASH"
+    },
+    {
+      "Level": 44,
+      "Move": "MOVE_ROOST"
+    },
+    {
+      "Level": 50,
+      "Move": "MOVE_TAILWIND"
     },
     {
       "Level": 56,
@@ -2076,10 +2172,17 @@
     "TutorMoves": []
   },
   "NIDOQUEEN": {
-    "LevelMoves": [{
+    "LevelMoves": [
+      {
       "Level": 0,
       "Move": "MOVE_TECTONIC_POWER"
-    }],
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_SUPERPOWER"
+    }
+
+  ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -2103,6 +2206,10 @@
     "LevelMoves": [{
       "Level": 0,
       "Move": "MOVE_POISON_DRILL"
+    },
+    {
+      "Level": 1,
+      "Move": "MOVE_MEGAHORN"
     }],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -5169,6 +5276,10 @@
       },
       {
         "Level": 1,
+        "Move": "MOVE_SUBMISSION"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_POUND"
       },
       {
@@ -5574,6 +5685,10 @@
       },
       {
         "Level": 1,
+        "Move": "MOVE_LEAF_TORNADO"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_STOCKPILE"
       },
       {
@@ -5607,6 +5722,34 @@
       {
         "Level": 1,
         "Move": "MOVE_SWEET_SCENT"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_GROWTH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_POISON_POWDER"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_STUN_SPORE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_ACID"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_KNOCK_OFF"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_POISON_JAB"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_SLAM"
       },
       {
         "Level": 36,
@@ -91213,6 +91356,10 @@
         "Level": 1,
         "Move": "MOVE_DISABLE"
       },
+      {
+        "Level": 1,
+        "Move": "MOVE_SHEER_COLD"
+      }
       {
         "Level": 1,
         "Move": "MOVE_MIST"

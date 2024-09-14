@@ -1538,55 +1538,55 @@
         "Move": "MOVE_TACKLE"
       },
       {
-        "Level": 5,
+        "Level": 3,
         "Move": "MOVE_SAND_ATTACK"
       },
       {
-        "Level": 9,
+        "Level": 5,
         "Move": "MOVE_GUST"
       },
       {
-        "Level": 13,
+        "Level": 9,
+        "Move": "MOVE_MIRROR_MOVE"
+      },
+      {
+        "Level": 11,
         "Move": "MOVE_QUICK_ATTACK"
       },
       {
+        "Level": 14,
+        "Move": "MOVE_WING_ATTACK"
+      },
+      {
         "Level": 17,
-        "Move": "MOVE_WHIRLWIND"
+        "Move": "MOVE_ROOST"
       },
       {
         "Level": 21,
         "Move": "MOVE_TWISTER"
       },
       {
-        "Level": 25,
-        "Move": "MOVE_FEATHER_DANCE"
+        "Level": 27,
+        "Move": "MOVE_AIR_SLASH"
       },
       {
         "Level": 29,
-        "Move": "MOVE_AGILITY"
+        "Move": "MOVE_RAZOR_WIND"
       },
       {
         "Level": 33,
-        "Move": "MOVE_WING_ATTACK"
+        "Move": "MOVE_FEATHER_DANCE"
       },
       {
         "Level": 37,
         "Move": "MOVE_ROOST"
       },
       {
-        "Level": 41,
-        "Move": "MOVE_TAILWIND"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_MIRROR_MOVE"
-      },
-      {
-        "Level": 49,
+        "Level": 42,
         "Move": "MOVE_AIR_SLASH"
       },
       {
-        "Level": 53,
+        "Level": 48,
         "Move": "MOVE_HURRICANE"
       }
     ],
@@ -1900,7 +1900,7 @@
         "Move": "MOVE_PURSUIT"
       },
       {
-        "Level": 16,
+        "Level": 15,
         "Move": "MOVE_HYPER_FANG"
       },
       {
@@ -5425,12 +5425,24 @@
         "Move": "MOVE_POISON_POWDER"
       },
       {
-        "Level": 11,
+        "Level": 6,
+        "Move": "MOVE_SLEEP_POWDER"
+      },
+      {
+        "Level": 9,
         "Move": "MOVE_ABSORB"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_GROWTH"
       },
       {
         "Level": 17,
         "Move": "MOVE_FURY_CUTTER"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_SLASH"
       },
       {
         "Level": 22,
@@ -5438,7 +5450,11 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_SLASH"
+        "Move": "MOVE_LEECH_LIFE"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_X_SCISSOR"
       },
       {
         "Level": 33,
@@ -5449,16 +5465,12 @@
         "Move": "MOVE_GIGA_DRAIN"
       },
       {
-        "Level": 43,
-        "Move": "MOVE_AROMATHERAPY"
-      },
-      {
         "Level": 49,
         "Move": "MOVE_RAGE_POWDER"
       },
       {
         "Level": 54,
-        "Move": "MOVE_X_SCISSOR"
+        "Move": "MOVE_AROMATHERAPY"
       }
     ],
     "PreEvoMoves": [],
@@ -5546,6 +5558,14 @@
         "Move": "MOVE_ABSORB"
       },
       {
+        "Level": 1,
+        "Move": "MOVE_LEECH_SEED"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_SLEEP_POWDER"
+      },
+      {
         "Level": 6,
         "Move": "MOVE_STUN_SPORE"
       },
@@ -5554,8 +5574,8 @@
         "Move": "MOVE_POISON_POWDER"
       },
       {
-        "Level": 11,
-        "Move": "MOVE_ABSORB"
+        "Level": 9,
+        "Move": "MOVE_GROWTH"
       },
       {
         "Level": 17,
@@ -5571,7 +5591,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_GROWTH"
+        "Move": "MOVE_X_SCISSOR"
       },
       {
         "Level": 44,
@@ -5584,10 +5604,6 @@
       {
         "Level": 59,
         "Move": "MOVE_RAGE_POWDER"
-      },
-      {
-        "Level": 66,
-        "Move": "MOVE_X_SCISSOR"
       }
     ],
     "PreEvoMoves": [],
@@ -7519,10 +7535,6 @@
   },
   "POLIWRATH": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_SUBMISSION"
-      },
       {
         "Level": 1,
         "Move": "MOVE_SUBMISSION"
@@ -38983,6 +38995,42 @@
       {
         "Level": 1,
         "Move": "MOVE_DOUBLE_SLAP"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_DISARMING_VOICE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_FURY_SWIPES"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_CHARM"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_FACADE"
+      },      
+      {
+        "Level": 1,
+        "Move": "MOVE_COVET"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_DOUBLE_EDGE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_BABY_DOLL_EYES"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_PLAY_ROUGH"
       }
     ],
     "PreEvoMoves": [
@@ -47956,6 +48004,10 @@
       },
       {
         "Level": 1,
+        "Move": "MOVE_SHELL_SMASH"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_BITE"
       },
       {
@@ -48074,6 +48126,10 @@
       {
         "Level": 1,
         "Move": "MOVE_WHIRLPOOL"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_SHELL_SMASH"
       },
       {
         "Level": 1,

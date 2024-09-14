@@ -6,21 +6,20 @@
 	- Gender swap 
 	- Pre status a pokemon (Se concesso dai type compatibility)
 	- Pre damage a pokemon
-2) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro (aggiornando anche le icone degli sprite nella borsa)
+2) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro
 3) Programmare le nuove mega.
 4) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
 5) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
 
-
-
+- Aggiustare gli held items dei pokemon in maniera tale che i wild pokemon abbiamo il corrispondente item/stone evolution
 ------------------------------------------
 Map Editing:
 - Aggiungere l'NPC nel Pokecenter
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
-- Modificare la nuova mappa a nord di Rustboro
+
 
 --------------------------------------------
 After Test:
 
-- Troppi grass types, aggiungere qualche ground-fight, magari water/ground sarebbe meglio
+- Troppi grass types, aggiungere qualche ground-fight, magari water/ground sarebbe meglio (Fatto, da ritestare)

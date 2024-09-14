@@ -79,63 +79,63 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 2,
-                "max_level": 2,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_RATTATA"
               },
               {
-                "min_level": 2,
-                "max_level": 2,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 2,
-                "max_level": 2,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_ZIGZAGOON"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_PATRAT"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_PATRAT"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_RATTATA_ALOLAN"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_SKWOVET"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_ZIGZAGOON_GALARIAN"
               },
               {
-                "min_level": 2,
-                "max_level": 2,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_YUNGOOS"
               },
               {
-                "min_level": 2,
-                "max_level": 2,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_YUNGOOS"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_SENTRET"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_SENTRET"
               }
             ]
@@ -304,7 +304,7 @@
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_WOOLOO"
+                "species": "SPECIES_MAREEP"
               },
               {
                 "min_level": 3,
@@ -314,7 +314,7 @@
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_LECHONK"
+                "species": "SPECIES_WOOLOO"
               },
               {
                 "min_level": 4,
@@ -324,12 +324,12 @@
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_YUNGOOS"
+                "species": "SPECIES_STUFFUL"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_YUNGOOS"
+                "species": "SPECIES_STUFFUL"
               },
               {
                 "min_level": 3,
@@ -404,7 +404,7 @@
               {
                 "min_level": 5,
                 "max_level": 6,
-                "species": "SPECIES_PSYDUCK"
+                "species": "SPECIES_BARBOACH"
               },
               {
                 "min_level": 3,
@@ -12068,6 +12068,75 @@
                 "min_level": 30,
                 "max_level": 50,
                 "species": "SPECIES_VULPIX_ALOLAN"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_DEWFORD_MEADOW",
+          "base_label": "gDewfordMeadow0",
+          "land_mons": {
+            "encounter_rate": 70,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_FLABEBE"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_SNUBBULL"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_VOLBEAT"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_ILLUMISE"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_COMFEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_COMFEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_AUDINO"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_TINKATINK"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_TINKATINK"
               }
             ]
           }
