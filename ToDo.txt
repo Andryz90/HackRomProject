@@ -22,4 +22,4 @@ Map Editing:
 --------------------------------------------
 After Test:
 
-- Troppi grass types, aggiungere qualche ground-fight, magari water/ground sarebbe meglio (Fatto, da ritestare)
+- Far evolvere Gimmighoul in lategame

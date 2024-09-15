@@ -72376,11 +72376,11 @@
       },
       {
         "Level": 5,
-        "Move": "MOVE_FEINT"
+        "Move": "MOVE_BIND"
       },
       {
         "Level": 10,
-        "Move": "MOVE_BIND"
+        "Move": "MOVE_AQUA_JET"
       },
       {
         "Level": 15,
@@ -72396,11 +72396,11 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_SUBMISSION"
+        "Move": "MOVE_TAUNT"
       },
       {
         "Level": 35,
-        "Move": "MOVE_TAUNT"
+        "Move": "MOVE_SUBMISSION"
       },
       {
         "Level": 40,

@@ -10537,14 +10537,14 @@ const struct Item gItemsInfo[] =
                 .fieldUseFunc = ItemUseOutOfBattle_TMHM,
                 .secondaryId = MOVE_VENOSHOCK,
             },
-        [ITEM_TM_BULK_UP] =
+        [ITEM_TM_POWER_UP_PUNCH] =
             {
                 .name = _("TM08"),
                 .price = 3000,
                 .description = COMPOUND_STRING(
-                    "Bulks up the body\n"
-                    "to boost both\n"
-                    "Attack & Defense."),
+                    "Unleash a punch\n"
+                    "that boost the\n"
+                    "Attack of the user."),
                 .importance = I_REUSABLE_TMS,
                 .pocket = POCKET_TM_HM,
                 .type = ITEM_USE_PARTY_MENU,

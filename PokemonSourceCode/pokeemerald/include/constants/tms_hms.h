@@ -9,7 +9,7 @@
     F(ROAR) \
     F(TOXIC) \
     F(VENOSHOCK) \
-    F(BULK_UP) \
+    F(POWER_UP_PUNCH) \
     F(BULLET_SEED) \
     F(HIDDEN_POWER) \
     F(ALLURING_VOICE) \

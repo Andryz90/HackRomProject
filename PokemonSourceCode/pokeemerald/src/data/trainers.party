@@ -4939,31 +4939,46 @@ Pic: Leader Brawly
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
+Sneasel-Hisui  
+Ability: Inner Focus  
+Level: 22  
+- Rock Smash  
+- Poison Jab  
+- Taunt  
 
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
-- Bulk Up
+Clobbopus @ Eviolite  
+Ability: Technician  
+Level: 23  
+- Power-Up Punch  
+- Brick Break  
+- Aqua Jet  
 
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+Farfetchd @ Stick  
+Ability: Technician  
+Level: 24   
+- Dual Wingbeat  
+- Cut  
+- Power-Up Punch  
+- Steel Wing  
+
+Falinks  
+Ability: Formation  
+Level: 25   
+- Bulk Up  
+- Bullet Punch  
+- Counter  
+- Reversal  
+
+Crabrawler @ Punching Glove  
+Ability: Iron Fist  
+Level: 23  
+Tera Type: Fighting  
+- Power-Up Punch  
+- Ice Punch  
+- Thunder Punch  
+- Drain Punch  
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON

@@ -60,7 +60,7 @@ static const u8 LandmarkName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 LandmarkName_TrainerHill[] = _("TRAINER HILL");
 static const u8 LandmarkName_SeasprayCave[] = _("Seaspray Cave");
 static const u8 LandmarkName_DewfordMeadow[] = _("Dewford Meadow");
-static const u8 LandmarkName_DewfordManor[] = _("Dewford Manor");
+static const u8 LandmarkName_DewfordMeadowHouse[] = _("Dewford Meadow House");
 
 
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
@@ -107,7 +107,7 @@ static const struct Landmark Landmark_DesertUnderpass = {LandmarkName_DesertUnde
 static const struct Landmark Landmark_TrainerHill = {LandmarkName_TrainerHill, FLAG_LANDMARK_TRAINER_HILL};
 static const struct Landmark Landmark_SeasprayCave = {LandmarkName_SeasprayCave, FLAG_LANDMARK_SEASPRAY_CAVE};
 static const struct Landmark Landmark_DewfordMeadow = {LandmarkName_DewfordMeadow, FLAG_LANDMARK_DEWFORD_MEADOW};
-static const struct Landmark Landmark_DewfordManor = {LandmarkName_DewfordManor, FLAG_LANDMARK_DEWFORD_MANOR};
+static const struct Landmark Landmark_DewfordHouse = {LandmarkName_DewfordMeadowHouse, FLAG_LANDMARK_DEWFORD_MANOR};
 
 static const struct Landmark *const Landmarks_Route103_2[]  =
 {
@@ -352,7 +352,7 @@ static const struct Landmark *const Landmarks_MtChimney_2[]  =
 
 static const struct Landmark *const Landmarks_DewfordMeadow[]  =
 {
-    &Landmark_DewfordManor,
+    &Landmark_DewfordHouse,
     NULL,
 };
 
@@ -405,6 +405,7 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_ROUTE_134, 2, Landmarks_Route134_2},
     {MAPSEC_MT_CHIMNEY, 2, Landmarks_MtChimney_2},
     {MAPSEC_DEWFORD_MEADOW, 0, Landmarks_DewfordMeadow},
+    {MAPSEC_DEWFORD_MEADOW_HOUSE, 0, Landmarks_DewfordMeadow},
     {MAPSEC_NONE, 0, NULL},
 };
 

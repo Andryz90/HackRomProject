@@ -558,6 +558,8 @@
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (26 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
 #define MAP_DEWFORD_MEADOW                                  (89 | (26 << 8))
+#define MAP_DEWFORD_MEADOW_HOUSE                            (90 | (26 << 8))
+#define MAP_DEWFORD_MEADOW_HOUSE1F                          (91 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

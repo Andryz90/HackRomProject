@@ -1081,3 +1081,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Seaspray_Cave_B1F/scripts.inc"
 
 	.include "data/maps/DewfordMeadow/scripts.inc"
+
+	.include "data/maps/DewfordMEadowHouse/scripts.inc"
+
+	.include "data/maps/DewfordMeadowHouse1F/scripts.inc"
