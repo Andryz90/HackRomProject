@@ -23,3 +23,4 @@ Map Editing:
 After Test:
 
 - Far evolvere Gimmighoul in lategame
+- Reworkare Bugsy per pterlo sfidare dalla gym 3 almeno, squadra troppo forte

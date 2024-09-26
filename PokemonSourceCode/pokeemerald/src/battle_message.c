@@ -849,6 +849,10 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_PkmnTerastallizedInto[] = _("{B_ATK_NAME_WITH_PREFIX} terastallized\ninto the {B_BUFF1} type!");
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
+static const u8 sText_WindGlider[] = _("Strong tailwind is actived!\n");
+static const u8 sText_SpiritBody[] = _("A cold strange presence\nseems to be appeared");
+static const u8 sText_Debug[] = _("DEBUG IS ACTIVE");
+
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1553,6 +1557,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ITEMWASUSEDUP - BATTLESTRINGS_TABLE_START] = sText_ItemWasUsedUp,
     [STRINGID_ATTACKERLOSTITSTYPE - BATTLESTRINGS_TABLE_START] = sText_AttackerLostItsType,
     [STRINGID_CLOAKEDINAHARSHLIGHT - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCloakedInAHarshLight,
+    [STRINGID_WIND_GLIDER - BATTLESTRINGS_TABLE_START] = sText_WindGlider,
+    [STRINGID_SPIRITBODY - BATTLESTRINGS_TABLE_START] = sText_SpiritBody,
+    [STRINGID_DEBUG - BATTLESTRINGS_TABLE_START] = sText_Debug,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1652,6 +1659,8 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_CURIOUS_MEDICINE] = STRINGID_CURIOUSMEDICINEENTERS,
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
+    [B_MSG_SWITCHIN_WIND_GLIDER] = STRINGID_WIND_GLIDER,
+    [B_MSG_SWITCHIN_SPIRITBODY] = STRINGID_SPIRITBODY,
 };
 
 const u16 gMissStringIds[] =
@@ -2065,6 +2074,11 @@ const u16 gDamageNonTypesDmgStringIds[] =
     [B_MSG_HURT_BY_VORTEX]       = STRINGID_PKMNHURTBYVORTEX,
     [B_MSG_BURNING_UP]           = STRINGID_PKMNBURNINGUP,
     [B_MSG_HURT_BY_ROCKS_THROWN] = STRINGID_PKMNHURTBYROCKSTHROWN,
+};
+
+const u16 gDebugString[] =
+{
+    [B_MSG_DEBUG_STRING]        = STRINGID_DEBUG,
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");

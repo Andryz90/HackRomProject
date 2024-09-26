@@ -4820,7 +4820,7 @@ Pic: Leader Bugsy
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Araquanid (F)   
 Ability: Water Bubble  
@@ -4947,6 +4947,7 @@ Level: 22
 - Rock Smash  
 - Poison Jab  
 - Taunt  
+- Bulk Up  
 
 Clobbopus @ Eviolite  
 Ability: Technician  
@@ -4954,14 +4955,15 @@ Level: 23
 - Power-Up Punch  
 - Brick Break  
 - Aqua Jet  
+- Bulk Up  
 
 Farfetchd @ Stick  
 Ability: Technician  
 Level: 24   
-- Dual Wingbeat  
+- Aerial Ace  
 - Cut  
 - Power-Up Punch  
-- Steel Wing  
+- First Impression
 
 Falinks  
 Ability: Formation  
@@ -4974,7 +4976,6 @@ Level: 25
 Crabrawler @ Punching Glove  
 Ability: Iron Fist  
 Level: 23  
-Tera Type: Fighting  
 - Power-Up Punch  
 - Ice Punch  
 - Thunder Punch  
@@ -17485,3 +17486,64 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SPLITFACE_1 ===
+Name: Splitface
+Class: Leader
+Pic: Beauty
+Gender: Male
+Music: Elite Four
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
+
+Snover @ Occa Berry  
+Ability: Snow Warning  
+Level: 25  
+Modest Nature  
+- Giga Drain  
+- Ice Shard  
+- Frost Breath  
+- Hoarfrost
+
+Glalie @ Leftovers  
+Ability: Moody  
+Level: 24  
+IVs: 0 Atk  
+- Toxic  
+- Protect  
+- Substitute  
+- Freeze-Dry  
+
+Delibird  
+Ability: Snow Cloak  
+Level: 23  
+- Rapid Spin  
+- Ice Spinner  
+- Aerial Ace  
+- Present  
+
+Naclstack @ Eviolite  
+Ability: Purifying Salt  
+Level: 24  
+- Rock Slide
+- Iron Defense  
+- Body Press  
+- Protect  
+
+Spheal :3 (Spheal) @ Leftovers  
+Ability: Ice Body  
+Level: 25  
+Bold Nature  
+IVs: 0 Atk  
+- Blizzard  
+- Scald  
+- Toxic  
+- Hoarfrost
+
+Swinub  
+Ability: Thick Fat  
+Level: 25  
+- Ice Shard  
+- Mud-Slap  
+- Powder Snow
+- Hoarfrost

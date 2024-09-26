@@ -403,6 +403,7 @@
 #define MAP_ALTERNATIVE_FOREST                       (108 | (24 << 8))
 #define MAP_SEASPRAY_CAVE                            (109 | (24 << 8))
 #define MAP_SEASPRAY_CAVE_B1F                        (110 | (24 << 8))
+#define MAP_GRANITE_CAVE_B3F                         (111 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

@@ -21046,6 +21046,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_MUD_SLAP",
@@ -21112,6 +21113,10 @@
       },
       {
         "Level": 1,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_FLAIL"
       },
       {
@@ -21165,6 +21170,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_MUD_SLAP",
@@ -43729,6 +43735,10 @@
         "Move": "MOVE_ICE_FANG"
       },
       {
+        "Level": 1,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 15,
         "Move": "MOVE_ICE_SHARD"
       },
@@ -43767,6 +43777,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HOARFROST",
       "MOVE_TAKE_DOWN",
       "MOVE_CHARM",
       "MOVE_MUD_SLAP",
@@ -61193,6 +61204,7 @@
     "PreEvoMoves": [],
     "TMMoves": [
       "MOVE_TAKE_DOWN",
+      "MOVE_DRAINING_KISS",
       "MOVE_CHARM",
       "MOVE_PROTECT",
       "MOVE_FACADE",

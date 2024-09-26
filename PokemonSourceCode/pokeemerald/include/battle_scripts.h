@@ -848,4 +848,5 @@ extern const u8 BattleScript_EffectHoarfrost[];
 extern const u8 BattleScript_Putifying_Water[];
 extern const u8 BattleScript_EffectWoC[];
 extern const u8 BattleScript_EffectSP[];
+extern const u8 BattleScript_DebugMsg[];
 #endif // GUARD_BATTLE_SCRIPTS_H

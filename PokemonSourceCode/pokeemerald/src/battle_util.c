@@ -9995,20 +9995,30 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
         return UQ_4_12(1.0);
     return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
 }
-static inline uq4_12_t GetFalinksModifier (u32 battlerAtk) {
-    u8 rolls [4] = {0.8, 0.75, 0.6, 0.5};
+static inline uq4_12_t GetFalinksModifier (u32 battlerAtk) 
+{
+    u8 rolls [4] = {80, 70, 50, 40};
     u8 delta_hit;
-    if (gBattleMons[battlerAtk].ability == ABILITY_FORMATION){
+
+    if (gBattleMons[battlerAtk].ability == ABILITY_FORMATION)
+    {
         delta_hit = ptr_multihit - gMultiHitCounter;
-        if (delta_hit > 4)
+        
+        if (delta_hit >= 4)
         {
             delta_hit = 4;
-        }           
-        if (gSpecialStatuses[battlerAtk].formationstate != FORMATION_IN_PROGRESS) {
-            return UQ_4_12(rolls[delta_hit - 1]);
         }
-        else
-            return UQ_4_12(1.0); 
+        
+        if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS) 
+        {
+            
+            return sPercentToModifier[rolls[delta_hit - 1]];
+            
+        } 
+        else 
+        {
+            return UQ_4_12(1.0);
+        }
     }
     else 
     {

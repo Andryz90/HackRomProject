@@ -10111,3 +10111,9 @@ BattleScript_EffectWoC::
 	tryfaintmon BS_TARGET
 	jumpiffainted BS_TARGET, FALSE, BattleScript_EffectWoC_End
 	end
+
+BattleScript_DebugMsg::
+	printfromtable gDebugString
+	waitmessage B_WAIT_TIME_LONG
+	flushtextbox
+	goto BattleScript_MoveEnd

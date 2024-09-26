@@ -597,6 +597,28 @@ DewfordTown_Movement_BrineyExitBoat:
 	walk_up
 	step_end
 
+DewfordTown_EventScript_Sandygast::
+	lockall
+	faceplayer
+	setwildbattle SPECIES_SANDYGAST, 20
+	waitse
+	playmoncry SPECIES_SANDYGAST, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DewfordTown_EventScript_DefeatedSandy 
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DewfordTown_EventScript_DefeatedSandy
+	releaseall
+	end
+DewfordTown_EventScript_DefeatedSandy::
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
 DewfordTown_EventScript_TrendyPhraseBoy::
 	lock
 	faceplayer

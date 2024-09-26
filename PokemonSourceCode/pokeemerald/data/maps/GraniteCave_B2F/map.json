@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -144,8 +144,8 @@
       "x": 28,
       "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_GRANITE_CAVE_B1F",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_GRANITE_CAVE_B3F",
+      "dest_warp_id": "1"
     },
     {
       "x": 8,
@@ -169,7 +169,9 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

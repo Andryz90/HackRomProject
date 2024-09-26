@@ -715,8 +715,12 @@
 #define STRINGID_ALREADYFROZEN                        713
 #define STRINGID_FOGLIFTED                            714
 #define STRINGID_PKMNMADESHELLGLEAM                   715
+#define STRINGID_FORMATION                            716
 
-#define BATTLESTRINGS_COUNT                           716
+
+#define STRINGID_DEBUG                                  717
+
+#define BATTLESTRINGS_COUNT                           STRINGID_DEBUG + 1
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -1047,4 +1051,6 @@
 #define B_MSG_BURNING_UP  2
 #define B_MSG_HURT_BY_ROCKS_THROWN 3
 
+//DEBUG
+#define B_MSG_DEBUG_STRING   1
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

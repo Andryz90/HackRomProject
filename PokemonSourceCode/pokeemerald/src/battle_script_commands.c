@@ -1245,7 +1245,9 @@ static void Cmd_attackcanceler(void)
         && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
         && gMovesInfo[gCurrentMove].category != DAMAGE_CATEGORY_STATUS) { 
         gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
-        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2) {
+        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2
+            && (gMovesInfo[gCurrentMove].effect != EFFECT_COUNTER && gMovesInfo[gCurrentMove].effect != EFFECT_MIRROR_COAT && gMovesInfo[gCurrentMove].effect != EFFECT_METAL_BURST))
+        {
             gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);
             ptr_multihit = gMultiHitCounter;
             PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
@@ -2805,7 +2807,8 @@ void SetMoveEffect(bool32 primary, bool32 certain)
     if (gBattleScripting.moveEffect == 0)
         return;
 
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+    if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+        || gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED)
         && IsBattlerAlive(gBattlerTarget)
         && IsFinalStrikeEffect(gBattleScripting.moveEffect))
     {
@@ -11530,7 +11533,8 @@ static void Cmd_stockpiletobasedamage(void)
         if (gBattleCommunication[MISS_TYPE] != B_MSG_PROTECTED)
             gBattleScripting.animTurn = gDisableStructs[gBattlerAttacker].stockpileCounter;
 
-        if (!(gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT && IsBattlerAlive(gBattlerTarget)))
+        if (!(gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT && gBattleMons[gBattlerTarget].hp != 0)
+            || !(gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_STARTED && gBattleMons[gBattlerTarget].hp != 0))
         {
             gBattleStruct->moveEffect2 = MOVE_EFFECT_STOCKPILE_WORE_OFF;
         }
@@ -13473,8 +13477,9 @@ static void Cmd_handlefurycutter(void)
         else
             max = 5;
 
-        if (gDisableStructs[gBattlerAttacker].furyCutterCounter < max
-            && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT) // Don't increment counter on first hit
+        if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 5
+            && (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT 
+            || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_STARTED)) // Don't increment counter on first hit
             gDisableStructs[gBattlerAttacker].furyCutterCounter++;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -13509,7 +13514,8 @@ static void Cmd_presentdamagecalculation(void)
      * damage, the second strike will always deal damage too. This is a simple way
      * to replicate that effect.
      */
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT
+        || gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_IN_PROGRESS)
     {
         if (rand < 102)
         {
