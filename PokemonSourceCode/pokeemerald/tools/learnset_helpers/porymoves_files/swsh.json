@@ -11184,6 +11184,9 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_DRAIN_PUNCH",
+      "MOVE_CIRCLE_THROW",
+      "MOVE_SKY_DROP",
       "MOVE_HYPER_BEAM",
       "MOVE_GIGA_IMPACT",
       "MOVE_DIG",
@@ -11222,7 +11225,8 @@
       "MOVE_STONE_EDGE",
       "MOVE_STEALTH_ROCK",
       "MOVE_HIGH_HORSEPOWER",
-      "MOVE_THROAT_CHOP"
+      "MOVE_THROAT_CHOP",
+      "MOVE_TRAILBLAZE"
     ],
     "EggMoves": [
       "MOVE_FEINT",

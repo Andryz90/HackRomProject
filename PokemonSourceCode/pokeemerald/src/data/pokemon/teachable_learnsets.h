@@ -16763,6 +16763,7 @@ static const u16 sPinsirTeachableLearnset[] = {
     MOVE_THRASH,
     MOVE_THROAT_CHOP,
     MOVE_TOXIC,
+    MOVE_TRAILBLAZE,
     MOVE_X_SCISSOR,
     MOVE_DOUBLE_EDGE,
     MOVE_FURY_CUTTER,

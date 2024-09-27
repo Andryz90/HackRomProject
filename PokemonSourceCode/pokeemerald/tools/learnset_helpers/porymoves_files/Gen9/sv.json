@@ -9229,7 +9229,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_FEINT"
+        "Move": "MOVE_JUMP_KICK"
       },
       {
         "Level": 32,
@@ -10739,18 +10739,9 @@
     "TutorMoves": []
   },
   "PINSIR": {
-    "LevelMoves": [      
-    {
-      "Level": 26,
-      "Move": "MOVE_FLYING_PRESS"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_CIRCLE_THROW",
-      "MOVE_SKY_DROP"
-
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -39425,24 +39416,7 @@
     "TutorMoves": []
   },
   "LOPUNNY": {
-    "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_LOW_KICK"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_TRIPLE_KICK"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_SUBMISSION"
-      },
-      {
-        "Level": 50,
-        "Move": "MOVE_SUPERPOWER"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -47999,12 +47973,17 @@
         "Move": "MOVE_WILD_CHARGE"
       },
       {
-        "Level": 53,
+        "Level": 50,
         "Move": "MOVE_THRASH"
+      },
+      {
+        "Level": 53,
+        "Move": "MOVE_THUNDEROUS_KICK"
       }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_THUNDEROUS_KICK",
       "MOVE_TAKE_DOWN",
       "MOVE_AGILITY",
       "MOVE_PROTECT",

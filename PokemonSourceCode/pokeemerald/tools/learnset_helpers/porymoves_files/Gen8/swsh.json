@@ -11159,6 +11159,10 @@
         "Move": "MOVE_DOUBLE_HIT"
       },
       {
+        "Level": 26,
+        "Move": "MOVE_FLYING_PRESS"
+      },
+      {
         "Level": 28,
         "Move": "MOVE_VITAL_THROW"
       },
@@ -33013,6 +33017,10 @@
   "LOPUNNY": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_LOW_KICK"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_MIRROR_COAT"
       },
@@ -33054,7 +33062,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_BATON_PASS"
+        "Move": "MOVE_TRIPLE_KICK"
       },
       {
         "Level": 32,
@@ -33070,11 +33078,15 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_FLATTER"
+        "Move": "MOVE_SUBMISSION"
       },
       {
         "Level": 48,
         "Move": "MOVE_BOUNCE"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_HI_JUMP_KICK"
       },
       {
         "Level": 52,
@@ -33082,7 +33094,7 @@
       },
       {
         "Level": 56,
-        "Move": "MOVE_HI_JUMP_KICK"
+        "Move": "MOVE_SUPERPOWER"
       }
     ],
     "PreEvoMoves": [],
