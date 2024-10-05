@@ -559,3 +559,4 @@ gSpecials::
 	def_special SetNewIVStat
 	def_special SetNewIVStatAll
 	def_special SwapPokemonGender
+	def_special ChangeMonNature

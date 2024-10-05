@@ -7,6 +7,7 @@
 #include "data.h"
 #include "decoration.h"
 #include "diploma.h"
+#include "item.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
@@ -2417,6 +2418,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_NATURES:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 20; 
+        task->tLeft = 20;
+        task->tTop = 1;
+        task->tWidth = 14;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2578,7 +2589,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_WhenInDanger,
         gText_Exit
     },
-        [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
+    [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
     {
         gText_RememberAMove,
         gText_ForgetAMove,
@@ -2587,6 +2598,31 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_DamagePokemon,
         gText_ChangeNature,
         gText_MaxIVs,
+        gText_Exit
+    },
+    [SCROLL_MULTI_NATURES] = 
+    {
+        gText_Lonely,    
+        gText_Adamant,   
+        gText_Naughty,   
+        gText_Brave,     
+        gText_Bold,      
+        gText_Impish,    
+        gText_Lax,       
+        gText_Relaxed,   
+        gText_Modest,    
+        gText_Mild,      
+        gText_Rash,      
+        gText_Quiet,     
+        gText_Calm,      
+        gText_Gentle,    
+        gText_Careful,   
+        gText_Sassy,     
+        gText_Timid,     
+        gText_Hasty,     
+        gText_Jolly,     
+        gText_Naive,     
+        gText_Serious,   
         gText_Exit
     }
 };
@@ -4338,27 +4374,42 @@ void PreparePartyForSkyBattle(void)
 }
 
 // Pokemon Center Special Functions
-void SetNewIVStatAll(void)
+bool32 SetNewIVStatAll(void)
 {
     u8 i;
-    u32 monData = MON_DATA_HP_IV;
-    u32 monIVs = 31u;
+    u32 IvsData = MON_DATA_HP_IV;
+    u32 MaxMonIVs = 31u;
+    bool32 ret = FALSE;
 
     for (i = 0u; i < 6u; i++)
     {
-        SetMonData(&gPlayerParty[gSpecialVar_0x8004], monData + i, &monIVs);
-        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+        if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV + i, NULL) != MaxMonIVs) // If and only if all the stats are already set to 31 IVs I send the error
+        {
+            ret = TRUE;
+            break;
+        }
     }
+
+    for (i = 0u; i < 6u && ret; i++)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], IvsData + i, &MaxMonIVs); 
+    }
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    return ret;
 }
 
-void SetNewIVStat(void)
+bool32 SetNewIVStat(void)
 {
-    u16 monIVs = 31u;
-    u32 monData = MON_DATA_HP_IV;
+    u32 MaxMonIVs = 31u;
+    u32 monData = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV + gSpecialVar_0x8005, NULL);
 
-    SetMonData(&gPlayerParty[gSpecialVar_0x8004], monData + gSpecialVar_0x8005, &monIVs);
-    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
-    
+    if (monData != MaxMonIVs) //If the stat has already 31 Ivs I send an error
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV + gSpecialVar_0x8005, &MaxMonIVs);
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+        return TRUE;
+    }
+    return FALSE;
 }
 
 bool32 SwapPokemonGender(void)
@@ -4390,4 +4441,27 @@ bool32 SwapPokemonGender(void)
         return TRUE;
     }
     return FALSE;
+}
+
+void ChangeMonNature(void) 
+{
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u8 gender = GetMonGender(mon);
+    bool8 isShiny = IsMonShiny(mon);
+    //todo maybe worry about spinda spots, unown letter, wurmple evo
+
+    u8 newNature = gSpecialVar_0x8005;
+    u32 newPersonality;
+    do
+    {
+        newPersonality = Random32();
+    }
+    while ((GetNatureFromPersonality(newPersonality) != newNature) ||
+           (GetGenderFromSpeciesAndPersonality(species, newPersonality) != gender));
+
+    UpdateMonPersonality(&mon->box, newPersonality);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_SHINY, &isShiny);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HIDDEN_NATURE, &newNature);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }

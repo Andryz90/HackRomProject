@@ -1885,6 +1885,12 @@
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm
 
+	@ Writes the name of the given nature to the specified buffer.
+    .macro buffernaturename stringVarId:req, nature:req
+    .byte 0xe5
+    stringvar \stringVarId
+    .2byte \nature
+    .endm
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

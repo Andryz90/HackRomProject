@@ -13,7 +13,7 @@ PKMN_Center_Move_Tutor::
 	case 2, Debug_EventScript_InflictStatus1
 	case 3, PKMN_Center_Swap_Pokemon_Gender
 	@case 4, pre-damage
-	@case 5, nature
+	case 5, OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature
 	case 6, PKMN_Center_EventScript_MaxIVs
 	case 7, PKMN_Center_Move_Tutor_General_Exit
 	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_General_Exit
@@ -255,15 +255,223 @@ PKMN_Center_Move_Tutor_General_Exit::
 	end
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Pre-Damage @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 PKMN_Center_EventScript_Exp_Grind::
 
 	releaseall
 	end
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Nature Change @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@PKMN_Center_EventScript_ChangeNature::
+@	msgbox PKMN_Center_Nature_Change_IntroText, MSGBOX_DEFAULT
+@	msgbox PKMN_Center_HeartScale_One, MSGBOX_DEFAULT
+@	checkitem ITEM_HEART_SCALE, 1
+@	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_Exit
+@	msgbox PKMN_Center_Nature_Change_Text, MSGBOX_DEFAULT
+@	special ChoosePartyMon
+@	waitstate
+@	compare VAR_0x8004, 255
+@	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
+@	special IsSelectedMonEgg
+@	compare VAR_RESULT, TRUE
+@	goto_if_eq PKMN_Center_Text_EggGender
+@	msgbox PKMN_Center_Nature_Switch_Text, MSGBOX_DEFAULT
+@	setvar VAR_0x8004, SCROLL_MULTI_NATURES
+@	special ShowScrollableMultichoice
+@	waitstate
+@	copyvar VAR_0x8005, VAR_RESULT
+@	specialvar VAR_RESULT, ChangeNature
+@	goto_if_eq VAR_RESULT, FALSE,  PKMN_Center_Text_EggGender
+@	removeitem ITEM_HEART_SCALE, 1
+@	msgbox PKMN_Center_IVs_Done_Text, MSGBOX_DEFAULT
+@	call PKMN_Center_Move_Tutor_General_Exit
+@	releaseall
+@	end
 
+@credit to iriv24
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature::
+	msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_0
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_2
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_1:
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_5
+	msgbox PKMN_Center_HeartScale_One, MSGBOX_DEFAULT
+	checkitem ITEM_HEART_SCALE, 1
+	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_Exit
+	special BufferMonNickname
+	msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_2
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_3, NATURE_ADAMANT
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_4, NATURE_BASHFUL
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_5, NATURE_BOLD
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_6, NATURE_BRAVE
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_7, NATURE_CALM
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_8, NATURE_CAREFUL
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_9, NATURE_DOCILE
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_10, NATURE_GENTLE
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_11, NATURE_HARDY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_12, NATURE_HASTY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_13, NATURE_IMPISH
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_14, NATURE_JOLLY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_15, NATURE_LAX
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_16, NATURE_LONELY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_17, NATURE_MILD
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_18, NATURE_MODEST
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_19, NATURE_NAIVE
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_20, NATURE_NAUGHTY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_21, NATURE_QUIET
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_22, NATURE_QUIRKY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_23, NATURE_RASH
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_24, NATURE_RELAXED
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_25, NATURE_SASSY
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_26, NATURE_SERIOUS
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_27, NATURE_TIMID
+	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_28, MULTI_B_PRESSED
+	dynmultistack 0, 0, FALSE, 6, FALSE, 3, DYN_MULTICHOICE_CB_NONE
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_8
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_7:
+	copyvar VAR_0x8005, VAR_RESULT
+	buffernaturename STR_VAR_2, VAR_RESULT
+	msgbox AreYouSureNatureChange, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_11
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_10:
+	msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_29
+	fadescreen FADE_TO_BLACK
+	special ChangeMonNature
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	closemessage
+	fadescreen FADE_FROM_BLACK
+	removeitem ITEM_HEART_SCALE, 1
+	msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_30
+	release
+	end
+OldDaleTown_PokemonCenter_EventScript_SecondNurseNo::
+    msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_No, MSGBOX_DEFAULT
+    release
+    end
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_2:
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurseNo
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_1
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_5:
+	msgbox OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_1
+	release
+	end
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_8:
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurseNo
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_7
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_11:
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurseNo
+	goto OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_10
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_No::
+	.string "I see. Come back if you need\nsomething else.$"
+AreYouSureNatureChange::
+	.string "Are you sure you want\nto change to this nature?$"
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_0:
+	.string "Which Pokémon?$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_1:
+	.string "I can't change the Nature of an Egg.$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_2:
+	.string "Which new Nature suits {STR_VAR_1}\nbest?$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_3:
+	.string "Adamant       {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_4:
+	.string "Bashful        Neutral         $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_5:
+	.string "Bold             {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk       $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_6:
+	.string "Brave           {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed     $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_7:
+	.string "Calm             {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk     $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_8:
+	.string "Careful       {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_9:
+	.string "Docile          Neutral         $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_10:
+	.string "Gentle         {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_11:
+	.string "Hardy           Neutral         $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_12:
+	.string "Hasty          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_13:
+	.string "Impish         {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_14:
+	.string "Jolly           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_15:
+	.string "Lax              {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_16:
+	.string "Lonely         {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_17:
+	.string "Mild             {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_18:
+	.string "Modest        {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_19:
+	.string "Naive          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_20:
+	.string "Naughty      {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_21:
+	.string "Quiet          {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_22:
+	.string "Quirky          Neutral         $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_23:
+	.string "Rash            {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_24:
+	.string "Relaxed       {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_25:
+	.string "Sassy          {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_26:
+	.string "Serious       Neutral         $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_27:
+	.string "Timid           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk   $"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_28:
+	.string "Cancel$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_29:
+	.string "Excellent. We shall begin at once!$"
+
+OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_30:
+	.string "{STR_VAR_1}'s Nature has been\nchanged! Thanks.$"
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Max IVs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 PKMN_Center_EventScript_MaxIVs::
 	msgbox PKMN_Center_IVs_Party, MSGBOX_DEFAULT
 	special ChoosePartyMon
@@ -299,7 +507,9 @@ PKMN_Center_EventScript_MaxIVs_Single::
 	dynmultipush PKMN_Center_SpDef_IV, 5
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
 	copyvar VAR_0x8005, VAR_RESULT
-	special SetNewIVStat
+	specialvar VAR_RESULT, SetNewIVStat
+	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_AlreadySet
+	removeitem ITEM_HEART_SCALE, 1
 	msgbox PKMN_Center_IVs_Done_Text, MSGBOX_DEFAULT
 	call PKMN_Center_Move_Tutor_General_Exit
 	releaseall
@@ -309,7 +519,9 @@ PKMN_Center_EventScript_MaxIVs_All::
 	msgbox PKMN_Center_HeartScale_All, MSGBOX_DEFAULT
 	checkitem ITEM_HEART_SCALE, 3
 	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_Exit
-	special SetNewIVStatAll
+	specialvar VAR_RESULT, SetNewIVStatAll
+	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_AlreadySet
+	removeitem ITEM_HEART_SCALE, 3
 	msgbox PKMN_Center_IVs_Done_Text, MSGBOX_DEFAULT
 	call PKMN_Center_Move_Tutor_General_Exit
 	releaseall
@@ -317,6 +529,11 @@ PKMN_Center_EventScript_MaxIVs_All::
 	
 PKMN_Center_IVs_Exit::
 	msgbox PKMN_Center_NotEnough_HeartScale, MSGBOX_DEFAULT
+	call PKMN_Center_Move_Tutor_General_Exit
+	releaseall
+	end
+PKMN_Center_IVs_AlreadySet::
+	msgbox PKMN_Center_IVs_AlreadySet_Text, MSGBOX_DEFAULT
 	call PKMN_Center_Move_Tutor_General_Exit
 	releaseall
 	end
@@ -420,17 +637,14 @@ PKMN_Center_Mystery_Gift_Text_ReceivedGift::
 	.string "{PLAYER} received {STR_VAR_1}!\p"
 	.string "Take good care of {STR_VAR_1}!$"
 
-PKMN_Center_Text_Mystery_Gift_WouldYouLikeGift::
-	.string "Thank you for playing\n"
-	.string "Inclement Emerald!\p"
-	.string "You have a Mystery Gift available:\n"
-	.string "a special {STR_VAR_1}!\p"
-	.string "Would you like to receive\n"
-	.string "{STR_VAR_1}?$"
-
+PKMN_Center_Nature_Change_IntroText::
+	.string "I can change nature of a Pokémon\nif you want.$"
 PKMN_Center_Text_ApplyingStatus::
 	.string "Which POKéMON you want to\napply a status to?$"
-
+PKMN_Center_Nature_Change_Text::
+	.string "Which POKéMON you want to\nchange nature?$"
+PKMN_Center_Nature_Switch_Text::
+	.string "Which Nature you want to\nchange to?$"
 PKMN_Center_IVs_Party::
 	.string "Which POKémon you want to\nmaximize the IVs?$"
 PKMN_Center_Gender_Party::
@@ -449,6 +663,8 @@ PKMN_Center_NotEnough_HeartScale::
 	.string "You have not enough Heart Scale.$"
 PKMN_Center_WhichStat::
 	.string "Which stat you want to maximize?$"
+PKMN_Center_IVs_AlreadySet_Text::
+	.string "I can't, the stat\nhas already 31 IV.$"
 PKMN_Center_HP_IV::
 	.string "HP$"
 PKMN_Center_Atk_IV::

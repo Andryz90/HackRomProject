@@ -3079,4 +3079,26 @@ extern const u8 gText_SwapGender[];
 extern const u8 gText_ChangeNature[]; 
 extern const u8 gText_MaxIVs[];       
 
+extern const u8 gText_Lonely[];   
+extern const u8 gText_Adamant[];  
+extern const u8 gText_Naughty[];  
+extern const u8 gText_Brave[];    
+extern const u8 gText_Bold[];     
+extern const u8 gText_Impish[];   
+extern const u8 gText_Lax[];      
+extern const u8 gText_Relaxed[];  
+extern const u8 gText_Modest[];   
+extern const u8 gText_Mild[];     
+extern const u8 gText_Rash[];     
+extern const u8 gText_Quiet[];    
+extern const u8 gText_Calm[];     
+extern const u8 gText_Gentle[];   
+extern const u8 gText_Careful[];  
+extern const u8 gText_Sassy[];    
+extern const u8 gText_Timid[];    
+extern const u8 gText_Hasty[];    
+extern const u8 gText_Jolly[];    
+extern const u8 gText_Naive[];    
+extern const u8 gText_Serious[];  
+
 #endif // GUARD_STRINGS_H

@@ -1870,3 +1870,26 @@ const u8 gText_SwapGender[] =      _("Change Pkmn Gender");
 const u8 gText_DamagePokemon[] =    _("Damage a Pokémon");
 const u8 gText_ChangeNature[] =     _("Change Nature");
 const u8 gText_MaxIVs[] =           _("Max IVs");
+
+
+const u8 gText_Lonely[]     = _("Lonely");
+const u8 gText_Adamant[]    = _("Adamant");
+const u8 gText_Naughty[]    = _("Naughty");
+const u8 gText_Brave[]      = _("Brave");
+const u8 gText_Bold[]       = _("Bold");
+const u8 gText_Impish[]     = _("Impish");
+const u8 gText_Lax[]        = _("Lax");
+const u8 gText_Relaxed[]    = _("Relaxed");
+const u8 gText_Modest[]     = _("Modest");
+const u8 gText_Mild[]       = _("Mild");
+const u8 gText_Rash[]       = _("Rash");
+const u8 gText_Quiet[]      = _("Quiet");
+const u8 gText_Calm[]       = _("Calm");
+const u8 gText_Gentle[]     = _("Gentle");
+const u8 gText_Careful[]    = _("Careful");
+const u8 gText_Sassy[]      = _("Sassy");
+const u8 gText_Timid[]      = _("Timid");
+const u8 gText_Hasty[]      = _("Hasty");
+const u8 gText_Jolly[]      = _("Jolly");
+const u8 gText_Naive[]      = _("Naive");
+const u8 gText_Serious[]    = _("Serious");

@@ -5,6 +5,7 @@ extern bool8 gBikeCyclingChallenge;
 extern u8 gBikeCollisions;
 extern u16 gScrollableMultichoice_ScrollOffset;
 
+
 u8 GetLeadMonIndex(void);
 u8 IsDestinationBoxFull(void);
 u16 GetPCBoxToSendMon(void);
@@ -33,7 +34,9 @@ void ResetFanClub(void);
 bool8 ShouldShowBoxWasFullMessage(void);
 void SetPCBoxToSendMon(u8 boxId);
 void PreparePartyForSkyBattle(void);
-void SetNewIVStatAll(void);
-void SetNewIVStat(void);
+bool32 SetNewIVStatAll(void);
+bool32 SetNewIVStat(void);
 bool32 SwapPokemonGender(void);
+void ChangeMonNature (void);
+
 #endif // GUARD_FIELD_SPECIALS_H
