@@ -22,5 +22,10 @@ Map Editing:
 --------------------------------------------
 After Test:
 
+- Aggiustare descrizioni MT
 - Far evolvere Gimmighoul in lategame
-- Reworkare Bugsy per pterlo sfidare dalla gym 3 almeno, squadra troppo forte
+- Reworkare Bugsy per poterlo sfidare dalla gym 3 almeno, squadra troppo forte
+- Ogni volta che viene incrementato il level cap mettere un messaggio a schermo che te lo dice
+- Paradox Pokemon
+- Nuovi sprite di Edo e Andry
+- Aggiungere il nuovo NPC in tutti i Pokemon Center

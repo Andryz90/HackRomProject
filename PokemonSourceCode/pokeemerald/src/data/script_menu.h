@@ -807,6 +807,16 @@ static const struct MenuAction MultiGameMode_List[] =
     {gText_Hardcore},
     {gText_Nuzlocke},
 };
+
+static const struct MenuAction AppliedStatus_List[] =
+{
+    {gText_Paralysis},
+    {gText_Burn},
+    {gText_Poison},
+    {gText_Frostbite},
+    {gText_Sleep},
+};
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -924,6 +934,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
+    [MULTI_STATUS]                     = MULTICHOICE(AppliedStatus_List),
 };
 
 const u8 *const gStdStrings[] =

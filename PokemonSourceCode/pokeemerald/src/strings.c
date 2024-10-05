@@ -1580,6 +1580,16 @@ const u8 gText_Standard[] = _("Standard Mode");
 const u8 gText_Hardcore[] = _("Hardcore Mode");
 const u8 gText_Nuzlocke[] = _("Nuzlocke Mode");
 
+const u8 gText_Frostbite[] = _(
+#if B_USE_FROSTBITE == TRUE     
+    "frostbite"
+#else
+    "freeze"
+#endif
+);
+
+
+
 // Easy chat group names
 const u8 gEasyChatGroupName_Pokemon[] = _("POKéMON");
 const u8 gEasyChatGroupName_Trainer[] = _("TRAINER");
@@ -1851,3 +1861,12 @@ const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 const u8 gText_UsedPokeVial[] = _("{PLAYER} used the Poké Vial.\nAll Pokémon were fully restored!{PAUSE_UNTIL_PRESS}");
 const u8 gText_PokeVialEmpty[] = _("The Poké Vial is empty.\nRefill it at a Pokémon Center.{PAUSE_UNTIL_PRESS}");
+
+// Pokemon center special menu
+const u8 gText_RememberAMove[] =    _("Remember a move");
+const u8 gText_ForgetAMove[] =      _("Forget a move");
+const u8 gText_ApplyStatus[] =      _("Apply a status");
+const u8 gText_SwapGender[] =      _("Change Pkmn Gender");
+const u8 gText_DamagePokemon[] =    _("Damage a Pokémon");
+const u8 gText_ChangeNature[] =     _("Change Nature");
+const u8 gText_MaxIVs[] =           _("Max IVs");

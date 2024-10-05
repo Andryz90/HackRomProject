@@ -2407,6 +2407,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_POKE_CENTER_TUTOR:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 7; 
+        task->tLeft = 20;
+        task->tTop = 1;
+        task->tWidth = 14;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2566,6 +2576,17 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_PokemonMoves,
         gText_Underpowered,
         gText_WhenInDanger,
+        gText_Exit
+    },
+        [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
+    {
+        gText_RememberAMove,
+        gText_ForgetAMove,
+        gText_ApplyStatus,
+        gText_SwapGender,
+        gText_DamagePokemon,
+        gText_ChangeNature,
+        gText_MaxIVs,
         gText_Exit
     }
 };
@@ -4314,4 +4335,59 @@ void PreparePartyForSkyBattle(void)
     }
     VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
     CompactPartySlots();
+}
+
+// Pokemon Center Special Functions
+void SetNewIVStatAll(void)
+{
+    u8 i;
+    u32 monData = MON_DATA_HP_IV;
+    u32 monIVs = 31u;
+
+    for (i = 0u; i < 6u; i++)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], monData + i, &monIVs);
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    }
+}
+
+void SetNewIVStat(void)
+{
+    u16 monIVs = 31u;
+    u32 monData = MON_DATA_HP_IV;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], monData + gSpecialVar_0x8005, &monIVs);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+    
+}
+
+bool32 SwapPokemonGender(void)
+{
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u8 gender = GetMonGender(mon);
+    bool8 isShiny = IsMonShiny(mon);
+    u8 nature = GetNature(mon);
+    u8 newGender = gender == MON_FEMALE ? MON_MALE : MON_FEMALE;
+    u32 newPersonality;
+
+    if (gender != MON_GENDERLESS)
+    {
+        if  ((gSpeciesInfo[species].genderRatio == MON_FEMALE && newGender == MON_MALE) || (gSpeciesInfo[species].genderRatio == MON_MALE && newGender == MON_FEMALE))
+        {
+            return FALSE; //When a Pokemon doesn't exist of the opposite gender, like vespiqueen or salazzle
+        }
+            
+        do
+        {
+            newPersonality = Random32();
+        }
+        while ((GetNatureFromPersonality(newPersonality) != nature) ||
+               (GetGenderFromSpeciesAndPersonality(species, newPersonality) != newGender));
+        UpdateMonPersonality(&mon->box, newPersonality);
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_SHINY, &isShiny);
+        CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+        return TRUE;
+    }
+    return FALSE;
 }

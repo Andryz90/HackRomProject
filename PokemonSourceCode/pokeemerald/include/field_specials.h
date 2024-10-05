@@ -33,5 +33,7 @@ void ResetFanClub(void);
 bool8 ShouldShowBoxWasFullMessage(void);
 void SetPCBoxToSendMon(u8 boxId);
 void PreparePartyForSkyBattle(void);
-
+void SetNewIVStatAll(void);
+void SetNewIVStat(void);
+bool32 SwapPokemonGender(void);
 #endif // GUARD_FIELD_SPECIALS_H

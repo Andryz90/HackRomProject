@@ -191,13 +191,17 @@ GraniteCave_B3F_SplitFace_Encounter3::
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FaceAwayPlayer 
 	waitmovement  LOCALID_SPLITFACE  
-	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
-	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_Bestemmia, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
 	waitmovement  LOCALID_SPLITFACE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
 	waitmovement  LOCALID_SPLITFACE
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer2, MSGBOX_DEFAULT
+	applymovement LOCALID_SPLITFACE, Common_Movement_FaceLeft
+	waitmovement  LOCALID_SPLITFACE
+	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
+	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_TextPlayer2_Part2, MSGBOX_DEFAULT
 	call GraniteCave_B3F_SplitFace_Battle3
 	release
 	end
@@ -212,11 +216,17 @@ GraniteCave_B3F_SplitFace_TextPlayer::
 	.string "I'm one of the developer of the game,\n"
 	.string "even though I didn't much...$"
 
+GraniteCave_B3F_SplitFace_Bestemmia::
+	.string "Dio Porco.$"
+
+GraniteCave_B3F_SplitFace_CazzoPalle::
+	.string "Cazzo palle.$"
+
 GraniteCave_B3F_SplitFace_TextPlayer2::
-	.string "Dio Porco.\p"
 	.string "So you're {PLAYER},\n"
-	.string "the main character I suppose.\p"
-	.string "Cazzo palle.\p"
+	.string "the main character I suppose.$"
+
+GraniteCave_B3F_SplitFace_TextPlayer2_Part2::
 	.string "I like Ice type a lot and \n"
 	.string "I hate the high temperatures.\p"
 	.string "Thats why I came here. The Ice types\n"

@@ -172,6 +172,8 @@ extern const u8 gText_Standard[];
 extern const u8 gText_Hardcore[];
 extern const u8 gText_Nuzlocke[];
 
+extern const u8 gText_Frostbite[];
+
 extern const u8 gText_Ferry[];
 extern const u8 gText_SecretBase[];
 extern const u8 gText_Hideout[];
@@ -3068,4 +3070,13 @@ extern const u8 gText_PM[];
 
 extern const u8 gText_UsedPokeVial[]; // From Inclement Emerald
 extern const u8 gText_PokeVialEmpty[];
+
+extern const u8 gText_RememberAMove[];
+extern const u8 gText_ForgetAMove[];  
+extern const u8 gText_ApplyStatus[];  
+extern const u8 gText_DamagePokemon[];
+extern const u8 gText_SwapGender[];
+extern const u8 gText_ChangeNature[]; 
+extern const u8 gText_MaxIVs[];       
+
 #endif // GUARD_STRINGS_H
