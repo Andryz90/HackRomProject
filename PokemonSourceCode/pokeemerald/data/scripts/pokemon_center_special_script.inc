@@ -468,7 +468,7 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_29:
 	.string "Excellent. We shall begin at once!$"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_30:
-	.string "{STR_VAR_1}'s Nature has been\nchanged! Thanks.$"
+	.string "{STR_VAR_1}'s Nature has been\nchanged!$"
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Max IVs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -507,8 +507,17 @@ PKMN_Center_EventScript_MaxIVs_Single::
 	dynmultipush PKMN_Center_SpDef_IV, 5
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
 	copyvar VAR_0x8005, VAR_RESULT
+	special BufferMonNickname
+	special bufferIVname 
+	msgbox PKMN_Center_IVs_AskToContinue, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PKMN_Center_Move_Tutor_General_Exit
 	specialvar VAR_RESULT, SetNewIVStat
 	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_AlreadySet
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	closemessage
+	fadescreen FADE_FROM_BLACK
 	removeitem ITEM_HEART_SCALE, 1
 	msgbox PKMN_Center_IVs_Done_Text, MSGBOX_DEFAULT
 	call PKMN_Center_Move_Tutor_General_Exit
@@ -518,9 +527,16 @@ PKMN_Center_EventScript_MaxIVs_Single::
 PKMN_Center_EventScript_MaxIVs_All::
 	msgbox PKMN_Center_HeartScale_All, MSGBOX_DEFAULT
 	checkitem ITEM_HEART_SCALE, 3
-	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_Exit
+	special BufferMonNickname
+	msgbox PKMN_Center_IVs_AskToContinueAll, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PKMN_Center_Move_Tutor_General_Exit
 	specialvar VAR_RESULT, SetNewIVStatAll
 	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_AlreadySet
+	fadescreen FADE_TO_BLACK
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	closemessage
+	fadescreen FADE_FROM_BLACK
 	removeitem ITEM_HEART_SCALE, 3
 	msgbox PKMN_Center_IVs_Done_Text, MSGBOX_DEFAULT
 	call PKMN_Center_Move_Tutor_General_Exit
@@ -657,6 +673,12 @@ PKMN_Center_All::
 	.string "All$"
 PKMN_Center_HeartScale_One::
 	.string "The price is 1 Heart Scale.$"
+PKMN_Center_IVs_AskToContinue::
+	.string "{STR_VAR_1} will have max IVs\nin {STR_VAR_2}.\p"
+	.string "You want to continue?$"
+PKMN_Center_IVs_AskToContinueAll::
+	.string "{STR_VAR_1} will have max IVs\nin all stats.\p"
+	.string "You want to continue?$"
 PKMN_Center_HeartScale_All::
 	.string "The price is 3 Hearts Scale.$"
 PKMN_Center_NotEnough_HeartScale::

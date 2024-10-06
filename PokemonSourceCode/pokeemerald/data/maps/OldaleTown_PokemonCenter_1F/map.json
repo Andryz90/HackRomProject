@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 10,
+      "x": 14,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
-      "x": 11,
+      "x": 13,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -82,14 +82,14 @@
   ],
   "warp_events": [
     {
-      "x": 7,
+      "x": 10,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_OLDALE_TOWN",
       "dest_warp_id": "2"
     },
     {
-      "x": 6,
+      "x": 9,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_OLDALE_TOWN",

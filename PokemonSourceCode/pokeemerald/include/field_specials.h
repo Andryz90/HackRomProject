@@ -38,5 +38,5 @@ bool32 SetNewIVStatAll(void);
 bool32 SetNewIVStat(void);
 bool32 SwapPokemonGender(void);
 void ChangeMonNature (void);
-
+void bufferIVname(void);
 #endif // GUARD_FIELD_SPECIALS_H

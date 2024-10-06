@@ -108,6 +108,7 @@ PetalburgWoods_EventScript_DevonResearcherFinish::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_ICantBeWastingTime, MSGBOX_DEFAULT
 	closemessage
+	goto Level_Cap_Increased_Global_Script
 	return
 
 PetalburgWoods_EventScript_RemoveDevonResearcher::
@@ -353,6 +354,13 @@ PetalburgWoods_EventScript_Bugsy::
 	releaseall
 	end
 
+Level_Cap_Increased_Global_Script::
+	lock
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Level_Cap_Increased_Global_Text, MSGBOX_GETPOINTS
+	waitfanfare
+	release
+	end
 
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
@@ -539,3 +547,6 @@ PetalburgWoods_Text_Bugsy_BadgeBlock::
 	.string "you have too many badges.$"
 PetalburgWoods_Text_Bugsy_Normal::
 	.string "This is such a lovely place!$"
+
+Level_Cap_Increased_Global_Text::
+	.string "The Level Cap has been increased!$"

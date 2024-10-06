@@ -4465,3 +4465,41 @@ void ChangeMonNature(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HIDDEN_NATURE, &newNature);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+void bufferIVname(void)
+{
+    
+    const u8* HP_Name = COMPOUND_STRING("HP");
+    const u8* Atk_Name = COMPOUND_STRING("ATK");
+    const u8* Def_Name = COMPOUND_STRING("DEF");
+    const u8* Spd_Name = COMPOUND_STRING("SPEED");
+    const u8* SpAtk_Name = COMPOUND_STRING("SP.ATK");
+    const u8* SpDef_Name = COMPOUND_STRING("SP.DEF");
+
+    const u8* Error_Name = COMPOUND_STRING("ERROR");
+
+    switch (VarGet(gSpecialVar_0x8005))
+    {
+        case 0u:
+            StringCopy(gStringVar2, HP_Name);
+            break;
+        case 1u:
+            StringCopy(gStringVar2, Atk_Name);
+            break;
+        case 2u:
+            StringCopy(gStringVar2, Def_Name);
+            break;
+        case 3u:
+            StringCopy(gStringVar2, Spd_Name);
+            break;
+        case 4u:
+            StringCopy(gStringVar2, SpAtk_Name);
+            break;
+        case 5u:
+            StringCopy(gStringVar2, SpDef_Name);
+            break;
+        default:
+            StringCopy(gStringVar2, Error_Name);
+            break;
+    }
+}

@@ -1891,6 +1891,7 @@
     stringvar \stringVarId
     .2byte \nature
     .endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
