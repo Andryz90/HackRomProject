@@ -56,9 +56,9 @@
 #define FLAG_HIDDEN_ITEM_DEWFORD_MEADOW_GRASS_GEM           0x2B 
 #define FLAG_ITEM_DEWFORD_MEADOW_TM95                       0x2C 
 #define FLAG_WINGULL_POTION                 0x2D 
-#define FLAG_HOARFROST_TM    0x2E 
-#define SPLITFACE_ENCOUNTERED    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
+#define FLAG_HOARFROST_TM                   0x2E 
+#define SPLITFACE_ENCOUNTERED               0x2F // Unused Flag
+#define HEART_SCALE_ALTER_FOREST            0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag

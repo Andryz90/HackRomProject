@@ -1870,6 +1870,7 @@ const u8 gText_SwapGender[] =      _("Change Pkmn Gender");
 const u8 gText_DamagePokemon[] =    _("Damage a Pokémon");
 const u8 gText_ChangeNature[] =     _("Change Nature");
 const u8 gText_MaxIVs[] =           _("Max IVs");
+const u8 gText_NameRater[] =        _("Name Rater");
 
 
 const u8 gText_Lonely[]     = _("Lonely");

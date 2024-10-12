@@ -3078,6 +3078,7 @@ extern const u8 gText_DamagePokemon[];
 extern const u8 gText_SwapGender[];
 extern const u8 gText_ChangeNature[]; 
 extern const u8 gText_MaxIVs[];       
+extern const u8 gText_NameRater[];
 
 extern const u8 gText_Lonely[];   
 extern const u8 gText_Adamant[];  

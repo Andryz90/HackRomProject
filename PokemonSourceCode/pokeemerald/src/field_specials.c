@@ -2410,7 +2410,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_POKE_CENTER_TUTOR:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 7; 
+        task->tNumItems = 8; 
         task->tLeft = 20;
         task->tTop = 1;
         task->tWidth = 14;
@@ -2591,6 +2591,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     },
     [SCROLL_MULTI_POKE_CENTER_TUTOR] = 
     {
+        gText_NameRater,
         gText_RememberAMove,
         gText_ForgetAMove,
         gText_ApplyStatus,
