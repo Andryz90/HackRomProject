@@ -4504,3 +4504,9 @@ void bufferIVname(void)
             break;
     }
 }
+
+void DamageMon (void)
+{
+    u8 taskId = CreateTask(DebugTask_HandleMenuInput_Give, 3);
+    gTasks[taskId].func = Debug_Custom_Menu;
+}

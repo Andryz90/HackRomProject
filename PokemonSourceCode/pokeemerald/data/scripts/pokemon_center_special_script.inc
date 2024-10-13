@@ -13,7 +13,7 @@ PKMN_Center_Move_Tutor::
 	case 2, PKMN_Center_MoveDeleter_EventScript
 	case 3, Debug_EventScript_InflictStatus1
 	case 4, PKMN_Center_Swap_Pokemon_Gender
-	@case 5, pre-damage
+	case 5, PKMN_Center_EventScript_DamageSet
 	case 6, OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature
 	case 7, PKMN_Center_EventScript_MaxIVs
 	case 8, PKMN_Center_Move_Tutor_General_Exit
@@ -257,11 +257,28 @@ PKMN_Center_Move_Tutor_General_Exit::
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Pre-Damage @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-PKMN_Center_EventScript_Exp_Grind::
-
+PKMN_Center_EventScript_DamageSet:: 
+	msgbox PKMN_Center_Text_Damage, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, 255
+	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
+	special IsSelectedMonEgg
+	compare VAR_RESULT, TRUE
+	goto_if_eq PKMN_Center_EggCantDamage
+	special BufferMonNickname
+	msgbox PKMN_Center_Text_Damage_YesNo, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
+	special DamageMon
+	compare VAR_RESULT, FALSE
+	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
 	releaseall
 	end
-
+PKMN_Center_EggCantDamage::
+	msgbox PKMN_Center_Text_EggCantDamage, MSGBOX_DEFAULT
+	releaseall
+	end
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Nature Change @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @PKMN_Center_EventScript_ChangeNature::
 @	msgbox PKMN_Center_Nature_Change_IntroText, MSGBOX_DEFAULT
@@ -615,7 +632,9 @@ PKMN_Center_MoveDeleter_Text_EggCantForgetMoves:
 PKMN_Center_Text_EggCantStatus:
 	.string "What?\n"
 	.string "Eggs cannot be stasued.$"
-
+PKMN_Center_Text_EggCantDamage::
+	.string "What?\n"
+	.string "Eggs cannot be damaged.$"
 PKMN_Center_Text_EggIVs_Text:
 	.string "What?\n"
 	.string "Eggs has no IVs.$"
@@ -658,6 +677,10 @@ PKMN_Center_Nature_Change_IntroText::
 	.string "I can change nature of a Pokémon\nif you want.$"
 PKMN_Center_Text_ApplyingStatus::
 	.string "Which POKéMON you want to\napply a status to?$"
+PKMN_Center_Text_Damage::
+	.string "Which POKéMON you want\nto pre-damage?$"
+PKMN_Center_Text_Damage_YesNo::
+	.string "{STR_VAR_1} will be damage\nare you sure?$"
 PKMN_Center_Nature_Change_Text::
 	.string "Which POKéMON you want to\nchange nature?$"
 PKMN_Center_Nature_Switch_Text::

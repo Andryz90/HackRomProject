@@ -352,7 +352,6 @@ static void DebugTask_HandleMenuInput_Party(u8 taskId);
 static void DebugTask_HandleMenuInput_Scripts(u8 taskId);
 static void DebugTask_HandleMenuInput_FlagsVars(u8 taskId);
 static void DebugTask_HandleMenuInput_Battle(u8 taskId);
-static void DebugTask_HandleMenuInput_Give(u8 taskId);
 static void DebugTask_HandleMenuInput_Sound(u8 taskId);
 static void DebugTask_HandleMenuInput_BerryFunctions(u8 taskId);
 
@@ -448,6 +447,8 @@ static void DebugAction_BerryFunctions_Ready(u8 taskId);
 static void DebugAction_BerryFunctions_NextStage(u8 taskId);
 static void DebugAction_BerryFunctions_Pests(u8 taskId);
 static void DebugAction_BerryFunctions_Weeds(u8 taskId);
+//Custom
+static void Damage_Pokemon_SelectQuantity(u8 taskId);
 
 extern const u8 Debug_FlagsNotSetOverworldConfigMessage[];
 extern const u8 Debug_FlagsNotSetBattleConfigMessage[];
@@ -614,6 +615,7 @@ static const u8 sDebugText_Battle_2_Terrain_9[] =   _("Plain…{CLEAR_TO 110}{RI
 static const u8 sDebugText_Give_GiveItem[] =            _("Give item XYZ…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_ItemQuantity[] =             _("Quantity:{CLEAR_TO 90}\n{STR_VAR_1}{CLEAR_TO 90}\n\n{STR_VAR_2}");
 static const u8 sDebugText_ItemID[] =                   _("Item ID: {STR_VAR_3}\n{STR_VAR_1}{CLEAR_TO 90}\n\n{STR_VAR_2}");
+static const u8 sDebugText_Damage[] =                   _("Damage PKMN: \n{STR_VAR_1}{CLEAR_TO 90}\n\n{STR_VAR_2}");
 static const u8 sDebugText_Give_GivePokemonSimple[] =   _("Pokémon (Basic){CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Give_GivePokemonComplex[] =  _("Pokémon (Complex){CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_PokemonID[] =                _("Species: {STR_VAR_3}\n{STR_VAR_1}{CLEAR_TO 90}\n\n{STR_VAR_2}{CLEAR_TO 90}");
@@ -1774,7 +1776,7 @@ static void Debug_InitializeBattle(u8 taskId)
     Debug_DestroyMenu_Full(taskId);
 }
 
-static void DebugTask_HandleMenuInput_Give(u8 taskId)
+void DebugTask_HandleMenuInput_Give(u8 taskId)
 {
     void (*func)(u8);
     u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuTaskId);
@@ -3088,6 +3090,105 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
         DestroySprite(&gSprites[gTasks[taskId].tSpriteId]);         //Destroy item icon
 
         PlaySE(SE_SELECT);
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+}
+
+void Debug_Custom_Menu (u8 taskId)
+{
+    u8 windowId;
+
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+    RemoveWindow(gTasks[taskId].tWindowId);
+
+    HideMapNamePopUpWindow();
+    LoadMessageBoxAndBorderGfx();
+    windowId = AddWindow(&sDebugMenuWindowTemplateExtra);
+    DrawStdWindowFrame(windowId, FALSE);
+
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+
+    // Display initial item
+    StringCopy(gStringVar2, gText_DigitIndicator[0]);
+    ConvertIntToDecimalStringN(gStringVar3, 1, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
+    //CopyItemName(1, gStringVar1);
+    StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
+    StringExpandPlaceholders(gStringVar4, sDebugText_Damage);
+    AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
+
+    gTasks[taskId].tSubWindowId = windowId;
+    gTasks[taskId].tInput = 1;
+    gTasks[taskId].tDigit = 0;
+
+    gTasks[taskId].func = Damage_Pokemon_SelectQuantity;
+
+   // gTasks[taskId].tSpriteId = AddItemIconSprite(ITEM_TAG, ITEM_TAG, gTasks[taskId].tInput);
+   // gSprites[gTasks[taskId].tSpriteId].x2 = DEBUG_NUMBER_ICON_X+10;
+   // gSprites[gTasks[taskId].tSpriteId].y2 = DEBUG_NUMBER_ICON_Y+10;
+   // gSprites[gTasks[taskId].tSpriteId].oam.priority = 0;
+}
+static void Damage_Pokemon_SelectQuantity(u8 taskId)
+{
+    u16 Current_HP = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP, NULL);
+
+    if (JOY_NEW(DPAD_ANY))
+    {
+        PlaySE(SE_SELECT);
+
+        if (JOY_NEW(DPAD_UP))
+        {
+            gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
+            if (gTasks[taskId].tInput > MAX_BAG_ITEM_CAPACITY)
+                gTasks[taskId].tInput = MAX_BAG_ITEM_CAPACITY;
+        }
+        if (JOY_NEW(DPAD_DOWN))
+        {
+            gTasks[taskId].tInput -= sPowersOfTen[gTasks[taskId].tDigit];
+            if (gTasks[taskId].tInput < 1)
+                gTasks[taskId].tInput = 1;
+        }
+        if (JOY_NEW(DPAD_LEFT))
+        {
+            if (gTasks[taskId].tDigit > 0)
+                gTasks[taskId].tDigit -= 1;
+        }
+        if (JOY_NEW(DPAD_RIGHT))
+        {
+            if (gTasks[taskId].tDigit < MAX_ITEM_DIGITS)
+                gTasks[taskId].tDigit += 1;
+        }
+
+        StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
+        ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEM_QUANTITY);
+        StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
+        StringExpandPlaceholders(gStringVar4, sDebugText_ItemQuantity);
+        AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
+       
+    }
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        if (Current_HP > gTasks[taskId].tInput)
+        {
+            PlaySE(MUS_LEVEL_UP); 
+            Current_HP -= gTasks[taskId].tInput;
+            SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP, &Current_HP);
+            CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+            gSpecialVar_Result = TRUE;
+        }
+        else
+        {
+            PlaySE(SE_FAILURE);
+            gSpecialVar_Result = FALSE;
+        }
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        gSpecialVar_Result = FALSE;
         DebugAction_DestroyExtraWindow(taskId);
     }
 }
