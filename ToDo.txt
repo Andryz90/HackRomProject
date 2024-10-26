@@ -1,20 +1,10 @@
+1) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro (aggiustare le descrizioni)
+2) Programmare le nuove mega. (Impossibile senza sprite)
+3) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
+4) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
 
-1) Inserire un evento che abiliti:
-	- Move Relearner
-	- Move Deleter
-	- Nickname changer
-	- Gender swap 
-	- Pre status a pokemon (Se concesso dai type compatibility)
-	- Pre damage a pokemon
-2) Impostare in src/data/items.h e in tms_hms.h le MT e MN con le mosse dentro
-3) Programmare le nuove mega.
-4) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
-5) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
-
-- Aggiustare gli held items dei pokemon in maniera tale che i wild pokemon abbiamo il corrispondente item/stone evolution
 ------------------------------------------
 Map Editing:
-- Aggiungere l'NPC nel Pokecenter
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
 
@@ -24,8 +14,5 @@ After Test:
 
 - Aggiustare descrizioni MT
 - Far evolvere Gimmighoul in lategame
-- Reworkare Bugsy per poterlo sfidare dalla gym 3 almeno, squadra troppo forte
-- Ogni volta che viene incrementato il level cap mettere un messaggio a schermo che te lo dice
 - Paradox Pokemon
 - Nuovi sprite di Edo e Andry
-- Aggiungere il nuovo NPC in tutti i Pokemon Center

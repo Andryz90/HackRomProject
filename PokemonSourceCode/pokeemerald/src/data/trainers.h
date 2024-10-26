@@ -12022,7 +12022,7 @@ F_TRAINER_FEMALE |
 #line 4779
             .ability = ABILITY_WATER_BUBBLE,
 #line 4780
-            .lvl = 22,
+            .lvl = 33,
 #line 4781
             .nature = NATURE_CAREFUL,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12045,7 +12045,7 @@ F_TRAINER_FEMALE |
 #line 4788
             .ability = ABILITY_IRON_FIST,
 #line 4789
-            .lvl = 23,
+            .lvl = 33,
 #line 4790
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12068,7 +12068,7 @@ F_TRAINER_FEMALE |
 #line 4797
             .ability = ABILITY_ADAPTABILITY,
 #line 4798
-            .lvl = 23,
+            .lvl = 33,
 #line 4799
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12091,7 +12091,7 @@ F_TRAINER_FEMALE |
 #line 4806
             .ability = ABILITY_TECHNICIAN,
 #line 4807
-            .lvl = 24,
+            .lvl = 34,
 #line 4808
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12115,7 +12115,7 @@ F_TRAINER_FEMALE |
 #line 4815
             .ability = ABILITY_LIFEDRAINER,
 #line 4816
-            .lvl = 23,
+            .lvl = 33,
 #line 4817
             .nature = NATURE_TIMID,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -12138,7 +12138,7 @@ F_TRAINER_FEMALE |
 #line 4825
             .ability = ABILITY_SHIELD_DUST,
 #line 4826
-            .lvl = 23,
+            .lvl = 33,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
@@ -12222,7 +12222,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_LILEEP,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 4860
-            .heldItem = ITEM_SITRUS_BERRY,
+            .heldItem = ITEM_ORAN_BERRY,
 #line 4864
             .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
 #line 4861

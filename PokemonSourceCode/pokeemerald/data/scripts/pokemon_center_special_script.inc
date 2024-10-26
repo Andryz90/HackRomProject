@@ -1,26 +1,47 @@
 
+PKMN_Center_Move_Tutor_HeartScale::
+	lockall
+	faceplayer
+	message PKMN_Center_Move_Tutor_Text_HowCanHelp_HS
+	waitmessage
+	dynmultipush PKMN_Center_Remember_Move, 	0
+	dynmultipush PKMN_Center_ChangeNature, 		1
+	dynmultipush PKMN_Center_MaxIVs, 	2
+	dynmultipush PKMN_Center_Cancel, 		3
+	dynmultistack 0, 0, FALSE, 4, FALSE, 0, NULL
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
+	switch VAR_RESULT
+	case 0, PKMN_Center_MoveReminder_EventScript
+	case 1, OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature
+	case 2, PKMN_Center_EventScript_MaxIVs
+	case 3, PKMN_Center_Move_Tutor_General_Exit
+	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_General_Exit
+	releaseall
+	end
 PKMN_Center_Move_Tutor::
 	lockall
 	faceplayer
 	message PKMN_Center_Move_Tutor_Text_HowCanHelp
 	waitmessage
-	setvar VAR_0x8004, SCROLL_MULTI_POKE_CENTER_TUTOR
-	special ShowScrollableMultichoice
-	waitstate
+	dynmultipush PKMN_Center_NameRater, 	0
+	dynmultipush PKMN_Center_ForgetAMove, 	1
+	dynmultipush PKMN_Center_ApplyStatus, 	2
+	dynmultipush PKMN_Center_SwapGender, 	3
+	dynmultipush PKMN_Center_DamagePokemon, 4
+	dynmultipush PKMN_Center_Cancel, 		5
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, NULL
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
 	switch VAR_RESULT
 	case 0, PKMN_Center_NameRater_EventScript
-	case 1, PKMN_Center_MoveReminder_EventScript
-	case 2, PKMN_Center_MoveDeleter_EventScript
-	case 3, Debug_EventScript_InflictStatus1
-	case 4, PKMN_Center_Swap_Pokemon_Gender
-	case 5, PKMN_Center_EventScript_DamageSet
-	case 6, OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature
-	case 7, PKMN_Center_EventScript_MaxIVs
-	case 8, PKMN_Center_Move_Tutor_General_Exit
-	case MULTI_B_PRESSED, PKMN_Center_Move_Tutor_General_Exit
+	case 1, PKMN_Center_MoveDeleter_EventScript
+	case 2, Debug_EventScript_InflictStatus1
+	case 3, PKMN_Center_Swap_Pokemon_Gender
+	case 4, PKMN_Center_EventScript_DamageSet
+	case 5, PKMN_Center_Move_Tutor_General_Exit
 	releaseall
 	end
-
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Move Reminder @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 PKMN_Center_MoveReminder_EventScript::
@@ -545,6 +566,7 @@ PKMN_Center_EventScript_MaxIVs_Single::
 PKMN_Center_EventScript_MaxIVs_All::
 	msgbox PKMN_Center_HeartScale_All, MSGBOX_DEFAULT
 	checkitem ITEM_HEART_SCALE, 3
+	goto_if_eq VAR_RESULT, FALSE, PKMN_Center_IVs_Exit
 	special BufferMonNickname
 	msgbox PKMN_Center_IVs_AskToContinueAll, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, PKMN_Center_Move_Tutor_General_Exit
@@ -573,9 +595,32 @@ PKMN_Center_IVs_AlreadySet::
 	end
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Strings @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+PKMN_Center_NameRater::
+	.string "Name Rater$"
+PKMN_Center_Remember_Move::
+	.string "Remember a move$"
+PKMN_Center_ForgetAMove::
+	.string "Forget a move$"
+PKMN_Center_ApplyStatus::
+	.string "Apply a status$"
+PKMN_Center_SwapGender::
+	.string "Change Pkmn Gender$"
+PKMN_Center_DamagePokemon::
+	.string "Damage a Pokémon$"
+PKMN_Center_ChangeNature::
+	.string "Change Nature$"
+PKMN_Center_MaxIVs::
+	.string "Max IVs$"
+PKMN_Center_Cancel::
+	.string "Exit$"
+
 PKMN_Center_Move_Tutor_Text_HowCanHelp:
 	.string "How can I help you today?$"
 
+PKMN_Center_Move_Tutor_Text_HowCanHelp_HS:
+	.string "I am the special\nPOKéMON Center Service.\p"
+	.string "My assistance requires Heart Scales.\n"
+	.string "How can I help you today?$"
 PKMN_Center_Move_Tutor_Text_SeeYou:
 	.string "See you later, then!$"
 

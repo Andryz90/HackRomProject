@@ -463,27 +463,27 @@
               {
                 "min_level": 5,
                 "max_level": 10,
+                "species": "SPECIES_BOUNSWEET"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_FIDOUGH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_FIDOUGH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_BOUNSWEET"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
                 "species": "SPECIES_YAMPER"
-              },
-              {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_FIDOUGH"
-              },
-              {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_FIDOUGH"
-              },
-              {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_BOUNSWEET"
-              },
-              {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_BOUNSWEET"
               },
               {
                 "min_level": 5,

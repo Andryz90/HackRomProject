@@ -327,7 +327,7 @@ PetalburgWoods_Bugsy_Lost::
 	releaseall
 	end
 PetalburgWoods_EventScript_Bugsy_CheckBadge::
-	goto_if_unset FLAG_BADGE02_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
+	goto_if_unset FLAG_BADGE03_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
 	msgbox PetalburgWoods_Text_Bugsy_BadgeBlock, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -360,7 +360,7 @@ Level_Cap_Increased_Global_Script::
 	msgbox Level_Cap_Increased_Global_Text, MSGBOX_GETPOINTS
 	waitfanfare
 	release
-	end
+	return
 
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"

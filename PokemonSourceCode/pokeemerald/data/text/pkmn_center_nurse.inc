@@ -53,8 +53,8 @@ gText_WeHopeToSeeYouAgain2::
 gText_ExplainPokeVial:: 
     .string "That Poké Vial contains very potent\n"
     .string "medicine.\p"
-    .string "It's strong enough to heal your entire\n"
-    .string "party, but you can't use it in battles.\p"
+    .string "It's strong enough\nto heal your entire\n"
+    .string "party!\p"
     .string "It's like a portable Pokémon Center!\p"
     .string "Now, would you like to rest your\n"
     .string "Pokémon?$"
