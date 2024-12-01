@@ -356,8 +356,8 @@ Ability: Mind Power
 Level: 20  
 IVs: 0 Atk    
 - Snarl  
-- Psybeam  
-- Air Slash  
+- Confusion  
+- Air Cutter
 
 Cramorant (M)  
 Ability: Gulp Missile  
@@ -365,7 +365,7 @@ Level: 21
 - Dive  
 - Pluck  
 - Air Slash  
-- Roost  
+
 
 Mightyena  
 Ability: Intimidate  
@@ -439,9 +439,22 @@ Music: Aqua
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Carvanha
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Arbok  
+Ability: Intimidate  
+Level: 23   
+- Poison Fang  
+- Knock Off  
+- Toxic Spikes  
+- Trailblaze  
+
+Mareanie  
+Ability: Merciless  
+Level: 23  
+- Brine  
+- Venoshock  
+- Bite  
+
+
 
 === TRAINER_GRUNT_MUSEUM_2 ===
 Name: GRUNT
@@ -452,13 +465,23 @@ Music: Aqua
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Zubat
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Seviper  
+Ability: Shed Skin  
+Level: 23    
+- Rest  
+- Poison Tail  
+- Trailblaze  
+- Dig  
 
-Carvanha
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zangoose  
+Ability: Guts  
+Level: 23   
+- Quick Attack  
+- Ice Punch  
+- Thunder Punch  
+- Body Slam  
+
+
 
 === TRAINER_GRUNT_SPACE_CENTER_1 ===
 Name: GRUNT
@@ -4961,7 +4984,7 @@ AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Awa
 
 Sneasel-Hisui  
 Ability: Inner Focus  
-Level: 22  
+Level: 23  
 - Rock Smash  
 - Poison Jab  
 - Taunt  
@@ -4969,7 +4992,7 @@ Level: 22
 
 Clobbopus @ Eviolite  
 Ability: Technician  
-Level: 23  
+Level: 24  
 - Power-Up Punch  
 - Brick Break  
 - Aqua Jet  
@@ -4977,8 +5000,7 @@ Level: 23
 
 Farfetchd @ Stick  
 Ability: Technician  
-Level: 24   
-- Aerial Ace  
+Level: 23   
 - Cut  
 - Power-Up Punch  
 - First Impression
@@ -17651,7 +17673,7 @@ AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Awa
 
 Snover @ Occa Berry  
 Ability: Snow Warning  
-Level: 25  
+Level: 23  
 Modest Nature  
 - Giga Drain  
 - Ice Shard  
@@ -17660,7 +17682,7 @@ Modest Nature
 
 Glalie @ Leftovers  
 Ability: Moody  
-Level: 24  
+Level: 23  
 IVs: 0 Atk  
 - Toxic  
 - Protect  
@@ -17677,7 +17699,7 @@ Level: 23
 
 Naclstack @ Eviolite  
 Ability: Purifying Salt  
-Level: 24  
+Level: 23  
 - Rock Slide
 - Iron Defense  
 - Body Press  
@@ -17685,7 +17707,7 @@ Level: 24
 
 Spheal :3 (Spheal) @ Leftovers  
 Ability: Ice Body  
-Level: 25  
+Level: 24  
 Bold Nature  
 IVs: 0 Atk  
 - Blizzard  
@@ -17695,7 +17717,7 @@ IVs: 0 Atk
 
 Swinub  
 Ability: Thick Fat  
-Level: 25  
+Level: 24  
 - Ice Shard  
 - Mud-Slap  
 - Powder Snow

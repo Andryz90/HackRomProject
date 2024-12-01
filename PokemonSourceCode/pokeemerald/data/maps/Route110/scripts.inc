@@ -595,8 +595,37 @@ Route110_EventScript_BirchScene4::
 	setvar VAR_0x8008, 4
 	goto Route110_EventScript_BirchScene
 
+Route110_GoBackFightGym::
+	applymovement LOCALID_BIRCH, Common_Movement_FacePlayer
+	goto_if_set FLAG_BADGE02_GET, Route110_EventScript_BirchScene_End
+	msgbox Route110_GoBackFightGym_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_FaceDown
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_WalkDown
+	waitmovement 0
+	setvar VAR_BIRCH_TRIGGER_110, 1
+	releaseall
+	end 
+Route110_EventScript_BirchScene_End::
+	msgbox Route110_Text_BadgeOk, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_BIRCH, Common_Movement_Delay32
+	waitmovement 0
+	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchExit1
+	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchExit2
+	call_if_eq VAR_0x8008, 3, Route110_EventScript_BirchExit3
+	call_if_eq VAR_0x8008, 4, Route110_EventScript_BirchExit4
+	removeobject LOCALID_BIRCH
+	setvar VAR_REGISTER_BIRCH_STATE, 2
+	releaseall
+	end
 Route110_EventScript_BirchScene::
+	lockall
 	addobject LOCALID_BIRCH
+	goto_if_eq VAR_BIRCH_TRIGGER_110, 1, Route110_GoBackFightGym
 	applymovement LOCALID_BIRCH, Route110_Movement_BirchEntrance
 	waitmovement 0
 	playse SE_PIN
@@ -629,14 +658,8 @@ Route110_EventScript_BirchScene::
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
-	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
-	closemessage
-	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchExit1
-	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchExit2
-	call_if_eq VAR_0x8008, 3, Route110_EventScript_BirchExit3
-	call_if_eq VAR_0x8008, 4, Route110_EventScript_BirchExit4
-	removeobject LOCALID_BIRCH
-	setvar VAR_REGISTER_BIRCH_STATE, 2
+	goto_if_unset FLAG_BADGE02_GET, Route110_GoBackFightGym
+	call Route110_EventScript_BirchScene_End
 	releaseall
 	end
 
@@ -992,3 +1015,10 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+Route110_GoBackFightGym_Text::
+	.string "Oh, I see that you don't\nhave the 2nd badge yet.\p"
+	.string "Before proceeding you shall battle it,\nyou need it for your journey.$"
+Route110_Text_BadgeOk::
+	.string "I see, you have the second badge.\p"
+	.string "It's safe to assume that you're prepared\nfor what coming next.\p"
+	.string "Stay on guard and be safe, please.$"

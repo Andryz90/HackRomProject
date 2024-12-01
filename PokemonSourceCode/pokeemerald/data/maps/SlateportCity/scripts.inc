@@ -498,6 +498,12 @@ SlateportCity_EventScript_AquaGrunt11::
 	waitmovement 0
 	release
 	end
+SlateportCity_EventScript_AquaGuard::
+	lock
+	msgbox SlateportCity_Text_GruntsGuard_Text, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
 
 SlateportCity_EventScript_DollClerk::
 	lock
@@ -1383,3 +1389,8 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+SlateportCity_Text_GruntsGuard_Text::
+	.string "What do you want?!\pNobody can leave the city\n"
+	.string "as long as we take the Devon Goods\p"
+	.string "Get Lost!$"

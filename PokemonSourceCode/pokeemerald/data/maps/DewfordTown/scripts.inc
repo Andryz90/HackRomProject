@@ -2,7 +2,7 @@
 @ e.g. Route 104's sail to Dewford script references local IDs from Dewford's map
 @ All of these local IDs are labeled here
 .equ LOCALID_BRINEY_DEWFORD, 2
-.equ LOCALID_BOAT_DEWFORD, 4
+.equ LOCALID_BOAT_DEWFORD, 3
 
 .equ LOCALID_BOAT_R109, 1
 .equ LOCALID_BRINEY_R109, 2
@@ -10,6 +10,7 @@
 .equ LOCALID_BOAT_R104, 7
 .equ LOCALID_BRINEY_R104, 8
 
+.set LOCALID_GYM_GUARD, 8
 DewfordTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_OnTransition
 	.byte 0
@@ -660,6 +661,16 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	release
 	end
 
+DewfordTown_EventScript_GymGuard::
+	lock
+	applymovement LOCALID_GYM_GUARD, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Dewford_Town_Brawly_NotHere_Text, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_GYM_GUARD, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
 DewfordTown_Text_TinyIslandCommunity:
 	.string "DEWFORD is a tiny island community.\n"
 	.string "If something gets trendy here,\l"
@@ -822,3 +833,9 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+Dewford_Town_Brawly_NotHere_Text::
+	.string "Ehi champ, the Gym Leader, Brawly\n"
+	.string "is not here at the moment.\p"
+	.string "He was called to help Slateport,\n"
+	.string "because a bunch of grunts are shown off.$"
