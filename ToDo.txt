@@ -16,3 +16,5 @@ After Test:
 - Far evolvere Gimmighoul in lategame
 - Paradox Pokemon
 - Nuovi sprite di Edo e Andry
+- Modificare il mercatino di Slateport City, aggiungendo un negoziante che scambia un item per Heart Scale
+- Aggiungere un Heart Scale (magari con un temp) e altri oggetti viabili in Route109.
