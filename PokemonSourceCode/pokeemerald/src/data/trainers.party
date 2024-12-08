@@ -1110,13 +1110,23 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Corsola-Galar  
+Ability: Weak Armor  
+Level: 22  
+IVs: 0 Atk  
+- Curse  
+- Destiny Bond  
+- Hex  
+- Will-O-Wisp  
 
-Azurill
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Corsola  
+Ability: Rough Skin  
+Level: 22  
+IVs: 0 Atk  
+- Ancient Power  
+- Bubble Beam  
+- Life Dew  
+- Protect  
 
 === TRAINER_AUSTINA ===
 Name: AUSTINA
@@ -1221,13 +1231,20 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Zigzagoon
-Level: 13
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Sand Attack
-- Headbutt
-- Tail Whip
-- Surf
+Alomomola @ Damp Rock  
+Ability: Regenerator  
+Level: 22  
+- Rain Dance  
+- Flip Turn  
+- Bounce  
+
+Shiinotic  
+Ability: Rain Dish  
+Level: 22  
+IVs: 0 Atk  
+- Giga Drain  
+- Moonblast  
+- Pollen Puff 
 
 === TRAINER_SIMON ===
 Name: SIMON
@@ -8589,17 +8606,37 @@ Music: Swimmer
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tadbulb  
+Ability: Static  
+Level: 21  
+IVs: 0 Atk  
+- Charge Beam  
+- Soak  
+- Parabolic Charge  
+- Water Pulse  
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Azurill  
+Ability: Huge Power  
+Level: 20  
+- Aqua Jet  
+- Charm  
+- Covet  
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Marill  
+Ability: Huge Power  
+Level: 21  
+- Aqua Jet  
+- Charm  
+- Covet  
+
+Azumarill  
+Ability: Huge Power  
+Level: 22  
+- Aqua Jet  
+- Charm  
+- Covet  
+
+
 
 === TRAINER_JENNY_1 ===
 Name: JENNY
@@ -9345,13 +9382,29 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Wingull
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Pelipper  
+Ability: Drizzle  
+Level: 20  
+IVs: 0 Atk  
+- Water Gun  
+- Gust  
+- Icy Wind  
 
-Machop
-Level: 12
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Palpitoad @ Soft Sand  
+Ability: Swift Swim  
+Level: 22  
+IVs: 0 Atk  
+- Mud Shot  
+- Bubble Beam  
+
+Lombre @ Oran Berry  
+Ability: Rain Dish  
+Level: 22   
+IVs: 0 Atk  
+- Giga Drain  
+- Bubble Beam  
+
+
 
 === TRAINER_EDMOND ===
 Name: EDMOND
@@ -9362,9 +9415,19 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Wingull
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drednaw  
+Ability: Swift Swim  
+Level: 22  
+- Ice Fang  
+- Liquidation  
+- Rock Slide  
+
+Carracosta  
+Ability: Solid Rock  
+Level: 23  
+- Rock Slide  
+- Razor Shell  
+- Zen Headbutt  
 
 === TRAINER_ERNEST_1 ===
 Name: ERNEST
@@ -13719,13 +13782,23 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Corsola-Galar  
+Ability: Cursed Body  
+Level: 22  
+IVs: 0 Atk  
+- Hex  
+- Curse  
+- Destiny Bond  
+- Will-O-Wisp  
 
-Tentacool
-Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Corsola  
+Ability: Rough Skin  
+Level: 22  
+- Rock Slide  
+- Icy Wind  
+- Life Dew  
+- Protect  
+
 
 === TRAINER_KALEB ===
 Name: KALEB

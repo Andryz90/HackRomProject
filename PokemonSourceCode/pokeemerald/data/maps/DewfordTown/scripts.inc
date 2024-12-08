@@ -620,6 +620,7 @@ DewfordTown_EventScript_DefeatedSandy::
 	goto Common_EventScript_RemoveStaticPokemon
 	end
 
+
 DewfordTown_EventScript_TrendyPhraseBoy::
 	lock
 	faceplayer

@@ -874,8 +874,8 @@ Route109_Text_RickyRematchPostBattle:
 	.string "seems to taste a little better.$"
 
 Route109_Text_LolaIntro:
-	.string "Doesn't a beach umbrella look like\n"
-	.string "a giant flower?$"
+	.string "Do you like our Cursola?\n"
+	.string "They're kinda strange...$"
 
 Route109_Text_LolaDefeated:
 	.string "Mommy!$"
@@ -968,8 +968,8 @@ Route109_Text_MelNotEnoughPokemon:
 	.string "battle together.$"
 
 Route109_Text_ChandlerIntro:
-	.string "Tadaah! See?\n"
-	.string "My inner tube's round!$"
+	.string "Yeah, we found them\n"
+	.string "on the beach the other day.$"
 
 Route109_Text_ChandlerDefeated:
 	.string "Oh, oh!\n"

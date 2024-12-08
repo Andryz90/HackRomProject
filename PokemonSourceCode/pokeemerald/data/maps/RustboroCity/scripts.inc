@@ -36,43 +36,43 @@ RustboroCity_OnFrame:
 	.2byte 0
 
 RustboroCity_EventScript_ScientistAddMatchCall::
-	lockall
-	setvar VAR_ROUTE104_STATE, 1
-	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerWalkDown
-	waitmovement 0
-	playse SE_EXIT
-	delay 10
-	addobject LOCALID_SCIENTIST
-	applymovement LOCALID_SCIENTIST, RustboroCity_Movement_ScientistApproachPlayer
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_SCIENTIST, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_SCIENTIST, Common_Movement_Delay48
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	applymovement LOCALID_SCIENTIST, RustboroCity_Movement_ScientistWalkInPlaceDown
-	waitmovement 0
-	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
-	closemessage
-	setflag FLAG_HAS_MATCH_CALL
-	applymovement LOCALID_SCIENTIST, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 10
-	playse SE_CLICK
-	delay 20
-	applymovement LOCALID_SCIENTIST, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox RustboroCity_Text_AddedMatchCallPleaseCallMrStone, MSGBOX_DEFAULT
-	closemessage
-	delay 20
-	goto RustboroCity_EventScript_MatchCallTutorial
+	@lockall
+	@setvar VAR_ROUTE104_STATE, 1
+	@applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerWalkDown
+	@waitmovement 0
+	@playse SE_EXIT
+	@delay 10
+	@addobject LOCALID_SCIENTIST
+	@applymovement LOCALID_SCIENTIST, RustboroCity_Movement_ScientistApproachPlayer
+	@waitmovement 0
+	@playse SE_PIN
+	@applymovement LOCALID_SCIENTIST, Common_Movement_ExclamationMark
+	@waitmovement 0
+	@applymovement LOCALID_SCIENTIST, Common_Movement_Delay48
+	@waitmovement 0
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	@waitmovement 0
+	@applymovement LOCALID_SCIENTIST, RustboroCity_Movement_ScientistWalkInPlaceDown
+	@waitmovement 0
+	@msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
+	@closemessage
+	@setflag FLAG_HAS_MATCH_CALL
+	@applymovement LOCALID_SCIENTIST, Common_Movement_WalkInPlaceFasterLeft
+	@waitmovement 0
+	@playse SE_CLICK
+	@delay 10
+	@playse SE_CLICK
+	@delay 10
+	@playse SE_CLICK
+	@delay 10
+	@playse SE_CLICK
+	@delay 20
+	@applymovement LOCALID_SCIENTIST, Common_Movement_WalkInPlaceFasterDown
+	@waitmovement 0
+	@msgbox RustboroCity_Text_AddedMatchCallPleaseCallMrStone, MSGBOX_DEFAULT
+	@closemessage
+	@delay 20
+	@goto RustboroCity_EventScript_MatchCallTutorial
 
 RustboroCity_EventScript_PleaseSelectPokenav::
 	msgbox RustboroCity_Text_PleaseSelectPokenav, MSGBOX_DEFAULT

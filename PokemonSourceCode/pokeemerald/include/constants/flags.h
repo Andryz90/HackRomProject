@@ -59,7 +59,7 @@
 #define FLAG_HOARFROST_TM                               0x2E 
 #define SPLITFACE_ENCOUNTERED                           0x2F 
 #define HEART_SCALE_ALTER_FOREST                        0x30 
-#define FLAG_UNUSED_0x031                               0x31 
+#define FLAG_RARE_CANDY_HISUIAN_AMULER_109              0x31 
 #define FLAG_UNUSED_0x032                               0x32 // Unused Flag
 #define FLAG_UNUSED_0x033                               0x33 // Unused Flag
 #define FLAG_UNUSED_0x034                               0x34 // Unused Flag

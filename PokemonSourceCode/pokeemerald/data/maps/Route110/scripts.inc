@@ -10,12 +10,13 @@ Route110_MapScripts::
 	.byte 0
 
 Route110_OnResume:
+	
 	special UpdateCyclingRoadState
 	end
-
 Route110_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
+	goto_if_eq VAR_BIRCH_TRIGGER_110, 1, Route110_ChangeBirchPos
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
 	end
 
@@ -31,7 +32,9 @@ Route110_EventScript_BeginCylcingRoadChallenge::
 	special Special_BeginCyclingRoadChallenge
 	setvar VAR_CYCLING_CHALLENGE_STATE, 2
 	return
-
+Route110_ChangeBirchPos::
+	setobjectxyperm LOCALID_BIRCH, 9, 84
+	return 
 Route110_EventScript_AquaGrunt1::
 	lock
 	faceplayer
@@ -604,12 +607,20 @@ Route110_GoBackFightGym::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER Common_Movement_WalkDown
 	waitmovement 0
+	applymovement LOCALID_BIRCH, Common_Movement_FaceOriginalDirection
+	waitmovement 0
 	setvar VAR_BIRCH_TRIGGER_110, 1
 	releaseall
 	end 
 Route110_EventScript_BirchScene_End::
 	msgbox Route110_Text_BadgeOk, MSGBOX_DEFAULT
 	closemessage
+	randomelement SPECIES_CYNDAQUIL, SPECIES_TOTODILE, SPECIES_CHIKORITA
+	giveegg VAR_RESULT
+	playfanfare MUS_OBTAIN_ITEM
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	msgbox Route110_Text_BadgeOk_End, MSGBOX_DEFAULT
 	applymovement LOCALID_BIRCH, Common_Movement_Delay32
 	waitmovement 0
 	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
@@ -618,10 +629,13 @@ Route110_EventScript_BirchScene_End::
 	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchExit2
 	call_if_eq VAR_0x8008, 3, Route110_EventScript_BirchExit3
 	call_if_eq VAR_0x8008, 4, Route110_EventScript_BirchExit4
-	removeobject LOCALID_BIRCH
+	setflag FLAG_HIDE_ROUTE_110_BIRCH
+	setvar VAR_BIRCH_TRIGGER_110, 2
 	setvar VAR_REGISTER_BIRCH_STATE, 2
+	removeobject LOCALID_BIRCH
 	releaseall
 	end
+
 Route110_EventScript_BirchScene::
 	lockall
 	addobject LOCALID_BIRCH
@@ -658,6 +672,7 @@ Route110_EventScript_BirchScene::
 	closemessage
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
+	call Route110_ChangeBirchPos
 	goto_if_unset FLAG_BADGE02_GET, Route110_GoBackFightGym
 	call Route110_EventScript_BirchScene_End
 	releaseall
@@ -1021,4 +1036,6 @@ Route110_GoBackFightGym_Text::
 Route110_Text_BadgeOk::
 	.string "I see, you have the second badge.\p"
 	.string "It's safe to assume that you're prepared\nfor what coming next.\p"
+	.string "I believe you can take this,\nit has a rare species inside.$"
+Route110_Text_BadgeOk_End::
 	.string "Stay on guard and be safe, please.$"

@@ -1,6 +1,8 @@
 @ NOTE: Route 109's sail to Dewford script references local IDs from Dewford's map.
 @  These are labeled in DewfordTown/scripts.inc
 
+.set LOCALID_CURSOLA1,	35
+.set LOCALID_CURSOLA2,	36
 Route109_MapScripts::
 	.byte 0
 
@@ -493,6 +495,22 @@ DewfordTown_EventScript_Pyukumuku::
 	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DewfordTown_EventScript_DefeatedSandy 
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DewfordTown_EventScript_DefeatedSandy
 	releaseall
+	end
+
+Route109_EventScript_StaticCursola1::
+	lock 	
+	applymovement LOCALID_CURSOLA1, Common_Movement_FacePlayer
+	playmoncry	SPECIES_CORSOLA_GALARIAN, CRY_MODE_NORMAL
+	applymovement	LOCALID_CURSOLA1, Common_Movement_FaceOriginalDirection
+	release
+	end
+
+Route109_EventScript_StaticCursola2::
+	lock 	
+	applymovement LOCALID_CURSOLA2, Common_Movement_FacePlayer
+	playmoncry	SPECIES_CORSOLA_GALARIAN, CRY_MODE_NORMAL
+	applymovement	LOCALID_CURSOLA2, Common_Movement_FaceOriginalDirection
+	release
 	end
 
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
