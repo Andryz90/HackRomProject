@@ -293,7 +293,7 @@ RusturfTunnel_WallyHelp:
 	.string "WALLY: {PLAYER}, please help me!$"
 RusturfTunnel_WallyHelpBattling:
 	.string "WALLY: {PLAYER}, lets battle together!\n"
-	.string "E-even though I'm not exeperience yet,\p"
+	.string "E-even though I'm not exeperienced yet,\p"
 	.string "WALLY: I'll try my best to help you!$"
 
 RusturfTunnel_WallyBattleEnd:

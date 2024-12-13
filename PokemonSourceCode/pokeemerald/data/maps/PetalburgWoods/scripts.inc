@@ -327,11 +327,16 @@ PetalburgWoods_Bugsy_Lost::
 	releaseall
 	end
 PetalburgWoods_EventScript_Bugsy_CheckBadge::
-	goto_if_unset FLAG_BADGE03_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
+	goto_if_set FLAG_BADGE02_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
+	msgbox PetalburgWoods_Text_Bugsy_BadgeLow, MSGBOX_DEFAULT
+	releaseall
+	end
+PetalburgWoods_EventScript_Bugsy_CheckBadge_Fail::
 	msgbox PetalburgWoods_Text_Bugsy_BadgeBlock, MSGBOX_DEFAULT
 	releaseall
 	end
 PetalburgWoods_EventScript_Bugsy_BattleBegin::
+	goto_if_set FLAG_BADGE03_GET, PetalburgWoods_EventScript_Bugsy_CheckBadge_Fail
 	trainerbattle_single TRAINER_BUGSY, PetalburgWoods_Text_Bugsy_Accepted, PetalburgWoods_Text_Bugsy_Lost, PetalburgWoods_Bugsy_Lost, NO_MUSIC
 	releaseall
 	end
@@ -547,6 +552,8 @@ PetalburgWoods_Text_Bugsy_BadgeBlock::
 	.string "you have too many badges.$"
 PetalburgWoods_Text_Bugsy_Normal::
 	.string "This is such a lovely place!$"
-
+PetalburgWoods_Text_Bugsy_BadgeLow::
+	.string "I'm sorry, but it seems that\n"
+	.string "you need more badges.$"
 Level_Cap_Increased_Global_Text::
 	.string "The Level Cap has been increased!$"

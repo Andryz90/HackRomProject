@@ -101,41 +101,40 @@
                 MOVE_NUZZLE,
                 MOVE_DRAINING_KISS,
                 MOVE_THUNDER_SHOCK,
-                MOVE_THUNDER_WAVE,
             },
             },
         },
     },
-#line 42
+#line 41
     [PARTNER_STEVEN] =
     {
-#line 43
+#line 42
         .trainerName = _("STEVEN"),
-#line 44
+#line 43
         .trainerClass = TRAINER_CLASS_RIVAL,
-#line 45
+#line 44
         .trainerPic = TRAINER_BACK_PIC_STEVEN,
         .encounterMusic_gender = 
-#line 47
+#line 46
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
             {
-#line 49
+#line 48
             .species = SPECIES_METANG,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 53
-            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
 #line 52
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
 #line 51
-            .lvl = 42,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 50
+            .lvl = 42,
+#line 49
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-#line 54
+#line 53
                 MOVE_LIGHT_SCREEN,
                 MOVE_PSYCHIC,
                 MOVE_REFLECT,
@@ -143,20 +142,20 @@
             },
             },
             {
-#line 59
+#line 58
             .species = SPECIES_SKARMORY,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 63
-            .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 6, 252),
 #line 62
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 6, 252),
 #line 61
-            .lvl = 43,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 60
+            .lvl = 43,
+#line 59
             .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-#line 64
+#line 63
                 MOVE_TOXIC,
                 MOVE_AERIAL_ACE,
                 MOVE_PROTECT,
@@ -164,20 +163,20 @@
             },
             },
             {
-#line 69
+#line 68
             .species = SPECIES_AGGRON,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 73
-            .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 6),
 #line 72
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 6),
 #line 71
-            .lvl = 44,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 70
+            .lvl = 44,
+#line 69
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-#line 74
+#line 73
                 MOVE_THUNDER,
                 MOVE_PROTECT,
                 MOVE_SOLAR_BEAM,

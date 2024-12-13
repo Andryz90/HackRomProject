@@ -141,6 +141,7 @@ static void Task_CloseBattlePikeCurtain(u8);
 static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
 static u16 PlayerGainRandomTrainerFan(void);
+void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg);
 #if FREE_LINK_BATTLE_RECORDS == FALSE
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
 #else
@@ -4509,4 +4510,65 @@ void DamageMon (void)
 {
     u8 taskId = CreateTask(DebugTask_HandleMenuInput_Give, 3);
     gTasks[taskId].func = Debug_Custom_Menu;
+}
+
+extern u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 ggMaxFactor, u8 teraType, bool8 isEgg);
+
+void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg)
+{
+    u8 hpIv                  = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 atkIv                 = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 defIv                 = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 speedIv               = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 spAtkIv               = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 spDefIv               = Random() % (MAX_PER_STAT_IVS + 1);
+
+    u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
+    u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
+    u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
+    
+    u8 rand_number[numberIVs];
+
+    
+    //Generate number to choose which stat to have max IV
+    for (int i = 0; i < numberIVs; i++)
+    {
+        rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
+
+        MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number[i]);
+        //MgbaPrintf(MGBA_LOG_ERROR, "Value Before: %u", ivs[rand_number[i]]);
+
+        if (i == 0)
+        {
+            ivs[rand_number[i]] = 31;
+        }
+
+        for (int k = 0; k < i; k++)
+        {
+            MgbaPrintf(MGBA_LOG_ERROR, "k: %u", k);
+            if (rand_number[k] == rand_number[i])
+            {
+                MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted: %u", rand_number[i]);
+                rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
+                MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted Aft: %u", rand_number[i]);
+                k = -1;
+            }
+        }
+
+        ivs[rand_number[i]] = 31;
+        //MgbaPrintf(MGBA_LOG_ERROR, "Value After: %u", ivs[rand_number[i]]);
+        
+    }
+
+    for (int k = 0; k < NUM_STATS; k++)
+    {
+       MgbaPrintf(MGBA_LOG_ERROR, "IVs %d : %d", k, ivs[k]);
+    }
+
+    gSpecialVar_Result = ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, isEgg);
+}
+
+void Script_GiveMonSpecial (void)
+{
+    GiveMonSpecialIV(gSpecialVar_Result, gSpecialVar_0x8000, gSpecialVar_0x8001, gSpecialVar_0x8002, gSpecialVar_0x8003);
 }

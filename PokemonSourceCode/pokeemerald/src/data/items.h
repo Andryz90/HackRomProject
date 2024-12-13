@@ -391,7 +391,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LEVEL_BALL] =
             {
                 .name = _("Level Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on lower\n"
@@ -407,7 +407,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LURE_BALL] =
             {
                 .name = _("Lure Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on fished\n"
@@ -423,7 +423,7 @@ const struct Item gItemsInfo[] =
         [ITEM_MOON_BALL] =
             {
                 .name = _("Moon Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on Moon\n"
@@ -439,7 +439,7 @@ const struct Item gItemsInfo[] =
         [ITEM_FRIEND_BALL] =
             {
                 .name = _("Friend Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "A Ball that makes\n"
                     "a Pokémon friendly\n"
@@ -455,7 +455,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LOVE_BALL] =
             {
                 .name = _("Love Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "Pokémon of the\n"
@@ -471,7 +471,7 @@ const struct Item gItemsInfo[] =
         [ITEM_FAST_BALL] =
             {
                 .name = _("Fast Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "very fast\n"
@@ -487,7 +487,7 @@ const struct Item gItemsInfo[] =
         [ITEM_HEAVY_BALL] =
             {
                 .name = _("Heavy Ball"),
-                .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = (I_PRICE >= GEN_7) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "very heavy\n"
@@ -540,7 +540,7 @@ const struct Item gItemsInfo[] =
         [ITEM_SPORT_BALL] =
             {
                 .name = _("Sport Ball"),
-                .price = (I_PRICE < GEN_3 || I_PRICE >= GEN_9) ? 0 : 300,
+                .price = (I_PRICE < GEN_3 || I_PRICE >= GEN_9) ? 1000 : 300,
                 .description = COMPOUND_STRING(
                     "A special Ball used\n"
                     "in the Bug-Catching\n"
@@ -556,7 +556,7 @@ const struct Item gItemsInfo[] =
         [ITEM_PARK_BALL] =
             {
                 .name = _("Park Ball"),
-                .price = 0,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A special Ball for\n"
                     "the Pal Park."),
@@ -571,7 +571,7 @@ const struct Item gItemsInfo[] =
         [ITEM_BEAST_BALL] =
             {
                 .name = _("Beast Ball"),
-                .price = 0,
+                .price = 2000,
                 .description = COMPOUND_STRING(
                     "A Ball designed to\n"
                     "catch Ultra Beasts."),
@@ -586,7 +586,7 @@ const struct Item gItemsInfo[] =
         [ITEM_CHERISH_BALL] =
             {
                 .name = _("Cherish Ball"),
-                .price = 0,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A rare Ball made\n"
                     "in commemoration\n"

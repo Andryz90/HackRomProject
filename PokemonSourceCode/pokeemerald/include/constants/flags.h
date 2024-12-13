@@ -60,8 +60,8 @@
 #define SPLITFACE_ENCOUNTERED                           0x2F 
 #define HEART_SCALE_ALTER_FOREST                        0x30 
 #define FLAG_RARE_CANDY_HISUIAN_AMULER_109              0x31 
-#define FLAG_UNUSED_0x032                               0x32 // Unused Flag
-#define FLAG_UNUSED_0x033                               0x33 // Unused Flag
+#define FLAG_TRADE_POKEMON_FAN_CLUB_MILCERY             0x32
+#define FLAG_CUTIEFLY_MILCERY_SWITCH                    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034                               0x34 // Unused Flag
 #define FLAG_UNUSED_0x035                               0x35 // Unused Flag
 #define FLAG_UNUSED_0x036                               0x36 // Unused Flag

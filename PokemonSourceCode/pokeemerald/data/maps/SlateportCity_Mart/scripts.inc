@@ -20,12 +20,31 @@ SlateportCity_Mart_Pokemart:
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_ESCAPE_ROPE
-	.2byte ITEM_REPEL
 	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 	release
 	end
 
+SlateportCity_Mart_EventScript_Clerk_Special::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SlateportCity_Mart_Pokemart_Stone1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Mart_Pokemart_Stone1:
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_NONE
+	release
+	end
 SlateportCity_Mart_EventScript_BlackBelt::
 	msgbox SlateportCity_Mart_Text_SomeItemsOnlyAtMart, MSGBOX_NPC
 	end

@@ -1,5 +1,16 @@
+.set LOCALID_CUTIEFLY, 12
+.set LOCALID_MILCERY, 11
+
 SlateportCity_PokemonFanClub_MapScripts::
+	@map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_PokemonFanClub_OnTransition
 	.byte 0
+
+SlateportCity_PokemonFanClub_OnTransition::
+	goto_if_set FLAG_TRADE_POKEMON_FAN_CLUB_MILCERY, SlateportCity_PokemonFanClub_Cutiefly_MilcerySwitch
+	end
+SlateportCity_PokemonFanClub_Cutiefly_MilcerySwitch::
+	setobjectxyperm LOCALID_CUTIEFLY, 3, 7
+	return
 
 SlateportCity_PokemonFanClub_EventScript_Chairman::
 	lock
@@ -252,6 +263,65 @@ SlateportCity_PokemonFanClub_EventScript_Azumarill::
 	release
 	end
 
+SlateportCity_PokemonFanClub_EventScript_MilceryTrade::
+	lock
+	faceplayer
+	goto_if_set FLAG_TRADE_POKEMON_FAN_CLUB_MILCERY, SlateportCity_PokemonFanClub_PleaseBeGoodToMyPokemon
+	setvar VAR_0x8008, INGAME_TRADE_MILCERY
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox SlateportCity_PokemonFanClub_Text_MilceryTrade, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_PokemonFanClub_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_PokemonFanClub_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	goto_if_ne VAR_RESULT, VAR_0x8009, RustboroCity_House1_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	msgbox SlateportCity_PokemonFanClub__Text_PleaseBeGoodToMyPokemon, MSGBOX_DEFAULT
+	setflag FLAG_TRADE_POKEMON_FAN_CLUB_MILCERY
+	clearflag FLAG_CUTIEFLY_MILCERY_SWITCH
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_MILCERY
+	addobject LOCALID_CUTIEFLY
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+SlateportCity_PokemonFanClub_EventScript_DeclineTrade::
+	msgbox SlateportCity_PokemonFanClub_Text_YouDontWantToThatsOkay, MSGBOX_DEFAULT
+	release
+	end
+SlateportCity_PokemonFanClub_EventScript_Milcery::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MILCERY, CRY_MODE_NORMAL
+	msgbox SlateportCity_PokemonFanClub_Text_Milcery, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+SlateportCity_PokemonFanClub_EventScript_Cutiefly::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_CUTIEFLY, CRY_MODE_NORMAL
+	msgbox SlateportCity_PokemonFanClub_Text_Cutiefly, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+SlateportCity_PokemonFanClub_PleaseBeGoodToMyPokemon::
+	msgbox SlateportCity_PokemonFanClub__Text_PleaseBeGoodToMyPokemon, MSGBOX_DEFAULT
+	release
+	end
+
 SlateportCity_PokemonFanClub_Text_MeetChairman:
 	.string "Er-hem! I am the CHAIRMAN of the\n"
 	.string "POKéMON FAN CLUB!\p"
@@ -398,3 +468,19 @@ SlateportCity_PokemonFanClub_Text_Zigzagoon:
 SlateportCity_PokemonFanClub_Text_Azumarill:
 	.string "AZUMARILL: Marimari?$"
 
+SlateportCity_PokemonFanClub_Text_MilceryTrade::
+	.string "I found this MILCERY alone,\nnearby the kitchen.\pIt was probably abbandoned\nfrom the chef.\p"
+	.string "I was trying to raise it up\nbut it looks lonely...\p"
+	.string "Do you want to take it with you?\nIt will be happy for sure.\p"
+	.string "I'll trade for a CUTIEFLY,\nI need honey, do you have one?$"
+SlateportCity_PokemonFanClub_Text_YouDontWantToThatsOkay:
+	.string "Oh, if you don't want to, that's okay.\n"
+	.string "I'll raise it myself.$"
+SlateportCity_PokemonFanClub_Text_Milcery:
+	.string "MILCERY: C-cheri?$"
+SlateportCity_PokemonFanClub_Text_Cutiefly:
+	.string "CUTIEFLY: F-fly?$"
+SlateportCity_PokemonFanClub__Text_PleaseBeGoodToMyPokemon:
+	.string "Thanks.\p"
+	.string "Hope you'll fell better.\p"
+	.string "Take care chéri.$"

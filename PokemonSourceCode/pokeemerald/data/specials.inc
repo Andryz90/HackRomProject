@@ -562,3 +562,4 @@ gSpecials::
 	def_special ChangeMonNature
 	def_special bufferIVname
 	def_special DamageMon
+	def_special Script_GiveMonSpecial

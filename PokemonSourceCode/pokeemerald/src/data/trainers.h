@@ -44347,7 +44347,7 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 17695
-                MOVE_TOXIC,
+                MOVE_HOARFROST,
                 MOVE_PROTECT,
                 MOVE_SUBSTITUTE,
                 MOVE_FREEZE_DRY,

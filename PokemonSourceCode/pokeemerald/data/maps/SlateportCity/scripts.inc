@@ -148,13 +148,45 @@ SlateportCity_EventScript_EnergyGuru::
 
 	.align 2
 SlateportCity_Pokemart_EnergyGuru:
-	.2byte ITEM_PROTEIN
-	.2byte ITEM_IRON
-	.2byte ITEM_CARBOS
-	.2byte ITEM_ZINC
-	.2byte ITEM_CALCIUM
-	.2byte ITEM_HP_UP
-	.2byte ITEM_NONE
+	.2byte 	ITEM_CRACKED_POT
+	.2byte 	ITEM_CHIPPED_POT
+	.2byte 	ITEM_MASTERPIECE_TEACUP
+	.2byte 	ITEM_GALARICA_CUFF
+	.2byte 	ITEM_GALARICA_WREATH
+	.2byte 	ITEM_REAPER_CLOTH
+	.2byte 	ITEM_SACHET
+	.2byte 	ITEM_AUSPICIOUS_ARMOR
+	.2byte 	ITEM_MALICIOUS_ARMOR
+	.2byte 	ITEM_METAL_ALLOY
+	.2byte	ITEM_PEAT_BLOCK
+	.2byte	ITEM_BLACK_AUGURITE
+	.2byte	ITEM_NONE
+	release
+	end
+
+SlateportCity_EventScript_SweetGuru::
+	lock
+	faceplayer
+	message SlateportCity_Text_Sweets
+	waitmessage
+	pokemart SlateportCity_Pokemart_SweetGuru
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_SweetGuru:
+	.2byte 	ITEM_SWEET_APPLE
+	.2byte 	ITEM_TART_APPLE
+	.2byte 	ITEM_SYRUPY_APPLE
+	.2byte	ITEM_STRAWBERRY_SWEET
+	.2byte 	ITEM_LOVE_SWEET
+	.2byte 	ITEM_BERRY_SWEET
+	.2byte	ITEM_CLOVER_SWEET
+	.2byte 	ITEM_FLOWER_SWEET
+	.2byte 	ITEM_STAR_SWEET
+	.2byte 	ITEM_RIBBON_SWEET
+	.2byte	ITEM_NONE
 	release
 	end
 
@@ -505,6 +537,26 @@ SlateportCity_EventScript_AquaGuard::
 	release
 	end
 
+SlateportCity_EventScript_NectarClerk::
+	lock
+	faceplayer
+	message SlateportCity_Text_Nectar
+	waitmessage
+	pokemart SlateportCity_PokemartDecor_Nectars
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_PokemartDecor_Nectars:
+	.2byte 	ITEM_RED_NECTAR
+	.2byte 	ITEM_PINK_NECTAR
+	.2byte 	ITEM_YELLOW_NECTAR
+	.2byte 	ITEM_PURPLE_NECTAR
+	.2byte	ITEM_NONE
+	release
+	end
+
 SlateportCity_EventScript_DollClerk::
 	lock
 	faceplayer
@@ -529,6 +581,41 @@ SlateportCity_EventScript_ComeBackWithSecretPower::
 	release
 	end
 
+SlateportCity_EventScript_BallClerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SlateportCity_PokemartBalls
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_PokemartBalls:
+	.2byte 	ITEM_POKE_BALL
+	.2byte 	ITEM_GREAT_BALL
+	.2byte 	ITEM_ULTRA_BALL
+	.2byte 	ITEM_HEAL_BALL
+	.2byte 	ITEM_NET_BALL
+	.2byte 	ITEM_NEST_BALL
+	.2byte 	ITEM_DIVE_BALL
+	.2byte 	ITEM_DUSK_BALL
+	.2byte 	ITEM_TIMER_BALL
+	.2byte	ITEM_QUICK_BALL
+	.2byte	ITEM_REPEAT_BALL
+	.2byte	ITEM_LUXURY_BALL
+	.2byte	ITEM_LEVEL_BALL
+	.2byte	ITEM_LURE_BALL
+	.2byte	ITEM_MOON_BALL
+	.2byte	ITEM_FRIEND_BALL
+	.2byte	ITEM_LOVE_BALL
+	.2byte	ITEM_FAST_BALL
+	.2byte	ITEM_HEAVY_BALL
+	.2byte  ITEM_CHERISH_BALL
+	.2byte	ITEM_NONE
+	release
+	end
 SlateportCity_EventScript_DecorClerk::
 	lock
 	faceplayer
@@ -559,7 +646,6 @@ SlateportCity_PokemartDecor:
 	.2byte DECOR_NONE
 	release
 	end
-
 SlateportCity_EventScript_PowerTMClerk::
 	lock
 	faceplayer
@@ -957,9 +1043,12 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	end
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
-	.string "I'm the ENERGY GURU! I'll go for it and\n"
+	.string "I'm the EVO GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
-
+SlateportCity_Text_Sweets:
+	.string "I love sweets!$"
+SlateportCity_Text_Nectar:
+	.string "I love nectar eheh!$"
 SlateportCity_Text_OhYourPokemon:
 	.string "Oh?\n"
 	.string "Your {STR_VAR_1}…$"
