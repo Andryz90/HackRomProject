@@ -4535,36 +4535,33 @@ void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEg
     {
         rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
 
-        MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number[i]);
-        //MgbaPrintf(MGBA_LOG_ERROR, "Value Before: %u", ivs[rand_number[i]]);
+        // MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number[i]);
 
         if (i == 0)
         {
             ivs[rand_number[i]] = 31;
         }
 
+        //Check if it's not already extracted
         for (int k = 0; k < i; k++)
         {
-            MgbaPrintf(MGBA_LOG_ERROR, "k: %u", k);
+           //MgbaPrintf(MGBA_LOG_ERROR, "k: %u", k);
             if (rand_number[k] == rand_number[i])
             {
-                MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted: %u", rand_number[i]);
+                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted: %u", rand_number[i]);
                 rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
-                MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted Aft: %u", rand_number[i]);
+                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted Aft: %u", rand_number[i]);
                 k = -1;
             }
         }
-
-        ivs[rand_number[i]] = 31;
-        //MgbaPrintf(MGBA_LOG_ERROR, "Value After: %u", ivs[rand_number[i]]);
         
+        ivs[rand_number[i]] = 31;        
     }
 
-    for (int k = 0; k < NUM_STATS; k++)
-    {
-       MgbaPrintf(MGBA_LOG_ERROR, "IVs %d : %d", k, ivs[k]);
-    }
-
+    // for (int k = 0; k < NUM_STATS; k++)
+    // {
+    //    MgbaPrintf(MGBA_LOG_ERROR, "IVs %d : %d", k, ivs[k]);
+    // }d
     gSpecialVar_Result = ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, isEgg);
 }
 

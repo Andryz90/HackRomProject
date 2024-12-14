@@ -411,6 +411,16 @@ u8 PickWildMonNature(void)
 static void CreateWildMon(u16 species, u8 level)
 {
     bool32 checkCuteCharm = TRUE;
+    /*  IV Set   */
+    u8 hpIv                  = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 atkIv                 = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 defIv                 = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 speedIv               = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 spAtkIv               = Random() % (MAX_PER_STAT_IVS + 1);
+    u8 spDefIv               = Random() % (MAX_PER_STAT_IVS + 1);
+
+    u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
+    u8 rand_number;         
 
     ZeroEnemyPartyMons();
 
@@ -439,10 +449,40 @@ static void CreateWildMon(u16 species, u8 level)
             gender = MON_FEMALE;
 
         CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
+
+        /* Generate 1 Random IV Stat to put it to 31 */
+        rand_number = Random() % 6;  
+        ivs[rand_number] = 31;
+         MgbaPrintf(MGBA_LOG_ERROR, "Pos Error: %u", rand_number);
+        // IV
+        for (int i = 0; i < NUM_STATS; i++)
+        {    
+            // IV
+            if (ivs[i] <= MAX_PER_STAT_IVS)
+                SetMonData(&gEnemyParty[0], MON_DATA_HP_IV + i, &ivs[i]);
+            
+        }
+
+        CalculateMonStats(&gEnemyParty[0]);
         return;
     }
 
+   
     CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+    /* Generate 1 Random IV Stat to put it to 31 */
+    rand_number = Random() % 6;  
+    ivs[rand_number] = 31;
+    MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number);
+
+    // Set IV
+    for (int i = 0; i < NUM_STATS; i++)
+    {    
+        if (ivs[i] <= MAX_PER_STAT_IVS)
+            SetMonData(&gEnemyParty[0], MON_DATA_HP_IV + i, &ivs[i]);
+        
+    }
+    CalculateMonStats(&gEnemyParty[0]);
+
 }
 #ifdef BUGFIX
 #define TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildPokemon, type, ability, ptr, count) TryGetAbilityInfluencedWildMonIndex(wildPokemon, type, ability, ptr, count)
