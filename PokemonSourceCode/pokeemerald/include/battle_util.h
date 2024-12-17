@@ -20,6 +20,15 @@
 #define MOVE_LIMITATION_PLACEHOLDER             (1 << 15)
 #define MOVE_LIMITATIONS_ALL                    0xFFFF
 
+
+#define TRAINER_MULTITEAM_SIZE          1   // Define how many trainers have more than one team
+#define TRAINER_MAX_TEAM_SIZE           5   //Define how many possible teams a trainer can have
+
+/*  WATTSON */
+#define OFFSET_WATTSON_TEAM_1           4u
+
+#define UNUSED_TEAM                     0xFF
+
 enum {
     ABILITYEFFECT_ON_SWITCHIN,
     ABILITYEFFECT_ENDTURN,
@@ -269,5 +278,6 @@ u8 GetBattlerType(u32 battler, u8 typeIndex, bool32 ignoreTera);
 bool8 CanMonParticipateInSkyBattle(struct Pokemon *mon);
 bool8 IsMonBannedFromSkyBattles(u16 species);
 void RemoveBattlerType(u32 battler, u8 type);
-
+u8 GenerateNumberForTrainerTeams (void);
+u8 GetTrainerTeamOffset (u8 index);
 #endif // GUARD_BATTLE_UTIL_H

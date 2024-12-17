@@ -15060,7 +15060,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 91,
         .baseSpAttack  = 60,
         .baseSpDefense = 100,
-        .types = MON_TYPES(TYPE_WATER, TYPE_DRAGON),
+        .types = MON_TYPES(TYPE_WATER, TYPE_FLYING),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 189 : 214,
         .evYield_Attack = 2,

@@ -4257,7 +4257,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sLaironLevelUpLearnset,
         .teachableLearnset = sLaironTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_AGGRON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_AGGRON}),
     },
 
     [SPECIES_AGGRON] =
@@ -4708,11 +4708,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_MANECTRIC_MEGA] =
     {
         .baseHP        = 70,
-        .baseAttack    = 75,
+        .baseAttack    = 95,
         .baseDefense   = 80,
         .baseSpeed     = 155,
         .baseSpAttack  = 135,
-        .baseSpDefense = 80,
+        .baseSpDefense = 100,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 45,
         .expYield = 201,

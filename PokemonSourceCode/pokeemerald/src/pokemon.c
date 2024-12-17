@@ -63,6 +63,8 @@
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_9) ? 160 : 220)
 
+#define HISUIAN_AMULET_EVO_SIZE_TABLE   (sizeof(Pokemon_Level_evos)/sizeof(Pokemon_Level_evos[0]))
+
 struct SpeciesItem
 {
     u16 species;
@@ -4449,7 +4451,7 @@ static u32 GetGMaxTargetSpecies(u32 species)
 static u8 LevelEvoHisuianForm (u16 species)
 {
     u8 i;
-    // The global definition caused buil'd issues
+    // The global definition caused build issues
     Pokemon_Level_evo Pokemon_Level_evos[7] = 
 {
     {SPECIES_QUILAVA,   36},
@@ -4460,7 +4462,7 @@ static u8 LevelEvoHisuianForm (u16 species)
     {SPECIES_BERGMITE,  37},
     {SPECIES_DARTRIX,   36}
 };
-    for (i = 0; i < sizeof(Pokemon_Level_evos); i++)
+    for (i = 0u; i < HISUIAN_AMULET_EVO_SIZE_TABLE; i++)
     {
         if (species == Pokemon_Level_evos[i].species)
             return Pokemon_Level_evos[i].level;
@@ -4627,15 +4629,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_MOVE:
-                if (MonKnowsMove(mon, evolutions[i].param))
+                if (MonHasMoveinMoveset(mon, evolutions[i].param))
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_MOVE_TWO_SEGMENT:
-                if (MonKnowsMove(mon, evolutions[i].param) && (personality % 100) != 0)
+                if (MonHasMoveinMoveset(mon, evolutions[i].param) && (personality % 100) != 0)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_MOVE_THREE_SEGMENT:
-                if (MonKnowsMove(mon, evolutions[i].param) && (personality % 100) == 0)
+                if (MonHasMoveinMoveset(mon, evolutions[i].param) && (personality % 100) == 0)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:

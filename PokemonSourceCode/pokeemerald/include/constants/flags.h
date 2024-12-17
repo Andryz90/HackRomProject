@@ -61,9 +61,9 @@
 #define HEART_SCALE_ALTER_FOREST                        0x30 
 #define FLAG_RARE_CANDY_HISUIAN_AMULER_109              0x31 
 #define FLAG_TRADE_POKEMON_FAN_CLUB_MILCERY             0x32
-#define FLAG_CUTIEFLY_MILCERY_SWITCH                    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034                               0x34 // Unused Flag
-#define FLAG_UNUSED_0x035                               0x35 // Unused Flag
+#define FLAG_CUTIEFLY_MILCERY_SWITCH                    0x33 
+#define FLAG_MINECTITE                                  0x34 
+#define FLAG_SUPERCELL_SLAM_TM                          0x35 
 #define FLAG_UNUSED_0x036                               0x36 // Unused Flag
 #define FLAG_UNUSED_0x037                               0x37 // Unused Flag
 #define FLAG_UNUSED_0x038                               0x38 // Unused Flag
@@ -1345,7 +1345,7 @@
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
-#define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // Unused Flag
+#define FLAG_RIVAL_110                               (SYSTEM_FLAGS + 0x3) 
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
 #define FLAG_UNLOCKED_TRENDY_SAYINGS                 (SYSTEM_FLAGS + 0x6)

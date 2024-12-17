@@ -5045,7 +5045,7 @@ Pic: Leader Wattson
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices/ Omniscient
 
 Voltorb
 Level: 20
@@ -5078,6 +5078,88 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Thunder Wave
 - Shock Wave
 - Howl
+
+
+/*      TEAM 2    */
+
+Pincurchin @ Terrain Extender  
+Ability: Electric Surge  
+Level: 32  
+- Zing Zap  
+- Soak  
+- Liquidation  
+- Toxic Spikes  
+
+Manectric-Mega @ Manectite  
+Ability: Intimidate  
+Level: 34  
+Mild Nature  
+IVs: 0 Atk / 30 Def  
+- Rising Voltage  
+- Volt Switch  
+- Flamethrower  
+- Hidden Power 
+
+Rotom-Mow @ Miracle Seed  
+Ability: Levitate  
+Level: 33   
+IVs: 0 Atk  
+- Leaf Storm  
+- Volt Switch  
+- Dark Pulse  
+- Will-O-Wisp  
+
+Boltund @ Life Orb  
+Ability: Strong Jaw  
+Level: 33  
+Adamant Nature  
+- Supercell Slam  
+- Play Rough  
+- Facade  
+- Crunch  
+
+Raichu-Alola @ Focus Sash  
+Ability: Surge Surfer  
+Level: 33  
+IVs: 0 Atk  
+- Psyshock  
+- Surf  
+- Nasty Plot  
+- Rising Voltage  
+
+Electivire @ Expert Belt  
+Ability: Iron Fist  
+Level: 33  
+- Plasma Fists  
+- Drain Punch  
+- Mach Punch  
+- Ice Punch  
+
+/*  TEAM 3  */  
+
+Magneton
+Level: 100
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+- Supersonic
+- Shock Wave
+- Thunder Wave
+- Sonic Boom
+
+Magneton
+Level: 100
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+- Supersonic
+- Shock Wave
+- Thunder Wave
+- Sonic Boom
+
+Magneton
+Level: 100
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+- Supersonic
+- Shock Wave
+- Thunder Wave
+- Sonic Boom
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -5880,13 +5962,22 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Manectric  
+Ability: Lightning Rod  
+Level: 27  
+IVs: 0 Atk / 30 SpA  
+- Discharge  
+- Flame Burst  
+- Hidden Power  
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Lanturn  
+Ability: Volt Absorb  
+Level: 27   
+- Scald  
+- Discharge  
+- Flip Turn  
+- Eerie Impulse  
 
 === TRAINER_ISABEL_2 ===
 Name: ISABEL
@@ -9983,19 +10074,52 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Farfetchd-Galar  @ Leek  
+Ability: Scrappy  
+Level: 27  
+Adamant Nature  
+- Dual Wingbeat  
+- Night Slash  
+- Facade  
+- Brick Break  
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Grovyle @ Miracle Seed  
+Ability: Technician  
+Level: 30  
+Adamant Nature  
+- Cut  
+- Bullet Seed  
+- Rock Slide  
+- Quick Attack  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Arcanine-Hisui @ Charcoal  
+Ability: Rock Head  
+Level: 28   
+- Will-O-Wisp  
+- Heat Crash  
+- Rock Tomb  
+- Extreme Speed  
+
+Seadra @ Scope Lens  
+Ability: Sniper  
+Level: 28   
+Serious Nature  
+IVs: 0 Atk  
+- Focus Energy  
+- Snipe Shot  
+- Dragon Pulse  
+- Icy Wind  
+
+Granbull  
+Ability: Strong Jaw  
+Level: 29  
+- Jaw Lock  
+- Drain Punch  
+- Ice Fang  
+- Pixie Fangs
+
 
 === TRAINER_BRENDAN_ROUTE_119_MUDKIP ===
 Name: BRENDAN
@@ -10004,7 +10128,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Slugma
 Level: 29
@@ -10025,7 +10149,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Torchic
 Level: 5
@@ -10040,19 +10164,51 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Seadra @ Scope Lens  
+Ability: Sniper  
+Level: 28  
+Serious Nature  
+IVs: 0 Atk  
+- Focus Energy  
+- Snipe Shot  
+- Dragon Pulse  
+- Icy Wind  
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Combusken @ Charcoal  
+Ability: Speed Boost  
+Level: 30   
+Adamant Nature  
+- Bulk Up  
+- Brick Break  
+- Aerial Ace  
+- Fire Punch  
 
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Granbull  
+Ability: Strong Jaw  
+Level: 29  
+- Jaw Lock  
+- Drain Punch  
+- Ice Fang  
+- Pixie Fangs
+
+Bisharp @ Chople Berry  
+Ability: Defiant  
+Level: 28  
+- Iron Head  
+- Sucker Punch  
+- Knock Off  
+- Psycho Cut  
+
+Electrode-Hisui @ Air Balloon  
+Ability: Static  
+Level: 28  
+IVs: 0 Atk  
+- Giga Drain  
+- Thunderbolt  
+- Volt Switch  
+
 
 === TRAINER_BRENDAN_ROUTE_119_TREECKO ===
 Name: BRENDAN
@@ -10061,7 +10217,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Pelipper
 Level: 29
@@ -10082,7 +10238,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Mudkip
 Level: 5
@@ -10097,19 +10253,48 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Farfetchd-Galar  @ Leek  
+Ability: Scrappy  
+Level: 27  
+Adamant Nature  
+- Dual Wingbeat  
+- Night Slash  
+- Facade  
+- Brick Break  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Marshtomp @ Soft Sand  
+Ability: Immunity  
+Level: 30  
+- Rock Slide  
+- Liquidation  
+- Rock Smash  
+- Bulldoze  
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Granbull  
+Ability: Strong Jaw  
+Level: 29  
+- Jaw Lock  
+- Drain Punch  
+- Ice Fang  
+- Pixie Fangs
+
+Electrode-Hisui @ Air Balloon  
+Ability: Static  
+Level: 28  
+IVs: 0 Atk  
+- Giga Drain  
+- Thunderbolt  
+- Volt Switch  
+
+Arcanine-Hisui @ Charcoal  
+Ability: Rock Head  
+Level: 28   
+- Will-O-Wisp  
+- Heat Crash  
+- Rock Tomb  
+- Extreme Speed  
 
 === TRAINER_BRENDAN_ROUTE_119_TORCHIC ===
 Name: BRENDAN
@@ -10118,7 +10303,7 @@ Pic: Brendan
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Lombre
 Level: 29
@@ -10139,7 +10324,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Treecko
 Level: 5
@@ -10154,19 +10339,52 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Farfetchd-Galar  @ Leek  
+Ability: Scrappy  
+Level: 27  
+Adamant Nature  
+- Dual Wingbeat  
+- Night Slash  
+- Facade  
+- Brick Break  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Grovyle @ Miracle Seed  
+Ability: Technician  
+Level: 30  
+Adamant Nature  
+- Cut  
+- Bullet Seed  
+- Rock Slide  
+- Quick Attack  
 
-Grovyle
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Arcanine-Hisui @ Charcoal  
+Ability: Rock Head  
+Level: 28   
+- Will-O-Wisp  
+- Heat Crash  
+- Rock Tomb  
+- Extreme Speed  
+
+Seadra @ Scope Lens  
+Ability: Sniper  
+Level: 28   
+Serious Nature  
+IVs: 0 Atk  
+- Focus Energy  
+- Snipe Shot  
+- Dragon Pulse  
+- Icy Wind  
+
+Rapidash-Galar @ Twisted Spoon  
+Ability: Adaptability  
+Level: 28   
+Modest Nature  
+IVs: 0 Atk / 30 SpA / 30 Spe  
+- Psybeam  
+- Draining Kiss  
+- Hidden Power
 
 === TRAINER_MAY_ROUTE_119_MUDKIP ===
 Name: MAY
@@ -10175,7 +10393,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Slugma
 Level: 29
@@ -10196,7 +10414,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Torchic
 Level: 5
@@ -10211,19 +10429,51 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Wingull
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Seadra @ Scope Lens  
+Ability: Sniper  
+Level: 28  
+Serious Nature  
+IVs: 0 Atk  
+- Focus Energy  
+- Snipe Shot  
+- Dragon Pulse  
+- Icy Wind  
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Combusken @ Charcoal  
+Ability: Speed Boost  
+Level: 30   
+Adamant Nature  
+- Bulk Up  
+- Brick Break  
+- Aerial Ace  
+- Fire Punch  
 
-Combusken
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Rapidash-Galar @ Twisted Spoon  
+Ability: Adaptability  
+Level: 28   
+Modest Nature  
+IVs: 0 Atk / 30 SpA / 30 Spe  
+- Psybeam  
+- Draining Kiss  
+- Hidden Power
+
+Bisharp @ Chople Berry  
+Ability: Defiant  
+Level: 28  
+- Iron Head  
+- Sucker Punch  
+- Knock Off  
+- Psycho Cut  
+
+Electrode-Hisui @ Air Balloon  
+Ability: Static  
+Level: 28  
+IVs: 0 Atk  
+- Giga Drain  
+- Thunderbolt  
+- Volt Switch  
 
 === TRAINER_MAY_ROUTE_119_TREECKO ===
 Name: MAY
@@ -10232,7 +10482,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Pelipper
 Level: 29
@@ -10253,7 +10503,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Mudkip
 Level: 5
@@ -10268,19 +10518,49 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Lombre
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Farfetchd-Galar  @ Leek  
+Ability: Scrappy  
+Level: 27  
+Adamant Nature  
+- Dual Wingbeat  
+- Night Slash  
+- Facade  
+- Brick Break  
 
-Slugma
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Marshtomp @ Soft Sand  
+Ability: Immunity  
+Level: 30  
+- Rock Slide  
+- Liquidation  
+- Rock Smash  
+- Bulldoze  
 
-Marshtomp
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Rapidash-Galar @ Twisted Spoon  
+Ability: Adaptability  
+Level: 28   
+Modest Nature  
+IVs: 0 Atk / 30 SpA / 30 Spe  
+- Psybeam  
+- Draining Kiss  
+- Hidden Power
+
+Electrode-Hisui @ Air Balloon  
+Ability: Static  
+Level: 28  
+IVs: 0 Atk  
+- Giga Drain  
+- Thunderbolt  
+- Volt Switch  
+
+Arcanine-Hisui @ Charcoal  
+Ability: Rock Head  
+Level: 28   
+- Will-O-Wisp  
+- Heat Crash  
+- Rock Tomb  
+- Extreme Speed  
 
 === TRAINER_MAY_ROUTE_119_TORCHIC ===
 Name: MAY
@@ -10289,7 +10569,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Lombre
 Level: 29
@@ -10310,7 +10590,7 @@ Pic: Pokemon Breeder M
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
 Whismur
 Level: 11
@@ -11409,15 +11689,14 @@ Adamant Nature
 - Aerial Ace  
 - Fire Punch  
 
-Petilil  
-Ability: Leaf Guard  
-Level: 22
-Timid Nature  
-IVs: 30 SpA / 30 SpD / 30 Spe  
-- Sleep Powder  
+Voltorb-Hisui @ Sitrus Berry  
+Ability: Static  
+Level: 22  
+IVs: 0 Atk  
 - Giga Drain  
-- Leech Seed  
-- Hidden Power 
+- Charge Beam  
+- Thunder Wave  
+- Leech Seed
 
 
 === TRAINER_BRENDAN_RUSTBORO_MUDKIP ===
@@ -11593,15 +11872,14 @@ Level: 22
 - Rock Tomb  
 - Retaliate  
 
-Petilil  
-Ability: Leaf Guard  
-Level: 22
-Timid Nature  
-IVs: 30 SpA / 30 SpD / 30 Spe  
-- Sleep Powder  
+Voltorb-Hisui @ Sitrus Berry  
+Ability: Static  
+Level: 22  
+IVs: 0 Atk  
 - Giga Drain  
-- Leech Seed  
-- Hidden Power 
+- Charge Beam  
+- Thunder Wave  
+- Leech Seed
 
 Snubbull @ Expert Belt  
 Ability: Strong Jaw  
@@ -13809,13 +14087,21 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Minun @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Jolteon  
+Ability: Lightning Rod  
+Level: 26  
+IVs: 0 Atk  
+- Discharge  
+- Shadow Ball  
+- Signal Beam  
 
-Plusle @ Oran Berry
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kilowattrel  
+Ability: Volt Absorb  
+Level: 28  
+- Discharge  
+- Air Cutter  
+- U-turn  
+- Quick Attack  
 
 === TRAINER_JOSEPH ===
 Name: JOSEPH
@@ -14978,15 +15264,14 @@ IVs: 0 Atk
 - Bubble Beam  
 - Icy Wind  
 
-Petilil  
-Ability: Leaf Guard  
+Voltorb-Hisui @ Sitrus Berry  
+Ability: Static  
 Level: 22  
-Timid Nature  
-IVs: 30 SpA / 30 SpD / 30 Spe  
-- Sleep Powder  
+IVs: 0 Atk  
 - Giga Drain  
-- Leech Seed  
-- Hidden Power  
+- Charge Beam  
+- Thunder Wave  
+- Leech Seed
 
 Ponyta-Galar
 Ability: Adaptability  
@@ -15041,15 +15326,14 @@ IVs: 0 Atk
 - Earth Power  
 - Calm Mind  
 
-Petilil  
-Ability: Leaf Guard  
+Voltorb-Hisui @ Sitrus Berry  
+Ability: Static  
 Level: 22  
-Timid Nature  
-IVs: 30 SpA / 30 SpD / 30 Spe  
-- Sleep Powder  
+IVs: 0 Atk  
 - Giga Drain  
-- Leech Seed  
-- Hidden Power
+- Charge Beam  
+- Thunder Wave  
+- Leech Seed
 
 === TRAINER_ROXANNE_2 ===
 Name: ROXANNE

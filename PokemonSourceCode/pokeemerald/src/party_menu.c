@@ -5324,6 +5324,7 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
         }
         else
         {
+            //This check for the TM/HM (used for the overworld script or to actually learn them)
             teachableLearnset = GetSpeciesTeachableLearnset (species);
             for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
             {
@@ -5333,6 +5334,17 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
                 }
             }
         }
+    }
+    return FALSE;
+}
+
+bool8 MonHasMoveinMoveset (struct Pokemon* mon, u16 move)
+{
+    // This check if the Pokemon actually have in his moves (for evolution mode purposes)
+    for (int j = 0; j < MAX_MON_MOVES; j++)
+    {
+        if (GetMonData(mon, MON_DATA_MOVE1 + j) == move)
+            return TRUE;
     }
     return FALSE;
 }

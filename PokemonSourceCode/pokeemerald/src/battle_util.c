@@ -95,6 +95,29 @@ static const u8 sPkblToEscapeFactor[][3] = {
 static const u8 sGoNearCounterToCatchFactor[] = {4, 3, 2, 1};
 static const u8 sGoNearCounterToEscapeFactor[] = {4, 4, 4, 4};
 
+/*  Different Teams for Trainers    */
+
+typedef enum 
+{
+    NO_MULTI_TEAM = 0u,
+    WATTSON = 1u
+
+} Trainers_Team_t;
+
+typedef struct 
+{
+    Trainers_Team_t Trainer;
+    u8 Teams_Offset[TRAINER_MAX_TEAM_SIZE];
+
+} Trainer_MultiTeam_t;
+
+static const Trainer_MultiTeam_t OffsetTeam_LookupTable[TRAINER_MULTITEAM_SIZE] =
+{
+   {WATTSON, {OFFSET_WATTSON_TEAM_1, UNUSED_TEAM, UNUSED_TEAM, UNUSED_TEAM, UNUSED_TEAM}} // The offset represent the actual position number in which one team start/finish
+};
+
+/*  End */
+
 static u8 CalcBeatUpPower(void)
 {
     u8 basePower;
@@ -11981,4 +12004,63 @@ bool32 TargetFullyImmuneToCurrMove(u32 BattlerAtk, u32 battlerDef)
          || IsBattlerProtected(BattlerAtk, battlerDef, gCurrentMove)
          || IsSemiInvulnerable(battlerDef, gCurrentMove)
          || DoesCurrentTargetHaveAbilityImmunity());
+}
+
+/*  Random Trainer Party   */
+u8 GenerateNumberForTrainerTeams (void)
+{
+    u8 j = 0u;
+    //u8 Trainer_Offset[TRAINER_MAX_TEAM_SIZE];
+    u8 Random_Number = 0u;
+    u8 min = 1u;
+    u8 number_offset = 0u;
+    u8 TeamNumber = 0u; 
+    u16* Trainer_Var = GetVarPointer(VAR_TRAINER_ID);
+    Trainers_Team_t Trainer = (Trainers_Team_t) *Trainer_Var;
+    
+
+    //memset (Trainer_Offset, 0u, sizeof(Trainer_Offset)); //Initialize to 0 all elements
+
+    if (Trainer == NO_MULTI_TEAM)
+        return 0xFF;
+
+    for (int i = 0; i < TRAINER_MULTITEAM_SIZE ; i++)
+    {
+        if (Trainer == OffsetTeam_LookupTable[i].Trainer)
+        {
+            for (j = 0u; j < TRAINER_MAX_TEAM_SIZE; j++)
+            {
+                if (OffsetTeam_LookupTable[i].Teams_Offset[j] == UNUSED_TEAM)
+                    break;
+                
+            }
+            break;
+        }
+    }
+    
+    number_offset = j; // j is the index of the number of offset
+    
+    TeamNumber = number_offset + 1u; // the offset is always teamnumber - 1
+    MgbaPrintf(MGBA_LOG_ERROR, "Total number of teams: %u\n", TeamNumber);
+
+    Random_Number = Random() % (TeamNumber - min + 1) + min; 
+
+    return Random_Number; //Return the index of the teams he uses
+}
+
+u8 GetTrainerTeamOffset (u8 index)
+{
+    u16* Trainer_Var = GetVarPointer(VAR_TRAINER_ID);
+    Trainers_Team_t TrainerID = (Trainers_Team_t) *Trainer_Var;
+
+    MgbaPrintf(MGBA_LOG_ERROR, "Var: %u", *Trainer_Var);
+    MgbaPrintf(MGBA_LOG_ERROR, "Enum: %u", TrainerID);
+    MgbaPrintf(MGBA_LOG_ERROR, "Index: %u", index);
+
+    MgbaPrintf(MGBA_LOG_ERROR, "Returned Offset: %u", OffsetTeam_LookupTable[TrainerID - 1].Teams_Offset[index - 1u]);
+    
+    /*0 for the array is the first element, for me 1 is the first offset 
+    * TrainerID - 1 because the actual enum start to 1 and not to 0, so for example WATTSON is 1, but in the array has the position 0
+    */
+    return OffsetTeam_LookupTable[TrainerID - 1].Teams_Offset[index - 1u];
 }
