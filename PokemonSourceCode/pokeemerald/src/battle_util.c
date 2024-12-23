@@ -12010,16 +12010,12 @@ bool32 TargetFullyImmuneToCurrMove(u32 BattlerAtk, u32 battlerDef)
 u8 GenerateNumberForTrainerTeams (void)
 {
     u8 j = 0u;
-    //u8 Trainer_Offset[TRAINER_MAX_TEAM_SIZE];
     u8 Random_Number = 0u;
     u8 min = 1u;
     u8 number_offset = 0u;
     u8 TeamNumber = 0u; 
     u16* Trainer_Var = GetVarPointer(VAR_TRAINER_ID);
     Trainers_Team_t Trainer = (Trainers_Team_t) *Trainer_Var;
-    
-
-    //memset (Trainer_Offset, 0u, sizeof(Trainer_Offset)); //Initialize to 0 all elements
 
     if (Trainer == NO_MULTI_TEAM)
         return 0xFF;
@@ -12032,7 +12028,6 @@ u8 GenerateNumberForTrainerTeams (void)
             {
                 if (OffsetTeam_LookupTable[i].Teams_Offset[j] == UNUSED_TEAM)
                     break;
-                
             }
             break;
         }
@@ -12041,8 +12036,7 @@ u8 GenerateNumberForTrainerTeams (void)
     number_offset = j; // j is the index of the number of offset
     
     TeamNumber = number_offset + 1u; // the offset is always teamnumber - 1
-    MgbaPrintf(MGBA_LOG_ERROR, "Total number of teams: %u\n", TeamNumber);
-
+    
     Random_Number = Random() % (TeamNumber - min + 1) + min; 
 
     return Random_Number; //Return the index of the teams he uses
@@ -12052,12 +12046,6 @@ u8 GetTrainerTeamOffset (u8 index)
 {
     u16* Trainer_Var = GetVarPointer(VAR_TRAINER_ID);
     Trainers_Team_t TrainerID = (Trainers_Team_t) *Trainer_Var;
-
-    MgbaPrintf(MGBA_LOG_ERROR, "Var: %u", *Trainer_Var);
-    MgbaPrintf(MGBA_LOG_ERROR, "Enum: %u", TrainerID);
-    MgbaPrintf(MGBA_LOG_ERROR, "Index: %u", index);
-
-    MgbaPrintf(MGBA_LOG_ERROR, "Returned Offset: %u", OffsetTeam_LookupTable[TrainerID - 1].Teams_Offset[index - 1u]);
     
     /*0 for the array is the first element, for me 1 is the first offset 
     * TrainerID - 1 because the actual enum start to 1 and not to 0, so for example WATTSON is 1, but in the array has the position 0

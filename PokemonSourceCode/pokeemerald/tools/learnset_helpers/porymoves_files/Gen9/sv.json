@@ -5477,6 +5477,10 @@
         "Move": "MOVE_VINE_WHIP"
       },
       {
+        "Level": 5,
+        "Move": "MOVE_ABSORB"
+      },
+      {
         "Level": 7,
         "Move": "MOVE_GROWTH"
       },
@@ -5494,6 +5498,10 @@
       },
       {
         "Level": 17,
+        "Move": "MOVE_MEGA_DRAIN"
+      },
+      {
+        "Level": 20,
         "Move": "MOVE_STUN_SPORE"
       },
       {
@@ -5592,6 +5600,10 @@
         "Move": "MOVE_GROWTH"
       },
       {
+        "Level": 5,
+        "Move": "MOVE_ABSORB"
+      },
+      {
         "Level": 13,
         "Move": "MOVE_SLEEP_POWDER"
       },
@@ -5604,6 +5616,10 @@
         "Move": "MOVE_STUN_SPORE"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_MEGA_DRAIN"
+      },
+      {
         "Level": 24,
         "Move": "MOVE_ACID"
       },
@@ -5614,6 +5630,10 @@
       {
         "Level": 32,
         "Move": "MOVE_SWEET_SCENT"
+      },
+      {
+        "Level": 36,
+        "Move": "MOVE_GIGA_DRAIN"
       },
       {
         "Level": 39,
@@ -5691,7 +5711,11 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_LEAF_STORM"
+        "Move": "MOVE_POISON_DRAIN"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_GIGA_DRAIN"
       },
       {
         "Level": 1,
@@ -5762,8 +5786,8 @@
         "Move": "MOVE_SLAM"
       },
       {
-        "Level": 36,
-        "Move": "MOVE_POISON_DRAIN"
+        "Level": 35,
+        "Move": "MOVE_LEAF_STORM"
       },
       {
         "Level": 44,
@@ -14770,7 +14794,7 @@
       },
       {
         "Level": 18,
-        "Move": "MOVE_AIR_SLASH"
+        "Move": "MOVE_AIR_CUTTER"
       },
       {
         "Level": 21,
@@ -14779,6 +14803,10 @@
       {
         "Level": 24,
         "Move": "MOVE_TAKE_DOWN"
+      },
+      {
+        "Level": 26,
+        "Move": "MOVE_AIR_SLASH"
       },
       {
         "Level": 27,
@@ -14895,11 +14923,15 @@
       },
       {
         "Level": 18,
-        "Move": "MOVE_AIR_SLASH"
+        "Move": "MOVE_AIR_CUTTER"
       },
       {
         "Level": 23,
         "Move": "MOVE_EXTRASENSORY"
+      },
+      {
+        "Level": 26,
+        "Move": "MOVE_AIR_SLASH"
       },
       {
         "Level": 28,

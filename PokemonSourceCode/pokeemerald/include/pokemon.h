@@ -889,5 +889,6 @@ const u8 *GetMoveName(u16 moveId);
 const u8 *GetMoveAnimationScript(u16 moveId);
 void UpdateDaysPassedSinceFormChange(u16 days);
 void TrySetDayLimitToFormChange(struct Pokemon *mon);
+void RandomizeIVto31 (u8 numberofstat, u8* ivs);
 
 #endif // GUARD_POKEMON_H

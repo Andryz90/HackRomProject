@@ -4527,41 +4527,7 @@ void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEg
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
     
-    u8 rand_number[numberIVs];
-
-    
-    //Generate number to choose which stat to have max IV
-    for (int i = 0; i < numberIVs; i++)
-    {
-        rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
-
-        // MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number[i]);
-
-        if (i == 0)
-        {
-            ivs[rand_number[i]] = 31;
-        }
-
-        //Check if it's not already extracted
-        for (int k = 0; k < i; k++)
-        {
-           //MgbaPrintf(MGBA_LOG_ERROR, "k: %u", k);
-            if (rand_number[k] == rand_number[i])
-            {
-                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted: %u", rand_number[i]);
-                rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
-                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted Aft: %u", rand_number[i]);
-                k = -1;
-            }
-        }
-        
-        ivs[rand_number[i]] = 31;        
-    }
-
-    // for (int k = 0; k < NUM_STATS; k++)
-    // {
-    //    MgbaPrintf(MGBA_LOG_ERROR, "IVs %d : %d", k, ivs[k]);
-    // }d
+    RandomizeIVto31(3u, ivs);
     gSpecialVar_Result = ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, isEgg);
 }
 

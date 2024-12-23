@@ -451,16 +451,14 @@ static void CreateWildMon(u16 species, u8 level)
         CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
 
         /* Generate 1 Random IV Stat to put it to 31 */
-        rand_number = Random() % 6;  
-        ivs[rand_number] = 31;
-         MgbaPrintf(MGBA_LOG_ERROR, "Pos Error: %u", rand_number);
+        RandomizeIVto31(1u, ivs);
+        //MgbaPrintf(MGBA_LOG_ERROR, "Pos Error: %u", rand_number);
         // IV
         for (int i = 0; i < NUM_STATS; i++)
         {    
             // IV
             if (ivs[i] <= MAX_PER_STAT_IVS)
                 SetMonData(&gEnemyParty[0], MON_DATA_HP_IV + i, &ivs[i]);
-            
         }
 
         CalculateMonStats(&gEnemyParty[0]);
@@ -470,16 +468,13 @@ static void CreateWildMon(u16 species, u8 level)
    
     CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
     /* Generate 1 Random IV Stat to put it to 31 */
-    rand_number = Random() % 6;  
-    ivs[rand_number] = 31;
-    MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number);
-
+    RandomizeIVto31(1u, ivs);
+    //MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number);
     // Set IV
     for (int i = 0; i < NUM_STATS; i++)
     {    
         if (ivs[i] <= MAX_PER_STAT_IVS)
             SetMonData(&gEnemyParty[0], MON_DATA_HP_IV + i, &ivs[i]);
-        
     }
     CalculateMonStats(&gEnemyParty[0]);
 

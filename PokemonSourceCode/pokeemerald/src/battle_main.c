@@ -1941,42 +1941,33 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
         // I exctract the number for the trainer (stored in the variable from the script) and use it to get the corresponding offset
         TrainerTeamNumber = GenerateNumberForTrainerTeams();
-        MgbaPrintf(MGBA_LOG_ERROR, "Team Number: %u", TrainerTeamNumber);
 
         if (TrainerTeamNumber != 0xFF) //If the trainer doesn't have multi team, the var is set to 0 and you don't computate
         {
             if (GetTrainerTeamOffset(TrainerTeamNumber) == UNUSED_TEAM) //Last possible team (+1 because should be i<= monsCount, but the for must be possible for either the trainer has no team or multiple ones)
             {
                 TrainerTeamOffset = GetTrainerTeamOffset(TrainerTeamNumber - 1u);
-                MgbaPrintf(MGBA_LOG_ERROR, "Trainer Size: %u", trainer->partySize);
                 monsCount = trainer->partySize - TrainerTeamOffset;
             }
-            else if (TrainerTeamNumber == 1u)
+            else if (TrainerTeamNumber == 1u) //first team
             {
                 monsCount = GetTrainerTeamOffset(1u);
-
-            } //first team
+            } 
             else
             {
                 TrainerTeamOffset = GetTrainerTeamOffset(TrainerTeamNumber - 1u); //The offset rapresent the number of pokemon per team, so you want to start to the next possible one, but the trainerparty are counted from 0
-                MgbaPrintf(MGBA_LOG_ERROR, "Offset: %u", TrainerTeamOffset);
                 monsCount = GetTrainerTeamOffset(TrainerTeamNumber); //Next possible offset (+1 because should be i<= monsCount, but the for must be possible for either the trainer has no team or multiple ones)
-                
             }
-            MgbaPrintf(MGBA_LOG_ERROR, "Total Mons: %u", monsCount);
-            MgbaPrintf(MGBA_LOG_ERROR, "Index: %u", TrainerTeamOffset);
-            //MgbaPrintf(MGBA_LOG_ERROR, "Trainer Party Size: %u", sizeof(trainer->party) / sizeof(trainer->party[0]));
         }
+
         for (i = 0u; i < monsCount; i++) //i counts the number of pokemon to put in the team
         {
-            MgbaPrintf(MGBA_LOG_ERROR, "Index j : %u", i);
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, (TrainerTeamOffset + i));
             const struct TrainerMon *partyData = trainer->party;
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
             u32 ability = 0;
-            MgbaPrintf(MGBA_LOG_ERROR, "Species number : %u", partyData[(TrainerTeamOffset + i)].species);
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)

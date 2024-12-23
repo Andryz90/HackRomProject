@@ -4527,9 +4527,10 @@ static void BufferInGameTradeMonName(void)
 
 static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTrade)
 {
+    u8 ivs[NUM_STATS] = TRADE_IV_RANDOM;
     const struct InGameTrade *inGameTrade = &sIngameTrades[whichInGameTrade];
     u8 level = GetMonData(&gPlayerParty[whichPlayerMon], MON_DATA_LEVEL);
-
+    
     struct Mail mail;
     u8 metLocation = METLOC_IN_GAME_TRADE;
     u8 mailNum;
@@ -4537,12 +4538,22 @@ static void CreateInGameTradePokemonInternal(u8 whichPlayerMon, u8 whichInGameTr
 
     CreateMon(pokemon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, OT_ID_PRESET, inGameTrade->otId);
 
-    SetMonData(pokemon, MON_DATA_HP_IV, &inGameTrade->ivs[0]);
-    SetMonData(pokemon, MON_DATA_ATK_IV, &inGameTrade->ivs[1]);
-    SetMonData(pokemon, MON_DATA_DEF_IV, &inGameTrade->ivs[2]);
-    SetMonData(pokemon, MON_DATA_SPEED_IV, &inGameTrade->ivs[3]);
-    SetMonData(pokemon, MON_DATA_SPATK_IV, &inGameTrade->ivs[4]);
-    SetMonData(pokemon, MON_DATA_SPDEF_IV, &inGameTrade->ivs[5]);
+    // If the trade mon has set to have randomize IV, the game will randomize the IVs, guaranteeing 3 stats to be 31
+    if (memcmp(inGameTrade->ivs, ivs, sizeof(inGameTrade->ivs)) == 0)
+    {
+        for (u8 i = 0u; i < NUM_STATS; i++)
+        {
+            ivs[i] = Random() % 32u;
+        }
+        RandomizeIVto31(3u, ivs);
+    }
+
+    SetMonData(pokemon, MON_DATA_HP_IV, &ivs[0]);
+    SetMonData(pokemon, MON_DATA_ATK_IV, &ivs[1]);
+    SetMonData(pokemon, MON_DATA_DEF_IV, &ivs[2]);
+    SetMonData(pokemon, MON_DATA_SPEED_IV, &ivs[3]);
+    SetMonData(pokemon, MON_DATA_SPATK_IV, &ivs[4]);
+    SetMonData(pokemon, MON_DATA_SPDEF_IV, &ivs[5]);
     SetMonData(pokemon, MON_DATA_NICKNAME, inGameTrade->nickname);
     SetMonData(pokemon, MON_DATA_OT_NAME, inGameTrade->otName);
     SetMonData(pokemon, MON_DATA_OT_GENDER, &inGameTrade->otGender);

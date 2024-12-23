@@ -25,7 +25,7 @@
 #define TRAINER_MAX_TEAM_SIZE           5   //Define how many possible teams a trainer can have
 
 /*  WATTSON */
-#define OFFSET_WATTSON_TEAM_1           4u
+#define OFFSET_WATTSON_TEAM_1           6u
 
 #define UNUSED_TEAM                     0xFF
 

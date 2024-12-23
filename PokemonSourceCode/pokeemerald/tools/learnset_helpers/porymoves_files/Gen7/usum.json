@@ -38985,7 +38985,7 @@
   "DELCATTY": {
     "LevelMoves": [
       {
-        "Level": 1,
+        "Level": 0,
         "Move": "MOVE_FAKE_OUT"
       },
       {

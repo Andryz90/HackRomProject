@@ -4194,10 +4194,20 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Abra
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Indeedee  
+Ability: Synchronize  
+Level: 32  
+IVs: 0 Atk  
+- Psyshock  
+- Hyper Voice  
+
+Kadabra  
+Ability: Magic Guard  
+Level: 32  
+IVs: 0 Atk / 30 Def / 30 SpD  
+- Psybeam  
 - Hidden Power
+
 
 === TRAINER_PRESTON ===
 Name: PRESTON
@@ -5047,37 +5057,59 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices/ Omniscient
 
-Voltorb
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rollout
-- Spark
-- Self Destruct
-- Shock Wave
+Galvantula @ Focus Sash  
+Ability: Compound Eyes  
+Level: 32  
+IVs: 0 Atk  
+- Sticky Web  
+- Volt Switch  
+- Bug Buzz  
+- Giga Drain  
 
-Electrike
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shock Wave
-- Leer
-- Quick Attack
-- Howl
+Ampharos @ Ampharosite  
+Ability: Static  
+Level: 34  
+IVs: 0 Atk / 30 SpA  
+- Dragon Breath  
+- Volt Switch  
+- Dazzling Gleam  
+- Hidden Power
 
-Magneton
-Level: 22
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
-- Thunder Wave
-- Sonic Boom
+Rotom-Wash @ Leftovers  
+Ability: Levitate  
+Level: 33  
+IVs: 0 Atk  
+- Hydro Pump  
+- Volt Switch  
+- Dark Pulse  
+- Will-O-Wisp  
 
-Manectric @ Sitrus Berry
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+Luxray @ Flame Orb  
+Ability: Guts  
+Level: 33  
+Jolly Nature  
+- Facade  
+- Supercell Slam  
+- Ice Fang  
+- Crunch  
+
+Lanturn @ Shuca Berry  
+Ability: Volt Absorb  
+Level: 33  
+IVs: 0 Atk  
+- Scald  
+- Parabolic Charge  
+- Volt Switch  
+- Icy Wind  
+
+Electrode-Hisui  
+Ability: Aftermath  
+Level: 32  
+IVs: 0 Atk  
+- Chloroblast  
+- Volt Switch  
+
+
 
 
 /*      TEAM 2    */
@@ -5134,32 +5166,6 @@ Level: 33
 - Drain Punch  
 - Mach Punch  
 - Ice Punch  
-
-/*  TEAM 3  */  
-
-Magneton
-Level: 100
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
-- Thunder Wave
-- Sonic Boom
-
-Magneton
-Level: 100
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
-- Thunder Wave
-- Sonic Boom
-
-Magneton
-Level: 100
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
-- Thunder Wave
-- Sonic Boom
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -6642,13 +6648,34 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Aron
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golbat  
+Ability: Inner Focus  
+Level: 28  
+- Tailwind  
+- Poison Fang  
+- Dual Wingbeat  
+- U-turn  
 
-Electrike
-Level: 13
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kilowattrel  
+Ability: Volt Absorb  
+Level: 28  
+Modest Nature  
+- Discharge  
+- Air Slash  
+- U-turn  
+- Tailwind  
+
+Pidgeotto @ Power Herb  
+Ability: Tangled Feet  
+Level: 28  
+Modest Nature  
+- Hurricane  
+- Razor Wind  
+- U-turn  
+- Tailwind  
+
+
+
 
 === TRAINER_WALLACE ===
 Name: WALLACE
@@ -14129,9 +14156,23 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magnemite
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magneton  
+Ability: Analytic  
+Level: 32   
+IVs: 1 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe  
+- Thunder Wave  
+- Thunderbolt  
+- Flash Cannon  
+- Hidden Power
+
+Electrode  
+Ability: Punk Rock  
+Level: 32   
+IVs: 0 Atk  
+- Boomburst  
+- Steel Beam  
+- Electroweb  
+
 
 === TRAINER_MARCOS ===
 Name: MARCOS

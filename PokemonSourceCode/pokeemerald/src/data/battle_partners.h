@@ -51,7 +51,7 @@
 #line 18
             .lvl = 22,
 #line 19
-            .nature = NATURE_MODEST,
+            .nature = NATURE_BOLD,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 21
