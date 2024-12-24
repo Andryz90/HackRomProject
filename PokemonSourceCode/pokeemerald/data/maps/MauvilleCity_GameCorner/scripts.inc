@@ -248,8 +248,8 @@ MauvilleCity_GameCorner_EventScript_ChooseTMPrize::
 
 MauvilleCity_GameCorner_EventScript_TMDoubleTeam::
 	setvar VAR_TEMP_1, 1
-	@bufferitemname STR_VAR_1, ITEM_TM_DOUBLE_TEAM
-	@setvar VAR_0x8004, ITEM_TM_DOUBLE_TEAM
+	bufferitemname STR_VAR_1, ITEM_TM_DAZZLING_GLEAM
+	setvar VAR_0x8004, ITEM_TM_DAZZLING_GLEAM
 	goto MauvilleCity_GameCorner_EventScript_ConfirmTMPrize
 
 MauvilleCity_GameCorner_EventScript_TMPsychic::
@@ -291,10 +291,10 @@ MauvilleCity_GameCorner_EventScript_ConfirmTMPrize::
 MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, TM_DOUBLE_TEAM_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForTM
-	@checkitemspace ITEM_TM_DOUBLE_TEAM
+	checkitemspace ITEM_TM_DAZZLING_GLEAM
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
-	@removecoins TM_DOUBLE_TEAM_COINS
-	@additem ITEM_TM_DOUBLE_TEAM
+	removecoins TM_DOUBLE_TEAM_COINS
+	additem ITEM_TM_DAZZLING_GLEAM
 	updatecoinsbox 1, 1
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
@@ -665,7 +665,7 @@ MauvilleCity_GameCorner_EventScript_Badge2Selection::
 	msgbox MauvilleCity_GameCorner_Text_BadgePokemonExchange, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CoinsPokemonClerk
 	checkcoins VAR_TEMP_2
-	goto_if_lt VAR_TEMP_2, POKE_BADGE2, MauvilleCity_GameCorner_Text_NotEnoughCoins
+	goto_if_lt VAR_TEMP_2, POKE_BADGE2, MauvilleCity_GameCorner_NotEnoughCoins
 	removecoins POKE_BADGE2
 	randomelement SPECIES_DRILBUR, SPECIES_HIPPOPOTAS, SPECIES_DIGLETT, SPECIES_MUDBRAY, SPECIES_WOOPER, SPECIES_SANDSHREW, SPECIES_BARBOACH, SPECIES_STUNFISK @store the species in VAR_RESULT
 	setvar VAR_0x8000, 1 						@store level 
@@ -680,7 +680,10 @@ MauvilleCity_GameCorner_EventScript_Badge2Selection::
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	releaseall
 	end
-
+MauvilleCity_GameCorner_NotEnoughCoins::
+	msgbox MauvilleCity_GameCorner_Text_NotEnoughCoins, MSGBOX_DEFAULT
+	releaseall
+	end
 MauvilleCity_GameCorner_EventScript_Badge3Selection::
 
 MauvilleCity_GameCorner_EventScript_Badge4Selection::
