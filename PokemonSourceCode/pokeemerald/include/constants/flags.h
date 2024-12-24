@@ -64,7 +64,7 @@
 #define FLAG_CUTIEFLY_MILCERY_SWITCH                    0x33 
 #define FLAG_MINECTITE                                  0x34 
 #define FLAG_SUPERCELL_SLAM_TM                          0x35 
-#define FLAG_UNUSED_0x036                               0x36 // Unused Flag
+#define FLAG_CHARIZARDITE                               0x36 
 #define FLAG_UNUSED_0x037                               0x37 // Unused Flag
 #define FLAG_UNUSED_0x038                               0x38 // Unused Flag
 #define FLAG_UNUSED_0x039                               0x39 // Unused Flag
