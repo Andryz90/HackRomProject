@@ -958,7 +958,7 @@ static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void))
 static void SaveGameTask(u8 taskId)
 {
     u8 status = RunSaveCallback();
-
+    
     switch (status)
     {
     case SAVE_CANCELED:

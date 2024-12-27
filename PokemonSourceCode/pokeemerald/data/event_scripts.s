@@ -1088,3 +1088,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DewfordMeadowHouse1F/scripts.inc"
 
 	.include "data/maps/GraniteCave_B3F/scripts.inc"
+
+	.include "data/maps/VerdanturfPrairie/scripts.inc"
+

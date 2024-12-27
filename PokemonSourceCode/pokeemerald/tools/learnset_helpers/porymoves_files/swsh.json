@@ -8338,6 +8338,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_FRUSTRATION",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -8458,6 +8459,11 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HEAD_SMASH",
+      "MOVE_WILD_CHARGE",
+      "MOVE_PHANTOM_FORCE",
+      "MOVE_SHADOW_BONE",
+      "MOVE_FRUSTRATION",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -79246,7 +79252,14 @@
       "MOVE_WILD_CHARGE",
       "MOVE_PLAY_ROUGH",
       "MOVE_DAZZLING_GLEAM",
-      "MOVE_HIGH_HORSEPOWER"
+      "MOVE_HIGH_HORSEPOWER",
+      "MOVE_PSYCHIC_NOISE",
+      "MOVE_ALLURING_VOICE",
+      "MOVE_GRASS_KNOT",
+      "MOVE_NASTY_PLOT",
+      "MOVE_EARTH_POWER",
+      "MOVE_MOONBLAST",
+      "MOVE_DRAINING_KISS"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -79375,7 +79388,14 @@
       "MOVE_PLAY_ROUGH",
       "MOVE_DAZZLING_GLEAM",
       "MOVE_HIGH_HORSEPOWER",
-      "MOVE_THROAT_CHOP"
+      "MOVE_THROAT_CHOP",
+      "MOVE_PSYCHIC_NOISE",
+      "MOVE_ALLURING_VOICE",
+      "MOVE_GRASS_KNOT",
+      "MOVE_NASTY_PLOT",
+      "MOVE_EARTH_POWER",
+      "MOVE_MOONBLAST",
+      "MOVE_DRAINING_KISS"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",

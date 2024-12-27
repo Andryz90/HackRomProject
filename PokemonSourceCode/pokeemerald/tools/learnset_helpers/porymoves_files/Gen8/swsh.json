@@ -8321,6 +8321,10 @@
         "Move": "MOVE_BONE_RUSH"
       },
       {
+        "Level": 30,
+        "Move": "MOVE_FRUSTRATION"
+      },
+      {
         "Level": 32,
         "Move": "MOVE_FOCUS_ENERGY"
       },
@@ -8386,7 +8390,8 @@
       "MOVE_IRON_DEFENSE",
       "MOVE_EARTH_POWER",
       "MOVE_IRON_HEAD",
-      "MOVE_STEALTH_ROCK"
+      "MOVE_STEALTH_ROCK",
+      "MOVE_FRUSTRATION"
     ],
     "EggMoves": [
       "MOVE_ANCIENT_POWER",
@@ -8404,6 +8409,10 @@
   },
   "MAROWAK": {
     "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_SHADOW_BONE"
+      },
       {
         "Level": 1,
         "Move": "MOVE_MUD_SLAP"
@@ -8441,8 +8450,17 @@
         "Move": "MOVE_BONE_RUSH"
       },
       {
+        "Level": 32,
+        "Move": "MOVE_SHADOW_CLAW"
+      },
+
+      {
         "Level": 36,
         "Move": "MOVE_FOCUS_ENERGY"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_POLTERGEIST"
       },
       {
         "Level": 42,

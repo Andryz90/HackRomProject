@@ -769,7 +769,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_ILLUMINATE, ABILITY_HYPNO_EYE, ABILITY_ANALYTIC },
+        .abilities = { ABILITY_ILLUMINATE, ABILITY_BAD_DREAMS, ABILITY_ANALYTIC },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Watchog"),
         .cryId = CRY_WATCHOG,
@@ -8664,7 +8664,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sLitwickLevelUpLearnset,
         .teachableLearnset = sLitwickTeachableLearnset,
         .eggMoveLearnset = sLitwickEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 41, SPECIES_LAMPENT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_LAMPENT}),
     },
 
     [SPECIES_LAMPENT] =

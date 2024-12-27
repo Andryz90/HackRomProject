@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/GraniteCave_B3F/border.bin",
       "blockdata_filepath": "data/layouts/GraniteCave_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_PRAIRIE",
+      "name": "VerdanturfPrairie_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/VerdanturfPrairie/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfPrairie/map.bin"
     }
   ]
 }

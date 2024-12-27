@@ -5785,6 +5785,7 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
     return numMoves;
 }
+
 u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
 {
     u16 learnedMoves[MAX_MON_MOVES];

@@ -9164,40 +9164,16 @@
     "TutorMoves": []
   },
   "CUBONE": {
-    "LevelMoves": [    
-    {
-      "Level": 30,
-      "Move": "MOVE_FRUSTRATION"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_FRUSTRATION"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "MAROWAK": {
-    "LevelMoves": [      
-    {
-      "Level": 0,
-      "Move": "MOVE_SHADOW_BONE"
-    },
-    {
-      "Level": 32,
-      "Move": "MOVE_SHADOW_CLAW"
-    },
-    {
-      "Level": 40,
-      "Move": "MOVE_POLTERGEIST"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [      
-    "MOVE_HEAD_SMASH",
-    "MOVE_WILD_CHARGE",
-    "MOVE_PHANTOM_FORCE",
-    "MOVE_SHADOW_BONE",
-    "MOVE_FRUSTRATION"
-  ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -93209,14 +93185,7 @@
   "RAPIDASH_GALARIAN": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_PSYCHIC_NOISE",
-      "MOVE_ALLURING_VOICE",
-      "MOVE_GRASS_KNOT",
-      "MOVE_NASTY_PLOT",
-      "MOVE_EARTH_POWER",
-      "MOVE_MOONBLAST"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },

@@ -419,8 +419,7 @@ static void CreateWildMon(u16 species, u8 level)
     u8 spAtkIv               = Random() % (MAX_PER_STAT_IVS + 1);
     u8 spDefIv               = Random() % (MAX_PER_STAT_IVS + 1);
 
-    u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};
-    u8 rand_number;         
+    u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};     
 
     ZeroEnemyPartyMons();
 

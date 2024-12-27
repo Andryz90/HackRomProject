@@ -2,7 +2,8 @@
 .set LOCALID_VICTORIA, 2
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
-.set LOCALID_ROCK_SMASH_MAN, 46
+.set LOCALID_BREAKABLE_ROCK, 16
+.set LOCALID_WALLY, 44
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -48,12 +49,13 @@ Route111_EventScript_ShowTemporaryMirageTower::
 Route111_OnTransition:
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
+	call_if_set FLAG_BADGE03_GET, Route111_EventScript_WallyWarp
 	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
 	call Route111_EventScript_CheckSetSandstorm
 	call GabbyAndTy_EventScript_UpdateLocation
-	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
+	@goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
 
 Route111_EventScript_SetFallingPlayerGfx::
@@ -82,6 +84,17 @@ Route111_EventScript_SetSandstorm::
 Route111_EventScript_EndCheckSetSandstorm::
 	return
 
+Route111_EventScript_SetWallyRoute111::
+	setobjectxyperm LOCALID_WALLY, 19, 101
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 1
+	goto_if_set FLAG_HIDE_WALLY_ROUTE111, Route111_EventScript_OverwriteWallyVar
+	return
+Route111_EventScript_WallyWarp::
+	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route111_EventScript_SetWallyRoute111
+	return
+Route111_EventScript_OverwriteWallyVar::
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
+	return
 Route111_EventScript_SetWinstratesNotDefeated::
 	clearflag FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
@@ -425,16 +438,16 @@ Route111_EventScript_HikerMirageTowerVisible::
 	release
 	end
 
-Route111_EventScript_RockSmashTipFatMan::
-	lockall
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox Route111_Text_MauvilleUncleToldMeToTakeRockSmash, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
+@Route111_EventScript_RockSmashTipFatMan::
+@	lockall
+@	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FacePlayer
+@	waitmovement 0
+@	msgbox Route111_Text_MauvilleUncleToldMeToTakeRockSmash, MSGBOX_DEFAULT
+@	closemessage
+@	applymovement LOCALID_ROCK_SMASH_MAN, Common_Movement_FaceOriginalDirection
+@	waitmovement 0
+@	releaseall
+@	end
 
 Route111_EventScript_Drew::
 	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
@@ -572,6 +585,79 @@ Route111_EventScript_Branden::
 Route111_EventScript_TrainerHillSign::
 	msgbox Route111_Text_TrainerHillSign, MSGBOX_SIGN
 	end
+
+Route111_EventScript_Wally_BattleTrigger1::
+	lock
+	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN
+	msgbox Route111_Text_WallyCallPlayer, MSGBOX_AUTOCLOSE
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	@waitmovement OBJ_EVENT_ID_PLAYER
+	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
+	release
+	end
+
+Route111_EventScript_Wally_BattleTrigger2::
+	lock
+	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN
+	msgbox Route111_Text_WallyCallPlayer, MSGBOX_AUTOCLOSE
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	waitmovement 0
+	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
+	release
+	end
+Route111_EventScript_Wally_PostBattle::
+	msgbox Route111_Text_WallyPostBattle, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_WALLY, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	applymovement LOCALID_WALLY, Common_Movement_Delay32
+	waitmovement 0
+	applymovement LOCALID_WALLY, Common_Movement_Delay32
+	waitmovement 0
+	applymovement LOCALID_WALLY, Common_Movement_QuestionMark
+	msgbox Wally_Uhm, MSGBOX_DEFAULT
+	waitmovement 0
+	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route111_Text_Wally_SomethingForMe, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Route111_Text_Wally_GiveHM03, MSGBOX_DEFAULT
+	waitfanfare
+	msgbox Route111_Text_Wally_AfterGivenHM03, MSGBOX_DEFAULT
+	msgbox Route111_Text_Wally_Finale, MSGBOX_DEFAULT	
+	applymovement LOCALID_WALLY, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	@Here he smashes the rock
+	applymovement LOCALID_BREAKABLE_ROCK, Movement_SmashRock
+	waitmovement 0
+	removeobject LOCALID_BREAKABLE_ROCK
+	@@@
+	applymovement LOCALID_WALLY, Wally_Ending_Scene
+	waitmovement 0
+	setflag FLAG_HIDE_WALLY_ROUTE111
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
+	removeobject LOCALID_WALLY
+	release
+	end
+
+Wally_Ending_Scene::
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	step_end
 
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
@@ -727,3 +813,36 @@ Route111_Text_TrainerHillSign:
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
 
+Route111_Text_WallyCallPlayer::
+	.string "{PLAYER}!$"
+
+Route111_Text_WallyIntro:
+	.string "I'm glad to see you!\p"
+	.string "You already have 3 BADGES, huh?\nYou really are a great TRAINER!\p"
+	.string "But I have the DYNAMO BADGE too!\p"
+	.string "I'm not weak anymore,\nI'll show you how strong I've become!$"
+
+Route111_Text_WallyDefeat::
+	.string "Wow! You're really strong!$"
+
+Route111_Text_WallyPostBattle::
+	.string "Now I understand better what\nmy team needs to become stronger.\p"
+	.string "I'm going to train even harder.\p"
+	.string "I feel like I've learned a lot from\n"
+	.string "just one battle with you.$"
+
+Wally_Uhm::
+	.string "Uhm…?$"
+Route111_Text_Wally_SomethingForMe::
+	.string "You have something for me?\p"
+	.string "Oh, I see...$"
+Route111_Text_Wally_GiveHM03::
+	.string "{PLAYER} handed over HM03 to WALLY!$"
+Route111_Text_Wally_AfterGivenHM03::
+	.string "I forgot about that.\nSo my uncle asked you to gave it to me?\p"
+	.string "That's so sweet,\nthanks a lot {PLAYER}.\p"
+	.string "I truly appreciate it.\nI owe you a favor.$"
+
+Route111_Text_Wally_Finale::
+	.string "{PLAYER}, I have to go.\p"
+	.string "Next time, I will not lose!$"

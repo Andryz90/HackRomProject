@@ -5110,8 +5110,6 @@ IVs: 0 Atk
 - Volt Switch  
 
 
-
-
 /*      TEAM 2    */
 
 Pincurchin @ Terrain Extender  
@@ -5122,7 +5120,7 @@ Level: 32
 - Liquidation  
 - Toxic Spikes  
 
-Manectric-Mega @ Manectite  
+Manectric @ Manectite  
 Ability: Intimidate  
 Level: 34  
 Mild Nature  
@@ -8329,7 +8327,6 @@ Level: 24
 - Double Kick  
 - Stomp  
 - Spark  
-
 
 
 === TRAINER_LAURA ===
@@ -13111,7 +13108,7 @@ Pic: Wally
 Gender: Male
 Music: Male
 Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices/ Omniscient
 
 Ralts
 Level: 16
@@ -18078,12 +18075,11 @@ Modest Nature
 - Frost Breath  
 - Hoarfrost
 
-Glalie @ Leftovers  
+Glalie
 Ability: Moody  
 Level: 23  
 IVs: 0 Atk  
 - Hoarfrost  
-- Protect  
 - Substitute  
 - Freeze-Dry  
 
@@ -18120,3 +18116,4 @@ Level: 24
 - Mud-Slap  
 - Powder Snow
 - Hoarfrost
+

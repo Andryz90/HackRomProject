@@ -3242,7 +3242,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sWiglettLevelUpLearnset,
         .teachableLearnset = sWiglettTeachableLearnset,
         .eggMoveLearnset = sWiglettEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_WUGTRIO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_WUGTRIO}),
     },
 
     [SPECIES_WUGTRIO] =

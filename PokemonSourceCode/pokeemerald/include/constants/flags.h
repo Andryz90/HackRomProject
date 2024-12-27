@@ -1218,7 +1218,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
 #define FLAG_ITEM_PETALBURG_CITY_HEART_CANDY_SWITCH                 0x493 
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_HIDE_WALLY_ROUTE111                                    0x494
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
@@ -1504,7 +1504,7 @@
 #define FLAG_PETALBURG_WOODS                        (SYSTEM_FLAGS + 0x85) 
 #define FLAG_LANDMARK_DEWFORD_MANOR                 (SYSTEM_FLAGS + 0x86) 
 #define FLAG_WALLY_RUSTURF                          (SYSTEM_FLAGS + 0x87) 
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
+#define FLAG_LANDMARK_VERDANTURF_PRAIRIE            (SYSTEM_FLAGS + 0x88)
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag

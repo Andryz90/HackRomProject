@@ -18,12 +18,23 @@ VerdanturfTown_WandasHouse_EventScript_WallyShortSpeech::
 VerdanturfTown_WandasHouse_EventScript_WallysUncle::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, VerdanturfTown_WandasHouse_EventScript_WallysUncleRockSmash
 	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, VerdanturfTown_WandasHouse_EventScript_WallysUncleEverGrande
-	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, VerdanturfTown_WandasHouse_EventScript_WallysUncleSlippedOff
-	msgbox VerdanturfTown_WandasHouse_Text_WallysNextDoor, MSGBOX_DEFAULT
+	@goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, VerdanturfTown_WandasHouse_EventScript_WallysUncleSlippedOff
+	msgbox VerdanturfTown_WandasHouse_Text_TakeCare, MSGBOX_DEFAULT
 	release
 	end
-
+VerdanturfTown_WandasHouse_EventScript_WallysUncleRockSmash::
+	msgbox VerdanturfTown_WandasHouse_Text_TakeRockSmash, MSGBOX_DEFAULT
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
+	msgbox MauvilleCity_House1_Text_ExplainRockSmash, MSGBOX_DEFAULT
+	msgbox MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock, MSGBOX_DEFAULT
+	msgbox VerdanturfTown_WandasHouse_Text_TakeCare, MSGBOX_DEFAULT
+	release
+	end
+	
 VerdanturfTown_WandasHouse_EventScript_WallysUncleSlippedOff::
 	msgbox VerdanturfTown_WandasHouse_Text_WallySlippedOff, MSGBOX_DEFAULT
 	release
@@ -166,3 +177,15 @@ VerdanturfTown_WandasHouse_Text_WallyWasInEverGrande:
 	.string "His parents in PETALBURG would be\n"
 	.string "astonished to hear that!$"
 
+VerdanturfTown_WandasHouse_Text_TakeRockSmash::
+	.string "UNCLE: Oh, {PLAYER}{KUN}!\n"
+	.string "WALLY went to battle gyms\nto become stronger.\p"
+	.string "His health increased a lot\nsince we moved here.\p"
+	.string "As soon as he felt better,\nhe went to the next town.\p"
+	.string "He always wanted to travel\nand become a great TRAINER.\p"
+	.string "He forgot to take this with him.\pIt will help him out\nwith his journey.\p"
+	.string "Since you're here, could you take\nit to him? You can take one too.$"
+
+VerdanturfTown_WandasHouse_Text_TakeCare::
+	.string "Take care {PLAYER}{KUN}.\p"
+	.string "WALLY will be happy to see you.$"
