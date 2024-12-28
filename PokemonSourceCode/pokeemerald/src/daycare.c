@@ -1150,7 +1150,7 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
     }
 
     // Try to hatch Egg
-    if (++daycare->stepCounter == ((P_EGG_CYCLE_LENGTH >= GEN_8) ? 127 : 255))
+    if (++daycare->stepCounter == 2) //fast egg hatching
     {
         u32 eggCycles;
         u8 toSub = GetEggCyclesToSubtract();
