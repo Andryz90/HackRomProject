@@ -8286,7 +8286,7 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_MUD_SLAP"
+        "Move": "MOVE_BONE_CLUB"
       },
       {
         "Level": 1,
@@ -70779,11 +70779,11 @@
       },
       {
         "Level": 15,
-        "Move": "MOVE_THUNDER_SHOCK"
+        "Move": "MOVE_SPARK"
       },
       {
         "Level": 20,
-        "Move": "MOVE_SPARK"
+        "Move": "MOVE_HEADBUTT"
       },
       {
         "Level": 26,

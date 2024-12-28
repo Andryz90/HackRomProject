@@ -10031,20 +10031,21 @@ static inline uq4_12_t GetFalinksModifier (u32 battlerAtk)
         {
             delta_hit = 4;
         }
-        
+        MgbaPrintf(MGBA_LOG_ERROR, "Formation State: %u\n", gSpecialStatuses[battlerAtk].formationstate);
         if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS) 
         {
-            
+            MgbaPrintf(MGBA_LOG_ERROR, "Damage Percentage: %d\n", rolls[delta_hit - 1]);
             return sPercentToModifier[rolls[delta_hit - 1]];
-            
         } 
         else 
         {
+            MgbaPrintf(MGBA_LOG_ERROR, "Boh %u\n", gSpecialStatuses[battlerAtk].formationstate);
             return UQ_4_12(1.0);
         }
     }
     else 
-    {
+    {   
+
         return UQ_4_12(1.0);
     }
 }
@@ -10365,6 +10366,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
 
     if (dmg == 0)
         dmg = 1;
+    MgbaPrintf(MGBA_LOG_ERROR, "Damage: %d\n", dmg);
     return dmg;
 }
 

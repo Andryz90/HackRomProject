@@ -1243,18 +1243,31 @@ static void Cmd_attackcanceler(void)
     if (attackerAbility == ABILITY_FORMATION 
         && gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_OFF
         && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
-        && gMovesInfo[gCurrentMove].category != DAMAGE_CATEGORY_STATUS) { 
-        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
-        if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2
-            && (gMovesInfo[gCurrentMove].effect != EFFECT_COUNTER && gMovesInfo[gCurrentMove].effect != EFFECT_MIRROR_COAT && gMovesInfo[gCurrentMove].effect != EFFECT_METAL_BURST))
-        {
-            gMultiHitCounter =  RandomUniform(RNG_HITS, 2, 6);
-            ptr_multihit = gMultiHitCounter;
-            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
-            BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_Formation;
-            return;
-        }
+        && gMovesInfo[gCurrentMove].category != DAMAGE_CATEGORY_STATUS) 
+        { 
+
+            gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_STARTED;
+
+            if (gMovesInfo[gCurrentMove].effect != EFFECT_MULTI_HIT && gMovesInfo[gCurrentMove].strikeCount < 2
+                && (gMovesInfo[gCurrentMove].effect != EFFECT_COUNTER && gMovesInfo[gCurrentMove].effect != EFFECT_MIRROR_COAT && gMovesInfo[gCurrentMove].effect != EFFECT_METAL_BURST))
+            {
+                gMultiHitCounter = (Random() % 5) + 2; //Extract a random number between 2 and 6
+                ptr_multihit = gMultiHitCounter;
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0);
+                BattleScriptPushCursor();
+                //gBattlescriptCurrInstr = BattleScript_Formation;
+                return;
+            }
+    }
+    //This prevent anomaly in case the ability is changed middle battle
+    else if (attackerAbility != ABILITY_FORMATION && gSpecialStatuses[gBattlerAttacker].formationstate != FORMATION_OFF)
+    {
+        gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
+        gMultiHitCounter = 0;
+        gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_MoveEnd;
+        return;
     }
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
     && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
@@ -6049,7 +6062,7 @@ static void Cmd_moveend(void)
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
-                    if (gSpecialStatuses[gBattlerAttacker].formationstate)
+                    if (gSpecialStatuses[gBattlerAttacker].formationstate == FORMATION_IN_PROGRESS)
                         gSpecialStatuses[gBattlerAttacker].formationstate = FORMATION_OFF;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MultiHitPrintStrings;

@@ -13110,9 +13110,57 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices/ Omniscient
 
-Ralts
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Tinkaton  
+Ability: Own Tempo  
+Level: 34  
+- Gigaton Hammer  
+- Sweet Kiss  
+- Play Rough  
+- Slam  
+
+Gardevoir (M)  
+Ability: Synchronize  
+Level: 36  
+IVs: 0 Atk  
+- Calm Mind  
+- Psychic  
+- Draining Kiss  
+- Shadow Ball  
+
+Azumarill (M)  
+Ability: Huge Power  
+Level: 35  
+- Liquidation  
+- Aqua Jet  
+- Play Rough  
+
+Ninetales (M)  
+Ability: Flash Fire  
+Level: 35  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Incinerate  
+- Will-O-Wisp  
+- Extrasensory  
+
+Bellossom (M)  
+Ability: Healer  
+Level: 35   
+IVs: 0 Atk  
+- Sleep Powder  
+- Moonblast  
+- Giga Drain  
+- Moonlight  
+
+Gallade  
+Ability: Sharpness  
+Level: 36  
+- Swords Dance  
+- Leaf Blade  
+- Slash  
+- Sacred Sword  
+
+
 
 === TRAINER_WALLY_VR_2 ===
 Name: WALLY
@@ -18075,7 +18123,7 @@ Modest Nature
 - Frost Breath  
 - Hoarfrost
 
-Glalie
+Snorunt @ Eviolite  
 Ability: Moody  
 Level: 23  
 IVs: 0 Atk  
@@ -18095,7 +18143,6 @@ Naclstack @ Eviolite
 Ability: Purifying Salt  
 Level: 23  
 - Rock Slide
-- Iron Defense  
 - Body Press  
 - Protect  
 

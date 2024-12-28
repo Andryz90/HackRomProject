@@ -588,30 +588,30 @@ Route111_EventScript_TrainerHillSign::
 
 Route111_EventScript_Wally_BattleTrigger1::
 	lock
-	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	applymovement LOCALID_WALLY, Common_Movement_FaceDown
 	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
 	waitmovement 0
 	playse SE_PIN
-	msgbox Route111_Text_WallyCallPlayer, MSGBOX_AUTOCLOSE
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-	@waitmovement OBJ_EVENT_ID_PLAYER
+	msgbox Route111_Text_WallyCallPlayer, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Trigger1
 	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
 	release
 	end
-
+Player_Trigger1::
+	walk_up
+	step_end
+Player_Trigger2::
+	walk_up
+	walk_left
+	step_end
 Route111_EventScript_Wally_BattleTrigger2::
 	lock
-	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	applymovement LOCALID_WALLY, Common_Movement_FaceDown
 	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
 	waitmovement 0
 	playse SE_PIN
-	msgbox Route111_Text_WallyCallPlayer, MSGBOX_AUTOCLOSE
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	msgbox Route111_Text_WallyCallPlayer, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Trigger2
 	waitmovement 0
 	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
 	release
