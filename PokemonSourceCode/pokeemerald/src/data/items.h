@@ -7594,6 +7594,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_NORMAL_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7612,6 +7613,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 9800),
                 .holdEffect = HOLD_EFFECT_FIRE_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7631,6 +7633,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_WATER_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7649,6 +7652,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_ELECTRIC_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "boosts Electric-\n"
@@ -7667,6 +7671,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_GRASS_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = sRoseIncenseDesc,
                 .pocket = POCKET_ITEMS,
                 .type = ITEM_USE_BAG_MENU,
@@ -7683,6 +7688,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_ICE_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7701,6 +7707,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_FIGHTING_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "boosts Fighting-\n"
@@ -7719,6 +7726,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_POISON_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7738,6 +7746,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_GROUND_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7756,6 +7765,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_FLYING_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7774,6 +7784,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_PSYCHIC_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = sOddIncenseDesc,
                 .pocket = POCKET_ITEMS,
                 .type = ITEM_USE_BAG_MENU,
@@ -7790,6 +7801,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_BUG_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7808,6 +7820,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_ROCK_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = sRockIncenseDesc,
                 .pocket = POCKET_ITEMS,
                 .type = ITEM_USE_BAG_MENU,
@@ -7823,6 +7836,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_GHOST_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7841,6 +7855,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_DRAGON_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -7860,6 +7875,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 3000 : ((I_PRICE >= GEN_7) ? 1000 : 100),
                 .holdEffect = HOLD_EFFECT_DARK_POWER,
                 .holdEffectParam = TYPE_BOOST_PARAM,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A hold item that\n"
                     "raises the power of\n"
@@ -8481,6 +8497,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 20000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
                 .holdEffect = HOLD_EFFECT_WIDE_LENS,
                 .holdEffectParam = 10,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A magnifying lens\n"
                     "that boosts the\n"
@@ -8499,6 +8516,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 8000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
                 .holdEffect = HOLD_EFFECT_MUSCLE_BAND,
                 .holdEffectParam = 10,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A headband that\n"
                     "boosts the power of\n"
@@ -8518,6 +8536,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 8000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
                 .holdEffect = HOLD_EFFECT_WISE_GLASSES,
                 .holdEffectParam = 10,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A pair of glasses\n"
                     "that ups the power\n"
@@ -8536,6 +8555,7 @@ const struct Item gItemsInfo[] =
                 .price = (I_PRICE >= GEN_9) ? 30000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
                 .holdEffect = HOLD_EFFECT_EXPERT_BELT,
                 .holdEffectParam = 20,
+                .importance = 1,
                 .description = COMPOUND_STRING(
                     "A belt that boosts\n"
                     "the power of super\n"

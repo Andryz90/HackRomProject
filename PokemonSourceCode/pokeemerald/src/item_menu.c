@@ -1951,7 +1951,8 @@ static void ItemMenu_Give(u8 taskId)
     {
         DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
     }
-    else if (!ItemId_GetImportance(gSpecialVar_ItemId))
+    else if ((!ItemId_GetImportance(gSpecialVar_ItemId) && ItemId_GetPocket(gSpecialVar_ItemId) != POCKET_KEY_ITEMS) //This basically exclused HM's and TMs (if infinite)
+             || ItemId_GetPocket(gSpecialVar_ItemId) == POCKET_ITEMS) //This allows even items that can be purchased 1 time to be held by a pokemon
     {
         if (CalculatePlayerPartyCount() == 0)
         {
