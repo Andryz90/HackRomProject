@@ -1124,9 +1124,10 @@ static const struct LevelUpMove sVenomothLevelUpLearnset[] = {
         LEVEL_UP_MOVE(23, MOVE_STUN_SPORE),
         LEVEL_UP_MOVE(25, MOVE_BUG_BUZZ),
         LEVEL_UP_MOVE(29, MOVE_SLEEP_POWDER),
+        LEVEL_UP_MOVE(33, MOVE_SLUDGE),
         LEVEL_UP_MOVE(37, MOVE_LEECH_LIFE),
         LEVEL_UP_MOVE(41, MOVE_ZEN_HEADBUTT),
-        LEVEL_UP_MOVE(47, MOVE_POISON_FANG),
+        LEVEL_UP_MOVE(45, MOVE_SLUDGE_BOMB),
         LEVEL_UP_MOVE(55, MOVE_PSYCHIC),
         LEVEL_UP_END
 };
@@ -5105,7 +5106,7 @@ static const struct LevelUpMove sFlaaffyLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAmpharosLevelUpLearnset[] = {
-        LEVEL_UP_MOVE(0, MOVE_THUNDER_PUNCH),
+        LEVEL_UP_MOVE(0, MOVE_SHOCK_WAVE),
         LEVEL_UP_MOVE(1, MOVE_FIRE_PUNCH),
         LEVEL_UP_MOVE(1, MOVE_TACKLE),
         LEVEL_UP_MOVE(1, MOVE_GROWL),

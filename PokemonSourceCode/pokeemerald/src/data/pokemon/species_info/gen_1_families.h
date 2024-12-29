@@ -5604,7 +5604,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sVenonatLevelUpLearnset,
         .teachableLearnset = sVenonatTeachableLearnset,
         .eggMoveLearnset = sVenonatEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 31, SPECIES_VENOMOTH}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_VENOMOTH}),
     },
 
     [SPECIES_VENOMOTH] =

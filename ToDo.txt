@@ -8,7 +8,6 @@ Map Editing:
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
 
-
 --------------------------------------------
 After Test:
 
@@ -18,3 +17,4 @@ After Test:
 - Nuovi sprite di Edo e Andry
 - Modificare il mercatino di Slateport City, aggiungendo un negoziante che scambia un item per Heart Scale
 - Aggiungere un Heart Scale (magari con un temp) e altri oggetti viabili in Route109.
+- Eliminare tutte le mosse apprendibili dai Pokemon come attrazione, smokescreen, double team, minimize etc.

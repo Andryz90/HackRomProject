@@ -10217,7 +10217,7 @@ Level: 29
 - Ice Fang  
 - Pixie Fangs
 
-Bisharp @ Chople Berry  
+Bisharp
 Ability: Defiant  
 Level: 28  
 - Iron Head  
@@ -10483,7 +10483,7 @@ IVs: 0 Atk / 30 SpA / 30 Spe
 - Draining Kiss  
 - Hidden Power
 
-Bisharp @ Chople Berry  
+Bisharp
 Ability: Defiant  
 Level: 28  
 - Iron Head  
@@ -14164,7 +14164,6 @@ Ability: Lightning Rod
 Level: 26  
 IVs: 0 Atk  
 - Discharge  
-- Shadow Ball  
 - Signal Beam  
 
 Kilowattrel  

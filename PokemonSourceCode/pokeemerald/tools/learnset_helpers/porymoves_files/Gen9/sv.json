@@ -3702,6 +3702,10 @@
         "Move": "MOVE_SLEEP_POWDER"
       },
       {
+        "Level": 33,
+        "Move": "MOVE_SLUDGE"
+      },
+      {
         "Level": 37,
         "Move": "MOVE_LEECH_LIFE"
       },
@@ -3710,8 +3714,8 @@
         "Move": "MOVE_ZEN_HEADBUTT"
       },
       {
-        "Level": 47,
-        "Move": "MOVE_POISON_FANG"
+        "Level": 45,
+        "Move": "MOVE_SLUDGE_BOMB"
       },
       {
         "Level": 55,
@@ -16186,7 +16190,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_THUNDER_PUNCH"
+        "Move": "MOVE_SHOCK_WAVE"
       },
       {
         "Level": 1,

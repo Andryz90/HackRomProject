@@ -7569,7 +7569,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sFoongusLevelUpLearnset,
         .teachableLearnset = sFoongusTeachableLearnset,
         .eggMoveLearnset = sFoongusEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 39, SPECIES_AMOONGUSS}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_AMOONGUSS}),
     },
 
     [SPECIES_AMOONGUSS] =

@@ -320,7 +320,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM_DIG",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_BULLDOZE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_109_POTION"
     },
@@ -347,7 +347,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
-      "script": "Common_EventScript_FindItem",
+      "script": "Common_EventScript_FindItem_Temp",
       "flag": "FLAG_RARE_CANDY_HISUIAN_AMULER_109"
     },
     {
@@ -360,7 +360,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_HISUIAN_AMULET",
-      "script": "Common_EventScript_FindItem",
+      "script": "Common_EventScript_FindItem_Temp",
       "flag": "FLAG_RARE_CANDY_HISUIAN_AMULER_109"
     },
     {
