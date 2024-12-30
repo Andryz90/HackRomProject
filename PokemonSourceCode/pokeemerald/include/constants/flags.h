@@ -1219,8 +1219,8 @@
 
 #define FLAG_ITEM_PETALBURG_CITY_HEART_CANDY_SWITCH                 0x493 
 #define FLAG_HIDE_WALLY_ROUTE111                                    0x494
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_ELECTRIC_SEED117                                       0x495 
+#define FLAG_RUSTBORO_MONKI_RECEIVED                                0x496 
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag

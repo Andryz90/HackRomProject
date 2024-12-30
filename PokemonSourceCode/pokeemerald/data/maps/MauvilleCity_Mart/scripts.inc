@@ -19,12 +19,30 @@ MauvilleCity_Mart_Pokemart:
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFEND
 	.2byte ITEM_GUARD_SPEC
 	.2byte ITEM_DIRE_HIT
 	.2byte ITEM_X_ACCURACY
+	.2byte ITEM_NONE
+	release
+	end
+MauvilleCity_Mart_EventScript_ClerkStone::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart MauvilleCity_Mart_Pokemart_Stone
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MauvilleCity_Mart_Pokemart_Stone:
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_DAWN_STONE
 	.2byte ITEM_NONE
 	release
 	end

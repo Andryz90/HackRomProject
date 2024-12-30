@@ -25269,6 +25269,8 @@ F_TRAINER_FEMALE |
 #line 10074
             .species = SPECIES_GRANBULL,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 10074
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10077
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 10075
@@ -25447,6 +25449,8 @@ F_TRAINER_FEMALE |
 #line 10147
             .species = SPECIES_GRANBULL,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 10147
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10150
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 10148
@@ -25665,6 +25669,8 @@ F_TRAINER_FEMALE |
 #line 10234
             .species = SPECIES_GRANBULL,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 10234
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10237
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 10235
@@ -25936,7 +25942,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_RAPIDASH_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 10339
-            .heldItem = ITEM_TWISTED_SPOON,
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10343
             .iv = TRAINER_PARTY_IVS(31, 0, 31, 30, 30, 31),
 #line 10340
@@ -26122,7 +26128,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_RAPIDASH_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 10412
-            .heldItem = ITEM_TWISTED_SPOON,
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10416
             .iv = TRAINER_PARTY_IVS(31, 0, 31, 30, 30, 31),
 #line 10413
@@ -26348,7 +26354,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_RAPIDASH_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 10499
-            .heldItem = ITEM_TWISTED_SPOON,
+            .heldItem = ITEM_EXPERT_BELT,
 #line 10503
             .iv = TRAINER_PARTY_IVS(31, 0, 31, 30, 30, 31),
 #line 10500

@@ -467,6 +467,7 @@ Route110_EventScript_BrendanDefeated::
 
 Route110_EventScript_GiveItemfinder::
 	giveitem ITEM_ITEMFINDER
+	giveitem ITEM_EXPERT_BELT
 	setflag FLAG_RIVAL_110
 	goto Level_Cap_Increased_Global_Script
 	return

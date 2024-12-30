@@ -90,6 +90,66 @@ RustboroCity_PokemonSchool_EventScript_Teacher::
 	release
 	end
 
+RustboroCity_PokemonSchool_EventScript_MonkiGiver::
+	lock
+	faceplayer
+	goto_if_set FLAG_RUSTBORO_MONKI_RECEIVED, RustboroCity_PokemonSchool_EventScript_MonkiAlreadyGiven
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_PokemonSchool_EventScript_NotNewTrainer
+	msgbox RustboroCity_PokemonSchool_Text_Monki, MSGBOX_DEFAULT
+	dynmultipush Pansage, 0
+	dynmultipush Pansear, 1
+	dynmultipush Panpour, 2
+	dynmultistack 0, 0, FALSE, 3, FALSE, 0, NULL
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq  MauvilleCity_GameCorner_GeneralExit @temp 
+	switch VAR_RESULT
+	case 0, RustboroCity_PokemonSchool_EventScript_GivePansage
+	case 1, RustboroCity_PokemonSchool_EventScript_GivePansear
+	case 2, RustboroCity_PokemonSchool_EventScript_GivePanpour
+	end
+RustboroCity_PokemonSchool_EventScript_GivePansage::
+	setvar VAR_RESULT, SPECIES_PANSAGE
+	setvar VAR_0x8000, 5 						@store level 
+	setvar VAR_0x8001, ITEM_NONE 				@store the item
+	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, FALSE 					@Store if I want an egg or not 
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call RustboroCity_PokemonSchool_EventScript_MonkiAlreadyGiven
+	end
+RustboroCity_PokemonSchool_EventScript_MonkiAlreadyGiven::
+	msgbox RustboroCity_PokemonSchool_Text_MonkiGiven, MSGBOX_DEFAULT
+	setflag FLAG_RUSTBORO_MONKI_RECEIVED
+	release
+	end
+RustboroCity_PokemonSchool_EventScript_GivePansear::
+	setvar VAR_RESULT, SPECIES_PANSEAR
+	setvar VAR_0x8000, 5 						@store level 
+	setvar VAR_0x8001, ITEM_NONE 				@store the item
+	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, FALSE 					@Store if I want an egg or not 
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call RustboroCity_PokemonSchool_EventScript_MonkiAlreadyGiven
+	end
+RustboroCity_PokemonSchool_EventScript_GivePanpour::
+	setvar VAR_RESULT, SPECIES_PANPOUR
+	setvar VAR_0x8000, 5 						@store level 
+	setvar VAR_0x8001, ITEM_NONE 				@store the item
+	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, FALSE 					@Store if I want an egg or not 
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call RustboroCity_PokemonSchool_EventScript_MonkiAlreadyGiven
+	end
+
+RustboroCity_PokemonSchool_EventScript_NotNewTrainer::
+	msgbox RustboroCity_PokemonSchool_Text_NotNewTrainer, MSGBOX_DEFAULT
+	release
+	end
 RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast::
 	applymovement VAR_LAST_TALKED, RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast
 	waitmovement 0
@@ -349,3 +409,17 @@ RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge:
 	.string "It's hard to tell what you're like as\n"
 	.string "a TRAINER from a LEAGUE BADGE.$"
 
+RustboroCity_PokemonSchool_Text_Monki::
+	.string "So you're a new TRAINER, I see.\nYou haven't fought ROXANNE yet.\p"
+	.string "To help out your journey consider\nto take one of this POKéMON with you.$"
+Panpour::
+	.string "PANPOUR$"
+Pansage::
+	.string "PANSAGE$"
+Pansear::
+	.string "PANSEAR$"
+RustboroCity_PokemonSchool_Text_MonkiGiven::
+	.string "I hope you'll take good care of it.$"
+
+RustboroCity_PokemonSchool_Text_NotNewTrainer::
+	.string "Oh you beat ROXANNE, you are not\na weak TRAINER, I see.$"
