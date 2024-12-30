@@ -219,7 +219,8 @@
 #define MAPSEC_DEWFORD_MEADOW               0xD7
 #define MAPSEC_DEWFORD_MEADOW_HOUSE         0xD8
 #define MAPSEC_VERDANTURF_PRAIRIE           0xD9
-#define MAPSEC_NONE                         0xDA
+#define MAPSEC_DUNE_CAVE                    0xDA        
+#define MAPSEC_NONE                         0xDB
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

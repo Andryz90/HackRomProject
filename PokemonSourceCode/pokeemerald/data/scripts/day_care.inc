@@ -273,6 +273,31 @@ EventScript_EggHatch::
 	releaseall
 	end
 
+EventScript_GiveBabyEgg::
+	lockall
+	goto_if_set EGG_LADY_INDAYCARE_RECEIVED, EventScript_GiveBabyEgg_ThanksForMakingCare
+	msgbox Text_GiveBabyEgg, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_GiveBabyEgg_ISee
+	randomelement SPECIES_PICHU, SPECIES_SMOOCHUM, SPECIES_MAGBY, SPECIES_ELEKID, SPECIES_TOGEPI, SPECIES_WYNAUT, SPECIES_EEVEE, SPECIES_BONSLY @store the species in VAR_RESULT
+	setvar VAR_0x8000, 5 						@store level 
+	setvar VAR_0x8001, ITEM_NONE 				@store the item
+	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 					@Store if I want an egg or not 
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	setflag EGG_LADY_INDAYCARE_RECEIVED
+	releaseall
+	end
+EventScript_GiveBabyEgg_ISee::
+	msgbox Isee, MSGBOX_DEFAULT
+	releaseall
+	end
+EventScript_GiveBabyEgg_ThanksForMakingCare::
+	msgbox EventScript_GiveBabyEgg_Text_TakeCare, MSGBOX_DEFAULT
+	releaseall
+	end
 Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon:
 	.string "I'm the DAY-CARE MAN.\p"
 	.string "I help take care of the precious\n"
@@ -415,3 +440,12 @@ Route117_PokemonDayCare_Text_YoullBeLeftWithJustOne:
 	.string "me, you'll be left with just one.\p"
 	.string "You will be better off if you catch\n"
 	.string "some more, I dare say.$"
+
+Text_GiveBabyEgg::	
+	.string "Hello, TRAINER, I have a POKéMON egg,\nI know it needs care to make it hatch.\p"
+	.string "It just popped off from the daycare\n, but I don't have time to take care of it.\p"
+	.string "Would like it to take it, please?$"
+Isee::
+	.string "I see...$"
+EventScript_GiveBabyEgg_Text_TakeCare::
+	.string "Thanks for taking care of my egg,\nI really appreciate it.$"

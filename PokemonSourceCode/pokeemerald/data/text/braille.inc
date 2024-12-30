@@ -115,3 +115,10 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+DesertRuins_Braille_Cock:
+	brailleformat 1, 0, 27, 19, 4, 3
+	.braille "COCK$"
+DesertRuins_Braille_Suca:
+	brailleformat 1, 0, 27, 19, 4, 3
+	.braille "COCK$"

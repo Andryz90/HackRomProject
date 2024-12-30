@@ -63,7 +63,6 @@
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_9) ? 160 : 220)
 
-#define HISUIAN_AMULET_EVO_SIZE_TABLE   (sizeof(Pokemon_Level_evos)/sizeof(Pokemon_Level_evos[0]))
 
 struct SpeciesItem
 {
@@ -4448,11 +4447,13 @@ static u32 GetGMaxTargetSpecies(u32 species)
     return SPECIES_NONE;
 }
 
-static u8 LevelEvoHisuianForm (u16 species)
+//The function make the pokemon evolving only while holding the item and reaching a certain level
+static u8 LevelEvoHoldingItem (u16 species)
 {
     u8 i;
+    #define EVO_ITEM_HOLD_SIZE_TABLE 8
     // The global definition caused build issues
-    Pokemon_Level_evo Pokemon_Level_evos[7] = 
+    Pokemon_Level_evo Pokemon_Level_evos[EVO_ITEM_HOLD_SIZE_TABLE] = 
 {
     {SPECIES_QUILAVA,   36},
     {SPECIES_DEWOTT,    36},
@@ -4460,9 +4461,10 @@ static u8 LevelEvoHisuianForm (u16 species)
     {SPECIES_RUFFLET,   35},
     {SPECIES_GOOMY,     40},
     {SPECIES_BERGMITE,  37},
-    {SPECIES_DARTRIX,   36}
+    {SPECIES_DARTRIX,   36},
+    {SPECIES_URSARING,  45}
 };
-    for (i = 0u; i < HISUIAN_AMULET_EVO_SIZE_TABLE; i++)
+    for (i = 0u; i < EVO_ITEM_HOLD_SIZE_TABLE; i++)
     {
         if (species == Pokemon_Level_evos[i].species)
             return Pokemon_Level_evos[i].level;
@@ -4747,7 +4749,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_ITEM_HOLD:
                 if (heldItem == evolutions[i].param)
                 {
-                    u8 evo_level = LevelEvoHisuianForm(species);
+                    u8 evo_level = LevelEvoHoldingItem(species);
                     if (evo_level == 0) //is not hisuian form
                     {
                         targetSpecies = evolutions[i].targetSpecies;

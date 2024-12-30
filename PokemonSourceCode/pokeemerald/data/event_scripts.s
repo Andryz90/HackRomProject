@@ -1091,3 +1091,5 @@ EventScript_VsSeekerChargingDone::
 
 	.include "data/maps/VerdanturfPrairie/scripts.inc"
 
+
+	.include "data/maps/DuneCave/scripts.inc"

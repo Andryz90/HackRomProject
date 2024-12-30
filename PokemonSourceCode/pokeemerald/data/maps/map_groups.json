@@ -434,7 +434,8 @@
     "AlternativeForest",
     "Seaspray_Cave",
     "Seaspray_Cave_B1F",
-    "GraniteCave_B3F"
+    "GraniteCave_B3F",
+    "DuneCave"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

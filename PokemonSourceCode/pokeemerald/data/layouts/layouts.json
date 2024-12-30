@@ -4484,12 +4484,22 @@
     {
       "id": "LAYOUT_VERDANTURF_PRAIRIE",
       "name": "VerdanturfPrairie_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 15,
+      "height": 12,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/VerdanturfPrairie/border.bin",
       "blockdata_filepath": "data/layouts/VerdanturfPrairie/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNE_CAVE",
+      "name": "DuneCave_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DuneCave/border.bin",
+      "blockdata_filepath": "data/layouts/DuneCave/map.bin"
     }
   ]
 }

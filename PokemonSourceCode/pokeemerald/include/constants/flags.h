@@ -1221,8 +1221,8 @@
 #define FLAG_HIDE_WALLY_ROUTE111                                    0x494
 #define FLAG_ELECTRIC_SEED117                                       0x495 
 #define FLAG_RUSTBORO_MONKI_RECEIVED                                0x496 
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
+#define EGG_LADY_INDAYCARE_RECEIVED                                 0x497 
+#define FLAG_SCORCHING_SANDS_TM                                     0x498 
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
@@ -1505,7 +1505,7 @@
 #define FLAG_LANDMARK_DEWFORD_MANOR                 (SYSTEM_FLAGS + 0x86) 
 #define FLAG_WALLY_RUSTURF                          (SYSTEM_FLAGS + 0x87) 
 #define FLAG_LANDMARK_VERDANTURF_PRAIRIE            (SYSTEM_FLAGS + 0x88)
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
+#define FLAG_LANDMARK_DUNE_CAVE                     (SYSTEM_FLAGS + 0x89)
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag

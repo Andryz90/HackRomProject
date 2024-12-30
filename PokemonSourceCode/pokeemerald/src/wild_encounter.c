@@ -87,6 +87,46 @@ void DisableWildEncounters(bool8 disabled)
 {
     sWildEncountersDisabled = disabled;
 }
+enum WildPokemonEncounterType
+{
+    WILD_POKEMON_LAND,
+    WILD_POKEMON_WATER,
+    WILD_POKEMON_ROCKS,
+    WILD_POKEMON_FISHING,
+};
+static u16 RandomizeMonMultiForm (u16 species, enum WildPokemonEncounterType type)
+{
+    const u16 Deerling_SpeciesLookUpTable[4] = {SPECIES_DEERLING_SPRING, SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_AUTUMN, SPECIES_DEERLING_WINTER};
+    const u16 Sawsbuck_SpeciesLookUpTable[4] = {SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER};
+    const u16 Basculin_SpeciesLookUpTable[3] = {SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED};
+
+    switch (type)
+    {   
+        case WILD_POKEMON_LAND:
+            switch (species)
+            {
+            case SPECIES_DEERLING:
+                species = Deerling_SpeciesLookUpTable[Random() % 4];
+                break;
+            case SPECIES_SAWSBUCK:
+                species = Sawsbuck_SpeciesLookUpTable[Random() % 4];
+                break;
+            }
+            break;
+        case WILD_POKEMON_FISHING:
+        case WILD_POKEMON_WATER:
+            switch (species)
+            {
+            case SPECIES_BASCULIN:
+                species = Basculin_SpeciesLookUpTable[Random() % 4];
+                break;
+            }
+        break;
+        default:
+            break;
+    }
+    return species;
+}
 
 // Each fishing spot on Route 119 is given a number between 1 and NUM_FISHING_SPOTS inclusive.
 // The number is determined by counting the valid fishing spots left to right top to bottom.
@@ -422,7 +462,6 @@ static void CreateWildMon(u16 species, u8 level)
     u8 ivs[NUM_STATS]        = {hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv};     
 
     ZeroEnemyPartyMons();
-
     switch (gSpeciesInfo[species].genderRatio)
     {
     case MON_MALE:
@@ -488,7 +527,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
 {
     u8 wildMonIndex = 0;
     u8 level;
-
+    u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
     switch (area)
     {
     case WILD_AREA_LAND:
@@ -506,6 +545,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
             break;
 
         wildMonIndex = ChooseWildMonIndex_Land();
+        species = RandomizeMonMultiForm(wildMonInfo->wildPokemon[wildMonIndex].species, WILD_POKEMON_LAND);
         break;
     case WILD_AREA_WATER:
         if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_STEEL, ABILITY_MAGNET_PULL, &wildMonIndex, WATER_WILD_COUNT))
@@ -522,6 +562,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
             break;
 
         wildMonIndex = ChooseWildMonIndex_WaterRock();
+        species = RandomizeMonMultiForm(wildMonInfo->wildPokemon[wildMonIndex].species, WILD_POKEMON_WATER);
         break;
     case WILD_AREA_ROCKS:
         wildMonIndex = ChooseWildMonIndex_WaterRock();
@@ -533,15 +574,14 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         return FALSE;
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
-
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    CreateWildMon(species, level);
     return TRUE;
 }
 
 static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 rod)
 {
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
-    u16 wildMonSpecies = wildMonInfo->wildPokemon[wildMonIndex].species;
+    u16 wildMonSpecies = RandomizeMonMultiForm(wildMonInfo->wildPokemon[wildMonIndex].species, WILD_POKEMON_FISHING);
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
