@@ -4484,7 +4484,7 @@
     {
       "id": "LAYOUT_VERDANTURF_PRAIRIE",
       "name": "VerdanturfPrairie_Layout",
-      "width": 15,
+      "width": 16,
       "height": 12,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",

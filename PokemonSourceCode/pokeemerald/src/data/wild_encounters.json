@@ -1678,7 +1678,7 @@
             "mons": [
               {
                 "min_level": 20,
-                "max_level": 30,
+                "max_level": 34,
                 "species": "SPECIES_ARROKUDA"
               },
               {
@@ -1694,7 +1694,7 @@
               {
                 "min_level": 20,
                 "max_level": 34,
-                "species": "SPECIES_SLOWBRO_GALARIAN"
+                "species": "SPECIES_SLOWPOKE_GALARIAN"
               },
               {
                 "min_level": 20,
