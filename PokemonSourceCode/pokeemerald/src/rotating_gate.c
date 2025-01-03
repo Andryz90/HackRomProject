@@ -461,7 +461,6 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_RotatingGate[] =
     sSpriteAffineAnim_RotatingClockwise180to270Faster,
     sSpriteAffineAnim_RotatingClockwise270to360Faster,
 };
-#define OBJ_EVENT_PAL_TAG_NPC_1 0x1103
 
 static const struct SpriteTemplate sSpriteTemplate_RotatingGateLarge =
 {

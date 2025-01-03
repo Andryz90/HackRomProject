@@ -1001,10 +1001,11 @@
 #define ITEM_INFINITE_REPEL 829
 #define ITEM_HISUIAN_AMULET 830
 #define ITEM_POKE_VIAL   831
+#define ITEM_STRANGE_BALL 832
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 832
+#define ITEMS_COUNT 833
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -1080,6 +1081,7 @@
 #define EFFECT_ITEM_REVIVE                  9
 #define EFFECT_ITEM_RESTORE_PP              10
 #define EFFECT_ITEM_INCREASE_ALL_STATS      11
+#define EFFECT_ITEM_USE_POKE_FLUTE          12
 
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1

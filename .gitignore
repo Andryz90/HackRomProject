@@ -39,6 +39,7 @@ prefabs.json
 *.diff
 *.sym
 *.js
+PokEdo/**
 /Linux Path.txt
 /PokemonSourceCode/pokeemerald/*.gba
 PokemonSourceCode/pokeemerald/data/layouts/NewLab/border.bin

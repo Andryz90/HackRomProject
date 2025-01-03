@@ -60,7 +60,7 @@ u16 LoadCompressedSpriteSheetByTemplate(const struct SpriteTemplate *template, s
 
     // Check for LZ77 header and read uncompressed size, or fallback if not compressed (zero size)
     if ((size = IsLZ77Data(template->images->data, TILE_SIZE_4BPP, sizeof(gDecompressionBuffer))) == 0)
-        return LoadSpriteSheetByTemplate_Offset(template, 0, offset);
+        return LoadSpriteSheetByTemplate(template, 0, offset);
 
     LZ77UnCompWram(template->images->data, gDecompressionBuffer);
     myImage.data = gDecompressionBuffer;
@@ -68,7 +68,7 @@ u16 LoadCompressedSpriteSheetByTemplate(const struct SpriteTemplate *template, s
     myTemplate.images = &myImage;
     myTemplate.tileTag = template->tileTag;
 
-    return LoadSpriteSheetByTemplate_Offset(&myTemplate, 0, offset);
+    return LoadSpriteSheetByTemplate(&myTemplate, 0, offset);
 }
 
 void LoadCompressedSpriteSheetOverrideBuffer(const struct CompressedSpriteSheet *src, void *buffer)
@@ -130,18 +130,24 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
 
     if (isFrontPic)
     {
+    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
             LZ77UnCompWram(gSpeciesInfo[species].frontPicFemale, dest);
-        else if (gSpeciesInfo[species].frontPic != NULL)
+        else
+    #endif
+        if (gSpeciesInfo[species].frontPic != NULL)
             LZ77UnCompWram(gSpeciesInfo[species].frontPic, dest);
         else
             LZ77UnCompWram(gSpeciesInfo[SPECIES_NONE].frontPic, dest);
     }
     else
     {
+    #if P_GENDER_DIFFERENCES
         if (gSpeciesInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
             LZ77UnCompWram(gSpeciesInfo[species].backPicFemale, dest);
-        else if (gSpeciesInfo[species].backPic != NULL)
+        else
+    #endif
+        if (gSpeciesInfo[species].backPic != NULL)
             LZ77UnCompWram(gSpeciesInfo[species].backPic, dest);
         else
             LZ77UnCompWram(gSpeciesInfo[SPECIES_NONE].backPic, dest);

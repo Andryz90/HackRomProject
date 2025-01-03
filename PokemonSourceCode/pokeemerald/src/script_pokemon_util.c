@@ -402,8 +402,8 @@ u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item
     SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
 
     // ball
-    if (ball >= POKEBALL_COUNT)
-        ball = ITEM_POKE_BALL;
+    if (ball > POKEBALL_COUNT)
+        ball = BALL_POKE;
     SetMonData(&mon, MON_DATA_POKEBALL, &ball);
 
     // held item

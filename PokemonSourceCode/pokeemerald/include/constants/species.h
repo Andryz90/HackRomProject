@@ -695,10 +695,13 @@
 #define SPECIES_PYROAR                                  668
 #define SPECIES_FLABEBE                                 SPECIES_FLABEBE_RED_FLOWER
 #define SPECIES_FLABEBE_RED_FLOWER                      669
+#define SPECIES_FLABEBE_RED                             SPECIES_FLABEBE_RED_FLOWER
 #define SPECIES_FLOETTE                                 SPECIES_FLOETTE_RED_FLOWER
 #define SPECIES_FLOETTE_RED_FLOWER                      670
+#define SPECIES_FLOETTE_RED                             SPECIES_FLOETTE_RED_FLOWER
 #define SPECIES_FLORGES                                 SPECIES_FLORGES_RED_FLOWER
 #define SPECIES_FLORGES_RED_FLOWER                      671
+#define SPECIES_FLORGES_RED                             SPECIES_FLORGES_RED_FLOWER
 #define SPECIES_SKIDDO                                  672
 #define SPECIES_GOGOAT                                  673
 #define SPECIES_PANCHAM                                 674
@@ -708,6 +711,7 @@
 #define SPECIES_ESPURR                                  677
 #define SPECIES_MEOWSTIC                                SPECIES_MEOWSTIC_MALE
 #define SPECIES_MEOWSTIC_MALE                           678
+#define SPECIES_MEOWSTIC_M                              SPECIES_MEOWSTIC_MALE
 #define SPECIES_HONEDGE                                 679
 #define SPECIES_DOUBLADE                                680
 #define SPECIES_AEGISLASH                               SPECIES_AEGISLASH_SHIELD
@@ -1197,16 +1201,27 @@
 #define SPECIES_VIVILLON_FANCY                          1131
 #define SPECIES_VIVILLON_POKE_BALL                      1132
 #define SPECIES_FLABEBE_YELLOW_FLOWER                   1133
+#define SPECIES_FLABEBE_YELLOW                          SPECIES_FLABEBE_YELLOW_FLOWER
 #define SPECIES_FLABEBE_ORANGE_FLOWER                   1134
+#define SPECIES_FLABEBE_ORANGE                          SPECIES_FLABEBE_ORANGE_FLOWER
 #define SPECIES_FLABEBE_BLUE_FLOWER                     1135
+#define SPECIES_FLABEBE_BLUE                            SPECIES_FLABEBE_BLUE_FLOWER
 #define SPECIES_FLABEBE_WHITE_FLOWER                    1136
+#define SPECIES_FLABEBE_WHITE                           SPECIES_FLABEBE_WHITE_FLOWER
 #define SPECIES_FLOETTE_YELLOW_FLOWER                   1137
+#define SPECIES_FLOETTE_YELLOW                          SPECIES_FLOETTE_YELLOW_FLOWER
 #define SPECIES_FLOETTE_ORANGE_FLOWER                   1138
+#define SPECIES_FLOETTE_ORANGE                          SPECIES_FLOETTE_ORANGE_FLOWER
 #define SPECIES_FLOETTE_BLUE_FLOWER                     1139
+#define SPECIES_FLOETTE_BLUE                            SPECIES_FLOETTE_BLUE_FLOWER
 #define SPECIES_FLOETTE_WHITE_FLOWER                    1140
+#define SPECIES_FLOETTE_WHITE                           SPECIES_FLOETTE_WHITE_FLOWER
 #define SPECIES_FLOETTE_ETERNAL_FLOWER                  1141
+#define SPECIES_FLOETTE_ETERNAL                         SPECIES_FLOETTE_ETERNAL_FLOWER
 #define SPECIES_FLORGES_YELLOW_FLOWER                   1142
+#define SPECIES_FLORGES_YELLOW                          SPECIES_FLORGES_YELLOW_FLOWER
 #define SPECIES_FLORGES_ORANGE_FLOWER                   1143
+#define SPECIES_FLORGES_ORANGE                          SPECIES_FLORGES_ORANGE_FLOWER
 #define SPECIES_FLORGES_BLUE_FLOWER                     1144
 #define SPECIES_FLORGES_WHITE_FLOWER                    1145
 #define SPECIES_FURFROU_HEART_TRIM                      1146
@@ -1219,6 +1234,7 @@
 #define SPECIES_FURFROU_KABUKI_TRIM                     1153
 #define SPECIES_FURFROU_PHARAOH_TRIM                    1154
 #define SPECIES_MEOWSTIC_FEMALE                         1155
+#define SPECIES_MEOWSTIC_F                              SPECIES_MEOWSTIC_FEMALE
 #define SPECIES_AEGISLASH_BLADE                         1156
 #define SPECIES_PUMPKABOO_SMALL                         1157
 #define SPECIES_PUMPKABOO_LARGE                         1158
@@ -1579,6 +1595,7 @@
 #define SPECIES_SPEWPA_JUNGLE                           1473
 #define SPECIES_SPEWPA_FANCY                            1474
 #define SPECIES_SPEWPA_POKE_BALL                        1475
+#define SPECIES_SPEWPA_POKEBALL                         SPECIES_SPEWPA_POKE_BALL    // For compatibility
 #define SPECIES_RATICATE_ALOLAN_TOTEM                   1476
 #define SPECIES_GUMSHOOS_TOTEM                          1477
 #define SPECIES_VIKAVOLT_TOTEM                          1478
@@ -1627,11 +1644,14 @@
 #define SPECIES_DURALUDON_GIGANTAMAX                    1520
 #define SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX  1521
 #define SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX   1522
-#define SPECIES_MIMIKYU_TOTEM_BUSTED                    1523
+#define SPECIES_MIMIKYU_BUSTED_TOTEM                    1523
+#define SPECIES_MIMIKYU_TOTEM_BUSTED                    SPECIES_MIMIKYU_BUSTED_TOTEM
 
 #define SPECIES_EGG (SPECIES_MIMIKYU_TOTEM_BUSTED + 1)
 
 #define NUM_SPECIES SPECIES_EGG
+
+#define SPECIES_SHINY_TAG 5000
 
 // Competitive format aliases
 #define SPECIES_ALCREMIE_GMAX                           SPECIES_ALCREMIE_GIGANTAMAX
@@ -1729,6 +1749,7 @@
 #define SPECIES_SANDACONDA_GMAX                         SPECIES_SANDACONDA_GIGANTAMAX
 #define SPECIES_SANDSHREW_ALOLA                         SPECIES_SANDSHREW_ALOLAN
 #define SPECIES_SANDSLASH_ALOLA                         SPECIES_SANDSLASH_ALOLAN
+#define SPECIES_SHELLOS_WEST                            SPECIES_SHELLOS_WEST_SEA
 #define SPECIES_SHELLOS_EAST                            SPECIES_SHELLOS_EAST_SEA
 #define SPECIES_SLIGGOO_HISUI                           SPECIES_SLIGGOO_HISUIAN
 #define SPECIES_SLOWBRO_GALAR                           SPECIES_SLOWBRO_GALARIAN

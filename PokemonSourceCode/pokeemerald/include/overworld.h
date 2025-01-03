@@ -65,7 +65,7 @@ extern u8 gFieldLinkPlayerCount;
 extern u8 gTimeOfDay;
 extern u8 gTimeUpdateCounter;
 extern struct TimeBlendSettings currentTimeBlend;
-
+extern bool8 gExitStairsMovementDisabled;
 extern const struct UCoords32 gDirectionToVectors[];
 
 void DoWhiteOut(void);
@@ -172,5 +172,12 @@ u8 UpdateTimeOfDay(void);
 bool8 MapHasNaturalLight(u8 mapType);
 void UpdateAltBgPalettes(u16 palettes);
 void UpdatePalettesWithTime(u32);
+// Item Description Headers
+enum ItemObtainFlags
+{
+    FLAG_GET_ITEM_OBTAINED,
+    FLAG_SET_ITEM_OBTAINED,
+};
+bool8 GetSetItemObtained(u16 item, enum ItemObtainFlags caseId);
 
 #endif // GUARD_OVERWORLD_H

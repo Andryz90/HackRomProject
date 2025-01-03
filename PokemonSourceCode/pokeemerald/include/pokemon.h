@@ -323,9 +323,7 @@ struct BattlePokemon
     /*0x17*/ u32 abilityNum:2;
     /*0x18*/ s8 statStages[NUM_BATTLE_STATS];
     /*0x20*/ u16 ability;
-    /*0x22*/ u8 type1;
-    /*0x23*/ u8 type2;
-    /*0x24*/ u8 type3;
+    /*0x22*/ u8 types[3];
     /*0x25*/ u8 pp[MAX_MON_MOVES];
     /*0x29*/ u16 hp;
     /*0x2B*/ u8 level;
@@ -401,27 +399,35 @@ struct SpeciesInfo /*0xC4*/
  /* 0x43 */ u8 backAnimId;
  /* 0x44 */ const union AnimCmd *const *frontAnimFrames;
  /* 0x48 */ const u32 *frontPic;
- /* 0x4C */ const u32 *frontPicFemale;
  /* 0x50 */ const u32 *backPic;
- /* 0x54 */ const u32 *backPicFemale;
  /* 0x58 */ const u32 *palette;
- /* 0x5C */ const u32 *paletteFemale;
  /* 0x60 */ const u32 *shinyPalette;
- /* 0x64 */ const u32 *shinyPaletteFemale;
  /* 0x68 */ const u8 *iconSprite;
+#if P_GENDER_DIFFERENCES
+    const u32 *frontPicFemale;
+    const u32 *backPicFemale;
+    const u32 *paletteFemale;
+    const u32 *shinyPaletteFemale;
  /* 0x6C */ const u8 *iconSpriteFemale;
+#endif //P_GENDER_DIFFERENCES
 #if P_FOOTPRINTS
  /* 0x70 */ const u8 *footprint;
 #endif
             // All Pokémon pics are 64x64, but this data table defines where in this 64x64 frame the sprite's non-transparent pixels actually are.
  /* 0x74 */ u8 frontPicSize; // The dimensions of this drawn pixel area.
- /* 0x74 */ u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
  /* 0x75 */ u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
  /* 0x76 */ u8 backPicSize; // The dimensions of this drawn pixel area.
- /* 0x76 */ u8 backPicSizeFemale; // The dimensions of this drawn pixel area.
  /* 0x77 */ u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
+#if P_GENDER_DIFFERENCES
+    u8 frontPicSizeFemale; // The dimensions of this drawn pixel area.
+    u8 backPicSizeFemale; // The dimensions of this drawn pixel area.
+#endif //P_GENDER_DIFFERENCES
  /* 0x78 */ u8 iconPalIndex:3;
+#if P_GENDER_DIFFERENCES
             u8 iconPalIndexFemale:3;
+#else
+    u8 paddingF:3;
+#endif //P_GENDER_DIFFERENCES
             u8 padding3:2;
  /* 0x79 */ u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
             // Flags
@@ -440,11 +446,17 @@ struct SpeciesInfo /*0xC4*/
             u32 isHisuianForm:1;
             u32 isPaldeanForm:1;
             u32 cannotBeTraded:1;
-            u32 allPerfectIVs:1;
+    u32 perfectIVCount:3;   // This species will always generate with the specified amount of perfect IVs.
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.
             u32 tmIlliterate:1;     // This species will be unable to learn the universal moves.
             u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
-            u32 padding4:14;
+    u32 padding4:11;
+    // Shadow settings
+    s8 enemyShadowXOffset; // This determines the X-offset for an enemy Pokémon's shadow during battle; negative values point left, positive values point right.
+    s8 enemyShadowYOffset; // This determines the Y-offset for an enemy Pokémon's shadow during battle; negative values point up, positive values point down.
+    u16 enemyShadowSize:3; // This determines the size of the shadow sprite used for an enemy Pokémon's front sprite during battle.
+    u16 suppressEnemyShadow:1; // If set to true, then a shadow will not be drawn beneath an enemy Pokémon's front sprite during battle.
+    u16 padding5:12;
             // Move Data
  /* 0x80 */ const struct LevelUpMove *levelUpLearnset;
  /* 0x84 */ const u16 *teachableLearnset;
@@ -454,9 +466,16 @@ struct SpeciesInfo /*0xC4*/
  /* 0x94 */ const struct FormChange *formChangeTable;
 #if OW_POKEMON_OBJECT_EVENTS
  /* 0x98 */ struct ObjectEventGraphicsInfo overworldData;
+#if P_GENDER_DIFFERENCES
+    struct ObjectEventGraphicsInfo overworldDataFemale;
+#endif //P_GENDER_DIFFERENCES
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
  /* 0xBC */ const void* overworldPalette;
  /* 0xC0 */ const void* overworldShinyPalette;
+#if P_GENDER_DIFFERENCES
+    const void* overworldPaletteFemale;
+    const void* overworldShinyPaletteFemale;
+#endif //P_GENDER_DIFFERENCES
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
 };
@@ -477,6 +496,23 @@ struct MoveInfo
         u8 powerOverride;
     } zMove;
 
+    union {
+        struct {
+            u16 stringId;
+            u16 status;
+        } twoTurnAttack;
+        struct {
+            u16 side;
+            u16 property; // can be used to remove the hardcoded values
+        } protect;
+        u32 status;
+        u16 moveProperty;
+        u16 holdEffect;
+        u16 type;
+        u16 fixedDamage;
+        u16 absorbPercentage;
+        u16 maxEffect;
+    } argument;
     s32 priority:4;
     u32 recoil:7;
     u32 strikeCount:4; // Max 15 hits. Defaults to 1 if not set. May apply its effect on each hit.
@@ -532,7 +568,6 @@ struct MoveInfo
     u32 sketchBanned:1;
     u32 padding:5; // end of word
 
-    u32 argument;
 
     // primary/secondary effects
     const struct AdditionalEffect *additionalEffects;
@@ -549,7 +584,12 @@ struct MoveInfo
 #define ADDITIONAL_EFFECTS(...) EFFECTS_ARR( __VA_ARGS__ ), .numAdditionalEffects = ARRAY_COUNT(EFFECTS_ARR( __VA_ARGS__ ))
 
 // Just a hack to make a move boosted by Sheer Force despite having no secondary effects affected
-#define SHEER_FORCE_HACK { .moveEffect = 0, .chance = 100, }
+enum SheerForceBoost
+{
+    SHEER_FORCE_AUTO_BOOST, // This is the default state when a move has a move effect with a chance
+    SHEER_FORCE_BOOST,      // If a move effect doesn't have an effect with a chance this can force a boost
+    SHEER_FORCE_NO_BOOST,   // Prevents a Sheer Force boost
+};
 
 struct AdditionalEffect
 {
@@ -557,6 +597,8 @@ struct AdditionalEffect
     u8 self:1;
     u8 onlyIfTargetRaisedStats:1;
     u8 onChargeTurnOnly:1;
+    u8 sheerForceBoost:2; // Handles edge cases for Sheer Force
+    u8 padding:3;
     u8 chance; // 0% = effect certain, primary effect
 };
 
@@ -687,6 +729,7 @@ extern struct Pokemon gPlayerParty[PARTY_SIZE];
 extern u8 gEnemyPartyCount;
 extern struct Pokemon gEnemyParty[PARTY_SIZE];
 extern struct SpriteTemplate gMultiuseSpriteTemplate;
+extern u16 gFollowerSteps;
 
 extern const struct MoveInfo gMovesInfo[];
 extern const u8 gFacilityClassToPicIndex[];
@@ -736,8 +779,6 @@ void SetMonMoveSlot(struct Pokemon *mon, u16 move, u8 slot);
 void SetBattleMonMoveSlot(struct BattlePokemon *mon, u16 move, u8 slot);
 void GiveMonInitialMoveset(struct Pokemon *mon);
 void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon);
-void GiveMonInitialMoveset_Fast(struct Pokemon *mon);
-void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon);
 u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove);
 void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move);
 void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
@@ -771,6 +812,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon);
 u8 CopyMonToPC(struct Pokemon *mon);
 u8 CalculatePlayerPartyCount(void);
 u8 CalculateEnemyPartyCount(void);
+u8 CalculateEnemyPartyCountInSide(u32 battler);
 u8 GetMonsStateToDoubles(void);
 u8 GetMonsStateToDoubles_2(void);
 u16 GetAbilityBySpecies(u16 species, u8 abilityNum);
@@ -795,7 +837,7 @@ u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex);
 void RemoveMonPPBonus(struct Pokemon *mon, u8 moveIndex);
 void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex);
 void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst);
-void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex);
+void CopyPartyMonToBattleData(u32 battlerId, u32 partyIndex);
 bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex);
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, u8 e);
 bool8 HealStatusConditions(struct Pokemon *mon, u32 healMask, u8 battlerId);
@@ -803,7 +845,7 @@ u8 GetItemEffectParamOffset(u32 battler, u16 itemId, u8 effectByte, u8 effectBit
 u8 *UseStatIncreaseItem(u16 itemId);
 u8 GetNature(struct Pokemon *mon);
 u8 GetNatureFromPersonality(u32 personality);
-u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem, struct Pokemon *tradePartner);
+u16 GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 evolutionItem, struct Pokemon *tradePartner);
 bool8 IsMonPastEvolutionLevel(struct Pokemon *mon);
 u16 NationalPokedexNumToSpecies(u16 nationalNum);
 u16 NationalToHoennOrder(u16 nationalNum);
@@ -872,6 +914,7 @@ u16 GetFormChangeTargetSpecies(struct Pokemon *mon, u16 method, u32 arg);
 u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 arg);
 bool32 DoesSpeciesHaveFormChangeMethod(u16 species, u16 method);
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove);
+void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv);
 bool32 SpeciesHasGenderDifferences(u16 species);
 bool32 TryFormChange(u32 monId, u32 side, u16 method);
 void TryToSetBattleFormChangeMoves(struct Pokemon *mon, u16 method);
@@ -890,5 +933,6 @@ const u8 *GetMoveAnimationScript(u16 moveId);
 void UpdateDaysPassedSinceFormChange(u16 days);
 void TrySetDayLimitToFormChange(struct Pokemon *mon);
 void RandomizeIVto31 (u8 numberofstat, u8* ivs);
+u32 CheckDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler);
 
 #endif // GUARD_POKEMON_H

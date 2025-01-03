@@ -200,7 +200,7 @@ struct DodrioGame_PlayerCommData
 
 struct DodrioGame_Player
 {
-    u8 name[16];
+    u8 name[32];
     bool32 receivedGameStatePacket; // Never read
     struct DodrioGame_Berries berries;
     struct DodrioGame_PlayerCommData comm;

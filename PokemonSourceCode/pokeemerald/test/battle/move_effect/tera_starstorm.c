@@ -18,7 +18,7 @@ SINGLE_BATTLE_TEST("Tera Starstorm changes from Normal-type to Stellar-type if u
         MESSAGE("Terapagos used Tera Starstorm!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_STARSTORM, player);
         HP_BAR(opponent);
-        NOT { MESSAGE("It doesn't affect Foe Misdreavus…"); }
+        NOT { MESSAGE("It doesn't affect the opposing Misdreavus…"); }
     }
 }
 
@@ -57,5 +57,20 @@ SINGLE_BATTLE_TEST("Tera Starstorm becomes a physical move if the user is Terapa
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, UQ_4_12(2.5), results[1].damage);
+    }
+}
+
+SINGLE_BATTLE_TEST("Tera Starstorm remains Normal-type if used by Pokemon other than Terapagos")
+{
+    GIVEN {
+        ASSUME(gMovesInfo[MOVE_TERA_STARSTORM].type == TYPE_NORMAL);
+        ASSUME(gSpeciesInfo[SPECIES_MISDREAVUS].types[0] == TYPE_GHOST);
+        PLAYER(SPECIES_WOBBUFFET) { TeraType(TYPE_STELLAR); }
+        OPPONENT(SPECIES_MISDREAVUS);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TERA_STARSTORM, gimmick: GIMMICK_TERA); }
+    } SCENE {
+        MESSAGE("Wobbuffet used Tera Starstorm!");
+        MESSAGE("It doesn't affect the opposing Misdreavus…");
     }
 }

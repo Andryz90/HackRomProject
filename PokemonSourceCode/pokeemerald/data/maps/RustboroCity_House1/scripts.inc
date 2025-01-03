@@ -71,9 +71,7 @@ RustboroCity_House1_EventScript_Hisuian_Collector::
 	faceplayer
 	goto_if_set FLAG_RUSTBORO_HISUI_FLAG, RustboroCity_House1_Hisuian_Thankful
 	msgbox RustboroCity_House1_Text_Hisuian, MSGBOX_DEFAULT
-	setvar VAR_0x8008, 548 @petilil
-	copyvar VAR_0x8000, VAR_0x8008
-	specialvar VAR_RESULT CheckMonParty
+	checkspecies SPECIES_PETILIL, NO_PARTY_SCREEN
 	call_if_eq VAR_RESULT, TRUE, RustboroCity_House1_Give_HisuianAmulet
 	call_if_eq VAR_RESULT, FALSE, RustboroCity_House1_Hisuian_Rejected
 	end

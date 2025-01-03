@@ -77,7 +77,7 @@ enum
 };
 
 // IWRAM common
-bool8 (*gMenuCallback)(void);
+COMMON_DATA bool8 (*gMenuCallback)(void) = NULL;
 
 // EWRAM
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;
@@ -784,10 +784,11 @@ static bool8 StartMenuDebugCallback(void)
     RemoveExtraStartMenuWindows();
     HideStartMenuDebug(); // Hide start menu without enabling movement
 
-#if DEBUG_OVERWORLD_MENU == TRUE
-    FreezeObjectEvents();
-    Debug_ShowMainMenu();
-#endif
+    if (DEBUG_OVERWORLD_MENU)
+    {
+        FreezeObjectEvents();
+        Debug_ShowMainMenu();
+    }
 
 return TRUE;
 }
@@ -958,7 +959,7 @@ static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void))
 static void SaveGameTask(u8 taskId)
 {
     u8 status = RunSaveCallback();
-    
+
     switch (status)
     {
     case SAVE_CANCELED:

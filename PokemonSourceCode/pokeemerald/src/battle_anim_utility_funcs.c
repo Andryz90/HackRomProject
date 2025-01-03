@@ -1134,7 +1134,7 @@ void AnimTask_SetAnimTargetToAttackerOpposite(u8 taskId)
 
 void AnimTask_IsTargetWaterType(u8 taskId)
 {
-    if (gBattleMons[gBattleAnimTarget].type1 == TYPE_WATER ||gBattleMons[gBattleAnimTarget].type2 == TYPE_WATER)
+    if (gBattleMons[gBattleAnimTarget].types[0] == TYPE_WATER ||gBattleMons[gBattleAnimTarget].types[1] == TYPE_WATER)
         gBattleAnimArgs[ARG_RET_ID] = TRUE;
     else
         gBattleAnimArgs[ARG_RET_ID] = FALSE;

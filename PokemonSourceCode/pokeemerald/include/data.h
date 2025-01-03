@@ -4,7 +4,6 @@
 #include "constants/moves.h"
 #include "constants/trainers.h"
 
-#define SPECIES_SHINY_TAG 5000
 
 #define MAX_TRAINER_ITEMS 4
 
@@ -76,7 +75,6 @@ struct TrainerMon
     u8 padding1:1;
     u8 dynamaxLevel:4;
     u8 padding2:4;
-    u32 tags;
 };
 
 #define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)
@@ -91,7 +89,7 @@ struct Trainer
     /*0x12*/ u8 trainerPic;
     /*0x13*/ u8 trainerName[TRAINER_NAME_LENGTH + 1];
     /*0x1E*/ bool8 doubleBattle:1;
-             bool8 mugshotEnabled:1;
+             bool8 padding:1;
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
@@ -116,7 +114,9 @@ struct TypeInfo
     u16 maxMove;
     u16 teraTypeRGBValue;    // Most values pulled from the Tera type icon palette.
     u16 damageCategory:2;    // Used for B_PHYSICAL_SPECIAL_SPLIT <= GEN_3
-    u16 padding:14;
+    u16 useSecondTypeIconPalette:1;
+    u16 isSpecialCaseType:1;
+    u16 padding:12;
     const u32 *const paletteTMHM;
     //u16 enhanceItem;
     //u16 berry;
@@ -239,7 +239,7 @@ static inline const u8 GetTrainerPartySizeFromId(u16 trainerId)
 
 static inline const bool32 DoesTrainerHaveMugshot(u16 trainerId)
 {
-    return gTrainers[SanitizeTrainerId(trainerId)].mugshotEnabled;
+    return gTrainers[SanitizeTrainerId(trainerId)].mugshotColor;
 }
 
 static inline const u8 GetTrainerMugshotColorFromId(u16 trainerId)

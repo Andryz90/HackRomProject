@@ -1474,8 +1474,8 @@ static const u16 sFurfrouFormSpeciesIdTable[] = {
 
 #if P_FAMILY_ESPURR
 static const u16 sMeowsticFormSpeciesIdTable[] = {
-    SPECIES_MEOWSTIC_MALE,
-    SPECIES_MEOWSTIC_FEMALE,
+    SPECIES_MEOWSTIC_M,
+    SPECIES_MEOWSTIC_F,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_ESPURR
