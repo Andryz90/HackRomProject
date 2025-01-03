@@ -5901,6 +5901,11 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
 
     switch (moveEffect)
     {
+    case EFFECT_CHANGE_TYPE: //Sawsbuck only
+        if (move == MOVE_SEASON_POWER)
+        {
+            return type1;
+        }
     case EFFECT_WEATHER_BALL:
         if (gMain.inBattle && WEATHER_HAS_EFFECT)
         {

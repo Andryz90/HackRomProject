@@ -172,6 +172,7 @@ u8 UpdateTimeOfDay(void);
 bool8 MapHasNaturalLight(u8 mapType);
 void UpdateAltBgPalettes(u16 palettes);
 void UpdatePalettesWithTime(u32);
+bool8 MapIsInPerpetualDarkness(u8 mapType);
 // Item Description Headers
 enum ItemObtainFlags
 {

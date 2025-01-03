@@ -22597,7 +22597,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Season Power"),
         .description = COMPOUND_STRING(
-            "The power of the season\n."
+            "The power of the season,\n"
             "changing type for each form."),
         .effect = EFFECT_CHANGE_TYPE,
         .power = 90,

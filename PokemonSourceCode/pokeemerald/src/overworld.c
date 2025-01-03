@@ -1620,6 +1620,12 @@ u8 UpdateTimeOfDay(void)
     return gTimeOfDay;
 }
 
+bool8 MapIsInPerpetualDarkness(u8 mapType)
+{
+    return mapType == MAP_TYPE_UNDERGROUND; // || mapType == MAP_TYPE_HIDDEN_GROTTO;
+}
+
+
 bool8 MapHasNaturalLight(u8 mapType)
 {
     return mapType == MAP_TYPE_TOWN || mapType == MAP_TYPE_CITY || mapType == MAP_TYPE_ROUTE || mapType == MAP_TYPE_OCEAN_ROUTE;
