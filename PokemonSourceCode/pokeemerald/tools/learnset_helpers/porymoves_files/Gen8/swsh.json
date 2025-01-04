@@ -7852,6 +7852,10 @@
         "Move": "MOVE_STOMP"
       },
       {
+        "Level": 27,
+        "Move": "MOVE_IRON_HEAD"
+      },
+      {
         "Level": 29,
         "Move": "MOVE_FLAIL"
       },
@@ -7874,6 +7878,10 @@
       {
         "Level": 48,
         "Move": "MOVE_GUILLOTINE"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_METEOR_MASH"
       }
     ],
     "PreEvoMoves": [],
@@ -7927,6 +7935,22 @@
   },
   "KINGLER": {
     "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_IRON_GRIP"
+      },
+      {
+        "Level": 33,
+        "Move": "MOVE_IRON_HEAD"
+      },
+      {
+        "Level": 58,
+        "Move": "MOVE_METEOR_MASH"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_FOAM_BURST"
+      },
       {
         "Level": 1,
         "Move": "MOVE_WIDE_GUARD"

@@ -8289,6 +8289,8 @@ bool32 IsBattlerProtected(u32 battlerAtk, u32 battlerDef, u32 move)
         isProtected = TRUE;
     else if (gProtectStructs[battlerDef].kingsShielded && !IS_MOVE_STATUS(move))
         isProtected = TRUE;
+    else if (gProtectStructs[battlerDef].shieldGuarded && !IS_MOVE_STATUS(move))
+        isProtected = TRUE;
     else if (gProtectStructs[battlerDef].maxGuarded)
         isProtected = TRUE;
     else if (gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_QUICK_GUARD && GetChosenMovePriority(gBattlerAttacker) > 0)
@@ -9010,7 +9012,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
     case ABILITY_LIFEDRAINER:
         if (gMovesInfo[move].effect == EFFECT_ABSORB)
         {
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.25));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
             break;
         }
     }

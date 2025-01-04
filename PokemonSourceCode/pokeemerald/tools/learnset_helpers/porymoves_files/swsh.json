@@ -8031,7 +8031,8 @@
       "MOVE_ALLY_SWITCH",
       "MOVE_SCALD",
       "MOVE_HIGH_HORSEPOWER",
-      "MOVE_LIQUIDATION"
+      "MOVE_LIQUIDATION",
+      "MOVE_GYRO_BALL"
     ],
     "EggMoves": [
       "MOVE_ANCIENT_POWER",

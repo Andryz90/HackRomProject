@@ -8640,41 +8640,18 @@
     "TutorMoves": []
   },
   "KRABBY": {
-    "LevelMoves": [
-      {
-        "Level": 27,
-        "Move": "MOVE_METAL_CLAW"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "KINGLER": {
-    "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_IRON_GRIP"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_IRON_HEAD"
-      },
-      {
-        "Level": 58,
-        "Move": "MOVE_METEOR_MASH"
-      },
-      {
-        "Level": 70,
-        "Move": "MOVE_G_MAX_FOAM_BURST"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
-    "TutorMoves": [
-      "MOVE_GYRO_BALL"]
+    "TutorMoves": []
   },
   "VOLTORB": {
     "LevelMoves": [

@@ -22272,6 +22272,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .accuracy = 100,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument = { .absorbPercentage = 50 },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_POISON,
             .chance = 10,
@@ -22287,7 +22288,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     [MOVE_DETERIO] =
     {
         .name = COMPOUND_STRING("Deterio"),
-        .description = COMPOUND_STRING("Supereffective on steel type."),
+        .description = COMPOUND_STRING("Supereffective on steel\ntype."),
         .power = 80,
         .pp = 10,
         .effect = EFFECT_DETERIO,
@@ -22310,7 +22311,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Snow Slide"),
         .description = COMPOUND_STRING(
-            "Large frozen boulders are hurled.\n"
+            "Large frozen boulders are\nhurled."
             "May cause flinching."),
         .effect = EFFECT_HIT,
         .power = 75,
@@ -22334,8 +22335,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Poison Drill"),
         .description = COMPOUND_STRING(
-            "Charge the enemy with its drill\n"
-            "filled with poison. May toxic."),
+            "Charge the enemy with its\n"
+            "drill. May toxic."),
         .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_POISON,
@@ -22357,7 +22358,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Tectonic Power"),
         .description = COMPOUND_STRING(
-            "Makes the ground shake and erupt\n"
+            "Makes the ground shake\n"
             "with power. May lower Sp. Def."),
         .effect = EFFECT_HIT,
         .power = 95,
@@ -22469,6 +22470,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ignoresKingsRock = (B_UPDATED_MOVE_FLAGS == GEN_3 || B_UPDATED_MOVE_FLAGS == GEN_4),
         .healingMove = B_HEAL_BLOCKING >= GEN_6,
+        .argument = { .absorbPercentage = 50 },
         .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
@@ -22533,8 +22535,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Hoarfrost"),
         .description = COMPOUND_STRING(
-            "Inflicts frostbite status on the foe\n"
-            "with cold water."),
+            "Cover the enemy with cold water.\n"
+            "Inflicts frostbite status."),
         .effect = EFFECT_HOARFROST,
         .power = 0,
         .type = TYPE_ICE,
