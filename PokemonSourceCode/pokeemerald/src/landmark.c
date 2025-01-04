@@ -427,7 +427,7 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_ROUTE_134, 2, Landmarks_Route134_2},
     {MAPSEC_MT_CHIMNEY, 2, Landmarks_MtChimney_2},
     {MAPSEC_DEWFORD_MEADOW, 0, Landmarks_DewfordMeadow},
-    {MAPSEC_DEWFORD_MEADOW_HOUSE, 1, Landmarks_DewfordMeadow},
+    {MAPSEC_DEWFORD_MEADOW_HOUSE, 0, Landmarks_DewfordMeadow},
     {MAPSEC_VERDANTURF_PRAIRIE, 0, Landmarks_VerdanturfPraire},
     {MAPSEC_DUNE_CAVE, 0, Landmarks_DuneCave},
     {MAPSEC_NONE, 0, NULL},
