@@ -10906,19 +10906,15 @@
       },
       {
         "Level": 21,
-        "Move": "MOVE_WATERFALL"
+        "Move": "MOVE_AQUA_TAIL"
       },
       {
         "Level": 24,
         "Move": "MOVE_CRUNCH"
       },
       {
-        "Level": 28,
-        "Move": "MOVE_DUAL_CHOP"
-      },
-      {
         "Level": 32,
-        "Move": "MOVE_AQUA_TAIL"
+        "Move": "MOVE_DUAL_CHOP"
       },
       {
         "Level": 36,
@@ -10926,7 +10922,7 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_HYDRO_PUMP"
+        "Move": "MOVE_WATERFALL"
       },
       {
         "Level": 44,

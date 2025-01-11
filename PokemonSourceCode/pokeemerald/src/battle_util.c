@@ -10134,10 +10134,6 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     {
         mod = UQ_4_12(1.0);
     }
-    if (gMovesInfo[move].effect == EFFECT_DETERIO && defType == TYPE_STEEL)
-    {
-        mod = UQ_4_12(2.0);
-    }
 
     // Any pokemon with Spirit Body is immune to contact moves except they are of ghost or dark types.
     if ((gMovesInfo[move].makesContact == TRUE) && (gBattleMons[battlerDef].ability == ABILITY_SPIRIT_BODY))

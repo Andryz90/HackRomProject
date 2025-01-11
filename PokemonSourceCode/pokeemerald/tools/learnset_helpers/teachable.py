@@ -51,41 +51,64 @@ with open("./src/pokemon.c", "r") as file:
 # get compatibility from jsons
 def construct_compatibility_dict(force_custom_check):
     dict_out = {}
-    for pth in glob.glob('./tools/learnset_helpers/porymoves_files/*.json'):
-        f = open(pth, 'r')
-        if pth != './tools/learnset_helpers/porymoves_files\\custom.json':
-            data = json.load(f)
-            for mon in data.keys():
-                if not mon in dict_out:
-                    dict_out[mon] = []
+    pth = './tools/learnset_helpers/porymoves_files/sv.json'
+    f = open(pth, 'r')
+    if pth != './tools/learnset_helpers/porymoves_files\\custom.json':
+        data = json.load(f)
+        for mon in data.keys():
+            if not mon in dict_out:
+                dict_out[mon] = []
+                if (len(data[mon]['TMMoves']) != 0 or len(data[mon]['TutorMoves']) != 0):
+                    for move in data[mon]['TMMoves']:
+                        if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                            dict_out[mon].append(move)
+                    for move in data[mon]['TutorMoves']:
+                        if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                            dict_out[mon].append(move)
+                    #for move in data[mon]['PreEvoMoves']:
+                    #    if not move in dict_out[mon]:
+                    #        dict_out[mon].append(move)
+                    #for move in data[mon]['EggMoves']:
+                    #    if not move in dict_out[mon]:
+                    #        dict_out[mon].append(move)
+                else:
+                    pth = './tools/learnset_helpers/porymoves_files/swsh.json'
+                    f = open(pth, 'r')
+                    data_new = json.load(f)
+                    if (mon in data_new.keys() and (len(data_new[mon]['TMMoves']) != 0 or len(data_new[mon]['TutorMoves']) != 0)):
+                        for move in data_new[mon]['TMMoves']:
+                            if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                                dict_out[mon].append(move)
+                        for move in data_new[mon]['TutorMoves']:
+                            if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                                dict_out[mon].append(move)
+                    else:
+                        pth = './tools/learnset_helpers/porymoves_files/usum.json'   
+                        f = open(pth, 'r')
+                        data_new = json.load(f)
+                        if (mon in data_new.keys() and (len(data_new[mon]['TMMoves']) != 0 or len(data_new[mon]['TutorMoves']) != 0)):
+                            for move in data_new[mon]['TMMoves']:
+                                if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                                    dict_out[mon].append(move)
+                            for move in data_new[mon]['TutorMoves']:
+                                if not move in dict_out[mon] and move != 'MOVE_TERA_BLAST':
+                                    dict_out[mon].append(move)
 
-                #for move in data[mon]['PreEvoMoves']:
-                #    if not move in dict_out[mon]:
-                #        dict_out[mon].append(move)
-                for move in data[mon]['TMMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move)
-                for move in data[mon]['EggMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move)
-                for move in data[mon]['TutorMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move)
-        else:
-            for mon in data.keys():
-                if not mon in dict_out:
-                    dict_out[mon] = []
-                    level_for_moves[mon] = []
-                universal_moves.append(y)
-                for move in data[mon]['TMMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move['Move'])
-                for move in data[mon]['EggMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move)
-                for move in data[mon]['TutorMoves']:
-                    if not move in dict_out[mon]:
-                        dict_out[mon].append(move)        
+    else:
+        for mon in data.keys():
+            if not mon in dict_out:
+                dict_out[mon] = []
+                level_for_moves[mon] = []
+            universal_moves.append(y)
+            for move in data[mon]['TMMoves']:
+                if not move in dict_out[mon]:
+                    dict_out[mon].append(move['Move'])
+            # for move in data[mon]['EggMoves']:
+            #     if not move in dict_out[mon]:
+            #         dict_out[mon].append(move)
+            for move in data[mon]['TutorMoves']:
+                if not move in dict_out[mon]:
+                    dict_out[mon].append(move)        
 
     # if the file was not previously generated, check if there is custom data there that needs to be preserved
     with open("./src/data/pokemon/teachable_learnsets.h", 'r') as file:
@@ -351,6 +374,7 @@ def construct_compatibility_levelset(force_custom_check):
                 f2 = open("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json", "w")
                 f2.write(json.dumps(custom_json, indent=2))
                 if os.path.exists("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json"):
+                    f2.close()
                     os.remove("./tools/learnset_helpers/porymoves_files/Gen9/zcustom.json") #Remove it to have a clean run next time
                 f2.close()
             print("FIRST RUN: Updated custom.json with Gen9_Learnset.h's data")

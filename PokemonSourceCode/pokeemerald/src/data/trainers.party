@@ -3450,20 +3450,32 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Quick Attack
-- Thunder Wave
-- Spark
-- Leer
+Eelektross @ Leftovers  
+Ability: Levitate  
+Level: 32  
+- Grass Knot  
+- Discharge  
+- Fire Punch  
+- Flash  
 
-Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Charge
-- Shock Wave
-- Screech
+Raichu @ Air Balloon  
+Ability: Lightning Rod  
+Level: 32  
+Adamant Nature  
+- Fake Out  
+- Thunder Punch  
+- Surf  
+- Knock Off  
+
+Electrode @ Air Balloon  
+Ability: Galvanize  
+Level: 32  
+Serious Nature  
+IVs: 0 Atk / 30 Def  
+- Electroweb  
+- Hyper Voice  
+- Flash Cannon  
+- Hidden Power 
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_7 ===
 Name: GRUNT
@@ -3504,13 +3516,22 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Voltorb
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Manectric  
+Ability: Lightning Rod  
+Level: 30  
+IVs: 0 Atk / 30 SpA  
+- Discharge  
+- Flame Burst  
+- Hidden Power  
 
-Magnemite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+
+Lanturn  
+Ability: Volt Absorb  
+Level: 30   
+- Scald  
+- Discharge  
+- Flip Turn  
+- Eerie Impulse  
 
 === TRAINER_FERNANDO_1 ===
 Name: FERNANDO
@@ -5966,22 +5987,24 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Manectric  
-Ability: Lightning Rod  
+Illumise @ Silver Powder  
+Ability: Tinted Lens  
 Level: 27  
-IVs: 0 Atk / 30 SpA  
-- Discharge  
-- Flame Burst  
-- Hidden Power  
+Modest Nature  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Silver Wind  
+- Giga Drain  
+- Roost
 
-
-Lanturn  
-Ability: Volt Absorb  
-Level: 27   
-- Scald  
-- Discharge  
-- Flip Turn  
-- Eerie Impulse  
+Beautifly @ Big Root  
+Ability: Lifedrainer  
+Level: 28  
+Hasty Nature  
+- Draining Kiss  
+- Giga Drain  
+- Leech Life  
+- Air Cutter
 
 === TRAINER_ISABEL_2 ===
 Name: ISABEL
@@ -6421,21 +6444,31 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Zigzagoon
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Headbutt
-- Sand Attack
-- Growl
-- Thunderbolt
+Golem-Alola @ Air Balloon  
+Ability: Magnet Pull  
+Level: 33  
+IVs: 0 Atk  
+- Earth Power  
+- Discharge  
+- Power Gem  
+- Stealth Rock  
 
-Gulpin
-Level: 17
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- Amnesia
-- Sludge
-- Yawn
-- Pound
+Oricorio-Pom-Pom  
+Ability: Dancer  
+Level: 33  
+IVs: 0 Atk  
+- Revelation Dance  
+- Air Slash  
+- Roost  
+- Quiver Dance  
+
+Morpeko @ Shuca Berry  
+Ability: Hunger Switch  
+Level: 33  
+- Aura Wheel  
+- Knock Off  
+- Parting Shot  
+- Brick Break  
 
 === TRAINER_QUINCY ===
 Name: QUINCY
@@ -12955,21 +12988,29 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bide
-- Detect
-- Confusion
-- Thunder Punch
+Togedemaru @ Focus Sash  
+Ability: Iron Barbs  
+Level: 32  
+- Fake Out  
+- Spiky Shield  
+- Zing Zap  
+- Iron Head  
 
-Meditite
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Thunder Punch
-- Detect
-- Confusion
-- Meditate
+Toxtricity @ Throat Spray  
+Ability: Punk Rock  
+Level: 32  
+- Overdrive  
+- Boomburst  
+- Nuzzle  
+- Sludge Bomb  
+
+Emolga @ Magnet  
+Ability: Motor Drive  
+Level: 32  
+- Discharge  
+- Air Slash  
+- Protect  
+- U-turn  
 
 === TRAINER_DANIELLE ===
 Name: DANIELLE
@@ -14159,20 +14200,24 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Jolteon  
-Ability: Lightning Rod  
-Level: 26  
-IVs: 0 Atk  
-- Discharge  
-- Signal Beam  
-
-Kilowattrel  
-Ability: Volt Absorb  
-Level: 28  
-- Discharge  
-- Air Cutter  
+Volbeat @ Focus Band  
+Ability: Prankster  
+Level: 27  
+Impish Nature  
 - U-turn  
-- Quick Attack  
+- Thunder Wave  
+- Roost  
+- Covet
+
+Dustox @ Black Sludge  
+Ability: Friend Guard  
+Level: 28  
+Calm Nature  
+IVs: 0 Atk  
+- Rage Powder  
+- Toxic  
+- Silver Wind  
+- Moonlight
 
 === TRAINER_JOSEPH ===
 Name: JOSEPH
@@ -17061,19 +17106,20 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Illumise
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Charm
+Jolteon  
+Ability: Lightning Rod  
+Level: 30  
+IVs: 0 Atk  
+- Discharge  
+- Signal Beam  
 
-Volbeat
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Shock Wave
-- Quick Attack
-- Confuse Ray
+Kilowattrel  
+Ability: Volt Absorb  
+Level: 30  
+- Discharge  
+- Air Cutter  
+- U-turn  
+- Quick Attack  
 
 === TRAINER_DARIUS ===
 Name: DARIUS

@@ -5558,16 +5558,16 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
 
 static const u16 sUniversalMoves[] =
 {
-    MOVE_BIDE,
+    //MOVE_BIDE,
     MOVE_FRUSTRATION,
     MOVE_HIDDEN_POWER,
-    MOVE_MIMIC,
+    //MOVE_MIMIC,
     MOVE_NATURAL_GIFT,
-    MOVE_RAGE,
+    //MOVE_RAGE,
     MOVE_RETURN,
     MOVE_SECRET_POWER,
-    MOVE_SUBSTITUTE,
-    MOVE_TERA_BLAST,
+    //MOVE_SUBSTITUTE,
+    //MOVE_TERA_BLAST
 };
 
 u8 CanLearnTeachableMove(u16 species, u16 move)
@@ -5695,7 +5695,7 @@ u8 GetTutorMoves(struct Pokemon *mon, u16 *moves)
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    	/*Fill the TMs/HMs move array to prevent the pokemon to learns it*/
+    /*Fill the TMs/HMs move array to prevent the pokemon to learns it*/
     for (k = 0; k < NUM_TECHIDDEN_MACHINES; k++)
     {
         tms[k] = ItemIdToBattleMoveId(ITEM_TM01 + k);

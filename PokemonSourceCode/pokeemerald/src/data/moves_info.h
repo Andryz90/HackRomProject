@@ -22291,11 +22291,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING("Supereffective on steel\ntype."),
         .power = 80,
         .pp = 10,
-        .effect = EFFECT_DETERIO,
+        .effect = EFFECT_SUPER_EFFECTIVE_ON_ARG,
         .type = TYPE_POISON,
         .accuracy = 100,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument = { .type = TYPE_STEEL },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_POISON,
             .chance = 10,

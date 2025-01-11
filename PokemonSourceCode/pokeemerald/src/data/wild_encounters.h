@@ -3282,6 +3282,23 @@ const struct WildPokemon gDuneCave0_LandMons[] =
 };
 
 const struct WildPokemonInfo gDuneCave0_LandMonsInfo = { 10, gDuneCave0_LandMons };
+const struct WildPokemon gVerdanturfPrairie0_LandMons[] =
+{
+    { 20, 30, SPECIES_DEERLING },
+    { 20, 30, SPECIES_ROSELIA },
+    { 20, 30, SPECIES_AUDINO },
+    { 20, 30, SPECIES_FLOETTE },
+    { 20, 30, SPECIES_COMBEE },
+    { 20, 30, SPECIES_SUNKERN },
+    { 20, 30, SPECIES_PETILIL },
+    { 20, 30, SPECIES_COTTONEE },
+    { 20, 30, SPECIES_PETILIL },
+    { 20, 30, SPECIES_COTTONEE },
+    { 20, 30, SPECIES_CHIKORITA },
+    { 20, 30, SPECIES_CHIKORITA },
+};
+
+const struct WildPokemonInfo gVerdanturfPrairie0_LandMonsInfo = { 20, gVerdanturfPrairie0_LandMons };
 
 const struct WildPokemonHeader gWildMonHeaders[] =
 {
@@ -4353,6 +4370,14 @@ const struct WildPokemonHeader gWildMonHeaders[] =
         .mapGroup = MAP_GROUP(DUNE_CAVE),
         .mapNum = MAP_NUM(DUNE_CAVE),
         .landMonsInfo = &gDuneCave0_LandMonsInfo,
+        .waterMonsInfo = NULL,
+        .rockSmashMonsInfo = NULL,
+        .fishingMonsInfo = NULL,
+    },
+    {
+        .mapGroup = MAP_GROUP(VERDANTURF_PRAIRIE),
+        .mapNum = MAP_NUM(VERDANTURF_PRAIRIE),
+        .landMonsInfo = &gVerdanturfPrairie0_LandMonsInfo,
         .waterMonsInfo = NULL,
         .rockSmashMonsInfo = NULL,
         .fishingMonsInfo = NULL,

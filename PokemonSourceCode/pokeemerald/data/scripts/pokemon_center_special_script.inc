@@ -4,7 +4,7 @@ PKMN_Center_Move_Tutor_HeartScale::
 	faceplayer
 	message PKMN_Center_Move_Tutor_Text_HowCanHelp_HS
 	waitmessage
-	dynmultipush PKMN_Center_Remember_Move, 	0
+	dynmultipush PKMN_Center_Tutor_Move, 	0
 	dynmultipush PKMN_Center_ChangeNature, 		1
 	dynmultipush PKMN_Center_MaxIVs, 	2
 	dynmultipush PKMN_Center_Cancel, 		3
@@ -12,7 +12,7 @@ PKMN_Center_Move_Tutor_HeartScale::
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_eq PKMN_Center_Move_Tutor_General_Exit
 	switch VAR_RESULT
-	case 0, PKMN_Center_MoveReminder_EventScript
+	case 0, FallarborTownTutor_EventScript
 	case 1, OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature
 	case 2, PKMN_Center_EventScript_MaxIVs
 	case 3, PKMN_Center_Move_Tutor_General_Exit
@@ -597,8 +597,8 @@ PKMN_Center_IVs_AlreadySet::
 
 PKMN_Center_NameRater::
 	.string "Name Rater$"
-PKMN_Center_Remember_Move::
-	.string "Remember a move$"
+PKMN_Center_Tutor_Move::
+	.string "Teaching a move$"
 PKMN_Center_ForgetAMove::
 	.string "Forget a move$"
 PKMN_Center_ApplyStatus::

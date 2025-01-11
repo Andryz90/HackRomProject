@@ -594,15 +594,18 @@ Route111_EventScript_Wally_BattleTrigger1::
 	playse SE_PIN
 	msgbox Route111_Text_WallyCallPlayer, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Trigger1
+	waitmovement 0
 	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
 	release
 	end
 Player_Trigger1::
 	walk_up
+	face_down
 	step_end
 Player_Trigger2::
 	walk_up
 	walk_left
+	face_down
 	step_end
 Route111_EventScript_Wally_BattleTrigger2::
 	lock

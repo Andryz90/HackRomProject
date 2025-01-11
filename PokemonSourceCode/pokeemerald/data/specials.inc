@@ -554,6 +554,8 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
+	def_special TeachTutorMove
+	def_special ChooseMonForTutor
 	def_special SetNewIVStat
 	def_special SetNewIVStatAll
 	def_special SwapPokemonGender

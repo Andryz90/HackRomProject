@@ -97,3 +97,63 @@ FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg:
 	.string "Hunh? There isn't a single move that\n"
 	.string "I can teach an EGG.$"
 
+
+
+@ Tutor Move 
+FallarborTownTutor_EventScript::
+	@lockall
+	msgbox FallarborTown_Tutor_Text_ImTheMoveTutor, MSGBOX_YESNO
+	switch VAR_RESULT
+	case YES, FallarborTown_Tutor_EventScript_AskTeachMove
+	case NO, PKMN_Center_Move_Tutor_General_Exit
+	end
+
+FallarborTown_Tutor_EventScript_AskTeachMove::
+	checkitem ITEM_HEART_SCALE
+	goto_if_eq VAR_RESULT, FALSE, FallarborTown_Tutor_EventScript_ComeBackWithHeartScale
+	@msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO
+	@switch VAR_RESULT
+	@case NO, FallarborTown_Tutor_EventScript_ComeBackWithHeartScale
+	goto FallarborTown_TutorHouse_EventScript_ChooseMon
+	end
+
+FallarborTown_TutorHouse_EventScript_ChooseMon::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon, MSGBOX_DEFAULT
+	special ChooseMonForTutor
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, FallarborTown_Tutor_EventScript_ComeBackWithHeartScale
+	special IsSelectedMonEgg
+	goto_if_eq VAR_RESULT, TRUE, FallarborTown_Tutor_EventScript_CantTeachEgg
+	goto_if_eq VAR_0x8005, 0, FallarborTown_Tutor_EventScript_NoMoveToTeachMon
+	goto FallarborTown_Tutor_EventScript_ChooseMove
+	end
+
+FallarborTown_Tutor_EventScript_ChooseMove::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
+	special TeachTutorMove
+	waitstate
+	goto_if_eq VAR_0x8004, 0, FallarborTown_TutorHouse_EventScript_ChooseMon
+	msgbox FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale, MSGBOX_DEFAULT
+	removeitem ITEM_HEART_SCALE
+	goto FallarborTown_Tutor_EventScript_ComeBackWithHeartScale
+	end
+
+FallarborTown_Tutor_EventScript_NoMoveToTeachMon::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon, MSGBOX_DEFAULT
+	goto FallarborTown_TutorHouse_EventScript_ChooseMon
+	end
+
+FallarborTown_Tutor_EventScript_CantTeachEgg::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg, MSGBOX_DEFAULT
+	goto FallarborTown_TutorHouse_EventScript_ChooseMon
+	end
+
+FallarborTown_Tutor_EventScript_ComeBackWithHeartScale::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
+	releaseall
+	end
+
+FallarborTown_Tutor_Text_ImTheMoveTutor:
+	.string "I can teach special moves\nto your Pokémon.\p"
+	.string "This service requires,\njust 1 Heart Scale.\p"
+	.string "Are you interested?$"

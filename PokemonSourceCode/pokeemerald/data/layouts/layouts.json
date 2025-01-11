@@ -4485,7 +4485,7 @@
       "id": "LAYOUT_VERDANTURF_PRAIRIE",
       "name": "VerdanturfPrairie_Layout",
       "width": 16,
-      "height": 12,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/VerdanturfPrairie/border.bin",

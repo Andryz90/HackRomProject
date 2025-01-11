@@ -2298,9 +2298,6 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             break;
-        case EFFECT_DETERIO:
-            if ((gBattleMons[battlerDef].types[0] == TYPE_STEEL || gBattleMons[battlerDef].types[1] == TYPE_STEEL))
-                ADJUST_SCORE(GOOD_EFFECT);
         case EFFECT_ION_DELUGE:
             if (gFieldStatuses & STATUS_FIELD_ION_DELUGE
               || PartnerMoveIsSameNoTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))

@@ -65,8 +65,8 @@
 #define FLAG_MINECTITE                                  0x34 
 #define FLAG_SUPERCELL_SLAM_TM                          0x35 
 #define FLAG_CHARIZARDITE                               0x36 
-#define FLAG_UNUSED_0x037                               0x37 // Unused Flag
-#define FLAG_UNUSED_0x038                               0x38 // Unused Flag
+#define FLAG_RELAXED_MINT_GIRL                          0x37
+#define FLAG_DUNE_CAVE_TEMP_ITEM                        0x38 
 #define FLAG_UNUSED_0x039                               0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A                               0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B                               0x3B // Unused Flag
@@ -119,7 +119,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
 
-#define FLAG_HIDDEN_ITEM_RED_NECTAR                    0x68  // Unused Flag
+#define FLAG_HIDDEN_ITEM_RED_NECTAR          0x68  
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0x69
 #define FLAG_RECEIVED_HM_STRENGTH            0x6A
