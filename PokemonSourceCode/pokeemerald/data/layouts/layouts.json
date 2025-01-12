@@ -4494,8 +4494,8 @@
     {
       "id": "LAYOUT_DUNE_CAVE",
       "name": "DuneCave_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 19,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DuneCave/border.bin",

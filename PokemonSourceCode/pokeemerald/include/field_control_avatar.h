@@ -10,6 +10,7 @@ struct FieldInput
     bool8 heldDirection:1;
     bool8 heldDirection2:1;
     bool8 tookStep:1;
+    bool8 pressedListButton:1;
     bool8 pressedBButton:1;
     bool8 input_field_1_0:1;
     bool8 input_field_1_1:1;

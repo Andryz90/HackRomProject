@@ -121,4 +121,4 @@ DesertRuins_Braille_Cock:
 	.braille "COCK$"
 DesertRuins_Braille_Suca:
 	brailleformat 1, 0, 27, 19, 4, 3
-	.braille "COCK$"
+	.braille "SUCA$"

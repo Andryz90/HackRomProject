@@ -67,7 +67,7 @@
 #define FLAG_CHARIZARDITE                               0x36 
 #define FLAG_RELAXED_MINT_GIRL                          0x37
 #define FLAG_DUNE_CAVE_TEMP_ITEM                        0x38 
-#define FLAG_UNUSED_0x039                               0x39 // Unused Flag
+#define FLAG_LOADEAD_DICE                               0x39
 #define FLAG_UNUSED_0x03A                               0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B                               0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C                               0x3C // Unused Flag
