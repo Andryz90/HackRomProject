@@ -68,7 +68,7 @@
 #define FLAG_RELAXED_MINT_GIRL                          0x37
 #define FLAG_DUNE_CAVE_TEMP_ITEM                        0x38 
 #define FLAG_LOADEAD_DICE                               0x39
-#define FLAG_UNUSED_0x03A                               0x3A // Unused Flag
+#define FLAG_RECEIVED_VOLT_SWITCH                       0x3A 
 #define FLAG_UNUSED_0x03B                               0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C                               0x3C // Unused Flag
 #define FLAG_UNUSED_0x03D                               0x3D // Unused Flag

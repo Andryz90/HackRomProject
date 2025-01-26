@@ -25551,24 +25551,7 @@
     "TutorMoves": []
   },
   "LINOONE": {
-    "LevelMoves": [
-      {
-        "Level": 20,
-        "Move": "MOVE_FAKE_OUT"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_COVET"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_LOW_KICK"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_EXTREME_SPEED"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],

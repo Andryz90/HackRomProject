@@ -51700,7 +51700,8 @@
       "MOVE_ENDEAVOR",
       "MOVE_WHIRLPOOL",
       "MOVE_FEATHER_DANCE",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_WEATHER_BALL"
     ],
     "EggMoves": [
       "MOVE_AQUA_JET",

@@ -5150,6 +5150,22 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        //Damp now has the same effect as water sport too
+        case ABILITY_DAMP:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                for (i = 0; i < gBattlersCount; i++)
+                {
+                    if (gStatuses4[i] & STATUS4_WATER_SPORT)
+                        effect = i + 1;
+                }
+
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEAKEN_FIRE;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
         }
         break;
     case ABILITYEFFECT_ENDTURN:

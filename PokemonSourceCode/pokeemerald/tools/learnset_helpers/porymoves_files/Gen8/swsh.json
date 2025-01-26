@@ -22525,6 +22525,7 @@
   },
   "LINOONE": {
     "LevelMoves": [
+
       {
         "Level": 0,
         "Move": "MOVE_SLASH"
@@ -22578,6 +22579,10 @@
         "Move": "MOVE_FURY_SWIPES"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_FAKE_OUT"
+      },
+      {
         "Level": 23,
         "Move": "MOVE_REST"
       },
@@ -22590,6 +22595,10 @@
         "Move": "MOVE_FLING"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_LOW_KICK"
+      },
+      {
         "Level": 38,
         "Move": "MOVE_FLAIL"
       },
@@ -22600,6 +22609,10 @@
       {
         "Level": 48,
         "Move": "MOVE_DOUBLE_EDGE"
+      },
+      {
+        "Level": 56,
+        "Move": "MOVE_EXTREME_SPEED"
       }
     ],
     "PreEvoMoves": [],

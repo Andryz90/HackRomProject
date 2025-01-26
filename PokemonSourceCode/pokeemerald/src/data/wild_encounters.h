@@ -294,7 +294,7 @@ const struct WildPokemon gRoute111_FishingMons[] =
     { 5, 10, SPECIES_BARBOACH },
     { 5, 10, SPECIES_TYMPOLE },
     { 10, 30, SPECIES_FINNEON },
-    { 10, 30, SPECIES_PYUKUMUKU },
+    { 10, 30, SPECIES_WIMPOD },
     { 10, 30, SPECIES_GOLDEEN },
     { 25, 30, SPECIES_CHINCHOU },
     { 30, 35, SPECIES_CHINCHOU },

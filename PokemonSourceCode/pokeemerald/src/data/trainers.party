@@ -4102,13 +4102,47 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Dustox
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Golisopod  
+Ability: Emergency Exit  
+Level: 32  
+- First Impression  
+- Razor Shell  
+- Aqua Jet  
+- Drill Run  
 
-Beautifly
-Level: 16
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ribombee  
+Ability: Sweet Veil
+Level: 32  
+IVs: 0 Atk  
+- Moonblast  
+- Bug Buzz  
+- U-turn  
+- Psychic
+
+Ariados @ Scope Lens  
+Ability: Sniper  
+Level: 33  
+- Cut  
+- Cross Poison  
+- U-turn  
+- Night Slash  
+
+Durant @ Wide Lens  
+Ability: Hustle  
+Level: 32  
+- First Impression  
+- Iron Head  
+- Rock Slide  
+- Facade  
+
+Masquerain  
+Ability: Water Bubble  
+Level: 33  
+- Bug Buzz  
+- U-turn  
+- Scald  
+- Giga Drain  
+
 
 === TRAINER_JEFFREY_2 ===
 Name: JEFFREY
@@ -5681,20 +5715,38 @@ Music: Twins
 Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Zigzagoon
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Growl
-- Tail Whip
-- Headbutt
-- Odor Sleuth
+Arboliva @ Grassy Seed  
+Ability: Seed Sower  
+Level: 30  
+IVs: 0 Atk  
+- Leech Seed  
+- Hyper Voice  
+- Giga Drain  
+- Earth Power  
 
-Makuhita
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Focus Energy
-- Arm Thrust
+Leavanny @ Occa Berry  
+Ability: Overcoat  
+Level: 30  
+- Grassy Glide  
+- X-Scissor  
+- Knock Off  
+
+Hariyama @ Flame Orb  
+Ability: Guts  
+Level: 31  
+- Fake Out  
+- Bulk Up  
+- Bullet Punch  
+- Drain Punch  
+
+Obstagoon @ Flame Orb  
+Ability: Guts  
+Level: 31  
+- Obstruct  
+- Facade  
+- Crunch  
+
+
 
 === TRAINER_ANNA_AND_MEG_2 ===
 Name: ANNA & MEG
@@ -7309,9 +7361,49 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Squawkabilly-Blue @ Leftovers  
+Ability: Intimidate  
+Level: 32  
+Impish Nature  
+- Facade  
+- Quick Attack  
+- Brave Bird  
+- Parting Shot  
+
+Squawkabilly-White @ Wide Lens  
+Ability: Hustle  
+Level: 32  
+Adamant Nature  
+- Facade  
+- Quick Attack  
+- Brave Bird  
+- Parting Shot  
+
+Squawkabilly-Yellow @ Life Orb  
+Ability: Sheer Force  
+Level: 32  
+- Pounce  
+- Facade  
+- Brave Bird  
+- Parting Shot  
+
+Squawkabilly @ Flame Orb  
+Ability: Guts  
+Level: 32  
+- Facade  
+- Brave Bird  
+- Quick Attack  
+- U-turn  
+
+Dodrio @ Sharp Beak  
+Ability: Tangled Feet  
+Level: 32  
+- Tri Attack  
+- Drill Peck  
+- Peck  
+- Jump Kick  
+
+
 
 === TRAINER_DYLAN_2 ===
 Name: DYLAN
@@ -7374,9 +7466,23 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Roserade  
+Ability: Technician  
+Level: 32  
+IVs: 0 Atk  
+- Sludge Bomb  
+- Grass Knot  
+- Protect  
+- Synthesis
+
+Scovillain @ White Herb  
+Ability: Chlorophyll  
+Level: 32  
+Adamant Nature  
+- Temper Flare  
+- Bullet Seed  
+- Stomping Tantrum  
+- Spicy Extract
 
 === TRAINER_MARIA_2 ===
 Name: MARIA
@@ -10649,29 +10755,39 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Whismur
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dipplin @ Sitrus Berry  
+Ability: Gluttony  
+Level: 32  
+- Recycle  
+- Giga Drain  
+- Dragon Pulse  
+- Sucker Punch  
 
-Zigzagoon
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Porygon-Z @ Expert Belt  
+Ability: Analytic  
+Level: 32  
+IVs: 0 Atk  
+- Tri Attack  
+- Discharge  
+- Icy Wind  
+- Shadow Ball  
 
-Aron
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Klinklang @ Metal Coat  
+Ability: Clear Body  
+Level: 32  
+- Volt Switch  
+- Wild Charge  
+- Gear Grind  
 
-Poochyena
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Taillow
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Makuhita
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bronzong  
+Ability: Levitate  
+Level: 32  
+Brave Nature  
+IVs: 0 Spe  
+- Gyro Ball  
+- Psychic Noise  
+- Body Press  
+- Charge Beam
 
 === TRAINER_DAVIS ===
 Name: DAVIS
@@ -10852,29 +10968,43 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Wingull
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Breloom @ Loaded Dice  
+Ability: Technician  
+Level: 33  
+Tera Type: Grass  
+- Spore  
+- Mach Punch  
+- Bullet Seed  
+- Rock Tomb  
 
-Shroomish
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Delcatty @ Silk Scarf  
+Ability: Cute Charm  
+Level: 34  
+Tera Type: Normal  
+Adamant Nature  
+- Fake Out  
+- Sing  
+- Last Resort  
 
-Marill
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Comfey (F) @ Big Root  
+Ability: Triage  
+Level: 34  
+Tera Type: Fairy  
+IVs: 0 Atk  
+- Leech Seed  
+- Draining Kiss  
+- Giga Drain  
+- Dazzling Gleam  
 
-Roselia
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lilligant-Hisui  
+Ability: Chlorophyll  
+Level: 34  
+Tera Type: Grass  
+- Victory Dance  
+- Leaf Blade  
+- Axe Kick  
+- Ice Spinner  
 
-Skitty
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Goldeen
-Level: 11
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_HALLE ===
 Name: HALLE
@@ -15136,9 +15266,23 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Doduo
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Whimsicott @ Heat Rock  
+Ability: Prankster  
+Level: 32  
+IVs: 0 Atk  
+- Sunny Day  
+- Helping Hand  
+- Taunt  
+- Giga Drain
+
+Florges @ Leftovers  
+Ability: Flower Veil  
+Level: 32  
+IVs: 0 Atk  
+- Giga Drain  
+- Dazzling Gleam  
+- Calm Mind  
+- Helping Hand
 
 === TRAINER_BRANDI ===
 Name: BRANDI
@@ -15149,9 +15293,29 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Ralts
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Politoed  
+Ability: Drizzle  
+Level: 34  
+- Muddy Water  
+- Giga Drain  
+- Flip Turn  
+- Icy Wind  
+
+Swanna @ Wacan Berry  
+Ability: Hydration  
+Level: 34  
+IVs: 0 Atk  
+- Rest  
+- Weather Ball  
+- Air Slash  
+
+Quagsire @ Leftovers  
+Ability: Water Absorb  
+Level: 34  
+- Earthquake  
+- Liquidation  
+- Toxic  
+- Protect  
 
 === TRAINER_AISHA ===
 Name: AISHA
@@ -15162,9 +15326,21 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Meditite
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Parasect @ Leftovers  
+Ability: Damp  
+Level: 34  
+- Spore  
+- Rage Powder  
+- Leech Life  
+- Knock Off  
+
+Barbaracle @ Rindo Berry  
+Ability: Tough Claws  
+Level: 34  
+- Shell Smash  
+- Rock Tomb  
+- Razor Shell  
+
 
 === TRAINER_MAKAYLA ===
 Name: MAKAYLA

@@ -1936,10 +1936,10 @@ const struct Item gItemsInfo[] =
         // Infinite Candy
         [ITEM_RARE_CANDY_KEY_ITEM] =
             {
-                .name = _("Endless Rare Candies"),
+                .name = _("Cap Candie"),
                 .description = COMPOUND_STRING(
                     "Raises the level\n"
-                    "of a Pokémon below\n"
+                    "of a Pokémon at\n"
                     "the lvl cap."),
                 .pocket = POCKET_KEY_ITEMS,
                 .type = ITEM_USE_PARTY_MENU,
