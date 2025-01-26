@@ -2535,28 +2535,14 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_PP4:
             retVal = substruct1->pp4;
             break;
+        /*Remove of the EVs from the game*/
         case MON_DATA_HP_EV:
-            //retVal = substruct2->hpEV;
-            retVal = substruct2->hpEV;
-            break;
         case MON_DATA_ATK_EV:
-            retVal = substruct2->attackEV;
-            //retVal = substruct2->attackEV;
-            break;
         case MON_DATA_DEF_EV:
-            retVal = substruct2->defenseEV;
-            //retVal = substruct2->defenseEV;
-            break;
         case MON_DATA_SPEED_EV:
-            retVal = substruct2->speedEV;
-            //retVal = substruct2->speedEV;
-            break;
         case MON_DATA_SPATK_EV:
-            retVal = substruct2->spAttackEV;
-            //retVal = substruct2->spAttackEV;
-            break;
         case MON_DATA_SPDEF_EV:
-            retVal = substruct2->spDefenseEV;
+            retVal = 0u;
             //retVal = substruct2->spDefenseEV;
             break;
         case MON_DATA_COOL:
