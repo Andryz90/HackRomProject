@@ -1146,31 +1146,31 @@ static const u16 sMarkings_Pal[] = INCBIN_U16("graphics/summary_screen/markings.
 static const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
     {
         // Attack  Defense  Speed  Sp.Atk  Sp. Def
-        [NATURE_HARDY] = {0, 0, 0, 0, 0},
-        [NATURE_LONELY] = {+1, -1, 0, 0, 0},
-        [NATURE_BRAVE] = {+1, 0, -1, 0, 0},
-        [NATURE_ADAMANT] = {+1, 0, 0, -1, 0},
-        [NATURE_NAUGHTY] = {+1, 0, 0, 0, -1},
-        [NATURE_BOLD] = {-1, +1, 0, 0, 0},
-        [NATURE_DOCILE] = {0, 0, 0, 0, 0},
-        [NATURE_RELAXED] = {0, +1, -1, 0, 0},
-        [NATURE_IMPISH] = {0, +1, 0, -1, 0},
-        [NATURE_LAX] = {0, +1, 0, 0, -1},
-        [NATURE_TIMID] = {-1, 0, +1, 0, 0},
-        [NATURE_HASTY] = {0, -1, +1, 0, 0},
-        [NATURE_SERIOUS] = {0, 0, 0, 0, 0},
-        [NATURE_JOLLY] = {0, 0, +1, -1, 0},
-        [NATURE_NAIVE] = {0, 0, +1, 0, -1},
-        [NATURE_MODEST] = {-1, 0, 0, +1, 0},
-        [NATURE_MILD] = {0, -1, 0, +1, 0},
-        [NATURE_QUIET] = {0, 0, -1, +1, 0},
-        [NATURE_BASHFUL] = {0, 0, 0, 0, 0},
-        [NATURE_RASH] = {0, 0, 0, +1, -1},
-        [NATURE_CALM] = {-1, 0, 0, 0, +1},
-        [NATURE_GENTLE] = {0, -1, 0, 0, +1},
-        [NATURE_SASSY] = {0, 0, -1, 0, +1},
-        [NATURE_CAREFUL] = {0, 0, 0, -1, +1},
-        [NATURE_QUIRKY] = {0, 0, 0, 0, 0},
+        [NATURE_HARDY] =    {0, 0, 0, 0, 0},
+        [NATURE_LONELY] =   {STAT_ATK, STAT_DEF, 0, 0, 0},
+        [NATURE_BRAVE] =    {STAT_ATK, 0, STAT_SPEED, 0, 0},
+        [NATURE_ADAMANT] =  {STAT_ATK, 0, 0, STAT_SPATK, 0},
+        [NATURE_NAUGHTY] =  {STAT_ATK, 0, 0, 0, STAT_SPDEF},
+        [NATURE_BOLD] =     {STAT_ATK, STAT_DEF, 0, 0, 0},
+        [NATURE_DOCILE] =   {0, 0, 0, 0, 0},
+        [NATURE_RELAXED] =  {0, STAT_DEF, STAT_SPEED, 0, 0},
+        [NATURE_IMPISH] =   {0, STAT_DEF, 0, STAT_SPATK, 0},
+        [NATURE_LAX] =      {0, STAT_DEF, 0, 0, STAT_SPDEF},
+        [NATURE_TIMID] =    {STAT_ATK, 0, STAT_SPEED, 0, 0},
+        [NATURE_HASTY] =    {0, STAT_DEF, STAT_SPEED, 0, 0},
+        [NATURE_SERIOUS] =  {0, 0, 0, 0, 0},
+        [NATURE_JOLLY] =    {0, 0, STAT_SPEED, STAT_SPATK, 0},
+        [NATURE_NAIVE] =    {0, 0, STAT_SPEED, 0, STAT_SPDEF},
+        [NATURE_MODEST] =   {STAT_ATK, 0, 0, STAT_SPATK, 0},
+        [NATURE_MILD] =     {0, STAT_DEF, 0, STAT_SPATK, 0},
+        [NATURE_QUIET] =    {0, 0, STAT_SPEED, STAT_SPATK, 0},
+        [NATURE_BASHFUL] =  {0, 0, 0, 0, 0},
+        [NATURE_RASH] =     {0, 0, 0, STAT_SPATK, STAT_SPDEF},
+        [NATURE_CALM] =     {STAT_ATK, 0, 0, 0, STAT_SPDEF},
+        [NATURE_GENTLE] =   {0, STAT_DEF, 0, 0, STAT_SPDEF},
+        [NATURE_SASSY] =    {0, 0, STAT_SPEED, 0, STAT_SPDEF},
+        [NATURE_CAREFUL] =  {0, 0, 0, STAT_SPATK, STAT_SPDEF},
+        [NATURE_QUIRKY] =   {0, 0, 0, 0, 0},
 };
 
 // code
@@ -1723,37 +1723,36 @@ static void Task_HandleInput(u8 taskId)
             BeginCloseSummaryScreen(taskId);
         }
         //show IVS/EVs on button presses
-        else if (gMain.newKeys & R_BUTTON)
+        else if (JOY_NEW(R_BUTTON))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 BufferIvOrEvStats(0);
             }
         }
-        else if (gMain.newKeys & L_BUTTON)
+        else if ((JOY_NEW(L_BUTTON)))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 BufferIvOrEvStats(1);
             }
         }
-        else if (gMain.newKeys & START_BUTTON)
+        else if (JOY_NEW(START_BUTTON))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 BufferIvOrEvStats(2);
             }
-        }
-        else if (JOY_NEW(START_BUTTON)
-                && ShouldShowMoveRelearner()
-                && (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES))
-        {
-            sMonSummaryScreen->callback = CB2_InitLearnMove;
-            gSpecialVar_0x8004 = sMonSummaryScreen->curMonIndex;
-            gOriginSummaryScreenPage = sMonSummaryScreen->currPageIndex;
-            StopPokemonAnimations();
-            PlaySE(SE_SELECT);
-            BeginCloseSummaryScreen(taskId);
+            else if (ShouldShowMoveRelearner()
+                    && (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES || sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES))
+            {
+                sMonSummaryScreen->callback = CB2_InitLearnMove;
+                gSpecialVar_0x8004 = sMonSummaryScreen->curMonIndex;
+                gOriginSummaryScreenPage = sMonSummaryScreen->currPageIndex;
+                StopPokemonAnimations();
+                PlaySE(SE_SELECT);
+                BeginCloseSummaryScreen(taskId);
+            }
         }
         else if (DEBUG_POKEMON_SPRITE_VISUALIZER && JOY_NEW(SELECT_BUTTON) && !gMain.inBattle)
         {

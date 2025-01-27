@@ -32579,30 +32579,9 @@
     "TutorMoves": []
   },
   "KECLEON": {
-    "LevelMoves": [
-      {
-        "Level": 23,
-        "Move": "MOVE_LEAFAGE"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_SEED_BOMB"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_HYPNOSIS"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_POWER_WHIP"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_BULLET_SEED",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_SOLAR_BLADE"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },

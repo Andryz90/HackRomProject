@@ -8702,7 +8702,7 @@ F_TRAINER_FEMALE |
 #line 3520
             .ability = ABILITY_LIGHTNING_ROD,
 #line 3521
-            .lvl = 30,
+            .lvl = 33,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
@@ -8721,7 +8721,7 @@ F_TRAINER_FEMALE |
 #line 3529
             .ability = ABILITY_VOLT_ABSORB,
 #line 3530
-            .lvl = 30,
+            .lvl = 33,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {

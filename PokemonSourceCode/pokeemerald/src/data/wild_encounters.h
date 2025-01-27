@@ -291,16 +291,16 @@ const struct WildPokemon gRoute111_RockSmashMons[] =
 const struct WildPokemonInfo gRoute111_RockSmashMonsInfo = { 20, gRoute111_RockSmashMons };
 const struct WildPokemon gRoute111_FishingMons[] =
 {
-    { 5, 10, SPECIES_BARBOACH },
-    { 5, 10, SPECIES_TYMPOLE },
-    { 10, 30, SPECIES_FINNEON },
-    { 10, 30, SPECIES_WIMPOD },
-    { 10, 30, SPECIES_GOLDEEN },
-    { 25, 30, SPECIES_CHINCHOU },
-    { 30, 35, SPECIES_CHINCHOU },
-    { 20, 25, SPECIES_CLAUNCHER },
-    { 35, 40, SPECIES_CLAUNCHER },
-    { 40, 45, SPECIES_CLAUNCHER },
+    { 20, 30, SPECIES_BARBOACH },
+    { 20, 30, SPECIES_TYMPOLE },
+    { 20, 30, SPECIES_FINNEON },
+    { 20, 30, SPECIES_WIMPOD },
+    { 20, 30, SPECIES_GOLDEEN },
+    { 20, 30, SPECIES_CHINCHOU },
+    { 20, 30, SPECIES_CHINCHOU },
+    { 20, 30, SPECIES_CLAUNCHER },
+    { 20, 30, SPECIES_CLAUNCHER },
+    { 20, 30, SPECIES_CLAUNCHER },
 };
 
 const struct WildPokemonInfo gRoute111_FishingMonsInfo = { 100, gRoute111_FishingMons };

@@ -3518,7 +3518,7 @@ AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Awa
 
 Manectric  
 Ability: Lightning Rod  
-Level: 30  
+Level: 33  
 IVs: 0 Atk / 30 SpA  
 - Discharge  
 - Flame Burst  
@@ -3527,7 +3527,7 @@ IVs: 0 Atk / 30 SpA
 
 Lanturn  
 Ability: Volt Absorb  
-Level: 30   
+Level: 33   
 - Scald  
 - Discharge  
 - Flip Turn  
@@ -17284,14 +17284,14 @@ AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Awa
 
 Jolteon  
 Ability: Lightning Rod  
-Level: 30  
+Level: 33  
 IVs: 0 Atk  
 - Discharge  
 - Signal Beam  
 
 Kilowattrel  
 Ability: Volt Absorb  
-Level: 30  
+Level: 33  
 - Discharge  
 - Air Cutter  
 - U-turn  

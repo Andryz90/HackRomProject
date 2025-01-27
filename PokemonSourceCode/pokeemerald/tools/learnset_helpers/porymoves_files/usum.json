@@ -46070,6 +46070,9 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_BULLET_SEED",
+      "MOVE_GRASSY_GLIDE",
+      "MOVE_SOLAR_BLADE",
       "MOVE_WORK_UP",
       "MOVE_TOXIC",
       "MOVE_HIDDEN_POWER",

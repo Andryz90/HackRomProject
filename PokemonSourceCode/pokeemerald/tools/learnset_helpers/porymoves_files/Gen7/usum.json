@@ -46043,6 +46043,7 @@
   },
   "KECLEON": {
     "LevelMoves": [
+
       {
         "Level": 1,
         "Move": "MOVE_THIEF"
@@ -46092,6 +46093,10 @@
         "Move": "MOVE_ANCIENT_POWER"
       },
       {
+        "Level": 23,
+        "Move": "MOVE_LEAFAGE"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_SLASH"
       },
@@ -46102,6 +46107,10 @@
       {
         "Level": 33,
         "Move": "MOVE_SHADOW_CLAW"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_SEED_BOMB"
       },
       {
         "Level": 38,
@@ -46118,6 +46127,14 @@
       {
         "Level": 50,
         "Move": "MOVE_SYNCHRONOISE"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_HYPNOSIS"
+      },
+      {
+        "Level": 55,
+        "Move": "MOVE_POWER_WHIP"
       }
     ],
     "PreEvoMoves": [],

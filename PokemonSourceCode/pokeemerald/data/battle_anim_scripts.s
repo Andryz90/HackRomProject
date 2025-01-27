@@ -35093,6 +35093,7 @@ gBattleAnimMove_SISMA::
 	call FissureDirtPlumeFar
 	delay 15
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	waitforvisualfinish
 	delay 15
 	call FissureDirtPlumeClose
 	waitbgfadein
@@ -35101,6 +35102,7 @@ gBattleAnimMove_SISMA::
 	waitbgfadeout
 	setarg 7, -1
 	waitbgfadein
+	clearmonbg ANIM_TARGET
 	end
 
 gBattleAnimMove_HOARFROST::

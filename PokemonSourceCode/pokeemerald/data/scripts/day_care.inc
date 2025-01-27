@@ -442,8 +442,8 @@ Route117_PokemonDayCare_Text_YoullBeLeftWithJustOne:
 	.string "some more, I dare say.$"
 
 Text_GiveBabyEgg::	
-	.string "Hello, TRAINER, I have a POKéMON egg,\nI know it needs care to make it hatch.\p"
-	.string "It just popped off from the daycare\n, but I don't have time to take care of it.\p"
+	.string "Hello, TRAINER, I have a POKéMON egg.\nI know it needs care to make it hatch.\p"
+	.string "It just popped off from the daycare,\nbut I don't have time to take care of it.\p"
 	.string "Would like it to take it, please?$"
 Isee::
 	.string "I see...$"
