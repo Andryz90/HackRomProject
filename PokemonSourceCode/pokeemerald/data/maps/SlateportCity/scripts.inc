@@ -722,6 +722,11 @@ SlateportCity_EventScript_CaptStern::
 	releaseall
 	end
 
+Splitface_Battle_Prova:
+	lockall
+	trainerbattle_single TRAINER_SPLITFACE_1, GraniteCave_B3F_SplitFace_BattleIntroText, GraniteCave_B3F_SplitFace_BattleLoseText, GraniteCave_B3F_SplitFace_AfterBattle1, NO_MUSIC
+	releaseall 
+	end
 SlateportCity_Movement_OldWomanConcern:
 	delay_16
 	delay_16

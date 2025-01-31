@@ -18328,10 +18328,9 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SPLITFACE_1 ===
 Name: Splitface
-Class: Leader
-Pic: Beauty
+Pic: Splitface
+Class: Developer
 Gender: Male
-Music: Elite Four
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Strongest Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 

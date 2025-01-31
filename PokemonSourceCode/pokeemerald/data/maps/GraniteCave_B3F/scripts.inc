@@ -100,13 +100,15 @@ GraniteCave_B3F_SplitFace_Encounter1::
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FaceAwayPlayer 
 	waitmovement  LOCALID_SPLITFACE  
-	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
-	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_Bestemmia, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
 	waitmovement  LOCALID_SPLITFACE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
 	waitmovement  LOCALID_SPLITFACE
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer2, MSGBOX_DEFAULT
+	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
+	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_TextPlayer2_Part2, MSGBOX_DEFAULT
 	call GraniteCave_B3F_SplitFace_Battle1
 	release
 	end
@@ -145,13 +147,15 @@ GraniteCave_B3F_SplitFace_Encounter2::
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FaceAwayPlayer 
 	waitmovement  LOCALID_SPLITFACE  
-	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
-	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_Bestemmia, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_SPLITFACE, Common_Movement_Delay32
 	waitmovement  LOCALID_SPLITFACE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
 	waitmovement  LOCALID_SPLITFACE
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer2, MSGBOX_DEFAULT
+	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
+	waitmovement  LOCALID_SPLITFACE
+	msgbox GraniteCave_B3F_SplitFace_TextPlayer2_Part2, MSGBOX_DEFAULT
 	call GraniteCave_B3F_SplitFace_Battle2
 	release
 	end
@@ -197,8 +201,6 @@ GraniteCave_B3F_SplitFace_Encounter3::
 	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
 	waitmovement  LOCALID_SPLITFACE
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer2, MSGBOX_DEFAULT
-	applymovement LOCALID_SPLITFACE, Common_Movement_FaceLeft
-	waitmovement  LOCALID_SPLITFACE
 	applymovement LOCALID_SPLITFACE, Common_Movement_FacePlayer 
 	waitmovement  LOCALID_SPLITFACE
 	msgbox GraniteCave_B3F_SplitFace_TextPlayer2_Part2, MSGBOX_DEFAULT
