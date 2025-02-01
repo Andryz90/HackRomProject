@@ -599,7 +599,7 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u16 wildMonSpecies = RandomizeMonMultiForm(wildMonInfo->wildPokemon[wildMonIndex].species, WILD_POKEMON_FISHING);
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
-    UpdateChainFishingStreak();
+    //UpdateChainFishingStreak(); No need to chain
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
 }

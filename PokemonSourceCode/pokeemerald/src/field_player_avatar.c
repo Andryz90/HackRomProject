@@ -1867,18 +1867,20 @@ static bool32 Fishing_ShowDots(struct Task *task)
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (JOY_NEW(A_BUTTON))
-    {
-        if (!DoesFishingMinigameAllowCancel())
-            return FALSE;
+    // if (JOY_NEW(A_BUTTON))
+    // {
+        /*Allowing always a success for fishing, preventing time consume*/
 
-        task->tStep = FISHING_NOT_EVEN_NIBBLE;
-        if (task->tRoundsPlayed != 0)
-            task->tStep = FISHING_GOT_AWAY;
-        return TRUE;
-    }
-    else
-    {
+        // if (!DoesFishingMinigameAllowCancel())
+        //     return FALSE;
+
+        // task->tStep = FISHING_NOT_EVEN_NIBBLE;
+        // if (task->tRoundsPlayed != 0)
+        //     task->tStep = FISHING_GOT_AWAY;
+        // return TRUE;
+    //}
+    // else
+    // {
         if (task->tFrameCounter >= 20)
         {
             task->tFrameCounter = 0;
@@ -1895,8 +1897,9 @@ static bool32 Fishing_ShowDots(struct Task *task)
                 task->tNumDots++;
             }
         }
-        return FALSE;
-    }
+        
+    //}
+    return FALSE;
 }
 
 static bool32 Fishing_CheckForBite(struct Task *task)
@@ -1915,8 +1918,11 @@ static bool32 Fishing_CheckForBite(struct Task *task)
 
     firstMonHasSuctionOrSticky = Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold();
 
-    if(firstMonHasSuctionOrSticky)
-        bite = Fishing_RollForBite(task->tFishingRod, firstMonHasSuctionOrSticky);
+    // if(firstMonHasSuctionOrSticky)
+        //bite = Fishing_RollForBite(task->tFishingRod, firstMonHasSuctionOrSticky);
+
+    //Allow always a success for fishing, preventing time consume
+    bite = TRUE;
 
     if (!bite)
         bite = Fishing_RollForBite(task->tFishingRod, FALSE);
@@ -1958,18 +1964,23 @@ static bool32 Fishing_ChangeMinigame(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool32 Fishing_WaitForA(struct Task *task)
 {
-    const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36,
-        [GOOD_ROD]  = 33,
-        [SUPER_ROD] = 30
-    };
+    // const s16 reelTimeouts[3] = {
+    //     [OLD_ROD]   = 36,
+    //     [GOOD_ROD]  = 33,
+    //     [SUPER_ROD] = 30
+    // };
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (task->tFrameCounter >= reelTimeouts[task->tFishingRod])
-        task->tStep = FISHING_GOT_AWAY;
-    else if (JOY_NEW(A_BUTTON))
-        task->tStep = FISHING_CHECK_MORE_DOTS;
+
+    /*Delete the timer wating the input for player*/
+    // if (task->tFrameCounter >= reelTimeouts[task->tFishingRod])
+    //     task->tStep = FISHING_GOT_AWAY;
+
+    /*Just wait to press A*/
+    if (JOY_NEW(A_BUTTON))
+        task->tStep = FISHING_MON_ON_HOOK;
+    
     return FALSE;
 }
 
