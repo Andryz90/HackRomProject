@@ -32570,11 +32570,7 @@
   "CASTFORM": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_WILL_O_WISP",
-      "MOVE_THUNDER_WAVE",
-      "MOVE_HOARFROST"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },

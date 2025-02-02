@@ -49,3 +49,14 @@ PokemonSourceCode/pokeemerald/data/layouts/NewLab/map.bin
 
 /PokemonSourceCode/pokeemerald/tools/AI_Flags/trainers_party.txt
 /PokemonSourceCode/pokeemerald/tools/AI_Flags/trainers_party_edited.txt
+/PokemonSourceCode/pokeemerald/.github/ISSUE_TEMPLATE/01_battle_engine_bugs.yaml
+/PokemonSourceCode/pokeemerald/.github/ISSUE_TEMPLATE/02_battle_ai_issues.yaml
+/PokemonSourceCode/pokeemerald/.github/ISSUE_TEMPLATE/03_feature_requests.yaml
+/PokemonSourceCode/pokeemerald/.github/ISSUE_TEMPLATE/04_other_errors.yaml
+/PokemonSourceCode/pokeemerald/.github/ISSUE_TEMPLATE/config.yml
+/PokemonSourceCode/pokeemerald/.github/calcrom/calcrom.pl
+/PokemonSourceCode/pokeemerald/.github/calcrom/webhook.sh
+/PokemonSourceCode/pokeemerald/.github/pull_request_template.md
+/PokemonSourceCode/pokeemerald/.github/workflows/build.yml
+/PokemonSourceCode/pokeemerald/.github/workflows/docs.yml
+/PokemonSourceCode/pokeemerald/saves/PokemonStatsGen3.lua

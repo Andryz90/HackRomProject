@@ -66809,19 +66809,67 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_SCRATCH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_PLAY_NICE"
+      },
+      {
+        "Level": 4,
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 1,
+        "Level": 7,
         "Move": "MOVE_LICK"
       },
       {
-        "Level": 1,
+        "Level": 10,
+        "Move": "MOVE_VINE_WHIP"
+      },
+      {
+        "Level": 13,
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 1,
+        "Level": 16,
+        "Move": "MOVE_LEECH_SEED"
+      },
+      {
+        "Level": 19,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 22,
         "Move": "MOVE_SEED_BOMB"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_TORMENT"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_FLING"
+      },
+      {
+        "Level": 31,
+        "Move": "MOVE_ACROBATICS"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_GRASS_KNOT"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_RECYCLE"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_NATURAL_GIFT"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_CRUNCH"
       }
     ],
     "PreEvoMoves": [
@@ -67051,19 +67099,67 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_SCRATCH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_PLAY_NICE"
+      },
+      {
+        "Level": 4,
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 1,
+        "Level": 7,
         "Move": "MOVE_LICK"
       },
       {
-        "Level": 1,
+        "Level": 10,
+        "Move": "MOVE_INCINERATE"
+      },
+      {
+        "Level": 13,
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 1,
+        "Level": 16,
+        "Move": "MOVE_YAWN"
+      },
+      {
+        "Level": 19,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 22,
         "Move": "MOVE_FLAME_BURST"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_AMNESIA"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_FLING"
+      },
+      {
+        "Level": 31,
+        "Move": "MOVE_ACROBATICS"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_FIRE_BLAST"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_RECYCLE"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_NATURAL_GIFT"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_CRUNCH"
       }
     ],
     "PreEvoMoves": [
@@ -67295,19 +67391,67 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_SCRATCH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_PLAY_NICE"
+      },
+      {
+        "Level": 4,
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 1,
+        "Level": 7,
         "Move": "MOVE_LICK"
       },
       {
-        "Level": 1,
+        "Level": 10,
+        "Move": "MOVE_WATER_GUN"
+      },
+      {
+        "Level": 13,
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 1,
+        "Level": 16,
+        "Move": "MOVE_WATER_SPORT"
+      },
+      {
+        "Level": 19,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 22,
         "Move": "MOVE_SCALD"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_TAUNT"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_FLING"
+      },
+      {
+        "Level": 31,
+        "Move": "MOVE_ACROBATICS"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_BRINE"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_RECYCLE"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_NATURAL_GIFT"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_CRUNCH"
       }
     ],
     "PreEvoMoves": [

@@ -12816,7 +12816,11 @@
       {
         "Level": 70,
         "Move": "MOVE_STONE_EDGE"
-      }
+      },
+      {
+        "Level": 41,
+        "Move": "MOVE_AQUA_CUTTER"
+      } 
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -12881,7 +12885,8 @@
     ],
     "TutorMoves": [
       "MOVE_FLIP_TURN",
-      "MOVE_METEOR_BEAM"
+      "MOVE_METEOR_BEAM",
+      "MOVE_KOWTOW_CLEAVE"
     ]
   },
   "AERODACTYL": {
@@ -12932,12 +12937,12 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_AGILITY"
+        "Move": "MOVE_ACCELEROCK"
       },
-      {
-        "Level": 55,
-        "Move": "MOVE_HYPER_BEAM"
-      },
+    {
+      "Level": 50,
+      "Move": "MOVE_ACCELEROCK"
+    },
       {
         "Level": 60,
         "Move": "MOVE_GIGA_IMPACT"
@@ -13001,6 +13006,7 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
+      "MOVE_HEAD_SMASH",
       "MOVE_DUAL_WINGBEAT",
       "MOVE_METEOR_BEAM"
     ]
@@ -25829,7 +25835,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_SWEET_SCENT"
+        "Move": "MOVE_SLUDGE"
       },
       {
         "Level": 30,
@@ -25840,8 +25846,12 @@
         "Move": "MOVE_SYNTHESIS"
       },
       {
-        "Level": 40,
+        "Level": 38,
         "Move": "MOVE_TOXIC"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_SLUDGE_BOMB"
       },
       {
         "Level": 45,
@@ -32023,64 +32033,12 @@
   "ROSERADE": {
     "LevelMoves": [
       {
-        "Level": 1,
-        "Move": "MOVE_GRASSY_TERRAIN"
-      },
-      {
-        "Level": 1,
+        "Level": 0,
         "Move": "MOVE_POISON_STING"
       },
       {
         "Level": 1,
-        "Move": "MOVE_VENOM_DRENCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_MEGA_DRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEECH_SEED"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_MAGICAL_LEAF"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_TOXIC_SPIKES"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SWEET_SCENT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GIGA_DRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SYNTHESIS"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_TOXIC"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_PETAL_BLIZZARD"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_AROMATHERAPY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_INGRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_PETAL_DANCE"
+        "Move": "MOVE_POISON_STING"
       },
       {
         "Level": 1,
@@ -32097,6 +32055,58 @@
       {
         "Level": 1,
         "Move": "MOVE_WORRY_SEED"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_MEGA_DRAIN"
+      },
+      {
+        "Level": 10,
+        "Move": "MOVE_LEECH_SEED"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_MAGICAL_LEAF"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_TOXIC_SPIKES"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_SLUDGE"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_GIGA_DRAIN"
+      },
+      {
+        "Level": 35,
+        "Move": "MOVE_SYNTHESIS"
+      },
+      {
+        "Level": 38,
+        "Move": "MOVE_TOXIC"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_SLUDGE_BOMB"
+      },
+      {
+        "Level": 45,
+        "Move": "MOVE_PETAL_BLIZZARD"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_AROMATHERAPY"
+      },
+      {
+        "Level": 55,
+        "Move": "MOVE_INGRAIN"
+      },
+      {
+        "Level": 60,
+        "Move": "MOVE_PETAL_DANCE"
       }
     ],
     "PreEvoMoves": [],
@@ -50097,6 +50107,18 @@
       {
         "Level": 52,
         "Move": "MOVE_TOXIC"
+      },
+      {
+        "Level": 0,
+        "Move": "MOVE_NIGHT_DAZE"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_DARK_PULSE"
+      },
+      {
+        "Level": 65,
+        "Move": "MOVE_FIERY_WRATH"
       }
     ],
     "PreEvoMoves": [],
@@ -50134,7 +50156,10 @@
       "MOVE_BUG_BUZZ",
       "MOVE_FOCUS_BLAST",
       "MOVE_ENERGY_BALL",
-      "MOVE_VENOM_DRENCH"
+      "MOVE_VENOM_DRENCH",
+      "MOVE_THUNDERBOLT",
+      "MOVE_ICE_BEAM",
+      "MOVE_EARTH_POWER"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -50144,6 +50169,7 @@
     ],
     "TutorMoves": [
       "MOVE_SKITTER_SMACK"
+
     ]
   },
   "STUNFISK": {

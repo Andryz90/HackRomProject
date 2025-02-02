@@ -45965,7 +45965,10 @@
       "MOVE_SWAGGER",
       "MOVE_SLEEP_TALK",
       "MOVE_SUBSTITUTE",
-      "MOVE_CONFIDE"
+      "MOVE_CONFIDE",
+      "MOVE_WILL_O_WISP",
+      "MOVE_THUNDER_WAVE",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_AMNESIA",
@@ -67043,7 +67046,8 @@
       "MOVE_SWAGGER",
       "MOVE_SLEEP_TALK",
       "MOVE_SUBSTITUTE",
-      "MOVE_CONFIDE"
+      "MOVE_CONFIDE",
+      "MOVE_SCORCHING_SANDS"
     ],
     "EggMoves": [
       "MOVE_ASTONISH",

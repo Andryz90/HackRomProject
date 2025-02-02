@@ -56,6 +56,8 @@ def construct_compatibility_dict(force_custom_check):
     if pth != './tools/learnset_helpers/porymoves_files\\custom.json':
         data = json.load(f)
         for mon in data.keys():
+            if  mon == 'PANSEAR' or mon == 'SIMISEAR':
+                pass
             if not mon in dict_out:
                 dict_out[mon] = []
                 if (len(data[mon]['TMMoves']) != 0 or len(data[mon]['TutorMoves']) != 0):

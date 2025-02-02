@@ -11872,28 +11872,16 @@
     "TutorMoves": []
   },
   "KABUTOPS": {
-    "LevelMoves": [
-      {
-        "Level": 41,
-        "Move": "MOVE_AQUA_CUTTER"
-      } 
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_KOWTOW_CLEAVE"],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "AERODACTYL": {
-    "LevelMoves": [      
-    {
-      "Level": 50,
-      "Move": "MOVE_ACCELEROCK"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_HEAD_SMASH"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -31967,7 +31955,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_THRASH"
+        "Move": "MOVE_MUD_SHOT"
       },
       {
         "Level": 1,
@@ -53976,26 +53964,9 @@
     "TutorMoves": []
   },
   "ACCELGOR": {
-    "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_NIGHT_DAZE"
-      },
-      {
-        "Level": 50,
-        "Move": "MOVE_DARK_PULSE"
-      },
-      {
-        "Level": 65,
-        "Move": "MOVE_FIERY_WRATH"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_THUNDERBOLT",
-      "MOVE_ICE_BEAM",
-      "MOVE_EARTH_POWER"
-    ],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
