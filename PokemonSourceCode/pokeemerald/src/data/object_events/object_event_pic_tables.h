@@ -1413,3 +1413,7 @@ const struct SpriteFrameImage sPicTable_RollingSpheal[] =
 static const struct SpriteFrameImage sPicTable_EdoCap[] = {
     overworld_ascending_frames(gTrainerPic_EdoCap, 2, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_Andry[] = {
+    overworld_ascending_frames(gTrainerPic_Andry, 2, 4),
+};

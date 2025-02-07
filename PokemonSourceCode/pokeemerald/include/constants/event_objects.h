@@ -249,10 +249,11 @@
 #define OBJ_EVENT_GFX_BUGSY                      245
 #define OBJ_EVENT_GFX_EDOCAP                     246    
 #define OBJ_EVENT_GFX_LIGHT_SPRITE               247 //Moved from 4 to 247 for quinty plump
+#define OBJ_EVENT_GFX_ANDRY                      248
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        248
+#define NUM_OBJ_EVENT_GFX                        249
 
 
 // These are dynamic object gfx ids.
@@ -389,6 +390,7 @@
 #define OBJ_EVENT_PAL_TEMP_BALL                   0x1126
 #define OBJ_EVENT_PAL_BUGSY                       0X1127
 #define OBJ_EVENT_PAL_EDOCAP                      0X1128
+#define OBJ_EVENT_PAL_ANDRY                       0X1129
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

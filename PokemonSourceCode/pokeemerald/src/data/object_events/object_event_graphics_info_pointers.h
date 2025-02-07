@@ -254,6 +254,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MegaStone;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spheal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bugsy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EdoCap; 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Andry;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -504,6 +505,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROLLING_SPHEAL] =           &gObjectEventGraphicsInfo_Spheal,
     [OBJ_EVENT_GFX_BUGSY] =                    &gObjectEventGraphicsInfo_Bugsy,
     [OBJ_EVENT_GFX_EDOCAP] =                   &gObjectEventGraphicsInfo_EdoCap,
+    [OBJ_EVENT_GFX_ANDRY] =                    &gObjectEventGraphicsInfo_Andry,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

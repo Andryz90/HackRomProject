@@ -45880,3 +45880,40 @@ F_TRAINER_FEMALE |
             },
         },
     },
+#line 18387
+    [TRAINER_ANDRY_1] =
+    {
+#line 18388
+        .trainerName = _("Andry"),
+#line 18390
+        .trainerClass = TRAINER_CLASS_DEVELOPER,
+#line 18389
+        .trainerPic = TRAINER_PIC_ANDRY,
+        .encounterMusic_gender = 
+0,
+#line 18392
+        .doubleBattle = FALSE,
+#line 18393
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_HP_AWARE | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_OMNISCIENT,
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 18395
+            .species = SPECIES_SYLVEON,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 18398
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+#line 18396
+            .ability = ABILITY_PIXILATE,
+#line 18397
+            .lvl = 60,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+#line 18398
+                MOVE_HYPER_VOICE,
+            },
+            },
+        },
+    },
