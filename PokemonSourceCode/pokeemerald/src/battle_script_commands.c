@@ -42,6 +42,7 @@
 #include "battle_arena.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
+#include "bw_summary_screen.h"
 #include "field_specials.h"
 #include "pokemon_summary_screen.h"
 #include "pokenav.h"
@@ -1577,10 +1578,6 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (gMovesInfo[move].effect == EFFECT_SLEEP)
             calc *= 120 / 100; //x1.2
         break;
-    case ABILITY_ILLUMINATE:
-        if ((gSpeciesInfo[battlerDef].types[0] != TYPE_ELECTRIC || gSpeciesInfo[battlerDef].types[1] != TYPE_ELECTRIC) && defAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
-            calc = (calc * 90) / 100;
-        break;
     }
 
     // Target's ability
@@ -1597,6 +1594,10 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     case ABILITY_TANGLED_FEET:
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
             calc = (calc * 50) / 100; // 1.5 tangled feet loss
+        break;
+        case ABILITY_ILLUMINATE:
+        if ((gSpeciesInfo[battlerAtk].types[0] != TYPE_ELECTRIC || gSpeciesInfo[battlerAtk].types[1] != TYPE_ELECTRIC) && atkAbility != ABILITY_ILLUMINATE)    //Illuminate drop accuracy for non-electric type pokemon or for the same
+            calc = (calc * 90) / 100;
         break;
     }
 
@@ -8179,13 +8180,17 @@ static void Cmd_yesnoboxlearnmove(void)
         }
         break;
     case 2:
-        if (!gPaletteFade.active)
-        {
-            FreeAllWindowBuffers();
+    if (!gPaletteFade.active)
+    {
+        FreeAllWindowBuffers();
+        if (BW_SUMMARY_SCREEN)
+            ShowSelectMovePokemonSummaryScreen_BW(gPlayerParty, gBattleStruct->expGetterMonId, gPlayerPartyCount - 1, ReshowBattleScreenAfterMenu, gMoveToLearn);
+        else
             ShowSelectMovePokemonSummaryScreen(gPlayerParty, gBattleStruct->expGetterMonId, gPlayerPartyCount - 1, ReshowBattleScreenAfterMenu, gMoveToLearn);
-            gBattleScripting.learnMoveState++;
-        }
-        break;
+        
+        gBattleScripting.learnMoveState++;
+    }
+    break;
     case 3:
         if (!gPaletteFade.active && gMain.callback2 == BattleMainCB2)
         {

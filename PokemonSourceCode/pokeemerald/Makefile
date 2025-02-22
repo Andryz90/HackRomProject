@@ -168,7 +168,7 @@ ROMTESTHYDRA := $(TOOLS_DIR)/mgba-rom-test-hydra/mgba-rom-test-hydra$(EXE)
 
 PERL := perl
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
-
+SMOL := tools/compresSmol/compresSmol$(EXE)
 MAKEFLAGS += --no-print-directory
 
 # Clear the default suffixes
@@ -298,6 +298,17 @@ clean-assets:
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' -o -iname '*.rl' -o -iname '*.latfont' -o -iname '*.hwjpnfont' -o -iname '*.fwjpnfont' \) -exec rm {} +
 	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
 
+mostlyclean: tidynonmodern tidymodern tidycheck tidydebug
+	find sound -iname '*.bin' -exec rm {} +
+	rm -f $(MID_SUBDIR)/*.s
+	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' -o -iname '*.smol' -o -iname '*.fastSmol' -o -iname '*.rl' -o -iname '*.latfont' -o -iname '*.hwjpnfont' -o -iname '*.fwjpnfont' \) -exec rm {} +
+	rm -f $(DATA_ASM_SUBDIR)/layouts/layouts.inc $(DATA_ASM_SUBDIR)/layouts/layouts_table.inc
+	rm -f $(DATA_ASM_SUBDIR)/maps/connections.inc $(DATA_ASM_SUBDIR)/maps/events.inc $(DATA_ASM_SUBDIR)/maps/groups.inc $(DATA_ASM_SUBDIR)/maps/headers.inc $(DATA_SRC_SUBDIR)/map_group_count.h
+	find $(DATA_ASM_SUBDIR)/maps \( -iname 'connections.inc' -o -iname 'events.inc' -o -iname 'header.inc' \) -exec rm {} +
+	rm -f $(AUTO_GEN_TARGETS)
+	@$(MAKE) clean -C libagbsyscall
+	@$(MAKE) clean -C libma
+
 tidy: tidymodern tidycheck tidydebug
 
 tidymodern:
@@ -335,6 +346,8 @@ generated: $(AUTO_GEN_TARGETS)
 %.gbapal: %.pal  ; $(GFX) $< $@
 %.gbapal: %.png  ; $(GFX) $< $@
 %.lz:     %      ; $(GFX) $< $@
+%.fastSmol: %    ; $(SMOL) -w $< $@ false false false
+%.smol:     %     ; $(SMOL) -w $< $@
 %.rl:     %      ; $(GFX) $< $@
 
 clean-generated:

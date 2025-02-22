@@ -7,6 +7,7 @@
 // loaded at once but not copied to vram yet.
 #define TEXT_SKIP_DRAW 0xFF
 
+
 enum {
     FONT_SMALL,
     FONT_NORMAL,
@@ -22,6 +23,7 @@ enum {
     FONT_SMALL_NARROWER,
     FONT_SHORT_NARROW,
     FONT_SHORT_NARROWER,
+    FONT_BW_SUMMARY_SCREEN,
 };
 
 // Return values for font functions
