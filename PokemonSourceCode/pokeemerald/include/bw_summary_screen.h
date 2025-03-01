@@ -83,16 +83,16 @@ enum PokemonSummaryScreenMode_BW
     BW_SUMMARY_MODE_SELECT_MOVE,
 };
 
-#if BW_SUMMARY_SCREEN == TRUE
+// #if BW_SUMMARY_SCREEN == TRUE
 
-enum BWPSSPage
-{
-    PSS_PAGE_INFO,
-    PSS_PAGE_SKILLS,
-    PSS_PAGE_BATTLE_MOVES,
-    PSS_PAGE_CONTEST_MOVES,
-    PSS_PAGE_COUNT
-};
-#endif
+// enum BWPSSPage
+// {
+//     PSS_PAGE_INFO,
+//     PSS_PAGE_SKILLS,
+//     PSS_PAGE_BATTLE_MOVES,
+//     PSS_PAGE_CONTEST_MOVES,
+//     PSS_PAGE_COUNT
+// };
+// #endif
 
 #endif // GUARD_BW_SUMMARY_SCREEN_H
