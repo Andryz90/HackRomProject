@@ -35,6 +35,7 @@ static void IntrDummy(void);
 // Defined in the linker script so that the test build can override it.
 extern void gInitialMainCB2(void);
 extern void CB2_FlashNotDetectedScreen(void);
+extern bool32 HandlingFieldDialogInput(void);
 
 const u8 gGameVersion = GAME_VERSION;
 

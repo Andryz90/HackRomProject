@@ -2,6 +2,7 @@
 #include "malloc.h"
 #include "bg.h"
 #include "blit.h"
+#include "decompress.h"
 #include "dma3.h"
 #include "event_data.h"
 #include "field_weather.h"
@@ -18,12 +19,12 @@
 #include "string_util.h"
 #include "strings.h"
 #include "script.h"
+#include "script_menu.h"
 #include "task.h"
 #include "text_window.h"
 #include "window.h"
 #include "config/overworld.h"
 #include "constants/songs.h"
-
 
 struct MenuInfoIcon
 {
@@ -48,7 +49,6 @@ struct Menu
     bool8 APressMuted;
 };
 
-static u16 AddWindowParameterized(u8, u8, u8, u8, u8, u8, u16);
 static void WindowFunc_DrawStandardFrame(u8, u8, u8, u8, u8, u8);
 static void WindowFunc_DrawSignFrame(u8, u8, u8, u8, u8, u8);
 static inline void *GetWindowFunc_DialogueFrame(void);
@@ -73,13 +73,14 @@ static EWRAM_DATA bool8 sScheduledBgCopiesToVram[4] = {FALSE};
 static EWRAM_DATA u16 sTempTileDataBufferIdx = 0;
 static EWRAM_DATA void *sTempTileDataBuffer[0x20] = {NULL};
 
-const u16 gStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
+// const u16 gStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
 static const u8 sTextSpeedFrameDelays[] =
 {
     [OPTIONS_TEXT_SPEED_SLOW] = 8,
     [OPTIONS_TEXT_SPEED_MID]  = 4,
-    [OPTIONS_TEXT_SPEED_FAST] = 1
+    [OPTIONS_TEXT_SPEED_FAST] = 1,
+    [OPTIONS_TEXT_SPEED_FASTER] = 1
 };
 
 static const struct WindowTemplate sStandardTextBox_WindowTemplates[] =
@@ -331,6 +332,7 @@ static inline void *GetWindowFunc_DialogueFrame(void)
 {
     return (gMsgIsSignPost ? WindowFunc_DrawSignFrame : WindowFunc_DrawDialogueFrame);
 }
+
 void DrawDialogueFrame(u8 windowId, bool8 copyToVram)
 {
     CallWindowFunction(windowId, GetWindowFunc_DialogueFrame());
@@ -338,6 +340,7 @@ void DrawDialogueFrame(u8 windowId, bool8 copyToVram)
     PutWindowTilemap(windowId);
     if (copyToVram == TRUE)
         CopyWindowToVram(windowId, COPYWIN_FULL);
+    gMain.activeOverworldDialog = TRUE;
 }
 
 void DrawStdWindowFrame(u8 windowId, bool8 copyToVram)
@@ -356,6 +359,7 @@ void ClearDialogWindowAndFrame(u8 windowId, bool8 copyToVram)
     ClearWindowTilemap(windowId);
     if (copyToVram == TRUE)
         CopyWindowToVram(windowId, COPYWIN_FULL);
+    gMain.activeOverworldDialog = FALSE;
 }
 
 void ClearStdWindowAndFrame(u8 windowId, bool8 copyToVram)
@@ -599,8 +603,8 @@ u32 GetPlayerTextSpeed(void)
 u8 GetPlayerTextSpeedDelay(void)
 {
     u32 speed;
-    if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_FAST)
-        gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+    if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_FASTER)
+        gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     speed = GetPlayerTextSpeed();
     return sTextSpeedFrameDelays[speed];
 }
@@ -800,6 +804,7 @@ void ClearDialogWindowAndFrameToTransparent(u8 windowId, bool8 copyToVram)
     ClearWindowTilemap(windowId);
     if (copyToVram == TRUE)
         CopyWindowToVram(windowId, COPYWIN_FULL);
+    gMain.activeOverworldDialog = FALSE;
 }
 
 static void WindowFunc_ClearDialogWindowAndFrameNullPalette(u8 bg, u8 tilemapLeft, u8 tilemapTop, u8 width, u8 height, u8 paletteNum)
@@ -1944,17 +1949,14 @@ void task_free_buf_after_copying_tile_data_to_vram(u8 taskId)
 void *malloc_and_decompress(const void *src, u32 *size)
 {
     void *ptr;
-    u8 *sizeAsBytes = (u8 *)size;
-    u8 *srcAsBytes = (u8 *)src;
+    u32 localSize = GetDecompressedDataSize(src);
 
-    sizeAsBytes[0] = srcAsBytes[1];
-    sizeAsBytes[1] = srcAsBytes[2];
-    sizeAsBytes[2] = srcAsBytes[3];
-    sizeAsBytes[3] = 0;
+    if (size != NULL)
+        *size = localSize;
 
-    ptr = Alloc(*size);
+    ptr = Alloc(localSize);
     if (ptr)
-        LZ77UnCompWram(src, ptr);
+        DecompressDataWithHeaderWram(src, ptr);
     return ptr;
 }
 
@@ -2306,4 +2308,11 @@ void HBlankCB_DoublePopupWindow(void)
     {
         REG_BG0VOFS = 512 - offset;
     }
+}
+
+bool32 FieldDialogIsActive(void)
+{
+    if (gMain.activeOverworldDialog && !gMain.inBattle && !HandlingFieldDialogInput())
+        return TRUE;
+    return FALSE;
 }

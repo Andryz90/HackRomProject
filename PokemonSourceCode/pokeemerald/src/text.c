@@ -56,10 +56,10 @@ static u16 sLastTextBgColor;
 static u16 sLastTextFgColor;
 static u16 sLastTextShadowColor;
 
-COMMON_DATA const struct FontInfo *gFonts = NULL;
-COMMON_DATA bool8 gDisableTextPrinters = 0;
-COMMON_DATA struct TextGlyph gCurGlyph = {0};
-COMMON_DATA TextFlags gTextFlags = {0};
+const struct FontInfo *gFonts;
+bool8 gDisableTextPrinters;
+struct TextGlyph gCurGlyph;
+TextFlags gTextFlags;
 
 static const u8 sFontHalfRowOffsets[] =
 {
@@ -90,8 +90,8 @@ static const u8 sWindowVerticalScrollSpeeds[] = {
     [OPTIONS_TEXT_SPEED_SLOW] = 1,
     [OPTIONS_TEXT_SPEED_MID] = 2,
     [OPTIONS_TEXT_SPEED_FAST] = 4,
+    [OPTIONS_TEXT_SPEED_FASTER] = 4,
 };
-
 
 static const struct GlyphWidthFunc sGlyphWidthFuncs[] =
 {
@@ -107,8 +107,6 @@ static const struct GlyphWidthFunc sGlyphWidthFuncs[] =
     { FONT_NARROWER,       GetGlyphWidth_Narrower },
     { FONT_SMALL_NARROWER, GetGlyphWidth_SmallNarrower },
     { FONT_SHORT_NARROW,   GetGlyphWidth_ShortNarrow },
-    { FONT_SHORT_NARROWER, GetGlyphWidth_ShortNarrower },
-    { FONT_BW_SUMMARY_SCREEN, GetGlyphWidth_Short },
 };
 
 struct
@@ -1076,20 +1074,21 @@ void DrawDownArrow(u8 windowId, u16 x, u16 y, u8 bgColor, bool32 drawArrow, u8 *
 static u16 RenderText(struct TextPrinter *textPrinter)
 {
     struct TextPrinterSubStruct *subStruct = (struct TextPrinterSubStruct *)(&textPrinter->subStructFields);
-    u16 currChar;
+    u16 currChar, nextChar;
     s32 width;
     s32 widthHelper;
+    u8 repeats = 0;
 
     switch (textPrinter->state)
     {
     case RENDER_STATE_HANDLE_CHAR:
-        if (JOY_HELD(A_BUTTON | B_BUTTON) && subStruct->hasPrintBeenSpedUp)
+        if ((JOY_HELD(A_BUTTON | B_BUTTON) || JOY_HELD(L_BUTTON)) && subStruct->hasPrintBeenSpedUp)
             textPrinter->delayCounter = 0;
 
         if (textPrinter->delayCounter && textPrinter->textSpeed)
         {
             textPrinter->delayCounter--;
-            if (gTextFlags.canABSpeedUpPrint && (JOY_NEW(A_BUTTON | B_BUTTON)))
+            if (gTextFlags.canABSpeedUpPrint && (JOY_HELD(A_BUTTON | B_BUTTON) || JOY_HELD(L_BUTTON)))
             {
                 subStruct->hasPrintBeenSpedUp = TRUE;
                 textPrinter->delayCounter = 0;
@@ -1102,8 +1101,29 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         else
             textPrinter->delayCounter = textPrinter->textSpeed;
 
+        switch (GetPlayerTextSpeed())
+        {
+            case OPTIONS_TEXT_SPEED_SLOW:
+                repeats = 1;
+                break;
+            case OPTIONS_TEXT_SPEED_MID:
+                repeats = 1;
+                break;
+            case OPTIONS_TEXT_SPEED_FAST:
+                repeats = 1;
+                break;
+            case OPTIONS_TEXT_SPEED_FASTER:
+                repeats = 2;
+                break;
+        }
+
+        if (JOY_HELD(A_BUTTON | B_BUTTON) || JOY_HELD(L_BUTTON))
+            repeats = 3;
+
+        do {
         currChar = *textPrinter->printerTemplate.currentChar;
         textPrinter->printerTemplate.currentChar++;
+        nextChar = *textPrinter->printerTemplate.currentChar;
 
         switch (currChar)
         {
@@ -1320,6 +1340,23 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             else
                 textPrinter->printerTemplate.currentX += gCurGlyph.width;
         }
+        if (repeats == 2)
+        {
+            switch (nextChar)
+            {
+            case CHAR_NEWLINE:
+            case PLACEHOLDER_BEGIN:
+            case EXT_CTRL_CODE_BEGIN:
+            case CHAR_PROMPT_CLEAR:
+            case CHAR_PROMPT_SCROLL:
+            case CHAR_KEYPAD_ICON:
+            case EOS:
+                repeats--;
+                break;
+            }
+        }
+        repeats--;
+        } while (repeats > 0);
         return RENDER_PRINT;
     case RENDER_STATE_WAIT:
         if (TextPrinterWait(textPrinter))
@@ -2053,8 +2090,16 @@ static void DecompressGlyph_Normal(u16 glyphId, bool32 isJapanese)
     }
     else
     {
-        glyphs = gFontNormalLatinGlyphs + (0x20 * glyphId);
-        gCurGlyph.width = gFontNormalLatinGlyphWidths[glyphId];
+        if (gSaveBlock2Ptr->optionsCurrentFont == 0)
+        {
+            glyphs = gFontNormalLatinGlyphs + (0x20 * glyphId);
+            gCurGlyph.width = gFontNormalLatinGlyphWidths[glyphId];
+        }
+        else
+        {
+            glyphs = gFontShortLatinGlyphs + (0x20 * glyphId);
+            gCurGlyph.width = gFontShortLatinGlyphWidths[glyphId];
+        }
 
         if (gCurGlyph.width <= 8)
         {
@@ -2077,8 +2122,12 @@ static u32 GetGlyphWidth_Normal(u16 glyphId, bool32 isJapanese)
 {
     if (isJapanese == TRUE)
         return 8;
-    else
-        return gFontNormalLatinGlyphWidths[glyphId];
+    else {
+        if (gSaveBlock2Ptr->optionsCurrentFont == 0)
+            return gFontNormalLatinGlyphWidths[glyphId];
+        else
+            return gFontShortLatinGlyphWidths[glyphId];
+    }
 }
 
 static void DecompressGlyph_Bold(u16 glyphId)
@@ -2278,8 +2327,7 @@ static const s8 sNarrowerFontIds[] =
     [FONT_BOLD] = -1,
     [FONT_NARROWER] = -1,
     [FONT_SMALL_NARROWER] = -1,
-    [FONT_SHORT_NARROW] = FONT_SHORT_NARROWER,
-    [FONT_SHORT_NARROWER] = -1,
+    [FONT_SHORT_NARROW] = -1,
 };
 
 // If the narrowest font ID doesn't fit the text, we still return that

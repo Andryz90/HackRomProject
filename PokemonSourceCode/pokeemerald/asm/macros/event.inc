@@ -732,6 +732,12 @@
 	.elseif \type == TRAINER_BATTLE_HILL
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
+	.elseif \type == TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT
+		.4byte \pointer1 @ text
+		.4byte \pointer2 @ text
+		.4byte \pointer3 @ event script
+	.elseif \type == TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT
+		.4byte \pointer1 @ text
 	.endif
 	.endm
 
@@ -785,6 +791,17 @@
 	.4byte \lose_text_a
 	.2byte \trainer_b
 	.4byte \lose_text_b
+	.endm
+
+	@ Starts a single trainer battle. Takes a trainer, intro text, loss text, and an event script which continues after the battle,regardless of the result.
+	@ When used with an event script, you can also pass in an optional flag to disable music
+    .macro trainerbattle_no_whiteout_continue_script trainer:req, intro_text:req, lose_text:req, event_script:req
+    trainerbattle TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT, \trainer, 0, \intro_text, \lose_text, \event_script
+	.endm
+
+	@ Starts a trainer battle, skipping intro text. Takes a trainer and loss text. Does not warp the player to last heal location if they lose. 
+	.macro trainerbattle_no_intro_no_whiteout trainer:req, lose_text:req
+	trainerbattle TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT, \trainer, 0, \lose_text
 	.endm
 
 	@ Starts a trainer battle using the battle information stored in RAM (usually by the scripts in trainer_battle.inc, which
@@ -1116,9 +1133,10 @@
 
 	@ Gives the player an Egg of the specified species.
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
-	.macro giveegg species:req
+	.macro giveegg species:req specialloc=0
 	.byte 0x7a
 	.2byte \species
+    .byte \specialloc
 	.endm
 
 	@ Replaces the move at 'slot' of the Pokémon in the player's party at 'partyIndex' with the specified move.
@@ -1226,12 +1244,6 @@
 	.4byte \products
 	.endm
 
-	@ Used as the endpoint for a Pokemart item list
-	.macro pokemartlistend
-	.2byte ITEM_NONE
-	release
-	end
-	.endm
 	@ Opens the Pokemart system and treats the list of items as decorations.
 	@ Products should be a list of .2byte decoration values preceded by an .align 2
 	.macro pokemartdecoration products:req
@@ -1804,7 +1816,7 @@
 	.4byte \text
 	.endm
 
-	@ Equivalent to fadescreen but copies gPlttBufferUnfaded to gDecompressionBuffer on the fade out
+    @ Equivalent to fadescreen but copies gPlttBufferUnfaded to an allocated buffer on the fade out
 	@ and the reverse on the fade in, in effect saving gPlttBufferUnfaded to restore it.
 	.macro fadescreenswapbuffers mode:req
 	.byte 0xdc
@@ -1897,6 +1909,14 @@
     stringvar \stringVarId
     .2byte \nature
     .endm
+
+	@ Checks if the player has enough space in their PC to hold quantity more of the specified item. Sets VAR_RESULT to
+	@ TRUE if there is room, or FALSE is there is no room.
+	.macro checkpcspace itemId:req, quantity=1
+	.byte 0xe5
+	.2byte \itemId
+	.2byte \quantity
+	.endm
 
 @ Supplementary
 
@@ -2314,26 +2334,74 @@
 	.byte \targetId
 	.endm
 
+	@ Adds unit system string to the respective stringvar.
+	@ texttype values:
+	@ UNIT_TEXT_LENGTH_SMALL_SINGLE,  UNIT_TEXT_LENGTH_SMALL_PLURAL,  UNIT_TEXT_LENGTH_SMALL_SYMBOL.
+	@ UNIT_TEXT_LENGTH_MEDIUM_SINGLE, UNIT_TEXT_LENGTH_MEDIUM_PLURAL, UNIT_TEXT_LENGTH_MEDIUM_SYMBOL.
+	@ UNIT_TEXT_WEIGHT_SINGLE,        UNIT_TEXT_WEIGHT_PLURAL,        UNIT_TEXT_WEIGHT_SYMBOL.
+	.macro bufferunitsystemtext texttype:req, stringvarnumber=1
+	setvar VAR_0x8000, \texttype
+	setvar VAR_0x8001, \stringvarnumber
+	special BufferUnitSystemText
+	.endm
+
 	@ set the wild double battle flag
 	@ can be used in conjunection with createmon to set up a wild battle with 2 player mons vs. 1 enemy mon
 	.macro setwilddoubleflag
 	callnative ScriptSetDoubleBattleFlag
 	.endm
 
-	@ When OW_USE_FAKE_RTC and OW_FLAG_PAUSE_TIME is assigned, this macro will stop the flow of time.
-	.macro pausefakertc
-	callnative Script_PauseFakeRtc
+	@ Gets the \memorySlot for the Pokémon at \slot
+	@ If \memorySlot is not provided, gets the newest memory
+	.macro getmemory slot:req, memorySlot=0
+	callnative GetMemory
+	.2byte \slot
+	.byte \memorySlot
 	.endm
 
-	@ When OW_USE_FAKE_RTC and OW_FLAG_PAUSE_TIME is assigned, this macro will resume the flow of time.
-	.macro resumefakertc
-	callnative Script_ResumeFakeRtc
+	@ Buffers the message for the memory in \memorySlot for the Pokémon at \slot
+	@ Message is buffered into gStringVar4 due to limitations with other strings
+	.macro buffermemorymessage slot:req, memorySlot=0
+	callnative BufferMemoryMessage
+	.2byte \slot
+	.byte \memorySlot
 	.endm
 
-	@ When OW_USE_FAKE_RTC and OW_FLAG_PAUSE_TIME is assigned, this macro will resume the flow of time if paused, and stop the flow of time otherwise.
-	.macro togglefakertc
-	callnative Script_ToggleFakeRtc
+	@ Sets the \memory for the Pokémon at \slot
+	.macro setmemory memory:req, slot:req
+	callnative SetMemory
+	.byte \memory
+	.2byte \slot
 	.endm
+
+	@ Sets the \memory for all Pokémon
+	.macro setmemoryall memory:req
+	callnative SetMemoryAll
+	.byte \memory
+	.endm
+
+	@ Checks if the specified Pokémon species is in the player's party. If it is, VAR_RESULT is set to the
+	@ (zero-indexed) slot number of the first Pokemon of that species. If not, VAR_RESULT is set to PARTY_SIZE.
+	@ VAR_0x8004 is also set to this Pokemon's species.
+	.macro checkspeciesinparty species:req
+	callnative CheckSpeciesInParty
+	.2byte \species
+	.endm
+
+	@ Tries to setup a best of three battle with the specified trainer if bo3 is enabled
+	.macro trybestofthree trainer:req
+	callnative TryBestOfThree
+	.2byte \trainer
+	.endm
+
+	@ Writes the choosen day of the week string to the specified buffer (index 0 = Sunday).
+	@ Otherwise, if dayOfWeek eq 7 or is not specified, writes the current day of week string.
+	.macro bufferdayofweekstring stringVarId:req, dayOfWeek=DAY_CURRENT
+	.byte 0xe6
+	stringvar \stringVarId
+	.byte \dayOfWeek
+	.endm
+
 	@ ============================ @
 	@ ITEM DESCRIPTION HEADER MACROS
 	@ Used with OW_SHOW_ITEM_DESCRIPTIONS config
@@ -2440,5 +2508,11 @@
 	callnative Scrcmd_getobjectfacingdirection
 	.2byte \localId
 	.2byte \dest
+	.endm
+
+	@ Opens the UI Stat editor to modify the EVs/IVs of the Pokemon at partyIndex.
+	.macro startmenustateditor partyIndex:req
+	callnative Scrcmd_startmenustateditor
+	.2byte \partyIndex
 	.endm
 

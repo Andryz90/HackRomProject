@@ -552,10 +552,8 @@ static void ProcessRecvCmds(u8 unused)
                 gLinkPartnersHeldKeys[i] = gRecvCmds[i][1];
                 break;
             case LINKCMD_DUMMY_1:
-                gLinkDummy2 = TRUE;
                 break;
             case LINKCMD_DUMMY_2:
-                gLinkDummy2 = TRUE;
                 break;
             case LINKCMD_INIT_BLOCK:
             {
@@ -571,18 +569,11 @@ static void ProcessRecvCmds(u8 unused)
             {
                 if (sBlockRecv[i].size > BLOCK_BUFFER_SIZE)
                 {
-                    u16 *buffer;
-                    u16 j;
-
-                    buffer = (u16 *)gDecompressionBuffer;
-                    for (j = 0; j < CMD_LENGTH - 1; j++)
-                    {
-                        buffer[(sBlockRecv[i].pos / 2) + j] = gRecvCmds[i][j + 1];
-                    }
+                    // Too large block was sent.
                 }
                 else
                 {
-                    u16 j;
+                    u32 j;
 
                     for (j = 0; j < CMD_LENGTH - 1; j++)
                     {

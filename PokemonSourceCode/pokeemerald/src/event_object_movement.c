@@ -203,7 +203,6 @@ static bool8 GetFollowerInfo(u16 *species, u8 *form, u8 *shiny);
 static u8 LoadDynamicFollowerPalette(u16 species, u8 form, bool32 shiny);
 static const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u16 species, u8 form);
 static bool8 NpcTakeStep(struct Sprite *);
-static bool8 IsElevationMismatchAt(u8, s16, s16);
 static bool8 AreElevationsCompatible(u8, u8);
 static u16 PackGraphicsId(const struct ObjectEventTemplate *template);
 static void CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(u16 graphicsId, u16 movementType, struct SpriteTemplate *spriteTemplate, const struct SubspriteTable **subspriteTables);
@@ -2217,7 +2216,6 @@ static u8 LoadDynamicFollowerPalette(u16 species, u8 form, bool32 shiny)
         if ((paletteNum = IndexOfSpritePaletteTag(palTag)) < 16)
             return paletteNum;
         spritePalette.tag = palTag;
-    #if P_GENDER_DIFFERENCES
         if (female && gSpeciesInfo[species].overworldPaletteFemale != NULL)
         {
             if (shiny)
@@ -2226,22 +2224,25 @@ static u8 LoadDynamicFollowerPalette(u16 species, u8 form, bool32 shiny)
                 spritePalette.data = gSpeciesInfo[species].overworldPaletteFemale;
         }
         else
-    #endif
         {
-        if (shiny)
-            spritePalette.data = gSpeciesInfo[species].overworldShinyPalette;
-        else
-            spritePalette.data = gSpeciesInfo[species].overworldPalette;
+            if (shiny)
+                spritePalette.data = gSpeciesInfo[species].overworldShinyPalette;
+            else
+                spritePalette.data = gSpeciesInfo[species].overworldPalette;
         }
-        
+
         // Check if pal data must be decompressed
         if (IsLZ77Data(spritePalette.data, PLTT_SIZE_4BPP, PLTT_SIZE_4BPP))
         {
-            // IsLZ77Data guarantees word-alignment, so casting this is safe
-            LZ77UnCompWram((u32*)spritePalette.data, gDecompressionBuffer);
-            spritePalette.data = (void*)gDecompressionBuffer;
+            struct CompressedSpritePalette compSpritePalette;
+            compSpritePalette.data = (const void *) spritePalette.data;
+            compSpritePalette.tag = spritePalette.tag;
+            paletteNum = LoadCompressedSpritePalette(&compSpritePalette);
         }
-        paletteNum = LoadSpritePalette(&spritePalette);
+        else
+        {
+            paletteNum = LoadSpritePalette(&spritePalette);
+        }
     }
     else
 #endif //OW_POKEMON_OBJECT_EVENTS == TRUE && OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
@@ -9773,7 +9774,7 @@ static void SetObjectEventSpriteOamTableForLongGrass(struct ObjectEvent *objEven
         sprite->subspriteTableNum = 5;
 }
 
-static bool8 IsElevationMismatchAt(u8 elevation, s16 x, s16 y)
+bool8 IsElevationMismatchAt(u8 elevation, s16 x, s16 y)
 {
     u8 mapElevation;
 

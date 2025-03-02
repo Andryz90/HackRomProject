@@ -141,6 +141,7 @@
 #define OPTIONS_TEXT_SPEED_SLOW 0
 #define OPTIONS_TEXT_SPEED_MID 1
 #define OPTIONS_TEXT_SPEED_FAST 2
+#define OPTIONS_TEXT_SPEED_FASTER 3
 
 #define OPTIONS_SOUND_MONO 0
 #define OPTIONS_SOUND_STEREO 1
@@ -158,6 +159,17 @@
 #define DIR_NORTHWEST   7
 #define DIR_NORTHEAST   8
 #define CARDINAL_DIRECTION_COUNT DIR_SOUTHWEST
+
+#define DAY_SUNDAY             0
+#define DAY_MONDAY             1
+#define DAY_TUESDAY            2
+#define DAY_WEDNESDAY          3
+#define DAY_THURSDAY           4
+#define DAY_FRIDAY             5
+#define DAY_SATURDAY           6
+
+#define DAYS_PER_WEEK          7
+#define DAY_CURRENT DAYS_PER_WEEK
 
 #define AXIS_X     0
 #define AXIS_Y     1

@@ -1411,8 +1411,10 @@
 #define FLAG_SYS_MIX_RECORD                         (SYSTEM_FLAGS + 0x34)
 #define FLAG_SYS_CLOCK_SET                          (SYSTEM_FLAGS + 0x35)
 #define FLAG_SYS_NATIONAL_DEX                       (SYSTEM_FLAGS + 0x36)
-#define FLAG_SYS_CAVE_SHIP                          (SYSTEM_FLAGS + 0x37) // Unused Flag, leftover from R/S debug, presumably used by Emerald's debug too
-#define FLAG_SYS_CAVE_WONDER                        (SYSTEM_FLAGS + 0x38) // Unused Flag, same as above
+//#define FLAG_SYS_CAVE_SHIP                          (SYSTEM_FLAGS + 0x37) // Unused Flag, leftover from R/S debug, presumably used by Emerald's debug too
+#define FLAG_SYS_DEXNAV_GET                         (SYSTEM_FLAGS + 0x37) // FLAG_0x897 
+#define FLAG_SYS_DEXNAV_SEARCH                      (SYSTEM_FLAGS + 0x38) // FLAG_0x898
+//#define FLAG_SYS_CAVE_WONDER                        (SYSTEM_FLAGS + 0x38) // Unused Flag, same as above
 #define FLAG_SYS_CAVE_BATTLE                        (SYSTEM_FLAGS + 0x39) // Unused Flag, same as above
 #define FLAG_SYS_SHOAL_TIDE                         (SYSTEM_FLAGS + 0x3A)
 #define FLAG_SYS_RIBBON_GET                         (SYSTEM_FLAGS + 0x3B)
@@ -1510,7 +1512,7 @@
 #define FLAG_WALLY_RUSTURF                          (SYSTEM_FLAGS + 0x87) 
 #define FLAG_LANDMARK_VERDANTURF_PRAIRIE            (SYSTEM_FLAGS + 0x88)
 #define FLAG_LANDMARK_DUNE_CAVE                     (SYSTEM_FLAGS + 0x89)
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
+#define FLAG_SYS_DETECTOR_MODE                      (SYSTEM_FLAGS + 0x83) 
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag

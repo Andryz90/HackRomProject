@@ -33,7 +33,7 @@
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
-#include "caps.h"
+#include "level_caps.h"
 #include "link.h"
 #include "link_rfu.h"
 #include "mail.h"
@@ -42,6 +42,8 @@
 #include "menu_helpers.h"
 #include "menu_specialized.h"
 #include "metatile_behavior.h"
+#include "move_relearner.h"
+#include "naming_screen.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -234,6 +236,7 @@ EWRAM_DATA struct PartyMenu gPartyMenu = {0};
 static EWRAM_DATA struct PartyMenuBox *sPartyMenuBoxes = NULL;
 static EWRAM_DATA u8 *sPartyBgGfxTilemap = NULL;
 static EWRAM_DATA u8 *sPartyBgTilemapBuffer = NULL;
+static EWRAM_DATA u8 *sPartyScrollBgTilemapBuffer = NULL;
 EWRAM_DATA bool8 gPartyMenuUseExitCallback = 0;
 EWRAM_DATA u8 gSelectedMonPartyId = 0;
 EWRAM_DATA MainCallback gPostMenuFieldCallback = NULL;
@@ -850,6 +853,7 @@ static void ResetPartyMenu(void)
 {
     sPartyMenuInternal = NULL;
     sPartyBgTilemapBuffer = NULL;
+    sPartyScrollBgTilemapBuffer = NULL;
     sPartyMenuBoxes = NULL;
     sPartyBgGfxTilemap = NULL;
 }
@@ -860,17 +864,26 @@ static bool8 AllocPartyMenuBg(void)
     if (sPartyBgTilemapBuffer == NULL)
         return FALSE;
 
+    sPartyScrollBgTilemapBuffer = Alloc(0x800);
+    if (sPartyScrollBgTilemapBuffer == NULL)
+        return FALSE;
+
     memset(sPartyBgTilemapBuffer, 0, 0x800);
+    memset(sPartyScrollBgTilemapBuffer, 0, 0x800);
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sPartyMenuBgTemplates, ARRAY_COUNT(sPartyMenuBgTemplates));
     SetBgTilemapBuffer(1, sPartyBgTilemapBuffer);
+    SetBgTilemapBuffer(3, sPartyScrollBgTilemapBuffer);
     ResetAllBgsCoordinates();
     ScheduleBgCopyTilemapToVram(1);
+    ScheduleBgCopyTilemapToVram(3);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG3);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(14, 6));
     ShowBg(0);
     ShowBg(1);
     ShowBg(2);
+    ShowBg(3);
     return TRUE;
 }
 
@@ -883,37 +896,46 @@ static bool8 AllocPartyMenuBgGfx(void)
     case 0:
         sPartyBgGfxTilemap = malloc_and_decompress(gPartyMenuBg_Gfx, &sizeout);
         LoadBgTiles(1, sPartyBgGfxTilemap, sizeout, 0);
+        DecompressAndCopyTileDataToVram(3, gScrollBgTiles, 0, 0, 0);
         sPartyMenuInternal->data[0]++;
         break;
     case 1:
         if (!IsDma3ManagerBusyWithBgCopy())
         {
-            LZDecompressWram(gPartyMenuBg_Tilemap, sPartyBgTilemapBuffer);
+            DecompressDataWithHeaderWram(gPartyMenuBg_Tilemap, sPartyBgTilemapBuffer);
             sPartyMenuInternal->data[0]++;
         }
         break;
     case 2:
         LoadCompressedPalette(gPartyMenuBg_Pal, BG_PLTT_ID(0), 11 * PLTT_SIZE_4BPP);
         CpuCopy16(gPlttBufferUnfaded, sPartyMenuInternal->palBuffer, 11 * PLTT_SIZE_4BPP);
+        LoadPalette(gScrollBgPalette, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
         sPartyMenuInternal->data[0]++;
         break;
     case 3:
+        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        {
+            DecompressDataWithHeaderWram(gScrollBgTilemap, sPartyScrollBgTilemapBuffer);
+            sPartyMenuInternal->data[0]++;
+        }
+        break;
+    case 4:
         PartyPaletteBufferCopy(4);
         sPartyMenuInternal->data[0]++;
         break;
-    case 4:
+    case 5:
         PartyPaletteBufferCopy(5);
         sPartyMenuInternal->data[0]++;
         break;
-    case 5:
+    case 6:
         PartyPaletteBufferCopy(6);
         sPartyMenuInternal->data[0]++;
         break;
-    case 6:
+    case 7:
         PartyPaletteBufferCopy(7);
         sPartyMenuInternal->data[0]++;
         break;
-    case 7:
+    case 8:
         PartyPaletteBufferCopy(8);
         sPartyMenuInternal->data[0]++;
         break;
@@ -4281,7 +4303,7 @@ static void ShowOrHideHeldItemSprite(u16 item, struct PartyMenuBox *menuBox)
 
 void LoadHeldItemIcons(void)
 {
-    LoadSpriteSheet(&sSpriteSheet_HeldItem);
+    LoadSpriteSheet(&gSpriteSheet_HeldItem);
     LoadSpritePalette(&sSpritePalette_HeldItem);
 }
 

@@ -206,20 +206,30 @@ struct Time
     /*0x02*/ s8 hours;
     /*0x03*/ s8 minutes;
     /*0x04*/ s8 seconds;
+    /*0x05*/ s8 dayOfWeek;
 };
+
 
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
 struct SaveBlock3
 {
+    u8 saveVersion;
+    // u8 padding[3];
+    u32 PID;
+    u32 grottoSeed;
 #if OW_USE_FAKE_RTC
     struct Time fakeRTC;
 #endif
+#if USE_DEXNAV_SEARCH_LEVELS == TRUE
+    u8 dexNavSearchLevels[ROUND_BITS_TO_BYTES(NUM_SPECIES)];
+#endif
+    u8 dexNavChain;
 #if OW_SHOW_ITEM_DESCRIPTIONS == OW_ITEM_DESCRIPTIONS_FIRST_TIME
     u8 itemFlags[ITEM_FLAGS_COUNT];
 #endif
-};
+}; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
 
@@ -534,43 +544,55 @@ struct RankingHall2P
 
 struct SaveBlock2
 {
-    /*0x00*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
-    /*0x08*/ u8 playerGender; // MALE, FEMALE
-    /*0x09*/ u8 specialSaveWarpFlags;
-    /*0x0A*/ u8 playerTrainerId[TRAINER_ID_LENGTH];
-    /*0x0E*/ u16 playTimeHours;
-    /*0x10*/ u8 playTimeMinutes;
-    /*0x11*/ u8 playTimeSeconds;
-    /*0x12*/ u8 playTimeVBlanks;
-    /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x14*/ u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-             u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-             u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-             u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
-             u16 optionsBattleSceneOff:1; // whether battle animations are disabled
-             u16 regionMapZoom:1; // whether the map is zoomed in
-             //u16 padding1:4;
-             //u16 padding2;
-    /*0x18*/ struct Pokedex pokedex;
-    /*0x90*/ u8 filler_90[0x8];
-    /*0x98*/ struct Time localTimeOffset;
-    /*0xA0*/ struct Time lastBerryTreeUpdate;
-    /*0xA8*/ u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
-    /*0xAC*/ u32 encryptionKey;
-    /*0xB0*/ struct PlayersApprentice playerApprentice;
-    /*0xDC*/ struct Apprentice apprentices[APPRENTICE_COUNT];
-    /*0x1EC*/ struct BerryCrush berryCrush;
+    u8 playerName[PLAYER_NAME_LENGTH + 1];
+    u8 playerGender; // MALE, FEMALE
+    u8 specialSaveWarpFlags;
+    u8 playerTrainerId[TRAINER_ID_LENGTH];
+    u16 playTimeHours;
+    u8 playTimeMinutes;
+    u8 playTimeSeconds;
+    u8 playTimeVBlanks;
+    u8 optionsButtonMode; // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
+    u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
+    u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
+    u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+    u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
+    u16 optionsBattleSceneOff:1; // whether battle animations are disabled
+    u16 regionMapZoom:1; // whether the map is zoomed in
+    u16 optionsUnitSystem:1; // OPTIONS_UNITS_[IMPERIAL/METRIC]
+    u16 optionsPadding1:1; //Padding
+    u16 optionsLevelCap:2; // OPTIONS_LEVEL_CAPS_[OFF/SOFT/HARD]
+    u16 optionsSpeedModifer:3; // OPTIONS_BATTLE_SCENE_[OFF/2X/3X/4X]
+    u16 optionsPadding2:4; // Padding
+    u16 optionsDifficulty:2; // OPTIONS_DIFFICULTY_[NORMAL/HARD]
+    u16 optionsDisableMatchCall:1; // Whether match call is disabled
+    u16 optionsCurrentFont:1; // OPTIONS_FONT_[EMERALD/FIRERED]
+    u16 optionsWildRandomiser:1; // Whether wild encounters are randomized
+    u16 optionsTrainerRandomiser:1; // Whether trainer battles are randomized
+    u16 optionsAbilityRandomiser:1; // Whether abilities are randomized
+    u16 optionsVGCDraft:2; // OPTIONS_DRAFT_[ALL_OFF/ONLY_DRAFT/ON_PLUS_BO3]
+    u16 optionsDamageNumsOff:1; // Whether damage numbers are disabled
+    u32 randomiserSeed;
+    struct Pokedex pokedex;
+    u8 filler_90[0x8];
+    struct Time localTimeOffset;
+    struct Time lastBerryTreeUpdate;
+    u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
+    u32 encryptionKey;
+    struct PlayersApprentice playerApprentice;
+    struct Apprentice apprentices[APPRENTICE_COUNT];
+    struct BerryCrush berryCrush;
 #if FREE_POKEMON_JUMP == FALSE
-    /*0x1FC*/ struct PokemonJumpRecords pokeJump;
+    struct PokemonJumpRecords pokeJump;
 #endif //FREE_POKEMON_JUMP
-    /*0x20C*/ struct BerryPickingResults berryPick;
+    struct BerryPickingResults berryPick;
 #if FREE_RECORD_MIXING_HALL_RECORDS == FALSE
-    /*0x21C*/ struct RankingHall1P hallRecords1P[HALL_FACILITIES_COUNT][FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
-    /*0x57C*/ struct RankingHall2P hallRecords2P[FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
+    struct RankingHall1P hallRecords1P[HALL_FACILITIES_COUNT][FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
+    struct RankingHall2P hallRecords2P[FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
-    /*0x624*/ u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
-    /*0x64C*/ struct BattleFrontier frontier;
-}; // sizeof=0xF2C
+    u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
+    struct BattleFrontier frontier;
+};
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 extern u8 UpdateSpritePaletteWithTime(u8);

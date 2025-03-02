@@ -6703,9 +6703,11 @@ static void Task_PokemonSummaryAnimateAfterDelay(u8 taskId)
     if (--gTasks[taskId].sAnimDelay == 0)
     {
         StartMonSummaryAnimation(READ_PTR_FROM_TASK(taskId, 0), gTasks[taskId].sAnimId);
+        #if BW_SUMMARY_SCREEN == TRUE
         if (gTasks[taskId].tIsShadow)
             SummaryScreen_SetShadowAnimDelayTaskId_BW(TASK_NONE); // needed to track anim delay task for mon shadow in BW summary screen
         else
+        #endif
             SummaryScreen_SetAnimDelayTaskId(TASK_NONE);
 
         DestroyTask(taskId);
@@ -6771,18 +6773,20 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneF
 {
     if (!oneFrame && HasTwoFramesAnimation(species))
         StartSpriteAnim(sprite, 1);
-    if (sMonAnimationDelayTable[species - 1] != 0)
+    if (gSpeciesInfo[species].frontAnimDelay != 0)
     {
         // Animation has delay, start delay task
         u8 taskId = CreateTask(Task_PokemonSummaryAnimateAfterDelay, 0);
         STORE_PTR_IN_TASK(sprite, taskId, 0);
-        gTasks[taskId].sAnimId = sMonFrontAnimIdsTable[species - 1];
-        gTasks[taskId].sAnimDelay = sMonAnimationDelayTable[species - 1];
+        gTasks[taskId].sAnimId = gSpeciesInfo[species].frontAnimId;
+        gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
         gTasks[taskId].tIsShadow = isShadow;  // needed to track anim delay task for mon shadow in BW summary screen
 
+        #if BW_SUMMARY_SCREEN == TRUE
         if (isShadow)
             SummaryScreen_SetShadowAnimDelayTaskId_BW(taskId);
         else
+        #endif
             SummaryScreen_SetAnimDelayTaskId(taskId);
 
         SetSpriteCB_MonAnimDummy(sprite);
@@ -6790,7 +6794,7 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneF
     else
     {
         // No delay, start animation
-        StartMonSummaryAnimation(sprite, sMonFrontAnimIdsTable[species - 1]);
+        StartMonSummaryAnimation(sprite, gSpeciesInfo[species].frontAnimId);
     }
 }
 

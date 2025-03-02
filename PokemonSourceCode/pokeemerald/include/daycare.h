@@ -21,7 +21,7 @@ void GetDaycareCost(void);
 u8 GetNumLevelsGainedFromDaycare(void);
 void TriggerPendingDaycareEgg(void);
 void RejectEggFromDayCare(void);
-void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation);
+void CreateEgg(struct Pokemon *mon, u16 species, u8 specialLocation);
 void GiveEggFromDaycare(void);
 bool8 ShouldEggHatch(void);
 u16 GetSelectedMonNicknameAndSpecies(void);
@@ -34,5 +34,5 @@ void ShowDaycareLevelMenu(void);
 void ChooseSendDaycareMon(void);
 u8 GetEggMovesBySpecies(u16 species, u16 *eggMoves);
 bool8 SpeciesCanLearnEggMove(u16 species, u16 move);
-
+u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
 #endif // GUARD_DAYCARE_H

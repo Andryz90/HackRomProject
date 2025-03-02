@@ -3,6 +3,7 @@
 #include "battle_pyramid_bag.h"
 #include "item_menu.h"
 #include "text.h"
+#include "constants/battle_frontier.h"
 
 ALIGNED(4)
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
@@ -149,6 +150,7 @@ const u8 gText_GoBackPrevMenu[] = _("Go back to the\nprevious menu.");
 const u8 gText_WhatWouldYouLike[] = _("What would you like to do?");
 const u8 gMenuText_Give2[] = _("GIVE");
 const u8 gText_xVar1[] = _("×{STR_VAR_1}");
+const u8 gText_BagQty[] = _("{COLOR WHITE}{SHADOW DYNAMIC_COLOR3}×{STR_VAR_1}");
 const u8 gText_Berry2[] = _(" BERRY"); // Unused
 const u8 gText_Coins[] = _("{STR_VAR_1} COINS");
 const u8 gText_CloseBag[] = _("CLOSE BAG");
@@ -403,6 +405,7 @@ const u8 gText_OddEggFoundByCouple[] = _("An odd POKéMON EGG found\nby the DAY 
 const u8 gText_PeculiarEggNicePlace[] = _("A peculiar POKéMON EGG\nobtained at the nice place.");
 const u8 gText_PeculiarEggTrade[] = _("A peculiar POKéMON EGG\nobtained in a trade.");
 const u8 gText_EggFromHotSprings[] = _("A POKéMON EGG obtained\nat the hot springs.");
+const u8 gText_EggFromDaycareAdoption[] = _("A Pokémon Egg adopted\nfrom the day care.");
 const u8 gText_EggFromTraveler[] = _("An odd POKéMON EGG\nobtained from a traveler.");
 const u8 gText_ApostropheSBase[] = _("'s BASE");
 const u8 gText_OkayToDeleteFromRegistry[] = _("Is it okay to delete {STR_VAR_1}\nfrom the REGISTRY?");
@@ -1030,14 +1033,6 @@ const u8 gText_MenuRetire[] = _("RETIRE");
 const u8 gText_MenuRest[] = _("REST");
 const u8 gText_SafariBallStock[] = _("SAFARI BALLS\nStock: {STR_VAR_1}");
 const u8 gText_BattlePyramidFloor[] = _("Battle Pyramid\n{STR_VAR_1}");
-const u8 gText_Floor1[] = _("Floor 1");
-const u8 gText_Floor2[] = _("Floor 2");
-const u8 gText_Floor3[] = _("Floor 3");
-const u8 gText_Floor4[] = _("Floor 4");
-const u8 gText_Floor5[] = _("Floor 5");
-const u8 gText_Floor6[] = _("Floor 6");
-const u8 gText_Floor7[] = _("Floor 7");
-const u8 gText_Peak[] = _("Peak");
 const u8 gText_LinkStandby2[] = _("Link standby…\n… … B Button: Cancel");
 const u8 gText_PressAToLoadEvent[] = _("Press the A Button to load event.\n… … B Button: Cancel");
 const u8 gText_LoadingEvent[] = _("Loading event…");
@@ -1051,6 +1046,8 @@ const u8 gText_DexNational[] = _("NATIONAL");
 const u8 gText_PokedexDiploma[] = _("PLAYER: {CLEAR 0x10}{COLOR RED}{SHADOW LIGHT_RED}{PLAYER}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}\n\nThis document certifies\nthat you have successfully\ncompleted your\n{STR_VAR_1} POKéDEX.\n\n{CLEAR_TO 0x42}{COLOR RED}{SHADOW LIGHT_RED}GAME FREAK");
 const u8 gJPText_GameFreak[] = _("{COLOR RED}{SHADOW LIGHT_RED}ゲ-ムフリ-ク"); // Unused
 const u8 gText_DiplomaEmpty[] = _("{COLOR RED}{SHADOW LIGHT_RED}"); // Unused
+const u8 gText_MenuDexNav[] = _("DexNav");
+const u8 gText_MenuDexNavShortcut[] = _(" {L_BUTTON} DexNav");
 const u8 gText_Hoenn[] = _("HOENN");
 const u8 gText_Kanto[] = _("Kanto");
 const u8 gText_Johto[] = _("Johto");
@@ -1081,6 +1078,47 @@ const u8 gText_Frostbite[] = _(
 #endif
 );
 
+const u8 gText_PyramidFloor[] = _("Btl. Pyramid\n{STR_VAR_1}");
+const u8 gText_Floor1[] = _("Floor 1");
+const u8 gText_Floor2[] = _("Floor 2");
+const u8 gText_Floor3[] = _("Floor 3");
+const u8 gText_Floor4[] = _("Floor 4");
+const u8 gText_Floor5[] = _("Floor 5");
+const u8 gText_Floor6[] = _("Floor 6");
+const u8 gText_Floor7[] = _("Floor 7");
+const u8 gText_Peak[] = _("Peak");
+
+const u8 *const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
+{
+    gText_Floor1,
+    gText_Floor2,
+    gText_Floor3,
+    gText_Floor4,
+    gText_Floor5,
+    gText_Floor6,
+    gText_Floor7,
+    gText_Peak
+};
+
+// Day Strings
+const u8 gText_Sunday[]    = _("Sun,");
+const u8 gText_Monday[]    = _("Mon,");
+const u8 gText_Tuesday[]   = _("Tue,");
+const u8 gText_Wednesday[] = _("Wed,");
+const u8 gText_Thursday[]  = _("Thu,");
+const u8 gText_Friday[]    = _("Fri,");
+const u8 gText_Saturday[]  = _("Sat,");
+
+const u8 *const gDayNameStringsTable[] =
+{
+    [DAY_SUNDAY] = gText_Sunday,
+    [DAY_MONDAY] = gText_Monday,
+    [DAY_TUESDAY] = gText_Tuesday,
+    [DAY_WEDNESDAY] = gText_Wednesday,
+    [DAY_THURSDAY] = gText_Thursday,
+    [DAY_FRIDAY] = gText_Friday,
+    [DAY_SATURDAY] = gText_Saturday,
+};
 
 
 // Easy chat group names

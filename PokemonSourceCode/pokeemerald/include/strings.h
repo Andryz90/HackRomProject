@@ -240,6 +240,10 @@ extern const u8 gText_Floor7[];
 extern const u8 gText_Peak[];
 extern const u8 gText_SafariBallStock[];
 extern const u8 gText_BattlePyramidFloor[];
+extern const u8 gText_PyramidFloor[];
+extern const u8 gText_MenuDexNavShortcut[];
+
+extern const u8 *const sPyramidFloorNames[];
 
 extern const u8 gText_MenuOptionPokedex[];
 extern const u8 gText_MenuOptionPokemon[];
@@ -326,6 +330,7 @@ extern const u8 gText_CloseBag[];
 extern const u8 gText_NumberItem_HM[];
 extern const u8 gText_NumberItem_TMBerry[];
 extern const u8 gText_xVar1[];
+extern const u8 gText_BagQty[];
 extern const u8 gText_ReturnToVar1[];
 extern const u8 gText_SelectorArrow2[];
 extern const u8 gText_MoveVar1Where[];
@@ -765,6 +770,7 @@ extern const u8 gText_PeculiarEggNicePlace[];
 extern const u8 gText_PeculiarEggTrade[];
 extern const u8 gText_EggFromTraveler[];
 extern const u8 gText_EggFromHotSprings[];
+extern const u8 gText_EggFromDaycareAdoption[];
 extern const u8 gText_OddEggFoundByCouple[];
 extern const u8 gText_None[];
 extern const u8 gText_RibbonsVar1[];
@@ -2501,5 +2507,18 @@ extern const u8 gText_Hasty[];
 extern const u8 gText_Jolly[];    
 extern const u8 gText_Naive[];    
 extern const u8 gText_Serious[];  
+
+
+
+// Day Strings
+extern const u8 gText_Sunday[];
+extern const u8 gText_Monday[];
+extern const u8 gText_Tuesday[];
+extern const u8 gText_Wednesday[];
+extern const u8 gText_Thursday[];
+extern const u8 gText_Friday[];
+extern const u8 gText_Saturday[];
+extern const u8 *const gDayNameStringsTable[];
+
 
 #endif // GUARD_STRINGS_H

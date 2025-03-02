@@ -237,7 +237,7 @@
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
 #define VAR_BIRCH_TRIGGER_110                            0x40DB // Unused Var
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
+#define VAR_DEXNAV_STEP_COUNTER                          0x40DC // Custom var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
@@ -266,7 +266,7 @@
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
 #define VAR_SLATEPORT_MUSEUM_TRIGGER                     0x40F7 
 #define VAR_WALLY_ROUTE111_TRIGGER                       0x40F8 
-#define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
+#define VAR_DEXNAV_SPECIES                               0x40F9 // Registered dexnav species
 #define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var

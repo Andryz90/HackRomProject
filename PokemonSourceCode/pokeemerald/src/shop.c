@@ -59,11 +59,11 @@ enum {
     WIN_MESSAGE,
 };
 
-enum {
-    COLORID_NORMAL,      // Item descriptions, quantity in bag, and quantity/price
-    COLORID_ITEM_LIST,   // The text in the item list, and the cursor normally
-    COLORID_GRAY_CURSOR, // When the cursor has selected an item to purchase
-};
+// enum {
+//     COLORID_NORMAL,      // Item descriptions, quantity in bag, and quantity/price
+//     COLORID_ITEM_LIST,   // The text in the item list, and the cursor normally
+//     COLORID_GRAY_CURSOR, // When the cursor has selected an item to purchase
+// };
 
 enum {
     MART_TYPE_NORMAL,
@@ -744,7 +744,7 @@ static void BuyMenuInitBgs(void)
 static void BuyMenuDecompressBgGraphics(void)
 {
     DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
-    LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    DecompressDataWithHeaderWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
     LoadCompressedPalette(gShopMenu_Pal, BG_PLTT_ID(12), PLTT_SIZE_4BPP);
 }
 

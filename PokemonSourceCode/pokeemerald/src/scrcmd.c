@@ -649,6 +649,8 @@ bool8 ScrCmd_fadescreenspeed(struct ScriptContext *ctx)
     return TRUE;
 }
 
+static EWRAM_DATA u32 *sPalBuffer = NULL;
+
 bool8 ScrCmd_fadescreenswapbuffers(struct ScriptContext *ctx)
 {
     u8 mode = ScriptReadByte(ctx);
@@ -658,13 +660,21 @@ bool8 ScrCmd_fadescreenswapbuffers(struct ScriptContext *ctx)
     case FADE_TO_BLACK:
     case FADE_TO_WHITE:
     default:
-        CpuCopy32(gPlttBufferUnfaded, gDecompressionBuffer, PLTT_SIZE);
-        FadeScreen(mode, 0);
+        if (sPalBuffer == NULL)
+        {
+            sPalBuffer = Alloc(PLTT_SIZE);
+            CpuCopy32(gPlttBufferUnfaded, sPalBuffer, PLTT_SIZE);
+            FadeScreen(mode, 0);
+        }
         break;
     case FADE_FROM_BLACK:
     case FADE_FROM_WHITE:
-        CpuCopy32(gDecompressionBuffer, gPlttBufferUnfaded, PLTT_SIZE);
-        FadeScreen(mode, 0);
+        if (sPalBuffer != NULL)
+        {
+            CpuCopy32(sPalBuffer, gPlttBufferUnfaded, PLTT_SIZE);
+            FadeScreen(mode, 0);
+            FREE_AND_SET_NULL(sPalBuffer);
+        }
         break;
     }
 
@@ -1839,8 +1849,9 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext *ctx)
 bool8 ScrCmd_giveegg(struct ScriptContext *ctx)
 {
     u16 species = VarGet(ScriptReadHalfword(ctx));
+    u8 specialLoc = ScriptReadByte(ctx);
 
-    gSpecialVar_Result = ScriptGiveEgg(species);
+    gSpecialVar_Result = ScriptGiveEgg(species, specialLoc);
     return FALSE;
 }
 

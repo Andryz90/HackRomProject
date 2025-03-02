@@ -33,7 +33,6 @@ static void ClearDaycareMonMail(struct DaycareMail *mail);
 static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 static u8 ModifyBreedingScoreForOvalCharm(u8 score);
-static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
 static u16 GetEggSpecies(u16 species);
 
 // RAM buffers used to assist with BuildEggMoveset()
@@ -751,7 +750,7 @@ static void InheritAbility(struct Pokemon *egg, struct BoxPokemon *father, struc
 
 // Counts the number of egg moves a Pokémon learns and stores the moves in
 // the given array.
-static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
+u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
 {
     u16 numEggMoves;
     u16 species;
@@ -1062,27 +1061,25 @@ static void _GiveEggFromDaycare(struct DayCare *daycare)
     RemoveEggFromDayCare(daycare);
 }
 
-void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation)
+void CreateEgg(struct Pokemon *mon, u16 species, u8 specialLocation)
 {
     u8 metLevel;
-    enum PokeBall ball;
+    u16 ball;
     u8 language;
-    u8 metLocation;
     u8 isEgg;
 
     CreateMon(mon, species, EGG_HATCH_LEVEL, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
     metLevel = 0;
-    ball = BALL_POKE;
+    ball = ITEM_POKE_BALL;
     language = LANGUAGE_JAPANESE;
     SetMonData(mon, MON_DATA_POKEBALL, &ball);
     SetMonData(mon, MON_DATA_NICKNAME, sJapaneseEggNickname);
     SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].eggCycles);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
     SetMonData(mon, MON_DATA_LANGUAGE, &language);
-    if (setHotSpringsLocation)
+    if (specialLocation)
     {
-        metLocation = METLOC_SPECIAL_EGG;
-        SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
+        SetMonData(mon, MON_DATA_MET_LOCATION, &specialLocation);
     }
 
     isEgg = TRUE;

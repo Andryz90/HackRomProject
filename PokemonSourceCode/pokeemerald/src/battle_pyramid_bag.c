@@ -573,7 +573,7 @@ static bool8 LoadPyramidBagGfx(void)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(gBattlePyramidBagTilemap, gPyramidBagMenu->tilemapBuffer);
+            DecompressDataWithHeaderWram(gBattlePyramidBagTilemap, gPyramidBagMenu->tilemapBuffer);
             gPyramidBagMenu->state++;
         }
         break;
@@ -583,6 +583,7 @@ static bool8 LoadPyramidBagGfx(void)
         break;
     case 3:
         LoadCompressedSpriteSheet(&sSpriteSheet_PyramidBag);
+        LoadPalette(gScrollBgPalette, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
         gPyramidBagMenu->state++;
         break;
     case 4:
@@ -591,8 +592,20 @@ static bool8 LoadPyramidBagGfx(void)
         break;
     default:
         LoadListMenuSwapLineGfx();
-        gPyramidBagMenu->state = 0;
-        return TRUE;
+        gPyramidBagMenu->state++;
+    case 5:
+        ResetTempTileDataBuffers();
+        DecompressAndCopyTileDataToVram(3, gScrollBgTiles, 0, 0, 0);
+        gPyramidBagMenu->state++;
+        break;
+    case 6:
+        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        {
+            DecompressDataWithHeaderWram(gScrollBgTilemap, gPyramidBagMenu->tilemapBuffer2);
+            gPyramidBagMenu->state = 0;
+            return TRUE;
+        }
+        break;
     }
 
     return FALSE;
@@ -1561,7 +1574,7 @@ static void LoadPyramidBagPalette(void)
     struct SpritePalette spritePalette;
     u16 *palPtr = Alloc(2 * PLTT_SIZE_4BPP);
 
-    LZDecompressWram(gBattlePyramidBag_Pal, palPtr);
+    DecompressDataWithHeaderWram(gBattlePyramidBag_Pal, palPtr);
     spritePalette.data = palPtr + PLTT_ID(gSaveBlock2Ptr->frontier.lvlMode);
     spritePalette.tag = TAG_PYRAMID_BAG;
     LoadSpritePalette(&spritePalette);

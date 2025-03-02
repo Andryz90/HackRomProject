@@ -39,6 +39,7 @@
 #include "constants/global.h"
 #include "constants/items.h"
 #include "constants/event_objects.h"
+#include "constants/map_types.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
@@ -743,10 +744,11 @@ static void BattleLoadOpponentMonSpriteGfxCustom(u16 species, bool8 isFemale, bo
 {
     const u32 *lzPaletteData = GetMonSpritePalFromSpecies(species, isShiny, isFemale);
     u16 paletteOffset = OBJ_PLTT_ID(battlerId);
+    void *buffer = malloc_and_decompress(lzPaletteData, NULL);
 
-    LZDecompressWram(lzPaletteData, gDecompressionBuffer);
-    LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
-    LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battlerId), PLTT_SIZE_4BPP);
+    LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
+    LoadPalette(buffer, BG_PLTT_ID(8) + BG_PLTT_ID(battlerId), PLTT_SIZE_4BPP);
+    Free(buffer);
 }
 
 static void SetConstSpriteValues(struct PokemonSpriteVisualizer *data)
@@ -928,73 +930,79 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
     {
     default:
     case MAP_BATTLE_SCENE_NORMAL:
-        LZDecompressVram(sBattleTerrainTable[battleTerrain].tileset, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(sBattleTerrainTable[battleTerrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(sBattleTerrainTable[battleTerrain].palette, 0x20, 0x60);
+        UpdateTimeOfDay();
+        DecompressDataWithHeaderVram(sBattleTerrainTable[battleTerrain].tileset, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(sBattleTerrainTable[battleTerrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
+        if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND && battleTerrain == BATTLE_TERRAIN_POND)
+                LoadCompressedPalette(gBattleTerrainPalette_PondWater_Cave, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            else if (gTimeOfDay == TIME_OF_DAY_NIGHT)
+                LoadCompressedPalette(sBattleTerrainTable[battleTerrain].nightPalette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            else
+                LoadCompressedPalette(sBattleTerrainTable[battleTerrain].palette, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_GYM:
-        LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_BuildingGym, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_MAGMA:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_StadiumMagma, 0x20, 0x60);
+    	DecompressDataWithHeaderVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+    	DecompressDataWithHeaderVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+    	LoadCompressedPalette(gBattleTerrainPalette_BuildingMagma, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_AQUA:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_StadiumAqua, 0x20, 0x60);
+    	DecompressDataWithHeaderVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+    	DecompressDataWithHeaderVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+    	LoadCompressedPalette(gBattleTerrainPalette_BuildingAqua, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_SIDNEY:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_StadiumSidney, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_PHOEBE:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_StadiumPhoebe, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_GLACIA:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_StadiumGlacia, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_DRAKE:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_StadiumDrake, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_FRONTIER:
-        LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Frontier, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_LEADER:
-        LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
-        LoadCompressedPalette(gBattleTerrainPalette_BuildingLeader, 0x20, 0x60);
+    	DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    	DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    	LoadCompressedPalette(gBattleTerrainPalette_StadiumLeader, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_WALLACE:
-        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_StadiumWallace, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_GROUDON:
-        LZDecompressVram(gBattleTerrainTiles_Cave, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Cave, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Cave, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Cave, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Groudon, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_KYOGRE:
-        LZDecompressVram(gBattleTerrainTiles_Water, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Water, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Water, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Water, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Kyogre, 0x20, 0x60);
         break;
     case MAP_BATTLE_SCENE_RAYQUAZA:
-        LZDecompressVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
+        DecompressDataWithHeaderVram(gBattleTerrainTiles_Rayquaza, (void*)(BG_CHAR_ADDR(2)));
+        DecompressDataWithHeaderVram(gBattleTerrainTilemap_Rayquaza, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Rayquaza, 0x20, 0x60);
         break;
     }
