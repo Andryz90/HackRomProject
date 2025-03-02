@@ -698,13 +698,13 @@ static void DoMoveRelearnerMain(void)
                 {
                 case PSS_PAGE_BATTLE_MOVES:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_SELECT_MOVE, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_NORMAL, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
                     else
                         ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
                     break;
                 case PSS_PAGE_CONTEST_MOVES:
                 if (BW_SUMMARY_SCREEN)
-                    ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_SELECT_MOVE, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                    ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_NORMAL, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
                 else
                     ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
                     break;
