@@ -41,7 +41,7 @@ const u32 gBattleTerrainPalette_Plain[] = INCBIN_U32("graphics/battle_terrain/pl
 const u32 gBattleTerrainPalette_Plain_Night[] = INCBIN_U32("graphics/battle_terrain/plain/palette_night.gbapal.lz");
 
 const u32 gBattleTerrainTiles_Building[] = INCBIN_U32("graphics/battle_terrain/building/tiles.4bpp.lz");
-const u32 gBattleTerrainPalette_Frontier[] = INCBIN_U32("graphics/battle_terrain/stadium/battle_frontier.gbapal.lz"); // this is also used for link battles
+const u32 gBattleTerrainPalette_Frontier[] = INCBIN_U32("graphics/battle_terrain/building/battle_frontier.gbapal.lz"); // this is also used for link battles
 const u32 gBattleTerrainTilemap_Building[] = INCBIN_U32("graphics/battle_terrain/building/map.bin.lz");
 
 const u32 gBattleTerrainTiles_Stadium[] = INCBIN_U32("graphics/battle_terrain/stadium/tiles.4bpp.lz");
@@ -65,6 +65,9 @@ const u32 gBattleTerrainPalette_StadiumDrake[] = INCBIN_U32("graphics/battle_ter
 const u32 gBattleTerrainPalette_StadiumWallace[] = INCBIN_U32("graphics/battle_terrain/stadium/palette7.gbapal.lz");
 const u32 gBattleTerrainPalette_Rayquaza[] = INCBIN_U32("graphics/battle_terrain/sky/palette.gbapal.lz");
 const u32 gBattleTerrainPalette_Rayquaza_Night[] = INCBIN_U32("graphics/battle_terrain/sky/palette_night.gbapal.lz");
+
+const u32 gBattleTerrainTiles_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/tiles.4bpp.lz");
+const u32 gBattleTerrainTilemap_Plain[] = INCBIN_U32("graphics/battle_terrain/plain/map.bin.lz");
 
 const u32 gBattleTerrainAnimTiles_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_TallGrass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/anim_map.bin.lz");

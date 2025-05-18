@@ -3,6 +3,7 @@
 #include "malloc.h"
 #include "battle.h"
 #include "battle_tower.h"
+#include "berry_crush.h"
 #include "cable_club.h"
 #include "data.h"
 #include "decoration.h"

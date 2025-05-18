@@ -976,7 +976,8 @@ extern const u8 gText_Space2[];
 extern const u8 gText_Are[];
 extern const u8 gText_Are2[];
 extern const u8 gText_123Dot[][3];
-
+//bag
+extern const u8 gText_NoRoomForItems[];
 // Frontier util.
 extern const u8 gText_FacilitySingle[];
 extern const u8 gText_FacilityDouble[];
@@ -1673,6 +1674,7 @@ extern const u8 gText_ByeByeVar1[];
 extern const u8 gText_XSentOverY[];
 extern const u8 gText_TakeGoodCareOfX[];
 extern const u8 gText_CommunicationStandby5[];
+
 
 // match call
 extern const u8 MatchCall_WildBattleText1[];

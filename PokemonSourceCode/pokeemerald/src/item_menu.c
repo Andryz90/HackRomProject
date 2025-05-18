@@ -257,6 +257,15 @@ static const struct BgTemplate sBgTemplates_ItemMenu[] =
         .priority = 2,
         .baseTile = 0,
     },
+    {
+        .bg = 3,
+        .charBaseIndex = 2,
+        .mapBaseIndex = 21,
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 2,
+        .baseTile = 0,
+    },
 };
 
 static const struct ListMenuTemplate sItemListMenu =
@@ -401,26 +410,32 @@ static const struct ScrollArrowsTemplate sBagScrollArrowsTemplate = {
     .palNum = 0,
 };
 
+// static const u8 sSelectButtonGfx[] = INCBIN_U8("graphics/interface/select_button.4bpp");
+// static const u8 sLButtonGfx[] = INCBIN_U8("graphics/interface/L_button.4bpp");
+// static const u8 sRButtonGfx[] = INCBIN_U8("graphics/interface/R_button.4bpp");
+// // Key item wheel gfx
+// static const u8 sRegisterUp_Gfx[] = INCBIN_U8("graphics/bag/select_button.4bpp");
+// static const u8 sRegisterRight_Gfx[] = INCBIN_U8("graphics/bag/select_button_right.4bpp");
+// static const u8 sRegisterDown_Gfx[] = INCBIN_U8("graphics/bag/select_button_down.4bpp");
+// static const u8 sRegisterLeft_Gfx[] = INCBIN_U8("graphics/bag/select_button_left.4bpp");
+
 static const u8 sSelectButtonGfx[] = INCBIN_U8("graphics/interface/select_button.4bpp");
 static const u8 sLButtonGfx[] = INCBIN_U8("graphics/interface/L_button.4bpp");
 static const u8 sRButtonGfx[] = INCBIN_U8("graphics/interface/R_button.4bpp");
-// Key item wheel gfx
-static const u8 sRegisterUp_Gfx[] = INCBIN_U8("graphics/bag/select_button.4bpp");
-static const u8 sRegisterRight_Gfx[] = INCBIN_U8("graphics/bag/select_button_right.4bpp");
-static const u8 sRegisterDown_Gfx[] = INCBIN_U8("graphics/bag/select_button_down.4bpp");
-static const u8 sRegisterLeft_Gfx[] = INCBIN_U8("graphics/bag/select_button_left.4bpp");
-
-static const u8* const sRegisteredSelect_Gfx[] = {sRegisterUp_Gfx, sRegisterRight_Gfx, sRegisterDown_Gfx, sRegisterLeft_Gfx, sRegisterUp_Gfx};
+static const u8 sRegisteredSelect_Gfx[] = INCBIN_U8("graphics/bag/select_button.4bpp"); //tx_registered_items_menu
 
 enum {
     COLORID_DEFAULT, //Ols Colorid_normal
     COLORID_POCKET_NAME,
     COLORID_BLUE_CURSOR,
     COLORID_NORMAL_CURSOR,
+    COLORID_UNUSED,
     COLORID_TMHM_INFO,
     COLORID_NONE = 0xFF
 };
-static const u8 sFontColorTable[][3] = {
+
+static const u8 sFontColorTable[][3] = 
+{
     // bgColor, textColor, shadowColor
     [COLORID_DEFAULT]        = {TEXT_COLOR_TRANSPARENT, 7, 6},
     [COLORID_POCKET_NAME]   = {TEXT_COLOR_TRANSPARENT, 7, 6},
@@ -838,16 +853,21 @@ static void BagMenu_InitBGs(void)
 {
     ResetVramOamAndBgCntRegs();
     memset(gBagMenu->tilemapBuffer, 0, sizeof(gBagMenu->tilemapBuffer));
+    memset(gBagMenu->tilemapBuffer2, 0, sizeof(gBagMenu->tilemapBuffer2));
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sBgTemplates_ItemMenu, ARRAY_COUNT(sBgTemplates_ItemMenu));
     SetBgTilemapBuffer(2, gBagMenu->tilemapBuffer);
+    SetBgTilemapBuffer(3, gBagMenu->tilemapBuffer2);
     ResetAllBgsCoordinates();
     ScheduleBgCopyTilemapToVram(2);
+    ScheduleBgCopyTilemapToVram(3);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG2 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG3);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(14, 6));
     ShowBg(0);
     ShowBg(1);
     ShowBg(2);
-    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    ShowBg(3);
 }
 
 static bool8 LoadBagMenu_Graphics(void)
@@ -1031,7 +1051,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
 {
     u16 itemId;
     u16 itemQuantity;
-    s32 offset;
+    int offset;
 
     if (itemIndex != LIST_CANCEL)
     {
@@ -1055,17 +1075,26 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
         {
             // Print item quantity
             ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, MAX_ITEM_DIGITS);
-            StringExpandPlaceholders(gStringVar4, gText_BagQty);
+            StringExpandPlaceholders(gStringVar4, gText_xVar1);
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_DEFAULT);
         }
-        else if (itemId && (offset = RegisteredItemIndex(itemId)) >= 0)
+        else
         {
             // Print registered icon
-            BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx[offset], 96, y - 1, 24, 16);
+            if (gSaveBlock1Ptr->registeredItemSelect  != ITEM_NONE && gSaveBlock1Ptr->registeredItemSelect  == itemId)
+                BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx, 96, y - 1, 24, 16);
+            if (TxRegItemsMenu_CheckRegisteredHasItem(itemId))
+            {
+                if (gSaveBlock2Ptr->optionsButtonMode != 2)
+                    BlitBitmapToWindow(windowId, sLButtonGfx, 96, y - 1, 24, 16);
+                else
+                    BlitBitmapToWindow(windowId, sRButtonGfx, 96, y - 1, 24, 16);
+            }
         }
     }
 }
+
 static void PrintItemDescription(int itemIndex)
 {
     const u8 *str;

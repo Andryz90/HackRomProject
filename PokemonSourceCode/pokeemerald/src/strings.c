@@ -153,7 +153,7 @@ const u8 gText_xVar1[] = _("×{STR_VAR_1}");
 const u8 gText_BagQty[] = _("{COLOR WHITE}{SHADOW DYNAMIC_COLOR3}×{STR_VAR_1}");
 const u8 gText_Berry2[] = _(" BERRY"); // Unused
 const u8 gText_Coins[] = _("{STR_VAR_1} COINS");
-const u8 gText_CloseBag[] = _("CLOSE BAG");
+const u8 gText_CloseBag[] = _("Close Bag");
 const u8 gText_Var1IsSelected[] = _("{STR_VAR_1}\nis selected.");
 const u8 gText_CantWriteMail[] = _("You can't write\nMAIL here.");
 const u8 gText_NoPokemon[] = _("There is no\nPOKéMON.");
@@ -175,7 +175,7 @@ const u8 gText_TheBattle[] = _("the battle");
 const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
-
+const u8 gText_NoRoomForItems[] = _("There's no room to\nstore items.");
 const u8 *const gBagMenu_ReturnToStrings[] =
 {
     [ITEMMENULOCATION_FIELD]               = gText_TheField,
