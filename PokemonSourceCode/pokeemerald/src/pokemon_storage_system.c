@@ -3799,7 +3799,7 @@ static void Task_ChangeScreen(u8 taskId)
             else
                 ShowPokemonSummaryScreenHandleDeoxys(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
         }
-        else
+        else /*@Split:is mode correct for BW?*/
         {            
             if (BW_SUMMARY_SCREEN)
                 ShowPokemonSummaryScreen_BW(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
