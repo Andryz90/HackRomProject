@@ -23,6 +23,7 @@ struct Item
     u8 padding:5;
     u8 pocket;
     u8 type;
+    u8 sort;
     u8 battleUsage;
     u8 flingPower;
     const u32 *iconPic;
@@ -38,6 +39,7 @@ struct BagPocket
 extern const struct Item gItemsInfo[];
 extern struct BagPocket gBagPockets[];
 
+u16 GetBagItemQuantity(u16 *quantity);
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
 void SetBagItemsPointers(void);

@@ -336,8 +336,6 @@ extern const u8 gText_SelectorArrow2[];
 extern const u8 gText_MoveVar1Where[];
 extern const u8 gText_Var1IsSelected[];
 extern const u8 gText_TossHowManyVar1s[];
-extern const u8 gText_ConfirmTossItems[];
-extern const u8 gText_ThrewAwayVar2Var1s[];
 extern const u8 gText_CantWriteMail[];
 extern const u8 gText_NoPokemon[];
 extern const u8 gText_Var1CantBeHeld[];
@@ -485,11 +483,9 @@ extern const u8 gText_BagIsFull[];
 
 extern const u8 gText_MailToBagMessageErased[];
 extern const u8 gText_GoBackPrevMenu[];
-extern const u8 gText_TossHowManyVar1s[];
 extern const u8 gText_ThrewAwayVar2Var1s[];
-extern const u8 gText_ConfirmTossItems[];
 extern const u8 gText_MoveVar1Where[];
-
+extern const u8 gText_DepositHowManyVar1[];
 extern const u8 gText_ColorLightShadowDarkGray[];
 extern const u8 gText_ColorBlue[];
 extern const u8 gText_Friend[];
@@ -498,6 +494,7 @@ extern const u8 gText_Philip[];
 extern const u8 gText_Dennis[];
 extern const u8 gText_Roberto[];
 extern const u8 gText_FiveMarks[];
+extern const u8 gText_Var1CantBeHeldHere[];
 
 extern const u8 gText_TotalRecordWLD[];
 extern const u8 gText_PlayersBattleResults[];
@@ -977,7 +974,20 @@ extern const u8 gText_Are[];
 extern const u8 gText_Are2[];
 extern const u8 gText_123Dot[][3];
 //bag
+extern const u8 gText_DepositedVar2Var1s[];
 extern const u8 gText_NoRoomForItems[];
+extern const u8 gText_CantStoreImportantItems[];
+extern const u8 gText_TooImportantToToss[];
+extern const u8 gText_ConfirmTossItems[];
+extern const u8 gText_PressAnyDpadKey[];
+extern const u8 gMenuText_Move[];
+extern const u8 gMenuText_Walk[];
+extern const u8 gMenuText_Check[];
+extern const u8 gMenuText_Deselect[];
+extern const u8 gMenuText_CheckTag[];
+extern const u8 gMenuText_Show[];
+
+
 // Frontier util.
 extern const u8 gText_FacilitySingle[];
 extern const u8 gText_FacilityDouble[];
