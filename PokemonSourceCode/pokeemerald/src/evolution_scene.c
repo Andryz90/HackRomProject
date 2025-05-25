@@ -983,7 +983,7 @@ static void Task_EvolutionScene(u8 taskId)
         case MVSTATE_HANDLE_MOVE_SELECT:
             if (!gPaletteFade.active && gMain.callback2 == CB2_EvolutionSceneUpdate)
             {
-                var = GetMoveSlotToReplace();
+                var = GetMoveSlotToReplace_Wrap();
                 if (var == MAX_MON_MOVES)
                 {
                     // Didn't select move slot
@@ -1376,7 +1376,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
         case T_MVSTATE_HANDLE_MOVE_SELECT:
             if (!gPaletteFade.active && gMain.callback2 == CB2_TradeEvolutionSceneUpdate)
             {
-                var = GetMoveSlotToReplace();
+                var = GetMoveSlotToReplace_Wrap();
                 if (var == MAX_MON_MOVES)
                 {
                     // Didn't select move slot

@@ -1725,6 +1725,8 @@ void CB2_OverworldBasic(void)
 void CB2_Overworld(void)
 {
     bool32 fading = (gPaletteFade.active != 0);
+
+    MgbaPrintf(MGBA_LOG_ERROR, "[CB2_Overworld] called");
     if (fading)
         SetVBlankCallback(NULL);
     OverworldBasic();
@@ -1871,6 +1873,7 @@ static void CB2_LoadMapOnReturnToFieldCableClub(void)
 
 void CB2_ReturnToField(void)
 {
+    MgbaPrintf(MGBA_LOG_ERROR, "[CB2_ReturnToField] called");
     if (IsOverworldLinkActive() == TRUE)
     {
         SetMainCallback2(CB2_ReturnToFieldLink);
@@ -1884,8 +1887,10 @@ void CB2_ReturnToField(void)
 
 static void CB2_ReturnToFieldLocal(void)
 {
+    MgbaPrintf(MGBA_LOG_ERROR, "[CB2_ReturnToFieldLocal] called");
     if (ReturnToFieldLocal(&gMain.state))
     {
+        MgbaPrintf(MGBA_LOG_ERROR, "[CB2_ReturnToFieldLocal] called inside if");
         SetFieldVBlankCallback();
         SetMainCallback2(CB2_Overworld);
     }

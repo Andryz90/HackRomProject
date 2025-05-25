@@ -563,8 +563,6 @@ u8 TxRegItemsMenu_CountUsedRegisteredItemSlots(void)
 
     for (i = 0; i < REGISTERED_ITEMS_MAX; i++)
     {
-        MgbaPrintf(MGBA_LOG_ERROR,"Registered item %d: %d\n", i, gSaveBlock1Ptr->registeredItems[i].itemId);
-
         if (gSaveBlock1Ptr->registeredItems[i].itemId != ITEM_NONE)
             usedSlots++;
         else if (gSaveBlock1Ptr->registeredItems[i].itemId == ITEM_NONE || gSaveBlock1Ptr->registeredItems[i].itemId == 0xFF)

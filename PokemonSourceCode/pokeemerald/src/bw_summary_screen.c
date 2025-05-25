@@ -2893,7 +2893,6 @@ static void ChangeSelectedMove(s16 *taskData, s8 direction, u8 *moveIndexPtr)
 
     PlaySE(SE_SELECT);
     newMoveIndex = *moveIndexPtr;
-    MgbaPrintf(MGBA_LOG_ERROR, "First New index: %u\n", newMoveIndex);
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         newMoveIndex += direction;
@@ -2915,7 +2914,6 @@ static void ChangeSelectedMove(s16 *taskData, s8 direction, u8 *moveIndexPtr)
     PrintMoveDetails(move);
 
     *moveIndexPtr = newMoveIndex;
-    MgbaPrintf(MGBA_LOG_ERROR, "New index: %u\n", newMoveIndex);
     // Get rid of the 'flicker' effect(while idle) when scrolling.
     if (moveIndexPtr == &sMonSummaryScreen->firstMoveIndex)
         KeepMoveSelectorVisible(SPRITE_ARR_ID_MOVE_SELECTOR1);

@@ -954,6 +954,7 @@ static void PartyPaletteBufferCopy(u8 palNum)
 
 static void FreePartyPointers(void)
 {
+    MgbaPrintf(MGBA_LOG_ERROR, "FreePartyPointers\n");
     if (sPartyMenuInternal)
         Free(sPartyMenuInternal);
     if (sPartyBgTilemapBuffer)
@@ -4471,13 +4472,19 @@ void LoadPartyMenuAilmentGfx(void)
 
 void CB2_ShowPartyMenuForItemUse(void)
 {
-    MainCallback callback = CB2_ReturnToBagMenu;
+    MainCallback callback;
     u8 partyLayout;
     u8 menuType;
     u8 i;
     u8 msgId;
     TaskFunc task;
 
+    MgbaPrintf(MGBA_LOG_ERROR, "CB2_ShowPartyMenuForItemUse: %u\n", gBagPosition.location);
+    if (gBagPosition.location == ITEMMENULOCATION_FIELD)
+        callback = CB2_WaitForPartyMenuFadeOut;
+    else
+        callback = CB2_ReturnToBagMenu;
+        
     if (gMain.inBattle)
     {
         menuType = PARTY_MENU_TYPE_IN_BATTLE;
@@ -5547,7 +5554,7 @@ static void Task_ReturnToPartyMenuWhileLearningMove(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        if (GetMoveSlotToReplace() != MAX_MON_MOVES)
+        if (GetMoveSlotToReplace_Wrap() != MAX_MON_MOVES)
             DisplayPartyMenuForgotMoveMessage(taskId);
         else
             StopLearningMovePrompt(taskId);
@@ -5557,7 +5564,7 @@ static void Task_ReturnToPartyMenuWhileLearningMove(u8 taskId)
 static void DisplayPartyMenuForgotMoveMessage(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 move = GetMonData(mon, MON_DATA_MOVE1 + GetMoveSlotToReplace());
+    u16 move = GetMonData(mon, MON_DATA_MOVE1 + GetMoveSlotToReplace_Wrap());
 
     GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, GetMoveName(move));
@@ -5573,9 +5580,9 @@ static void Task_PartyMenuReplaceMove(u8 taskId)
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
         mon = &gPlayerParty[gPartyMenu.slotId];
-        RemoveMonPPBonus(mon, GetMoveSlotToReplace());
+        RemoveMonPPBonus(mon, GetMoveSlotToReplace_Wrap());
         move = gPartyMenu.data1;
-        SetMonMoveSlot(mon, move, GetMoveSlotToReplace());
+        SetMonMoveSlot(mon, move, GetMoveSlotToReplace_Wrap());
         Task_LearnedMove(taskId);
     }
 }
@@ -7673,6 +7680,15 @@ static void BufferMonSelection(void)
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
+
+void CB2_WaitForPartyMenuFadeOut(void)
+{
+    FadeInFromBlack();
+    UnlockPlayerFieldControls();
+    ScriptContext_Enable();
+    SetMainCallback2(CB2_ReturnToField);
+}
+
 
 bool8 CB2_FadeFromPartyMenu(void)
 {

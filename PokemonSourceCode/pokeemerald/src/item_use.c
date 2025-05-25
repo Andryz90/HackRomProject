@@ -150,7 +150,7 @@ static void SetUpItemUseOnFieldCallback(u8 taskId)
     else
     {
         sItemUseOnFieldCB(taskId);
-}
+    }
 }
 
 static void FieldCB_UseItemOnField(void)
@@ -886,10 +886,34 @@ void ItemUseOutOfBattle_PPUp(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
-void ItemUseOutOfBattle_RareCandy(u8 taskId)
+/*This function allows to use a RareCandies registered item in field*/
+static void CustomSetUpItemUseCallbackFromField(u8 taskId)
 {
     gItemUseCB = ItemUseCB_RareCandy;
-    SetUpItemUseCallback(taskId);
+    gBagPosition.location = ITEMMENULOCATION_FIELD;
+    gBagPosition.pocket = ItemId_GetPocket(gSpecialVar_ItemId) - 1;
+    gBagPosition.exitCallback = CB2_WaitForPartyMenuFadeOut; 
+    gBagMenu->newScreenCallback = CB2_ShowPartyMenuForItemUse;
+    gFieldCallback = CB2_WaitForPartyMenuFadeOut;
+    gPartyMenu.exitCallback = CB2_WaitForPartyMenuFadeOut;   
+
+    FadeScreen(FADE_TO_BLACK, 0);
+    SetMainCallback2(CB2_ShowPartyMenuForItemUse);
+}
+
+void ItemUseOutOfBattle_RareCandy(u8 taskId)
+{
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagPosition.location = ITEMMENULOCATION_PARTY;
+        gItemUseCB = ItemUseCB_RareCandy;
+        SetUpItemUseCallback(taskId);
+    }
+    else
+    {
+        CustomSetUpItemUseCallbackFromField(taskId);
+    }
+
 }
 
 void ItemUseOutOfBattle_DynamaxCandy(u8 taskId)

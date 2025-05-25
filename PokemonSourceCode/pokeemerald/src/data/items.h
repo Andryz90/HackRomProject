@@ -2208,7 +2208,7 @@ const struct Item gItemsInfo[] =
                 .iconPic = gItemIcon_Repel,
                 .iconPalette = gItemIconPalette_MaxRepel,
             },
-                    [ITEM_INFINITE_REPEL] =
+            [ITEM_INFINITE_REPEL] =
             {
                 .name = _("Infinite Repel"),
                 .holdEffectParam = 1,

@@ -3156,14 +3156,11 @@ static void ItemMenu_RegisterSelect(u8 taskId)
     else
         gSaveBlock1Ptr->registeredItemSelect = gSpecialVar_ItemId;
 
-    MgbaPrintf(MGBA_LOG_ERROR, "Registered item: %d\n", gSaveBlock1Ptr->registeredItemSelect);
     gTasks[taskId].func = ItemMenu_FinishRegister;
 }
 
 static void ItemMenu_RegisterList(u8 taskId)
-{
-    MgbaPrintf(MGBA_LOG_ERROR, "Special Var: %d\n", gSpecialVar_ItemId);
-    
+{    
     if (TxRegItemsMenu_AddRegisteredItem(gSpecialVar_ItemId))
         gTasks[taskId].func = ItemMenu_FinishRegister;
     else
