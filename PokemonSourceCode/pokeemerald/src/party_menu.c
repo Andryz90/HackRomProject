@@ -2241,13 +2241,12 @@ static u8 CanTeachMove(struct Pokemon *mon, u16 move)
             Move_Known_in_moveset = TRUE;
         }
     }
-        
 
     if (GetMonData(mon, MON_DATA_IS_EGG))
         return CANNOT_LEARN_MOVE_IS_EGG;
     else if (!CanLearnTeachableMove(GetMonData(mon, MON_DATA_SPECIES_OR_EGG), move))
         return CANNOT_LEARN_MOVE;
-    else if (/*MonKnowsMove(mon, move) == TRUE &&*/ Move_Known_in_moveset == TRUE) // In theory it's enough to know only if the Pokémon has already the move
+    else if (/*MonKnowsMove(mon, move) == TRUE &&*/ Move_Known_in_moveset) // In theory it's enough to know only if the Pokémon has already the move
         return ALREADY_KNOWS_MOVE;
     else
         return CAN_LEARN_MOVE;
@@ -5350,13 +5349,14 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 {
     u8 i, j;
     const u16 *teachableLearnset;
+    const struct LevelUpMove* leveluplearnset; 
     u16 species;
 
     //Check if the player has the move in the bag and if the pokemons in the party can learn it
      for (i = 0; i < PARTY_SIZE; i++)
     {
         species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-        if (!species)
+        if (!species || species == SPECIES_EGG)
         {
             break;
         }
@@ -5364,9 +5364,19 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
         {
             //This check for the TM/HM (used for the overworld script or to actually learn them)
             teachableLearnset = GetSpeciesTeachableLearnset (species);
+            leveluplearnset = GetSpeciesLevelUpLearnset(species);
+
             for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
             {
-                if (species != SPECIES_EGG && PlayerHasMove (move) && teachableLearnset[j] == move)
+                if (PlayerHasMove (move) && teachableLearnset[j] == move)
+                {
+                    return TRUE;
+                }
+            }
+
+            for (j = 0; leveluplearnset[j].move != LEVEL_UP_MOVE_END; j++)
+            {
+                if (PlayerHasMove (move))
                 {
                     return TRUE;
                 }

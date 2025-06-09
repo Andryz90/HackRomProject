@@ -5655,6 +5655,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -5778,6 +5779,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -5906,6 +5908,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -12827,7 +12830,8 @@
       "MOVE_STONE_EDGE",
       "MOVE_STEALTH_ROCK",
       "MOVE_SCALD",
-      "MOVE_LIQUIDATION"
+      "MOVE_LIQUIDATION",
+      "MOVE_KOWTOW_CLEAVE"
     ],
     "EggMoves": [
       "MOVE_AURORA_BEAM",
@@ -12905,6 +12909,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_HEAD_SMASH",
       "MOVE_FLY",
       "MOVE_HYPER_BEAM",
       "MOVE_GIGA_IMPACT",
@@ -42125,6 +42130,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -42232,6 +42238,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -54385,6 +54392,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -54519,6 +54527,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_FIRE_PUNCH",
@@ -62954,6 +62963,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_ICE_PUNCH",
@@ -63066,6 +63076,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_ICE_PUNCH",
@@ -73917,6 +73928,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_ROCK_SMASH",
       "MOVE_SOLAR_BLADE",
       "MOVE_REST",
       "MOVE_SNORE",

@@ -3,9 +3,31 @@
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
 .set LOCALID_BREAKABLE_ROCK, 16
-.set LOCALID_WALLY, 44
+.set LOCALID_WALLY, 	42
+.set LOCALID_EDO, 		45
+.set LOCALID_ANDRY, 	46
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
+
+Route111_AndryMovement::
+	face_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route111_AndryWalkingScript::
+	applymovement LOCALID_ANDRY, Route111_AndryMovement
+	waitmovement  LOCALID_ANDRY
+	removeobject  LOCALID_ANDRY
+	applymovement LOCALID_EDO, MOVEMENT_ACTION_FACE_PLAYER
+	applymovement LOCALID_EDO, MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
+	waitmovement  LOCALID_EDO
+	
+	end
 
 Route111_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Route111_OnLoad
