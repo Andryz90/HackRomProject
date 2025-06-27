@@ -487,7 +487,7 @@ static void Task_HandleScrollingMultichoiceInput(u8 taskId)
 {
     bool32 done = FALSE;
     s32 input = ListMenu_ProcessInput(gTasks[taskId].data[0]);
-    
+
     switch (input)
     {
     case LIST_HEADER:
@@ -1145,12 +1145,4 @@ int ScriptMenu_AdjustLeftCoordFromWidth(int left, int width)
     }
 
     return adjustedLeft;
-}
-
-bool32 HandlingFieldDialogInput(void)
-{
-    if (FuncIsActiveTask(Task_HandleYesNoInput) || FuncIsActiveTask(Task_HandleMultichoiceInput) 
-     || FuncIsActiveTask(Task_HandleMultichoiceGridInput) || FuncIsActiveTask(Task_HandleScrollingMultichoiceInput))
-        return TRUE;
-    return FALSE;
 }

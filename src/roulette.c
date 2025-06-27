@@ -70,13 +70,13 @@
 
 // Get the id of the col/row from the selection ID
 // e.g. GET_ROW(SQU_PURPLE_SKITTY) is ROW_PURPLE
-#define GET_COL(selectionId)((selectionId) % (NUM_BOARD_POKES + 1))
-#define GET_ROW(selectionId)((selectionId) / (NUM_BOARD_POKES + 1) * (NUM_BOARD_POKES + 1))
+#define GET_COL(selectionId) ((selectionId) % (NUM_BOARD_POKES + 1))
+#define GET_ROW(selectionId) ((selectionId) / (NUM_BOARD_POKES + 1) * (NUM_BOARD_POKES + 1))
 
 // Get the col/row index from the selection ID
 // e.g. GET_ROW_IDX(SQU_PURPLE_SKITTY) is 2 (purple being the 3rd row)
-#define GET_COL_IDX(selectionId)(selectionId - 1)
-#define GET_ROW_IDX(selectionId)(selectionId / 5 - 1)
+#define GET_COL_IDX(selectionId) (selectionId - 1)
+#define GET_ROW_IDX(selectionId) (selectionId / 5 - 1)
 
 // Flags for the above selections, used to set which spaces have been hit or bet on
 #define F_WYNAUT_COL      (1 << COL_WYNAUT)
@@ -149,7 +149,7 @@
 
 // 2 different Roulette tables with 2 different rates (normal vs service day special)
 // & 1 gets which table, >> 7 gets if ROULETTE_SPECIAL_RATE is set
-#define GET_MIN_BET_ID(var)(((var) & 1) + (((var) >> 7) * 2))
+#define GET_MIN_BET_ID(var) (((var) & 1) + (((var) >> 7) * 2))
 
 // Having Shroomish or Taillow in the party can make rolls more consistent in length
 // It also increases the likelihood that, if they appear to unstick a ball, they'll move it to a slot the player bet on
@@ -3833,7 +3833,9 @@ static void SpriteCB_GridSquare(struct Sprite *sprite)
 static void CreateWheelCenterSprite(void)
 {
     u8 spriteId;
+
     LoadCompressedSpriteSheet(&sSpriteSheet_WheelCenter);
+
     // This sprite id isn't saved because it doesn't need to be referenced again
     // but by virtue of creation order it's SPR_WHEEL_CENTER
     spriteId = CreateSprite(&sSpriteTemplate_WheelCenter, 116, 80, 81);

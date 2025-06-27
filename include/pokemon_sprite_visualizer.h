@@ -54,6 +54,7 @@ struct PokemonShadowSettings
     s8 overrideY;
     u8 overrideSize;
 };
+
 struct PokemonSpriteVisualizer
 {
     u16 currentmonId;
@@ -63,16 +64,20 @@ struct PokemonSpriteVisualizer
     u8 backspriteId;
     u8 iconspriteId;
     u8 followerspriteId;
+
     bool8 isShiny;
     bool8 isFemale;
+
     u8 frontShadowSpriteIdPrimary;
     u8 frontShadowSpriteIdSecondary;
     struct PokemonShadowSettings shadowSettings;
+
     struct PokemonSpriteVisualizerModifyArrows modifyArrows;
     struct PokemonSpriteVisualizerOptionArrows optionArrows;
     struct PokemonSpriteVisualizerYPosModifiyArrows yPosModifyArrows;
     struct PokemonSpriteConstValues constSpriteValues;
     struct PokemonSpriteOffsets offsetsSpriteValues;
+
     u8 animIdBack;
     u8 animIdFront;
     u8 battleBgType;

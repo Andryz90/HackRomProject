@@ -384,11 +384,9 @@ const u32 gObjectEventPic_RayquazaCutscene[] = INCBIN_U32("graphics/object_event
 
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
 //const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
-const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 
-const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/pokemon/question_mark/overworld.gbapal");
 
-const u16 gObjectEventPaletteEmotes[] = INCBIN_U16("graphics/misc/emotes.gbapal");
+// Custom
 const u32 gObjectEventPic_GoldItemBall[] = INCBIN_U32("graphics/object_events/pics/misc/gold_item_ball.4bpp");
 const u32 gObjectEventPic_TempItemBall[] = INCBIN_U32("graphics/object_events/pics/misc/temp_item_ball.4bpp");
 const u16 gObjectEventPal_TempItemBall[] = INCBIN_U16("graphics/object_events/pics/misc/temp_item_ball.gbapal");
@@ -403,6 +401,14 @@ const u16 gTrainerPal_EdoCap[] = INCBIN_U16("graphics/object_events/pics/people/
 const u32 gTrainerPic_Andry[] = INCBIN_U32("graphics/object_events/pics/people/andry_ow.4bpp"); 
 const u16 gTrainerPal_Andry[] = INCBIN_U16("graphics/object_events/pics/people/andry_ow.gbapal");
 
+const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
+
+const u16 gObjectEventPaletteLight[] = INCBIN_U16("graphics/object_events/palettes/light.gbapal");
+const u16 gObjectEventPaletteLight2[] = INCBIN_U16("graphics/object_events/palettes/light2.gbapal");
+const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/substitute.gbapal");
+
+const u16 gObjectEventPaletteEmotes[] = INCBIN_U16("graphics/misc/emotes.gbapal");
+const u16 gObjectEventPaletteNeonLight[] = INCBIN_U16("graphics/object_events/palettes/neon_light.gbapal");
 
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
@@ -475,6 +481,5 @@ const u16 gObjectEventPal_StrangeBall[] = INCBIN_U16("graphics/object_events/pic
 #endif //ITEM_STRANGE_BALL
 #endif //OW_FOLLOWERS_POKEBALLS
 
-const u16 gObjectEventPal_Light[] = INCBIN_U16("graphics/object_events/palettes/light.gbapal");
-const u16 gObjectEventPal_Light2[] = INCBIN_U16("graphics/object_events/palettes/light2.gbapal");
-const u16 gObjectEventPal_NeonLight[] = INCBIN_U16("graphics/object_events/palettes/neon_light.gbapal");
+const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
+const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");

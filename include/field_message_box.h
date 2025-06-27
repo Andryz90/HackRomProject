@@ -9,10 +9,10 @@ enum
     FIELD_MESSAGE_BOX_AUTO_SCROLL,
 };
 
-bool8 ShowFieldMessage(const u8 *message);
-bool8 ShowPokenavFieldMessage(const u8 *message);
+bool8 ShowFieldMessage(const u8 *str);
+bool8 ShowPokenavFieldMessage(const u8 *str);
 bool8 ShowFieldMessageFromBuffer(void);
-bool8 ShowFieldAutoScrollMessage(const u8 *message);
+bool8 ShowFieldAutoScrollMessage(const u8 *str);
 void HideFieldMessageBox(void);
 bool8 IsFieldMessageBoxHidden(void);
 u8 GetFieldMessageBoxMode(void);
@@ -20,4 +20,5 @@ void StopFieldMessage(void);
 void InitFieldMessageBox(void);
 
 extern u8 gWalkAwayFromSignpostTimer;
+
 #endif // GUARD_FIELD_MESSAGE_BOX_H

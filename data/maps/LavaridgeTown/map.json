@@ -99,6 +99,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_LAVARIDGE_RIVAL_ON_BIKE",
       "graphics_id": "OBJ_EVENT_GFX_VAR_3",
       "x": 6,
       "y": 16,
@@ -112,6 +113,7 @@
       "flag": "FLAG_HIDE_LAVARIDGE_TOWN_RIVAL_ON_BIKE"
     },
     {
+      "local_id": "LOCALID_LAVARIDGE_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 12,
       "y": 15,
@@ -135,32 +137,6 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LavaridgeTown_EventScript_EggWoman",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 17,
-      "y": 5,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
       "flag": "0"
     }
   ],

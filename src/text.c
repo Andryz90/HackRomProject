@@ -56,10 +56,10 @@ static u16 sLastTextBgColor;
 static u16 sLastTextFgColor;
 static u16 sLastTextShadowColor;
 
-const struct FontInfo *gFonts;
-bool8 gDisableTextPrinters;
-struct TextGlyph gCurGlyph;
-TextFlags gTextFlags;
+COMMON_DATA const struct FontInfo *gFonts = NULL;
+COMMON_DATA bool8 gDisableTextPrinters = 0;
+COMMON_DATA struct TextGlyph gCurGlyph = {0};
+COMMON_DATA TextFlags gTextFlags = {0};
 
 static const u8 sFontHalfRowOffsets[] =
 {
@@ -107,6 +107,7 @@ static const struct GlyphWidthFunc sGlyphWidthFuncs[] =
     { FONT_NARROWER,       GetGlyphWidth_Narrower },
     { FONT_SMALL_NARROWER, GetGlyphWidth_SmallNarrower },
     { FONT_SHORT_NARROW,   GetGlyphWidth_ShortNarrow },
+    { FONT_SHORT_NARROWER, GetGlyphWidth_ShortNarrower },
 };
 
 struct
@@ -2090,16 +2091,8 @@ static void DecompressGlyph_Normal(u16 glyphId, bool32 isJapanese)
     }
     else
     {
-        if (gSaveBlock2Ptr->optionsCurrentFont == 0)
-        {
-            glyphs = gFontNormalLatinGlyphs + (0x20 * glyphId);
-            gCurGlyph.width = gFontNormalLatinGlyphWidths[glyphId];
-        }
-        else
-        {
-            glyphs = gFontShortLatinGlyphs + (0x20 * glyphId);
-            gCurGlyph.width = gFontShortLatinGlyphWidths[glyphId];
-        }
+        glyphs = gFontNormalLatinGlyphs + (0x20 * glyphId);
+        gCurGlyph.width = gFontNormalLatinGlyphWidths[glyphId];
 
         if (gCurGlyph.width <= 8)
         {
@@ -2122,12 +2115,8 @@ static u32 GetGlyphWidth_Normal(u16 glyphId, bool32 isJapanese)
 {
     if (isJapanese == TRUE)
         return 8;
-    else {
-        if (gSaveBlock2Ptr->optionsCurrentFont == 0)
-            return gFontNormalLatinGlyphWidths[glyphId];
-        else
-            return gFontShortLatinGlyphWidths[glyphId];
-    }
+    else
+        return gFontNormalLatinGlyphWidths[glyphId];
 }
 
 static void DecompressGlyph_Bold(u16 glyphId)
@@ -2327,7 +2316,8 @@ static const s8 sNarrowerFontIds[] =
     [FONT_BOLD] = -1,
     [FONT_NARROWER] = -1,
     [FONT_SMALL_NARROWER] = -1,
-    [FONT_SHORT_NARROW] = -1,
+    [FONT_SHORT_NARROW] = FONT_SHORT_NARROWER,
+    [FONT_SHORT_NARROWER] = -1,
 };
 
 // If the narrowest font ID doesn't fit the text, we still return that

@@ -228,7 +228,6 @@ const u8 *const gPocketNamesStringsTable[] =
 const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
 const u8 gText_NumberItem_HM[] = _("{CLEAR_TO 0x11}{STR_VAR_1}{CLEAR 0x05}{STR_VAR_2}");
 
-// Berry firmness strings
 const u8 gText_ShopBuy[] = _("BUY");
 const u8 gText_ShopSell[] = _("SELL");
 const u8 gText_ShopQuit[] = _("QUIT");
@@ -339,6 +338,10 @@ const u8 gText_CurrentIsTooFast[] = _("The current is much too fast!");
 const u8 gText_DoWhatWithMail[] = _("Do what with the MAIL?");
 const u8 gText_ChoosePokemonCancel[] = _("Choose POKéMON or CANCEL.");
 const u8 gText_ChoosePokemonConfirm[] = _("Choose POKéMON and confirm.");
+const u8 gText_SendWhichMonToPC[] = _("Send which POKéMON to the PC?");
+const u8 gText_MoveItemWhere[] = _("Move item to where?");
+const u8 gText_XsYAnd[] = _("{STR_VAR_1}'s {STR_VAR_2} and\n");
+const u8 gText_XsYWereSwapped[] = _("{STR_VAR_1}'s {STR_VAR_2} were swapped!{PAUSE_UNTIL_PRESS}");
 const u8 gText_EnjoyCycling[] = _("Let's enjoy cycling!");
 const u8 gText_InUseAlready_PM[] = _("This is in use already.");
 const u8 gText_AlreadyHoldingOne[] = _("{STR_VAR_1} is already holding\none {STR_VAR_2}.");
@@ -826,6 +829,8 @@ const u8 gText_ThankYou[] = _("THANK YOU");
 const u8 gText_ByeBye[] = _("BYE-BYE!");
 const u8 gText_PlayerScurriedToCenter[] = _("{PLAYER} scurried to a POKéMON CENTER,\nprotecting the exhausted and fainted\nPOKéMON from further harm…\p");
 const u8 gText_PlayerScurriedBackHome[] = _("{PLAYER} scurried back home, protecting\nthe exhausted and fainted POKéMON from\nfurther harm…\p");
+const u8 gText_PlayerRegroupCenter[] = _("{PLAYER} went running back to a POKéMON CENTER\nto regroup and reconsider their battle\lstrategy…\p");
+const u8 gText_PlayerRegroupHome[] = _("{PLAYER} went running back home to regroup\nand reconsider their battle strategy…\p");
 const u8 gText_HatchedFromEgg[] = _("{STR_VAR_1} hatched from the EGG!");
 const u8 gText_NicknameHatchPrompt[] = _("Would you like to nickname the newly\nhatched {STR_VAR_1}?");
 ALIGNED(4) const u8 gText_ReadyPickBerry[] = _("Are you ready to BERRY-CRUSH?\nPlease pick a BERRY for use.\p");
@@ -1046,6 +1051,13 @@ const u8 gText_MenuRetire[] = _("RETIRE");
 const u8 gText_MenuRest[] = _("REST");
 const u8 gText_SafariBallStock[] = _("SAFARI BALLS\nStock: {STR_VAR_1}");
 const u8 gText_BattlePyramidFloor[] = _("Battle Pyramid\n{STR_VAR_1}");
+const u8 gText_Floor1[] = _("Floor 1");
+const u8 gText_Floor2[] = _("Floor 2");
+const u8 gText_Floor3[] = _("Floor 3");
+const u8 gText_Floor4[] = _("Floor 4");
+const u8 gText_Floor5[] = _("Floor 5");
+const u8 gText_Floor6[] = _("Floor 6");
+const u8 gText_Floor7[] = _("Floor 7");
 const u8 gText_LinkStandby2[] = _("Link standby…\n… … B Button: Cancel");
 const u8 gText_PressAToLoadEvent[] = _("Press the A Button to load event.\n… … B Button: Cancel");
 const u8 gText_LoadingEvent[] = _("Loading event…");
@@ -1092,26 +1104,8 @@ const u8 gText_Frostbite[] = _(
 );
 
 const u8 gText_PyramidFloor[] = _("Btl. Pyramid\n{STR_VAR_1}");
-const u8 gText_Floor1[] = _("Floor 1");
-const u8 gText_Floor2[] = _("Floor 2");
-const u8 gText_Floor3[] = _("Floor 3");
-const u8 gText_Floor4[] = _("Floor 4");
-const u8 gText_Floor5[] = _("Floor 5");
-const u8 gText_Floor6[] = _("Floor 6");
-const u8 gText_Floor7[] = _("Floor 7");
 const u8 gText_Peak[] = _("Peak");
 
-const u8 *const sPyramidFloorNames[FRONTIER_STAGES_PER_CHALLENGE + 1] =
-{
-    gText_Floor1,
-    gText_Floor2,
-    gText_Floor3,
-    gText_Floor4,
-    gText_Floor5,
-    gText_Floor6,
-    gText_Floor7,
-    gText_Peak
-};
 
 // Day Strings
 const u8 gText_Sunday[]    = _("Sun,");
@@ -1121,17 +1115,6 @@ const u8 gText_Wednesday[] = _("Wed,");
 const u8 gText_Thursday[]  = _("Thu,");
 const u8 gText_Friday[]    = _("Fri,");
 const u8 gText_Saturday[]  = _("Sat,");
-
-const u8 *const gDayNameStringsTable[] =
-{
-    [DAY_SUNDAY] = gText_Sunday,
-    [DAY_MONDAY] = gText_Monday,
-    [DAY_TUESDAY] = gText_Tuesday,
-    [DAY_WEDNESDAY] = gText_Wednesday,
-    [DAY_THURSDAY] = gText_Thursday,
-    [DAY_FRIDAY] = gText_Friday,
-    [DAY_SATURDAY] = gText_Saturday,
-};
 
 
 // Easy chat group names
@@ -1377,6 +1360,8 @@ const u8 gText_PokeVialEmpty[] = _("The Poké Vial is empty.\nRefill it at a Pok
 
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Rename[] = _("RENAME");
+const u8 gText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause it knows a HM move.{PAUSE_UNTIL_PRESS}");
+
 
 // Pokemon center special menu
 const u8 gText_RememberAMove[] =    _("Remember a move");

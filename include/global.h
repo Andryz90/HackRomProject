@@ -5,6 +5,7 @@
 #include <limits.h>
 #include "config/general.h" // we need to define config before gba headers as print stuff needs the functions nulled before defines.
 #include "gba/gba.h"
+#include "siirtc.h"
 #include "fpmath.h"
 #include "metaprogram.h"
 #include "constants/global.h"
@@ -26,6 +27,10 @@
 // to help in decompiling
 #define asm_unified(x) asm(".syntax unified\n" x "\n.syntax divided")
 #define NAKED __attribute__((naked))
+
+#if MODERN
+#define asm __asm__
+#endif
 
 /// IDE support
 #if defined(__APPLE__) || defined(__CYGWIN__) || defined(__INTELLISENSE__)
@@ -76,7 +81,7 @@
 // There are cases where GF does a&(n-1) where we would really like to have a%n, because
 // if n is changed to a value that isn't a power of 2 then a&(n-1) is unlikely to work as
 // intended, and a%n for powers of 2 isn't always optimized to use &.
-#define MOD(a, n)(((n) & ((n)-1)) ? ((a) % (n)) : ((a) & ((n)-1)))
+#define MOD(a, n) (((n) & ((n)-1)) ? ((a) % (n)) : ((a) & ((n)-1)))
 
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
@@ -117,7 +122,7 @@
     f;                       \
 })
 
-#define DIV_ROUND_UP(val, roundBy)(((val) / (roundBy)) + (((val) % (roundBy)) ? 1 : 0))
+#define DIV_ROUND_UP(val, roundBy) (((val) / (roundBy)) + (((val) % (roundBy)) ? 1 : 0))
 
 #define ROUND_BITS_TO_BYTES(numBits) DIV_ROUND_UP(numBits, 8)
 
@@ -134,13 +139,12 @@
 //tx_registered_items_menu
 #define REGISTERED_ITEMS_MAX 10
 
-
 struct RegisteredItemSlot
 {
     u16 itemId;
 };
 
-#ifndef NDEBUG
+// NOTE: This uses hardware timers 2 and 3; this will not work during active link connections or with the eReader
 static inline void CycleCountStart()
 {
     REG_TM2CNT_H = 0;
@@ -163,7 +167,7 @@ static inline u32 CycleCountEnd()
     // return result
     return REG_TM2CNT_L | (REG_TM3CNT_L << 16u);
 }
-#endif
+
 struct Coords8
 {
     s8 x;
@@ -206,29 +210,51 @@ struct Time
     /*0x02*/ s8 hours;
     /*0x03*/ s8 minutes;
     /*0x04*/ s8 seconds;
-    /*0x05*/ s8 dayOfWeek;
 };
 
+struct NPCFollowerMapData
+{
+    u8 id;
+    u8 number;
+    u8 group;
+};
+
+struct NPCFollower
+{
+    u8 inProgress:1;
+    u8 warpEnd:1;
+    u8 createSurfBlob:3;
+    u8 comeOutDoorStairs:3;
+    u8 objId;
+    u8 currentSprite;
+    u8 delayedState;
+    struct NPCFollowerMapData map;
+    struct Coords16 log;
+    const u8 *script;
+    u16 flag;
+    u16 graphicsId;
+    u16 flags;
+    u8 battlePartner; // If you have more than 255 total battle partners defined, change this to a u16
+};
 
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
 struct SaveBlock3
 {
-    u8 saveVersion;
-    // u8 padding[3];
-    u32 PID;
-    u32 grottoSeed;
 #if OW_USE_FAKE_RTC
-    struct Time fakeRTC;
+    struct SiiRtcInfo fakeRTC;
 #endif
-#if USE_DEXNAV_SEARCH_LEVELS == TRUE
-    u8 dexNavSearchLevels[ROUND_BITS_TO_BYTES(NUM_SPECIES)];
+#if FNPC_ENABLE_NPC_FOLLOWERS
+    struct NPCFollower NPCfollower;
 #endif
-    u8 dexNavChain;
 #if OW_SHOW_ITEM_DESCRIPTIONS == OW_ITEM_DESCRIPTIONS_FIRST_TIME
     u8 itemFlags[ITEM_FLAGS_COUNT];
 #endif
+#if USE_DEXNAV_SEARCH_LEVELS == TRUE
+    u8 dexNavSearchLevels[NUM_SPECIES];
+#endif
+    u8 dexNavChain;
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -504,7 +530,7 @@ struct ApprenticeQuestion
     u8 moveSlot:2;
     u8 suggestedChange:2; // TRUE if told to use held item or second move, FALSE if told to use no item or first move
     //u8 padding;
-    u16 data; // used both as an itemId and a moveId
+    u16 data; // used both as an itemId and a move
 };
 
 struct PlayersApprentice
@@ -544,57 +570,46 @@ struct RankingHall2P
 
 struct SaveBlock2
 {
-    u8 playerName[PLAYER_NAME_LENGTH + 1];
-    u8 playerGender; // MALE, FEMALE
-    u8 specialSaveWarpFlags;
-    u8 playerTrainerId[TRAINER_ID_LENGTH];
-    u16 playTimeHours;
-    u8 playTimeMinutes;
-    u8 playTimeSeconds;
-    u8 playTimeVBlanks;
-    u8 optionsButtonMode; // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-    u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-    u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
-    u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
-    u16 optionsBattleSceneOff:1; // whether battle animations are disabled
-    u16 regionMapZoom:1; // whether the map is zoomed in
-    u16 optionsUnitSystem:1; // OPTIONS_UNITS_[IMPERIAL/METRIC]
-    u16 optionsPadding1:1; //Padding
-    u16 optionsLevelCap:2; // OPTIONS_LEVEL_CAPS_[OFF/SOFT/HARD]
-    u16 optionsSpeedModifer:3; // OPTIONS_BATTLE_SCENE_[OFF/2X/3X/4X]
-    u16 optionsPadding2:4; // Padding
-    u16 optionsDifficulty:2; // OPTIONS_DIFFICULTY_[NORMAL/HARD]
-    u16 optionsDisableMatchCall:1; // Whether match call is disabled
-    u16 optionsCurrentFont:1; // OPTIONS_FONT_[EMERALD/FIRERED]
-    u16 optionsWildRandomiser:1; // Whether wild encounters are randomized
-    u16 optionsTrainerRandomiser:1; // Whether trainer battles are randomized
-    u16 optionsAbilityRandomiser:1; // Whether abilities are randomized
-    u16 optionsVGCDraft:2; // OPTIONS_DRAFT_[ALL_OFF/ONLY_DRAFT/ON_PLUS_BO3]
-    u16 optionsDamageNumsOff:1; // Whether damage numbers are disabled
-    u32 randomiserSeed;
-    struct Pokedex pokedex;
-    u8 filler_90[0x8];
-    struct Time localTimeOffset;
-    struct Time lastBerryTreeUpdate;
-    u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
-    u32 encryptionKey;
-    struct PlayersApprentice playerApprentice;
-    struct Apprentice apprentices[APPRENTICE_COUNT];
-    struct BerryCrush berryCrush;
+    /*0x00*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
+    /*0x08*/ u8 playerGender; // MALE, FEMALE
+    /*0x09*/ u8 specialSaveWarpFlags;
+    /*0x0A*/ u8 playerTrainerId[TRAINER_ID_LENGTH];
+    /*0x0E*/ u16 playTimeHours;
+    /*0x10*/ u8 playTimeMinutes;
+    /*0x11*/ u8 playTimeSeconds;
+    /*0x12*/ u8 playTimeVBlanks;
+    /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
+    /*0x14*/ u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
+             u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
+             u16 optionsSound:1; // OPTIONS_SOUND_[MONO/STEREO]
+             u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
+             u16 optionsBattleSceneOff:1; // whether battle animations are disabled
+             u16 regionMapZoom:1; // whether the map is zoomed in
+             //u16 padding1:4;
+             //u16 padding2;
+    /*0x18*/ struct Pokedex pokedex;
+    /*0x90*/ u8 filler_90[0x8];
+    /*0x98*/ struct Time localTimeOffset;
+    /*0xA0*/ struct Time lastBerryTreeUpdate;
+    /*0xA8*/ u32 gcnLinkFlags; // Read by Pokémon Colosseum/XD
+    /*0xAC*/ u32 encryptionKey;
+    /*0xB0*/ struct PlayersApprentice playerApprentice;
+    /*0xDC*/ struct Apprentice apprentices[APPRENTICE_COUNT];
+    /*0x1EC*/ struct BerryCrush berryCrush;
 #if FREE_POKEMON_JUMP == FALSE
-    struct PokemonJumpRecords pokeJump;
+    /*0x1FC*/ struct PokemonJumpRecords pokeJump;
 #endif //FREE_POKEMON_JUMP
-    struct BerryPickingResults berryPick;
+    /*0x20C*/ struct BerryPickingResults berryPick;
 #if FREE_RECORD_MIXING_HALL_RECORDS == FALSE
-    struct RankingHall1P hallRecords1P[HALL_FACILITIES_COUNT][FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
-    struct RankingHall2P hallRecords2P[FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
+    /*0x21C*/ struct RankingHall1P hallRecords1P[HALL_FACILITIES_COUNT][FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
+    /*0x57C*/ struct RankingHall2P hallRecords2P[FRONTIER_LVL_MODE_COUNT][HALL_RECORDS_COUNT]; // From record mixing.
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
-    u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
-    struct BattleFrontier frontier;
-};
+    /*0x624*/ u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
+    /*0x64C*/ struct BattleFrontier frontier;
+}; // sizeof=0xF2C
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
+
 extern u8 UpdateSpritePaletteWithTime(u8);
 
 struct SecretBaseParty
@@ -681,7 +696,7 @@ struct RamScriptData
     u8 magic;
     u8 mapGroup;
     u8 mapNum;
-    u8 objectId;
+    u8 localId;
     u8 script[995];
     //u8 padding;
 };
@@ -712,8 +727,8 @@ struct MauvilleManBard
 {
     /*0x00*/ u8 id;
     /*0x01*/ //u8 padding1;
-    /*0x02*/ u16 songLyrics[BARD_SONG_LENGTH];
-    /*0x0E*/ u16 temporaryLyrics[BARD_SONG_LENGTH];
+    /*0x02*/ u16 songLyrics[NUM_BARD_SONG_WORDS];
+    /*0x0E*/ u16 newSongLyrics[NUM_BARD_SONG_WORDS];
     /*0x1A*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
     /*0x22*/ u8 filler_2DB6[0x3];
     /*0x25*/ u8 playerTrainerId[TRAINER_ID_LENGTH];
@@ -847,7 +862,6 @@ struct DayCare
     struct DaycareMon mons[DAYCARE_MON_COUNT];
     u32 offspringPersonality;
     u32 stepCounter;
-    //u8 padding[3];
 };
 
 struct LilycoveLadyQuiz
@@ -1155,7 +1169,7 @@ struct SaveBlock1
     // sizeof: 0x3???
 };
 
-extern struct SaveBlock1* gSaveBlock1Ptr;
+extern struct SaveBlock1 *gSaveBlock1Ptr;
 
 struct MapPosition
 {
@@ -1163,5 +1177,9 @@ struct MapPosition
     s16 y;
     s8 elevation;
 };
+
+#if T_SHOULD_RUN_MOVE_ANIM
+extern bool32 gLoadFail;
+#endif // T_SHOULD_RUN_MOVE_ANIM
 
 #endif // GUARD_GLOBAL_H

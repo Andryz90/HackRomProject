@@ -62,7 +62,6 @@ extern const u8 gText_MultiLink[];
 extern const u8 gText_Single[];
 extern const u8 gText_Double[];
 
-
 extern const u8 gText_Spicy2[];
 extern const u8 gText_Dry2[];
 extern const u8 gText_Sweet2[];
@@ -108,7 +107,6 @@ extern const u8 gText_NoDecorationsInUse[];
 
 extern const u8 gText_Exit[];
 extern const u8 gText_Cancel[];
-
 
 extern const u8 gText_Color161Shadow161[];
 extern const u8 gText_GoBackPrevMenu[];
@@ -191,7 +189,6 @@ extern const u8 gText_Coins[];
 extern const u8 gText_Silver[];
 extern const u8 gText_Gold[];
 
-
 extern const u8 gMenuText_Use[];
 extern const u8 gMenuText_Toss[];
 extern const u8 gMenuText_Give[];
@@ -199,7 +196,6 @@ extern const u8 gMenuText_Give2[];
 extern const u8 gMenuText_Register[];
 extern const u8 gMenuText_Confirm[];
 extern const u8 gMenuText_Give2[];
-
 
 extern const u8 gText_EggNickname[];
 extern const u8 gText_Pokemon[];
@@ -230,6 +226,7 @@ extern const u8 gText_MenuOption[];
 extern const u8 gText_MenuExit[];
 extern const u8 gText_MenuRetire[];
 extern const u8 gText_MenuRest[];
+extern const u8 gText_MenuDexNav[];
 extern const u8 gText_Floor1[];
 extern const u8 gText_Floor2[];
 extern const u8 gText_Floor3[];
@@ -240,10 +237,6 @@ extern const u8 gText_Floor7[];
 extern const u8 gText_Peak[];
 extern const u8 gText_SafariBallStock[];
 extern const u8 gText_BattlePyramidFloor[];
-extern const u8 gText_PyramidFloor[];
-extern const u8 gText_MenuDexNavShortcut[];
-
-extern const u8 *const sPyramidFloorNames[];
 
 extern const u8 gText_MenuOptionPokedex[];
 extern const u8 gText_MenuOptionPokemon[];
@@ -323,19 +316,18 @@ extern const u8 gText_LoadingEvent[];
 extern const u8 gText_DontRemoveCableTurnOff[];
 extern const u8 gText_LinkStandby2[];
 
-// berry tag screen text
-
 // item menu screen text
 extern const u8 gText_CloseBag[];
 extern const u8 gText_NumberItem_HM[];
 extern const u8 gText_NumberItem_TMBerry[];
 extern const u8 gText_xVar1[];
-extern const u8 gText_BagQty[];
 extern const u8 gText_ReturnToVar1[];
 extern const u8 gText_SelectorArrow2[];
 extern const u8 gText_MoveVar1Where[];
 extern const u8 gText_Var1IsSelected[];
 extern const u8 gText_TossHowManyVar1s[];
+extern const u8 gText_ConfirmTossItems[];
+extern const u8 gText_ThrewAwayVar2Var1s[];
 extern const u8 gText_CantWriteMail[];
 extern const u8 gText_NoPokemon[];
 extern const u8 gText_Var1CantBeHeld[];
@@ -466,12 +458,10 @@ extern const u8 gBirchDexRatingText_LessThan190[];
 extern const u8 gBirchDexRatingText_LessThan200[];
 extern const u8 gBirchDexRatingText_DexCompleted[];
 
-// player pc text
+// player PC text
 extern const u8 gText_WhatWouldYouLike[];
 extern const u8 gText_NoMailHere[];
-
 extern const u8 gText_GoBackPrevMenu[];
-
 extern const u8 gText_Cancel[];
 
 extern const u8 gText_Cancel2[];
@@ -483,9 +473,11 @@ extern const u8 gText_BagIsFull[];
 
 extern const u8 gText_MailToBagMessageErased[];
 extern const u8 gText_GoBackPrevMenu[];
+extern const u8 gText_TossHowManyVar1s[];
 extern const u8 gText_ThrewAwayVar2Var1s[];
+extern const u8 gText_ConfirmTossItems[];
 extern const u8 gText_MoveVar1Where[];
-extern const u8 gText_DepositHowManyVar1[];
+
 extern const u8 gText_ColorLightShadowDarkGray[];
 extern const u8 gText_ColorBlue[];
 extern const u8 gText_Friend[];
@@ -494,7 +486,6 @@ extern const u8 gText_Philip[];
 extern const u8 gText_Dennis[];
 extern const u8 gText_Roberto[];
 extern const u8 gText_FiveMarks[];
-extern const u8 gText_Var1CantBeHeldHere[];
 
 extern const u8 gText_TotalRecordWLD[];
 extern const u8 gText_PlayersBattleResults[];
@@ -505,7 +496,6 @@ extern const u8 gText_HealthboxNickname[];
 extern const u8 gText_HealthboxGender_None[];
 extern const u8 gText_HealthboxGender_Male[];
 extern const u8 gText_HealthboxGender_Female[];
-
 
 // Multichoice strings
 extern const u8 gText_Exit[];
@@ -526,7 +516,6 @@ extern const u8 gText_B3F[];
 extern const u8 gText_B4F[];
 extern const u8 gText_Rooftop[];
 extern const u8 gText_ElevatorNowOn[];
-
 
 extern const u8 gText_BattleTower2[];
 extern const u8 gText_BattleDome[];
@@ -583,28 +572,15 @@ extern const u8 BattleFrontier_Lounge2_Text_PyramidKingSilverMons[];
 extern const u8 BattleFrontier_Lounge2_Text_PyramidKingGoldMons[];
 
 // Battle Frontier Nature Girl
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlHardy[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlLonely[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlBrave[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlAdamant[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlNaughty[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlBold[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlDocileNaiveQuietQuirky[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlRelaxed[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlImpish[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlLax[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlTimid[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlHasty[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlSerious[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlJolly[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlModest[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlMild[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlBashful[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlRash[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlCalm[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlGentle[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlSassy[];
-extern const u8 BattleFrontier_Lounge5_Text_NatureGirlCareful[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlAttackHighAttackLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlAttackHighDefenseLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlAttackHighSupportLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlDefenseHighAttackLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlDefenseHighDefenseLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlDefenseHighSupportLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlSupportHighAttackLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlSupportHighDefenseLow[];
+extern const u8 BattleFrontier_Lounge5_Text_NatureGirlSupportHighSupportLow[];
 
 // Battle Frontier Gambler
 extern const u8 BattleFrontier_Lounge3_Text_ChallengeBattleTowerSingle[];
@@ -1600,6 +1576,7 @@ extern const u8 gText_PkmnTransferredSomeonesPCBoxFull[];
 extern const u8 gText_PkmnTransferredLanettesPCBoxFull[];
 extern const u8 gText_PkmnTransferredSomeonesPC[];
 extern const u8 gText_PkmnTransferredLanettesPC[];
+extern const u8 gText_PkmnSentToPCAfterCatch[];
 
 // hall of fame
 extern const u8 gText_LeagueChamp[];
@@ -1633,6 +1610,10 @@ extern const u8 gDaycareText_PlayOther[];
 extern const u8 gText_ChoosePokemon[];
 extern const u8 gText_ChoosePokemonCancel[];
 extern const u8 gText_ChoosePokemonConfirm[];
+extern const u8 gText_SendWhichMonToPC[];
+extern const u8 gText_MoveItemWhere[];
+extern const u8 gText_XsYAnd[];
+extern const u8 gText_XsYWereSwapped[];
 extern const u8 gText_MoveToWhere[];
 extern const u8 gText_TeachWhichPokemon[];
 extern const u8 gText_UseOnWhichPokemon[];
@@ -1684,7 +1665,6 @@ extern const u8 gText_ByeByeVar1[];
 extern const u8 gText_XSentOverY[];
 extern const u8 gText_TakeGoodCareOfX[];
 extern const u8 gText_CommunicationStandby5[];
-
 
 // match call
 extern const u8 MatchCall_WildBattleText1[];
@@ -2482,6 +2462,8 @@ extern const u8 gText_PM[];
 // FRLG whiteout
 extern const u8 gText_PlayerScurriedToCenter[];
 extern const u8 gText_PlayerScurriedBackHome[];
+extern const u8 gText_PlayerRegroupCenter[];
+extern const u8 gText_PlayerRegroupHome[];
 
 extern const u8 gText_Relearn[]; // move relearner from summary screen
 extern const u8 gText_Rename[]; // change nickname from summary screen
@@ -2530,7 +2512,13 @@ extern const u8 gText_Wednesday[];
 extern const u8 gText_Thursday[];
 extern const u8 gText_Friday[];
 extern const u8 gText_Saturday[];
-extern const u8 *const gDayNameStringsTable[];
 
+extern const u8 gText_MenuDexNavShortcut[];
+extern const u8 gText_DepositHowManyVar1[];
+extern const u8 gText_BagQty[];
+extern const u8 gText_Var1CantBeHeldHere[];
+
+// Switch Caught Mon into Party
+extern const u8 gText_CannotSendMonToBoxHM[];
 
 #endif // GUARD_STRINGS_H

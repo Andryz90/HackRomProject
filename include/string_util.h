@@ -44,5 +44,5 @@ s32 StringCompareWithoutExtCtrlCodes(const u8 *str1, const u8 *str2);
 void ConvertInternationalString(u8 *s, u8 language);
 void StripExtCtrlCodes(u8 *str);
 u8 *StringCopyUppercase(u8 *dest, const u8 *src);
-void ConvertGbaString(const u8* gbaStr, char* str);
+
 #endif // GUARD_STRING_UTIL_H

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "text.h"
 #include "main.h"
+#include "malloc.h"
 #include "palette.h"
 #include "graphics.h"
 #include "gpu_regs.h"
@@ -9,7 +10,6 @@
 #include "task.h"
 #include "window.h"
 #include "menu.h"
-#include "malloc.h"
 #include "save.h"
 #include "starter_choose.h"
 #include "gba/flash_internal.h"
@@ -205,10 +205,10 @@ static void CB2_SaveFailedScreen(void)
         DmaFill16(3, 0, VRAM, VRAM_SIZE);
         DmaFill32(3, 0, OAM, OAM_SIZE);
         DmaFill16(3, 0, PLTT, PLTT_SIZE);
-        DecompressDataWithHeaderVram(gBirchBagGrass_Gfx, (void *)VRAM);
-        DecompressDataWithHeaderVram(gBirchBagTilemap, (void *)(BG_SCREEN_ADDR(14)));
-        DecompressDataWithHeaderVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(15)));
-        DecompressDataWithHeaderVram(sSaveFailedClockGfx, (void *)(OBJ_VRAM0 + 0x20));
+        LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
+        LZ77UnCompVram(gBirchBagTilemap, (void *)(BG_SCREEN_ADDR(14)));
+        LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(15)));
+        LZ77UnCompVram(sSaveFailedClockGfx, (void *)(OBJ_VRAM0 + 0x20));
         ResetBgsAndClearDma3BusyFlags(0);
         InitBgsFromTemplates(0, sBgTemplates, ARRAY_COUNT(sBgTemplates));
         SetBgTilemapBuffer(0, sSaveFailedBuffers->tilemapBuffer);
@@ -329,6 +329,7 @@ static void CB2_ReturnToTitleScreen(void)
 {
     if (!UpdatePaletteFade())
     {
+        TRY_FREE_AND_SET_NULL(sSaveFailedBuffers);
         if (gGameContinueCallback == NULL) // no callback exists, so do a soft reset.
         {
             DoSoftReset();

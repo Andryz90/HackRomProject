@@ -419,8 +419,10 @@
 #define SPECIES_BURMY_PLANT_CLOAK                       412
 #define SPECIES_WORMADAM                                SPECIES_WORMADAM_PLANT_CLOAK
 #define SPECIES_WORMADAM_PLANT_CLOAK                    413
+#define SPECIES_WORMADAM_PLANT                          SPECIES_WORMADAM_PLANT_CLOAK
 #define SPECIES_MOTHIM                                  SPECIES_MOTHIM_PLANT_CLOAK
 #define SPECIES_MOTHIM_PLANT_CLOAK                      414
+#define SPECIES_MOTHIM_PLANT                            SPECIES_MOTHIM_PLANT_CLOAK
 #define SPECIES_COMBEE                                  415
 #define SPECIES_VESPIQUEN                               416
 #define SPECIES_PACHIRISU                               417
@@ -433,6 +435,7 @@
 #define SPECIES_SHELLOS_WEST_SEA                        422
 #define SPECIES_GASTRODON                               SPECIES_GASTRODON_WEST_SEA
 #define SPECIES_GASTRODON_WEST_SEA                      423
+#define SPECIES_GASTRODON_WEST                          SPECIES_GASTRODON_WEST_SEA
 #define SPECIES_AMBIPOM                                 424
 #define SPECIES_DRIFLOON                                425
 #define SPECIES_DRIFBLIM                                426
@@ -570,6 +573,7 @@
 #define SPECIES_DARUMAKA                                554
 #define SPECIES_DARMANITAN                              SPECIES_DARMANITAN_STANDARD_MODE
 #define SPECIES_DARMANITAN_STANDARD_MODE                555
+#define SPECIES_DARMANITAN_STANDARD                     SPECIES_DARMANITAN_STANDARD_MODE
 #define SPECIES_MARACTUS                                556
 #define SPECIES_DWEBBLE                                 557
 #define SPECIES_CRUSTLE                                 558
@@ -933,6 +937,7 @@
 #define SPECIES_EISCUE_ICE_FACE                         875
 #define SPECIES_INDEEDEE                                SPECIES_INDEEDEE_MALE
 #define SPECIES_INDEEDEE_MALE                           876
+#define SPECIES_INDEEDEE_M                              SPECIES_INDEEDEE_MALE
 #define SPECIES_MORPEKO                                 SPECIES_MORPEKO_FULL_BELLY
 #define SPECIES_MORPEKO_FULL_BELLY                      877
 #define SPECIES_CUFANT                                  878
@@ -947,8 +952,10 @@
 #define SPECIES_DRAGAPULT                               887
 #define SPECIES_ZACIAN                                  SPECIES_ZACIAN_HERO_OF_MANY_BATTLES
 #define SPECIES_ZACIAN_HERO_OF_MANY_BATTLES             888
+#define SPECIES_ZACIAN_HERO                             SPECIES_ZACIAN_HERO_OF_MANY_BATTLES
 #define SPECIES_ZAMAZENTA                               SPECIES_ZAMAZENTA_HERO_OF_MANY_BATTLES
 #define SPECIES_ZAMAZENTA_HERO_OF_MANY_BATTLES          889
+#define SPECIES_ZAMAZENTA_HERO                          SPECIES_ZAMAZENTA_HERO_OF_MANY_BATTLES
 #define SPECIES_ETERNATUS                               890
 #define SPECIES_KUBFU                                   891
 #define SPECIES_URSHIFU                                 SPECIES_URSHIFU_SINGLE_STRIKE_STYLE
@@ -962,8 +969,9 @@
 #define SPECIES_WYRDEER                                 899
 #define SPECIES_KLEAVOR                                 900
 #define SPECIES_URSALUNA                                901
-#define SPECIES_BASCULEGION                             SPECIES_BASCULEGION_MALE
 #define SPECIES_BASCULEGION_MALE                        902
+#define SPECIES_BASCULEGION                             SPECIES_BASCULEGION_MALE
+#define SPECIES_BASCULEGION_M                           SPECIES_BASCULEGION_MALE
 #define SPECIES_SNEASLER                                903
 #define SPECIES_OVERQWIL                                904
 #define SPECIES_ENAMORUS                                SPECIES_ENAMORUS_INCARNATE
@@ -1054,6 +1062,7 @@
 #define SPECIES_DARUMAKA_GALARIAN                       989
 #define SPECIES_DARMANITAN_GALARIAN                     SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE
 #define SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE       990
+#define SPECIES_DARMANITAN_GALAR_STANDARD_MODE          SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE
 #define SPECIES_YAMASK_GALARIAN                         991
 #define SPECIES_STUNFISK_GALARIAN                       992
 
@@ -1161,6 +1170,7 @@
 #define SPECIES_BASCULIN_WHITE_STRIPED                  1091
 #define SPECIES_DARMANITAN_ZEN_MODE                     1092
 #define SPECIES_DARMANITAN_GALARIAN_ZEN_MODE            1093
+#define SPECIES_DARMANITAN_GALAR_ZEN_MODE               SPECIES_DARMANITAN_GALARIAN_ZEN_MODE
 #define SPECIES_DEERLING_SUMMER                         1094
 #define SPECIES_DEERLING_AUTUMN                         1095
 #define SPECIES_DEERLING_WINTER                         1096
@@ -1233,6 +1243,17 @@
 #define SPECIES_FURFROU_LA_REINE_TRIM                   1152
 #define SPECIES_FURFROU_KABUKI_TRIM                     1153
 #define SPECIES_FURFROU_PHARAOH_TRIM                    1154
+#define SPECIES_FLORGES_BLUE                            SPECIES_FLORGES_BLUE_FLOWER
+#define SPECIES_FLORGES_WHITE                           SPECIES_FLORGES_WHITE_FLOWER
+#define SPECIES_FURFROU_HEART                           SPECIES_FURFROU_HEART_TRIM
+#define SPECIES_FURFROU_STAR                            SPECIES_FURFROU_STAR_TRIM
+#define SPECIES_FURFROU_DIAMOND                         SPECIES_FURFROU_DIAMOND_TRIM
+#define SPECIES_FURFROU_DEBUTANTE                       SPECIES_FURFROU_DEBUTANTE_TRIM
+#define SPECIES_FURFROU_MATRON                          SPECIES_FURFROU_MATRON_TRIM
+#define SPECIES_FURFROU_DANDY                           SPECIES_FURFROU_DANDY_TRIM
+#define SPECIES_FURFROU_LA_REINE                        SPECIES_FURFROU_LA_REINE_TRIM
+#define SPECIES_FURFROU_KABUKI                          SPECIES_FURFROU_KABUKI_TRIM
+#define SPECIES_FURFROU_PHARAOH                         SPECIES_FURFROU_PHARAOH_TRIM
 #define SPECIES_MEOWSTIC_FEMALE                         1155
 #define SPECIES_MEOWSTIC_F                              SPECIES_MEOWSTIC_FEMALE
 #define SPECIES_AEGISLASH_BLADE                         1156
@@ -1321,6 +1342,7 @@
 #define SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL       1223
 #define SPECIES_EISCUE_NOICE_FACE                       1224
 #define SPECIES_INDEEDEE_FEMALE                         1225
+#define SPECIES_INDEEDEE_F                              SPECIES_INDEEDEE_FEMALE
 #define SPECIES_MORPEKO_HANGRY                          1226
 #define SPECIES_ZACIAN_CROWNED_SWORD                    1227
 #define SPECIES_ZAMAZENTA_CROWNED_SHIELD                1228
@@ -1330,6 +1352,7 @@
 #define SPECIES_CALYREX_ICE_RIDER                       1232
 #define SPECIES_CALYREX_SHADOW_RIDER                    1233
 #define SPECIES_BASCULEGION_FEMALE                      1234
+#define SPECIES_BASCULEGION_F                           SPECIES_BASCULEGION_FEMALE
 #define SPECIES_ALCREMIE_BERRY                          SPECIES_ALCREMIE_BERRY_VANILLA_CREAM
 #define SPECIES_ALCREMIE_BERRY_VANILLA_CREAM            1235
 #define SPECIES_ALCREMIE_BERRY_RUBY_CREAM               1236
@@ -1405,7 +1428,9 @@
 #define SPECIES_LECHONK                                 1298
 #define SPECIES_OINKOLOGNE                              SPECIES_OINKOLOGNE_MALE
 #define SPECIES_OINKOLOGNE_MALE                         1299
+#define SPECIES_OINKOLOGNE_M                            SPECIES_OINKOLOGNE_MALE
 #define SPECIES_OINKOLOGNE_FEMALE                       1300
+#define SPECIES_OINKOLOGNE_F                            SPECIES_OINKOLOGNE_FEMALE
 #define SPECIES_TAROUNTULA                              1301
 #define SPECIES_SPIDOPS                                 1302
 #define SPECIES_NYMBLE                                  1303
@@ -1417,6 +1442,8 @@
 #define SPECIES_MAUSHOLD                                SPECIES_MAUSHOLD_FAMILY_OF_THREE
 #define SPECIES_MAUSHOLD_FAMILY_OF_THREE                1309
 #define SPECIES_MAUSHOLD_FAMILY_OF_FOUR                 1310
+#define SPECIES_MAUSHOLD_THREE                          SPECIES_MAUSHOLD_FAMILY_OF_THREE
+#define SPECIES_MAUSHOLD_FOUR                           SPECIES_MAUSHOLD_FAMILY_OF_FOUR
 #define SPECIES_FIDOUGH                                 1311
 #define SPECIES_DACHSBUN                                1312
 #define SPECIES_SMOLIV                                  1313
@@ -1427,6 +1454,10 @@
 #define SPECIES_SQUAWKABILLY_BLUE_PLUMAGE               1317
 #define SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE             1318
 #define SPECIES_SQUAWKABILLY_WHITE_PLUMAGE              1319
+#define SPECIES_SQUAWKABILLY_GREEN   SPECIES_SQUAWKABILLY_GREEN_PLUMAGE
+#define SPECIES_SQUAWKABILLY_BLUE    SPECIES_SQUAWKABILLY_BLUE_PLUMAGE
+#define SPECIES_SQUAWKABILLY_YELLOW  SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE
+#define SPECIES_SQUAWKABILLY_WHITE   SPECIES_SQUAWKABILLY_WHITE_PLUMAGE
 #define SPECIES_NACLI                                   1320
 #define SPECIES_NACLSTACK                               1321
 #define SPECIES_GARGANACL                               1322
@@ -1542,6 +1573,7 @@
 #define SPECIES_OGERPON_HEARTHFLAME_MASK_TERA           1422
 #define SPECIES_OGERPON_CORNERSTONE_MASK_TERA           1423
 #define SPECIES_URSALUNA_BLOODMOON                      1424
+
 // Indigo Disk
 #define SPECIES_ARCHALUDON                              1425
 #define SPECIES_HYDRAPPLE                               1426
@@ -1557,6 +1589,8 @@
 #define SPECIES_LUGIA_SHADOW                            1435
 #define SPECIES_MOTHIM_SANDY_CLOAK                      1436
 #define SPECIES_MOTHIM_TRASH_CLOAK                      1437
+#define SPECIES_MOTHIM_SANDY                            SPECIES_MOTHIM_SANDY_CLOAK
+#define SPECIES_MOTHIM_TRASH                            SPECIES_MOTHIM_TRASH_CLOAK
 #define SPECIES_SCATTERBUG_POLAR                        1438
 #define SPECIES_SCATTERBUG_TUNDRA                       1439
 #define SPECIES_SCATTERBUG_CONTINENTAL                  1440
@@ -1576,6 +1610,7 @@
 #define SPECIES_SCATTERBUG_JUNGLE                       1454
 #define SPECIES_SCATTERBUG_FANCY                        1455
 #define SPECIES_SCATTERBUG_POKE_BALL                    1456
+#define SPECIES_SCATTERBUG_POKEBALL                     SPECIES_SCATTERBUG_POKE_BALL //Alias
 #define SPECIES_SPEWPA_POLAR                            1457
 #define SPECIES_SPEWPA_TUNDRA                           1458
 #define SPECIES_SPEWPA_CONTINENTAL                      1459
@@ -1661,6 +1696,7 @@
 #define SPECIES_AVALUGG_HISUI                           SPECIES_AVALUGG_HISUIAN
 #define SPECIES_BLASTOISE_GMAX                          SPECIES_BLASTOISE_GIGANTAMAX
 #define SPECIES_BRAVIARY_HISUI                          SPECIES_BRAVIARY_HISUIAN
+#define SPECIES_BURMY_PLANT                             SPECIES_BURMY_PLANT_CLOAK
 #define SPECIES_BURMY_SANDY                             SPECIES_BURMY_SANDY_CLOAK
 #define SPECIES_BURMY_TRASH                             SPECIES_BURMY_TRASH_CLOAK
 #define SPECIES_BUTTERFREE_GMAX                         SPECIES_BUTTERFREE_GIGANTAMAX
@@ -1674,6 +1710,7 @@
 #define SPECIES_CORSOLA_GALAR                           SPECIES_CORSOLA_GALARIAN
 #define SPECIES_CORVIKNIGHT_GMAX                        SPECIES_CORVIKNIGHT_GIGANTAMAX
 #define SPECIES_DARMANITAN_GALAR                        SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE
+#define SPECIES_DARMANITAN_GALAR_STANDARD               SPECIES_DARMANITAN_GALARIAN_STANDARD_MODE
 #define SPECIES_DARMANITAN_GALAR_ZEN                    SPECIES_DARMANITAN_GALARIAN_ZEN_MODE
 #define SPECIES_DARMANITAN_ZEN                          SPECIES_DARMANITAN_ZEN_MODE
 #define SPECIES_DARUMAKA_GALAR                          SPECIES_DARUMAKA_GALARIAN
@@ -1745,6 +1782,7 @@
 #define SPECIES_RATICATE_ALOLA_TOTEM                    SPECIES_RATICATE_ALOLAN_TOTEM
 #define SPECIES_RATTATA_ALOLA                           SPECIES_RATTATA_ALOLAN
 #define SPECIES_RILLABOOM_GMAX                          SPECIES_RILLABOOM_GIGANTAMAX
+#define SPECIES_EISCUE_ICE                              SPECIES_EISCUE_ICE_FACE
 #define SPECIES_SAMUROTT_HISUI                          SPECIES_SAMUROTT_HISUIAN
 #define SPECIES_SANDACONDA_GMAX                         SPECIES_SANDACONDA_GIGANTAMAX
 #define SPECIES_SANDSHREW_ALOLA                         SPECIES_SANDSHREW_ALOLAN
@@ -1770,6 +1808,8 @@
 #define SPECIES_UNOWN_EXCLAMATION                       SPECIES_UNOWN_EMARK
 #define SPECIES_UNOWN_QUESTION                          SPECIES_UNOWN_QMARK
 #define SPECIES_URSHIFU_GMAX                            SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX
+#define SPECIES_URSHIFU_SINGLE_STRIKE_GMAX              SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX
+#define SPECIES_URSHIFU_SINGLE_STRIKE                   SPECIES_URSHIFU_SINGLE_STRIKE_STYLE
 #define SPECIES_URSHIFU_RAPID_STRIKE                    SPECIES_URSHIFU_RAPID_STRIKE_STYLE
 #define SPECIES_URSHIFU_RAPID_STRIKE_GMAX               SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX
 #define SPECIES_VENUSAUR_GMAX                           SPECIES_VENUSAUR_GIGANTAMAX
@@ -1787,5 +1827,15 @@
 #define SPECIES_ZIGZAGOON_GALAR                         SPECIES_ZIGZAGOON_GALARIAN
 #define SPECIES_ZOROARK_HISUI                           SPECIES_ZOROARK_HISUIAN
 #define SPECIES_ZORUA_HISUI                             SPECIES_ZORUA_HISUIAN
+
+
+#define SPECIES_OGERPON_WELLSPRING                      SPECIES_OGERPON_WELLSPRING_MASK
+#define SPECIES_OGERPON_HEARTHFLAME                     SPECIES_OGERPON_HEARTHFLAME_MASK
+#define SPECIES_OGERPON_CORNERSTONE                     SPECIES_OGERPON_CORNERSTONE_MASK
+#define SPECIES_OGERPON_TEAL_TERA                       SPECIES_OGERPON_TEAL_MASK_TERA
+#define SPECIES_OGERPON_TEAL                            SPECIES_OGERPON_TEAL_MASK
+#define SPECIES_OGERPON_WELLSPRING_TERA                 SPECIES_OGERPON_WELLSPRING_MASK_TERA
+#define SPECIES_OGERPON_HEARTHFLAME_TERA                SPECIES_OGERPON_HEARTHFLAME_MASK_TERA
+#define SPECIES_OGERPON_CORNERSTONE_TERA                SPECIES_OGERPON_CORNERSTONE_MASK_TERA
 
 #endif  // GUARD_CONSTANTS_SPECIES_H

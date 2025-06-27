@@ -81,10 +81,8 @@ struct CreditsEntry
     const u8 *text;
 };
 
-static EWRAM_DATA s16 UNUSED sUnkVar = 0; // Never read, only set to 0
 static EWRAM_DATA u16 sSavedTaskId = 0;
 EWRAM_DATA bool8 gHasHallOfFameRecords = 0;
-static EWRAM_DATA bool8 sUsedSpeedUp = 0; // Never read
 static EWRAM_DATA struct CreditsData *sCreditsData = {0};
 
 static const u16 sCredits_Pal[] = INCBIN_U16("graphics/credits/credits.gbapal");
@@ -272,8 +270,6 @@ static const union AnimCmd *const sAnims_Rival[] =
     sAnim_Rival_Still,
 };
 
-#define MONBG_OFFSET (MON_PIC_SIZE * 3)
-
 static const struct OamData sOamData_MonBg =
 {
     .y = DISPLAY_HEIGHT,
@@ -347,7 +343,6 @@ static void CB2_Credits(void)
         VBlankCB_Credits();
         RunTasks();
         AnimateSprites();
-        sUsedSpeedUp = TRUE;
     }
     BuildOamBuffer();
     UpdatePaletteFade();
@@ -440,7 +435,6 @@ void CB2_StartCreditsSequence(void)
     SetVBlankCallback(VBlankCB_Credits);
     m4aSongNumStart(MUS_CREDITS);
     SetMainCallback2(CB2_Credits);
-    sUsedSpeedUp = FALSE;
     sCreditsData = AllocZeroed(sizeof(struct CreditsData));
 
     DeterminePokemonToShow();
@@ -472,7 +466,6 @@ static void Task_CreditsMain(u8 taskId)
         return;
     }
 
-    sUnkVar = 0;
     mode = gTasks[taskId].tNextMode;
 
     if (gTasks[taskId].tNextMode == MODE_BIKE_SCENE)
@@ -526,6 +519,8 @@ static void Task_ReadyShowMons(u8 taskId)
     }
 }
 
+#define MONBG_OFFSET (MON_PIC_SIZE * 3)
+
 static void Task_LoadShowMons(u8 taskId)
 {
     switch (gMain.state)
@@ -543,8 +538,8 @@ static void Task_LoadShowMons(u8 taskId)
         ResetAllPicSprites();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 8;
-        DecompressDataWithHeaderVram(gBirchBagGrass_Gfx, (void *)VRAM);
-        DecompressDataWithHeaderVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
+        LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
+        LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
         LoadPalette(gBirchBagGrass_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(2 * 16 - 1));
 
         for (i = 0; i < MON_PIC_SIZE; i++)
@@ -562,6 +557,7 @@ static void Task_LoadShowMons(u8 taskId)
 
         LoadSpriteSheet(&bgSheet);
         LoadSpritePalette(&bgPalette);
+
         Free(buffer);
 
         gMain.state++;
@@ -736,7 +732,6 @@ static void Task_UpdatePage(u8 taskId)
             gTasks[taskId].tState = 1;
             gTasks[taskId].tDelay = 72;
             gTasks[gTasks[taskId].tMainTaskId].tPrintedPage = FALSE;
-            sUnkVar = 0;
         }
         return;
     case 1:

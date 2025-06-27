@@ -13,38 +13,6 @@
 #define AILMENT_FNT   7
 #define AILMENT_FRB   8
 
-#define TUTOR_MOVE_MEGA_PUNCH      0
-#define TUTOR_MOVE_SWORDS_DANCE    1
-#define TUTOR_MOVE_MEGA_KICK       2
-#define TUTOR_MOVE_BODY_SLAM       3
-#define TUTOR_MOVE_DOUBLE_EDGE     4
-#define TUTOR_MOVE_COUNTER         5
-#define TUTOR_MOVE_SEISMIC_TOSS    6
-#define TUTOR_MOVE_MIMIC           7
-#define TUTOR_MOVE_METRONOME       8
-#define TUTOR_MOVE_SOFT_BOILED     9
-#define TUTOR_MOVE_DREAM_EATER     10
-#define TUTOR_MOVE_THUNDER_WAVE    11
-#define TUTOR_MOVE_EXPLOSION       12
-#define TUTOR_MOVE_ROCK_SLIDE      13
-#define TUTOR_MOVE_SUBSTITUTE      14
-#define TUTOR_MOVE_DYNAMIC_PUNCH   15
-#define TUTOR_MOVE_ROLLOUT         16
-#define TUTOR_MOVE_PSYCH_UP        17
-#define TUTOR_MOVE_SNORE           18
-#define TUTOR_MOVE_ICY_WIND        19
-#define TUTOR_MOVE_ENDURE          20
-#define TUTOR_MOVE_MUD_SLAP        21
-#define TUTOR_MOVE_ICE_PUNCH       22
-#define TUTOR_MOVE_SWAGGER         23
-#define TUTOR_MOVE_SLEEP_TALK      24
-#define TUTOR_MOVE_SWIFT           25
-#define TUTOR_MOVE_DEFENSE_CURL    26
-#define TUTOR_MOVE_THUNDER_PUNCH   27
-#define TUTOR_MOVE_FIRE_PUNCH      28
-#define TUTOR_MOVE_FURY_CUTTER     29
-#define TUTOR_MOVE_COUNT           30
-
 #define PARTY_LAYOUT_SINGLE          0
 #define PARTY_LAYOUT_DOUBLE          1
 #define PARTY_LAYOUT_MULTI           2
@@ -80,8 +48,9 @@
 #define PARTY_ACTION_CHOOSE_AND_CLOSE   11
 #define PARTY_ACTION_MOVE_TUTOR         12
 #define PARTY_ACTION_MINIGAME           13
-#define PARTY_ACTION_REUSABLE_ITEM      14  // Unused. The only reusable items are handled separately
+#define PARTY_ACTION_SEND_MON_TO_BOX    14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
+#define PARTY_ACTION_REUSABLE_ITEM      16  // Unused. The only reusable items are handled separately (Custom addition, was 14)
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0
@@ -113,6 +82,10 @@
 #define PARTY_MSG_ALREADY_HOLDING_ONE       26
 #define PARTY_MSG_WHICH_APPLIANCE           27
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
+#define PARTY_MSG_NO_POKEMON                29
+#define PARTY_MSG_CHOOSE_MON_FOR_BOX        30
+#define PARTY_MSG_MOVE_ITEM_WHERE           31
+
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

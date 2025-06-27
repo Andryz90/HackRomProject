@@ -179,7 +179,7 @@ static void ItemStorage_PrintMenuItem(u8, u32, u8);
 static EWRAM_DATA const u8 *sTopMenuOptionOrder = NULL;
 static EWRAM_DATA u8 sTopMenuNumOptions = 0;
 EWRAM_DATA struct PlayerPCItemPageStruct gPlayerPCItemPageInfo = {};
-EWRAM_DATA struct ItemStorageMenu *sItemStorageMenu = NULL;
+static EWRAM_DATA struct ItemStorageMenu *sItemStorageMenu = NULL;
 
 static const u8 sText_WithdrawItem[] = _("WITHDRAW ITEM");
 static const u8 sText_DepositItem[] = _("DEPOSIT ITEM");
@@ -190,6 +190,7 @@ static const u8 sText_WithdrawHowManyItems[] = _("Withdraw how many\n{STR_VAR_1}
 static const u8 sText_WithdrawXItems[] = _("Withdrew {STR_VAR_2}\n{STR_VAR_1}.");
 static const u8 sText_NoRoomInBag[] = _("There is no more\nroom in the BAG.");
 static const u8 sText_TooImportantToToss[] = _("That's much too\nimportant to toss\nout!");
+
 static const u8 *const sItemStorage_OptionDescriptions[] =
 {
     [MENU_WITHDRAW] = COMPOUND_STRING("Take out items from the PC."),
@@ -242,7 +243,7 @@ const struct MenuAction gMailboxMailOptions[] =
     { COMPOUND_STRING("READ"),        {Mailbox_DoMailRead} },
     { COMPOUND_STRING("MOVE TO BAG"), {Mailbox_MoveToBag} },
     { COMPOUND_STRING("GIVE"),        {Mailbox_Give} },
-    { gText_Cancel2,   {Mailbox_Cancel} }
+    { gText_Cancel2,                  {Mailbox_Cancel} }
 };
 
 static const struct WindowTemplate sWindowTemplates_MainMenus[] =
@@ -1061,7 +1062,7 @@ static void ItemStorage_PrintDescription(s32 id)
 
     // Get item description (or Cancel text)
     if (id != LIST_CANCEL)
-        description = (u8 *)ItemId_GetDescription(gSaveBlock1Ptr->pcItems[id].itemId);
+        description = (u8 *)GetItemDescription(gSaveBlock1Ptr->pcItems[id].itemId);
     else
         description = ItemStorage_GetMessage(MSG_GO_BACK_TO_PREV);
 
@@ -1205,7 +1206,7 @@ static const u8 *ItemStorage_GetMessage(u16 itemId)
         string = gText_MoveVar1Where;
         break;
     default:
-        string = ItemId_GetDescription(itemId);
+        string = GetItemDescription(itemId);
         break;
     }
     return string;
@@ -1461,7 +1462,7 @@ static void ItemStorage_DoItemToss(u8 taskId)
     s16 *data = gTasks[taskId].data;
     u16 pos = gPlayerPCItemPageInfo.cursorPos + gPlayerPCItemPageInfo.itemsAbove;
 
-    if (!ItemId_GetImportance(gSaveBlock1Ptr->pcItems[pos].itemId))
+    if (!GetItemImportance(gSaveBlock1Ptr->pcItems[pos].itemId))
     {
         // Show toss confirmation prompt
         u8 *end = CopyItemNameHandlePlural(gSaveBlock1Ptr->pcItems[pos].itemId, gStringVar1, tQuantity);

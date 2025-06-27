@@ -1,5 +1,3 @@
-.set LOCALID_DAYCARE_LADY, 1
-
 Route117_EventScript_DaycareMan::
 	lock
 	faceplayer
@@ -440,7 +438,6 @@ Route117_PokemonDayCare_Text_YoullBeLeftWithJustOne:
 	.string "me, you'll be left with just one.\p"
 	.string "You will be better off if you catch\n"
 	.string "some more, I dare say.$"
-
 Text_GiveBabyEgg::	
 	.string "Hello, TRAINER, I have a POKéMON egg.\nI know it needs care to make it hatch.\p"
 	.string "It just popped off from the daycare,\nbut I don't have time to take care of it.\p"

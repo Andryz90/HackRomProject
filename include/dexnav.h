@@ -4,11 +4,14 @@
 #include "config/dexnav.h"
 
 // GUI Info
-#define ROW_WATER       0
-#define ROW_LAND_TOP    1
-#define ROW_LAND_BOT    2
-#define ROW_HIDDEN      3
-#define ROWS_COUNT      4
+enum RowGUIInfo
+{
+    ROW_WATER,
+    ROW_LAND_TOP,
+    ROW_LAND_BOT,
+    ROW_HIDDEN,
+    ROWS_COUNT
+};
 
 #define ROW_WATER_ICON_X        30
 #define ROW_WATER_ICON_Y        35
@@ -20,9 +23,12 @@
 #define ROW_HIDDEN_ICON_X       52
 #define ROW_HIDDEN_ICON_Y       138
 
-#define ENCOUNTER_TYPE_LAND     0
-#define ENCOUNTER_TYPE_WATER    1
-#define ENCOUNTER_TYPE_HIDDEN   2   //get from species
+enum EncounterType
+{
+    ENCOUNTER_TYPE_LAND,
+    ENCOUNTER_TYPE_WATER,
+    ENCOUNTER_TYPE_HIDDEN // Get from species
+};
 
 #define COL_WATER_COUNT         5
 #define COL_LAND_COUNT          6
@@ -44,40 +50,34 @@
 #define HA_INFO_Y               (SEARCH_LEVEL_Y + 24)
 #define CHAIN_BONUS_Y           (HA_INFO_Y + 24)
 
-#define MON_LEVEL_NONEXISTENT   255 //if mon not in area GetEncounterLevel returns this to exit the search
+#define MON_LEVEL_NONEXISTENT   255 // If mon not in area GetEncounterLevel returns this to exit the search
 
-// gui tags
+// GUI tags
 #define ICON_PAL_TAG            56000
 #define ICON_GFX_TAG            55130
 #define SELECTION_CURSOR_TAG    0x4005
 #define CAPTURED_ALL_TAG        0x4002
 
-//search tags
+// Search tags
 #define OWNED_ICON_TAG          0x4003
 #define HIDDEN_SEARCH_TAG       SELECTION_CURSOR_TAG
 #define HIDDEN_MON_ICON_TAG     0x4006
 #define LIT_STAR_TILE_TAG       0x4010
-//#define SIGHT_TAG               0x5424
 #define HELD_ITEM_TAG           0xd750
 
-// dexnav search variable
-#define DEXNAV_MASK_SPECIES         0x3FFF  //first 14 bits
-#define DEXNAV_MASK_ENVIRONMENT     0xC000  //last two bit
+// DexNav search variable
+#define DEXNAV_MASK_SPECIES         0x3FFF  // First 14 bits
+#define DEXNAV_MASK_ENVIRONMENT     0xC000  // Last two bit
 
-//funcs
-bool32 GetDexNavFlag(void);
 void EndDexNavSearch(u8 taskId);
 void Task_OpenDexNavFromStartMenu(u8 taskId);
-bool8 TryStartDexnavSearch(void);
-void TryIncrementSpeciesSearchLevel(u16 dexNum);
+bool8 TryStartDexNavSearch(void);
+void TryIncrementSpeciesSearchLevel(void);
 void ResetDexNavSearch(void);
 bool8 TryFindHiddenPokemon(void);
-bool8 DexNavTryMakeShinyMon(void);
+u32 CalculateDexNavShinyRolls(void);
 void IncrementDexNavChain(void);
-void DexNavInit_ReturnToField(void);
-void DexNavInit_ReturnToBag(void);
 
-//ewram
-extern bool8 gDexnavBattle;
+extern u16 gDexNavSpecies;
 
-#endif //GUARD_DEXNAV_H
+#endif // GUARD_DEXNAV_H

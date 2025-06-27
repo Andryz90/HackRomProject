@@ -2,11 +2,8 @@
 #include "sprite.h"
 #include "main.h"
 #include "palette.h"
-#include "gpu_regs.h"
 
 #define MAX_SPRITE_COPY_REQUESTS 64
-
-#define OAM_MATRIX_COUNT 32
 
 #define sAnchorX data[6]
 #define sAnchorY data[7]
@@ -29,6 +26,9 @@
 
 #define SPRITE_TILE_IS_ALLOCATED(n) ((sSpriteTileAllocBitmap[(n) / 8] >> ((n) % 8)) & 1)
 
+#if T_SHOULD_RUN_MOVE_ANIM
+EWRAM_DATA bool32 gLoadFail = FALSE;
+#endif // T_SHOULD_RUN_MOVE_ANIM
 
 struct SpriteCopyRequest
 {
@@ -115,8 +115,8 @@ typedef void (*AffineAnimCmdFunc)(u8 matrixNum, struct Sprite *);
 #define AFFINE_ANIM_END 0x7FFF
 
 // forward declarations
-const union AnimCmd * const gDummySpriteAnimTable[];
-const union AffineAnimCmd * const gDummySpriteAffineAnimTable[];
+const union AnimCmd *const gDummySpriteAnimTable[];
+const union AffineAnimCmd *const gDummySpriteAffineAnimTable[];
 const struct SpriteTemplate gDummySpriteTemplate;
 
 static const u8 sCenterToCornerVecTable[3][4][2] =
@@ -157,11 +157,11 @@ const struct OamData gDummyOamData = DUMMY_OAM_DATA;
 
 static const union AnimCmd sDummyAnim = { ANIM_END };
 
-const union AnimCmd * const gDummySpriteAnimTable[] = { &sDummyAnim };
+const union AnimCmd *const gDummySpriteAnimTable[] = { &sDummyAnim };
 
 static const union AffineAnimCmd sDummyAffineAnim = { AFFINE_ANIM_END };
 
-const union AffineAnimCmd * const gDummySpriteAffineAnimTable[] = { &sDummyAffineAnim };
+const union AffineAnimCmd *const gDummySpriteAffineAnimTable[] = { &sDummyAffineAnim };
 
 const struct SpriteTemplate gDummySpriteTemplate =
 {
@@ -259,8 +259,8 @@ static struct AffineAnimState sAffineAnimStates[OAM_MATRIX_COUNT];
 static u16 sSpritePaletteTags[16];
 
 // iwram common
-u32 gOamMatrixAllocBitmap;
-u8 gReservedSpritePaletteCount;
+COMMON_DATA u32 gOamMatrixAllocBitmap = 0;
+COMMON_DATA u8 gReservedSpritePaletteCount = 0;
 
 EWRAM_DATA struct Sprite gSprites[MAX_SPRITES + 1] = {0};
 EWRAM_DATA static u8 sSpriteOrder[MAX_SPRITES] = {0};
@@ -434,52 +434,6 @@ static void SortSprites(u32 *spritePriorities, s32 n)
     InsertionSort(spritePriorities, n);
 }
 
-u32 CreateSpriteAndMask(const struct SpriteTemplate *template, s16 x, s16 y, u32 subpriority)
-{
-    u32 i;
-    u16 firstSpriteId = MAX_SPRITES;
-    u16 secondSpriteId = MAX_SPRITES;
-
-    // Create the first sprite
-    for (i = 0; i < MAX_SPRITES; i++)
-    {
-        if (!gSprites[i].inUse)
-        {
-            firstSpriteId = CreateSprite(template, x, y, subpriority);
-            break;
-        }
-    }
-
-    if (firstSpriteId == MAX_SPRITES) 
-        return ((u32)MAX_SPRITES << 16) | MAX_SPRITES; // No available sprite slots
-
-    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
-    SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
-
-    // Create the second sprite with ST_OAM_OBJ_WINDOW mode
-    for (i = 0; i < MAX_SPRITES; i++)
-    {
-        if (!gSprites[i].inUse)
-        {
-            secondSpriteId = CreateSprite(template, x, y, subpriority);
-            break;
-        }
-    }
-
-    SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
-    SetGpuRegBits(REG_OFFSET_WINOUT, 0);
-
-    // No space for second, return firstSpriteId only
-    if (secondSpriteId == MAX_SPRITES) 
-        return ((u32)firstSpriteId << 16) | MAX_SPRITES;
-
-    // Make the second sprite a window object (mask)
-    gSprites[secondSpriteId].oam.objMode = ST_OAM_OBJ_WINDOW;
-    gSprites[secondSpriteId].invisible = FALSE;
-
-    return ((u32)firstSpriteId << 16) | secondSpriteId;
-}
-
 u32 CreateSprite(const struct SpriteTemplate *template, s16 x, s16 y, u32 subpriority)
 {
     u32 i;
@@ -594,24 +548,6 @@ u32 CreateSpriteAndAnimate(const struct SpriteTemplate *template, s16 x, s16 y, 
     }
 
     return MAX_SPRITES;
-}
-
-void DestroySpriteAndMask(u32 spriteIds)
-{
-    u16 firstSpriteId = spriteIds >> 16;
-    u16 secondSpriteId = spriteIds & 0xFFFF;
-
-    // Destroy the first sprite if it's valid
-    if (firstSpriteId != MAX_SPRITES)
-    {
-        DestroySprite(&gSprites[firstSpriteId]);
-    }
-
-    // Destroy the second sprite if it's valid
-    if (secondSpriteId != MAX_SPRITES)
-    {
-        DestroySprite(&gSprites[secondSpriteId]);
-    }
 }
 
 void DestroySprite(struct Sprite *sprite)
@@ -894,25 +830,6 @@ void FreeSpriteOamMatrix(struct Sprite *sprite)
     {
         FreeOamMatrix(sprite->oam.matrixNum);
         sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
-    }
-}
-
-
-void FreeSpriteAndMaskOamMatrix(u32 spriteIds)
-{
-    u16 firstSpriteId = spriteIds >> 16;
-    u16 secondSpriteId = spriteIds & 0xFFFF;
-
-    // Destroy the first sprite if it's valid
-    if (firstSpriteId != MAX_SPRITES)
-    {
-        FreeSpriteOamMatrix(&gSprites[firstSpriteId]);
-    }
-
-    // Destroy the second sprite if it's valid
-    if (secondSpriteId != MAX_SPRITES)
-    {
-        FreeSpriteOamMatrix(&gSprites[secondSpriteId]);
     }
 }
 
@@ -1535,6 +1452,10 @@ static u16 LoadSpriteSheetWithOffset(const struct SpriteSheet *sheet, u32 offset
 
     if (tileStart < 0)
     {
+#if T_SHOULD_RUN_MOVE_ANIM
+        gLoadFail = TRUE;
+#endif // T_SHOULD_RUN_MOVE_ANIM
+        DebugPrintf("Tile: %u", sheet->tag);
         return 0;
     }
     else
@@ -1653,9 +1574,9 @@ void FreeAllSpritePalettes(void)
         sSpritePaletteTags[i] = TAG_NONE;
 }
 
-u8 LoadSpritePalette(const struct SpritePalette *palette)
+u32 LoadSpritePalette(const struct SpritePalette *palette)
 {
-    u8 index = IndexOfSpritePaletteTag(palette->tag);
+    u32 index = IndexOfSpritePaletteTag(palette->tag);
 
     if (index != 0xFF)
         return index;
@@ -1674,26 +1595,12 @@ u8 LoadSpritePalette(const struct SpritePalette *palette)
     }
 }
 
-u8 LoadSpritePaletteDouble(const struct SpritePalette *palette)
+u32 LoadSpritePaletteWithTag(const u16 *pal, u16 tag)
 {
-    u8 index = IndexOfSpritePaletteTag(palette->tag);
-
-    if (index != 0xFF)
-        return index;
-
-    index = IndexOfSpritePaletteTag(0xFFFF);
-
-    if (index == 0xFF)
-    {
-        return 0xFF;
-    }
-    else
-    {
-        sSpritePaletteTags[index] = palette->tag;
-        DoLoadSpritePalette(palette->data, index * 16);
-        DoLoadSpritePalette(palette->data, 112 + index * 16);
-        return index + 112;
-    }
+    struct SpritePalette spritePal;
+    spritePal.data = pal;
+    spritePal.tag = tag;
+    return LoadSpritePalette(&spritePal);
 }
 
 void LoadSpritePalettes(const struct SpritePalette *palettes)
@@ -1704,7 +1611,8 @@ void LoadSpritePalettes(const struct SpritePalette *palettes)
             break;
 }
 
-u8 LoadSpritePaletteInSlot(const struct SpritePalette *palette, u8 paletteNum) {
+u8 LoadSpritePaletteInSlot(const struct SpritePalette *palette, u8 paletteNum)
+{
     paletteNum = min(15, paletteNum);
     sSpritePaletteTags[paletteNum] = palette->tag;
     DoLoadSpritePalette(palette->data, paletteNum * 16);
@@ -1716,9 +1624,9 @@ void DoLoadSpritePalette(const u16 *src, u16 paletteOffset)
     LoadPaletteFast(src, OBJ_PLTT_OFFSET + paletteOffset, PLTT_SIZE_4BPP);
 }
 
-u8 AllocSpritePalette(u16 tag)
+u32 AllocSpritePalette(u16 tag)
 {
-    u8 index = IndexOfSpritePaletteTag(TAG_NONE);
+    u32 index = IndexOfSpritePaletteTag(TAG_NONE);
     if (index == 0xFF)
     {
         return 0xFF;
@@ -1730,7 +1638,7 @@ u8 AllocSpritePalette(u16 tag)
     }
 }
 
-u8 IndexOfSpritePaletteTag(u16 tag)
+u32 IndexOfSpritePaletteTag(u16 tag)
 {
     u32 i;
     for (i = gReservedSpritePaletteCount; i < 16; i++)

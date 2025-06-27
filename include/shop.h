@@ -10,9 +10,9 @@ enum
     COLORID_GRAY_CURSOR, // When the cursor has selected an item to purchase
 };
 
-void CreatePokemartMenu(const u16 *);
-void CreateDecorationShop1Menu(const u16 *);
-void CreateDecorationShop2Menu(const u16 *);
+void CreatePokemartMenu(const u16 *itemsForSale);
+void CreateDecorationShop1Menu(const u16 *itemsForSale);
+void CreateDecorationShop2Menu(const u16 *itemsForSale);
 void CB2_ExitSellMenu(void);
 
 #endif // GUARD_SHOP_H

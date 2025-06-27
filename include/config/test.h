@@ -1128,7 +1128,18 @@
 #define P_FAMILY_TERAPAGOS               TRUE
 #undef P_FAMILY_PECHARUNT
 #define P_FAMILY_PECHARUNT               TRUE
+
+// Vars
+#undef B_VAR_DIFFICULTY
+#define B_VAR_DIFFICULTY                TESTING_VAR_DIFFICULTY
+
+// Flags
 #undef B_FLAG_SLEEP_CLAUSE
-#define B_FLAG_SLEEP_CLAUSE              FLAG_SPECIAL_FLAG_UNUSED_0x4003
+#define B_FLAG_SLEEP_CLAUSE              TESTING_FLAG_SLEEP_CLAUSE
+#undef B_FLAG_INVERSE_BATTLE
+#define B_FLAG_INVERSE_BATTLE            TESTING_FLAG_INVERSE_BATTLE
+
+//  Move animation testing
+#define T_SHOULD_RUN_MOVE_ANIM  FALSE       //  If TRUE, enables the move animation tests, these are very computationally heavy and takes a long time to run.
 
 #endif // GUARD_CONFIG_TEST_H

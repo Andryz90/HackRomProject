@@ -1018,7 +1018,6 @@ void MoveRelearnerShowHideCategoryIcon(s32 moveId)
             DestroySprite(&gSprites[sMoveRelearnerStruct->categoryIconSpriteId]);
 
         sMoveRelearnerStruct->categoryIconSpriteId = 0xFF;
-        gSprites[sMoveRelearnerStruct->categoryIconSpriteId].invisible = TRUE;
     }
     else
     {

@@ -2,7 +2,6 @@
 #include "battle.h"
 #include "battle_factory_screen.h"
 #include "battle_factory.h"
-#include "bw_summary_screen.h"
 #include "sprite.h"
 #include "event_data.h"
 #include "overworld.h"
@@ -300,7 +299,7 @@ static const struct SpritePalette sSelect_SpritePalettes[] =
     {},
 };
 
-u8 static (* const sSelect_MenuOptionFuncs[])(void) =
+u8 static (*const sSelect_MenuOptionFuncs[])(void) =
 {
     Select_OptionSummary,
     Select_OptionRentDeselect,
@@ -518,17 +517,17 @@ static const union AnimCmd sAnim_Select_Pokeball_Moving[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd * const sAnims_Select_Interface[] =
+static const union AnimCmd *const sAnims_Select_Interface[] =
 {
     sAnim_Select_Interface,
 };
 
-static const union AnimCmd * const sAnims_Select_MonPicBgAnim[] =
+static const union AnimCmd *const sAnims_Select_MonPicBgAnim[] =
 {
     sAnim_Select_MonPicBgAnim,
 };
 
-static const union AnimCmd * const sAnims_Select_Pokeball[] =
+static const union AnimCmd *const sAnims_Select_Pokeball[] =
 {
     sAnim_Select_Pokeball_Still,
     sAnim_Select_Pokeball_Moving,
@@ -570,7 +569,7 @@ static const union AffineAnimCmd sAffineAnim_Select_MonPicBg_Open[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd * const sAffineAnims_Select_MonPicBgAnim[] =
+static const union AffineAnimCmd *const sAffineAnims_Select_MonPicBgAnim[] =
 {
     sAffineAnim_Select_MonPicBg_Opening,
     sAffineAnim_Select_MonPicBg_Closing,
@@ -773,17 +772,17 @@ static const union AnimCmd sAnim_Swap_Pokeball_Moving[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd * const sAnims_Swap_Interface[] =
+static const union AnimCmd *const sAnims_Swap_Interface[] =
 {
     sAnim_Swap_Interface,
 };
 
-static const union AnimCmd * const sAnims_Swap_MonPicBgAnim[] =
+static const union AnimCmd *const sAnims_Swap_MonPicBgAnim[] =
 {
     sAnim_Swap_MonPicBgAnim,
 };
 
-static const union AnimCmd * const sAnims_Swap_Pokeball[] =
+static const union AnimCmd *const sAnims_Swap_Pokeball[] =
 {
     sAnim_Swap_Pokeball_Still,
     sAnim_Swap_Pokeball_Moving,
@@ -825,7 +824,7 @@ static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Open[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd * const sAffineAnims_Swap_MonPicBgAnim[] =
+static const union AffineAnimCmd *const sAffineAnims_Swap_MonPicBgAnim[] =
 {
     sAffineAnim_Swap_MonPicBg_Opening,
     sAffineAnim_Swap_MonPicBg_Closing,
@@ -887,7 +886,7 @@ static const struct SpriteTemplate sSpriteTemplate_Swap_MonPicBgAnim =
     .callback = SpriteCallbackDummy
 };
 
-void static (* const sSwap_MenuOptionFuncs[])(u8 taskId) =
+void static (*const sSwap_MenuOptionFuncs[])(u8 taskId) =
 {
     Swap_OptionSummary,
     Swap_OptionSwap,
@@ -1488,11 +1487,7 @@ static void Select_Task_OpenSummaryScreen(u8 taskId)
         sFactorySelectMons = AllocZeroed(sizeof(struct Pokemon) * SELECTABLE_MONS_COUNT);
         for (i = 0; i < SELECTABLE_MONS_COUNT; i++)
             sFactorySelectMons[i] = sFactorySelectScreen->mons[i].monData;
-
-        if (BW_SUMMARY_SCREEN)
-            ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_LOCK_MOVES, sFactorySelectMons, currMonId, SELECTABLE_MONS_COUNT - 1, CB2_InitSelectScreen);
-        else
-            ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, sFactorySelectMons, currMonId, SELECTABLE_MONS_COUNT - 1, CB2_InitSelectScreen);
+        ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, sFactorySelectMons, currMonId, SELECTABLE_MONS_COUNT - 1, CB2_InitSelectScreen);
         break;
     }
 }
@@ -2386,10 +2381,7 @@ static void Swap_Task_OpenSummaryScreen(u8 taskId)
         DestroyTask(taskId);
         sFactorySwapScreen->fromSummaryScreen = TRUE;
         sFactorySwapScreen->speciesNameColorBackup = gPlttBufferUnfaded[BG_PLTT_ID(PALNUM_TEXT) + 4];
-        if (BW_SUMMARY_SCREEN)
-            ShowPokemonSummaryScreen_BW(BW_SUMMARY_MODE_NORMAL, gPlayerParty, sFactorySwapScreen->cursorPos, FRONTIER_PARTY_SIZE - 1, CB2_InitSwapScreen);
-        else
-            ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, sFactorySwapScreen->cursorPos, FRONTIER_PARTY_SIZE - 1, CB2_InitSwapScreen);
+        ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, sFactorySwapScreen->cursorPos, FRONTIER_PARTY_SIZE - 1, CB2_InitSwapScreen);
         break;
     }
 }

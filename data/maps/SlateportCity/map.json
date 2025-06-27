@@ -343,6 +343,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SLATEPORT_ENERGY_GURU",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 11,
       "y": 51,

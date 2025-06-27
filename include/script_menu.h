@@ -42,9 +42,9 @@ bool8 (*ScriptMenu_HidePokemonPic(void))(void);
 int ConvertPixelWidthToTileWidth(int width);
 u8 CreateWindowFromRect(u8 x, u8 y, u8 width, u8 height);
 void ClearToTransparentAndRemoveWindow(u8 windowId);
-int DisplayTextAndGetWidth(const u8 *str, int width);
+int DisplayTextAndGetWidth(const u8 *str, int prevWidth);
 int ScriptMenu_AdjustLeftCoordFromWidth(int left, int width);
 bool16 ScriptMenu_CreatePCMultichoice(void);
 void ScriptMenu_DisplayPCStartupPrompt(void);
-bool32 HandlingFieldDialogInput(void);
+
 #endif //GUARD_SCRIPT_MENU_H

@@ -72,6 +72,7 @@ void StartSweetScentFieldEffect(void)
 static void *GetPalBufferPtr(u32 taskId)
 {
     u32 palBuffer;
+
     LoadWordFromTwoHalfwords((u16 *)&gTasks[taskId].tPalBuffer1, &palBuffer);
     return (void *) palBuffer;
 }
@@ -119,3 +120,6 @@ static void FailSweetScentEncounter(u8 taskId)
         FreeDestroyTask(taskId);
     }
 }
+
+#undef tPalBuffer1
+#undef tPalBuffer2
