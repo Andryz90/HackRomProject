@@ -123,7 +123,7 @@
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                               0x4069
-#define VAR_ROUTE111_STATE                               0x406A // Unused Var
+#define VAR_ROUTE111_STATE                               0x406A // Andry/Edo Encounter
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var
@@ -236,8 +236,8 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_BIRCH_TRIGGER_110                            0x40DB // Unused Var
-#define VAR_DEXNAV_STEP_COUNTER                          0x40DC // Custom var
+#define VAR_BIRCH_TRIGGER_110                            0x40DB // Custom Var
+#define VAR_DEXNAV_STEP_COUNTER                          0x40DC 
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read

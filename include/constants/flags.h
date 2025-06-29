@@ -1228,8 +1228,8 @@
 #define FLAG_RUSTBORO_MONKI_RECEIVED                                0x496 
 #define EGG_LADY_INDAYCARE_RECEIVED                                 0x497 
 #define FLAG_SCORCHING_SANDS_TM                                     0x498 
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
+#define FLAG_HIDE_ANDRY_ROUTE111                                    0x499 
+#define FLAG_HIDE_EDO_ROUTE111                                      0x49A 
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag

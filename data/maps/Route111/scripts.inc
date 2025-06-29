@@ -4,30 +4,10 @@
 .set LOCALID_VICKY, 4
 .set LOCALID_BREAKABLE_ROCK, 16
 .set LOCALID_WALLY, 	42
-.set LOCALID_EDO, 		45
-.set LOCALID_ANDRY, 	46
+@ .set LOCALID_EDO, 		45
+@ .set LOCALID_ANDRY, 	46
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
-
-Route111_AndryMovement::
-	face_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-Route111_AndryWalkingScript::
-	applymovement LOCALID_ANDRY, Route111_AndryMovement
-	waitmovement  LOCALID_ANDRY
-	removeobject  LOCALID_ANDRY
-	applymovement LOCALID_EDO, MOVEMENT_ACTION_FACE_PLAYER
-	applymovement LOCALID_EDO, MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
-	waitmovement  LOCALID_EDO
-	
-	end
 
 Route111_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Route111_OnLoad
@@ -622,12 +602,10 @@ Route111_EventScript_Wally_BattleTrigger1::
 	end
 Player_Trigger1::
 	walk_up
-	face_down
 	step_end
 Player_Trigger2::
 	walk_up
 	walk_left
-	face_down
 	step_end
 Route111_EventScript_Wally_BattleTrigger2::
 	lock
@@ -671,6 +649,7 @@ Route111_EventScript_Wally_PostBattle::
 	waitmovement 0
 	setflag FLAG_HIDE_WALLY_ROUTE111
 	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
+	setvar VAR_ROUTE111_STATE, 1 @Handle the Andry/Edo Triggers
 	removeobject LOCALID_WALLY
 	release
 	end
@@ -683,6 +662,218 @@ Wally_Ending_Scene::
 	walk_fast_up
 	walk_fast_up
 	step_end
+
+@@@@@@@@@@ ANDRY/EDO Interaction @@@@@@@@@@@@@@
+
+
+@@@ Movements @@@
+Route111_AndryMovement::
+	face_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+Route111_EdoMovement::
+	face_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route111_PlayerMovement1:
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement2:
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement3:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement4:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement5:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement6:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route111_PlayerMovement7:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+@@@ Common @@@
+Route111_AndryWalkingScript::
+	applymovement LOCALID_ANDRY, Route111_AndryMovement
+	waitmovement  LOCALID_ANDRY
+	removeobject  LOCALID_ANDRY
+	return
+Route111_EdoSurprised::
+	msgbox Route111_EdoCaldo, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_EDO, Common_Movement_FacePlayer
+	waitmovement  LOCALID_EDO
+	applymovement LOCALID_EDO, Common_Movement_ExclamationMark
+	waitmovement  LOCALID_EDO
+	return
+
+Route111_EdoDesertInteraction::
+	msgbox Route111_EdoIntro_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_EDO, Common_Movement_QuestionMark
+	waitmovement  LOCALID_EDO
+	msgbox Route111_EdoMiddleInteraction_Text1, MSGBOX_DEFAULT
+	applymovement LOCALID_EDO, Common_Movement_FaceLeft
+	waitmovement  LOCALID_EDO
+	msgbox Route111_EdoMiddleInteraction_Text2, MSGBOX_DEFAULT
+	applymovement LOCALID_EDO, Common_Movement_FacePlayer
+	waitmovement  LOCALID_EDO
+	msgbox Route111_EdoMiddleInteraction_Text3, MSGBOX_DEFAULT
+	return
+
+Route111_AndryEdoEncounter1::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement1
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter2::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement2
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter3::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement3
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter4::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement4
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter5::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement5
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter6::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement6
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
+
+Route111_AndryEdoEncounter7::
+	lock
+	setvar VAR_ROUTE111_STATE, 2
+	call Route111_AndryWalkingScript
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_PlayerMovement7
+	waitmovement OBJ_EVENT_ID_PLAYER
+	call Route111_EdoSurprised
+	call Route111_EdoDesertInteraction
+	applymovement LOCALID_EDO, Route111_EdoMovement
+	message Route111_EdoInteractionExit_Text
+	waitmovement 
+	removeobject LOCALID_EDO
+	release
+	end
 
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
@@ -854,7 +1045,7 @@ Route111_Text_WallyPostBattle::
 	.string "Now I understand better what\nmy team needs to become stronger.\p"
 	.string "I'm going to train even harder.\p"
 	.string "I feel like I've learned a lot from\n"
-	.string "just one battle with you.$"
+	.string "just one battle with you. $"
 
 Wally_Uhm::
 	.string "Uhm…?$"
@@ -866,8 +1057,25 @@ Route111_Text_Wally_GiveHM03::
 Route111_Text_Wally_AfterGivenHM03::
 	.string "I forgot about that.\nSo my uncle asked you to gave it to me?\p"
 	.string "That's so sweet,\nthanks a lot {PLAYER}.\p"
-	.string "I truly appreciate it.\nI owe you a favor.$"
+	.string "I truly appreciate it.\nI owe you a favor. $"
 
 Route111_Text_Wally_Finale::
 	.string "{PLAYER}, I have to go.\p"
 	.string "Next time, I will not lose!$"
+
+Route111_EdoCaldo::
+	.string "Che caldo... $"
+Route111_EdoIntro_Text::
+	.string "Yo {PLAYER}!\nI didn't expect to find you here.\p"
+	.string "You already have three badges, huh?\nYou're speedrunning your adventure, I see. $"
+Route111_EdoMiddleInteraction_Text1::
+	.string "Huh? The person that was here?$"
+Route111_EdoMiddleInteraction_Text2::
+	.string "It's just a friend of mine.\p"
+	.string "You'll may see him again,\nif you continue your jorney. $"
+Route111_EdoMiddleInteraction_Text3::
+	.string "I have to go, as you know\nI really hate the hot weather.\p"
+	.string "This desert is killing me.\n"
+	.string "See ya.$"
+Route111_EdoInteractionExit_Text::
+	.string "Dio porco che caldo.$"

@@ -610,6 +610,7 @@
       "flag": "FLAG_HIDE_ROUTE_111_DESERT_FOSSIL"
     },
     {
+      "local_id": "LOCALID_EDO",
       "graphics_id": "OBJ_EVENT_GFX_EDOCAP",
       "x": 11,
       "y": 67,
@@ -620,9 +621,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_EDO_ROUTE111"
     },
     {
+      "local_id": "LOCALID_ANDRY",
       "graphics_id": "OBJ_EVENT_GFX_ANDRY",
       "x": 10,
       "y": 67,
@@ -633,7 +635,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_ANDRY_ROUTE111"
     }
   ],
   "warp_events": [
@@ -1001,65 +1003,65 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 72,
+      "y": 71,
       "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter1"
     },
     {
       "type": "trigger",
       "x": 9,
-      "y": 72,
+      "y": 71,
       "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter2"
     },
     {
       "type": "trigger",
       "x": 10,
-      "y": 72,
+      "y": 71,
       "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 72,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 72,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 72,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter3"
     },
     {
       "type": "trigger",
       "x": 14,
-      "y": 72,
+      "y": 71,
       "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "Route111_AndryWalkingScript"
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter7"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 71,
+      "elevation": 3,
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter6"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 71,
+      "elevation": 3,
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter5"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 71,
+      "elevation": 3,
+      "var": "VAR_ROUTE111_STATE",
+      "var_value": "1",
+      "script": "Route111_AndryEdoEncounter4"
     }
   ],
   "bg_events": [
