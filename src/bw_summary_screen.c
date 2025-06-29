@@ -2432,17 +2432,16 @@ static void Task_HandleInput(u8 taskId)
                     PlaySE(SE_SELECT);
                     if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
                     {
-                        
-                        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+                        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState == SKILL_STATE_STATS)
                         {
                             DestroyGradeIcons();
-                            BufferAndPrintStats_HandleState(tSkillsState);
                         }
                         else
                         {
                             ShowGradeIcons(tSkillsState);
                         }
                     }
+                    BufferAndPrintStats_HandleState(tSkillsState);
                 }
             }
         }
@@ -2633,15 +2632,15 @@ static void Task_ChangeSummaryMon(u8 taskId)
     case 12:
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED))
         {
-            if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+            if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState == SKILL_STATE_STATS)
             {
                 DestroyGradeIcons();
-                BufferAndPrintStats_HandleState(tSkillsState);
             }
             else
             {
                 ShowGradeIcons(tSkillsState);
             }
+            BufferAndPrintStats_HandleState(tSkillsState);
         }
         break;
     case 13:
@@ -2811,15 +2810,15 @@ static void PssScrollEnd(u8 taskId)
 
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED))
     {
-        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState == SKILL_STATE_STATS)
         {
             DestroyGradeIcons();
-            BufferAndPrintStats_HandleState(tSkillsState);
         }
         else
         {
             ShowGradeIcons(tSkillsState);
         }
+        BufferAndPrintStats_HandleState(tSkillsState);
     }
 
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
@@ -5194,10 +5193,10 @@ static void SpriteCB_Pokemon(struct Sprite *sprite)
         {
             // only play cry on the first time mon is animated
             PlayMonCry();
-            //Animate the Pokemon only once
-            PokemonSummaryDoMonAnimation(sprite, sprite->sSpecies, summary->isEgg);
-            sMonSummaryScreen->monAnimPlayed = TRUE;
         } 
+        //Animate the Pokemon
+        PokemonSummaryDoMonAnimation(sprite, sprite->sSpecies, summary->isEgg);
+        sMonSummaryScreen->monAnimPlayed = TRUE;
     }
 }
 

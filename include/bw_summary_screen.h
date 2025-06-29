@@ -30,7 +30,7 @@
                                                                         // option for people who already use custom icons everywhere else
 #define BW_SUMMARY_SCROLLING_BG                     TRUE                // enables scrolling animated background
 #define BW_SUMMARY_BG_BLEND                         TRUE                // enables alpha blending for the main UI (semi-transparency)
-#define BW_SUMMARY_MON_IDLE_ANIMS                   TRUE                // loops the mon animations regularly as an "idle" anim
+#define BW_SUMMARY_MON_IDLE_ANIMS                   FALSE               // loops the mon animations regularly as an "idle" anim
 #define BW_SUMMARY_MON_SHADOWS                      TRUE                // displays a shadow for the mon sprite
 #define BW_SUMMARY_SHOW_CONTEST_MOVES               TRUE                // show the contest moves page
 
