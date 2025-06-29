@@ -4688,6 +4688,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower = {
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BallLight = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_LIGHT,

@@ -74,6 +74,12 @@ RustboroCity_EventScript_ScientistAddMatchCall::
 	@delay 20
 	@goto RustboroCity_EventScript_MatchCallTutorial
 
+	@@Custom
+	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
+	setvar VAR_RUSTBORO_CITY_STATE, 7
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+
 RustboroCity_EventScript_PleaseSelectPokenav::
 	msgbox RustboroCity_Text_PleaseSelectPokenav, MSGBOX_DEFAULT
 	closemessage
