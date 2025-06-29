@@ -579,6 +579,8 @@ static bool8 LoadPyramidBagGfx(void)
         break;
     case 2:
         LoadPalette(gBattlePyramidBagInterface_Pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        //BW Background
+        LoadPalette(gScrollBgPalette, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
         gPyramidBagMenu->state++;
         break;
     case 3:

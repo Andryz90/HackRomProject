@@ -1080,7 +1080,7 @@ static void BagMenu_InitBGs(void)
     ShowBg(3);
 }
 
-/*Prova*/
+/*Customized*/
 static bool8 LoadBagMenu_Graphics(void)
 {
     switch (gBagMenu->graphicsLoadState)
@@ -1109,11 +1109,25 @@ static bool8 LoadBagMenu_Graphics(void)
             LoadCompressedSpriteSheet(&gBagMaleSpriteSheet);
         else
             LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet);
+        //BW Background
+        LoadPalette(gScrollBgPalette, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
         gBagMenu->graphicsLoadState++;
         break;
     case 4:
         LoadSpritePalette(&gBagPaletteTable);
         gBagMenu->graphicsLoadState++;
+        break;
+    case 5:
+        ResetTempTileDataBuffers();
+        DecompressAndCopyTileDataToVram(3, gScrollBgTiles, 0, 0, 0);
+        gBagMenu->graphicsLoadState++;
+        break;
+    case 6:
+        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        {
+            DecompressDataWithHeaderWram(gScrollBgTilemap, gBagMenu->tilemapBuffer2);
+            gBagMenu->graphicsLoadState++;
+        }
         break;
     default:
         LoadListMenuSwapLineGfx();
