@@ -2066,12 +2066,12 @@ static bool8 DecompressGraphics(void)
         sMonSummaryScreen->switchCounter++;
         break;
     case 18:
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
             LoadCompressedSpriteSheet(&sSpriteSheet_StatGrades);
         sMonSummaryScreen->switchCounter++;
         break;
     case 19:
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
             LoadSpritePalette(&sSpritePal_StatGrades);
         sMonSummaryScreen->switchCounter++;
         break;
@@ -2332,9 +2332,11 @@ static void ChangeSummaryState(s16 *data, u8 taskId)
         tSkillsState = SKILL_STATE_EVS;
         break;
     case SKILL_STATE_EVS:
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
+            tSkillsState = SKILL_STATE_STATS;
+        else if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
             tSkillsState = SKILL_STATE_IVS;
-        else
+        else 
             tSkillsState = SKILL_STATE_STATS;
         break;
     }
@@ -2356,15 +2358,15 @@ static void DrawNextSkillsButtonPrompt(u8 mode)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
             break;
         case SKILL_STATE_EVS:
-            if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+            if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
             {
                 ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
-                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
+                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
             }
             else
             {
                 ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
-                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
+                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
             }
             break;
     }
@@ -2374,7 +2376,7 @@ static void DrawNextSkillsButtonPrompt(u8 mode)
 static void Task_HandleInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    u8 defaultSkillsState = (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED) ? SKILL_STATE_IVS : SKILL_STATE_STATS;
+    u8 defaultSkillsState = (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) ? SKILL_STATE_STATS : SKILL_STATE_IVS;
 
     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE && !gPaletteFade.active)
     {
@@ -2422,16 +2424,25 @@ static void Task_HandleInput(u8 taskId)
             }
             else
             {
-                if (BW_SUMMARY_IV_EV_DISPLAY != BW_IV_EV_HIDDEN)
+                if ((BW_SUMMARY_IV_EV_DISPLAY != BW_IV_EV_HIDDEN))
                 {
                     // Cycle through IVs/EVs/stats on pressing A
                     ChangeSummaryState(data, taskId);
                     DrawNextSkillsButtonPrompt(tSkillsState);
                     PlaySE(SE_SELECT);
-                    if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
-                        ShowGradeIcons(tSkillsState);
-                    else
-                        BufferAndPrintStats_HandleState(tSkillsState);
+                    if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
+                    {
+                        
+                        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+                        {
+                            DestroyGradeIcons();
+                            BufferAndPrintStats_HandleState(tSkillsState);
+                        }
+                        else
+                        {
+                            ShowGradeIcons(tSkillsState);
+                        }
+                    }
                 }
             }
         }
@@ -2466,7 +2477,6 @@ static void Task_HandleInput(u8 taskId)
     }
 }
 
-#undef tSkillsState
 
 #define tSummaryState data[0]
 
@@ -2614,15 +2624,25 @@ static void Task_ChangeSummaryMon(u8 taskId)
         } 
         else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
         {
-            if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_PRECISE)
+            if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
                 DrawNextSkillsButtonPrompt(SKILL_STATE_STATS);
-            else if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+            else if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
                 DrawNextSkillsButtonPrompt(SKILL_STATE_IVS);
         }
         break;
     case 12:
-        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
-            ShowGradeIcons(SKILL_STATE_IVS);
+        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED))
+        {
+            if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+            {
+                DestroyGradeIcons();
+                BufferAndPrintStats_HandleState(tSkillsState);
+            }
+            else
+            {
+                ShowGradeIcons(tSkillsState);
+            }
+        }
         break;
     case 13:
         gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].sDelayAnim = 0;
@@ -2759,6 +2779,8 @@ static void PssScroll(u8 taskId)
 
 static void PssScrollEnd(u8 taskId)
 {
+    s16* data = gTasks[taskId].data;
+
     if (sMonSummaryScreen->mode == BW_SUMMARY_MODE_SELECT_MOVE)
     {
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_CONTEST_MOVES)
@@ -2787,8 +2809,18 @@ static void PssScrollEnd(u8 taskId)
     TryDrawHPBar();
     TryDrawExperienceProgressBar();
 
-    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
-        ShowGradeIcons(SKILL_STATE_IVS);
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED))
+    {
+        if ((BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE) && tSkillsState != SKILL_STATE_STATS)
+        {
+            DestroyGradeIcons();
+            BufferAndPrintStats_HandleState(tSkillsState);
+        }
+        else
+        {
+            ShowGradeIcons(tSkillsState);
+        }
+    }
 
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
     {
@@ -2801,6 +2833,7 @@ static void PssScrollEnd(u8 taskId)
 
 #undef tScrollState
 #undef tMosaicStrength
+#undef tSkillsState
 
 static void TryDrawExperienceProgressBar(void)
 {
@@ -3639,7 +3672,7 @@ static void PrintPageNamesAndStats(void)
 
     if (BW_SUMMARY_IV_EV_DISPLAY != BW_IV_EV_HIDDEN)
     {
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
         {
             stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewIVs_Graded, skillsLabelWidth);
             iconXPos = stringXPos - 16;
@@ -3685,6 +3718,10 @@ static void PrintPageNamesAndStats(void)
     
     stringXPos = GetStringRightAlignXOffset(FONT_SMALL, sText_Relearn, 42);
     PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_INFO, sText_Relearn, stringXPos, 1, 0, 1, FONT_SMALL);
+
+    //Relearn Button
+    stringXPos = GetStringRightAlignXOffset(FONT_SMALL, sText_Relearn, 42);
+    PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_INFO, sText_Relearn, stringXPos, 1, 0, 1, FONT_SMALL);
 }
 
 static void PutPageWindowTilemaps(u8 page)
@@ -3705,9 +3742,9 @@ static void PutPageWindowTilemaps(u8 page)
     case PSS_PAGE_SKILLS:
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_PRECISE)
+        if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
-        else if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        else if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
         break;
     case PSS_PAGE_BATTLE_MOVES:
@@ -4827,8 +4864,8 @@ static void ShowGradeIcons(u8 mode)
     StartSpriteAnim(&gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_SPE_GRADE]], speed / divisor);
 }
 
-// idk, might need this, who knows :)
-static void UNUSED DestroyGradeIcons(void)
+
+static void DestroyGradeIcons(void)
 {
     u32 i;
     for (i = SPRITE_ARR_ID_HP_GRADE; i <= SPRITE_ARR_ID_SPE_GRADE; i++)
@@ -5144,15 +5181,23 @@ static u8 CreateMonSprite(struct Pokemon *unused, bool32 isShadow)
     return spriteId;
 }
 
+//Customized
 static void SpriteCB_Pokemon(struct Sprite *sprite)
 {
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
 
-    if (!gPaletteFade.active && sprite->data[2] != 1)
+    if (!gPaletteFade.active && sprite->sDelayAnim != 1)
     {
-        sprite->data[1] = IsMonSpriteNotFlipped(sprite->data[0]);
-        PlayMonCry();
-        PokemonSummaryDoMonAnimation(sprite, sprite->data[0], summary->isEgg);
+        sprite->sDontFlip = TRUE;
+
+        if (!sMonSummaryScreen->monAnimPlayed)
+        {
+            // only play cry on the first time mon is animated
+            PlayMonCry();
+            //Animate the Pokemon only once
+            PokemonSummaryDoMonAnimation(sprite, sprite->sSpecies, summary->isEgg);
+            sMonSummaryScreen->monAnimPlayed = TRUE;
+        } 
     }
 }
 
