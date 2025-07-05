@@ -981,6 +981,8 @@ static void FreePartyPointers(void)
         Free(sPartyBgGfxTilemap);
     if (sPartyMenuBoxes)
         Free(sPartyMenuBoxes);
+    if (sPartyScrollBgTilemapBuffer)
+        Free(sPartyScrollBgTilemapBuffer);
     FreeAllWindowBuffers();
 }
 
@@ -4647,8 +4649,10 @@ void CB2_ShowPartyMenuForItemUse(void)
 
 static void CB2_ReturnToBagMenu(void)
 {
-    if (InBattlePyramid() == FALSE)
+    if (InBattlePyramid() == FALSE && gSpecialVar_ItemId != ITEM_RARE_CANDY_KEY_ITEM)
         GoToBagMenu(ITEMMENULOCATION_LAST, POCKETS_COUNT, NULL);
+    else if (InBattlePyramid() == FALSE)
+        GoToBagMenu(ITEMMENULOCATION_FIELD, POCKETS_COUNT, NULL);
     else
         GoToBattlePyramidBagMenu(PYRAMIDBAG_LOC_PREV, gPyramidBagMenuState.exitCallback);
 }
