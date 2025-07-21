@@ -1126,7 +1126,7 @@ void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation)
     }
 
     isEgg = TRUE;
-    SetMonData(mon, MON_DATA_IS_EGG, &isEgg);
+    
 }
 
 static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare)

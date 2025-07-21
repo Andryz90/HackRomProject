@@ -90,16 +90,20 @@ enum WildPokemonEncounterType
     WILD_POKEMON_FISHING,
 };
 
+#define DEERLING_SAWSBUCK_FORM_SIZE       4
+#define FLORGES_FLABEBE_FORM_SIZE         5
+#define BASCULIN_FORM_SIZE                3
 static u16 RandomizeMonMultiForm (u16 species, enum WildPokemonEncounterType type)
 {
-    const u16 Deerling_SpeciesLookUpTable[4] = {SPECIES_DEERLING_SPRING, SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_AUTUMN, SPECIES_DEERLING_WINTER};
-    const u16 Sawsbuck_SpeciesLookUpTable[4] = {SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER};
+    //Deerling - Sawsbuck
+    const u16 Deerling_SpeciesLookUpTable[DEERLING_SAWSBUCK_FORM_SIZE] = {SPECIES_DEERLING_SPRING, SPECIES_DEERLING_SUMMER, SPECIES_DEERLING_AUTUMN, SPECIES_DEERLING_WINTER};
+    const u16 Sawsbuck_SpeciesLookUpTable[DEERLING_SAWSBUCK_FORM_SIZE] = {SPECIES_SAWSBUCK_SPRING, SPECIES_SAWSBUCK_SUMMER, SPECIES_SAWSBUCK_AUTUMN, SPECIES_SAWSBUCK_WINTER};
     //Flabebe - Floette - Florges
-    const u16 Flabebe_SpeciesLookUpTable[5] = {SPECIES_FLABEBE_RED_FLOWER, SPECIES_FLABEBE_YELLOW_FLOWER, SPECIES_FLABEBE_ORANGE_FLOWER, SPECIES_FLABEBE_BLUE_FLOWER, SPECIES_FLABEBE_WHITE_FLOWER};
-    const u16 Floette_SpeciesLookUpTable[5] = {SPECIES_FLOETTE_RED_FLOWER, SPECIES_FLOETTE_YELLOW_FLOWER, SPECIES_FLOETTE_ORANGE_FLOWER, SPECIES_FLOETTE_BLUE_FLOWER, SPECIES_FLOETTE_WHITE_FLOWER};
-    const u16 Florges_SpeciesLookUpTable[5] = {SPECIES_FLORGES_RED_FLOWER, SPECIES_FLORGES_YELLOW_FLOWER, SPECIES_FLORGES_ORANGE_FLOWER, SPECIES_FLORGES_BLUE_FLOWER, SPECIES_FLORGES_WHITE_FLOWER};
+    const u16 Flabebe_SpeciesLookUpTable[FLORGES_FLABEBE_FORM_SIZE] = {SPECIES_FLABEBE_RED_FLOWER, SPECIES_FLABEBE_YELLOW_FLOWER, SPECIES_FLABEBE_ORANGE_FLOWER, SPECIES_FLABEBE_BLUE_FLOWER, SPECIES_FLABEBE_WHITE_FLOWER};
+    const u16 Floette_SpeciesLookUpTable[FLORGES_FLABEBE_FORM_SIZE] = {SPECIES_FLOETTE_RED_FLOWER, SPECIES_FLOETTE_YELLOW_FLOWER, SPECIES_FLOETTE_ORANGE_FLOWER, SPECIES_FLOETTE_BLUE_FLOWER, SPECIES_FLOETTE_WHITE_FLOWER};
+    const u16 Florges_SpeciesLookUpTable[FLORGES_FLABEBE_FORM_SIZE] = {SPECIES_FLORGES_RED_FLOWER, SPECIES_FLORGES_YELLOW_FLOWER, SPECIES_FLORGES_ORANGE_FLOWER, SPECIES_FLORGES_BLUE_FLOWER, SPECIES_FLORGES_WHITE_FLOWER};
     // Water - Fishing
-    const u16 Basculin_SpeciesLookUpTable[3] = {SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED};
+    const u16 Basculin_SpeciesLookUpTable[BASCULIN_FORM_SIZE] = {SPECIES_BASCULIN_RED_STRIPED, SPECIES_BASCULIN_BLUE_STRIPED, SPECIES_BASCULIN_WHITE_STRIPED};
     
     switch (type)
     {   
@@ -107,19 +111,19 @@ static u16 RandomizeMonMultiForm (u16 species, enum WildPokemonEncounterType typ
             switch (species)
             {
             case SPECIES_DEERLING:
-                species = Deerling_SpeciesLookUpTable[Random() % 4];
+                species = Deerling_SpeciesLookUpTable[Random() % DEERLING_SAWSBUCK_FORM_SIZE];
                 break;
             case SPECIES_SAWSBUCK:
-                species = Sawsbuck_SpeciesLookUpTable[Random() % 4];
+                species = Sawsbuck_SpeciesLookUpTable[Random() % DEERLING_SAWSBUCK_FORM_SIZE];
                 break;
             case SPECIES_FLABEBE:
-                species = Flabebe_SpeciesLookUpTable[Random() % 5];
+                species = Flabebe_SpeciesLookUpTable[Random() % FLORGES_FLABEBE_FORM_SIZE];
                 break;
             case SPECIES_FLOETTE:
-                species = Floette_SpeciesLookUpTable[Random() % 5];
+                species = Floette_SpeciesLookUpTable[Random() % FLORGES_FLABEBE_FORM_SIZE];
                 break;
             case SPECIES_FLORGES:
-                species = Florges_SpeciesLookUpTable[Random() % 5];
+                species = Florges_SpeciesLookUpTable[Random() % FLORGES_FLABEBE_FORM_SIZE];
                 break;
             }
             break;
@@ -128,7 +132,7 @@ static u16 RandomizeMonMultiForm (u16 species, enum WildPokemonEncounterType typ
             switch (species)
             {
             case SPECIES_BASCULIN:
-                species = Basculin_SpeciesLookUpTable[Random() % 4];
+                species = Basculin_SpeciesLookUpTable[Random() % BASCULIN_FORM_SIZE];
                 break;
             }
         break;
@@ -137,6 +141,9 @@ static u16 RandomizeMonMultiForm (u16 species, enum WildPokemonEncounterType typ
     }
     return species;
 }
+#undef DEERLING_SAWSBUCK_FORM_SIZE       
+#undef FLORGES_FLABEBE_FORM_SIZE         
+#undef BASCULIN_FORM_SIZE        
 
 // Each fishing spot on Route 119 is given a number between 1 and NUM_FISHING_SPOTS inclusive.
 // The number is determined by counting the valid fishing spots left to right top to bottom.

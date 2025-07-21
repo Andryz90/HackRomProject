@@ -3473,6 +3473,10 @@
         "Move": "MOVE_ASTONISH"
       },
       {
+        "Level": 5,
+        "Move": "MOVE_BITE"
+      },
+      {
         "Level": 10,
         "Move": "MOVE_MEAN_LOOK"
       },
@@ -3566,6 +3570,10 @@
   "GOLBAT": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_AERIAL_ACE"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_SCREECH"
       },
@@ -3593,6 +3601,7 @@
         "Level": 20,
         "Move": "MOVE_QUICK_GUARD"
       },
+
       {
         "Level": 27,
         "Move": "MOVE_AIR_CUTTER"
@@ -27238,6 +27247,10 @@
         "Move": "MOVE_PSYSHOCK"
       },
       {
+        "Level": 18,
+        "Move": "MOVE_SNARL"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_COSMIC_POWER"
       },
@@ -27246,12 +27259,20 @@
         "Move": "MOVE_PSYCHIC"
       },
       {
+        "Level": 32,
+        "Move": "MOVE_DARK_PULSE"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_STONE_EDGE"
       },
       {
         "Level": 40,
         "Move": "MOVE_FUTURE_SIGHT"
+      },
+      {
+        "Level": 42,
+        "Move": "MOVE_NIGHT_DAZE"
       },
       {
         "Level": 45,
@@ -27328,6 +27349,10 @@
   "SOLROCK": {
     "LevelMoves": [
       {
+        "Level": 52,
+        "Move": "MOVE_RAGING_FURY"
+      }
+      {
         "Level": 1,
         "Move": "MOVE_FLARE_BLITZ"
       },
@@ -27368,12 +27393,24 @@
         "Move": "MOVE_ZEN_HEADBUTT"
       },
       {
+        "Level": 18,
+        "Move": "MOVE_FLAME_WHEEL"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_COSMIC_POWER"
       },
       {
+        "Level": 27,
+        "Move": "MOVE_PSYCHO_CUT"
+      },
+      {
         "Level": 30,
         "Move": "MOVE_PSYCHIC"
+      },
+      {
+        "Level": 32,
+        "Move": "MOVE_HEAT_CRASH"
       },
       {
         "Level": 35,
@@ -27382,6 +27419,10 @@
       {
         "Level": 40,
         "Move": "MOVE_SOLAR_BEAM"
+      },
+      {
+        "Level": 42,
+        "Move": "MOVE_TEMPER_FLARE"
       },
       {
         "Level": 45,

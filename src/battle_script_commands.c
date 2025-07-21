@@ -8706,7 +8706,7 @@ static void Cmd_yesnoboxlearnmove(void)
     case 4:
         if (!gPaletteFade.active && gMain.callback2 == BattleMainCB2)
         {
-            u8 movePosition = GetMoveSlotToReplace();
+            u8 movePosition = GetMoveSlotToReplace_Wrap();
             if (movePosition == MAX_MON_MOVES)
             {
                 gBattleScripting.learnMoveState = 5;

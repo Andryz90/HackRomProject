@@ -69,7 +69,8 @@
 #include "constants/weather.h"
 #include "wild_encounter.h"
 
-#define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 160 : 220)
+//Custom: Friendship evolution removed
+#define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 0 : 0)
 
 struct SpeciesItem
 {

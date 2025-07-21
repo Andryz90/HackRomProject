@@ -1000,13 +1000,19 @@ Music: Interviewer
 Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magnemite
-Level: 17
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Magnezone @ Choice Band  
+Ability: Magnet Pull  
+Level: 36  
+Adamant Nature  
+- Explosion  
 
-Whismur
-Level: 17
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Exploud @ Choice Band  
+Ability: Scrappy  
+Level: 36  
+Adamant Nature  
+- Explosion  
+
+
 
 === TRAINER_GABBY_AND_TY_2 ===
 Name: GABBY & TY
@@ -3864,9 +3870,21 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Nuzleaf
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Solrock @ Air Balloon  
+Ability: Drought  
+Level: 35  
+- Solar Beam  
+- Temper Flare  
+- Rock Slide  
+- Psycho Cut  
+
+Centiskorch @ Charcoal  
+Ability: Flash Fire  
+Level: 35  
+- Heat Wave  
+- Power Whip  
+- Coil  
+- Leech Life  
 
 === TRAINER_SHANE ===
 Name: SHANE
@@ -9247,13 +9265,26 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Taillow
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+SPECIES_SAWSBUCK_SUMMER @ Charcoal  
+Level: 35
+Ability: Chlorophyll  
+Adamant Nature  
+- Season Power
+- Horn Leech  
+- High Horsepower  
+- Headbutt  
 
-Lombre
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magcargo @ Absorb Bulb  
+Level: 35
+Ability: Weak Armor  
+Bold Nature  
+IVs: 0 Atk  
+- Shell Trap  
+- Eruption  
+- Body Press  
+- Will-O-Wisp  
+
+
 
 === TRAINER_NANCY ===
 Name: NANCY
@@ -10971,7 +11002,6 @@ AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ H
 Breloom @ Loaded Dice  
 Ability: Technician  
 Level: 33  
-Tera Type: Grass  
 - Spore  
 - Mach Punch  
 - Bullet Seed  
@@ -10980,7 +11010,6 @@ Tera Type: Grass
 Delcatty @ Silk Scarf  
 Ability: Cute Charm  
 Level: 34  
-Tera Type: Normal  
 Adamant Nature  
 - Fake Out  
 - Sing  
@@ -10989,7 +11018,6 @@ Adamant Nature
 Comfey (F) @ Big Root  
 Ability: Triage  
 Level: 34  
-Tera Type: Fairy  
 IVs: 0 Atk  
 - Leech Seed  
 - Draining Kiss  
@@ -10999,7 +11027,6 @@ IVs: 0 Atk
 Lilligant-Hisui  
 Ability: Chlorophyll  
 Level: 34  
-Tera Type: Grass  
 - Victory Dance  
 - Leaf Blade  
 - Axe Kick  

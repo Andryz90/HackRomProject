@@ -3215,22 +3215,14 @@
     "TutorMoves": []
   },
   "ZUBAT": {
-    "LevelMoves": [
-      {
-        "Level": 5,
-        "Move": "MOVE_BITE"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "GOLBAT": {
-    "LevelMoves": [      {
-      "Level": 0,
-      "Move": "MOVE_AERIAL_ACE"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -31804,49 +31796,14 @@
     "TutorMoves": []
   },
   "LUNATONE": {
-    "LevelMoves": [
-      {
-        "Level": 20,
-        "Move": "MOVE_SNARL"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_DARK_PULSE"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_NIGHT_DAZE"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "SOLROCK": {
-    "LevelMoves": [
-      {
-        "Level": 20,
-        "Move": "MOVE_FLAME_WHEEL"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_PSYCHO_CUT"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_HEAT_CRASH"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_TEMPER_FLARE"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_RAGING_FURY"
-      }
-
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],

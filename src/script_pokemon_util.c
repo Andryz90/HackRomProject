@@ -357,6 +357,7 @@ u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item
     if (isEgg)
     {
         CreateMon(&mon, species, EGG_HATCH_LEVEL, 32, TRUE, 0, OT_ID_PLAYER_ID, 0);
+        SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
     }
     else if ((gender == MON_MALE && genderRatio != MON_FEMALE && genderRatio != MON_GENDERLESS)
      || (gender == MON_FEMALE && genderRatio != MON_MALE && genderRatio != MON_GENDERLESS)
