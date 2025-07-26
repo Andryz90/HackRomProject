@@ -174,7 +174,7 @@ Route111_EventScript_Girl::
 	dotimebasedevents
 	goto_if_set FLAG_DAILY_ROUTE_111_RECEIVED_BERRY, Route111_EventScript_ReceivedBerry
 	msgbox Route111_Text_WateredPlantsEveryDayTakeBerry, MSGBOX_DEFAULT
-	giveitem ITEM_RAZZ_BERRY
+	giveitem ITEM_RAZZ_BERRY, 10
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_ROUTE_111_RECEIVED_BERRY
 	special GetPlayerBigGuyGirlString
@@ -1072,7 +1072,8 @@ Route111_EdoMiddleInteraction_Text1::
 	.string "Huh? The person that was here?$"
 Route111_EdoMiddleInteraction_Text2::
 	.string "It's just a friend of mine.\p"
-	.string "You'll may see him again,\nif you continue your jorney. $"
+	.string "You'll may see him again,\n"
+	.string "if you continue your jorney.$"
 Route111_EdoMiddleInteraction_Text3::
 	.string "I have to go, as you know\nI really hate the hot weather.\p"
 	.string "This desert is killing me.\n"

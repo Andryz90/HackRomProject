@@ -1828,17 +1828,36 @@ Music: Cool
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Wingull
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Pelipper (F) @ Life Orb  
+Ability: Drizzle  
+Level: 36  
+Modest Nature  
+- Hurricane  
+- Hydro Pump  
+- U-turn  
+- Roost  
 
-Numel
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Camerupt (F) @ Passho Berry  
+Ability: Solid Rock  
+Level: 36   
+Modest Nature  
+IVs: 0 Atk  
+- Sunny Day  
+- Solar Beam  
+- Flamethrower  
+- Earth Power  
 
-Roselia
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Roserade @ Wide Lens  
+Ability: Technician  
+Level: 36  
+Timid Nature  
+IVs: 0 Atk / 30 SpA / 30 Spe  
+- Giga Drain  
+- Hidden Power
+- Sludge Bomb  
+- Sleep Powder  
+
+
 
 === TRAINER_JENNIFER ===
 Name: JENNIFER
@@ -14494,9 +14513,32 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Boltund @ Expert Belt  
+Ability: Strong Jaw  
+Level: 34  
+Adamant Nature  
+- Thunder Fang  
+- Psychic Fangs  
+- Crunch  
+- Shock Wave  
+
+Dunsparce @ Eviolite  
+Ability: Serene Grace  
+Level: 34  
+Quiet Nature  
+- Shock Wave  
+- Ancient Power  
+- Body Slam  
+
+Exploud @ Silk Scarf  
+Ability: Punk Rock  
+Modest Nature  
+IVs: 0 Atk  
+- Shock Wave  
+- Hyper Voice  
+- Surf  
+- Incinerate  
+
 
 === TRAINER_SOPHIE ===
 Name: SOPHIE
@@ -15101,13 +15143,25 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Simisear @ Starf Berry  
+Ability: Gluttony  
+Level: 35  
+Modest Nature  
+IVs: 0 Atk  
+- Heat Wave  
+- Grass Knot  
+- Protect  
+- Will-O-Wisp  
 
-Slugma
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Emboar @ Charcoal  
+Ability: Reckless  
+Level: 35  
+- Flame Charge  
+- Flare Blitz  
+- Double-Edge  
+- Wild Charge  
+
+
 
 === TRAINER_SHAYLA ===
 Name: SHAYLA
@@ -15118,13 +15172,25 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Shroomish
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mothim @ Silver Powder  
+Ability: Tinted Lens  
+Level: 35  
+IVs: 0 Atk  
+- Silver Wind  
+- Tailwind  
+- Air Cutter  
+- Giga Drain  
 
-Roselia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Eldegoss @ Sitrus Berry  
+Ability: Regenerator  
+Level: 35  
+Calm Nature  
+IVs: 0 Atk  
+- Giga Drain  
+- Stun Spore  
+- Synthesis  
+- Sunny Day  
+
 
 === TRAINER_KYRA ===
 Name: KYRA

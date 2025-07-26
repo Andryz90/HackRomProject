@@ -154,4 +154,4 @@ FallarborTown_Tutor_EventScript_ComeBackWithHeartScale::
 FallarborTown_Tutor_Text_ImTheMoveTutor:
 	.string "I can teach special moves\nto your Pokémon.\p"
 	.string "This service requires,\njust 1 Heart Scale.\p"
-	.string "Are you interested?$"
+	.string "Are you interested? $"

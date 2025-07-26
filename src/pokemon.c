@@ -2584,6 +2584,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_PP4:
             retVal = substruct1->pp4;
             break;
+        #if (P_FLAG_EV_DISABLED == TRUE)
         /*Remove of the EVs from the game*/
         case MON_DATA_HP_EV:
         case MON_DATA_ATK_EV:
@@ -2594,6 +2595,26 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = 0u;
             //retVal = substruct2->spDefenseEV;
             break;
+        #else
+        case MON_DATA_HP_EV:
+            retVal = substruct2->hpEV;
+            break;
+        case MON_DATA_ATK_EV:
+            retVal = substruct2->attackEV;
+            break;
+        case MON_DATA_DEF_EV:
+            retVal = substruct2->defenseEV;
+            break;
+        case MON_DATA_SPEED_EV:
+            retVal = substruct2->speedEV;
+            break;
+        case MON_DATA_SPATK_EV:
+            retVal = substruct2->spAttackEV;
+            break;
+        case MON_DATA_SPDEF_EV:
+            retVal = substruct2->spDefenseEV;
+            break;
+        #endif
         case MON_DATA_COOL:
             retVal = substruct2->cool;
             break;
@@ -5484,6 +5505,9 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 
         evs[i] += evIncrease;
         totalEVs += evIncrease;
+        #if (P_FLAG_EV_DISABLED == TRUE)
+        totalEVs = 0;
+        #endif
         SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
     }
 }

@@ -445,7 +445,7 @@ BattleFrontier_BattleDomeLobby_Text_TakeSinglesChallenge:
 	.string "the SINGLE BATTLE Tournament?$"
 
 BattleFrontier_BattleDomeLobby_Text_HopeToSeeYouAgain:
-	.string "We hope to see you again.$"
+	.string "We hope to see you again. $"
 
 BattleFrontier_BattleDomeLobby_Text_ExplainSinglesChallenge:
 	.string "The SINGLE BATTLE Tournament\n"

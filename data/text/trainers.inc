@@ -1406,8 +1406,8 @@ Route111_Text_BrookePostBattle:
 	.string "much to be done.$"
 
 Route111_Text_BrookeRegister:
-	.string "I wish I could become friends with\n"
-	.string "more strong people like you!$"
+	.string "Did you know? I'm a speedrun\n"
+	.string "killer in Pokemon Sapphire!$"
 
 Route111_Text_BrookeRematchIntro:
 	.string "You can make POKéMON stronger or\n"

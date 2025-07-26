@@ -413,9 +413,11 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_11:
 	goto OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_10
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_No::
-	.string "I see. Come back if you need\nsomething else.$"
+	.string "I see. Come back if you need\n"
+	.string "something else.$"
 AreYouSureNatureChange::
-	.string "Are you sure you want\nto change to this nature?$"
+	.string "Are you sure you want\n"
+	.string "to change to this nature?$"
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_0:
 	.string "Which Pokémon?$"
 
@@ -423,7 +425,8 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_1:
 	.string "I can't change the Nature of an Egg.$"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_2:
-	.string "Which new Nature suits {STR_VAR_1}\nbest?$"
+	.string "Which new Nature suits {STR_VAR_1}\n"
+	.string "the best?$"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_3:
 	.string "Adamant       {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk$"
@@ -507,7 +510,8 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_29:
 	.string "Excellent. We shall begin at once!$"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_30:
-	.string "{STR_VAR_1}'s Nature has been\nchanged!$"
+	.string "{STR_VAR_1}'s Nature\n"
+	.string "has been changed!$"
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Max IVs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -719,23 +723,32 @@ PKMN_Center_Mystery_Gift_Text_ReceivedGift::
 	.string "Take good care of {STR_VAR_1}!$"
 
 PKMN_Center_Nature_Change_IntroText::
-	.string "I can change nature of a Pokémon\nif you want.$"
+	.string "I can change nature of a Pokémon\n"
+	.string "if you want.$"
 PKMN_Center_Text_ApplyingStatus::
-	.string "Which POKéMON you want to\napply a status to?$"
+	.string "Which POKéMON you want to\n"
+	.string "apply a status to?$"
 PKMN_Center_Text_Damage::
-	.string "Which POKéMON you want\nto pre-damage?$"
+	.string "Which POKéMON you want\n"
+	.string "to pre-damage?$"
 PKMN_Center_Text_Damage_YesNo::
-	.string "{STR_VAR_1} will be damage\nare you sure?$"
+	.string "{STR_VAR_1} will be damaged\n"
+	.string "are you sure?$"
 PKMN_Center_Nature_Change_Text::
-	.string "Which POKéMON you want to\nchange nature?$"
+	.string "Which POKéMON you want to\n"
+	.string "change nature?$"
 PKMN_Center_Nature_Switch_Text::
-	.string "Which Nature you want to\nchange to?$"
+	.string "Which Nature you want to\n"
+	.string "change to?$"
 PKMN_Center_IVs_Party::
-	.string "Which POKémon you want to\nmaximize the IVs?$"
+	.string "Which POKémon you want to\n"
+	.string "maximize the IVs?$"
 PKMN_Center_Gender_Party::
-	.string "Which POKémon you want to\nswitch gender?$"
+	.string "Which POKémon you want to\n"
+	.string "switch gender?$"
 PKMN_Center_IVs_Single::
-	.string "Want to do it for just\none stat or all?$"
+	.string "Want to do it for just\n"
+	.string "one stat or all?$"
 PKMN_Center_One::
 	.string "One$"
 PKMN_Center_All::
@@ -755,7 +768,8 @@ PKMN_Center_NotEnough_HeartScale::
 PKMN_Center_WhichStat::
 	.string "Which stat you want to maximize?$"
 PKMN_Center_IVs_AlreadySet_Text::
-	.string "I can't, the stat\nhas already 31 IV.$"
+	.string "I can't, the stat\n"
+	.string "has already 31 IV.$"
 PKMN_Center_HP_IV::
 	.string "HP$"
 PKMN_Center_Atk_IV::

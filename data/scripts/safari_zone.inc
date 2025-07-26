@@ -178,7 +178,7 @@ SafariZone_South_Text_ExitEarlyThankYouForPlaying:
 	.string "I'll take back your remaining SAFARI\n"
 	.string "BALLS.\p"
 	.string "Thank you for playing.\n"
-	.string "We hope to see you again.$"
+	.string "We hope to see you again. $"
 
 SafariZone_South_Text_GoodLuck:
 	.string "Good luck!\p"

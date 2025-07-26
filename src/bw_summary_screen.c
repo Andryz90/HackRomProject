@@ -2323,6 +2323,7 @@ static void CloseSummaryScreen(u8 taskId)
 // Cycle summary page between stats, IVs and EVs
 static void ChangeSummaryState(s16 *data, u8 taskId)
 {
+    #if (P_FLAG_EV_DISABLED != TRUE)
     switch (tSkillsState)
     {
     case SKILL_STATE_STATS:
@@ -2340,7 +2341,17 @@ static void ChangeSummaryState(s16 *data, u8 taskId)
             tSkillsState = SKILL_STATE_STATS;
         break;
     }
-
+    #else
+    switch (tSkillsState)
+    {
+    case SKILL_STATE_STATS:
+        tSkillsState = SKILL_STATE_IVS;
+        break;
+    case SKILL_STATE_IVS:
+        tSkillsState = SKILL_STATE_STATS;
+        break;
+    }
+    #endif
     gTasks[taskId].func = Task_HandleInput;
 }
 
@@ -3714,10 +3725,6 @@ static void PrintPageNamesAndStats(void)
 
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
 
-    
-    stringXPos = GetStringRightAlignXOffset(FONT_SMALL, sText_Relearn, 42);
-    PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_INFO, sText_Relearn, stringXPos, 1, 0, 1, FONT_SMALL);
-
     //Relearn Button
     stringXPos = GetStringRightAlignXOffset(FONT_SMALL, sText_Relearn, 42);
     PrintTextOnWindowWithFont(PSS_LABEL_WINDOW_PROMPT_INFO, sText_Relearn, stringXPos, 1, 0, 1, FONT_SMALL);
@@ -3762,14 +3769,8 @@ static void PutPageWindowTilemaps(u8 page)
         break;
     case PSS_PAGE_CONTEST_MOVES:
         PutWindowTilemap(PSS_LABEL_WINDOW_CONTEST_MOVES_TITLE);
-        if (sMonSummaryScreen->mode != BW_SUMMARY_MODE_SELECT_MOVE)
+        if (ShouldShowMoveRelearner())
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_INFO);
-        else
-        {
-            //PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_INFO);
-            if (ShouldShowMoveRelearner())
-                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_INFO);
-        }
         break;
     }
 

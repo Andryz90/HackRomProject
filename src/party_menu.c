@@ -5130,10 +5130,17 @@ void Task_Mint(u8 taskId)
             tState++;
         break;
     case 5:
-        SetMonData(&gPlayerParty[tMonId], MON_DATA_HIDDEN_NATURE, &tNewNature);
-        CalculateMonStats(&gPlayerParty[tMonId]);
+    /*  Custom, calling the script of the pokemon center
+        in order to have the summary screen of the pokemon
+        update when the nature is changed
+    */
+        gSpecialVar_0x8004 = tMonId;
+        gSpecialVar_0x8005 = tNewNature;
+        ChangeMonNature();
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
+        // SetMonData(&gPlayerParty[tMonId], MON_DATA_HIDDEN_NATURE, &tNewNature);
+        // CalculateMonStats(&gPlayerParty[tMonId]);
         break;
     }
 }
