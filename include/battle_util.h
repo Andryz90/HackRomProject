@@ -398,4 +398,5 @@ bool32 TryRestoreHPBerries(u32 battler, enum ItemCaseId caseId);
 bool32 IsRepelActive(void);
 u8 GenerateNumberForTrainerTeams (void);
 u8 GetTrainerTeamOffset (u8 index);
+bool8 SetTrainerLevelIfDynamic (const struct Trainer *trainer, u8* MonLevel);
 #endif // GUARD_BATTLE_UTIL_H

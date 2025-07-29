@@ -40,7 +40,7 @@ Required fields for Pokemon:
       With narrow font it's increased to 12. Longer strings will be silently shortened.
 
 Optional fields for Pokemon:
-    - Level (Number between 1 and 100, defaults to 100)
+    - Level (Number between 1 and 100, defaults to 100) [Custom: Note that the level 1 trainers have dynamic level calculated]
     - Ability (Ability Name or ABILITY_ABILITY_NAME)
     - IVs (0 HP / 1 Atk / 2 Def / 3 SpA / 4 SpD / 5 Spe, defaults to all 31)
           (Order does not matter)
@@ -6618,9 +6618,43 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Trapinch
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Salazzle @ Black Sludge  
+Ability: Corrosion  
+Level: 36  
+IVs: 0 Atk  
+- Toxic  
+- Substitute  
+- Protect  
+- Sludge Bomb  
+
+Flygon (M) @ Expert Belt  
+Ability: Levitate  
+Level: 36  
+Jolly Nature  
+- Earthquake  
+- Dragon Claw  
+- Dragon Dance  
+- X-Scissor  
+
+Mr. Rime (M) @ Never-Melt Ice  
+Ability: Tangled Feet  
+Level: 36  
+Serious Nature  
+- Ice Beam  
+- Ice Shard  
+- Psychic  
+- Light Screen  
+
+Bisharp @ Black Glasses  
+Ability: Defiant  
+Level: 37  
+Adamant Nature  
+- Swords Dance  
+- Sucker Punch  
+- Iron Head  
+- Night Slash  
+
+
 
 === TRAINER_DILLON ===
 Name: DILLON
@@ -8320,13 +8354,25 @@ Gender: Male
 Music: Suspicious
 Double Battle: No
 
-Koffing
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Weezing @ Black Sludge  
+Ability: Levitate  
+Level: 1  
+Adamant Nature  
+- Gunk Shot  
+- Destiny Bond  
+- Explosion  
+- Will-O-Wisp  
 
-Ninjask
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Muk-Alola @ Assault Vest  
+Ability: Corrosion  
+Level: 1   
+Adamant Nature  
+- Knock Off  
+- Poison Jab  
+- Ice Punch  
+- Thunder Punch  
+
+
 
 === TRAINER_LAO_2 ===
 Name: LAO
@@ -8659,13 +8705,35 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Ember
-- Tackle
-- Magnitude
-- Sunny Day
+Azumarill @ Sitrus Berry  
+Ability: Huge Power  
+Level: 38  
+Adamant Nature  
+- Aqua Jet  
+- Liquidation  
+- Play Rough  
+- Knock Off  
+
+Wigglytuff @ Leftovers  
+Ability: Cute Charm  
+Level: 38  
+IVs: 0 Atk  
+- Sing  
+- Alluring Voice  
+- Protect  
+- Thunder Wave  
+
+Camerupt @ Chesto Berry  
+Ability: Magma Armor  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk  
+- Curse  
+- Amnesia  
+- Rest  
+- Flamethrower  
+
+
 
 === TRAINER_CLARISSA ===
 Name: CLARISSA
@@ -14583,13 +14651,25 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Baltoy
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Weezing-Galar @ Black Sludge  
+Ability: Levitate  
+Level: 1   
+Modest Nature  
+- Strange Steam  
+- Protect  
+- Explosion  
+- Dark Pulse  
 
-Sandshrew
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Thievul @ Black Glasses  
+Ability: Stakeout  
+Level: 1  
+Modest Nature  
+- Parting Shot  
+- Dark Pulse  
+- Knock Off  
+- Play Rough  
+
+
 
 === TRAINER_WYATT ===
 Name: WYATT
@@ -14600,13 +14680,35 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Aron
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ninjask @ Expert Belt  
+Ability: Technician  
+Level: 1  
+Adamant Nature  
+- Feint Attack  
+- Bug Bite  
+- U-turn  
+- Dual Wingbeat  
 
-Aron
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Heracross @ Muscle Band  
+Ability: Moxie  
+Level: 1  
+Jolly Nature  
+- Trailblaze  
+- Megahorn  
+- Close Combat  
+- Facade  
+
+Magnezone @ Occa Berry  
+Ability: Magnet Pull  
+Level: 1   
+Calm Nature  
+IVs: 0 Atk  
+- Thunderbolt  
+- Mirror Coat  
+- Body Press  
+- Flash Cannon  
+
+
 
 === TRAINER_ANGELINA ===
 Name: ANGELINA

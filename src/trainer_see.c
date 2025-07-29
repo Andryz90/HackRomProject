@@ -21,6 +21,8 @@
 #include "constants/field_effects.h"
 #include "constants/trainer_types.h"
 
+#define MAX_APPROACHING_TRAINERS 8
+
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
 static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj);
@@ -59,6 +61,10 @@ COMMON_DATA bool8 gTrainerApproachedPlayer = 0;
 
 // EWRAM
 EWRAM_DATA u8 gApproachingTrainerId = 0;
+
+//Custom
+static EWRAM_DATA struct ApproachingTrainer allApproachingTrainers[MAX_APPROACHING_TRAINERS] = {0};
+static u8 allNoOfApproachingTrainers;
 
 // const rom data
 static const u8 sEmotion_ExclamationMarkGfx[] = INCBIN_U8("graphics/field_effects/pics/emotion_exclamation.4bpp");
@@ -357,6 +363,29 @@ static const struct SpriteTemplate sSpriteTemplate_Emote =
 };
 
 // code
+
+//Custom sort of Approching trainers
+static void SortAllApproachingTrainersByDistanceAndLocalId(void)
+{
+    u8 i, j;
+
+    for (i = 0; i < allNoOfApproachingTrainers - 1; i++)
+    {
+        for (j = i + 1; j < allNoOfApproachingTrainers; j++)
+        {
+            u8 localId_i = gObjectEvents[allApproachingTrainers[i].objectEventId].localId;
+            u8 localId_j = gObjectEvents[allApproachingTrainers[j].objectEventId].localId;
+            if (allApproachingTrainers[i].radius > allApproachingTrainers[j].radius ||
+                (allApproachingTrainers[i].radius == allApproachingTrainers[j].radius && localId_i > localId_j))
+            {
+                struct ApproachingTrainer temp = allApproachingTrainers[i];
+                allApproachingTrainers[i] = allApproachingTrainers[j];
+                allApproachingTrainers[j] = temp;
+            }
+        }
+    }
+}
+
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
@@ -366,6 +395,7 @@ bool8 CheckForTrainersWantingBattle(void)
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
+    allNoOfApproachingTrainers = 0;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
@@ -373,7 +403,9 @@ bool8 CheckForTrainersWantingBattle(void)
 
         if (!gObjectEvents[i].active)
             continue;
-        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED)
+        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL 
+            && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED 
+            && gObjectEvents[i].trainerType != TRAINER_TYPE_BACK_TO_BACK)
             continue;
 
         numTrainers = CheckTrainer(i);
@@ -393,11 +425,35 @@ bool8 CheckForTrainersWantingBattle(void)
         if (numTrainers == 0)
             continue;
 
+        if (allNoOfApproachingTrainers < MAX_APPROACHING_TRAINERS)
+        {
+            allApproachingTrainers[allNoOfApproachingTrainers] = gApproachingTrainers[gNoOfApproachingTrainers - 1];
+            allNoOfApproachingTrainers++;
+        }
+
+
         if (gNoOfApproachingTrainers > 1)
             break;
         if (GetMonsStateToDoubles_2() != PLAYER_HAS_TWO_USABLE_MONS) // one trainer found and cant have a double battle
             break;
     }
+
+    //Custom
+    SortAllApproachingTrainersByDistanceAndLocalId();
+    gNoOfApproachingTrainers = (allNoOfApproachingTrainers > 2) ? 2 : allNoOfApproachingTrainers;
+    for (i = 0; i < gNoOfApproachingTrainers; i++)
+        gApproachingTrainers[i] = allApproachingTrainers[i];
+
+    // After the copy, find the back to back trainer. If it's present force the battle to be single
+    for (i = 0; i < gNoOfApproachingTrainers; i++)
+    {
+        if (gObjectEvents[gApproachingTrainers[i].objectEventId].trainerType == TRAINER_TYPE_BACK_TO_BACK)
+        {
+            gNoOfApproachingTrainers = 1;
+            break;
+        }
+    }
+
 
     if (gNoOfApproachingTrainers == 1)
     {
@@ -507,7 +563,7 @@ static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj)
     u8 approachDistance;
 
     PlayerGetDestCoords(&x, &y);
-    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL)  // can only see in one direction
+    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL || trainerObj->trainerType == TRAINER_TYPE_BACK_TO_BACK)  // can only see in one direction
     {
         approachDistance = sDirectionalApproachDistanceFuncs[trainerObj->facingDirection - 1](trainerObj, trainerObj->trainerRange_berryTreeId, x, y);
         return CheckPathBetweenTrainerAndPlayer(trainerObj, approachDistance, trainerObj->facingDirection);

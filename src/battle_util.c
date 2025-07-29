@@ -11687,6 +11687,8 @@ bool32 TryRestoreHPBerries(u32 battler, enum ItemCaseId caseId)
     }
     return FALSE;
 }
+
+//Custom
 u8 GenerateNumberForTrainerTeams (void)
 {
     u8 j = 0u;
@@ -11731,4 +11733,66 @@ u8 GetTrainerTeamOffset (u8 index)
     * TrainerID - 1 because the actual enum start to 1 and not to 0, so for example WATTSON is 1, but in the array has the position 0
     */
     return OffsetTeam_LookupTable[TrainerID - 1].Teams_Offset[index - 1u];
+}
+
+/*  This section is about all the trainers that are optional but give rewards, hence their Mon's level must be calculated dynamically,
+    in order to match the player's one.
+*/
+typedef enum
+{
+    LUNG_NINJABOY_R113 = 0,
+    LAWRENCE_CAMPER_R113 = 1,
+    WYATT_MANIAC_R113 = 2,
+    MAX_TRAINER_DYNAMIC_LEVEL
+
+} Trainer_DynamicLevel_Enum_t;
+
+static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][TRAINER_NAME_LENGTH + 1] = 
+{
+    [LUNG_NINJABOY_R113]    = _("LUNG"),
+    [LAWRENCE_CAMPER_R113]  = _("LAWRENCE"),
+    [WYATT_MANIAC_R113]     =  _("WYATT"),
+};
+
+bool8 SetTrainerLevelIfDynamic (const struct Trainer *trainer, u8* MonLevel)
+{
+    u8 MaxLevel = 0u;
+
+    /*Confronting each name to see if there is the right one*/
+    for (uint8_t i = 0u; i < MAX_TRAINER_DYNAMIC_LEVEL; i++)
+    {
+        if (strcmp((const char*)trainer->trainerName, (const char*) LookupTable_TrainerWithDynamicLevel[i]) == 0) 
+        {
+            /*Now search into the Players party*/
+            for (uint8_t j = 0u; j < PARTY_SIZE; j++)
+            {
+                u16 species = GetMonData(&gPlayerParty[j], MON_DATA_SPECIES);
+
+                if (species != SPECIES_NONE && species != SPECIES_EGG)
+                {
+                    u8 LocalLevel = GetMonData(&gPlayerParty[j], MON_DATA_LEVEL);
+
+                    if (LocalLevel > MaxLevel)
+                    {
+                        MaxLevel = LocalLevel;
+                    }
+                }
+                else if (species != SPECIES_EGG)
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    if (MaxLevel != 0u && MonLevel != NULL)
+    {
+        *MonLevel = MaxLevel;
+        return TRUE;
+    }
+    return FALSE;
 }

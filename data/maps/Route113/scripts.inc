@@ -128,10 +128,18 @@ Route113_EventScript_Lawrence::
 	msgbox Route113_Text_LawrencePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route113_EventScript_Wyatt_Movement::
+	walk_up
+	face_down
+	step_end
+	
 Route113_EventScript_Wyatt::
 	trainerbattle_single TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat
 	msgbox Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_WYATT, Route113_EventScript_Wyatt_Movement
+	waitmovement 0
 	end
+
 
 Route113_Text_AshCanBeFashionedIntoGlass:
 	.string "Wahahaha! Today's technology is a\n"
