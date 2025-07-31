@@ -46,5 +46,5 @@ Underwater_SeafloorCavern_Text_SubExplorer1:
 	.string "This is the submarine TEAM AQUA\n"
 	.string "stole in SLATEPORT!\p"
 	.string "TEAM AQUA must have gone\n"
-	.string "ashore here.$"
+	.string "ashore here. $"
 

@@ -86,7 +86,7 @@ GraniteCave_1F_Text_GetsDarkAheadHereYouGo:
 	.string "to be all right, but…\p"
 	.string "Well, for us HIKERS, helping out those\n"
 	.string "that we meet is our motto.\p"
-	.string "Here you go, I'll pass this on to you.$"
+	.string "Here you go, I'll pass this on to you. $"
 
 GraniteCave_1F_Text_ExplainFlash:
 	.string "It very useful, lights up\n"
@@ -96,5 +96,5 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "It's just need the item, the badge and\na POKéMON that can learn it!\p"
 	.string "You need to obtain the GYM BADGE\n"
 	.string "from DEWFORD's POKéMON GYM first.\p"
-	.string "Good luck!$"
+	.string "Good luck! $"
 

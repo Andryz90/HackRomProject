@@ -12,5 +12,5 @@ Grotto_EventScript_CancelGrotto::
 Grotto_Text_FollowThePath:
 	.string "Look!\n"
 	.string "You've found a narrow path!\p"
-	.string "Will you follow it?$"
+	.string "Will you follow it? $"
 

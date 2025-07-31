@@ -19,4 +19,4 @@ QuitItemPick::
 	end
 ItemContainedInBall_Text::
 	.string "The item contained in the ball is:\n{STR_VAR_1}.\p"
-	.string "Woud you like to take it?$"
+	.string "Woud you like to take it? $"

@@ -155,7 +155,7 @@ MossdeepCity_StevensHouse_Text_YouveEarnedHMDive:
 	.string "This is my token of appreciation.\n"
 	.string "It's the HIDDEN MACHINE DIVE.\p"
 	.string "No need to be shy--you've earned\n"
-	.string "this HM.$"
+	.string "this HM. $"
 
 MossdeepCity_StevensHouse_Text_ExplainDive:
 	.string "STEVEN: While you're using SURF, you\n"
@@ -165,31 +165,31 @@ MossdeepCity_StevensHouse_Text_ExplainDive:
 	.string "When you want to come back up, use\n"
 	.string "DIVE again.\p"
 	.string "In some places, it won't be possible\n"
-	.string "for you to surface, though.$"
+	.string "for you to surface, though. $"
 
 MossdeepCity_StevensHouse_Text_UnderwateCavernBetweenMossdeepSootopolis:
 	.string "STEVEN: Apparently, there's an\n"
 	.string "underwater cavern between\l"
 	.string "MOSSDEEP and SOOTOPOLIS.\p"
 	.string "You know, the one that CAPT. STERN\n"
-	.string "found in his submarine.$"
+	.string "found in his submarine. $"
 
 MossdeepCity_StevensHouse_Text_TakeBallContainingBeldum:
 	.string "{PLAYER} checked the POKé BALL.\p"
 	.string "It contained the POKéMON\n"
 	.string "BELDUM.\p"
-	.string "Take the POKé BALL?$"
+	.string "Take the POKé BALL? $"
 
 MossdeepCity_StevensHouse_Text_ObtainedBeldum:
-	.string "{PLAYER} obtained a BELDUM.$"
+	.string "{PLAYER} obtained a BELDUM. $"
 
 @ Unused
 MossdeepCity_StevensHouse_Text_NoSpaceForAnotherMon:
-	.string "There is no space for another POKéMON.$"
+	.string "There is no space for another POKéMON. $"
 
 MossdeepCity_StevensHouse_Text_LeftPokeBallWhereItWas:
 	.string "{PLAYER} left the POKé BALL where\n"
-	.string "it was.$"
+	.string "it was. $"
 
 MossdeepCity_StevensHouse_Text_LetterFromSteven:
 	.string "It's a letter.\p"
@@ -206,9 +206,9 @@ MossdeepCity_StevensHouse_Text_LetterFromSteven:
 	.string "POKéMON.\p"
 	.string "I'm counting on you.\p"
 	.string "May our paths cross someday.\p"
-	.string "STEVEN STONE$"
+	.string "STEVEN STONE $"
 
 MossdeepCity_StevensHouse_Text_CollectionOfRareRocks:
 	.string "It's a collection of rare rocks and\n"
-	.string "stones assembled by STEVEN.$"
+	.string "stones assembled by STEVEN. $"
 

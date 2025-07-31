@@ -481,18 +481,18 @@ Route119_Text_MayIntro:
 	.string "How much stronger have you gotten?\n"
 	.string "Let me check for you!\p"
 	.string "Ready with your POKéMON?\n"
-	.string "Of course you are! Go!$"
+	.string "Of course you are! Go! $"
 
 Route119_Text_MayDefeat:
 	.string "Achah!\n"
 	.string "{PLAYER}{KUN}, you're strong!\p"
 	.string "I was worried that you might be\n"
-	.string "struggling with your training.$"
+	.string "struggling with your training. $"
 
 Route119_Text_MayPresentForYou:
 	.string "MAY: But I had absolutely nothing to\n"
 	.string "worry about! Keep it up!\p"
-	.string "And, here! I have a present for you.$"
+	.string "And, here! I have a present for you. $"
 
 Route119_Text_MayExplainFly:
 	.string "MAY: Use FLY, and your POKéMON will\n"
@@ -505,7 +505,7 @@ Route119_Text_MayExplainFly:
 	.string "LITTLEROOT for a change.\p"
 	.string "I bet your mom's worried about you,\n"
 	.string "{PLAYER}{KUN}.\p"
-	.string "Well, let's meet again somewhere!$"
+	.string "Well, let's meet again somewhere! $"
 
 Route119_Text_BrendanIntro:
 	.string "BRENDAN: {PLAYER}! So this is where\n"
@@ -513,17 +513,17 @@ Route119_Text_BrendanIntro:
 	.string "Let me see how good you got.\n"
 	.string "I'll test you!\p"
 	.string "Now!\n"
-	.string "It's a battle, so battle!$"
+	.string "It's a battle, so battle! $"
 
 Route119_Text_BrendanDefeat:
 	.string "Hmm…\n"
-	.string "You've gotten pretty darn decent.$"
+	.string "You've gotten pretty darn decent. $"
 
 Route119_Text_BrendanIllGiveYouThis:
 	.string "BRENDAN: I'd say you're good enough\n"
 	.string "to search for POKéMON anywhere.\p"
 	.string "Here, I'll give you this.\n"
-	.string "Try it out.$"
+	.string "Try it out. $"
 
 Route119_Text_BrendanExplainFly:
 	.string "BRENDAN: Use FLY, and your POKéMON\n"
@@ -531,7 +531,7 @@ Route119_Text_BrendanExplainFly:
 	.string "you've already visited.\p"
 	.string "But you need the FORTREE GYM BADGE \n"
 	.string "to do that.\p"
-	.string "Anyway, I have to move along.$"
+	.string "Anyway, I have to move along. $"
 
 Route119_Text_ScottWayToGoBeSeeingYou:
 	.string "SCOTT: Hahahah!\n"
@@ -545,7 +545,7 @@ Route119_Text_ScottWayToGoBeSeeingYou:
 	.string "I sure seem to run into you often.\n"
 	.string "Are you off to FORTREE GYM next?\p"
 	.string "I expect that you'll do well at the GYM.\n"
-	.string "Well, I'll be seeing you!$"
+	.string "Well, I'll be seeing you! $"
 
 
 Route119_Text_ScottYouWonAtFortreeGym:
@@ -561,17 +561,17 @@ Route119_Text_ScottYouWonAtFortreeGym:
 	.string "I'll be cheering from the sidelines.\l"
 	.string "Keep up the great work!\p"
 	.string "… … … … … …\n"
-	.string "… … … … … Click!$"
+	.string "… … … … … Click! $"
 
 Route119_Text_StayAwayFromWeatherInstitute:
 	.string "We're standing lookout here.\p"
 	.string "Hey, you! Stay away from the WEATHER\n"
-	.string "INSTITUTE. It's not safe.$"
+	.string "INSTITUTE. It's not safe. $"
 
 Route119_Text_DontGoNearWeatherInstitute:
 	.string "Lookout duty is surprisingly boring.\p"
 	.string "Hey, you! Please don't go near the\n"
-	.string "WEATHER INSTITUTE.$"
+	.string "WEATHER INSTITUTE. $"
 
 Route119_Text_ThoughtFlyByCatchingBirdMons:
 	.string "I thought you FLY by catching a whole\n"
@@ -580,25 +580,25 @@ Route119_Text_ThoughtFlyByCatchingBirdMons:
 	.string "But it turns out there's an HM move\n"
 	.string "called FLY!\p"
 	.string "I wish I'd known about that a long\n"
-	.string "time ago…$"
+	.string "time ago… $"
 
 Route119_Text_TallGrassSnaresBikeTires:
 	.string "Tch…\n"
 	.string "It's a no-go…\p"
 	.string "The tall grass snares BIKE tires.\n"
-	.string "There's no way you can cycle here.$"
+	.string "There's no way you can cycle here. $"
 
 Route119_Text_CanYourMonMakeSecretBase:
 	.string "Can your POKéMON use its SECRET POWER\n"
 	.string "on a big pile of grass and make a\l"
-	.string "SECRET BASE?$"
+	.string "SECRET BASE? $"
 
 Route119_Text_RouteSignFortree:
 	.string "ROUTE 119\n"
-	.string "{RIGHT_ARROW} FORTREE CITY$"
+	.string "{RIGHT_ARROW} FORTREE CITY $"
 
 Route119_Text_WeatherInstitute:
-	.string "WEATHER INSTITUTE$"
+	.string "WEATHER INSTITUTE $"
 
 Route119_Text_TrainerTipsDecoration:
 	.string "TRAINER TIPS\p"
@@ -607,4 +607,4 @@ Route119_Text_TrainerTipsDecoration:
 	.string "a SECRET BASE.\p"
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
-	.string "way you want.$"
+	.string "way you want. $"

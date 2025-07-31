@@ -51,13 +51,13 @@ Route114_LanettesHouse_Text_EverythingClutteredKeepThis:
 	.string "When I get engrossed in research,\l"
 	.string "things end up this way…\p"
 	.string "This is embarrassing… Please keep\n"
-	.string "this a secret in exchange for this.$"
+	.string "this a secret in exchange for this. $"
 
 Route114_LanettesHouse_Text_OrganizeYourBoxes:
 	.string "May I offer advice about my POKéMON\n"
 	.string "Storage System?\p"
 	.string "You should organize your BOXES so you\n"
-	.string "can tell which POKéMON are in them.$"
+	.string "can tell which POKéMON are in them. $"
 
 Route114_LanettesHouse_Text_ResearchNotesPage1:
 	.string "It's LANETTE's research notes.\n"
@@ -65,7 +65,7 @@ Route114_LanettesHouse_Text_ResearchNotesPage1:
 	.string "Design BOXES to hold 30 POKéMON each.\p"
 	.string "Each TRAINER should be able to store\n"
 	.string "420 POKéMON on the PC system.\p"
-	.string "Keep reading?$"
+	.string "Keep reading? $"
 
 Route114_LanettesHouse_Text_ResearchNotesPage2:
 	.string "A marking system should be added to\n"
@@ -73,7 +73,7 @@ Route114_LanettesHouse_Text_ResearchNotesPage2:
 	.string "The name and wallpaper design of each\n"
 	.string "BOX will be made changeable to please\l"
 	.string "the stored POKéMON.\p"
-	.string "Keep reading?$"
+	.string "Keep reading? $"
 
 Route114_LanettesHouse_Text_ResearchNotesPage3:
 	.string "When storing a POKéMON, it should be\n"
@@ -82,10 +82,10 @@ Route114_LanettesHouse_Text_ResearchNotesPage3:
 	.string "POKéMON is stored in the next BOX.\p"
 	.string "In other words, when a BOX is examined,\n"
 	.string "it is automatically selected as the BOX\l"
-	.string "to which POKéMON are sent.$"
+	.string "to which POKéMON are sent. $"
 
 Route114_LanettesHouse_Text_ClosedTheNotebook:
-	.string "{PLAYER} closed the notebook.$"
+	.string "{PLAYER} closed the notebook. $"
 
 Route114_LanettesHouse_Text_EmailFromBill:
 	.string "There's an e-mail from someone on\n"
@@ -100,5 +100,5 @@ Route114_LanettesHouse_Text_EmailFromBill:
 	.string "“Here's hoping that you'll continue\n"
 	.string "research in Storage Systems.\p"
 	.string "“From BILL\n"
-	.string "… … … … … … … …”$"
+	.string "… … … … … … … …” $"
 

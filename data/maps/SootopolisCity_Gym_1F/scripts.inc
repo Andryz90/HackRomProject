@@ -185,14 +185,14 @@ SootopolisCity_Gym_1F_Text_GymGuideAdvice:
 	.string "Listen, I'm sorry, but that's all the\n"
 	.string "advice that I have for you.\p"
 	.string "The rest of the way, you have to\n"
-	.string "go for it yourself!$"
+	.string "go for it yourself! $"
 
 SootopolisCity_Gym_1F_Text_GymGuidePostVictory:
 	.string "Yow! You've beaten even JUAN, who\n"
 	.string "was supposedly the best in all HOENN!\p"
 	.string "Okay! Check out your TRAINER CARD.\p"
 	.string "If you've gotten all the BADGES, you're\n"
-	.string "set for the POKéMON LEAGUE challenge!$"
+	.string "set for the POKéMON LEAGUE challenge! $"
 
 SootopolisCity_Gym_1F_Text_JuanIntro:
 	.string "Let me ask you.\n"
@@ -211,7 +211,7 @@ SootopolisCity_Gym_1F_Text_JuanIntro:
 	.string "Please, you shall bear witness to\n"
 	.string "our artistry.\p"
 	.string "A grand illusion of water sculpted\n"
-	.string "by POKéMON and myself!$"
+	.string "by POKéMON and myself! $"
 
 @ NOTE: This defeat text actually causes a buffer overflow. It's about 50 bytes too long for
 @ the gDisplayedStringBattle buffer that it's put into, and it stomps all over the gBattleTextBuffs
@@ -230,11 +230,11 @@ SootopolisCity_Gym_1F_Text_JuanDefeat:
 	.string "… … … … … …\p"
 	.string "Hahaha, I merely jest!\p"
 	.string "Rather than my clothes, I shall reward\n"
-	.string "you with this, the RAIN BADGE!$"
+	.string "you with this, the RAIN BADGE! $"
 
 SootopolisCity_Gym_1F_Text_ReceivedRainBadge:
 	.string "{PLAYER} received the RAIN BADGE\n"
-	.string "from JUAN.$"
+	.string "from JUAN. $"
 
 SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis:
 	.string "Having the RAIN BADGE shall assure you\n"
@@ -244,18 +244,18 @@ SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis:
 	.string "of the HM move WATERFALL to scale\l"
 	.string "walls of cascading water.\p"
 	.string "And, so that you never forget the\n"
-	.string "battle we shared, take this…$"
+	.string "battle we shared, take this… $"
 
 SootopolisCity_Gym_1F_Text_ExplainWaterPulse:
 	.string "The TECHNICAL MACHINE I handed you\n"
 	.string "contains WATER PULSE.\p"
 	.string "In use, it will occasionally confuse\n"
 	.string "the target with ultrasonic waves.\p"
-	.string "… … … … … …$"
+	.string "… … … … … … $"
 
 SootopolisCity_Gym_1F_Text_RegisteredJuan:
 	.string "Registered GYM LEADER JUAN\n"
-	.string "in the POKéNAV.$"
+	.string "in the POKéNAV. $"
 
 SootopolisCity_Gym_1F_Text_JuanPostBattle:
 	.string "The TRAINERS who have gathered all\n"
@@ -265,22 +265,22 @@ SootopolisCity_Gym_1F_Text_JuanPostBattle:
 	.string "Travel to the easternmost reaches\n"
 	.string "of HOENN, to the island EVER GRANDE.\p"
 	.string "There, you shall find the POKéMON\n"
-	.string "LEAGUE.$"
+	.string "LEAGUE. $"
 
 SootopolisCity_Gym_1F_Text_GoGetFortreeBadge:
 	.string "There remains but one BADGE to\n"
 	.string "obtain in HOENN.\p"
 	.string "If you wish to challenge the POKéMON\n"
 	.string "LEAGUE, you must obtain the last\l"
-	.string "BADGE from the GYM in FORTREE.$"
+	.string "BADGE from the GYM in FORTREE. $"
 
 SootopolisCity_Gym_1F_Text_GymStatue:
-	.string "SOOTOPOLIS CITY POKéMON GYM$"
+	.string "SOOTOPOLIS CITY POKéMON GYM $"
 
 SootopolisCity_Gym_1F_Text_GymStatueCertified:
 	.string "SOOTOPOLIS CITY POKéMON GYM\p"
 	.string "JUAN'S CERTIFIED TRAINERS:\n"
-	.string "{PLAYER}$"
+	.string "{PLAYER} $"
 
 SootopolisCity_Gym_1F_Text_JuanPreRematch:
 	.string "JUAN: Ah, this GYM had returned to its\n"
@@ -289,11 +289,11 @@ SootopolisCity_Gym_1F_Text_JuanPreRematch:
 	.string "to put us to the test again!\p"
 	.string "Well, my friend, most certainly!\p"
 	.string "I shall be delighted to dance with you\n"
-	.string "as often as you wish!$"
+	.string "as often as you wish! $"
 
 SootopolisCity_Gym_1F_Text_JuanRematchDefeat:
 	.string "Ahahaha, you are the winner!\n"
-	.string "You have defeated me again!$"
+	.string "You have defeated me again! $"
 
 SootopolisCity_Gym_1F_Text_JuanPostRematch:
 	.string "JUAN: If I told you to become my\n"
@@ -303,7 +303,7 @@ SootopolisCity_Gym_1F_Text_JuanPostRematch:
 	.string "But again, you will refuse.\n"
 	.string "I imagine that to be so.\p"
 	.string "And that, my friend, is a certain sign\n"
-	.string "of nobility!$"
+	.string "of nobility! $"
 
 SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 	.string "JUAN: Ah, this GYM had returned to its\n"
@@ -315,5 +315,5 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 	.string "Ah, no, no, no.\n"
 	.string "You have with you but one POKéMON.\p"
 	.string "I wish that you would return with\n"
-	.string "two, perhaps more, POKéMON, please.$"
+	.string "two, perhaps more, POKéMON, please. $"
 

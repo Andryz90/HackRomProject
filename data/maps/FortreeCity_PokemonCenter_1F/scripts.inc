@@ -33,7 +33,7 @@ FortreeCity_PokemonCenter_1F_Text_GoToSafariZone:
 	.string "Listen, kid, are you working\n"
 	.string "on a POKéDEX?\p"
 	.string "Hmm… Go to the SAFARI ZONE.\n"
-	.string "That's my suggestion.$"
+	.string "That's my suggestion. $"
 
 FortreeCity_PokemonCenter_1F_Text_RecordCornerIsNeat:
 	.string "Have you done anything at\n"
@@ -41,7 +41,7 @@ FortreeCity_PokemonCenter_1F_Text_RecordCornerIsNeat:
 	.string "It's pretty neat. It mixes and matches\n"
 	.string "the records of TRAINERS.\p"
 	.string "I don't know quite how it works,\n"
-	.string "but it's cool. It's exciting, even!$"
+	.string "but it's cool. It's exciting, even! $"
 
 FortreeCity_PokemonCenter_1F_Text_DoYouKnowAboutPokenav:
 	.string "Oh, wow, you have a POKéNAV!\n"
@@ -53,5 +53,5 @@ FortreeCity_PokemonCenter_1F_Text_DoYouKnowAboutPokenav:
 	.string "It also shows you which TRAINERS\n"
 	.string "want a rematch with you.\p"
 	.string "It's really nifty! Those DEVON guys\n"
-	.string "sure know what they're doing!$"
+	.string "sure know what they're doing! $"
 

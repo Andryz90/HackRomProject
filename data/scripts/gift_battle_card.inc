@@ -33,7 +33,7 @@ sText_MysteryGiftBattleCountCard:
 	.string "have the same CARD as you.\p"
 	.string "You may check the overall rankings\n"
 	.string "by reading the NEWS.\p"
-	.string "Please do give it a try!$"
+	.string "Please do give it a try! $"
 
 sText_MysteryGiftBattleCountCard_WonPrize:
 	.string "Thank you for using the MYSTERY\n"
@@ -42,4 +42,4 @@ sText_MysteryGiftBattleCountCard_WonPrize:
 	.string "You have won a prize for winning\n"
 	.string "three battles!\p"
 	.string "We hope you will be inspired to\n"
-	.string "battle some more.$"
+	.string "battle some more. $"

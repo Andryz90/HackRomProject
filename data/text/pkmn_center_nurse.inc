@@ -3,26 +3,26 @@ gText_WouldYouLikeToRestYourPkmn::
 	.string "the POKéMON CENTER.\p"
 	.string "We restore your tired POKéMON\n"
 	.string "to full health.\p"
-	.string "Would you like to rest your POKéMON?$"
+	.string "Would you like to rest your POKéMON?  $"
 
 gText_IllTakeYourPkmn::
 	.string "Okay, I'll take your POKéMON\n"
-	.string "for a few seconds.$"
+	.string "for a few seconds.  $"
 
 gText_RestoredPkmnToFullHealth::
 	.string "Thank you for waiting.\p"
 	.string "We've restored your POKéMON\n"
-	.string "to full health.$"
+	.string "to full health.  $"
 
 gText_WeHopeToSeeYouAgain::
-	.string "We hope to see you again! $"
+	.string "We hope to see you again!  $"
 
 gText_WelcomeCutShort::
 	.string "Hello, and welcome to\n"
 	.string "the POKéMON CENTER.\p"
 	.string "We restore your tired POKéMON\n"
 	.string "to full health.\p"
-	.string "Would you like to…$"
+	.string "Would you like to…  $"
 
 gText_NoticesGoldCard::
 	.string "Th-that card…\n"
@@ -34,21 +34,21 @@ gText_NoticesGoldCard::
 	.string "you're the first TRAINER I've ever\l"
 	.string "seen with a GOLD CARD!\p"
 	.string "Okay, {PLAYER}, please allow me\n"
-	.string "the honor of resting your POKéMON!$"
+	.string "the honor of resting your POKéMON!  $"
 
 gText_YouWantTheUsual::
 	.string "I'm delighted to see you, {PLAYER}!\n"
-	.string "You want the usual, am I right?$"
+	.string "You want the usual, am I right?  $"
 
 gText_IllTakeYourPkmn2::
 	.string "Okay, I'll take your POKéMON\n"
-	.string "for a few seconds.$"
+	.string "for a few seconds.  $"
 
 gText_ThankYouForWaiting::
-	.string "Thank you for waiting.$"
+	.string "Thank you for waiting.  $"
 
 gText_WeHopeToSeeYouAgain2::
-	.string "We hope to see you again! $"
+	.string "We hope to see you again!  $"
 
 gText_ExplainPokeVial:: 
     .string "That Poké Vial contains very potent\n"
@@ -57,7 +57,7 @@ gText_ExplainPokeVial::
     .string "party!\p"
     .string "It's like a portable Pokémon Center!\p"
     .string "Now, would you like to rest your\n"
-    .string "Pokémon?$"
+    .string "Pokémon?  $"
 
 gText_AreYouARookieTrainer:: 
     .string "Hello, and welcome to\n"
@@ -69,4 +69,4 @@ gText_AreYouARookieTrainer::
     .string "It's your lucky day!\p"
     .string "We're currently giving out free\n"
     .string "Poké Vials to all rookie Trainers.\p"
-    .string "Here, take one!$"
+    .string "Here, take one!  $"

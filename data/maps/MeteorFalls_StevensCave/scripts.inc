@@ -37,11 +37,11 @@ MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst:
 	.string "You should have a very good idea\n"
 	.string "about how good I am.\p"
 	.string "Okay, {PLAYER}{KUN}, if you're going to mount\n"
-	.string "a serious challenge, expect the worst!$"
+	.string "a serious challenge, expect the worst! $"
 
 MeteorFalls_StevensCave_Text_StevenDefeat:
 	.string "You…\n"
-	.string "I had no idea you'd become so strong…$"
+	.string "I had no idea you'd become so strong… $"
 
 MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "STEVEN: Come to think of it, ever since\n"
@@ -53,5 +53,5 @@ MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "And where will you go from here?\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "Fufufu, even I couldn't tell you that.$"
+	.string "Fufufu, even I couldn't tell you that. $"
 

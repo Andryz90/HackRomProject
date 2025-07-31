@@ -305,7 +305,7 @@ FallarborTown_BattleTentLobby_Text_MakeThinkImJustKid:
 	.string "I'm going to make everyone think\n"
 	.string "I'm just a kid and let them play down.\p"
 	.string "Then, I'll shock them and grab\n"
-	.string "the title!$"
+	.string "the title! $"
 
 FallarborTown_BattleTentLobby_Text_FallarborTentMyFavorite:
 	.string "You know how BATTLE TENTS offer\n"
@@ -314,7 +314,7 @@ FallarborTown_BattleTentLobby_Text_FallarborTentMyFavorite:
 	.string "TENT in FALLARBOR TOWN.\p"
 	.string "I think it's fantastic how TRAINERS\n"
 	.string "try to win with all their faith in\l"
-	.string "their POKéMON.$"
+	.string "their POKéMON. $"
 
 FallarborTown_BattleTentLobby_Text_CameToCampOut:
 	.string "I heard something about some tent,\n"
@@ -322,7 +322,7 @@ FallarborTown_BattleTentLobby_Text_CameToCampOut:
 	.string "I didn't know that tents these days\n"
 	.string "are so luxurious!\p"
 	.string "Since I'm here, I may as well try\n"
-	.string "my hand at battling!$"
+	.string "my hand at battling! $"
 
 FallarborTown_BattleTentLobby_Text_ScottLookingForSomeone:
 	.string "SCOTT: Hi, {PLAYER}{KUN}!\n"
@@ -337,10 +337,10 @@ FallarborTown_BattleTentLobby_Text_ScottLookingForSomeone:
 	.string "If there were a TRAINER like that,\n"
 	.string "I'd immediately…\p"
 	.string "Whoops! Never mind!\n"
-	.string "Keep working at it!$"
+	.string "Keep working at it! $"
 
 FallarborTown_BattleTentLobby_Text_ScottMakeChallenge:
 	.string "SCOTT: Instead of wasting your\n"
 	.string "time with the likes of me, why not\l"
-	.string "make a challenge?$"
+	.string "make a challenge? $"
 

@@ -67,17 +67,17 @@ EverGrandeCity_GlaciasRoom_Text_IntroSpeech:
 	.string "weak TRAINERS and their POKéMON.\p"
 	.string "What about you?\p"
 	.string "It would please me to no end if I could\n"
-	.string "go all out against you!$"
+	.string "go all out against you! $"
 
 EverGrandeCity_GlaciasRoom_Text_Defeat:
 	.string "You and your POKéMON…\n"
 	.string "How hot your spirits burn!\p"
 	.string "The all-consuming heat overwhelms.\p"
 	.string "It's no surprise that my icy skills\n"
-	.string "failed to harm you.$"
+	.string "failed to harm you. $"
 
 EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
 	.string "Advance to the next room.\p"
 	.string "And there, confirm the truly fearsome\n"
-	.string "side of the POKéMON LEAGUE.$"
+	.string "side of the POKéMON LEAGUE. $"
 

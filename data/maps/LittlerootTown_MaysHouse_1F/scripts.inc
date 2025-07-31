@@ -326,26 +326,26 @@ RivalsHouse_1F_Text_OhYoureTheNewNeighbor:
 	.string "age as you.\p"
 	.string "Our {STR_VAR_1} was excited about making\n"
 	.string "a new friend.\p"
-	.string "Our {STR_VAR_1} is upstairs, I think.$"
+	.string "Our {STR_VAR_1} is upstairs, I think. $"
 
 RivalsHouse_1F_Text_LikeChildLikeFather:
 	.string "Like child, like father.\p"
 	.string "My husband is as wild about POKéMON\n"
 	.string "as our child.\p"
 	.string "If he's not at his LAB, he's likely\n"
-	.string "scrabbling about in grassy places.$"
+	.string "scrabbling about in grassy places. $"
 
 RivalsHouse_1F_Text_TooBusyToNoticeVisit:
 	.string "That {RIVAL}!\p"
 	.string "I guess our child is too busy with\n"
 	.string "POKéMON to notice that you came\l"
-	.string "to visit, {PLAYER}{KUN}.$"
+	.string "to visit, {PLAYER}{KUN}. $"
 
 RivalsHouse_1F_Text_WentOutToRoute103:
 	.string "Oh, {RIVAL} went out to ROUTE 103\n"
 	.string "just a little while ago.\p"
 	.string "Like father, like child.\n"
-	.string "{RIVAL} can't stay quietly at home.$"
+	.string "{RIVAL} can't stay quietly at home. $"
 
 RivalsHouse_1F_Text_ShouldGoHomeEverySoOften:
 	.string "I think it's wonderful for people to\n"
@@ -353,7 +353,7 @@ RivalsHouse_1F_Text_ShouldGoHomeEverySoOften:
 	.string "But you should go home every so often\n"
 	.string "to let your mother know you're okay.\p"
 	.string "She might not say it, but I'm sure she\n"
-	.string "worries about you, {PLAYER}{KUN}.$"
+	.string "worries about you, {PLAYER}{KUN}. $"
 
 RivalsHouse_1F_Text_MayWhoAreYou:
 	.string "Huh?\n"
@@ -377,7 +377,7 @@ RivalsHouse_1F_Text_MayWhoAreYou:
 	.string "Oh, no! I forgot!\p"
 	.string "I was supposed to go help Dad catch\n"
 	.string "some wild POKéMON!\p"
-	.string "{PLAYER}{KUN}, I'll catch you later!$"
+	.string "{PLAYER}{KUN}, I'll catch you later! $"
 
 RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "Hey!\n"
@@ -397,9 +397,9 @@ RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "Aw, darn, I forgot…\p"
 	.string "I'm supposed to go help my dad catch\n"
 	.string "some wild POKéMON.\p"
-	.string "Some other time, okay?$"
+	.string "Some other time, okay? $"
 
 RivalsHouse_1F_Text_DoYouHavePokemon:
 	.string "Hi, neighbor!\p"
 	.string "Do you already have your\n"
-	.string "own POKéMON?$"
+	.string "own POKéMON? $"

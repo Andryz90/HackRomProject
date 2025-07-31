@@ -93,4 +93,4 @@ EventScript_OnTransition_ClearBestOfThreeVars::
 	end
 
 Text_PaidOutMoney:
-    .string "{PLAYER} paid ¥{STR_VAR_1} as prize money…$" 
+    .string "{PLAYER} paid ¥{STR_VAR_1} as prize money… $" 

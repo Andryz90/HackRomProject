@@ -167,22 +167,22 @@ MeteorFalls_1F_1R_Text_ArchieSeenYouBefore:
 	.string "They engage in destruction, claiming\n"
 	.string "to expand the land mass.\p"
 	.string "They are the rivals to us,\n"
-	.string "the sea-loving TEAM AQUA!$"
+	.string "the sea-loving TEAM AQUA! $"
 
 MeteorFalls_1F_1R_Text_BossWeShouldChaseMagma:
 	.string "GRUNT: BOSS, we should give chase to\n"
-	.string "TEAM MAGMA…$"
+	.string "TEAM MAGMA… $"
 
 MeteorFalls_1F_1R_Text_ArchieYesNoTellingWhatMagmaWillDo:
 	.string "ARCHIE: Yes, yes, we must!\n"
 	.string "We've got to hurry.\p"
 	.string "There's no telling what TEAM MAGMA\n"
-	.string "will do at MT. CHIMNEY!$"
+	.string "will do at MT. CHIMNEY! $"
 
 MeteorFalls_1F_1R_Text_ArchieFarewell:
 	.string "ARCHIE: {PLAYER}, you should keep\n"
 	.string "an eye out for TEAM MAGMA, too.\p"
-	.string "Farewell!$"
+	.string "Farewell! $"
 
 MeteorFalls_1F_1R_Text_MeetProfCozmo:
 	.string "I… I'm COZMO…\n"
@@ -197,28 +197,28 @@ MeteorFalls_1F_1R_Text_MeetProfCozmo:
 	.string "I don't understand any of it.\p"
 	.string "But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
-	.string "METEORITE at MT. CHIMNEY?$"
+	.string "METEORITE at MT. CHIMNEY? $"
 
 MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney:
 	.string "PROF. COZMO: But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
-	.string "METEORITE at MT. CHIMNEY?$"
+	.string "METEORITE at MT. CHIMNEY? $"
 
 MeteorFalls_1F_1R_Text_ArchieInterrogatingCozmo:
 	.string "ARCHIE: So where is the TEAM MAGMA?\n"
-	.string "What did they asked to you?$"
+	.string "What did they asked to you? $"
 
 MeteorFalls_1F_1R_Text_CozmoAnswering:
 	.string "COZMO: T-they took my METEORITE.\n"
-	.string "I had no choice but to give it away$"
+	.string "I had no choice but to give it away $"
 
 MeteorFalls_1F_1R_Text_ArchieInterrogatingCozmo2:
 	.string "ARCHIE: WHAT? And where are\n"
-	.string "they now?$"
+	.string "they now? $"
 MeteorFalls_1F_1R_Text_CozmoAnswering2:
 	.string "COZMO: T-they talked about\n"
-	.string "using it in the volcano...$"
+	.string "using it in the volcano... $"
 
 MeteorFalls_1F_1R_Text_ArchieRealizing::
 	.string "ARCHIE: We must hurry.\n"
-	.string "I don't like what they're doing.$"
+	.string "I don't like what they're doing. $"

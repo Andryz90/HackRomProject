@@ -106,12 +106,12 @@ LilycoveCity_House3_Text_LearnFromMasterOfPokeblocks:
 	.string "If I get serious just a little, why,\n"
 	.string "I can concoct great {POKEBLOCK}S.\p"
 	.string "Would you like to learn from me,\n"
-	.string "a master of {POKEBLOCK}S?$"
+	.string "a master of {POKEBLOCK}S? $"
 
 LilycoveCity_House3_Text_OhAreYouSure:
 	.string "Oh? Are you sure?\p"
 	.string "You shouldn't always try to do\n"
-	.string "everything by yourself, dear!$"
+	.string "everything by yourself, dear! $"
 
 LilycoveCity_House3_Text_ExplainPokeblocks:
 	.string "Oh, good! You're a smart soul!\n"
@@ -140,29 +140,29 @@ LilycoveCity_House3_Text_ExplainPokeblocks:
 	.string "If everyone had POKéMON they love,\n"
 	.string "smooth {POKEBLOCK}S, and a loving family,\l"
 	.string "the world would be a happier place.\p"
-	.string "Don't give up, dear!$"
+	.string "Don't give up, dear! $"
 
 LilycoveCity_House3_Text_HappyToHaveQuadruplets:
 	.string "When my wife gave birth to quadruplets,\n"
 	.string "you bet I was shocked.\p"
 	.string "But, now, seeing them play together,\n"
-	.string "it makes me happy.$"
+	.string "it makes me happy. $"
 
 LilycoveCity_House3_Text_GoingToWinMultiBattles:
 	.string "We're having MULTI BATTLES, but I know\n"
-	.string "I'm going to win.$"
+	.string "I'm going to win. $"
 
 LilycoveCity_House3_Text_LikeMixingAtRecordCorner:
 	.string "We like mixing stuff at\n"
 	.string "the RECORD CORNER.\p"
-	.string "But what gets mixed up?$"
+	.string "But what gets mixed up? $"
 
 LilycoveCity_House3_Text_MakePokeblocksWithBerryBlender:
 	.string "We're going to make super {POKEBLOCK}S\n"
-	.string "with a BERRY BLENDER!$"
+	.string "with a BERRY BLENDER! $"
 
 LilycoveCity_House3_Text_GoingToEnterContest:
 	.string "I want to brag about how tough my\n"
 	.string "POKéMON is, so we're going to enter\l"
-	.string "a CONTEST together.$"
+	.string "a CONTEST together. $"
 

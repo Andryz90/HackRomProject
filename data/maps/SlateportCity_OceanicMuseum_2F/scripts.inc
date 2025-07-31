@@ -467,7 +467,7 @@ SlateportCity_MuseumMovement4::
 	step_end
 
 Brawly_Alert_Text::
-	.string "BRAWLY: Who are you?$"
+	.string "BRAWLY: Who are you? $"
 
 SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
 	.string "CAPT. STERN: Ah! Those must be the parts\nI ordered "
@@ -478,45 +478,45 @@ SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
 
 SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts:
 	.string "Hehehe, hold it!\n"
-	.string "We'll take those parts!$"
+	.string "We'll take those parts! $"
 
 SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou:
 	.string "CAPT. STERN: Wh-what?\n"
-	.string "Who are you people?$"
+	.string "Who are you people? $"
 
 SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua:
 	.string "MATT: We're TEAM AQUA!\p"
 	.string "MATT: Our BOSS wants those parts!\p"
 	.string "MATT: I didn't expect\nthe GYM LEADER to be here but whatever\p"
-	.string "MATT: Now well'take what we need!$"
+	.string "MATT: Now well'take what we need! $"
 
 SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat:
 	.string "Awaaaah!\n"
-	.string "A kid beat me!$"
+	.string "A kid beat me! $"
 
 SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious:
 	.string "Oh, man, what a disaster…\n"
-	.string "The BOSS is going to be furious…$"
+	.string "The BOSS is going to be furious… $"
 
 SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis:
 	.string "Humph, sniveling wimp!\n"
-	.string "Let me take care of this!$"
+	.string "Let me take care of this! $"
 
 SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat:
 	.string "What?!\n"
-	.string "I lost, too!$"
+	.string "I lost, too! $"
 
 SlateportCity_OceanicMuseum_2F_Text_MeddlingKid:
 	.string "GRUNT: Now what?\nIf we don't get the parts"
 	.string "we're in for it!\p"
 	.string "Arrgh, I didn't count on being meddled\n"
-	.string "with by some meddling kid!$"
+	.string "with by some meddling kid! $"
 
 SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong:
 	.string "I came to see what was taking so\n"
 	.string "long to snatch some parts.\p"
 	.string "I expected the GYM Leader to be here,\nbut I thought you could handle it.\p"
-	.string "Maybe was too much for you.$"
+	.string "Maybe was too much for you. $"
 
 SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
 	.string "We are TEAM AQUA,\n"
@@ -543,17 +543,17 @@ SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
 	.string "interfering with our plans again.\p"
 	.string "The consequences will cost you\n"
 	.string "dearly!\p"
-	.string "And don't you forget it!$"
+	.string "And don't you forget it! $"
 
 SlateportCity_OceanicMuseum_2F_Text_BrawlyThankYouForSavingUs:
 	.string "BRAWLY: Thanks for the help.\nWhat's your name?\p"
 	.string "{PLAYER}? I'll keep it in mind.\nYou helped me a lot earlier.\p"
-	.string "I couldn't take them all alone,\nyou are very skilled.$"
+	.string "I couldn't take them all alone,\nyou are very skilled. $"
 SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs:
 	.string "CAPT. STERN: Anyway, that was\na tense situation!\p"
 	.string "Thank you for saving us!\p"
 	.string "Oh, yes, I almost forgot that you\n"
-	.string "even brought the parts from DEVON!$"
+	.string "even brought the parts from DEVON! $"
 
 SlateportCity_OceanicMuseum_2F_Text_SternIveGotToGo:
 	.string "CAPT. STERN: Whoops!\n"
@@ -563,32 +563,32 @@ SlateportCity_OceanicMuseum_2F_Text_SternIveGotToGo:
 	.string "Thanks again, but now I've got\n"
 	.string "to go!\p"
 	.string "Feel free to wander around and check\n"
-	.string "out our facilities, though.$"
+	.string "out our facilities, though. $"
 
 SlateportCity_OceanicMuseum_2F_Text_RemindsMeOfAbandonedShip:
 	.string "I saw a model of a ship here.\p"
 	.string "It reminded me of the ABANDONED SHIP\n"
-	.string "near DEWFORD TOWN…$"
+	.string "near DEWFORD TOWN… $"
 
 SlateportCity_OceanicMuseum_2F_Text_DontRunInMuseum:
 	.string "Don't you dare run around inside\n"
-	.string "the MUSEUM!$"
+	.string "the MUSEUM! $"
 
 SlateportCity_OceanicMuseum_2F_Text_WantToRideSubmarine:
 	.string "Wow, the submarine's awesome!\n"
-	.string "I want to go for a ride!$"
+	.string "I want to go for a ride! $"
 
 SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample1:
 	.string "“WATER QUALITY SAMPLE 1,” the\n"
 	.string "label says.\p"
 	.string "The sea is all connected, but the\n"
-	.string "water seems to differ by region.$"
+	.string "water seems to differ by region. $"
 
 SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample2:
 	.string "“WATER QUALITY SAMPLE 2,” the\n"
 	.string "label says.\p"
 	.string "Does the saltiness of seawater differ\n"
-	.string "by region, too?$"
+	.string "by region, too? $"
 
 SlateportCity_OceanicMuseum_2F_Text_PressureExperiment:
 	.string "A rubber ball is expanding and\n"
@@ -599,63 +599,63 @@ SlateportCity_OceanicMuseum_2F_Text_PressureExperiment:
 	.string "very heavy.\p"
 	.string "“However, in extremely deep water,\n"
 	.string "the pressure can reach even tens of\l"
-	.string "thousands of tons on a small area.”$"
+	.string "thousands of tons on a small area.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_HoennModel:
 	.string "“MODEL OF HOENN REGION”\p"
 	.string "It's a miniature diorama of the\n"
 	.string "HOENN region.\p"
-	.string "Where is LITTLEROOT TOWN on this?$"
+	.string "Where is LITTLEROOT TOWN on this? $"
 
 SlateportCity_OceanicMuseum_2F_Text_DeepSeawaterDisplay:
 	.string "It's a display on the flow of seawater.\p"
 	.string "“Near the bottom of the sea, water\n"
 	.string "flows due to differences in such\l"
-	.string "factors as temperature and salinity.”$"
+	.string "factors as temperature and salinity.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_SurfaceSeawaterDisplay:
 	.string "It's a display on the flow of seawater.\p"
 	.string "“Toward the surface, seawater flows\n"
-	.string "as currents driven by the winds.”$"
+	.string "as currents driven by the winds.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_SSTidalReplica:
 	.string "“THE FERRY S.S. TIDAL\p"
 	.string "“A scale replica of the ship under\n"
-	.string "construction at STERN'S SHIPYARD.”$"
+	.string "construction at STERN'S SHIPYARD.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_SubmarineReplica:
 	.string "“SUBMARINE EXPLORER 1\p"
 	.string "“A replica of the high-performance\n"
-	.string "ocean floor exploration submarine.”$"
+	.string "ocean floor exploration submarine.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_SumbersibleReplica:
 	.string "“SUBMERSIBLE POD\p"
 	.string "“A replica of a compact, unmanned\n"
-	.string "pod for seafloor exploration.”$"
+	.string "pod for seafloor exploration.” $"
 
 SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
 	.string "“S.S. ANNE\p"
 	.string "“A replica of the luxury liner that\n"
-	.string "circles the globe.”$"
+	.string "circles the globe.” $"
 
 Brawly_Trigger_Text::
 	.string "BRAWLY: It's not safe to stay here,\nTeam Aqua is looking for Devon Goods.\p"
-	.string "CAPT. STERN: I know, but I'm waiting\nthe part from MR. STONE.$"
+	.string "CAPT. STERN: I know, but I'm waiting\nthe part from MR. STONE. $"
 Matt_OceanicMuseum_Entrance_Text::
-	.string "MATT: Well well, look we got here.$"
+	.string "MATT: Well well, look we got here. $"
 SlateportCity_OceanicMuseum_2F_Text_BrawlyFight::
 	.string "BRAWLY: I won't let you do\nwhatever you want!\p"
-	.string "BRAWLY: Captain, stay back.$"
+	.string "BRAWLY: Captain, stay back. $"
 SlateportCity_OceanicMuseum_2F_Text_Grunt1Fight::
-	.string "GRUNT: You're not going anywhere!$"
+	.string "GRUNT: You're not going anywhere! $"
 SlateportCity_OceanicMuseum_2F_Text_MattDefeated::
-	.string "MATT: Tch, you got lucky.$"
+	.string "MATT: Tch, you got lucky. $"
 SlateportCity_OceanicMuseum_2F_Text_BrawlyAskWho::
-	.string "BRAWLY: Who are you now?!$"
+	.string "BRAWLY: Who are you now?! $"
 SlateportCity_OceanicMuseum_2F_Text_BrawlyReply::
 	.string "BRAWLY: We will not let you do\nwhatever you want ARCHIE!\p"
 	.string "BRAWLY: We'll defeat you\neverytime is needed.\p"
-	.string "ARCHIE: Fine, see you next time then.$"
+	.string "ARCHIE: Fine, see you next time then. $"
 SlateportCity_OceanicMuseum_2F_Text_BrawlyIveGotToGo::
 	.string "BRAWLY: {PLAYER}, I have to go back\nto the gym of DEWFORD TOWN\p"
-	.string "If you're a challenger\nI'll wait you there, see you soon.$"
+	.string "If you're a challenger\nI'll wait you there, see you soon. $"

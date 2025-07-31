@@ -81,19 +81,19 @@ CaveOfOrigin_B1F_Text_WallaceStory:
 	.string "becalmed the two combatants in\l"
 	.string "the distant past.\p"
 	.string "But even I have no clue as to\n"
-	.string "RAYQUAZA's whereabouts…$"
+	.string "RAYQUAZA's whereabouts… $"
 
 CaveOfOrigin_B1F_Text_WhereIsRayquaza:
 	.string "WALLACE: {PLAYER}{KUN}, do you perhaps\n"
 	.string "know where RAYQUAZA is now?\p"
-	.string "If you do, please tell me.$"
+	.string "If you do, please tell me. $"
 
 CaveOfOrigin_B1F_Text_ButWereInCaveOfOrigin:
 	.string "WALLACE: The CAVE OF ORIGIN?\p"
 	.string "But that's right here!\n"
 	.string "I need you to do better than that!\p"
 	.string "Please, I need you to think about\n"
-	.string "where RAYQUAZA might be right now.$"
+	.string "where RAYQUAZA might be right now. $"
 
 CaveOfOrigin_B1F_Text_OldLadyDidntMentionThat:
 	.string "WALLACE: MT. PYRE?\p"
@@ -102,17 +102,17 @@ CaveOfOrigin_B1F_Text_OldLadyDidntMentionThat:
 	.string "I very much doubt that the old lady\n"
 	.string "would try to hide something from me…\p"
 	.string "{PLAYER}{KUN}, could you think about this\n"
-	.string "more carefully for me?$"
+	.string "more carefully for me? $"
 
 CaveOfOrigin_B1F_Text_CantYouRememberSomehow:
 	.string "WALLACE: Huh? You don't remember?\n"
 	.string "Hmm… That's a problem…\p"
-	.string "Can't you remember somehow?$"
+	.string "Can't you remember somehow? $"
 
 CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
 	.string "WALLACE: The SKY PILLAR?\p"
 	.string "That's it!\n"
 	.string "It must be the SKY PILLAR!\p"
 	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
-	.string "We'll head to the SKY PILLAR right away!$"
+	.string "We'll head to the SKY PILLAR right away! $"
 

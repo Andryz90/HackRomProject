@@ -90,8 +90,8 @@ Route104_Text_DadPokenavCall:
 	.string "so that's fine with me.\p"
 	.string "You take care now.\p"
 	.string "… … … … … …\n"
-	.string "… … … … … Click!$"
+	.string "… … … … … Click! $"
 
 Route104_Text_RegisteredDadInPokenav:
 	.string "Registered DAD NORMAN\n"
-	.string "in the POKéNAV.$"
+	.string "in the POKéNAV. $"

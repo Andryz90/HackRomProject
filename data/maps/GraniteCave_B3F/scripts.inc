@@ -208,25 +208,25 @@ GraniteCave_B3F_SplitFace_Encounter3::
 	release
 	end
 GraniteCave_B3F_SplitFace_TextSolo::
-	.string "Mmh very interesting mineral.$"
+	.string "Mmh very interesting mineral. $"
 
 GraniteCave_B3F_SplitFace_Huh_Text::
-	.string "Huh?$"
+	.string "Huh? $"
 
 GraniteCave_B3F_SplitFace_TextPlayer::
 	.string "Yo.\p"
 	.string "I'm one of the developer of the game,\n"
-	.string "even though I didn't much...$"
+	.string "even though I didn't much... $"
 
 GraniteCave_B3F_SplitFace_Bestemmia::
-	.string "Dio Porco.$"
+	.string "Dio Porco. $"
 
 GraniteCave_B3F_SplitFace_CazzoPalle::
-	.string "Cazzo palle.$"
+	.string "Cazzo palle. $"
 
 GraniteCave_B3F_SplitFace_TextPlayer2::
 	.string "So you're {PLAYER},\n"
-	.string "the main character I suppose.$"
+	.string "the main character I suppose. $"
 
 GraniteCave_B3F_SplitFace_TextPlayer2_Part2::
 	.string "I like Ice type a lot and \n"
@@ -235,18 +235,18 @@ GraniteCave_B3F_SplitFace_TextPlayer2_Part2::
 	.string "are so cute and I love them.\p"
 	.string "Did you see the Spheal?\nThey are too precious.\p"
 	.string "Btw I'm Splitface, nice to meet you.\p"
-	.string "Can you guess which one\nis my favorite Pokémon?$"
+	.string "Can you guess which one\nis my favorite Pokémon? $"
 
 GraniteCave_B3F_SplitFace_BattleIntroText::
-	.string "Lets battle so you can find it out.$"
+	.string "Lets battle so you can find it out. $"
 
 GraniteCave_B3F_SplitFace_BattleLoseText::
 	.string "That's what happened when you use\n"
-	.string "Pokémon that you like, LMFAO.$"
+	.string "Pokémon that you like, LMFAO. $"
 
 GraniteCave_B3F_SplitFace_LastText::
 	.string "I hope you enjoyed the battle, take this,\n"
-	.string "will help you in your journey.$"
+	.string "will help you in your journey. $"
 
 GraniteCave_B3F_SplitFace_BuonanotteLMFAO::
-	.string "Buonanotte.$"
+	.string "Buonanotte. $"

@@ -61,26 +61,26 @@ VerdanturfPrarie_Sunflora::
 	release
 	end
 VerdanturfPrarie_Sunflora_Text::
-	.string "Flora$"
+	.string "Flora $"
 VerdanturfPrarie_Slurpuff_Text::
-	.string "S-slurp?$"
+	.string "S-slurp? $"
 
 VerdanturfPrarie_PicnicWoman_Text::
-	.string "I love making picnics here.\pThe weather is so nice\nand the air is so fresh!$"
+	.string "I love making picnics here.\pThe weather is so nice\nand the air is so fresh! $"
 
 VerdanturfPrarie_FlowerLover_Text::
-	.string "I love watering the flowers here.\nThey bloom so beautifully!$"
+	.string "I love watering the flowers here.\nThey bloom so beautifully! $"
 
 VerdanturfPrarie_LoveFlower_Text::
 	.string "I love flowers,\nhere the air is so fresh.\p"
 	.string "Breathing here is good for the health.\nThe POKéMON here seems to love it too.\p"
-	.string "It's so relaxing, don't you think so too?$"
+	.string "It's so relaxing, don't you think so too? $"
 
 VerdanturfPrarie_RelaxMint_Text::	
-	.string "I picked up this,\nhere, take it without problem.$"
+	.string "I picked up this,\nhere, take it without problem. $"
 
 VerdanturfPrarie_HopeEnjoy_Text::
-	.string "I hope you enjoy to stay here.$"
+	.string "I hope you enjoy to stay here. $"
 
 VerdanturfPrarie_Meganium_Text::
-	.string "M-megaa$"
+	.string "M-megaa $"

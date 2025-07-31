@@ -414,104 +414,104 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_11:
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_No::
 	.string "I see. Come back if you need\n"
-	.string "something else.$"
+	.string "something else. $"
 AreYouSureNatureChange::
 	.string "Are you sure you want\n"
-	.string "to change to this nature?$"
+	.string "to change to this nature? $"
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_0:
-	.string "Which Pokémon?$"
+	.string "Which Pokémon? $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_1:
-	.string "I can't change the Nature of an Egg.$"
+	.string "I can't change the Nature of an Egg. $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_2:
 	.string "Which new Nature suits {STR_VAR_1}\n"
-	.string "the best?$"
+	.string "the best? $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_3:
-	.string "Adamant       {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk$"
+	.string "Adamant       {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_4:
-	.string "Bashful        Neutral         $"
+	.string "Bashful        Neutral          $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_5:
-	.string "Bold             {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk       $"
+	.string "Bold             {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk        $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_6:
-	.string "Brave           {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed     $"
+	.string "Brave           {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed      $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_7:
-	.string "Calm             {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk     $"
+	.string "Calm             {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk      $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_8:
-	.string "Careful       {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+	.string "Careful       {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_9:
-	.string "Docile          Neutral         $"
+	.string "Docile          Neutral          $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_10:
-	.string "Gentle         {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+	.string "Gentle         {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def      $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_11:
-	.string "Hardy           Neutral         $"
+	.string "Hardy           Neutral          $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_12:
-	.string "Hasty          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+	.string "Hasty          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def      $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_13:
-	.string "Impish         {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+	.string "Impish         {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_14:
-	.string "Jolly           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk   $"
+	.string "Jolly           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpAtk    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_15:
-	.string "Lax              {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef   $"
+	.string "Lax              {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_16:
-	.string "Lonely         {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def     $"
+	.string "Lonely         {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def      $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_17:
-	.string "Mild             {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def   $"
+	.string "Mild             {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Def    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_18:
-	.string "Modest        {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk   $"
+	.string "Modest        {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_19:
-	.string "Naive          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef $"
+	.string "Naive          {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef  $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_20:
-	.string "Naughty      {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef   $"
+	.string "Naughty      {COLOR RED}{SHADOW LIGHT_RED}+Atk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_21:
-	.string "Quiet          {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed $"
+	.string "Quiet          {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed  $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_22:
-	.string "Quirky          Neutral         $"
+	.string "Quirky          Neutral          $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_23:
-	.string "Rash            {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef $"
+	.string "Rash            {COLOR RED}{SHADOW LIGHT_RED}+SpAtk{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-SpDef  $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_24:
-	.string "Relaxed       {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed   $"
+	.string "Relaxed       {COLOR RED}{SHADOW LIGHT_RED}+Def{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_25:
-	.string "Sassy          {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed $"
+	.string "Sassy          {COLOR RED}{SHADOW LIGHT_RED}+SpDef{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Speed  $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_26:
-	.string "Serious       Neutral         $"
+	.string "Serious       Neutral          $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_27:
-	.string "Timid           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk   $"
+	.string "Timid           {COLOR RED}{SHADOW LIGHT_RED}+Speed{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}/{COLOR BLUE}{SHADOW LIGHT_BLUE}-Atk    $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_28:
-	.string "Cancel$"
+	.string "Cancel $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_29:
-	.string "Excellent. We shall begin at once!$"
+	.string "Excellent. We shall begin at once! $"
 
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_30:
 	.string "{STR_VAR_1}'s Nature\n"
-	.string "has been changed!$"
+	.string "has been changed! $"
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Max IVs @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -600,189 +600,189 @@ PKMN_Center_IVs_AlreadySet::
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Strings @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 PKMN_Center_NameRater::
-	.string "Name Rater$"
+	.string "Name Rater $"
 PKMN_Center_Tutor_Move::
-	.string "Teaching a move$"
+	.string "Teaching a move $"
 PKMN_Center_ForgetAMove::
-	.string "Forget a move$"
+	.string "Forget a move $"
 PKMN_Center_ApplyStatus::
-	.string "Apply a status$"
+	.string "Apply a status $"
 PKMN_Center_SwapGender::
-	.string "Change Pkmn Gender$"
+	.string "Change Pkmn Gender $"
 PKMN_Center_DamagePokemon::
-	.string "Damage a Pokémon$"
+	.string "Damage a Pokémon $"
 PKMN_Center_ChangeNature::
-	.string "Change Nature$"
+	.string "Change Nature $"
 PKMN_Center_MaxIVs::
-	.string "Max IVs$"
+	.string "Max IVs $"
 PKMN_Center_Cancel::
-	.string "Exit$"
+	.string "Exit $"
 
 PKMN_Center_Move_Tutor_Text_HowCanHelp:
-	.string "How can I help you today?$"
+	.string "How can I help you today? $"
 
 PKMN_Center_Move_Tutor_Text_HowCanHelp_HS:
 	.string "I am the special\nPOKéMON Center Service.\p"
 	.string "My assistance requires Heart Scales.\n"
-	.string "How can I help you today?$"
+	.string "How can I help you today? $"
 PKMN_Center_Move_Tutor_Text_SeeYou:
-	.string "See you later, then!$"
+	.string "See you later, then! $"
 
 PKMN_Center_MoveReminder_Text_WantMeToTeachMove:
 	.string "Would you like a Pokémon to remember\n"
-	.string "a move it has forgotten?$"
+	.string "a move it has forgotten? $"
 
 PKMN_Center_MoveReminder_Text_TutorWhichMon:
-	.string "Which Pokémon should remember a move?$"
+	.string "Which Pokémon should remember a move? $"
 
 PKMN_Center_MoveReminder_Text_TeachWhichMove:
 	.string "Which move would you like it to\n"
-	.string "remember?$"
+	.string "remember? $"
 
 PKMN_Center_MoveReminder_Text_DontHaveMoveToTeachPokemon:
 	.string "I'm sorry, that Pokémon doesn't have\n"
-	.string "any moves it can remember.$"
+	.string "any moves it can remember. $"
 
 PKMN_Center_MoveReminder_Text_CantTeachEgg:
 	.string "I'm sorry, an Egg can't remember any\n"
-	.string "moves.$"
+	.string "moves. $"
 
 PKMN_Center_MoveReminder_Text_RememberAnotherMove:
 	.string "Would you like a Pokémon to remember\n"
-	.string "another move?$"
+	.string "another move? $"
 
 PKMN_Center_MoveDeleter_Text_ICanMakeMonForgetMove:
 	.string "Would you like one of your Pokémon\n"
-	.string "to forget a move?$"
+	.string "to forget a move? $"
 
 PKMN_Center_MoveDeleter_Text_WhichMonShouldForget:
-	.string "Which Pokémon should forget a move?$"
+	.string "Which Pokémon should forget a move? $"
 
 PKMN_Center_MoveDeleter_Text_WhichMoveShouldBeForgotten:
-	.string "Which move should be forgotten?$"
+	.string "Which move should be forgotten? $"
 
 PKMN_Center_MoveDeleter_Text_MonOnlyKnowsOneMove:
 	.string "{STR_VAR_1} knows only one move,\n"
-	.string "so it can't be forgotten.$"
+	.string "so it can't be forgotten. $"
 
 PKMN_Center_MoveDeleter_Text_MonsMoveShouldBeForgotten:
 	.string "Hm! {STR_VAR_1}'s {STR_VAR_2}?\n"
-	.string "That move should be forgotten?$"
+	.string "That move should be forgotten? $"
 
 PKMN_Center_MoveDeleter_Text_MonHasForgottenMove:
 	.string "It worked to perfection!\p"
 	.string "{STR_VAR_1} has forgotten\n"
-	.string "{STR_VAR_2} completely.$"
+	.string "{STR_VAR_2} completely. $"
 
 PKMN_Center_MoveDeleter_Text_EggCantForgetMoves:
 	.string "What?\n"
-	.string "No Egg should know any moves.$"
+	.string "No Egg should know any moves. $"
 
 PKMN_Center_Text_EggCantStatus:
 	.string "What?\n"
-	.string "Eggs cannot be stasued.$"
+	.string "Eggs cannot be stasued. $"
 PKMN_Center_Text_EggCantDamage::
 	.string "What?\n"
-	.string "Eggs cannot be damaged.$"
+	.string "Eggs cannot be damaged. $"
 PKMN_Center_Text_EggIVs_Text:
 	.string "What?\n"
-	.string "Eggs has no IVs.$"
+	.string "Eggs has no IVs. $"
 PKMN_Center_Text_EggGender_Text:
-	.string "What?\nI can't do that!$"
+	.string "What?\nI can't do that! $"
 PKMN_Center_MoveDeleter_Text_CantForgetSurf:
 	.string "Hm!\p"
 	.string "Your {STR_VAR_1} doesn't seem willing\n"
-	.string "to forget Surf.$"
+	.string "to forget Surf. $"
 
 PKMN_Center_NameRater_Text_CritiqueWhichMonNickname:
 	.string "Which Pokémon's nickname should\n"
-	.string "be changed?$"
+	.string "be changed? $"
 
 PKMN_Center_NameRater_Text_WhatShallNewNameBe:
 	.string "What would you like {STR_VAR_1}'s\n"
-	.string "new nickname to be?$"
+	.string "new nickname to be? $"
 
 PKMN_Center_NameRater_Text_MonShallBeKnownAsName:
 	.string "Done! From now on, this Pokémon\n"
-	.string "shall be known as {STR_VAR_1}!$"
+	.string "shall be known as {STR_VAR_1}! $"
 
 PKMN_Center_NameRater_Text_NameNoDifferentYetSuperior:
 	.string "Okay! {STR_VAR_1}'s nickname\n"
-	.string "will stay as it is.$"
+	.string "will stay as it is. $"
 
 PKMN_Center_NameRater_Text_ThatIsMerelyAnEgg:
 	.string "Now, now.\n"
-	.string "That is merely an Egg!$"
+	.string "That is merely an Egg! $"
 
 PKMN_Center_Text_Mystery_Gift_NoGiftAvailable:
 	.string "I'm sorry, there are no Mystery Gifts\n"
-	.string "available at this time.$"
+	.string "available at this time. $"
 
 PKMN_Center_Mystery_Gift_Text_ReceivedGift::
 	.string "{PLAYER} received {STR_VAR_1}!\p"
-	.string "Take good care of {STR_VAR_1}!$"
+	.string "Take good care of {STR_VAR_1}! $"
 
 PKMN_Center_Nature_Change_IntroText::
 	.string "I can change nature of a Pokémon\n"
-	.string "if you want.$"
+	.string "if you want. $"
 PKMN_Center_Text_ApplyingStatus::
 	.string "Which POKéMON you want to\n"
-	.string "apply a status to?$"
+	.string "apply a status to? $"
 PKMN_Center_Text_Damage::
 	.string "Which POKéMON you want\n"
-	.string "to pre-damage?$"
+	.string "to pre-damage? $"
 PKMN_Center_Text_Damage_YesNo::
 	.string "{STR_VAR_1} will be damaged\n"
-	.string "are you sure?$"
+	.string "are you sure? $"
 PKMN_Center_Nature_Change_Text::
 	.string "Which POKéMON you want to\n"
-	.string "change nature?$"
+	.string "change nature? $"
 PKMN_Center_Nature_Switch_Text::
 	.string "Which Nature you want to\n"
-	.string "change to?$"
+	.string "change to? $"
 PKMN_Center_IVs_Party::
 	.string "Which POKémon you want to\n"
-	.string "maximize the IVs?$"
+	.string "maximize the IVs? $"
 PKMN_Center_Gender_Party::
 	.string "Which POKémon you want to\n"
-	.string "switch gender?$"
+	.string "switch gender? $"
 PKMN_Center_IVs_Single::
 	.string "Want to do it for just\n"
-	.string "one stat or all?$"
+	.string "one stat or all? $"
 PKMN_Center_One::
-	.string "One$"
+	.string "One $"
 PKMN_Center_All::
-	.string "All$"
+	.string "All $"
 PKMN_Center_HeartScale_One::
-	.string "The price is 1 Heart Scale.$"
+	.string "The price is 1 Heart Scale. $"
 PKMN_Center_IVs_AskToContinue::
 	.string "{STR_VAR_1} will have max IVs\nin {STR_VAR_2}.\p"
-	.string "You want to continue?$"
+	.string "You want to continue? $"
 PKMN_Center_IVs_AskToContinueAll::
 	.string "{STR_VAR_1} will have max IVs\nin all stats.\p"
-	.string "You want to continue?$"
+	.string "You want to continue? $"
 PKMN_Center_HeartScale_All::
-	.string "The price is 3 Hearts Scale.$"
+	.string "The price is 3 Hearts Scale. $"
 PKMN_Center_NotEnough_HeartScale::
-	.string "You have not enough Heart Scale.$"
+	.string "You have not enough Heart Scale. $"
 PKMN_Center_WhichStat::
-	.string "Which stat you want to maximize?$"
+	.string "Which stat you want to maximize? $"
 PKMN_Center_IVs_AlreadySet_Text::
 	.string "I can't, the stat\n"
-	.string "has already 31 IV.$"
+	.string "has already 31 IV. $"
 PKMN_Center_HP_IV::
-	.string "HP$"
+	.string "HP $"
 PKMN_Center_Atk_IV::
-	.string "Atk$"
+	.string "Atk $"
 PKMN_Center_Def_IV::
-	.string "Def$"
+	.string "Def $"
 PKMN_Center_Speed_IV::
-	.string "Speed$"
+	.string "Speed $"
 PKMN_Center_SpAtk_IV::
-	.string "SpAtk$"
+	.string "SpAtk $"
 PKMN_Center_SpDef_IV::
-	.string "SpDef$"
+	.string "SpDef $"
 PKMN_Center_IVs_Done_Text::
-	.string "Done, thank you.$"
+	.string "Done, thank you. $"
 PKMN_Center_Done_Text::
-	.string "Done.$"
+	.string "Done. $"

@@ -35,9 +35,9 @@ DewfordMeadow_EventScript_ManorSign::
 
 DewfordMeadow_Text_ManorSign:
 	.string "Dewford Manor: Once a Sea Captain's\n"
-	.string "escape, now home only to Pokémon.$"
+	.string "escape, now home only to Pokémon. $"
 
 DewfordMeadow_Text_Psyduck:
-	.string "Psy-yu-duck$"
+	.string "Psy-yu-duck $"
 DewfordMeadow_Text_Floette:
-	.string "Floo-ette$"
+	.string "Floo-ette $"

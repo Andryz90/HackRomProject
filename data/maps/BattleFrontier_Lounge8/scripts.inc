@@ -25,14 +25,14 @@ BattleFrontier_Lounge8_Text_WhatATrainerNeeds:
 	.string "Well, I'm all set in every way!\n"
 	.string "I'll be unstoppable at every building!\p"
 	.string "Huh? POKéMON?\n"
-	.string "What's that?$"
+	.string "What's that? $"
 
 BattleFrontier_Lounge8_Text_KnowAboutFrontierBrains:
 	.string "Do you know about the FRONTIER\n"
 	.string "BRAINS?\p"
 	.string "That's what SCOTT calls the seven\n"
 	.string "special TRAINERS that run the seven\l"
-	.string "facilities in the BATTLE FRONTIER.$"
+	.string "facilities in the BATTLE FRONTIER. $"
 
 BattleFrontier_Lounge8_Text_ToldMeIHaveTalentForBattling:
 	.string "At the BATTLE TOWER, an older girl\n"
@@ -41,5 +41,5 @@ BattleFrontier_Lounge8_Text_ToldMeIHaveTalentForBattling:
 	.string "I like POKéMON CONTESTS more!\p"
 	.string "But I'm no good at CONTESTS!\p"
 	.string "I guess having talent and liking\n"
-	.string "something aren't the same.$"
+	.string "something aren't the same. $"
 

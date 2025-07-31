@@ -73,6 +73,7 @@
 
 // Custom: EV Enabled or not
 #define P_FLAG_EV_DISABLED               TRUE
+#define P_REGIONAL_STARTER_MULTICHOOSE   TRUE //If true, allow to choose the starter from a region in the wingull script
 
 // Go here if you want to disable specific families of Pokémon.
 #include "config/species_enabled.h"

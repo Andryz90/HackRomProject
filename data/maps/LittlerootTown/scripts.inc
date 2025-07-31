@@ -80,18 +80,25 @@ LittlerootTown_EventScript_MoveMomToMaysDoor::
 	setobjectxyperm LOCALID_MOM, 14, 8
 	return
 
+Wingull_SetPos::
+	setobjectxyperm LOCALID_WINGULL, 13, 2
+	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	return
 LittlerootTown_EventScript_SetTwinPos::
 	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
 	setobjectxyperm LOCALID_TWIN, 10, 1
 	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_UP
-	@setobjectxyperm LOCALID_WINGULL, 13, 2
-	@setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	goto_if_set FLAG_WINGULL_STATE, Wingull_SetPos
 	return
 
+Wingull_GuardPosRoute::
+	setobjectxyperm LOCALID_WINGULL, 13, 2
+	setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	return 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
 	setobjectxyperm LOCALID_TWIN, 7, 2
-	@setobjectxyperm LOCALID_WINGULL, 13, 2
-	@setobjectmovementtype LOCALID_WINGULL, MOVEMENT_TYPE_FACE_DOWN
+	special Handle_Wingull_Flag
+	goto_if_set FLAG_WINGULL_STATE, Wingull_GuardPosRoute
 	return
 
 LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
@@ -412,26 +419,25 @@ LittlerootTown_EventScript_Wingull_StaticDialog::
 	end
 
 Wingull_Region_Text_0::
-	.string "So you're from Kanto, huh?$"
+	.string "So you're from Kanto, huh?  $"
 Wingull_Region_Text_1::
-	.string "So you're from Johto, huh?$"
+	.string "So you're from Johto, huh?  $"
 Wingull_Region_Text_2::
-	.string "So you're from here, huh?$"
+	.string "So you're from here, huh?  $"
 Wingull_Region_Text_3::
-	.string "So you're from Sinnoh, huh?$"
+	.string "So you're from Sinnoh, huh?  $"
 Wingull_Region_Text_4::
-	.string "So you're from Unima, huh?$"
+	.string "So you're from Unima, huh?  $"
 Wingull_Region_Text_5::
-	.string "So you're from Kalos, huh?$"
+	.string "So you're from Kalos, huh?  $"
 Wingull_Region_Text_6::
-	.string "So you're from Alola, huh?$"
+	.string "So you're from Alola, huh?  $"
 Wingull_Region_Text_7::
-	.string "So you're from Galar, huh?$"
+	.string "So you're from Galar, huh?  $"
 Wingull_Region_Text_8::
-	.string "So you're from Paldea, huh?$"
+	.string "So you're from Paldea, huh?  $"
 
 LittlerootTown_EventScript_Wingull_RegionSelect::
-		setflag FLAG_WINGULL_STATE
 		applymovement LOCALID_WINGULL Common_Movement_ExclamationMark 
 		waitmovement  LOCALID_WINGULL  
 		applymovement LOCALID_WINGULL Wingull_Trainer_Chase
@@ -525,8 +531,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 	applymovement LOCALID_TWIN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	setvar VAR_LITTLEROOT_TOWN_STATE, 2
-	@call LittlerootTown_EventScript_Wingull_RegionSelect
-	setvar VAR_VARIOUS_STARTER, 2 @placeholder to have Hoenn starter
+	call_if_set FLAG_WINGULL_STATE,  LittlerootTown_EventScript_Wingull_RegionSelect
 	releaseall
 	end
 
@@ -608,7 +613,7 @@ LittlerootTown_EventScript_GiveRunningShoesTrigger5::
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 LittlerootTown_RaraCandies::
-	.string "Here, take these too.$"
+	.string "Here, take these too.  $"
 LittlerootTown_Give_KeyItems::
 	msgbox LittlerootTown_RaraCandies, MSGBOX_DEFAULT
     giveitem ITEM_RARE_CANDY_KEY_ITEM
@@ -1065,10 +1070,10 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "It has a quaint feel, but it seems to be\n"
 	.string "an easy place to live, don't you think?\p"
 	.string "And, you get your own room, {PLAYER}!\n"
-	.string "Let's go inside.$"
+	.string "Let's go inside.  $"
 
 LittlerootTown_Text_WaitPlayer:
-	.string "MOM: Wait, {PLAYER}!$"
+	.string "MOM: Wait, {PLAYER}!  $"
 
 LittlerootTown_Text_WearTheseRunningShoes:
 	.string "MOM: {PLAYER}! {PLAYER}! Did you\n"
@@ -1079,11 +1084,11 @@ LittlerootTown_Text_WearTheseRunningShoes:
 	.string "You look good together with POKéMON!\p"
 	.string "Here, honey! If you're going out on an\n"
 	.string "adventure, wear these RUNNING SHOES.\p"
-	.string "They'll put a zip in your step!$"
+	.string "They'll put a zip in your step!  $"
 
 LittlerootTown_Text_SwitchShoesWithRunningShoes:
 	.string "{PLAYER} switched shoes with the\n"
-	.string "RUNNING SHOES.$"
+	.string "RUNNING SHOES.  $"
 
 LittlerootTown_Text_ExplainRunningShoes:
 	.string "MOM: {PLAYER}, those shoes came with\n"
@@ -1091,7 +1096,7 @@ LittlerootTown_Text_ExplainRunningShoes:
 	.string "“Press the B Button while wearing these\n"
 	.string "RUNNING SHOES to run extra-fast!\p"
 	.string "“Slip on these RUNNING SHOES and race\n"
-	.string "in the great outdoors!”$"
+	.string "in the great outdoors!”  $"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
@@ -1101,28 +1106,28 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "Your father will be overjoyed.\p"
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
-	.string "Go on, go get them, honey!$"
+	.string "Go on, go get them, honey!  $"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"
 	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
+	.string "The power of science is staggering!  $"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
 	.string "PROF. BIRCH spends days in his LAB\n"
 	.string "studying, then he'll suddenly go out in\l"
 	.string "the wild to do more research…\p"
 	.string "When does PROF. BIRCH spend time\n"
-	.string "at home?$"
+	.string "at home?  $"
 
 LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
 	.string "Um, um, um!\p"
 	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
+	.string "wild POKéMON will jump out!  $"
 
 LittlerootTown_Text_DangerousIfYouDontHavePokemon:
 	.string "It's dangerous if you don't have\n"
-	.string "your own POKéMON.$"
+	.string "your own POKéMON.  $"
 
 LittlerootTown_Text_CanYouGoSeeWhatsHappening:
 	.string "Um, hi!\p"
@@ -1131,28 +1136,28 @@ LittlerootTown_Text_CanYouGoSeeWhatsHappening:
 	.string "I want to go see what's going on,\n"
 	.string "but I don't have any POKéMON…\p"
 	.string "Can you go see what's happening\n"
-	.string "for me?$"
+	.string "for me?  $"
 
 LittlerootTown_Text_YouSavedBirch:
 	.string "You saved PROF. BIRCH!\n"
-	.string "I'm so glad!$"
+	.string "I'm so glad!  $"
 
 LittlerootTown_Text_GoodLuckCatchingPokemon:
 	.string "Are you going to catch POKéMON?\n"
-	.string "Good luck!$"
+	.string "Good luck!  $"
 
 LittlerootTown_Text_TownSign:
 	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
+	.string "“A town that can't be shaded any hue.”  $"
 
 LittlerootTown_Text_ProfBirchsLab:
-	.string "PROF. BIRCH'S POKéMON LAB$"
+	.string "PROF. BIRCH'S POKéMON LAB  $"
 
 LittlerootTown_Text_PlayersHouse:
-	.string "{PLAYER}'s HOUSE$"
+	.string "{PLAYER}'s HOUSE  $"
 
 LittlerootTown_Text_ProfBirchsHouse:
-	.string "PROF. BIRCH'S HOUSE$"
+	.string "PROF. BIRCH'S HOUSE  $"
 
 LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
@@ -1163,17 +1168,17 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Oh, yes. Do you still have the POKéDEX\n"
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
-	.string "Let's go to my LAB.$"
+	.string "Let's go to my LAB.  $"
 
 	
 LittlerootTown_Text_Wingull:
 	.string "So you're new in the town, right?\n"
 	.string "Hope you find yourself well here.\p"
-	.string "Where are you from {PLAYER}?$"
+	.string "Where are you from {PLAYER}?  $"
 
 LittlerootTown_Text_WingullItem:
 	.string "Enjoy our hack rom {PLAYER} :3\n"
-	.string "take this as gift!$"
+	.string "take this as gift!  $"
 
 LittlerootTown_Text_WingullBasic:
-	.string "Enjoy our hack rom {PLAYER} :3$"
+	.string "Enjoy our hack rom {PLAYER} :3  $"

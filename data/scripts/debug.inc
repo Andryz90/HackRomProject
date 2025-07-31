@@ -76,7 +76,7 @@ Debug_FlagsNotSetOverworldConfigMessage::
 Debug_FlagsNotSetOverworldConfigMessage_Text:
 	.string "Feature unavailable!\n"
 	.string "Please define a usable flag in:\l"
-	.string "'include/config/overworld.h'!$"
+	.string "'include/config/overworld.h'! $"
 
 Debug_FlagsNotSetBattleConfigMessage::
 	message Debug_FlagsNotSetBattleConfigMessage_Text
@@ -85,14 +85,14 @@ Debug_FlagsNotSetBattleConfigMessage::
 Debug_FlagsNotSetBattleConfigMessage_Text:
 	.string "Feature unavailable!\n"
 	.string "Please define a usable flag in:\l"
-	.string "'include/config/battle.h'!$"
+	.string "'include/config/battle.h'! $"
 
 Debug_BoxFilledMessage::
 	message Debug_BoxFilledMessage_Text
 	goto Debug_MessageEnd
 
 Debug_BoxFilledMessage_Text:
-	.string "Storage boxes filled!$"
+	.string "Storage boxes filled! $"
 
 Debug_EventScript_CheckEVs::
 	lockall
@@ -110,10 +110,10 @@ Debug_EventScript_CheckEVs_End::
 	end
 
 Debug_EventScript_Text_OffensiveEVs:
-	.string "ATK EVs: {STR_VAR_1}, SPATK EVs: {STR_VAR_2}, SPEED EVs: {STR_VAR_3}$"
+	.string "ATK EVs: {STR_VAR_1}, SPATK EVs: {STR_VAR_2}, SPEED EVs: {STR_VAR_3} $"
 
 Debug_EventScript_Text_DefensiveEVs:
-	.string "HP EVs: {STR_VAR_1}, DEF EVs: {STR_VAR_2}, SPDEF EVs: {STR_VAR_3}$"
+	.string "HP EVs: {STR_VAR_1}, DEF EVs: {STR_VAR_2}, SPDEF EVs: {STR_VAR_3} $"
 
 Debug_EventScript_CheckIVs::
 	lockall
@@ -131,10 +131,10 @@ Debug_EventScript_CheckIVs_End::
 	end
 
 Debug_EventScript_Text_OffensiveIVs:
-	.string "ATK IVs: {STR_VAR_1}, SPATK IVs: {STR_VAR_2}, SPEED IVs: {STR_VAR_3}$"
+	.string "ATK IVs: {STR_VAR_1}, SPATK IVs: {STR_VAR_2}, SPEED IVs: {STR_VAR_3} $"
 
 Debug_EventScript_Text_DefensiveIVs:
-	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
+	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3} $"
 
 Debug_EventScript_Script_1::
 	release
@@ -182,19 +182,19 @@ Debug_CheckSaveBlock::
 
 Debug_SaveBlock1Size::
 	.string "SaveBlock1 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
-	.string "Free space: {STR_VAR_3}b.$"
+	.string "Free space: {STR_VAR_3}b. $"
 
 Debug_SaveBlock2Size::
 	.string "SaveBlock2 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
-	.string "Free space: {STR_VAR_3}b.$"
+	.string "Free space: {STR_VAR_3}b. $"
 
 Debug_SaveBlock3Size::
 	.string "SaveBlock3 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
-	.string "Free space: {STR_VAR_3}b.$"
+	.string "Free space: {STR_VAR_3}b. $"
 
 Debug_PokemonStorageSize::
 	.string "{PKMN}Storage size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
-	.string "Free space: {STR_VAR_3}b.$"
+	.string "Free space: {STR_VAR_3}b. $"
 
 Debug_CheckROMSpace::
 	callnative CheckROMSize
@@ -204,7 +204,7 @@ Debug_CheckROMSpace::
 
 Debug_ROMSize::
 	.string "ROM size: {STR_VAR_1}MB/32MB.\n"
-	.string "Free space: {STR_VAR_2}MB.$"
+	.string "Free space: {STR_VAR_2}MB. $"
 
 Debug_HatchAnEgg::
 	lockall
@@ -232,10 +232,10 @@ DebugScript_HatchAnEgg_CantForceHatch::
 	end
 
 DebugScript_Text_EmptyParty::
-	.string "You have no Pokémon nor Eggs.$"
+	.string "You have no Pokémon nor Eggs. $"
 
 DebugScript_HatchAnEgg_Text_NotAnEgg::
-	.string "That's not a Pokémon Egg.$"
+	.string "That's not a Pokémon Egg. $"
 
 DebugScript_ZeroDaycareMons::
 	msgbox DebugText_DaycareNoPokemon, MSGBOX_DEFAULT
@@ -253,13 +253,13 @@ DebugScript_DaycareMonsNotCompatible::
 	end
 
 DebugText_DaycareNoPokemon:
-	.string "You have no Pokémon at Daycare.$"
+	.string "You have no Pokémon at Daycare. $"
 
 DebugText_DaycareOnePokemon:
-	.string "You have only one Pokémon at Daycare.$"
+	.string "You have only one Pokémon at Daycare. $"
 
 DebugText_DaycarePokemonNotCompatible:
-	.string "Your Pokémon at Daycare can't\nhave babies together!$"
+	.string "Your Pokémon at Daycare can't\nhave babies together! $"
 
 Debug_ShowExpansionVersion::
 	callnative BufferExpansionVersion
@@ -268,7 +268,7 @@ Debug_ShowExpansionVersion::
 	end
 
 Debug_ExpansionVersion:
-	.string "pokeemerald-expansion {STR_VAR_1}$"
+	.string "pokeemerald-expansion {STR_VAR_1} $"
 
 Debug_EventScript_Steven_Multi::
 	call MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle
@@ -282,7 +282,7 @@ Debug_BerryPestsDisabled::
 
 DebugText_BerryPestsDisabled:
 	.string "OW_BERRY_PESTS is disabled.\n"
-	.string "Unable to force pests onto berry trees.$"
+	.string "Unable to force pests onto berry trees. $"
 
 Debug_BerryWeedsDisabled::
 	msgbox DebugText_BerryWeedsDisabled, MSGBOX_DEFAULT
@@ -291,7 +291,7 @@ Debug_BerryWeedsDisabled::
 
 DebugText_BerryWeedsDisabled:
 	.string "OW_BERRY_WEEDS is disabled.\n"
-	.string "Unable to force weeds onto berry trees.$"
+	.string "Unable to force weeds onto berry trees. $"
 
 Debug_EventScript_InflictStatus1::
 	lockall
@@ -417,31 +417,31 @@ Debug_EventScript_InflictStatus1_Party_Frostbite:
 	end
 
 Debug_EventScript_InflictStatus1_Text_Single:
-	.string "Single$"
+	.string "Single $"
 
 Debug_EventScript_InflictStatus1_Text_PartyWide:
-	.string "Party-wide$"
+	.string "Party-wide $"
 
 Debug_EventScript_InflictStatus1_Text_Close:
-	.string "Close$"
+	.string "Close $"
 
 Debug_EventScript_InflictStatus1_Text_Poison:
-	.string "Poison$"
+	.string "Poison $"
 
 Debug_EventScript_InflictStatus1_Text_Paralysis:
-	.string "Paralysis$"
+	.string "Paralysis $"
 
 Debug_EventScript_InflictStatus1_Text_Sleep:
-	.string "Sleep$"
+	.string "Sleep $"
 
 Debug_EventScript_InflictStatus1_Text_Burn:
-	.string "Burn$"
+	.string "Burn $"
 
 Debug_EventScript_InflictStatus1_Text_Freeze:
-	.string "Freeze$"
+	.string "Freeze $"
 
 Debug_EventScript_InflictStatus1_Text_Frostbite:
-	.string "Frostbite$"
+	.string "Frostbite $"
 
 Debug_EventScript_EWRAMCounters::
 	callnative CheckEWRAMCounters
@@ -451,7 +451,7 @@ Debug_EventScript_EWRAMCounters::
 
 Debug_EventScript_EWRAMCounters_Text::
 	.string "Follower Steps: {STR_VAR_1}.\n"
-	.string "Fishing Chain: {STR_VAR_2}.$"
+	.string "Fishing Chain: {STR_VAR_2}. $"
 
 Debug_EventScript_FontTest_Text_1::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -465,7 +465,7 @@ Debug_EventScript_FontTest_Text_1::
 	.string "Roman Snout Sodium Tundra Tocsin\l"
 	.string "Uncle Udder Vulcan Vocal Whale\l"
 	.string "Woman Xmas Xenon Yunnan Young\l"
-	.string "Zloty Zodiac.$"
+	.string "Zloty Zodiac. $"
 
 Debug_EventScript_FontTest_Text_2::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -476,7 +476,7 @@ Debug_EventScript_FontTest_Text_2::
 	.string "coast for the pouch loco of the franc\l"
 	.string "assoc and accede. Dunce dunce docile\l"
 	.string "for the loudness mastodon of the\l"
-	.string "loud statehood and huddle.$"
+	.string "loud statehood and huddle. $"
 
 Debug_EventScript_FontTest_Text_3::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -488,7 +488,7 @@ Debug_EventScript_FontTest_Text_3::
 	.string "logos of the unplug analog and smuggle.\l"
 	.string "Human human hoist for the buddhist\l"
 	.string "alcohol of the riyadh caliph and\l"
-	.string "bathhouse.$"
+	.string "bathhouse. $"
 
 Debug_EventScript_FontTest_Text_4::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -500,7 +500,7 @@ Debug_EventScript_FontTest_Text_4::
 	.string "lookout of the dybbuk outlook and\l"
 	.string "trekked. Linden linden loads for the\l"
 	.string "ulna monolog of the consul menthol and\l"
-	.string "shallot.$"
+	.string "shallot. $"
 
 Debug_EventScript_FontTest_Text_5::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -512,7 +512,7 @@ Debug_EventScript_FontTest_Text_5::
 	.string "abandon podium of the antiquo tempo\l"
 	.string "and moonlit. Pneumo pneumo poncho for\l"
 	.string "the dauphin opossum of the holdup\l"
-	.string "bishop and supplies.$"
+	.string "bishop and supplies. $"
 
 Debug_EventScript_FontTest_Text_6::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -523,7 +523,7 @@ Debug_EventScript_FontTest_Text_6::
 	.string "sodium for the ensnare bosom of the\l"
 	.string "genus pathos and missing. Tundra\l"
 	.string "tundra tocsin for the nutmeg isotope\l"
-	.string "of the peasant ingot and ottoman.$"
+	.string "of the peasant ingot and ottoman. $"
 
 Debug_EventScript_FontTest_Text_7::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
@@ -535,14 +535,14 @@ Debug_EventScript_FontTest_Text_7::
 	.string "of the forepaw meadow and glowworm.\l"
 	.string "Xmas xmas xenon for the bauxite\l"
 	.string "doxology of the tableaux equinox and\l"
-	.string "exxon.$"
+	.string "exxon. $"
 
 Debug_EventScript_FontTest_Text_8::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
 	.string "Yunnan yunnan young for the dynamo\n"
 	.string "coyote of the obloquy employ and\l"
 	.string "sayyid. Zloty zloty zodiac for the gizmo\l"
-	.string "ozone of the franz laissez and buzzing.$"
+	.string "ozone of the franz laissez and buzzing. $"
 
 
 Debug_EventScript_FontTest_Text_9::                 @ Special thanks to Nintendo for this nice pangram to test other glyphs
@@ -554,7 +554,7 @@ Debug_EventScript_FontTest_Text_9::                 @ Special thanks to Nintendo
 	.string "Nintendo GBA can connect to a Nintendo\l"
 	.string "GameCube console! He claimed-though I don't\l"
 	.string "believe him-to have done so in an eyes-shut\l"
-	.string "state…?$"
+	.string "state…? $"
 
 Debug_PrintFontTest::
 	msgbox Debug_EventScript_FontTest_Text_1, MSGBOX_DEFAULT
@@ -606,12 +606,12 @@ Debug_EventScript_FakeRTCNotEnabled::
 	return
 
 Debug_EventScript_FakeRTCNotEnabled_Text_0:
-	.string "You currently do not have Fake RTC\nenabled. Please enable it in include/\lconfig/overworld.h$"
+	.string "You currently do not have Fake RTC\nenabled. Please enable it in include/\lconfig/overworld.h $"
 
 
 Debug_EventScript_TellTheTime_Text_0:
 	.string "Time and date:\n"
-	.string "{STR_VAR_1}, {STR_VAR_2}:{STR_VAR_3}$"
+	.string "{STR_VAR_1}, {STR_VAR_2}:{STR_VAR_3} $"
 
 DebugEventScript_PrintWeekday_Text_0:
-	.string "Time of day: {STR_VAR_1}$"
+	.string "Time of day: {STR_VAR_1} $"

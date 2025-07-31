@@ -72,10 +72,10 @@ EverGrandeCity_DrakesRoom_Text_IntroSpeech:
 	.string "partners, do you know what it takes?\p"
 	.string "Do you know what is needed?\p"
 	.string "If you don't, then you will never\n"
-	.string "prevail over me!$"
+	.string "prevail over me! $"
 
 EverGrandeCity_DrakesRoom_Text_Defeat:
-	.string "Superb, it should be said.$"
+	.string "Superb, it should be said. $"
 
 EverGrandeCity_DrakesRoom_Text_PostBattleSpeech:
 	.string "You deserve every credit for coming\n"
@@ -88,5 +88,5 @@ EverGrandeCity_DrakesRoom_Text_PostBattleSpeech:
 	.string "They touch the good hearts of\n"
 	.string "TRAINERS and grow strong.\p"
 	.string "Go! Go onwards!\n"
-	.string "The CHAMPION is waiting!$"
+	.string "The CHAMPION is waiting! $"
 

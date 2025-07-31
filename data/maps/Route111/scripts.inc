@@ -879,62 +879,62 @@ Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
 	.string "How's this? What do you say to taking\n"
 	.string "on our family of four in a series of\l"
-	.string "POKéMON battles?$"
+	.string "POKéMON battles?  $"
 
 Route111_Text_IsThatSo:
 	.string "Is that so?\n"
-	.string "Drop in, if you change your mind!$"
+	.string "Drop in, if you change your mind!  $"
 
 Route111_Text_VictorIntro:
-	.string "That's the spirit! I like you!$"
+	.string "That's the spirit! I like you!  $"
 
 Route111_Text_VictorDefeat:
 	.string "Aiyah!\n"
-	.string "You're a lot tougher than I expected!$"
+	.string "You're a lot tougher than I expected!  $"
 
 Route111_Text_VictorPostBattle:
 	.string "Hey, all!\n"
-	.string "I've found a pretty strong TRAINER!$"
+	.string "I've found a pretty strong TRAINER!  $"
 
 Route111_Text_VictoriaIntro:
 	.string "Oh, my goodness! Aren't you young?\p"
 	.string "You must be quite the TRAINER to beat\n"
 	.string "my husband, though.\p"
-	.string "It's my turn to battle now!$"
+	.string "It's my turn to battle now!  $"
 
 Route111_Text_VictoriaDefeat:
 	.string "Oh, gosh!\n"
-	.string "I can't get over how strong you are!$"
+	.string "I can't get over how strong you are!  $"
 
 Route111_Text_VictoriaPostBattle:
 	.string "There's a strong TRAINER here!\n"
-	.string "This one's really strong!$"
+	.string "This one's really strong!  $"
 
 Route111_Text_ViviIntro:
 	.string "You're stronger than Mommy? Wow!\p"
 	.string "But I'm strong, too!\n"
-	.string "Really! Honestly!$"
+	.string "Really! Honestly!  $"
 
 Route111_Text_ViviDefeat:
-	.string "Huh? Did I just lose?$"
+	.string "Huh? Did I just lose?  $"
 
 Route111_Text_ViviPostBattle:
 	.string "This stinks…\p"
-	.string "…Snivel… Grandma!$"
+	.string "…Snivel… Grandma!  $"
 
 Route111_Text_VickyIntro:
 	.string "How dare you make my granddaughter\n"
 	.string "cry!\p"
 	.string "For that, I'm going to smack you!\n"
-	.string "Prepare to lose!$"
+	.string "Prepare to lose!  $"
 
 Route111_Text_VickyDefeat:
 	.string "Kwah! You are strong…\n"
-	.string "My granddaughter was right…$"
+	.string "My granddaughter was right…  $"
 
 Route111_Text_VickyPostBattle:
 	.string "If you're not in any hurry,\n"
-	.string "visit with us awhile.$"
+	.string "visit with us awhile.  $"
 
 Route111_Text_ToughToKeepWinningUpTheRanks:
 	.string "If you don't raise your POKéMON some\n"
@@ -942,32 +942,32 @@ Route111_Text_ToughToKeepWinningUpTheRanks:
 	.string "up through the ranks.\p"
 	.string "I've heard the POKéMON LEAGUE's\n"
 	.string "ELITE FOUR are far stronger than\l"
-	.string "any GYM LEADER.$"
+	.string "any GYM LEADER.  $"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
 	.string "I challenged the WINSTRATE family,\n"
 	.string "but four matches in a row is tough\l"
-	.string "going… They destroyed me.$"
+	.string "going… They destroyed me.  $"
 
 Route111_Text_RouteSignMauville:
 	.string "ROUTE 111\n"
-	.string "{DOWN_ARROW} MAUVILLE CITY$"
+	.string "{DOWN_ARROW} MAUVILLE CITY  $"
 
 Route111_Text_WinstrateHouseSign:
 	.string "“Our family's hearts beat as one!”\n"
-	.string "THE WINSTRATE'S HOUSE$"
+	.string "THE WINSTRATE'S HOUSE  $"
 
 Route111_Text_RouteSign112:
 	.string "ROUTE 111\n"
-	.string "{LEFT_ARROW} ROUTE 112$"
+	.string "{LEFT_ARROW} ROUTE 112  $"
 
 Route111_Text_RouteSign113:
 	.string "ROUTE 111\n"
-	.string "{LEFT_ARROW} ROUTE 113$"
+	.string "{LEFT_ARROW} ROUTE 113  $"
 
 Route111_Text_OldLadysRestStopSign:
 	.string "OLD LADY'S REST STOP\n"
-	.string "“Come in and rest your tired bones.”$"
+	.string "“Come in and rest your tired bones.”  $"
 
 Route111_Text_TrainerTipsSpAtkSpDef:
 	.string "TRAINER TIPS\p"
@@ -975,14 +975,14 @@ Route111_Text_TrainerTipsSpAtkSpDef:
 	.string "powerfulness is SP. ATK. It stands for\l"
 	.string "“SPECIAL ATTACK.”\p"
 	.string "Likewise, SP. DEF stands for “SPECIAL\n"
-	.string "DEFENSE.”$"
+	.string "DEFENSE.”  $"
 
 Route111_Text_ShouldBeMirageTowerAroundHere:
 	.string "There should be a tower made of sand\n"
 	.string "around here somewhere.\p"
 	.string "But for some reason, it can be seen\n"
 	.string "sometimes, and sometimes not.\p"
-	.string "That's why I call it the MIRAGE TOWER.$"
+	.string "That's why I call it the MIRAGE TOWER.  $"
 
 Route111_Text_MirageTowerClearlyVisible:
 	.string "I see it!\n"
@@ -992,7 +992,7 @@ Route111_Text_MirageTowerClearlyVisible:
 	.string "But it looks so fragile…\n"
 	.string "It could crumble away anytime…\p"
 	.string "I want to go inside it, but I can't\n"
-	.string "get my courage up for it…$"
+	.string "get my courage up for it…  $"
 
 Route111_Text_ThatWasShockingSandRainedDown:
 	.string "Whoa…\n"
@@ -1000,21 +1000,21 @@ Route111_Text_ThatWasShockingSandRainedDown:
 	.string "Sand rained down in chunks all of\n"
 	.string "a sudden.\p"
 	.string "What was it like inside?\n"
-	.string "Were there sandy ghosts and such?$"
+	.string "Were there sandy ghosts and such?  $"
 
 Route111_Text_MirageTowerHasntBeenSeenSince:
 	.string "Since I spoke to you, the tower of sand\n"
 	.string "hasn't been seen.\p"
 	.string "Perhaps it really was\n"
-	.string "the MIRAGE TOWER…$"
+	.string "the MIRAGE TOWER…  $"
 
 Route111_Text_ClawFossilDisappeared:
 	.string "The CLAW FOSSIL disappeared into\n"
-	.string "the sand…$"
+	.string "the sand…  $"
 
 Route111_Text_RootFossilDisappeared:
 	.string "The ROOT FOSSIL disappeared into\n"
-	.string "the sand…$"
+	.string "the sand…  $"
 
 Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "Oh, no!\p"
@@ -1022,61 +1022,62 @@ Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
 	.string "ROCK SMASH with me if I was going to\l"
 	.string "ROUTE 111!\p"
 	.string "My uncle? He lives across from\n"
-	.string "the bike shop in MAUVILLE.$"
+	.string "the bike shop in MAUVILLE.  $"
 
 Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
 	.string "“Scale the heights, you hot-blooded\n"
-	.string "TRAINERS!”$"
+	.string "TRAINERS!”  $"
 
 Route111_Text_WallyCallPlayer::
-	.string "{PLAYER}!$"
+	.string "{PLAYER}!  $"
 
 Route111_Text_WallyIntro:
 	.string "I'm glad to see you!\p"
 	.string "You already have 3 BADGES, huh?\nYou really are a great TRAINER!\p"
 	.string "But I have the DYNAMO BADGE too!\p"
-	.string "I'm not weak anymore,\nI'll show you how strong I've become!$"
+	.string "I'm not weak anymore,\nI'll show you how strong I've become!  $"
 
 Route111_Text_WallyDefeat::
-	.string "Wow! You're really strong!$"
+	.string "Wow! You're really strong!  $"
 
 Route111_Text_WallyPostBattle::
 	.string "Now I understand better what\nmy team needs to become stronger.\p"
 	.string "I'm going to train even harder.\p"
 	.string "I feel like I've learned a lot from\n"
-	.string "just one battle with you. $"
+	.string "just one battle with you.  $"
 
 Wally_Uhm::
-	.string "Uhm…?$"
+	.string "Uhm…?  $"
 Route111_Text_Wally_SomethingForMe::
 	.string "You have something for me?\p"
-	.string "Oh, I see...$"
+	.string "Oh, I see...  $"
 Route111_Text_Wally_GiveHM03::
-	.string "{PLAYER} handed over HM03 to WALLY!$"
+	.string "{PLAYER} handed over HM03 to WALLY!  $"
 Route111_Text_Wally_AfterGivenHM03::
 	.string "I forgot about that.\nSo my uncle asked you to gave it to me?\p"
 	.string "That's so sweet,\nthanks a lot {PLAYER}.\p"
-	.string "I truly appreciate it.\nI owe you a favor. $"
+	.string "I truly appreciate it.\n"
+	.string "I owe you a favor.  $"
 
 Route111_Text_Wally_Finale::
 	.string "{PLAYER}, I have to go.\p"
-	.string "Next time, I will not lose!$"
+	.string "Next time, I will not lose!  $"
 
 Route111_EdoCaldo::
-	.string "Che caldo... $"
+	.string "Che caldo...  $"
 Route111_EdoIntro_Text::
 	.string "Yo {PLAYER}!\nI didn't expect to find you here.\p"
-	.string "You already have three badges, huh?\nYou're speedrunning your adventure, I see. $"
+	.string "You already have three badges, huh?\nYou're speedrunning your adventure, I see.  $"
 Route111_EdoMiddleInteraction_Text1::
-	.string "Huh? The person that was here?$"
+	.string "Huh? The person that was here?  $"
 Route111_EdoMiddleInteraction_Text2::
 	.string "It's just a friend of mine.\p"
 	.string "You'll may see him again,\n"
-	.string "if you continue your jorney.$"
+	.string "if you continue your jorney.  $"
 Route111_EdoMiddleInteraction_Text3::
 	.string "I have to go, as you know\nI really hate the hot weather.\p"
 	.string "This desert is killing me.\n"
-	.string "See ya.$"
+	.string "See ya.  $"
 Route111_EdoInteractionExit_Text::
-	.string "Dio porco che caldo.$"
+	.string "Dio porco che caldo.  $"

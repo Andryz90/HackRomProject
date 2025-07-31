@@ -3,12 +3,12 @@ EventTicket_Text_ShowOldSeaMap:
 	.string "I beg your pardon?\n"
 	.string "Can we sail to this place on the map?\p"
 	.string "I know someone who will help you better.\n"
-	.string "Please wait.$"
+	.string "Please wait. $"
 
 EventTicket_Text_ThatPass:
 	.string "The ferry to SLATEPORT is…\p"
 	.string "Oh?\n"
-	.string "That PASS…$"
+	.string "That PASS… $"
 
 EventTicket_Text_ShowEonTicket:
 	.string "Aye, mate, are you the one who brought\n"
@@ -18,24 +18,24 @@ EventTicket_Text_ShowEonTicket:
 	.string "There's no telling what we'll encounter\n"
 	.string "once we reach there, aye.\l"
 	.string "That shivers my timbers!\p"
-	.string "All aboard!$"
+	.string "All aboard! $"
 
 EventTicket_Text_SouthernIslandSailBack:
 	.string "Aye, mate, there's nothing here to\n"
 	.string "see or do on this forgettable island.\p"
-	.string "What say we sail back to LILYCOVE?$"
+	.string "What say we sail back to LILYCOVE? $"
 
 EventTicket_Text_SailHome:
 	.string "Aye, right, then!\n"
-	.string "Sail home we will!$"
+	.string "Sail home we will! $"
 
 EventTicket_Text_AsYouLike:
-	.string "Aye, right, as you like, then.$"
+	.string "Aye, right, as you like, then. $"
 
 SouthernIsland_Interior_Text_Sign:
 	.string "“All dreams are but another reality.\n"
-	.string "Never forget…”$"
+	.string "Never forget…” $"
 
 SouthernIsland_Exterior_Text_Sign:
 	.string "“Those whose memories fade seek to\n"
-	.string "carve them in their hearts…”$"
+	.string "carve them in their hearts…” $"

@@ -240,7 +240,7 @@ EverGrandeCity_ChampionsRoom_Text_IntroSpeech:
 	.string "Now!\p"
 	.string "Who can most elegantly dance with\n"
 	.string "their POKéMON in HOENN?\p"
-	.string "Show me right here and now!$"
+	.string "Show me right here and now! $"
 
 EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "I, the CHAMPION, fall in defeat…\p"
@@ -249,7 +249,7 @@ EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "And yet it was utterly glorious!\p"
 	.string "Kudos to you, {PLAYER}{KUN}!\p"
 	.string "You are a truly noble POKéMON\n"
-	.string "TRAINER!$"
+	.string "TRAINER! $"
 
 EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
 	.string "WALLACE: The POKéMON you sent into\n"
@@ -264,29 +264,29 @@ EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
 	.string "You now stand at the glorious peak\n"
 	.string "of the POKéMON LEAGUE.\p"
 	.string "I now proclaim you to be the new\n"
-	.string "HOENN region…$"
+	.string "HOENN region… $"
 
 EverGrandeCity_ChampionsRoom_Text_MayAdvice:
 	.string "MAY: {PLAYER}{KUN}!\p"
 	.string "Here's some advice before you challenge\n"
-	.string "the CHAMPION…$"
+	.string "the CHAMPION… $"
 
 EverGrandeCity_ChampionsRoom_Text_MayItsAlreadyOver:
 	.string "MAY: Huh?\n"
 	.string "What, what, what?\p"
 	.string "{PLAYER}{KUN}…\n"
 	.string "Could it be that…\l"
-	.string "It's already over?$"
+	.string "It's already over? $"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanAdvice:
 	.string "BRENDAN: {PLAYER}!\p"
 	.string "How would you like some advice before\n"
-	.string "you challenge the CHAMPION?…$"
+	.string "you challenge the CHAMPION?… $"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanYouveWon:
 	.string "BRENDAN: {PLAYER}…\p"
 	.string "Are you trying to tell me…\n"
-	.string "You've beaten the CHAMPION?$"
+	.string "You've beaten the CHAMPION? $"
 
 EverGrandeCity_ChampionsRoom_Text_BirchArriveRatePokedex:
 	.string "PROF. BIRCH: See?\n"
@@ -302,25 +302,25 @@ EverGrandeCity_ChampionsRoom_Text_BirchArriveRatePokedex:
 	.string "the CHAMPION!\p"
 	.string "Ah, yes!\p"
 	.string "What became of your POKéDEX?\n"
-	.string "Here, let me see.$"
+	.string "Here, let me see. $"
 
 EverGrandeCity_ChampionsRoom_Text_BirchCongratulations:
 	.string "PROF. BIRCH: Anyways,\n"
 	.string "congratulations!\p"
-	.string "Now, go proudly into the final room!$"
+	.string "Now, go proudly into the final room! $"
 
 EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe:
 	.string "WALLACE: {PLAYER}{KUN}…\p"
 	.string "No, let me rephrase that properly.\p"
 	.string "The new CHAMPION!\p"
-	.string "Come with me.$"
+	.string "Come with me. $"
 
 EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside:
 	.string "WALLACE: I'm sorry, but…\p"
 	.string "From here on, only those TRAINERS who\n"
 	.string "have become CHAMPIONS may enter.\p"
 	.string "You'll have to wait outside with\n"
-	.string "PROF. BIRCH.$"
+	.string "PROF. BIRCH. $"
 
 EverGrandeCity_ChampionsRoom_Text_MayCongratulations:
 	.string "MAY: Groan…\p"
@@ -329,12 +329,12 @@ EverGrandeCity_ChampionsRoom_Text_MayCongratulations:
 	.string "I'm just joking! That's okay!\n"
 	.string "That's the rule!\p"
 	.string "{PLAYER}{KUN}!\n"
-	.string "Honestly, congratulations!$"
+	.string "Honestly, congratulations! $"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanCongratulations:
 	.string "BRENDAN: Whaaaat?! … … … … …\n"
 	.string "… … … … … … … …\p"
 	.string "It can't be helped if that's the rule.\p"
 	.string "{PLAYER}, way to go!\n"
-	.string "Congratulations!$"
+	.string "Congratulations! $"
 

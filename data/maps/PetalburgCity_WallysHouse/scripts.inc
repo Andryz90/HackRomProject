@@ -79,10 +79,10 @@ PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally:
 	.string "What's that? Where's WALLY?\n"
 	.string "He's already left, our WALLY.\p"
 	.string "I wonder where he could have\n"
-	.string "gotten by now?$"
+	.string "gotten by now? $"
 
 PetalburgCity_WallysHouse_Text_WonderHowWallyIsDoing:
-	.string "I wonder how our WALLY is doing?$"
+	.string "I wonder how our WALLY is doing? $"
 
 PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "{PLAYER}{KUN}! Please excuse us for\n"
@@ -99,15 +99,15 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "Happy that he's gained such a great\n"
 	.string "friend as you.\p"
 	.string "This isn't a bribe or anything, but\n"
-	.string "I'd really like you to have this.$"
+	.string "I'd really like you to have this. $"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
 	.string "If your POKéMON can SURF, you'll be\n"
-	.string "able to go to all sorts of places.$"
+	.string "able to go to all sorts of places. $"
 
 PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:
 	.string "WALLY's coming home soon.\n"
-	.string "I'm looking forward to that.$"
+	.string "I'm looking forward to that. $"
 
 PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity:
 	.string "Oh? You met WALLY in\n"
@@ -115,13 +115,13 @@ PetalburgCity_WallysHouse_Text_YouMetWallyInEverGrandeCity:
 	.string "Oh, {PLAYER}{KUN}, don't be silly.\p"
 	.string "He may have gotten healthy, but he\n"
 	.string "can't go somewhere far away like\l"
-	.string "that all by himself.$"
+	.string "that all by himself. $"
 
 PetalburgCity_WallysHouse_Text_WallyWasReallyHappy:
 	.string "WALLY was really happy when he told\n"
 	.string "us that he caught a POKéMON.\p"
 	.string "It's been ages since I've seen him\n"
-	.string "smile like that.$"
+	.string "smile like that. $"
 
 PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
 	.string "I want you to keep this a secret\n"
@@ -131,5 +131,5 @@ PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
 	.string "You know, WALLY is frail, but\n"
 	.string "he's surprisingly strong-willed.\p"
 	.string "I'm sure that he'll come back safe\n"
-	.string "and sound one day!$"
+	.string "and sound one day! $"
 

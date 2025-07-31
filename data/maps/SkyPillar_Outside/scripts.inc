@@ -138,7 +138,7 @@ SkyPillar_Outside_EventScript_ClosedDoor::
 	end
 
 SkyPillar_Outside_Text_DoorIsClosed:
-	.string "The door is closed.$"
+	.string "The door is closed. $"
 
 SkyPillar_Outside_Text_OpenedDoorToSkyPillar:
 	.string "WALLACE: Oh, my, I'm terribly sorry!\p"
@@ -146,16 +146,16 @@ SkyPillar_Outside_Text_OpenedDoorToSkyPillar:
 	.string "I'd left you behind!\p"
 	.string "I've opened the locked door of\n"
 	.string "the SKY PILLAR.\p"
-	.string "{PLAYER}{KUN}, let's be on our way!$"
+	.string "{PLAYER}{KUN}, let's be on our way! $"
 
 SkyPillar_Outside_Text_EarthquakeNotMomentToWaste:
 	.string "WALLACE: It's an earthquake!\p"
 	.string "There's not a moment to waste!\n"
-	.string "We've got to hurry!$"
+	.string "We've got to hurry! $"
 
 SkyPillar_Outside_Text_SituationGettingWorse:
 	.string "WALLACE: Hmm…\n"
-	.string "The situation is getting worse…$"
+	.string "The situation is getting worse… $"
 
 SkyPillar_Outside_Text_GotToGoBackForSootopolis:
 	.string "WALLACE: This isn't good…\p"
@@ -167,4 +167,4 @@ SkyPillar_Outside_Text_GotToGoBackForSootopolis:
 	.string "I'm worried about SOOTOPOLIS.\n"
 	.string "I've got to go back.\p"
 	.string "Everything is in your hands now.\n"
-	.string "Don't fail us!$"
+	.string "Don't fail us! $"

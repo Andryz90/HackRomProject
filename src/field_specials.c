@@ -4365,6 +4365,19 @@ void GetCodeFeedback(void)
         gSpecialVar_Result = 0;
 }
 
+/*      CUSTOM      */
+
+//Handler for script of multi regional form
+void Handle_Wingull_Flag (void)
+{
+    #if P_REGIONAL_STARTER_MULTICHOOSE == TRUE
+        FlagSet(FLAG_WINGULL_STATE);
+    #else
+        //To be safe
+        FlagClear(FLAG_WINGULL_STATE);
+    #endif
+}
+
 // Pokemon Center Special Functions
 bool32 SetNewIVStatAll(void)
 {

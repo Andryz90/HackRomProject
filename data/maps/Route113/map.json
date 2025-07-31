@@ -117,7 +117,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_AUDINITE",
+      "trainer_sight_or_berry_tree_id": "ITEM_AMPHAROSITE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_113_SUPER_REPEL"
     },
@@ -157,7 +157,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "5",
       "script": "Route113_EventScript_Tori",
       "flag": "0"
     },
@@ -170,7 +170,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "5",
       "script": "Route113_EventScript_Tia",
       "flag": "0"
     },
@@ -305,7 +305,7 @@
       "x": 22,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_TM_FLASH_CANNON",
+      "item": "ITEM_TM_SECRET_POWER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_DOUBLE_TEAM"
     },
     {

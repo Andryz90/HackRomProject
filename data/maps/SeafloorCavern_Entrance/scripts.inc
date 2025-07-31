@@ -70,7 +70,7 @@ SeafloorCavern_Entrance_Text_HearMagmaNearMossdeep:
 	.string "Speaking of TEAM MAGMA, I hear they\n"
 	.string "were spotted near MOSSDEEP.\p"
 	.string "That bunch of goons, they sure don't\n"
-	.string "look good near the sea!$"
+	.string "look good near the sea! $"
 
 SeafloorCavern_Entrance_Text_HearMagmaNearMossdeepShort:
 	.string "A punk like you, do you really think\n"
@@ -82,5 +82,5 @@ SeafloorCavern_Entrance_Text_HearMagmaNearMossdeepShort:
 	.string "Speaking of TEAM MAGMA, I hear they\n"
 	.string "were spotted near MOSSDEEP.\p"
 	.string "That bunch of goons, they sure don't\n"
-	.string "look good near the sea!$"
+	.string "look good near the sea! $"
 

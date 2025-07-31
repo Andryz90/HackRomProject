@@ -41,8 +41,8 @@ Team_MagmaGrunt_NotUnderstanding2::
 
 MagmaGrunt_NotUnderstanding_Text::
 	.string "I don't understand what's\n"
-	.string "written here... $"
+	.string "written here...  $"
 
 MagmaGrunt_GetOut_Text::
 	.string "Ehi! Get out of here!\n"
-	.string "Mind your own business. $"
+	.string "Mind your own business.  $"

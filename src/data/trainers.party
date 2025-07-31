@@ -13976,13 +13976,62 @@ Music: Twins
 Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Spinda
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Quagsire @ Leftovers  
+Ability: Unaware  
+Level: 38  
+Relaxed Nature  
+- Spikes  
+- Recover  
+- High Horsepower  
+- Scald  
 
-Spinda
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clodsire (F) @ Black Sludge  
+Ability: Unaware  
+Level: 38   
+- Toxic Spikes  
+- Recover  
+- Gunk Shot  
+- High Horsepower  
+
+Slowking (F) @ Terrain Extender  
+Ability: Regenerator  
+Level: 38  
+IVs: 0 Atk  
+- Trick Room  
+- Expanding Force  
+- Psychic Terrain  
+- Focus Blast  
+
+Slowking-Galar (F) @ Black Sludge  
+Ability: Regenerator  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk  
+- Future Sight  
+- Chilly Reception  
+- Sludge Wave  
+- Calm Mind  
+
+Slowbro (F) @ Colbur Berry  
+Ability: Oblivious  
+Level: 38  
+Bold Nature  
+IVs: 0 Atk  
+- Trick Room  
+- Body Press  
+- Scald  
+- Expanding Force  
+
+Slowbro-Galar (F) @ Quick Claw  
+Ability: Quick Draw  
+Level: 38  
+Modest Nature  
+- Shell Side Arm  
+- Expanding Force  
+- Trick Room  
+- Ice Beam  
+
+
 
 === TRAINER_KIM_AND_IRIS ===
 Name: KIM & IRIS

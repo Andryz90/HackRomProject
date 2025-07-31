@@ -396,6 +396,7 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 };
 
 // .text
+#if P_REGIONAL_STARTER_MULTICHOOSE == TRUE
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
     u16* ptr = GetVarPointer(VAR_VARIOUS_STARTER);
@@ -404,7 +405,14 @@ u16 GetStarterPokemon(u16 chosenStarterId)
         chosenStarterId = 0;
     return sTripleStarter[index][chosenStarterId];
 }
-
+#else
+u16 GetStarterPokemon(u16 chosenStarterId)
+{
+    if (chosenStarterId > STARTER_MON_COUNT)
+        chosenStarterId = 0;
+    return sStarterMon[chosenStarterId];
+}
+#endif
 static void VblankCB_StarterChoose(void)
 {
     LoadOam();

@@ -25,43 +25,43 @@ Roulette_EventScript_Play::
 
 Roulette_Text_PlayMinimumWagerIsX::
 	.string "The minimum wager at this table\n"
-	.string "is {STR_VAR_1}. Do you want to play?$"
+	.string "is {STR_VAR_1}. Do you want to play? $"
 
 Roulette_Text_NotEnoughCoins::
-	.string "You don't have enough COINS.$"
+	.string "You don't have enough COINS. $"
 
 Roulette_Text_SpecialRateTable::
-	.string "Special rate table right now!$"
+	.string "Special rate table right now! $"
 
 Roulette_Text_ControlsInstruction::
 	.string "Place your wager with the + Control\n"
-	.string "Pad, then press the A Button.$"
+	.string "Pad, then press the A Button. $"
 
 Roulette_Text_ItsAHit::
-	.string "It's a hit!$"
+	.string "It's a hit! $"
 
 Roulette_Text_Jackpot::
-	.string "Jackpot!$"
+	.string "Jackpot! $"
 
 Roulette_Text_NothingDoing::
-	.string "Nothing doing!$"
+	.string "Nothing doing! $"
 
 Roulette_Text_YouveWonXCoins::
-	.string "You've won {STR_VAR_1} COINS!$"
+	.string "You've won {STR_VAR_1} COINS! $"
 
 Roulette_Text_NoCoinsLeft::
-	.string "No COINS left…$"
+	.string "No COINS left… $"
 
 Roulette_Text_KeepPlaying::
-	.string "Keep playing?$"
+	.string "Keep playing? $"
 
 Roulette_Text_BoardWillBeCleared::
-	.string "The ROULETTE board will be cleared.$"
+	.string "The ROULETTE board will be cleared. $"
 
 @ Unused
 Roulette_Text_YouDontHaveACoinCase::
-	.string "You don't have a COIN CASE.$"
+	.string "You don't have a COIN CASE. $"
 
 Roulette_Text_CoinCaseIsFull::
 	.string "Your COIN CASE is full!\n"
-	.string "Coins can be exchanged for prizes.$"
+	.string "Coins can be exchanged for prizes. $"

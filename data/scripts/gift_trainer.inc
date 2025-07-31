@@ -33,7 +33,7 @@ sText_MysteryGiftVisitingTrainerInstructions:
 	.string "AWESOME TRAINER”\p"
 	.string "Write that in on a survey and send\n"
 	.string "it to the WIRELESS\l"
-	.string "COMMUNICATION SYSTEM.$"
+	.string "COMMUNICATION SYSTEM. $"
 
 sText_MysteryGiftVisitingTrainerArrived:
 	.string "Thank you for using the MYSTERY\n"
@@ -45,4 +45,4 @@ sText_MysteryGiftVisitingTrainerArrived:
 	.string "You may invite other TRAINERS by\n"
 	.string "entering other passwords.\p"
 	.string "Try looking for other passwords\n"
-	.string "that may work.$"
+	.string "that may work. $"

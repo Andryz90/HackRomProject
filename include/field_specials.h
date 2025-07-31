@@ -37,7 +37,8 @@ void GetObjectPosition(u16*, u16*, u32, u32);
 bool32 CheckObjectAtXY(u32, u32);
 bool32 CheckPartyHasSpecies(u32);
 
-
+//Custom
+void Handle_Wingull_Flag (void);
 bool32 SetNewIVStatAll(void);
 bool32 SetNewIVStat(void);
 bool32 SwapPokemonGender(void);

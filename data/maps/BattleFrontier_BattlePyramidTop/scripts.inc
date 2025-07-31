@@ -224,11 +224,11 @@ BattleFrontier_BattlePyramidTop_Text_ReachedSummitUpYouGo:
 	.string "It is a place open only to those\n"
 	.string "who have conquered the PYRAMID.\p"
 	.string "Now, please!\n"
-	.string "Up you go!$"
+	.string "Up you go! $"
 
 BattleFrontier_BattlePyramidTop_Text_PlayerConqueredPyramid:
 	.string "The PYRAMID's new conqueror!\n"
-	.string "Let the name {PLAYER} be known!$"
+	.string "Let the name {PLAYER} be known! $"
 
 BattleFrontier_BattlePyramidTop_Text_ChiefBeatYouHere:
 	.string "It is a delight to see you here!\p"
@@ -241,7 +241,7 @@ BattleFrontier_BattlePyramidTop_Text_ChiefBeatYouHere:
 	.string "Assert your power and take the glory\n"
 	.string "of the pinnacle from our chief!\p"
 	.string "Now, please! When you are ready,\n"
-	.string "take one more step of courage!$"
+	.string "take one more step of courage! $"
 
 BattleFrontier_BattlePyramidTop_Text_ExplorationsAreGrandestAdventure:
 	.string "Young adventurer…\p"
@@ -251,7 +251,7 @@ BattleFrontier_BattlePyramidTop_Text_ExplorationsAreGrandestAdventure:
 	.string "Your own strength!\p"
 	.string "Your own POKéMON!\p"
 	.string "And, above all, only your own courage\n"
-	.string "to lead you through unknown worlds…$"
+	.string "to lead you through unknown worlds… $"
 
 BattleFrontier_BattlePyramidTop_Text_ImPyramidKingBrandon:
 	.string "Aah, yes, indeed this life is grand!\n"
@@ -264,25 +264,25 @@ BattleFrontier_BattlePyramidTop_Text_ImPyramidKingBrandon:
 	.string "that much confidence in yourself,\l"
 	.string "am I right?\p"
 	.string "Hahahah!\n"
-	.string "This should be exciting!$"
+	.string "This should be exciting! $"
 
 BattleFrontier_BattlePyramidTop_Text_BringCourageToOurBattle:
 	.string "Now, then!\n"
-	.string "Bring your courage to our battle!$"
+	.string "Bring your courage to our battle! $"
 
 BattleFrontier_BattlePyramidTop_Text_BrandonFrontierPassPlease:
 	.string "BRANDON: Hahahah! Grand it was!\n"
 	.string "Grand, yes, indeed!\p"
 	.string "Well done! You've earned recognition!\n"
-	.string "Your FRONTIER PASS, please!$"
+	.string "Your FRONTIER PASS, please! $"
 
 BattleFrontier_BattlePyramidTop_Text_ReceivedBraveSymbol:
 	.string "The Brave Symbol was embossed on\n"
-	.string "the FRONTIER PASS!$"
+	.string "the FRONTIER PASS! $"
 
 BattleFrontier_BattlePyramidTop_Text_LookForwardToNextMeeting:
 	.string "Young explorer!\n"
-	.string "I look forward to our next meeting!$"
+	.string "I look forward to our next meeting! $"
 
 BattleFrontier_BattlePyramidTop_Text_BrandonYouveReturned:
 	.string "BRANDON: …You've finally returned,\n"
@@ -296,16 +296,16 @@ BattleFrontier_BattlePyramidTop_Text_BrandonYouveReturned:
 	.string "The dangerous!\p"
 	.string "The desperate!\p"
 	.string "Those days of death-defying,\n"
-	.string "life-affirming adventures are back…$"
+	.string "life-affirming adventures are back… $"
 
 BattleFrontier_BattlePyramidTop_Text_MyCourageIsOffMeter:
 	.string "Now, then!\p"
 	.string "I sense my own courage is off\n"
-	.string "the meter!$"
+	.string "the meter! $"
 
 BattleFrontier_BattlePyramidTop_Text_EverythingYouHave:
 	.string "Everything you have!\n"
-	.string "I'm braced for it all!$"
+	.string "I'm braced for it all! $"
 
 BattleFrontier_BattlePyramidTop_Text_BrandonRemarkableHaveThis:
 	.string "BRANDON: Hahahah!\n"
@@ -313,19 +313,19 @@ BattleFrontier_BattlePyramidTop_Text_BrandonRemarkableHaveThis:
 	.string "Yes, it's grand, indeed!\p"
 	.string "Young explorer!\p"
 	.string "You've bested me through and through!\n"
-	.string "Here! I want you to have this!$"
+	.string "Here! I want you to have this! $"
 
 BattleFrontier_BattlePyramidTop_Text_BraveSymbolTookGoldenShine:
 	.string "The Brave Symbol took on\n"
-	.string "a golden shine!$"
+	.string "a golden shine! $"
 
 BattleFrontier_BattlePyramidTop_Text_FarewellForNow:
 	.string "Ah, yes! It just goes to show that\n"
 	.string "I have much to learn still!\p"
 	.string "May our paths cross again!\n"
-	.string "Farewell for now, young explorer!$"
+	.string "Farewell for now, young explorer! $"
 
 BattleFrontier_BattlePyramidTop_Text_StepForwardWhenReady:
 	.string "Now, when you are ready, take courage\n"
-	.string "and step forward.$"
+	.string "and step forward. $"
 

@@ -58,7 +58,7 @@ AquaHideout_1F_Text_OurBossIsSnatchingSomething:
 	.string "… …\n"
 	.string "Where did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
-	.string "you something that crucial?$"
+	.string "you something that crucial? $"
 
 AquaHideout_1F_Text_WhereMightMagmaHideoutBe:
 	.string "What? What?\n"
@@ -66,7 +66,7 @@ AquaHideout_1F_Text_WhereMightMagmaHideoutBe:
 	.string "I hear that TEAM MAGMA is trying to\n"
 	.string "awaken an awesome POKéMON at their\l"
 	.string "HIDEOUT.\p"
-	.string "But where might their HIDEOUT be?$"
+	.string "But where might their HIDEOUT be? $"
 
 AquaHideout_1F_Text_BossWentToJackASubmarine:
 	.string "What? What? What do you want with \n"
@@ -76,7 +76,7 @@ AquaHideout_1F_Text_BossWentToJackASubmarine:
 	.string "… …\n"
 	.string "Where did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
-	.string "you something that crucial?$"
+	.string "you something that crucial? $"
 
 AquaHideout_1F_Text_BossIsOnRoute122:
 	.string "What? What? What do you want with \n"
@@ -86,14 +86,14 @@ AquaHideout_1F_Text_BossIsOnRoute122:
 	.string "… …\n"
 	.string "Why did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
-	.string "you something that crucial?$"
+	.string "you something that crucial? $"
 
 AquaHideout_1F_Text_TeamMagmaAtMtChimney:
 	.string "What? What?\n"
 	.string "Are you a TEAM MAGMA grunt?\p"
 	.string "I hear that TEAM MAGMA is after\n"
 	.string "an awesome POKéMON at MT. CHIMNEY.\p"
-	.string "But what is that POKéMON like?$"
+	.string "But what is that POKéMON like? $"
 
 AquaHideout_1F_Text_BossIsInSlateportCity:
 	.string "What? What? What do you want with\n"
@@ -103,17 +103,17 @@ AquaHideout_1F_Text_BossIsInSlateportCity:
 	.string "… …\n"
 	.string "Why did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
-	.string "you something that crucial?$"
+	.string "you something that crucial? $"
 
 AquaHideout_1F_Text_Grunt1Intro:
 	.string "Ayiyiyi!\n"
-	.string "Suspicious character spotted!$"
+	.string "Suspicious character spotted! $"
 
 AquaHideout_1F_Text_Grunt1Defeat:
 	.string "Grrrrr…\n"
-	.string "I lost it!$"
+	.string "I lost it! $"
 
 AquaHideout_1F_Text_Grunt1PostBattle:
 	.string "I took the loss for the TEAM,\n"
-	.string "but I did my job…$"
+	.string "but I did my job… $"
 

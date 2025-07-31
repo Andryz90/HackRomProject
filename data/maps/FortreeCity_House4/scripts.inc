@@ -66,15 +66,15 @@ FortreeCity_House4_Text_BringsWorldCloserTogether:
 	.string "By being together with POKéMON,\n"
 	.string "people make more and more friends.\p"
 	.string "And that brings the world closer\n"
-	.string "together. I think it's wonderful!$"
+	.string "together. I think it's wonderful! $"
 
 FortreeCity_House4_Text_GoBirdPokemon:
 	.string "There!\n"
-	.string "Go, BIRD POKéMON!$"
+	.string "Go, BIRD POKéMON! $"
 
 FortreeCity_House4_Text_AskedWingullToRunErrand:
 	.string "Heheh, I asked my WINGULL to run\n"
-	.string "an errand for me.$"
+	.string "an errand for me. $"
 
 FortreeCity_House4_Text_WelcomeWingullTakeMentalHerb:
 	.string "Good!\n"
@@ -84,12 +84,12 @@ FortreeCity_House4_Text_WelcomeWingullTakeMentalHerb:
 	.string "A MENTAL HERB?\n"
 	.string "It must have picked it up somewhere.\p"
 	.string "But I'm not a TRAINER, so you can\n"
-	.string "have it.$"
+	.string "have it. $"
 
 FortreeCity_House4_Text_FriendsFarAwayThanksToWingull:
 	.string "Thanks to my WINGULL, I have friends\n"
-	.string "who live far away.$"
+	.string "who live far away. $"
 
 FortreeCity_House4_Text_Wingull:
-	.string "WINGULL: Pihyoh!$"
+	.string "WINGULL: Pihyoh! $"
 
