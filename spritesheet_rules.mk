@@ -9,7 +9,7 @@ $(OBJEVENTGFXDIR)/people/andry_ow.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/edo_cap_sprite.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
-$(OBJEVENTGFXDIR)/people/Bugsy.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/people/leader_bugsy.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/brendan/walking.4bpp: %.4bpp: %.png

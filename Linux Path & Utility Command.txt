@@ -3,8 +3,8 @@ Repository Linux command
 cd /mnt/c/Users/Andre/Documents/HackRomProject/PokemonSourceCode/pokeemerald
 
 
-find graphics/ -type f -name "object_events\pics\misc\bugsy.png" -exec touch {} +
-tools/gbagfx/gbagfx graphics/object_events/pics/people/Bugsy.png  graphics/object_events/pics/people/bugsy.pal
+find graphics/ -type f -name "object_events\pics\misc\leader_bugsy.png" -exec touch {} +
+tools/gbagfx/gbagfx graphics/object_events/pics/people/leader_bugsy.png  graphics/object_events/pics/people/leader_bugsy.pal
 
 tools/gbagfx/gbagfx graphics/object_events/pics/people/edo_cap_sprite.png  graphics/object_events/pics/people/edo_cap_sprite.pal
 find graphics/ -type f -name "object_events\pics\misc\edo_cap_sprite.png" -exec touch {} +

@@ -153,8 +153,6 @@ const u32 gObjectEventPic_Tate[] = INCBIN_U32("graphics/object_events/pics/peopl
 const u32 gObjectEventPic_Wallace[] = INCBIN_U32("graphics/object_events/pics/people/wallace.4bpp");
 const u32 gObjectEventPic_Steven[] = INCBIN_U32("graphics/object_events/pics/people/steven.4bpp");
 const u32 gObjectEventPic_Wally[] = INCBIN_U32("graphics/object_events/pics/people/wally.4bpp");
-const u32 gTrainerPic_Bugsy[] = INCBIN_U32("graphics/object_events/pics/people/Bugsy.4bpp"); //New
-const u16 gTrainerPal_Bugsy[] = INCBIN_U16("graphics/object_events/pics/people/Bugsy.gbapal"); //New
 const u32 gObjectEventPic_RubySapphireLittleBoy[] = INCBIN_U32("graphics/object_events/pics/people/rs_little_boy.4bpp");
 const u32 gObjectEventPic_HotSpringsOldWoman[] = INCBIN_U32("graphics/object_events/pics/people/hot_springs_old_woman.4bpp");
 const u32 gObjectEventPic_LatiasLatios[] = INCBIN_U32("graphics/object_events/pics/pokemon_old/latias_latios.4bpp");
@@ -400,6 +398,9 @@ const u16 gTrainerPal_EdoCap[] = INCBIN_U16("graphics/object_events/pics/people/
 
 const u32 gTrainerPic_Andry[] = INCBIN_U32("graphics/object_events/pics/people/andry_ow.4bpp"); 
 const u16 gTrainerPal_Andry[] = INCBIN_U16("graphics/object_events/pics/people/andry_ow.gbapal");
+
+const u32 gTrainerPic_Bugsy[] = INCBIN_U32("graphics/object_events/pics/people/leader_bugsy.4bpp"); //New
+const u16 gTrainerPal_Bugsy[] = INCBIN_U16("graphics/object_events/pics/people/leader_bugsy.gbapal"); //New
 
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 
