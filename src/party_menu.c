@@ -1139,10 +1139,22 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
-        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
-    else
-        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+
+    if (!IsTutorMaxMove())
+    {
+        if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+        else
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+    }
+    else //Display Able/Not able for the pokemon in MaxTutorMove
+    {
+        if (CanPokemonLearnMaxMove(&gPlayerParty[slot]))
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        else
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+    }
+
 }
 
 static void DisplayPartyPokemonDataForWirelessMinigame(u8 slot)
@@ -7936,6 +7948,7 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        SetTypeTutorMove(TUTOR_TYPE_NORMAL);
         CleanupOverworldWindowsAndTilemaps();
         InitPartyMenu(PARTY_MENU_TYPE_MOVE_RELEARNER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForMoveRelearner);
         DestroyTask(taskId);
@@ -7945,6 +7958,7 @@ static void Task_ChooseMonForTutor(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        SetTypeTutorMove(TUTOR_TYPE_NORMAL);
         CleanupOverworldWindowsAndTilemaps();
         InitPartyMenu(PARTY_MENU_TYPE_MOVE_RELEARNER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForTutor);
         DestroyTask(taskId);
@@ -7970,6 +7984,38 @@ static void CB2_ChooseMonForTutor(void)
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
+
+//Max Move Tutor
+static void CB2_ChooseMonForMaxTutor(void)
+{
+    gSpecialVar_0x8004 = GetCursorSelectionMonId();
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
+    else
+    {
+        gSpecialVar_0x8005 = CanPokemonLearnMaxMove(&gPlayerParty[gSpecialVar_0x8004]);
+    }
+    gFieldCallback2 = CB2_FadeFromPartyMenu;
+    SetMainCallback2(CB2_ReturnToField);
+}
+
+static void Task_ChooseMonForMaxTutor(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetTypeTutorMove(TUTOR_TYPE_MAXMOVE);
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenu(PARTY_MENU_TYPE_MOVE_RELEARNER, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForMaxTutor);
+        DestroyTask(taskId);
+    }
+}
+void ChooseMonForMaxTutor(void)
+{
+    LockPlayerFieldControls();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_ChooseMonForMaxTutor, 10);
+}
+
 void DoBattlePyramidMonsHaveHeldItem(void)
 {
     u8 i;

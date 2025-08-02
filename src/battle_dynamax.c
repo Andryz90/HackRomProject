@@ -66,8 +66,24 @@ static const struct GMaxMove sGMaxMoveTable[] =
     {SPECIES_ALCREMIE_GMAX,                   TYPE_FAIRY,      MOVE_G_MAX_FINALE},
     {SPECIES_COPPERAJAH_GMAX,                 TYPE_STEEL,      MOVE_G_MAX_STEELSURGE},
     {SPECIES_DURALUDON_GMAX,                  TYPE_DRAGON,     MOVE_G_MAX_DEPLETION},
-    {SPECIES_URSHIFU_SINGLE_STRIKE_GMAX,TYPE_DARK,       MOVE_G_MAX_ONE_BLOW},
-    {SPECIES_URSHIFU_RAPID_STRIKE_GMAX, TYPE_WATER,      MOVE_G_MAX_RAPID_FLOW},
+    {SPECIES_URSHIFU_SINGLE_STRIKE_GMAX,      TYPE_DARK,       MOVE_G_MAX_ONE_BLOW},
+    {SPECIES_URSHIFU_RAPID_STRIKE_GMAX,       TYPE_WATER,      MOVE_G_MAX_RAPID_FLOW},
+};
+
+// Lookuptable of Pokemon Species that can learn the move
+#define GMAX_SPECIES_SIZE       (34u)
+
+static const u16 sGMaxBaseSpeciesTable[GMAX_SPECIES_SIZE] =
+{
+    SPECIES_VENUSAUR, SPECIES_BLASTOISE, SPECIES_CHARIZARD, SPECIES_BUTTERFREE,
+    SPECIES_PIKACHU, SPECIES_MEOWTH, SPECIES_MACHAMP, SPECIES_GENGAR,
+    SPECIES_KINGLER, SPECIES_LAPRAS, SPECIES_EEVEE, SPECIES_SNORLAX,
+    SPECIES_GARBODOR, SPECIES_MELMETAL, SPECIES_RILLABOOM, SPECIES_CINDERACE,
+    SPECIES_INTELEON, SPECIES_CORVIKNIGHT, SPECIES_ORBEETLE, SPECIES_DREDNAW,
+    SPECIES_COALOSSAL, SPECIES_FLAPPLE, SPECIES_APPLETUN, SPECIES_SANDACONDA,
+    SPECIES_TOXTRICITY_AMPED, SPECIES_TOXTRICITY_LOW_KEY, SPECIES_CENTISKORCH,
+    SPECIES_HATTERENE, SPECIES_GRIMMSNARL, SPECIES_ALCREMIE, SPECIES_COPPERAJAH,
+    SPECIES_DURALUDON, SPECIES_URSHIFU_SINGLE_STRIKE, SPECIES_URSHIFU_RAPID_STRIKE
 };
 
 // Returns whether a battler can Dynamax.
@@ -510,4 +526,62 @@ void BS_UndoDynamax(void)
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+
+
+static u8 GMaxSpeciesIndex = 0u;
+static bool8 IsTutorMaxMove_Var = 0u;
+
+bool8 CanPokemonLearnMaxMove (struct Pokemon* mon)
+{
+    bool8 ret = 0u;
+    u8 i = 0u;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
+
+    for (i = 0; i < GMAX_SPECIES_SIZE; i++)
+    {
+        if (species == sGMaxBaseSpeciesTable[i])
+        {
+            GMaxSpeciesIndex = i;
+            /*Once the species is found, check if the pokemon has the level required to learn the move*/
+            for (u8 j = 0u; learnset[j].move != LEVEL_UP_MOVE_END; j++)
+            {
+                if (learnset[j].move == sGMaxMoveTable[i].gmaxMove)
+                {
+                    if (mon->level >= learnset[j].level)
+                    {
+                        //Save the index that will be used for the other LookupTable
+                        ret = 1u;
+                        GMaxSpeciesIndex = i;
+                    }
+                    else
+                    {
+                        GMaxSpeciesIndex = 0u;
+                        break;
+                    }
+                        
+                }
+                else
+                    continue;
+            }
+        }
+    }
+    return ret;
+}
+
+u16 GetMaxMoveToLearn (void)
+{
+    return sGMaxMoveTable[GMaxSpeciesIndex].gmaxMove;
+}
+
+bool8 IsTutorMaxMove (void)
+{
+    return IsTutorMaxMove_Var;
+}
+
+void SetTypeTutorMove (bool8 value)
+{
+    IsTutorMaxMove_Var = value;
 }

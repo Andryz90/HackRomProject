@@ -1,7 +1,11 @@
 #ifndef GUARD_BATTLE_DYNAMAX_H
 #define GUARD_BATTLE_DYNAMAX_H
 
-#define DYNAMAX_TURNS_COUNT	3
+#define DYNAMAX_TURNS_COUNT	       3
+
+#define TUTOR_TYPE_NORMAL       (bool8)(0u)
+#define TUTOR_TYPE_MAXMOVE      (bool8)(1u)
+
 
 bool32 CanDynamax(u32 battler);
 bool32 IsGigantamaxed(u32 battler);
@@ -23,5 +27,9 @@ void BS_SetSteelsurge(void);
 void BS_HealOneSixth(void);
 void BS_TryRecycleBerry(void);
 void BS_JumpIfDynamaxed(void);
-
+//Custom
+bool8 CanPokemonLearnMaxMove (struct Pokemon* mon);
+u16 GetMaxMoveToLearn (void);
+bool8 IsTutorMaxMove (void);
+void SetTypeTutorMove (bool8 value);
 #endif

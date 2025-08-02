@@ -564,6 +564,7 @@ gSpecials::
 	def_special Handle_Wingull_Flag
 	def_special TeachTutorMove
 	def_special ChooseMonForTutor
+	def_special ChooseMonForMaxTutor
 	def_special SetNewIVStat
 	def_special SetNewIVStatAll
 	def_special SwapPokemonGender

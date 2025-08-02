@@ -110,4 +110,5 @@ void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 //custom
 void CB2_WaitForPartyMenuFadeOut(void);
+void ChooseMonForMaxTutor(void);
 #endif // GUARD_PARTY_MENU_H

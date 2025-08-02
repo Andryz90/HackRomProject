@@ -2,6 +2,7 @@
 #include "main.h"
 #include "battle.h"
 #include "bg.h"
+#include "bw_summary_screen.h"
 #include "contest_effect.h"
 #include "data.h"
 #include "event_data.h"
@@ -131,7 +132,8 @@
 #define MENU_STATE_CONFIRM_DELETE_OLD_MOVE 18
 #define MENU_STATE_PRINT_WHICH_MOVE_PROMPT 19
 #define MENU_STATE_SHOW_MOVE_SUMMARY_SCREEN 20
-// States 21, 22, and 23 are skipped.
+#define MENU_STATE_WAIT_PRINT_AND_FADE_FIELD    21 //Custom
+// States 22, and 23 are skipped.
 #define MENU_STATE_PRINT_STOP_TEACHING 24
 #define MENU_STATE_WAIT_FOR_STOP_TEACHING 25
 #define MENU_STATE_CONFIRM_STOP_TEACHING 26
@@ -348,6 +350,7 @@ static const struct BgTemplate sMoveTutorMenuBackgroundTemplates[] =
 
 static void DoMoveTutorMain(void);
 static void CreateLearnableMovesList(void);
+static void CreateLearnableMaxMovesList(void);
 static void CreateUISprites(void);
 static void CB2_MoveTutorMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
@@ -405,8 +408,15 @@ static void CB2_InitLearnMove(void)
     sMoveTutorMenuSate.listRow = 0;
     sMoveTutorMenuSate.showContestInfo = FALSE;
 
-    CreateLearnableMovesList();
-
+    if (!IsTutorMaxMove()) //Comes from Max Move Script
+    {
+        CreateLearnableMovesList();
+    }
+    else
+    {
+        CreateLearnableMaxMovesList();
+    }
+        
     LoadSpriteSheet(&sMoveTutorSpriteSheet);
     LoadSpritePalette(&sMoveTutorPalette);
     CreateUISprites();
@@ -430,7 +440,15 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
 
     InitMoveTutorBackgroundLayers();
     InitMoveTutorWindows(sMoveTutorMenuSate.showContestInfo);
-    CreateLearnableMovesList();
+
+    if (!IsTutorMaxMove())
+    {
+        CreateLearnableMovesList();
+    }
+    else
+    {
+        CreateLearnableMaxMovesList();
+    }
 
     LoadSpriteSheet(&sMoveTutorSpriteSheet);
     LoadSpritePalette(&sMoveTutorPalette);
@@ -520,15 +538,22 @@ static void DoMoveTutorMain(void)
 
             if (selection == 0)
             {
-                if (GiveMoveToMon(&gPlayerParty[sMoveTutorStruct->partyMon], GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES)
+                if (GiveMoveToMon(&gPlayerParty[sMoveTutorStruct->partyMon], GetCurrentSelectedMove()) != MON_HAS_MAX_MOVES
+                    && GiveMoveToMon(&gPlayerParty[sMoveTutorStruct->partyMon], GetCurrentSelectedMove()) != MON_ALREADY_KNOWS_MOVE)
                 {
                     PrintMessageWithPlaceholders(gText_MoveRelearnerPkmnLearnedMove);
                     gSpecialVar_0x8004 = TRUE;
                     sMoveTutorStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
                 }
-                else
+                else if (GiveMoveToMon(&gPlayerParty[sMoveTutorStruct->partyMon], GetCurrentSelectedMove()) == MON_HAS_MAX_MOVES)
                 {
                     sMoveTutorStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
+                }
+                else //Already knows the move (Custom)
+                {
+                    gSpecialVar_0x8004 = FALSE;
+                    PrintMessageWithPlaceholders(gText_MoveRelearnedPkmnAlreadyKnowMove);
+                    sMoveTutorStruct->state = MENU_STATE_PRINT_TEXT_THEN_FANFARE;
                 }
             }
             else if (selection == MENU_B_PRESSED || selection == 1)
@@ -658,7 +683,11 @@ static void DoMoveTutorMain(void)
     case MENU_STATE_SHOW_MOVE_SUMMARY_SCREEN:
         if (!gPaletteFade.active)
         {
+            #if BW_SUMMARY_SCREEN == TRUE
+            ShowSelectMovePokemonSummaryScreen_BW(gPlayerParty, sMoveTutorStruct->partyMon, gPlayerPartyCount - 1, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
+            #else
             ShowSelectMovePokemonSummaryScreen(gPlayerParty, sMoveTutorStruct->partyMon, gPlayerPartyCount - 1, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
+            #endif
             FreeMoveTutorResources();
         }
         break;
@@ -728,7 +757,12 @@ static void DoMoveTutorMain(void)
     case MENU_STATE_PRINT_TEXT_THEN_FANFARE:
         if (!MoveTutorRunTextPrinters())
         {
-            PlayFanfare(MUS_LEVEL_UP);
+            //Custom
+            if (gSpecialVar_0x8004)
+                PlayFanfare(MUS_LEVEL_UP);
+            else 
+                PlaySE(SE_FAILURE);
+
             sMoveTutorStruct->state = MENU_STATE_WAIT_FOR_FANFARE;
         }
         break;
@@ -907,6 +941,27 @@ static void CreateLearnableMovesList(void)
         sMoveTutorStruct->menuItems[i].name = GetMoveName(sMoveTutorStruct->movesToLearn[i]);
         sMoveTutorStruct->menuItems[i].id = sMoveTutorStruct->movesToLearn[i];
     }
+
+    GetMonData(&gPlayerParty[sMoveTutorStruct->partyMon], MON_DATA_NICKNAME, nickname);
+    StringCopy_Nickname(gStringVar1, nickname);
+    sMoveTutorStruct->menuItems[sMoveTutorStruct->numMenuChoices].name = gText_Cancel;
+    sMoveTutorStruct->menuItems[sMoveTutorStruct->numMenuChoices].id = LIST_CANCEL;
+    sMoveTutorStruct->numMenuChoices++;
+    sMoveTutorStruct->numToShowAtOnce = LoadMoveTutorMovesList(sMoveTutorStruct->menuItems, sMoveTutorStruct->numMenuChoices);
+}
+//Max Moves
+static void CreateLearnableMaxMovesList(void)
+{
+    s32 i;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+
+    sMoveTutorStruct->numMenuChoices = 1;
+    sMoveTutorStruct->movesToLearn[0] = GetMaxMoveToLearn();
+    //memset(&sMoveTutorStruct->movesToLearn[0], MOVE_NONE, MAX_TUTOR_MOVES);
+
+    sMoveTutorStruct->menuItems[0].name = GetMoveName(GetMaxMoveToLearn());
+    sMoveTutorStruct->menuItems[0].id = GetMaxMoveToLearn();
+    
 
     GetMonData(&gPlayerParty[sMoveTutorStruct->partyMon], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);

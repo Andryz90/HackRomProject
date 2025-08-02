@@ -257,7 +257,7 @@ const struct Item gItemsInfo[] =
         [ITEM_HEAL_BALL] =
             {
                 .name = _("Heal Ball"),
-                .price = 300,
+                .price = 500,
                 .description = COMPOUND_STRING(
                     "A remedial Ball\n"
                     "that restores\n"
@@ -401,7 +401,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LEVEL_BALL] =
             {
                 .name = _("Level Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on lower\n"
@@ -417,7 +417,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LURE_BALL] =
             {
                 .name = _("Lure Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on fished\n"
@@ -433,7 +433,7 @@ const struct Item gItemsInfo[] =
         [ITEM_MOON_BALL] =
             {
                 .name = _("Moon Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A Ball that works\n"
                     "well on Moon\n"
@@ -449,7 +449,7 @@ const struct Item gItemsInfo[] =
         [ITEM_FRIEND_BALL] =
             {
                 .name = _("Friend Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "A Ball that makes\n"
                     "a Pokémon friendly\n"
@@ -465,7 +465,7 @@ const struct Item gItemsInfo[] =
         [ITEM_LOVE_BALL] =
             {
                 .name = _("Love Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "Pokémon of the\n"
@@ -481,7 +481,7 @@ const struct Item gItemsInfo[] =
         [ITEM_FAST_BALL] =
             {
                 .name = _("Fast Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "very fast\n"
@@ -497,7 +497,7 @@ const struct Item gItemsInfo[] =
         [ITEM_HEAVY_BALL] =
             {
                 .name = _("Heavy Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+                .price = 1000,
                 .description = COMPOUND_STRING(
                     "Works well on\n"
                     "very heavy\n"
@@ -513,7 +513,7 @@ const struct Item gItemsInfo[] =
         [ITEM_DREAM_BALL] =
             {
                 .name = _("Dream Ball"),
-                .price = 0,
+                .price = 1000,
                 .description = COMPOUND_STRING(
 #if B_DREAM_BALL_MODIFIER >= GEN_8
                     "A Ball that works\n"
@@ -550,7 +550,7 @@ const struct Item gItemsInfo[] =
         [ITEM_SPORT_BALL] =
             {
                 .name = _("Sport Ball"),
-        .price = (I_PRICE < GEN_3 || I_PRICE >= GEN_9) ? 0 : 300,
+                .price = (I_PRICE < GEN_3 || I_PRICE >= GEN_9) ? 0 : 300,
                 .description = COMPOUND_STRING(
             "A special Ball\n"
             "used in the Bug-\n"
@@ -596,7 +596,7 @@ const struct Item gItemsInfo[] =
         [ITEM_CHERISH_BALL] =
             {
                 .name = _("Cherish Ball"),
-        .price = 0,
+                .price = 3000,
                 .description = COMPOUND_STRING(
                     "A rare Ball made\n"
                     "in commemoration\n"
@@ -2537,13 +2537,13 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Max Mushrooms"),
                 .price = 8000,
                 .description = COMPOUND_STRING(
-                    "Raises every stat\n"
-                    "during one battle\n"
-                    "by one stage."),
+                    "Strange mushrooms.\n"
+                    "Certain pokémon are\n"
+                    "affines to them"),
                 .pocket = POCKET_ITEMS,
                 .type = ITEM_USE_BAG_MENU,
                 .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-                .battleUsage = EFFECT_ITEM_INCREASE_ALL_STATS,
+                //.battleUsage = EFFECT_ITEM_INCREASE_ALL_STATS,
                 .flingPower = 30,
                 .iconPic = gItemIcon_MaxMushrooms,
                 .iconPalette = gItemIconPalette_MaxMushrooms,

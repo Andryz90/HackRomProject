@@ -2366,7 +2366,11 @@ static void DrawNextSkillsButtonPrompt(u8 mode)
             break;
         case SKILL_STATE_IVS:
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
+            #if P_FLAG_EV_DISABLED != TRUE
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+            #else
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
+            #endif
             break;
         case SKILL_STATE_EVS:
             if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
@@ -3691,12 +3695,14 @@ static void PrintPageNamesAndStats(void)
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, sText_ViewIVs_Graded, stringXPos, 1, 0, 1);
 
+            #if P_FLAG_EV_DISABLED != TRUE
             stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewEVs_Graded, skillsLabelWidth);
             iconXPos = stringXPos - 16;
             if (iconXPos < 0)
                 iconXPos = 0;
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, sText_ViewEVs_Graded, stringXPos, 1, 0, 1);
+            #endif
         }
         else // precise display
         {
@@ -3707,12 +3713,14 @@ static void PrintPageNamesAndStats(void)
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, sText_ViewIVs, stringXPos, 1, 0, 1);
 
+            #if P_FLAG_EV_DISABLED != TRUE
             stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewEVs, skillsLabelWidth);
             iconXPos = stringXPos - 16;
             if (iconXPos < 0)
                 iconXPos = 0;
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, sText_ViewEVs, stringXPos, 1, 0, 1);
+            #endif
         }
 
         stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewStats, skillsLabelWidth);
@@ -3750,8 +3758,13 @@ static void PutPageWindowTilemaps(u8 page)
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
         if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_PRECISE)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
+#if P_FLAG_EV_DISABLED != TRUE
         else if (BW_SUMMARY_IV_EV_DISPLAY & BW_IV_EV_GRADED)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+#else
+        else
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
+#endif
         break;
     case PSS_PAGE_BATTLE_MOVES:
         PutWindowTilemap(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE);
@@ -3794,7 +3807,9 @@ static void ClearPageWindowTilemaps(u8 page)
         if (BW_SUMMARY_IV_EV_DISPLAY != BW_IV_EV_HIDDEN)
         {
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
+            #if P_FLAG_EV_DISABLED != TRUE
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+            #endif
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
         }
         break;

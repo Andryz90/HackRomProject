@@ -22177,8 +22177,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Vine Lash"),
         .description = COMPOUND_STRING(
-            "Uses its vine to deal damage\n"
-            "and damage overtime foes side."
+            "Uses its vine to deal damage.\n"
+            "Foes side take damage overtime."
         ),   
         .effect = EFFECT_MAX_MOVE, //ANIM TODO
         .power = 65,
@@ -22202,7 +22202,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Wildfire"),
         .description = COMPOUND_STRING(
             "Uses its fury to deal damage\n"
-            "and damage overtime foes side."
+            "Foes side take damage overtime."
         ),
         .effect = EFFECT_MAX_MOVE,
         .power = 65,
@@ -22226,8 +22226,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Canonade"),
         .description = COMPOUND_STRING(
             "Uses its cannon to deal damage\n"
-            "and damage overtime foes side."
-        ),   //ANIM TODO
+            "Foes side take damage overtime."
+        ),   
         .effect = EFFECT_MAX_MOVE,
         .power = 65,
         .type = TYPE_WATER,

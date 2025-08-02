@@ -5940,7 +5940,6 @@ u8 GetNumberOfTeachableMoves(struct Pokemon *mon)
 
     for (i = 0; i < MAX_TUTOR_MOVES && teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
     {
-        
         for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != teachableLearnset[i]; j++)
         {
             ;

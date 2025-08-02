@@ -14666,13 +14666,34 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Marill
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Hippowdon (M) @ Leftovers  
+Ability: Sand Stream  
+Level: 38  
+Adamant Nature  
+- Earthquake  
+- Stone Edge  
+- Stealth Rock  
+- Body Press  
 
-Lombre
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Krookodile @ Life Orb  
+Ability: Moxie  
+Level: 38  
+Adamant Nature  
+- Earthquake  
+- Crunch  
+- Trailblaze  
+- Fire Fang  
+
+Stoutland @ Silk Scarf  
+Ability: Sand Rush  
+Level: 38  
+Adamant Nature  
+- Facade  
+- Retaliate  
+- Play Rough  
+- Crunch  
+
+
 
 === TRAINER_COBY ===
 Name: COBY
@@ -14683,13 +14704,33 @@ Music: Cool
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Skarmory
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Skarmory @ Leftovers  
+Ability: Sturdy  
+Level: 38  
+- Brave Bird  
+- Roost  
+- Steel Wing  
+- Body Press  
 
-Swellow
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mandibuzz @ Rocky Helmet  
+Ability: Overcoat  
+Level: 38  
+Brave Nature  
+- Foul Play  
+- Roost  
+- Brave Bird  
+- Heat Wave  
+
+Gliscor @ Life Orb  
+Ability: Sand Veil  
+Level: 38  
+Impish Nature  
+- Protect  
+- Knock Off  
+- High Horsepower  
+- Crabhammer  
+
+
 
 === TRAINER_LAWRENCE ===
 Name: LAWRENCE
