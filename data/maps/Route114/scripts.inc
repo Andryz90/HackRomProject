@@ -79,9 +79,100 @@ Route114_EventScript_LanettesHouseSign::
 	msgbox Route114_Text_LanettesHouse, MSGBOX_SIGN
 	end
 
-Route114_EventScript_Lenny::
-	trainerbattle_single TRAINER_LENNY, Route114_Text_LennyIntro, Route114_Text_LennyDefeat
-	msgbox Route114_Text_LennyPostBattle, MSGBOX_AUTOCLOSE
+Route114_EventScriptMagmaGrunt_Approching1_Movement::
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	face_player
+	emote_exclamation_mark
+	step_end
+
+
+Route114_EventScriptMagmaGrunt_Approching2_Movement::
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_fast_up
+	face_player
+	emote_exclamation_mark
+	step_end
+
+Route114_EventScriptMagmaGrunt_Leaving::
+	walk_faster_right
+	walk_faster_down
+	walk_faster_right
+	walk_faster_down
+	walk_faster_right
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+Route114_EventScriptMagmaGrunt_Leaving2::
+	walk_faster_down
+	walk_faster_right
+	walk_faster_down
+	walk_faster_right
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+Route114_MagmaGrunt_Leaving_Text::
+	.string "I have to go\n"
+	.string "don't follow me! $"
+
+
+Route114_EventScriptMagmaGrunt_Approching1::
+	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Approching1_Movement
+	waitmovement 0
+	trainerbattle_single TRAINER_MAGMA_GRUNT_ROUTE114, Route114_Text_MagmaGruntIntro, Route114_Text_MagmaGruntDefeat, Route114_EventScriptMagmaGrunt_Leaving1
+	releaseall 
+	end
+Route114_EventScriptMagmaGrunt_Leaving1::
+	msgbox Route114_Text_MagmaGruntPostBattle, MSGBOX_DEFAULT
+	msgbox Route114_MagmaGrunt_Leaving_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRightFaster
+	waitmovement 0
+	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Leaving
+	waitmovement 0
+	removeobject LOCALID_MAGMA_GRUNT
+	setflag FLAG_HIDE_MAGMA_GRUNT_R114
+	setvar VAR_METEOR_FALLS_STATE, 2
+	releaseall
+	end
+Route114_EventScriptMagmaGrunt_Approching2::
+	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Approching2_Movement
+	waitmovement 0
+	trainerbattle_single TRAINER_MAGMA_GRUNT_ROUTE114, Route114_Text_MagmaGruntIntro, Route114_Text_MagmaGruntDefeat, Route114_EventScriptMagmaGrunt_LeavingScript2
+Route114_EventScriptMagmaGrunt_LeavingScript2::
+	msgbox Route114_Text_MagmaGruntPostBattle, MSGBOX_DEFAULT
+	msgbox Route114_MagmaGrunt_Leaving_Text, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_WalkRightFaster
+	waitmovement 0
+	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Leaving2
+	waitmovement 0
+	removeobject LOCALID_MAGMA_GRUNT
+	setflag FLAG_HIDE_MAGMA_GRUNT_R114
+	setvar VAR_METEOR_FALLS_STATE, 2
+	releaseall
 	end
 
 Route114_EventScript_Lucas::

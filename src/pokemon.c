@@ -4710,7 +4710,7 @@ bool32 DoesMonMeetAdditionalConditions(struct Pokemon *mon, const struct Evoluti
                 currentCondition = TRUE;
             break;
         case IF_KNOWS_MOVE:
-            if (MonKnowsMove(mon, params[i].arg1))
+            if (MonHasMoveinMoveset(mon, params[i].arg1))
                 currentCondition = TRUE;
             break;
         // Gen 5

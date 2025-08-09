@@ -10913,6 +10913,10 @@
         "Move": "MOVE_DRAGON_DANCE"
       },
       {
+        "Level": 38,
+        "Move": "MOVE_WATER_FANGS"
+      },
+      {
         "Level": 40,
         "Move": "MOVE_WATERFALL"
       },
@@ -66815,7 +66819,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_TEETER_DANCE"
+        "Move": "MOVE_JUMP_KICK"
       },
       {
         "Level": 40,
@@ -66823,7 +66827,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_JUMP_KICK"
+        "Move": "MOVE_TEETER_DANCE"
       },
       {
         "Level": 46,
@@ -70719,6 +70723,10 @@
       {
         "Level": 21,
         "Move": "MOVE_HEADBUTT"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_WATER_FANGS"
       },
       {
         "Level": 30,

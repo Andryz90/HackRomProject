@@ -1786,20 +1786,16 @@ Route113_Text_WyattPostBattle:
 	.string "Aren't you just the coolest?\n"
 	.string "Humph! $"
 
-Route114_Text_LennyIntro:
-	.string "Yodelayhihoo!\p"
-	.string "… …\p"
-	.string "You're supposed to shout\n"
-	.string "“yodelayhihoo” since it doesn't\l"
-	.string "echo here! $"
+Route114_Text_MagmaGruntIntro:
+	.string "HUH?! \p"
+	.string "Who are you?! \p"
+	.string "I don't have time! \n"
+	.string "Get Lost! $"
+Route114_Text_MagmaGruntDefeat:
+	.string "Never challenge us again! $"
 
-Route114_Text_LennyDefeat:
-	.string "Yodelayhihoo! $"
-
-Route114_Text_LennyPostBattle:
-	.string "When I was a wee tyke, I believed there\n"
-	.string "was someone copying me and shouting\l"
-	.string "back, “Yodelayhihoo.” $"
+Route114_Text_MagmaGruntPostBattle:
+	.string "Grr, Whatever. $"
 
 Route114_Text_LucasIntro:
 	.string "If you're not prepared, you shouldn't\n"

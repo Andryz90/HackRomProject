@@ -11738,11 +11738,15 @@ u8 GetTrainerTeamOffset (u8 index)
 /*  This section is about all the trainers that are optional but give rewards, hence their Mon's level must be calculated dynamically,
     in order to match the player's one.
 */
-typedef enum
+typedef enum Trainer_DynamicLevel_t
 {
-    LUNG_NINJABOY_R113 = 0,
-    LAWRENCE_CAMPER_R113 = 1,
-    WYATT_MANIAC_R113 = 2,
+    LUNG_NINJABOY_R113      = 0u,  //Double battle + Back to Back
+    LAWRENCE_CAMPER_R113    = 1u,  //Double battle + Back to Back
+    WYATT_MANIAC_R113       = 2u,  //Double battle + Back to Back
+    KAI_R114                = 3u,  //Double battle R114
+    CHARLOTTE_RR14          = 4u,  //Double battle R114
+
+
     MAX_TRAINER_DYNAMIC_LEVEL
 
 } Trainer_DynamicLevel_Enum_t;
@@ -11752,6 +11756,9 @@ static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][T
     [LUNG_NINJABOY_R113]    = _("LUNG"),
     [LAWRENCE_CAMPER_R113]  = _("LAWRENCE"),
     [WYATT_MANIAC_R113]     =  _("WYATT"),
+    [KAI_R114]              = _("KAI"),
+    [CHARLOTTE_RR14]        = _("CHARLOTTE"),
+
 };
 
 bool8 SetTrainerLevelIfDynamic (const struct Trainer *trainer, u8* MonLevel)

@@ -2725,9 +2725,53 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Aron
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mightyena @ Leftovers
+Ability: Strong Jaw
+Level: 38
+- Crunch
+- Play Rough
+- Thunder Fang
+- Ice Fang
+
+Crobat @ Leftovers
+Ability: Inner Focus
+Level: 38
+- Brave Bird
+- Cross Poison
+- Roost
+- U-Turn
+
+Electivire @ Punching Glove
+Ability: Motor Drive
+Level: 38
+- Thunder Punch
+- Ice Punch
+- Cross Chop
+- Bulk Up
+
+Gliscor @ Toxic Orb
+Ability: Poison Heal
+Level: 38
+- Earthquake
+- Roost
+- Toxic
+- Protect
+
+Floatzel @ Choice Band
+Ability: Swift Swim
+Level: 38
+- Aqua Jet
+- Waterfall
+- Ice Punch
+- Crunch
+
+Aggron @ Leftovers
+Ability: Filter
+Level: 38
+- Iron Head
+- Earthquake
+- Rock Slide
+- Thunder Wave
 
 === TRAINER_THALIA_1 ===
 Name: THALIA
@@ -2848,6 +2892,7 @@ AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ H
 Carvanha
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
 
 === TRAINER_DOMINIK ===
 Name: DOMINIK
@@ -3754,13 +3799,52 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Slugma
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tauros-Paldea-Blaze @ Sitrus Berry  
+Ability: Cud Chew  
+Level: 38   
+Adamant Nature  
+- Raging Bull  
+- Body Press  
+- Substitute  
+- Bulk Up  
 
-Wingull
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Flareon @ Charcoal  
+Ability: ignite  
+Level: 38  
+Adamant Nature  
+- Double-Edge  
+- Superpower  
+- Will-O-Wisp  
+- Covet  
+
+Rapidash @ Silk Scarf  
+Ability: Reckless  
+Level: 38  
+Adamant Nature  
+- Double-Edge  
+- Flare Blitz  
+- High Horsepower  
+
+Houndoom @ Chesto Berry  
+Ability: Berserk  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk  
+- Rest  
+- Dark Pulse  
+- Fire Blast  
+- Sludge Bomb  
+
+Talonflame @ Sharp Beak  
+Ability: Flame Body  
+Level: 38  
+Adamant Nature  
+- Flare Blitz  
+- Dual Wingbeat  
+- Roost  
+- U-turn  
+
+
 
 === TRAINER_BERNIE_2 ===
 Name: BERNIE
@@ -3822,13 +3906,52 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magcargo
-Level: 35
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+Tauros-Paldea-Blaze @ Sitrus Berry  
+Ability: Cud Chew  
+Level: 38   
+Adamant Nature  
+- Raging Bull  
+- Body Press  
+- Substitute  
+- Bulk Up  
 
-Pelipper
-Level: 35
-IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+Flareon @ Charcoal  
+Ability: Ignite  
+Level: 38  
+Adamant Nature  
+- Double-Edge  
+- Superpower  
+- Will-O-Wisp  
+- Covet  
+
+Rapidash @ Silk Scarf  
+Ability: Reckless  
+Level: 38  
+Adamant Nature  
+- Double-Edge  
+- Flare Blitz  
+- High Horsepower  
+
+Houndoom @ Chesto Berry  
+Ability: Berserk  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk  
+- Rest  
+- Dark Pulse  
+- Fire Blast  
+- Sludge Bomb  
+
+Talonflame @ Sharp Beak  
+Ability: Flame Body  
+Level: 38  
+Adamant Nature  
+- Flare Blitz  
+- Dual Wingbeat  
+- Roost  
+- U-turn  
+
+
 
 === TRAINER_DREW ===
 Name: DREW
@@ -3914,13 +4037,47 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandshrew
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Golem @ Custap Berry
+Ability: Sturdy
+Level: 38
+- Stealth Rock
+- Stone Edge
+- Earthquake
+- Explosion
 
-Nuzleaf
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Breloom @ Focus Sash
+Ability: Technician
+Level: 38
+- Mach Punch
+- Bullet Seed
+- Spore
+- Rock Tomb
+
+Manectric
+Ability: Lightning Rod
+Level: 38
+IVs: 30 Atk / 30 SpA / 30 SpD
+- Thunderbolt
+- Flame Burst
+- Volt Switch
+- Hidden Power
+
+Crobat @ Leftovers
+Ability: Inner Focus
+Level: 38
+- Brave Bird
+- Cross Poison
+- Roost
+- U-Turn
+
+Ludicolo @ Leftovers
+Ability: Swift Swim
+Level: 38
+- Scald
+- Giga Drain
+- Ice Beam
+- Rain Dance
+
 
 === TRAINER_JUSTIN ===
 Name: JUSTIN
@@ -6940,17 +7097,50 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magikarp
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gyarados @ Mystic Water  
+Ability: Moxie  
+Level: 38  
+Jolly Nature  
+- Dragon Dance  
+- Dual Chop  
+- Facade  
+- Water Fangs
 
-Goldeen
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Drednaw @ Rindo Berry  
+Ability: Strong Jaw  
+Level: 38  
+- Shell Smash  
+- Jaw Lock  
+- Ice Fang  
+- Water Fangs
 
-Barboach
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Poliwrath @ Punching Glove  
+Ability: Damp  
+Level: 38   
+Adamant Nature  
+- Drain Punch  
+- Ice Punch  
+- Waterfall  
+- Facade  
+
+Whiscash @ Rindo Berry  
+Ability: Unaware  
+Level: 38   
+Adamant Nature  
+- Dragon Dance  
+- Liquidation  
+- Earthquake  
+- Outrage  
+
+Kingler @ Metal Coat  
+Ability: Sheer Force  
+Level: 38  
+Adamant Nature  
+- Crabhammer  
+- Hammer Arm  
+- X-Scissor  
+- Iron Grip
+
 
 === TRAINER_ELLIOT_1 ===
 Name: ELLIOT
@@ -9382,13 +9572,45 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Marill
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Aromatisse @ Misty Seed  
+Ability: Misty Surge  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk / 30 SpA / 30 Spe  
+- Moonblast  
+- Draining Kiss  
+- Calm Mind  
+- Hidden Power
 
-Lombre
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Florges @ Misty Seed  
+Ability: Misty Pelt  
+Level: 38  
+Modest Nature  
+IVs: 0 Atk  
+- Moonblast  
+- Calm Mind  
+- Leech Seed  
+- Giga Drain  
+
+Carbink @ Misty Seed  
+Ability: Clear Body  
+Level: 38  
+IVs: 0 Atk  
+- Body Press  
+- Moonblast  
+- Terrain Pulse  
+- Calm Mind  
+
+Gardevoir (F) @ Leftovers  
+Ability: Trace  
+Level: 38  
+Timid Nature  
+IVs: 0 Atk  
+- Moonblast  
+- Mystical Fire  
+- Calm Mind  
+- Draining Kiss  
+
 
 === TRAINER_MARTHA ===
 Name: MARTHA
@@ -12809,22 +13031,61 @@ Geodude
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_LENNY ===
-Name: LENNY
-Class: Hiker
-Pic: Hiker
+=== TRAINER_MAGMA_GRUNT_ROUTE114 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
 Gender: Male
-Music: Hiker
+Music: Magma
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Geodude
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Donphan (M) @ Hard Stone  
+Ability: Rock Head  
+Level: 38  
+Adamant Nature  
+- Stealth Rock  
+- Earthquake  
+- Ice Spinner  
+- Head Smash  
 
-Machop
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Victreebel (M) @ Heat Rock  
+Ability: Lifedrainer  
+Level: 38  
+- Sunny Day  
+- Weather Ball  
+- Poison Drain  
+- Giga Drain  
+
+Volcarona (F) @ Heavy-Duty Boots  
+Ability: Flame Body  
+Level: 38  
+Timid Nature  
+IVs: 0 Atk  
+- Quiver Dance  
+- Flamethrower  
+- Giga Drain  
+- Bug Buzz  
+
+Centiskorch @ Charcoal  
+Ability: Flash Fire  
+Level: 38  
+- Fire Lash  
+- Knock Off  
+- Coil  
+- Leech Life  
+
+Claydol @ Leftovers  
+Ability: Levitate  
+Level: 38  
+Bold Nature  
+IVs: 0 Atk  
+- Earth Power  
+- Psychic  
+- Future Sight  
+- Body Press  
+
+
 
 === TRAINER_LUCAS_1 ===
 Name: LUCAS
@@ -12835,13 +13096,32 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Geodude
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lycanroc-Dusk @ Muscle Band  
+Ability: Tough Claws  
+Level: 38  
+Adamant Nature  
+- Swords Dance  
+- Accelerock  
+- Rock Slide  
+- Brick Break  
 
-Numel
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mudsdale @ Leftovers  
+Ability: Stamina  
+Level: 38  
+Impish Nature  
+- Body Press  
+- Earthquake  
+- Double-Edge  
+- Heavy Slam  
+
+Barbaracle @ Expert Belt  
+Ability: Tough Claws  
+Level: 38  
+Adamant Nature  
+- Shell Smash  
+- Razor Shell  
+- Stone Edge  
+- Cross Chop  
 
 === TRAINER_ALAN ===
 Name: ALAN
@@ -14798,8 +15078,6 @@ IVs: 0 Atk
 - Body Press  
 - Flash Cannon  
 
-
-
 === TRAINER_ANGELINA ===
 Name: ANGELINA
 Class: Picnicker
@@ -14809,13 +15087,35 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Lombre
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clefairy @ Eviolite  
+Ability: Friend Guard  
+Level: 38  
+Bold Nature  
+IVs: 0 Atk  
+- Follow Me  
+- Life Dew  
+- Encore  
+- Moonblast  
 
-Marill
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Togekiss @ Leftovers  
+Ability: Pixilate  
+Level: 38   
+Bold Nature  
+IVs: 0 Atk  
+- Follow Me  
+- Hyper Voice  
+- Thunder Wave  
+- Roost  
+
+Whimsicott @ Leftovers  
+Ability: Prankster  
+Level: 38  
+Timid Nature  
+IVs: 0 Atk  
+- Tailwind  
+- Taunt  
+- Giga Drain  
+- Moonblast  
 
 === TRAINER_KAI ===
 Name: KAI
@@ -14826,9 +15126,43 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Barboach
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Politoed @ Expert Belt  
+Ability: Drizzle  
+Level: 1  
+Modest Nature  
+- Flip Turn  
+- Giga Drain  
+- Leech Seed  
+- Surf  
+
+Clodsire @ Black Sludge  
+Ability: Water Absorb  
+Level: 1  
+Impish Nature  
+- High Horsepower  
+- Body Press  
+- Gunk Shot  
+- Curse  
+
+Cradily @ Absorb Bulb  
+Ability: Storm Drain  
+Level: 1  
+Quiet Nature  
+- Giga Drain  
+- Ancient Power  
+- Rock Slide  
+- Sludge Bomb  
+
+Pincurchin (M) @ Cell Battery  
+Ability: Lightning Rod  
+Level: 1  
+Quiet Nature  
+- Sucker Punch  
+- Surf  
+- Recover  
+- Thunder  
+
+
 
 === TRAINER_CHARLOTTE ===
 Name: CHARLOTTE
@@ -14839,9 +15173,35 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Nuzleaf
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Heliolisk @ Absorb Bulb  
+Ability: Dry Skin  
+Level: 1  
+IVs: 0 Atk  
+- Discharge  
+- Thunder  
+- Hyper Voice  
+- Focus Blast  
+
+Masquerain @ Sharp Beak  
+Ability: Swift Swim  
+Level: 1  
+Modest Nature  
+IVs: 0 Atk  
+- Surf  
+- Hurricane  
+- Bug Buzz  
+- Energy Ball  
+
+Kilowattrel @ Heavy-Duty Boots  
+Ability: Volt Absorb  
+Level: 1  
+Modest Nature  
+- Discharge  
+- Hurricane  
+- U-turn  
+- Weather Ball  
+
+
 
 === TRAINER_DEANDRE ===
 Name: DEANDRE

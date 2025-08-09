@@ -44,6 +44,7 @@
 #include "money.h"
 #include "new_game.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "play_time.h"
 #include "random.h"
 #include "roamer.h"
@@ -188,7 +189,7 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16
 static u16 GetCenterScreenMetatileBehavior(void);
 static bool8 CanLearnFlashInParty(void);
 
-extern bool8 MonKnowsMove(struct Pokemon *mon, u16 move);
+//extern bool8 MonCanLearnMove(struct Pokemon *mon, u16 move);
 
 static void *sUnusedOverworldCallback;
 static u8 sPlayerLinkStates[MAX_LINK_PLAYERS];
@@ -1059,7 +1060,7 @@ static bool8 CanLearnFlashInParty(void)
     {
         if (!GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL))
             break;
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonKnowsMove(&gPlayerParty[i], MOVE_FLASH))
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonCanLearnMove(&gPlayerParty[i], MOVE_FLASH) && PlayerHasMove (MOVE_FLASH))
             return TRUE;
     }
     return FALSE;
@@ -1071,7 +1072,7 @@ static bool8 CanLearnFlashInParty(void)
 // Flash level of 8 is fully black
 void SetDefaultFlashLevel(void)
 {
-    if (CheckBagHasItem(ITEM_HM_FLASH , 1) && CanLearnFlashInParty())
+    if (CheckBagHasItem(ITEM_HM_FLASH, 1) && CanLearnFlashInParty())
         FlagSet(FLAG_SYS_USE_FLASH);
     if (!gMapHeader.cave)
         gSaveBlock1Ptr->flashLevel = 0;

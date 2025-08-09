@@ -1506,7 +1506,7 @@ void GenerateBattlePyramidWildMon(void)
         while (1)
         {
             id = moves[Random() % moveCount];
-            if (!MonKnowsMove(&gEnemyParty[0], id))
+            if (!MonCanLearnMove(&gEnemyParty[0], id))
             {
                 // replace random move
                 SetMonData(&gEnemyParty[0], MON_DATA_MOVE1 + Random() % MAX_MON_MOVES, &id);

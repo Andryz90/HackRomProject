@@ -2312,24 +2312,11 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
 
 static u8 CanTeachMove(struct Pokemon *mon, u16 move)
 {
-    bool8 Move_Known_in_moveset;
-    int i;
-
-    Move_Known_in_moveset = FALSE;
-    // Retrieve the moveset of the pokemon and check if the move is in the moveset
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (move == GetMonData(mon, MON_DATA_MOVE1 + i, 0))
-        {
-            Move_Known_in_moveset = TRUE;
-        }
-    }
-
     if (GetMonData(mon, MON_DATA_IS_EGG))
         return CANNOT_LEARN_MOVE_IS_EGG;
     else if (!CanLearnTeachableMove(GetMonData(mon, MON_DATA_SPECIES_OR_EGG), move))
         return CANNOT_LEARN_MOVE;
-    else if (/*MonKnowsMove(mon, move) == TRUE &&*/ Move_Known_in_moveset) // In theory it's enough to know only if the Pokémon has already the move
+    else if (MonHasMoveinMoveset(mon, move)) // In theory it's enough to know only if the Pokémon has already the move
         return ALREADY_KNOWS_MOVE;
     else
         return CAN_LEARN_MOVE;
@@ -5491,7 +5478,7 @@ bool8 PlayerHasMove(u16 move)
     }
     return CheckBagHasItem(item, 1);
 }
-bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
+bool8 MonCanLearnMove(struct Pokemon *mon, u16 move)
 {
     u8 i, j;
     const u16 *teachableLearnset;
@@ -5514,7 +5501,7 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 
             for (j = 0; teachableLearnset[j] != MOVE_UNAVAILABLE; j++)
             {
-                if (PlayerHasMove (move) && teachableLearnset[j] == move)
+                if (teachableLearnset[j] == move)
                 {
                     return TRUE;
                 }
@@ -5522,10 +5509,7 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 
             for (j = 0; leveluplearnset[j].move != LEVEL_UP_MOVE_END; j++)
             {
-                if (PlayerHasMove (move))
-                {
-                    return TRUE;
-                }
+                return TRUE;
             }
         }
     }

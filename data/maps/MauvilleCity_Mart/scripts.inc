@@ -45,6 +45,7 @@ MauvilleCity_Mart_Pokemart_Stone:
 	.2byte ITEM_DAWN_STONE
 	.2byte ITEM_RAZOR_CLAW
 	.2byte ITEM_RAZOR_FANG
+	.2byte ITEM_KINGS_ROCK
 	.2byte ITEM_NONE
 	release
 	end

@@ -11,6 +11,28 @@ FallarborTown_Mart_EventScript_Clerk::
 	release
 	end
 
+FallarborTown_Mart_EventScript_SpecialClerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart FallarborTown_Mart_SpecialPokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+FallarborTown_Mart_SpecialPokemart:
+	.2byte ITEM_ABILITY_CAPSULE
+	.2byte ITEM_ABILITY_SHIELD
+	.2byte ITEM_ABSORB_BULB
+	.2byte ITEM_CELL_BATTERY
+	.2byte ITEM_LUMINOUS_MOSS
+	.2byte ITEM_SNOWBALL
+	.2byte ITEM_CLEANSE_TAG
+	pokemartlistend
+
 	.align 2
 FallarborTown_Mart_Pokemart:
 	.2byte ITEM_GREAT_BALL

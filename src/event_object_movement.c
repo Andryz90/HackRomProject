@@ -5519,7 +5519,7 @@ static bool32 TryStartFollowerTransformEffect(struct ObjectEvent *objectEvent, s
     }
 
     if (OW_FOLLOWERS_COPY_WILD_PKMN
-        && (MonKnowsMove(mon = GetFirstLiveMon(), MOVE_TRANSFORM)
+        && (MonHasMoveinMoveset(mon = GetFirstLiveMon(), MOVE_TRANSFORM)
          || (ability = GetMonAbility(mon)) == ABILITY_IMPOSTER || ability == ABILITY_ILLUSION)
         && (Random() & 0xFFFF) < 18 && GetLocalWildMon(FALSE))
     {
