@@ -5029,7 +5029,8 @@ static void SetMoveTypeIcons(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (summary->moves[i] != MOVE_NONE) {
-            if (summary->moves[i] == MOVE_HIDDEN_POWER) {
+            if (summary->moves[i] == MOVE_HIDDEN_POWER) 
+            {
                 u8 typeBits  = ((GetMonData(mon, MON_DATA_HP_IV) & 1) << 0)
                      | ((GetMonData(mon, MON_DATA_ATK_IV) & 1) << 1)
                      | ((GetMonData(mon, MON_DATA_DEF_IV) & 1) << 2)
@@ -5042,7 +5043,13 @@ static void SetMoveTypeIcons(void)
                     type++;
                 type |= 0xC0;
                 SetTypeSpritePosAndPal(type & 0x3F, 8, 16 + (i * 28), i + SPRITE_ARR_ID_TYPE);
-            } else {
+            } 
+            else if (summary->moves[i] == MOVE_SEASON_POWER) //Custom: Display the first type for sawsbbuck
+            {
+                SetTypeSpritePosAndPal(gSpeciesInfo[summary->species].types[0], 8, 16 + (i * 28), i + SPRITE_ARR_ID_TYPE);
+            }
+            else 
+            {
                 SetTypeSpritePosAndPal(gMovesInfo[summary->moves[i]].type, 8, 16 + (i * 28), i + SPRITE_ARR_ID_TYPE);
             }
         }

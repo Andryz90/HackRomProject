@@ -2908,7 +2908,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSilicobraLevelUpLearnset,
         .teachableLearnset = sSilicobraTeachableLearnset,
         .eggMoveLearnset = sSilicobraEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_SANDACONDA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_SANDACONDA}),
     },
 
     [SPECIES_SANDACONDA] =

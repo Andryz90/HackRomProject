@@ -21524,6 +21524,12 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_BULLET_PUNCH",
+      "MOVE_COMBO_PUNCH",
+      "MOVE_SHADOW_PUNCH",
+      "MOVE_POUNCE",
+      "MOVE_LEECH_LIFE",
       "MOVE_TOXIC",
       "MOVE_HIDDEN_POWER",
       "MOVE_SUNNY_DAY",

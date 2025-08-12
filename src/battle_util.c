@@ -3132,7 +3132,10 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
         break;
     case ABILITY_WATER_COMPACTION:
         if (moveType == TYPE_WATER)
+        {
             effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
+            statId = STAT_DEF;
+        }
         break;
     }
 
@@ -9258,15 +9261,12 @@ static inline uq4_12_t GetFalinksModifier(u32 battlerAtk)
         {
             delta_hit = 4;
         }
-        // MgbaPrintf(MGBA_LOG_ERROR, "Formation State: %u\n", gSpecialStatuses[battlerAtk].formationstate);
         if (gSpecialStatuses[battlerAtk].formationstate == FORMATION_IN_PROGRESS)
         {
-            // MgbaPrintf(MGBA_LOG_ERROR, "Damage Percentage: %d\n", rolls[delta_hit - 1]);
             return PercentToUQ4_12(rolls[delta_hit - 1]);
         }
         else
         {
-            // MgbaPrintf(MGBA_LOG_ERROR, "Boh %u\n", gSpecialStatuses[battlerAtk].formationstate);
             return UQ_4_12(1.0);
         }
     }

@@ -134,8 +134,7 @@ Route114_MagmaGrunt_Leaving_Text::
 
 Route114_EventScriptMagmaGrunt_Approching1::
 	lockall
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_WEST
 	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Approching1_Movement
 	waitmovement 0
 	trainerbattle_single TRAINER_MAGMA_GRUNT_ROUTE114, Route114_Text_MagmaGruntIntro, Route114_Text_MagmaGruntDefeat, Route114_EventScriptMagmaGrunt_Leaving1
@@ -145,8 +144,7 @@ Route114_EventScriptMagmaGrunt_Leaving1::
 	msgbox Route114_Text_MagmaGruntPostBattle, MSGBOX_DEFAULT
 	msgbox Route114_MagmaGrunt_Leaving_Text, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkRightFaster
-	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Leaving
 	waitmovement 0
 	removeobject LOCALID_MAGMA_GRUNT
@@ -156,8 +154,7 @@ Route114_EventScriptMagmaGrunt_Leaving1::
 	end
 Route114_EventScriptMagmaGrunt_Approching2::
 	lockall
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_WEST
 	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Approching2_Movement
 	waitmovement 0
 	trainerbattle_single TRAINER_MAGMA_GRUNT_ROUTE114, Route114_Text_MagmaGruntIntro, Route114_Text_MagmaGruntDefeat, Route114_EventScriptMagmaGrunt_LeavingScript2
@@ -165,8 +162,7 @@ Route114_EventScriptMagmaGrunt_LeavingScript2::
 	msgbox Route114_Text_MagmaGruntPostBattle, MSGBOX_DEFAULT
 	msgbox Route114_MagmaGrunt_Leaving_Text, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkRightFaster
-	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	applymovement LOCALID_MAGMA_GRUNT, Route114_EventScriptMagmaGrunt_Leaving2
 	waitmovement 0
 	removeobject LOCALID_MAGMA_GRUNT

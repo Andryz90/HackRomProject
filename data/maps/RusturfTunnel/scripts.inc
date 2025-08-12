@@ -1,8 +1,6 @@
 .equ LOCALID_WANDAS_BF, 1
 .set LOCALID_BRINEY, 5
-.set LOCALID_GRUNT, 6
 .set LOCALID_PEEKO, 7
-.set LOCALID_WALLY, 11
 .equ LOCALID_WANDA, 10
 
 RusturfTunnel_MapScripts::
@@ -21,8 +19,8 @@ RusturfTunnel_OnTransition:
 
 RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos::
 	setobjectxyperm LOCALID_PEEKO, 18, 4
-	setobjectxyperm LOCALID_GRUNT, 18, 5
-	setobjectxyperm LOCALID_WALLY 19, 5
+	setobjectxyperm LOCALID_GRUNT_RUSTURF, 18, 5
+	setobjectxyperm LOCALID_WALLY_RUSTURF_TUNNEL 19, 5
 	return
 
 RusturfTunnel_EventScript_Wanda::
@@ -279,9 +277,9 @@ RusturfTunnel_EventScript_AquaGruntBackUp::
 	msgbox RusturfTunnel_WallyIntro, MSGBOX_DEFAULT
 	msgbox RusturfTunnel_Text_ComeAndGetSome, MSGBOX_DEFAULT
 	closemessage
-	copyobjectxytoperm LOCALID_GRUNT
+	copyobjectxytoperm LOCALID_GRUNT_RUSTURF
 	copyobjectxytoperm LOCALID_PEEKO
-	copyobjectxytoperm LOCALID_WALLY
+	copyobjectxytoperm LOCALID_WALLY_RUSTURF_TUNNEL
 	setvar VAR_RUSTURF_TUNNEL_STATE, 3
 	releaseall
 	end
@@ -386,9 +384,9 @@ RusturfTunnel_EventScript_Grunt::
 	giveitem ITEM_DEVON_GOODS
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, RusturfTunnel_Movement_PushPlayerAsideForGrunt
-	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntEscape
+	applymovement LOCALID_GRUNT_RUSTURF, RusturfTunnel_Movement_GruntEscape
 	waitmovement 0
-	removeobject LOCALID_GRUNT
+	removeobject LOCALID_GRUNT_RUSTURF
 	delay 50
 	addobject LOCALID_BRINEY
 	applymovement LOCALID_BRINEY, RusturfTunnel_Movement_BrineyApproachPeeko1
@@ -411,17 +409,17 @@ RusturfTunnel_EventScript_Grunt::
 	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_PeekoExit
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	applymovement LOCALID_WALLY, RusturfTunnel_Movement_Wally
+	applymovement LOCALID_WALLY_RUSTURF_TUNNEL, RusturfTunnel_Movement_Wally
 	msgbox RusturfTunnel_WallyBattleEnd, MSGBOX_DEFAULT
-	applymovement LOCALID_WALLY, Common_Movement_FaceRight
+	applymovement LOCALID_WALLY_RUSTURF_TUNNEL, Common_Movement_FaceRight
 	msgbox RusturfTunnel_WallyBattleLeaving, MSGBOX_DEFAULT
-	applymovement LOCALID_WALLY, Common_Movement_FaceLeft
+	applymovement LOCALID_WALLY_RUSTURF_TUNNEL, Common_Movement_FaceLeft
 	waitmovement 0
 	msgbox RusturfTunnel_WallyBattleLeaving2, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_WALLY, RusturfTunnel_Movement_WallyLeaving
+	applymovement LOCALID_WALLY_RUSTURF_TUNNEL, RusturfTunnel_Movement_WallyLeaving
 	waitmovement 0
-	removeobject LOCALID_WALLY
+	removeobject LOCALID_WALLY_RUSTURF_TUNNEL
 	removeobject LOCALID_BRINEY
 	removeobject LOCALID_PEEKO
 	clearflag FLAG_DEVON_GOODS_STOLEN

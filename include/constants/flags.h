@@ -250,7 +250,7 @@
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
 #define FLAG_RECEIVED_GOOD_ROD               0xE3
 #define FLAG_REGI_DOORS_OPENED               0xE4
-#define FLAG_RECEIVED_TM_RETURN              0xE5
+#define FLAG_RECEIVED_TM_RETURN              0xE5 //Actually drill run
 #define FLAG_RECEIVED_TM_SLUDGE_BOMB         0xE6
 #define FLAG_RECEIVED_TM_ROAR                0xE7
 #define FLAG_RECEIVED_TM_GIGA_DRAIN          0xE8
@@ -1231,7 +1231,7 @@
 #define FLAG_HIDE_ANDRY_ROUTE111                                    0x499 
 #define FLAG_HIDE_EDO_ROUTE111                                      0x49A 
 #define FLAG_ABILITY_PATCH_HEART_SCALE_R112                         0x49B
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
+#define FLAG_RARE_CANDY_HEART_SCALE_MTCH                            0x49C
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag

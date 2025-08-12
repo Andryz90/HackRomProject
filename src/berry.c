@@ -2088,6 +2088,15 @@ static u8 CalcBerryYield(struct BerryTree *tree)
     u8 min = tree->berryYield;
     u8 max = berry->maxYield;
     u8 result;
+
+    //Custom
+   if(OW_BERRY_RANDOM_FETCH)
+   {
+        min += berry->minYield;
+        result =  min + Random() % (max - min + 1);
+        return result;
+   }  
+
     if (OW_BERRY_MULCH_USAGE && (tree->mulch == ITEM_TO_MULCH(ITEM_RICH_MULCH) || tree->mulch == ITEM_TO_MULCH(ITEM_AMAZE_MULCH)))
         min += 2;
     if (!(OW_BERRY_MOISTURE && OW_BERRY_ALWAYS_WATERABLE))

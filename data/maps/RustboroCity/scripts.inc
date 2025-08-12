@@ -7,7 +7,7 @@
 
 RustboroCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
-	@map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_OnFrame
 	.byte 0
 
 RustboroCity_OnTransition:
@@ -32,8 +32,17 @@ RustboroCity_EventScript_HideMapNamePopup::
 	return
 
 RustboroCity_OnFrame:
-	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_ScientistAddMatchCall
+	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_Adjust_FlagVars
 	.2byte 0
+	
+@Remove Pokenav tutorial
+RustboroCity_EventScript_Adjust_FlagVars::
+	@@Custom
+	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
+	setvar VAR_RUSTBORO_CITY_STATE, 7
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	end
 
 RustboroCity_EventScript_ScientistAddMatchCall::
 	@lockall
@@ -73,12 +82,6 @@ RustboroCity_EventScript_ScientistAddMatchCall::
 	@closemessage
 	@delay 20
 	@goto RustboroCity_EventScript_MatchCallTutorial
-
-	@@Custom
-	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
-	setflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	setvar VAR_RUSTBORO_CITY_STATE, 7
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
 
 RustboroCity_EventScript_PleaseSelectPokenav::
 	msgbox RustboroCity_Text_PleaseSelectPokenav, MSGBOX_DEFAULT

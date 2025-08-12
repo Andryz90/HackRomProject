@@ -6,6 +6,7 @@
 #include "event_scripts.h"
 #include "event_object_lock.h"
 #include "event_object_movement.h"
+#include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
 #include "gpu_regs.h"
@@ -143,7 +144,13 @@ static EWRAM_DATA struct TxRegItemsMenu_ItemPageStruct TxRegItemsMenuItemPageInf
 void TxRegItemsMenu_OpenMenu(void)
 {
     u8 taskId = CreateTask(TaskDummy, 0);
-    FreezeObjects_WaitForPlayer();
+    if (!IsOverworldLinkActive())
+    {
+        FreezeObjectEvents();
+        PlayerFreeze();
+        StopPlayerAvatar();
+    }
+    LockPlayerFieldControls();
     gTasks[taskId].func = TxRegItemsMenu_InitMenuFunctions;
 }
 
