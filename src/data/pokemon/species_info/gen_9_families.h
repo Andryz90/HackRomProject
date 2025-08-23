@@ -1492,7 +1492,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sFidoughLevelUpLearnset,
         .teachableLearnset = sFidoughTeachableLearnset,
         .eggMoveLearnset = sFidoughEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_DACHSBUN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_DACHSBUN}),
     },
 
     [SPECIES_DACHSBUN] =
@@ -1686,7 +1686,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sDollivLevelUpLearnset,
         .teachableLearnset = sDollivTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_ARBOLIVA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ARBOLIVA}),
     },
 
     [SPECIES_ARBOLIVA] =

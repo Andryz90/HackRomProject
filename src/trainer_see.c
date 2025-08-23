@@ -386,9 +386,11 @@ static void SortAllApproachingTrainersByDistanceAndLocalId(void)
     }
 }
 
+#define DOUBLE_BATTLE_TYPE_NUM      (2u)
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
+    u8 numTrainers = 0u;
 
     if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
         return FALSE;
@@ -399,7 +401,7 @@ bool8 CheckForTrainersWantingBattle(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
-        u8 numTrainers;
+
 
         if (!gObjectEvents[i].active)
             continue;
@@ -419,8 +421,12 @@ bool8 CheckForTrainersWantingBattle(void)
             return TRUE;
         }
 
-        if (numTrainers == 2)
+        if (numTrainers == DOUBLE_BATTLE_TYPE_NUM)
+        {
+            /*Custom: this sets the double battles*/
+            allNoOfApproachingTrainers = DOUBLE_BATTLE_TYPE_NUM;
             break;
+        }
 
         if (numTrainers == 0)
             continue;
@@ -438,22 +444,24 @@ bool8 CheckForTrainersWantingBattle(void)
             break;
     }
 
-    //Custom
-    SortAllApproachingTrainersByDistanceAndLocalId();
-    gNoOfApproachingTrainers = (allNoOfApproachingTrainers > 2) ? 2 : allNoOfApproachingTrainers;
-    for (i = 0; i < gNoOfApproachingTrainers; i++)
-        gApproachingTrainers[i] = allApproachingTrainers[i];
-
-    // After the copy, find the back to back trainer. If it's present force the battle to be single
-    for (i = 0; i < gNoOfApproachingTrainers; i++)
+    //Custom: Sort every trainer that want to battle, skip if double
+    if (allNoOfApproachingTrainers != DOUBLE_BATTLE_TYPE_NUM)
     {
-        if (gObjectEvents[gApproachingTrainers[i].objectEventId].trainerType == TRAINER_TYPE_BACK_TO_BACK)
+        SortAllApproachingTrainersByDistanceAndLocalId();
+        gNoOfApproachingTrainers = (allNoOfApproachingTrainers > 2) ? 2 : allNoOfApproachingTrainers;
+        for (i = 0; i < gNoOfApproachingTrainers; i++)
+            gApproachingTrainers[i] = allApproachingTrainers[i];
+        
+        // After the copy, find the back to back trainer. If it's present force the battle to be single
+        for (i = 0; i < gNoOfApproachingTrainers; i++)
         {
-            gNoOfApproachingTrainers = 1;
-            break;
+            if (gObjectEvents[gApproachingTrainers[i].objectEventId].trainerType == TRAINER_TYPE_BACK_TO_BACK)
+            {
+                gNoOfApproachingTrainers = 1;
+                break;
+            }
         }
     }
-
 
     if (gNoOfApproachingTrainers == 1)
     {

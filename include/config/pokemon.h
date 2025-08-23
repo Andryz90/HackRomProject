@@ -73,7 +73,8 @@
 
 // Custom: EV Enabled or not
 #define P_FLAG_EV_DISABLED               TRUE
-#define P_REGIONAL_STARTER_MULTICHOOSE   FALSE //If true, allow to choose the starter from a region in the wingull script
+#define P_REGIONAL_STARTER_MULTICHOOSE   FALSE  //If true, allow to choose the starter from a region in the wingull script
+#define P_FAST_EGG_HATCH                 TRUE   //If true the eggs skip the egg cycles control and hatch immediately
 
 // Go here if you want to disable specific families of Pokémon.
 #include "config/species_enabled.h"

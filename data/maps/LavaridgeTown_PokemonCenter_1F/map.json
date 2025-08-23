@@ -70,14 +70,14 @@
   ],
   "warp_events": [
     {
-      "x": 7,
+      "x": 10,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN",
       "dest_warp_id": "3"
     },
     {
-      "x": 6,
+      "x": 9,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN",

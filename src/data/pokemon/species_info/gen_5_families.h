@@ -9711,7 +9711,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .itemCommon = ITEM_DUSK_STONE,
+        .itemRare = ITEM_DUSK_STONE,
     #if P_UPDATED_ABILITIES >= GEN_6
         .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_INFILTRATOR },
     #else

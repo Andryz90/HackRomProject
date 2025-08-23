@@ -3,9 +3,6 @@
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
 .set LOCALID_BREAKABLE_ROCK, 16
-.set LOCALID_WALLY, 	42
-@ .set LOCALID_EDO, 		45
-@ .set LOCALID_ANDRY, 	46
 
 @ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
 
@@ -87,7 +84,7 @@ Route111_EventScript_EndCheckSetSandstorm::
 	return
 
 Route111_EventScript_SetWallyRoute111::
-	setobjectxyperm LOCALID_WALLY, 19, 101
+	setobjectxyperm LOCALID_WALLY_R111, 19, 101
 	setvar VAR_WALLY_ROUTE111_TRIGGER, 1
 	goto_if_set FLAG_HIDE_WALLY_ROUTE111, Route111_EventScript_OverwriteWallyVar
 	return
@@ -590,47 +587,46 @@ Route111_EventScript_TrainerHillSign::
 
 Route111_EventScript_Wally_BattleTrigger1::
 	lock
-	applymovement LOCALID_WALLY, Common_Movement_FaceDown
-	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	applymovement LOCALID_WALLY_R111, Common_Movement_FaceDown
+	applymovement LOCALID_WALLY_R111, Common_Movement_ExclamationMark
 	waitmovement 0
 	playse SE_PIN
 	msgbox Route111_Text_WallyCallPlayer, MSGBOX_DEFAULT
-	applymovement OBJ_EVENT_ID_PLAYER, Player_Trigger1
-	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
+	waitmovement LOCALID_PLAYER
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
 	release
 	end
-Player_Trigger1::
-	walk_up
-	step_end
 Player_Trigger2::
 	walk_up
 	walk_left
 	step_end
 Route111_EventScript_Wally_BattleTrigger2::
 	lock
-	applymovement LOCALID_WALLY, Common_Movement_FaceDown
-	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	applymovement LOCALID_WALLY_R111, Common_Movement_FaceDown
+	applymovement LOCALID_WALLY_R111, Common_Movement_ExclamationMark
 	waitmovement 0
 	playse SE_PIN
 	msgbox Route111_Text_WallyCallPlayer, MSGBOX_DEFAULT
-	applymovement OBJ_EVENT_ID_PLAYER, Player_Trigger2
+	applymovement LOCALID_PLAYER, Player_Trigger2
 	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route111_Text_WallyIntro, Route111_Text_WallyDefeat, Route111_EventScript_Wally_PostBattle, NO_MUSIC
 	release
 	end
 Route111_EventScript_Wally_PostBattle::
 	msgbox Route111_Text_WallyPostBattle, MSGBOX_AUTOCLOSE
-	applymovement LOCALID_WALLY, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_WALLY_R111, Common_Movement_FaceOriginalDirection
 	waitmovement 0
-	applymovement LOCALID_WALLY, Common_Movement_Delay32
+	applymovement LOCALID_WALLY_R111, Common_Movement_Delay32
 	waitmovement 0
-	applymovement LOCALID_WALLY, Common_Movement_Delay32
+	applymovement LOCALID_WALLY_R111, Common_Movement_Delay32
 	waitmovement 0
-	applymovement LOCALID_WALLY, Common_Movement_QuestionMark
+	applymovement LOCALID_WALLY_R111, Common_Movement_QuestionMark
 	msgbox Wally_Uhm, MSGBOX_DEFAULT
 	waitmovement 0
-	applymovement LOCALID_WALLY, Common_Movement_FacePlayer
+	applymovement LOCALID_WALLY_R111, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox Route111_Text_Wally_SomethingForMe, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
@@ -638,19 +634,19 @@ Route111_EventScript_Wally_PostBattle::
 	waitfanfare
 	msgbox Route111_Text_Wally_AfterGivenHM03, MSGBOX_DEFAULT
 	msgbox Route111_Text_Wally_Finale, MSGBOX_DEFAULT	
-	applymovement LOCALID_WALLY, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_WALLY_R111, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	@Here he smashes the rock
 	applymovement LOCALID_BREAKABLE_ROCK, Movement_SmashRock
 	waitmovement 0
 	removeobject LOCALID_BREAKABLE_ROCK
 	@@@
-	applymovement LOCALID_WALLY, Wally_Ending_Scene
+	applymovement LOCALID_WALLY_R111, Wally_Ending_Scene
 	waitmovement 0
 	setflag FLAG_HIDE_WALLY_ROUTE111
 	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
 	setvar VAR_ROUTE111_STATE, 1 @Handle the Andry/Edo Triggers
-	removeobject LOCALID_WALLY
+	removeobject LOCALID_WALLY_R111
 	release
 	end
 
@@ -1042,7 +1038,7 @@ Route111_Text_WallyDefeat::
 	.string "Wow! You're really strong!  $"
 
 Route111_Text_WallyPostBattle::
-	.string "Now I understand better what\nmy team needs to become stronger.\p"
+	.string "Now I understand what\nmy team needs to become stronger.\p"
 	.string "I'm going to train even harder.\p"
 	.string "I feel like I've learned a lot from\n"
 	.string "just one battle with you.  $"

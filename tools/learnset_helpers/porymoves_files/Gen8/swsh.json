@@ -10140,7 +10140,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_AQUA_RING"
+        "Move": "MOVE_HEADBUTT"
       },
       {
         "Level": 30,
@@ -10213,6 +10213,10 @@
   "SEAKING": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_LIQUIDATION"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_PECK"
       },
@@ -10238,7 +10242,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_AQUA_RING"
+        "Move": "MOVE_HEADBUTT"
       },
       {
         "Level": 30,
@@ -27351,7 +27355,7 @@
       {
         "Level": 52,
         "Move": "MOVE_RAGING_FURY"
-      }
+      },
       {
         "Level": 1,
         "Move": "MOVE_FLARE_BLITZ"
@@ -72525,6 +72529,10 @@
         "Move": "MOVE_BRICK_BREAK"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_COMBO_PUNCH"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_BULK_UP"
       },
@@ -72634,6 +72642,10 @@
       {
         "Level": 20,
         "Move": "MOVE_BRICK_BREAK"
+      },
+      {
+        "Level": 32,
+        "Move": "MOVE_COMBO_PUNCH"
       },
       {
         "Level": 25,

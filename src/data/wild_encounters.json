@@ -990,7 +990,7 @@
               {
                 "min_level": 20,
                 "max_level": 30,
-                "species": "SPECIES_FINNEON"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 20,
@@ -12313,7 +12313,7 @@
               {
                 "min_level": 20,
                 "max_level": 30,
-                "species": "SPECIES_DUGTRIO"
+                "species": "SPECIES_DRILBUR"
               },
               {
                 "min_level": 20,

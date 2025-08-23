@@ -72418,6 +72418,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_COMBO_PUNCH",
       "MOVE_MEGA_PUNCH",
       "MOVE_ICE_PUNCH",
       "MOVE_REST",
@@ -72525,6 +72526,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_COMBO_PUNCH",
       "MOVE_MEGA_PUNCH",
       "MOVE_ICE_PUNCH",
       "MOVE_HYPER_BEAM",

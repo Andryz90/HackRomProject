@@ -11,15 +11,61 @@ MtChimney_OnResume:
 	setstepcallback STEP_CB_ASH
 	end
 
+MtChimney_Archie_Leaving_East::
+	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+MtChimney_Archie_Leaving_North::
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+MtChimney_EventScript_Archie_Leaving_East::
+	applymovement LOCALID_MT_CHIMNEY_ARCHIE, MtChimney_Archie_Leaving_East
+	waitmovement 0
+	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
+	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
+	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
+	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
+	removeobject LOCALID_MT_CHIMNEY_ARCHIE
+	release
+	end
+MtChimney_EventScript_Archie_Leaving_North::
+	applymovement LOCALID_MT_CHIMNEY_ARCHIE, MtChimney_Archie_Leaving_North
+	waitmovement 0
+	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
+	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
+	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
+	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
+	removeobject LOCALID_MT_CHIMNEY_ARCHIE
+	release
+	end
 MtChimney_EventScript_Archie::
 	lock
 	faceplayer
-	call_if_unset FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieGoStopTeamMagma
-	call_if_set FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieBusyFighting
+	@call_if_unset FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieGoStopTeamMagma
+	@call_if_set FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieBusyFighting
+	msgbox MtChimney_Text_ArchieGoStopTeamMagma, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_MT_CHIMNEY_ARCHIE, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	setflag FLAG_EVIL_LEADER_PLEASE_STOP
+	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_Archie_Leaving_East
+	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_Archie_Leaving_North
 	release
 	end
 
@@ -31,47 +77,47 @@ MtChimney_EventScript_ArchieBusyFighting::
 	msgbox MtChimney_Text_ArchieIHaveMyHandsFull, MSGBOX_DEFAULT
 	return
 
-MtChimney_EventScript_Maxie::
-	lockall
-	playbgm MUS_ENCOUNTER_MAGMA, FALSE
-	msgbox MtChimney_Text_MeteoriteWillActivateVolcano, MSGBOX_DEFAULT
-	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_FacePlayer
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_Delay48
-	waitmovement 0
-	msgbox MtChimney_Text_MaxieIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_MAXIE_MT_CHIMNEY, MtChimney_Text_MaxieDefeat
-	msgbox MtChimney_Text_MaxieYouHaventSeenLastOfMagma, MSGBOX_DEFAULT
-	closemessage
-	delay 30
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_MT_CHIMNEY_MAXIE
-	removeobject LOCALID_MT_CHIMNEY_MAGMA_GRUNT_1
-	removeobject LOCALID_MT_CHIMNEY_TABITHA
-	removeobject LOCALID_MT_CHIMNEY_MAGMA_GRUNT_2
-	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA
-	fadescreenswapbuffers FADE_FROM_BLACK
-	setobjectxyperm LOCALID_MT_CHIMNEY_ARCHIE, 10, 12
-	addobject LOCALID_MT_CHIMNEY_ARCHIE
-	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_ArchieApproachPlayerEast
-	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieApproachPlayerNorth
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	msgbox MtChimney_Text_ArchieThankYou, MSGBOX_DEFAULT
-	closemessage
-	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_ArchieExitEast
-	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieExitNorth
-	removeobject LOCALID_MT_CHIMNEY_ARCHIE
-	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
-	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
-	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
-	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
-	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
-	releaseall
-	end
+@MtChimney_EventScript_Maxie::
+@	lockall
+@	playbgm MUS_ENCOUNTER_MAGMA, FALSE
+@	msgbox MtChimney_Text_MeteoriteWillActivateVolcano, MSGBOX_DEFAULT
+@	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_FacePlayer
+@	waitmovement 0
+@	playse SE_PIN
+@	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_ExclamationMark
+@	waitmovement 0
+@	applymovement LOCALID_MT_CHIMNEY_MAXIE, Common_Movement_Delay48
+@	waitmovement 0
+@	msgbox MtChimney_Text_MaxieIntro, MSGBOX_DEFAULT
+@	trainerbattle_no_intro TRAINER_MAXIE_MT_CHIMNEY, MtChimney_Text_MaxieDefeat
+@	msgbox MtChimney_Text_MaxieYouHaventSeenLastOfMagma, MSGBOX_DEFAULT
+@	closemessage
+@	delay 30
+@	fadescreenswapbuffers FADE_TO_BLACK
+@	removeobject LOCALID_MT_CHIMNEY_MAXIE
+@	removeobject LOCALID_MT_CHIMNEY_MAGMA_GRUNT_1
+@	removeobject LOCALID_MT_CHIMNEY_TABITHA
+@	removeobject LOCALID_MT_CHIMNEY_MAGMA_GRUNT_2
+@	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA
+@	fadescreenswapbuffers FADE_FROM_BLACK
+@	setobjectxyperm LOCALID_MT_CHIMNEY_ARCHIE, 10, 12
+@	addobject LOCALID_MT_CHIMNEY_ARCHIE
+@	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_ArchieApproachPlayerEast
+@	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieApproachPlayerNorth
+@	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+@	waitmovement 0
+@	msgbox MtChimney_Text_ArchieThankYou, MSGBOX_DEFAULT
+@	closemessage
+@	call_if_eq VAR_FACING, DIR_EAST, MtChimney_EventScript_ArchieExitEast
+@	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieExitNorth
+@	removeobject LOCALID_MT_CHIMNEY_ARCHIE
+@	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
+@	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
+@	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
+@	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
+@	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
+@	releaseall
+@	end
 
 MtChimney_EventScript_ArchieApproachPlayerEast::
 	applymovement LOCALID_MT_CHIMNEY_ARCHIE, MtChimney_Movement_ArchieApproachPlayerEast
@@ -667,13 +713,13 @@ MtChimney_Text_Bufoh:
 
 MtChimney_Text_ArchieGoStopTeamMagma:
 	.string "ARCHIE: Grr, {PLAYER}!\n"
-	.string "I should've guessed you'd show up!\p"
+	.string "I should've known you'd show up!\p"
 	.string "See for yourself what the fanatics\n"
 	.string "of TEAM MAGMA are up to!\p"
-	.string "They're trying to inject the stolen\n"
-	.string "METEORITE's power into the volcano!\p"
-	.string "Doing something like that will cause\n"
-	.string "the volcano's eruption! $"
+	.string "It's too late, they're already gone.\p"
+	.string "But they tried to make the volcano\n"
+	.string "erupt... \p"
+	.string "This is bad, we need to go! $"
 
 MtChimney_Text_ArchieIHaveMyHandsFull:
 	.string "ARCHIE: Grrr…\p"
@@ -695,8 +741,8 @@ MtChimney_Text_ArchieThankYou:
 	.string "{PLAYER}, we shall meet again! $"
 
 MtChimney_Text_MagmaOutnumbersUs:
-	.string "Darn… TEAM MAGMA outnumbers us!\n"
-	.string "We can't keep up with them! $"
+	.string "Darn… TEAM MAGMA are freaks! \n"
+	.string "We need to finish them! $"
 
 MtChimney_Text_LessHabitatForWaterPokemon:
 	.string "If they expand the land, there'll be\n"

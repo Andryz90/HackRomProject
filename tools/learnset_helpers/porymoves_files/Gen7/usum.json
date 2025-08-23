@@ -21474,6 +21474,30 @@
   "LEDIAN": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_THUNDER_PUNCH"
+      },
+      {
+        "Level": 0,
+        "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 0,
+        "Move": "MOVE_SHADOW_PUNCH"
+      },
+      {
+        "Level": 31,
+        "Move": "MOVE_LEECH_LIFE"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_COMBO_PUNCH"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_CLOSE_COMBAT"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_TACKLE"
       },

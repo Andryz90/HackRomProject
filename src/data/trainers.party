@@ -5270,7 +5270,7 @@ Clobbopus @ Eviolite
 Ability: Technician  
 Level: 24  
 - Power-Up Punch  
-- Brick Break  
+- Combo Punch
 - Aqua Jet  
 - Bulk Up  
 
@@ -5289,13 +5289,13 @@ Level: 25
 - Counter  
 - Reversal  
 
-Crabrawler @ Punching Glove  
+Ledian
 Ability: Iron Fist  
 Level: 23  
-- Power-Up Punch  
 - Ice Punch  
-- Thunder Punch  
-- Drain Punch  
+- U-turn  
+- Thunder Punch
+- Combo Punch
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -5306,6 +5306,69 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices/ Omniscient
 
+
+/*      TEAM 1    */
+
+Pincurchin @ Terrain Extender  
+Ability: Electric Surge  
+Level: 32  
+Brave Nature  
+- Zing Zap  
+- Soak  
+- Liquidation  
+- Toxic Spikes  
+
+Manectric @ Manectite  
+Ability: Intimidate  
+Level: 34  
+Mild Nature  
+IVs: 0 Atk / 30 Def  
+- Thunderbolt  
+- Volt Switch  
+- Flamethrower  
+- Hidden Power  
+
+Rotom-Mow @ Miracle Seed  
+Ability: Levitate  
+Level: 33    
+Modest Nature  
+IVs: 0 Atk  
+- Leaf Storm  
+- Volt Switch  
+- Dark Pulse  
+- Will-O-Wisp  
+
+Boltund @ Electric Seed  
+Ability: Electric Pelt  
+Level: 33  
+Adamant Nature  
+- Supercell Slam  
+- Play Rough  
+- Facade  
+- Crunch  
+
+Raichu-Alola @ Focus Sash  
+Ability: Surge Surfer  
+Level: 33  
+Modest Nature  
+IVs: 0 Atk  
+- Psyshock
+- Surf  
+- Nasty Plot  
+- Volt Switch  
+
+Electivire @ Expert Belt  
+Ability: Iron Fist  
+Level: 33  
+Adamant Nature  
+- Plasma Fists  
+- Drain Punch  
+- Mach Punch  
+- Ice Punch  
+
+
+
+/*  TEAM 2 (UNUSED FOR NOW)
 Galvantula @ Focus Sash  
 Ability: Compound Eyes  
 Level: 32  
@@ -5357,62 +5420,7 @@ Level: 32
 IVs: 0 Atk  
 - Chloroblast  
 - Volt Switch  
-
-
-/*      TEAM 2    */
-
-Pincurchin @ Terrain Extender  
-Ability: Electric Surge  
-Level: 32  
-- Zing Zap  
-- Soak  
-- Liquidation  
-- Toxic Spikes  
-
-Manectric @ Manectite  
-Ability: Intimidate  
-Level: 34  
-Mild Nature  
-IVs: 0 Atk / 30 Def  
-- Rising Voltage  
-- Volt Switch  
-- Flamethrower  
-- Hidden Power 
-
-Rotom-Mow @ Miracle Seed  
-Ability: Levitate  
-Level: 33   
-IVs: 0 Atk  
-- Leaf Storm  
-- Volt Switch  
-- Dark Pulse  
-- Will-O-Wisp  
-
-Boltund @ Life Orb  
-Ability: Strong Jaw  
-Level: 33  
-Adamant Nature  
-- Supercell Slam  
-- Play Rough  
-- Facade  
-- Crunch  
-
-Raichu-Alola @ Focus Sash  
-Ability: Surge Surfer  
-Level: 33  
-IVs: 0 Atk  
-- Psyshock  
-- Surf  
-- Nasty Plot  
-- Rising Voltage  
-
-Electivire @ Expert Belt  
-Ability: Iron Fist  
-Level: 33  
-- Plasma Fists  
-- Drain Punch  
-- Mach Punch  
-- Ice Punch  
+ */
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY

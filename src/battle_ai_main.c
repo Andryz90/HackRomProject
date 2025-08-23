@@ -4852,10 +4852,14 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
     case EFFECT_MISTY_TERRAIN:
         if (gStatuses3[battlerAtk] & STATUS3_YAWN && IsBattlerGrounded(battlerAtk))
             ADJUST_SCORE(BEST_EFFECT);
+        if (aiData->abilities[battlerAtk] == ABILITY_ELECTRIC_PELT || aiData->abilities[battlerAtk] == ABILITY_MISTY_PELT) //Does it make sense?
+            ADJUST_SCORE(GOOD_EFFECT);
     case EFFECT_GRASSY_TERRAIN:
     case EFFECT_PSYCHIC_TERRAIN:
         ADJUST_SCORE(GOOD_EFFECT);
         if (aiData->holdEffects[battlerAtk] == HOLD_EFFECT_TERRAIN_EXTENDER)
+            ADJUST_SCORE(GOOD_EFFECT);
+        if (aiData->abilities[battlerAtk] == ABILITY_GRASS_PELT || aiData->abilities[battlerAtk] == ABILITY_PSYCHIC_PELT) //Does it make sense?
             ADJUST_SCORE(GOOD_EFFECT);
         break;
     case EFFECT_PLEDGE:

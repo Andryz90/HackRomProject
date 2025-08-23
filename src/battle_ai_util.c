@@ -632,6 +632,13 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
             minimum *= 3;
             maximum *= 3;
         }
+        else if (move == MOVE_COMBO_PUNCH)
+        {
+            u8 arms = gSpeciesInfo[gBattleMons[damageCalcData->battlerAtk].species].arms;
+            median *= arms;
+            minimum *= arms;
+            maximum *= arms;
+        }
         else if (abilityAtk == ABILITY_SKILL_LINK)
         {
             median *= 5;
@@ -695,6 +702,12 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
         median  += median  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
         minimum += minimum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
         maximum += maximum / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
+    }
+    else if (abilityAtk == ABILITY_FORMATION && effect == EFFECT_MULTI_HIT && !strikeCount)
+    {
+        median *= strikeCount;
+        minimum *= strikeCount;
+        maximum *= strikeCount;
     }
 
     if (median == 0)

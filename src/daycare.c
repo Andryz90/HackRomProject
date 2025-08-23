@@ -1171,8 +1171,15 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
             TriggerPendingDaycareEgg();
     }
 
+
     // Try to hatch Egg
-    daycare->stepCounter++;
+   
+    #if P_FAST_EGG_HATCH == TRUE
+        daycare->stepCounter = 257;
+    #else
+        aycare->stepCounter++;
+    #endif
+
     if (((P_EGG_CYCLE_LENGTH <= GEN_3 || P_EGG_CYCLE_LENGTH == GEN_7) && daycare->stepCounter >= 256)
      || (P_EGG_CYCLE_LENGTH == GEN_4 && daycare->stepCounter >= 255)
      || ((P_EGG_CYCLE_LENGTH == GEN_5 || P_EGG_CYCLE_LENGTH == GEN_6) && daycare->stepCounter >= 257)
