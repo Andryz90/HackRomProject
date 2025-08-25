@@ -4758,6 +4758,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, enum ItemHoldEffect h
             speed *= 2;
         else if (ability == ABILITY_SLUSH_RUSH  && (gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
             speed *= 2;
+        else if (ability == ABILITY_FLOWER_GIFT && gBattleWeather & B_WEATHER_SUN && gBattleMons[battler].species == SPECIES_CHERRIM_SUNSHINE)
+            speed = (speed * 150) / 100; //x1.5
     }
 
     // other abilities

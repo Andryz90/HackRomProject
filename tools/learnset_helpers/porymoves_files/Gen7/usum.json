@@ -45992,6 +45992,18 @@
         "Move": "MOVE_WEATHER_BALL"
       },
       {
+        "Level": 30,
+        "Move": "MOVE_THUNDER_WAVE"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_WILL_O_WISP"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_HYDRO_PUMP"
       },
@@ -46001,11 +46013,19 @@
       },
       {
         "Level": 35,
+        "Move": "MOVE_SOLAR_BEAM"
+      }
+      {
+        "Level": 35,
         "Move": "MOVE_BLIZZARD"
       },
       {
         "Level": 45,
         "Move": "MOVE_HURRICANE"
+      },
+      {
+        "Level": 45,
+        "Move": "MOVE_THUNDER"
       }
     ],
     "PreEvoMoves": [],

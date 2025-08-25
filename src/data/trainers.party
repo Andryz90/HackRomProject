@@ -5482,40 +5482,62 @@ Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+Double Battle: Yes
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Numel
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Take Down
-- Magnitude
-- Sunny Day
+Charizard @ Charizardite Y  
+Ability: Solar Power  
+Level: 45    
+Timid Nature  
+IVs: 0 Atk  
+- Protect  
+- Solar Beam  
+- Heat Wave  
+- Air Slash  
 
-Slugma
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Smog
-- Light Screen
-- Sunny Day
+Castform @ Charcoal  
+Ability: Forecast  
+Level: 43    
+IVs: 0 Atk  
+- Solar Beam  
+- Protect  
+- Will-O-Wisp  
+- Weather Ball  
 
-Camerupt
-Level: 26
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Tackle
-- Sunny Day
-- Attract
+Armarouge @ White Herb  
+Ability: Mega Launcher  
+Level: 43  
+IVs: 0 Atk  
+- Armor Cannon  
+- Aura Sphere  
+- Dark Pulse  
+- Energy Ball  
 
-Torkoal @ White Herb
-Level: 29
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Sunny Day
-- Body Slam
-- Attract
+Ceruledge @ Spell Tag  
+Ability: Sharpness  
+Level: 43  
+- Bitter Blade  
+- Poltergeist  
+- Swords Dance  
+- Will-O-Wisp  
+
+Scovillain @ Choice Specs  
+Ability: Chlorophyll  
+Level: 43  
+IVs: 0 Atk  
+- Giga Drain  
+- Overheat  
+
+Cherrim @ Life Orb  
+Ability: Flower Gift  
+Level: 44  
+Adamant Nature  
+- Solar Blade  
+- Temper Flare  
+- Morning Sun  
+- Protect  
+
+
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN

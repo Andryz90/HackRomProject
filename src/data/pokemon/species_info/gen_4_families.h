@@ -3589,7 +3589,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .levelUpLearnset = sGlameowLevelUpLearnset,
         .teachableLearnset = sGlameowTeachableLearnset,
         .eggMoveLearnset = sGlameowEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_PURUGLY}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_PURUGLY}),
     },
 
     [SPECIES_PURUGLY] =

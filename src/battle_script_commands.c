@@ -1741,6 +1741,17 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     if (HasWeatherEffect() && gBattleWeather & B_WEATHER_FOG)
         calc = (calc * 60) / 100; // modified by 3/5
 
+    //Custom: Electric type pokemon have 100% accuracy using thunder wave, fire one with Will -o Wisp and Ice with Hoarfrost
+    if (moveEffect == EFFECT_NON_VOLATILE_STATUS)
+    {
+        if (move == MOVE_THUNDER_WAVE && (gSpeciesInfo[battlerAtk].types[0] == TYPE_ELECTRIC || gSpeciesInfo[battlerAtk].types[1] == TYPE_ELECTRIC)) //TODO handle tera
+            calc = 100;
+        else if (move == MOVE_WILL_O_WISP && (gSpeciesInfo[battlerAtk].types[0] == TYPE_FIRE || gSpeciesInfo[battlerAtk].types[1] == TYPE_FIRE)) //TODO handle tera
+            calc = 100;
+        else if (move == MOVE_HOARFROST && (gSpeciesInfo[battlerAtk].types[0] == TYPE_ICE || gSpeciesInfo[battlerAtk].types[1] == TYPE_ICE)) //TODO handle tera
+            calc = 100;
+    }
+    
     return calc;
 }
 
