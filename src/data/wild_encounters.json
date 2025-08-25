@@ -2753,64 +2753,64 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 21,
-                "max_level": 21,
-                "species": "SPECIES_NUMEL"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_MAGBY"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
-                "species": "SPECIES_NUMEL"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_HOUNDOUR"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
-                "species": "SPECIES_MACHOP"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_CAPSAKID"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_NUMEL"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_CAPSAKID"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_SPOINK"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_SALANDIT"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_MACHOP"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_CARKOL"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
-                "species": "SPECIES_SPOINK"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_GROWLITHE"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_MACHOP"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_VULPIX"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_NUMEL"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_GROWLITHE_HISUIAN"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_SPOINK"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_GROWLITHE_HISUIAN"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_NUMEL"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_CYNDAQUIL"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_SPOINK"
+                "min_level": 30,
+                "max_level": 40,
+                "species": "SPECIES_CYNDAQUIL"
               }
             ]
           }

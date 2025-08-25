@@ -3498,6 +3498,7 @@ Machop
 Level: 19
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+
 === TRAINER_ATSUSHI ===
 Name: ATSUSHI
 Class: Black Belt
@@ -4118,9 +4119,34 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Shroomish
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ceruledge @ Expert Belt  
+Ability: Sharpness  
+Level: 40    
+Jolly Nature  
+- Bitter Blade  
+- Poltergeist  
+- Shadow Sneak  
+- Brick Break  
+
+Leafeon @ Miracle Seed  
+Ability: Chlorophyll  
+Level: 40  
+Adamant Nature  
+- Synthesis  
+- Leaf Blade  
+- Body Slam  
+- Knock Off  
+
+Sunflora @ Charcoal  
+Ability: Solar Power  
+Level: 40   
+Modest Nature  
+IVs: 0 Atk  
+- Solar Beam  
+- Weather Ball  
+- Earth Power  
+
+
 
 === TRAINER_TRAVIS ===
 Name: TRAVIS
@@ -9643,20 +9669,58 @@ Class: Picnicker
 Pic: Picnicker
 Gender: Female
 Music: Girl
-Double Battle: No
+Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Shroomish
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Oddish
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Plusle @ Magnet
+Ability: Plus
+Level: 40
+- Thunderbolt
+- Nuzzle
+- Helping Hand
+- Volt Switch
 
-Swablu
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Minun @ Magnet
+Ability: Minus
+Level: 40
+- Thunderbolt
+- Nuzzle
+- Helping Hand
+- Volt Switch
+
+Breloom @ Focus Sash
+Ability: Technician
+Level: 40
+- Spore
+- Mach Punch
+- Bullet Seed
+- Rock Tomb
+
+Delcatty @ Silk Scarf
+Ability: Cute Charm
+Level: 40
+- Fake Out
+- Double-Edge
+- Play Rough
+- Thunder Wave
+
+Ribombee @ Leftovers
+Ability: Shield Dust
+Level: 40
+- Moonblast
+- Bug Buzz
+- Stun Spore
+- Quiver Dance
+
+Slurpuff @ Sitrus Berry
+Ability: Sweet Veil
+Level: 40
+- Play Rough
+- Belly Drum
+- Body Slam
+- Encore
+
 
 === TRAINER_CEDRIC ===
 Name: CEDRIC
@@ -11747,9 +11811,34 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magnemite
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Armarouge @ White Herb  
+Ability: Mega Launcher  
+Level: 40   
+Modest Nature  
+IVs: 0 Atk  
+- Armor Cannon  
+- Psyshock  
+- Will-O-Wisp  
+- Aura Sphere  
+
+Charizard @ Charti Berry  
+Ability: Solar Power  
+Level: 40   
+IVs: 0 Atk  
+- Flamethrower  
+- Solar Beam  
+- Ancient Power  
+- Air Slash  
+
+Solrock @ Air Balloon  
+Ability: Drought  
+Level: 40  
+- Zen Headbutt  
+- Rock Slide  
+- Flare Blitz  
+- Protect  
+
+
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_5 ===
 Name: GRUNT

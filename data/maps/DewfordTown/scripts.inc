@@ -85,6 +85,12 @@ DewfordTown_EventScript_HallSign::
 DewfordTown_EventScript_OldRodFisherman::
 	lock
 	faceplayer
+	goto_if_ge VAR_BIRCH_LAB_STATE, 4, DewfordTown_EventScript_OldRodFishermanAble
+	msgbox DewfordTown_Text_UnableToFish, MSGBOX_DEFAULT
+	release 
+	end
+
+DewfordTown_EventScript_OldRodFishermanAble::
 	goto_if_set FLAG_RECEIVED_OLD_ROD, DewfordTown_EventScript_HowsFishing
 	msgbox DewfordTown_Text_GettingItchToFish, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_GiveOldRod
@@ -740,6 +746,9 @@ DewfordTown_Text_JustTellMeWhenYouNeedToSetSail:
 DewfordTown_Text_GettingItchToFish:
 	.string "This is a renowned fishing spot.\n"
 	.string "Are you getting the itch to fish? $"
+
+DewfordTown_Text_UnableToFish:
+	.string "I'm sorry but\nyou can't catch Pokemon yet. $"
 
 DewfordTown_Text_GiveYouOneOfMyRods:
 	.string "I hear you, and I like what\n"

@@ -239,10 +239,15 @@ LavaridgeTown_EventScript_EggWoman::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
 	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_LAVARIDGE_EGG
+	setvar VAR_RESULT, SPECIES_CHARCADET
+	setvar VAR_0x8000, 5 						@store level 
+	setvar VAR_0x8001, ITEM_CHARCOAL 			@store the item
+	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 					@Store if I want an egg or not 
+	special Script_GiveMonSpecial
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
-	giveegg SPECIES_WYNAUT
 	release
 	end
 
