@@ -26,11 +26,7 @@ LavaridgeTown_HerbShop_EventScript_ExpertM::
 LavaridgeTown_HerbShop_EventScript_OldMan::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_CHARCOAL, LavaridgeTown_HerbShop_EventScript_ExplainCharcoal
 	msgbox LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine, MSGBOX_DEFAULT
-	giveitem ITEM_CHARCOAL
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_CHARCOAL
 	release
 	end
 
@@ -46,8 +42,7 @@ LavaridgeTown_HerbShop_Text_WelcomeToHerbShop:
 LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine:
 	.string "You've come to look at herbal medicine\n"
 	.string "in LAVARIDGE?\p"
-	.string "That's rather commendable.\p"
-	.string "I like you! Take this! $"
+	.string "That's rather commendable. $"
 
 LavaridgeTown_HerbShop_Text_ExplainCharcoal:
 	.string "That CHARCOAL I gave you, it's used\n"

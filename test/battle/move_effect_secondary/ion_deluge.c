@@ -16,14 +16,14 @@ SINGLE_BATTLE_TEST("Ion Duldge turns normal moves into electric for the remainde
         TURN { MOVE(player, MOVE_ION_DELUGE); MOVE(opponent, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Krabby used Ion Deluge!");
+        MESSAGE("Krabby used Ion Deluge! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ION_DELUGE, player);
-        MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("A deluge of ions showers the battlefield! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     }
 }
 
@@ -36,14 +36,14 @@ SINGLE_BATTLE_TEST("Plasma Fists turns normal moves into electric for the remain
         TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Krabby used Plasma Fists!");
+        MESSAGE("Krabby used Plasma Fists! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-        MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("A deluge of ions showers the battlefield! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     }
 }
 
@@ -56,14 +56,14 @@ SINGLE_BATTLE_TEST("Plasma Fists does not set up Ion Deluge if it does not conne
     } WHEN {
         TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Krabby used Plasma Fists!");
+        MESSAGE("Krabby used Plasma Fists! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-            MESSAGE("A deluge of ions showers the battlefield!");
+            MESSAGE("A deluge of ions showers the battlefield! ");
         }
-        MESSAGE("The opposing Phanpy used Scratch!");
+        MESSAGE("The opposing Phanpy used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     }
 }
 
@@ -75,12 +75,12 @@ SINGLE_BATTLE_TEST("Plasma Fists type-changing effect does not override Pixilate
     } WHEN {
         TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Krabby used Plasma Fists!");
+        MESSAGE("Krabby used Plasma Fists! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-        MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("The opposing Sylveon used Scratch!");
+        MESSAGE("A deluge of ions showers the battlefield! ");
+        MESSAGE("The opposing Sylveon used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     }
 }
 
@@ -92,12 +92,12 @@ SINGLE_BATTLE_TEST("Plasma Fists type-changing effect is applied after Normalize
     } WHEN {
         TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_EMBER); }
     } SCENE {
-        MESSAGE("Krabby used Plasma Fists!");
+        MESSAGE("Krabby used Plasma Fists! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-        MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("The opposing Skitty used Ember!");
+        MESSAGE("A deluge of ions showers the battlefield! ");
+        MESSAGE("The opposing Skitty used Ember! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -109,10 +109,10 @@ SINGLE_BATTLE_TEST("Plasma Fists turns normal type dynamax-moves into electric t
     } WHEN {
         TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Krabby used Plasma Fists!");
+        MESSAGE("Krabby used Plasma Fists! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-        MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("The opposing Wobbuffet used Max Lightning!");
-        MESSAGE("It's super effective!");
+        MESSAGE("A deluge of ions showers the battlefield! ");
+        MESSAGE("The opposing Wobbuffet used Max Lightning! ");
+        MESSAGE("It's super effective! ");
     }
 }

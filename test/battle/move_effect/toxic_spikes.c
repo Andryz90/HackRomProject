@@ -18,8 +18,8 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on switch in")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("Poison spikes were scattered on the ground all around the opposing team! ");
+        MESSAGE("2 sent out Wynaut! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
     }
@@ -38,10 +38,10 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts bad poison on switch in")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
+        MESSAGE("Poison spikes were scattered on the ground all around the opposing team! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("Poison spikes were scattered on the ground all around the opposing team! ");
+        MESSAGE("2 sent out Wynaut! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, badPoison: TRUE);
     }
@@ -61,12 +61,12 @@ SINGLE_BATTLE_TEST("Toxic Spikes fails after 2 layers")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
+        MESSAGE("Poison spikes were scattered on the ground all around the opposing team! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
-        MESSAGE("Wobbuffet used Toxic Spikes!");
-        MESSAGE("But it failed!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("Poison spikes were scattered on the ground all around the opposing team! ");
+        MESSAGE("Wobbuffet used Toxic Spikes! ");
+        MESSAGE("But it failed! ");
+        MESSAGE("2 sent out Wynaut! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, badPoison: TRUE);
     }
@@ -84,7 +84,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on subsequent switch ins")
         TURN { SWITCH(opponent, 0); }
         TURN {}
     } SCENE {
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut! ");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }
@@ -176,7 +176,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes are removed by grounded Poison-type Pokémon on
     } SCENE {
         if (grounded) {
             NOT STATUS_ICON(opponent, poison: TRUE);
-            MESSAGE("The poison spikes disappeared from the ground around the opposing team!");
+            MESSAGE("The poison spikes disappeared from the ground around the opposing team! ");
             NOT STATUS_ICON(opponent, poison: TRUE);
         } else {
             NOT STATUS_ICON(opponent, poison: TRUE);
@@ -199,7 +199,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes are not removed by Poison-type Pokémon affecte
         TURN { MOVE(player, MOVE_TOXIC_SPIKES); MOVE(opponent, MOVE_BATON_PASS); SEND_OUT(opponent, 1); }
         TURN { SWITCH(opponent, 0); }
     } SCENE {
-        NOT MESSAGE("The poison spikes disappeared from the ground around the opposing team!");
+        NOT MESSAGE("The poison spikes disappeared from the ground around the opposing team! ");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }
@@ -217,18 +217,18 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on switch in after Primal Rever
         TURN { SWITCH(player, 1); }
         TURN { MOVE(player, MOVE_MEMENTO); SEND_OUT(player, 2); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Toxic Spikes!");
+        MESSAGE("The opposing Wobbuffet used Toxic Spikes! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, opponent);
-        MESSAGE("Poison spikes were scattered on the ground all around your team!");
+        MESSAGE("Poison spikes were scattered on the ground all around your team! ");
         // Switch in
         SEND_IN_MESSAGE("Groudon");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, player);
         STATUS_ICON(player, poison: TRUE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_PRIMAL_REVERSION, player);
-        MESSAGE("Groudon's Primal Reversion! It reverted to its primal state!");
+        MESSAGE("Groudon's Primal Reversion! It reverted to its primal state! ");
         // Memento
-        MESSAGE("Groudon used Memento!");
-        MESSAGE("Groudon fainted!");
+        MESSAGE("Groudon used Memento! ");
+        MESSAGE("Groudon fainted! ");
         // 2nd switch-in
         SEND_IN_MESSAGE("Wynaut");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, player);
@@ -247,7 +247,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes print normal poison for 1 layer")
         TURN { SWITCH(opponent, 1); }
         TURN {}
     } SCENE {
-        MESSAGE("The opposing Wynaut was poisoned!");
+        MESSAGE("The opposing Wynaut was poisoned! ");
     }
 }
 
@@ -263,6 +263,6 @@ SINGLE_BATTLE_TEST("Toxic Spikes print bad poison for 2 layers")
         TURN { SWITCH(opponent, 1); }
         TURN {}
     } SCENE {
-        MESSAGE("The opposing Wynaut was badly poisoned!");
+        MESSAGE("The opposing Wynaut was badly poisoned! ");
     }
 }

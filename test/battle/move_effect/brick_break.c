@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs remove Light Screen, Reflect a
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-        MESSAGE("The wall shattered!");
+        MESSAGE("The wall shattered! ");
         HP_BAR(opponent);
     }
 }
@@ -61,7 +61,7 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -91,7 +91,7 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -120,7 +120,7 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -153,7 +153,7 @@ DOUBLE_BATTLE_TEST("Brick Break and Psychic Fangs can remove Light Screen, Refle
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, breakingMove, playerRight);
-        MESSAGE("The wall shattered!");
+        MESSAGE("The wall shattered! ");
         HP_BAR(playerLeft);
     }
 }

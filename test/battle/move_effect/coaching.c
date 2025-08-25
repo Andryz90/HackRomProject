@@ -17,8 +17,8 @@ DOUBLE_BATTLE_TEST("Coaching raises Attack and Defense of ally by 1 stage each")
         TURN { MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, playerLeft);
-        MESSAGE("Wynaut's Attack rose!");
-        MESSAGE("Wynaut's Defense rose!");
+        MESSAGE("Wynaut's Attack rose! ");
+        MESSAGE("Wynaut's Defense rose! ");
     }
 }
 
@@ -34,8 +34,8 @@ DOUBLE_BATTLE_TEST("Coaching bypasses Protect")
         TURN { MOVE(playerRight, MOVE_PROTECT); MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, playerLeft);
-        MESSAGE("Wynaut's Attack rose!");
-        MESSAGE("Wynaut's Defense rose!");
+        MESSAGE("Wynaut's Attack rose! ");
+        MESSAGE("Wynaut's Defense rose! ");
     }
 }
 
@@ -51,8 +51,8 @@ DOUBLE_BATTLE_TEST("Coaching bypasses Crafty Shield")
         TURN { MOVE(playerRight, MOVE_CRAFTY_SHIELD); MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, playerLeft);
-        MESSAGE("Wynaut's Attack rose!");
-        MESSAGE("Wynaut's Defense rose!");
+        MESSAGE("Wynaut's Attack rose! ");
+        MESSAGE("Wynaut's Defense rose! ");
     }
 }
 
@@ -67,14 +67,14 @@ DOUBLE_BATTLE_TEST("Coaching fails if all allies are is semi-invulnerable")
     } WHEN {
         TURN { MOVE(playerRight, MOVE_FLY, target: opponentLeft); MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
-        MESSAGE("Hawlucha used Fly!");
-        MESSAGE("Wobbuffet used Coaching!");
+        MESSAGE("Hawlucha used Fly! ");
+        MESSAGE("Wobbuffet used Coaching! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, playerLeft);
-            MESSAGE("Hawlucha's Attack rose!");
-            MESSAGE("Hawlucha's Defense rose!");
+            MESSAGE("Hawlucha's Attack rose! ");
+            MESSAGE("Hawlucha's Defense rose! ");
         }
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -86,11 +86,11 @@ SINGLE_BATTLE_TEST("Coaching fails in single battles")
     } WHEN {
         TURN { MOVE(player, MOVE_COACHING); }
     } SCENE {
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, player);
-            MESSAGE("Wynaut's Attack rose!");
-            MESSAGE("Wynaut's Defense rose!");
+            MESSAGE("Wynaut's Attack rose! ");
+            MESSAGE("Wynaut's Defense rose! ");
         }
     }
 }
@@ -107,13 +107,13 @@ DOUBLE_BATTLE_TEST("Coaching fails if there's no ally")
         TURN { MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
-        MESSAGE("Wynaut fainted!");
-        MESSAGE("Wobbuffet used Coaching!");
+        MESSAGE("Wynaut fainted! ");
+        MESSAGE("Wobbuffet used Coaching! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_COACHING, playerLeft);
-            MESSAGE("Wynaut's Attack rose!");
-            MESSAGE("Wynaut's Defense rose!");
+            MESSAGE("Wynaut's Attack rose! ");
+            MESSAGE("Wynaut's Defense rose! ");
         }
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }

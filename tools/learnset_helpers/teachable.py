@@ -115,7 +115,7 @@ def construct_compatibility_dict(force_custom_check):
     # if the file was not previously generated, check if there is custom data there that needs to be preserved
     with open("./src/data/pokemon/teachable_learnsets.h", 'r') as file:
         raw = file.read()
-        if not "// DO NOT MODIFY THIS FILE!" in raw and force_custom_check == True:
+        if not "// DO NOT MODIFY THIS FILE! " in raw and force_custom_check == True:
             custom_teachable_compatibilities = {}
             for entry in re.findall(r"static const u16 s(.*)TeachableLearnset\[\] = {\n((.|\n)*?)\n};", raw):
                 monname = parse_mon_name(entry[0])
@@ -254,7 +254,7 @@ for move in universal_moves:
     header_print("- " + move)
 header += "// " + longest_move_name * "*" + " //\n\n"
 
-if not "// DO NOT MODIFY THIS FILE!" in out:
+if not "// DO NOT MODIFY THIS FILE! " in out:
     out = header + out
 else:
     out = re.sub(r"\/\/\n\/\/ DO NOT MODIFY THIS FILE!(.|\n)*\* \/\/\n\n", header, out)
@@ -422,7 +422,7 @@ for mon in list_of_mons:
         
 # add/update header
 header = "//\n// DO NOT MODIFY THIS FILE! It is auto-generated from tools/learnset_helpers/teachable.py\n//\n\n"
-if not "// DO NOT MODIFY THIS FILE!" in out:
+if not "// DO NOT MODIFY THIS FILE! " in out:
     out = header + out
 else:
     out = re.sub(r"\/\/\n\/\/ DO NOT MODIFY THIS FILE!(.|\n)*\* \/\/\n\n", header, out)

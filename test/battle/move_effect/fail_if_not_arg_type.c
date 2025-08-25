@@ -15,9 +15,9 @@ SINGLE_BATTLE_TEST("Burn Up user loses its Fire-type")
         TURN { MOVE(player, MOVE_BURN_UP); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player);
-        MESSAGE("Cyndaquil burned itself out!");
-        MESSAGE("Cyndaquil used Burn Up!");
-        MESSAGE("But it failed!");
+        MESSAGE("Cyndaquil burned itself out! ");
+        MESSAGE("Cyndaquil used Burn Up! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -33,8 +33,8 @@ SINGLE_BATTLE_TEST("Burn Up fails if the user isn't a Fire-type")
         TURN { MOVE(player, MOVE_BURN_UP); }
     } SCENE {
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player); }
-        MESSAGE("Wobbuffet used Burn Up!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Burn Up! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Burn Up user loses its Fire-type if enemy faints")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player);
         HP_BAR(opponent, hp: 0);
-        MESSAGE("Cyndaquil burned itself out!");
+        MESSAGE("Cyndaquil burned itself out! ");
     }
 }
 
@@ -70,9 +70,9 @@ SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type")
         TURN { MOVE(player, MOVE_DOUBLE_SHOCK); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
-        MESSAGE("Pikachu used up all its electricity!");
-        MESSAGE("Pikachu used Double Shock!");
-        MESSAGE("But it failed!");
+        MESSAGE("Pikachu used up all its electricity! ");
+        MESSAGE("Pikachu used Double Shock! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -88,8 +88,8 @@ SINGLE_BATTLE_TEST("Double Shock fails if the user isn't an Electric-type")
         TURN { MOVE(player, MOVE_DOUBLE_SHOCK); }
     } SCENE {
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player); }
-        MESSAGE("Wobbuffet used Double Shock!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Double Shock! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -107,6 +107,6 @@ SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type if enemy faints")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
         HP_BAR(opponent, hp: 0);
-        MESSAGE("Pikachu used up all its electricity!");
+        MESSAGE("Pikachu used up all its electricity! ");
     }
 }

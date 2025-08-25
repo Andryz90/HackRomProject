@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Pixilate turns a Normal-type move into a Fairy-type move")
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -64,7 +64,7 @@ SINGLE_BATTLE_TEST("Pixilate doesn't affect Weather Ball's type", s16 damage)
     } SCENE {
         HP_BAR(opponent, captureDamage: &results[i].damage);
         if (move == MOVE_SUNNY_DAY)
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(6.0), results[1].damage); // double base power + type effectiveness + sun 50% boost
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage);

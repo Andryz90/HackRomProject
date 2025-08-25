@@ -44,7 +44,7 @@ SINGLE_BATTLE_TEST("Stun Spore inflicts paralysis")
         TURN { MOVE(player, MOVE_STUN_SPORE); } // 3.
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
-        MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!"); // 4
+        MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! "); // 4
         STATUS_ICON(opponent, paralysis: TRUE); // 4.
     }
 }
@@ -121,7 +121,7 @@ SINGLE_BATTLE_TEST("Meditate raises Attack", s16 damage)
         if (raiseAttack) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_MEDITATE, player);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player); // 5.
-            MESSAGE("Wobbuffet's attack rose!"); // 5.
+            MESSAGE("Wobbuffet's attack rose! "); // 5.
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, player);
         HP_BAR(opponent, captureDamage: &results[i].damage); // 3 & 6.
@@ -226,7 +226,7 @@ SINGLE_BATTLE_TEST("Paralysis has a 25% chance of skipping the turn")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+        MESSAGE("Wobbuffet couldn't move because it's paralyzed! ");
     }
 }
 ```
@@ -373,7 +373,7 @@ Contains an abridged description of the UI during the `THEN`. The order of the d
 } SCENE {
      // ABILITY_POPUP followed by a MESSAGE
      ABILITY_POPUP(player, ABILITY_STURDY);
-     MESSAGE("Geodude was protected by Sturdy!");
+     MESSAGE("Geodude was protected by Sturdy! ");
 }
 ```
 
@@ -427,8 +427,8 @@ Causes the test to fail if the message in pattern is not displayed.
 Spaces in pattern match newlines (\n, \l, and \p) in the message.
 Often used to check that a battler took its turn but it failed, e.g.:
 ```
-     MESSAGE("Wobbuffet used Dream Eater!");
-     MESSAGE("The opposing Wobbuffet wasn't affected!");
+     MESSAGE("Wobbuffet used Dream Eater! ");
+     MESSAGE("The opposing Wobbuffet wasn't affected! ");
 ```
 
 ### `STATUS_ICON`
@@ -451,8 +451,8 @@ If the expected status icon is parametrized the corresponding `STATUS1` constant
 Causes the test to fail if the `SCENE` command succeeds before the following command succeeds.
 ```
      // Our Wobbuffet does not Celebrate before the foe's.
-     NOT MESSAGE("Wobbuffet used Celebrate!");
-     MESSAGE("The opposing Wobbuffet used Celebrate!");
+     NOT MESSAGE("Wobbuffet used Celebrate! ");
+     MESSAGE("The opposing Wobbuffet used Celebrate! ");
 ```
 **NOTE**: If this condition fails, the viewable ROM freezes at the NOT command.
 **WARNING: `NOT` is an alias of `NONE_OF`, so it behaves surprisingly when applied to multiple commands wrapped in braces.**
@@ -466,8 +466,8 @@ Causes the test to fail if the `SCENE` command succeeds before the following com
 Causes the test to fail unless one of the `SCENE` commands succeeds.
 ```
      ONE_OF {
-         MESSAGE("Wobbuffet used Celebrate!");
-         MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+         MESSAGE("Wobbuffet used Celebrate! ");
+         MESSAGE("Wobbuffet couldn't move because it's paralyzed! ");
      }
 ```
 
@@ -481,10 +481,10 @@ Causes the test to fail if one of the `SCENE` commands succeeds before the comma
 ```
      // Our Wobbuffet does not move before the foe's.
      NONE_OF {
-         MESSAGE("Wobbuffet used Celebrate!");
-         MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+         MESSAGE("Wobbuffet used Celebrate! ");
+         MESSAGE("Wobbuffet couldn't move because it's paralyzed! ");
      }
-     MESSAGE("The opposing Wobbuffet used Celebrate!");
+     MESSAGE("The opposing Wobbuffet used Celebrate! ");
 ```
 
 ### `PLAYER_PARTY`

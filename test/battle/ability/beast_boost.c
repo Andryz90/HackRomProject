@@ -19,19 +19,19 @@ SINGLE_BATTLE_TEST("Beast Boost boosts the most proficient stat when knocking ou
         ABILITY_POPUP(player, ABILITY_BEAST_BOOST);
         switch(i) {
             case 0:
-                MESSAGE("Nihilego's Attack rose!");
+                MESSAGE("Nihilego's Attack rose! ");
                 break;
             case 1:
-                MESSAGE("Nihilego's Defense rose!");
+                MESSAGE("Nihilego's Defense rose! ");
                 break;
             case 2:
-                MESSAGE("Nihilego's Sp. Atk rose!");
+                MESSAGE("Nihilego's Sp. Atk rose! ");
                 break;
             case 3:
-                MESSAGE("Nihilego's Sp. Def rose!");
+                MESSAGE("Nihilego's Sp. Def rose! ");
                 break;
             case 4:
-                MESSAGE("Nihilego's Speed rose!");
+                MESSAGE("Nihilego's Speed rose! ");
                 break;
         }
     }
@@ -53,7 +53,7 @@ SINGLE_BATTLE_TEST("Beast Boost doesn't trigger if user is fainted")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         NOT ABILITY_POPUP(opponent, ABILITY_BEAST_BOOST);
         SEND_IN_MESSAGE("Wynaut");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("2 sent out Wobbuffet! ");
     }
 }
 
@@ -75,16 +75,16 @@ SINGLE_BATTLE_TEST("Beast Boost prioritizes stats in the case of a tie in the fo
         ABILITY_POPUP(player, ABILITY_BEAST_BOOST);
         switch(i) {
             case 0:
-                MESSAGE("Nihilego's Attack rose!");
+                MESSAGE("Nihilego's Attack rose! ");
                 break;
             case 1:
-                MESSAGE("Nihilego's Defense rose!");
+                MESSAGE("Nihilego's Defense rose! ");
                 break;
             case 2:
-                MESSAGE("Nihilego's Sp. Atk rose!");
+                MESSAGE("Nihilego's Sp. Atk rose! ");
                 break;
             case 3:
-                MESSAGE("Nihilego's Sp. Def rose!");
+                MESSAGE("Nihilego's Sp. Def rose! ");
                 break;
         }
     }

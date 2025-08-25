@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("(Gulp Missile) Power Herb does not prevent Cramaront from tr
         TURN { MOVE(player, MOVE_DIVE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIVE, player);
-        MESSAGE("Cramorant became fully charged due to its Power Herb!");
+        MESSAGE("Cramorant became fully charged due to its Power Herb! ");
         ABILITY_POPUP(player, ABILITY_GULP_MISSILE);
         HP_BAR(opponent);
     } THEN {
@@ -89,7 +89,7 @@ SINGLE_BATTLE_TEST("(Gulp Missile) Transformed Cramorant deal 1/4 of damage oppo
         ABILITY_POPUP(player, ABILITY_GULP_MISSILE);
         HP_BAR(opponent, captureDamage: &gulpMissileDamage);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Defense fell!");
+        MESSAGE("The opposing Wobbuffet's Defense fell! ");
     } THEN {
         EXPECT_EQ(gulpMissileDamage, opponent->maxHP / 4);
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 1);
@@ -182,7 +182,7 @@ SINGLE_BATTLE_TEST("(Gulp Missile) Transformed Cramorant Gulping lowers defense 
         HP_BAR(opponent);
         if (ability == ABILITY_INFILTRATOR) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Dragapult's Defense fell!");
+            MESSAGE("The opposing Dragapult's Defense fell! ");
         } else {
             ABILITY_POPUP(opponent, ABILITY_CLEAR_BODY);
         }

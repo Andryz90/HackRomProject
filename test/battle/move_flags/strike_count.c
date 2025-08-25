@@ -12,7 +12,7 @@ SINGLE_BATTLE_TEST("Two strike count turns a move into a 2-hit move")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_KICK, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_KICK, player);
-        MESSAGE("The Pokémon was hit 2 time(s)!");
+        MESSAGE("The Pokémon was hit 2 time(s)! ");
     }
 }
 
@@ -58,13 +58,13 @@ SINGLE_BATTLE_TEST("Surging Strikes hits 3 times with each hit being a critical 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
         HP_BAR(opponent, captureDamage: &firstHit);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
         HP_BAR(opponent, captureDamage: &secondHit);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
         HP_BAR(opponent, captureDamage: &thirdHit);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     } THEN {
         EXPECT_EQ(firstHit, secondHit);
         EXPECT_EQ(secondHit, thirdHit);

@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Pursuit attacks a foe using Volt Switch / U-Turn / Parting S
         TURN { MOVE(player, move); MOVE(opponent, MOVE_PURSUIT); SEND_OUT(player, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
-        MESSAGE("Wobbuffet went back to 1!");
+        MESSAGE("Wobbuffet went back to 1! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         SEND_IN_MESSAGE("Zigzagoon");
     }
@@ -81,7 +81,7 @@ SINGLE_BATTLE_TEST("Pursuit doesn't attack switching foe if user already acted t
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VOLT_SWITCH, player);
-        MESSAGE("Wobbuffet went back to 1!");
+        MESSAGE("Wobbuffet went back to 1! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         SEND_IN_MESSAGE("Zigzagoon");
     }
@@ -201,9 +201,9 @@ DOUBLE_BATTLE_TEST("Pursuit attacks a switching foe but not switching allies")
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         SEND_IN_MESSAGE("Grimer");
-        MESSAGE("2 withdrew Linoone!");
+        MESSAGE("2 withdrew Linoone! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
-        MESSAGE("2 sent out Abra!");
+        MESSAGE("2 sent out Abra! ");
     }
 }
 
@@ -253,7 +253,7 @@ DOUBLE_BATTLE_TEST("Pursuit only attacks a switching foe if foe is alive")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         HP_BAR(playerLeft);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         SEND_IN_MESSAGE("Grimer");
     }
@@ -275,7 +275,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks the second switching foe if the first faints
         SWITCH_OUT_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         HP_BAR(playerLeft);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         SWITCH_OUT_MESSAGE("Zigzagoon");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
@@ -298,7 +298,7 @@ DOUBLE_BATTLE_TEST("Pursuit only attacks a switching foe if user is alive")
         TURN { MOVE(playerLeft, MOVE_VOLT_SWITCH, target: opponentLeft); MOVE(opponentLeft, MOVE_PURSUIT, target: playerLeft); SEND_OUT(playerLeft, 2); SEND_OUT(opponentLeft, 2); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VOLT_SWITCH, playerLeft);
-        MESSAGE("The opposing Wynaut fainted!");
+        MESSAGE("The opposing Wynaut fainted! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         SEND_IN_MESSAGE("Grimer");
     }
@@ -472,7 +472,7 @@ SINGLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         ABILITY_POPUP(player, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wynaut's Speed fell!");
+        MESSAGE("The opposing Wynaut's Speed fell! ");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -492,11 +492,11 @@ DOUBLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The opposing Wynaut's Speed fell!");
+        MESSAGE("The opposing Wynaut's Speed fell! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -534,19 +534,19 @@ DOUBLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_COTTON_DOWN);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The opposing Wynaut's Speed fell!");
+        MESSAGE("The opposing Wynaut's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("Wobbuffet's Speed fell!");
+        MESSAGE("Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_COTTON_DOWN);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The opposing Wynaut's Speed fell!");
+        MESSAGE("The opposing Wynaut's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("Wobbuffet's Speed fell!");
+        MESSAGE("Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -565,9 +565,9 @@ SINGLE_BATTLE_TEST("Pursuit becomes a locked move after being used on switch-out
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, player);
         HP_BAR(opponent);
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("2 sent out Wobbuffet! ");
 
-        MESSAGE("Wobbuffet used Struggle!");
+        MESSAGE("Wobbuffet used Struggle! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
     }
 }
@@ -643,7 +643,7 @@ SINGLE_BATTLE_TEST("Pursuit user gets forced out by Red Card and target still sw
         SWITCH_OUT_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("The opposing Voltorb was dragged out!");
+        MESSAGE("The opposing Voltorb was dragged out! ");
         SEND_IN_MESSAGE("Voltorb");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_VOLTORB);
@@ -665,7 +665,7 @@ SINGLE_BATTLE_TEST("Pursuit user faints to Life Orb and target still switches ou
         SWITCH_OUT_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         SEND_IN_MESSAGE("Voltorb");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_VOLTORB);

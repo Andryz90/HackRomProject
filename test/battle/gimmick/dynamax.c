@@ -15,9 +15,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamax increases HP and max HP by 1.5x", u16 hp)
     } SCENE {
         if (dynamax) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_DYNAMAX_GROWTH, player);
-            MESSAGE("Wobbuffet used Max Strike!");
+            MESSAGE("Wobbuffet used Max Strike! ");
         }
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
     } THEN {
         results[i].hp = player->hp;
     } FINALLY {
@@ -48,9 +48,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamax Level increases HP and max HP multipliers b
     } SCENE {
         if (dynamax) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_DYNAMAX_GROWTH, player);
-            MESSAGE("Wobbuffet used Max Strike!");
+            MESSAGE("Wobbuffet used Max Strike! ");
         }
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
     } THEN {
         results[i].hp = player->hp;
     } FINALLY {
@@ -80,14 +80,14 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamax expires when fainted")
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: dynamax); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         if (dynamax)
-            MESSAGE("Wobbuffet used Max Strike!");
+            MESSAGE("Wobbuffet used Max Strike! ");
         else
-            MESSAGE("Wobbuffet used Scratch!");
+            MESSAGE("Wobbuffet used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         if (dynamax) // Expect to have visual reversion when fainting.
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -107,10 +107,10 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamax expires after three turns", u16 hp)
         int j;
         for (j = 0; j < DYNAMAX_TURNS_COUNT; ++j) {
             if (dynamax)
-                MESSAGE("Wobbuffet used Max Strike!");
+                MESSAGE("Wobbuffet used Max Strike! ");
             else
-                MESSAGE("Wobbuffet used Scratch!");
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+                MESSAGE("Wobbuffet used Scratch! ");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
         }
         if (dynamax) // Expect to have visual reversion at the end.
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
@@ -191,9 +191,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot be flinched")
     } WHEN {
         TURN { MOVE(opponent, MOVE_FAKE_OUT); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Fake Out!");
-        NONE_OF { MESSAGE("Wobbuffet flinched and couldn't move!"); }
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("The opposing Wobbuffet used Fake Out! ");
+        NONE_OF { MESSAGE("Wobbuffet flinched and couldn't move! "); }
+        MESSAGE("Wobbuffet used Max Strike! ");
     }
 }
 
@@ -206,9 +206,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot be hit by weight-based mov
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_HEAVY_SLAM); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Heavy Slam!");
-        MESSAGE("The move was blocked by the power of Dynamax!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Heavy Slam! ");
+        MESSAGE("The move was blocked by the power of Dynamax! ");
         NONE_OF { HP_BAR(player); }
     }
 }
@@ -222,9 +222,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot be hit by OHKO moves")
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_FISSURE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Machamp used Fissure!");
-        MESSAGE("Wobbuffet is unaffected!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Machamp used Fissure! ");
+        MESSAGE("Wobbuffet is unaffected! ");
         NONE_OF { HP_BAR(player); }
     }
 }
@@ -237,10 +237,10 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are affected by Grudge")
     } WHEN {
         TURN { MOVE(opponent, MOVE_GRUDGE); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Grudge!");
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("Wobbuffet's Scratch lost all its PP due to the grudge!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet used Grudge! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("Wobbuffet's Scratch lost all its PP due to the grudge! ");
+        MESSAGE("The opposing Wobbuffet fainted! ");
     }
 }
 
@@ -256,13 +256,13 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are not affected by phazing moves
         TURN { MOVE(opponent, MOVE_DRAGON_TAIL); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
         TURN { MOVE(opponent, MOVE_WHIRLWIND); MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Dragon Tail!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Dragon Tail! ");
         HP_BAR(player);
-        MESSAGE("The move was blocked by the power of Dynamax!");
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Whirlwind!");
-        MESSAGE("The move was blocked by the power of Dynamax!");
+        MESSAGE("The move was blocked by the power of Dynamax! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Whirlwind! ");
+        MESSAGE("The move was blocked by the power of Dynamax! ");
     }
 }
 
@@ -276,11 +276,11 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are not affected by phazing moves
     } WHEN {
         TURN { MOVE(opponent, MOVE_DRAGON_TAIL); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Dragon Tail!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Dragon Tail! ");
         HP_BAR(player);
-        MESSAGE("Wobbuffet fainted!");
-        NOT MESSAGE("The move was blocked by the power of Dynamax!");
+        MESSAGE("Wobbuffet fainted! ");
+        NOT MESSAGE("The move was blocked by the power of Dynamax! ");
     }
 }
 
@@ -294,10 +294,10 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon can be switched out by Eject Butt
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SCRATCH); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is switched out with the Eject Button!");
+        MESSAGE("Wobbuffet is switched out with the Eject Button! ");
     } THEN {
         EXPECT_EQ(opponent->item, ITEM_NONE);
     }
@@ -311,9 +311,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot have their ability swapped
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SKILL_SWAP); }
     } SCENE {
-        MESSAGE("Miltank used Max Strike!");
-        MESSAGE("The opposing Runerigus used Skill Swap!");
-        MESSAGE("But it failed!");
+        MESSAGE("Miltank used Max Strike! ");
+        MESSAGE("The opposing Runerigus used Skill Swap! ");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT_EQ(player->ability, ABILITY_SCRAPPY);
     }
@@ -327,9 +327,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon can have their ability changed or
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SIMPLE_BEAM); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Simple Beam!");
-        MESSAGE("Wobbuffet acquired Simple!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Simple Beam! ");
+        MESSAGE("Wobbuffet acquired Simple! ");
     } THEN {
         EXPECT_EQ(player->ability, ABILITY_SIMPLE);
     }
@@ -344,9 +344,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon's Max Moves cannot be disabled")
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_DISABLE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Disable!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Disable! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -363,11 +363,11 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon can have base moves disabled on t
         TURN {}
         TURN { MOVE(player, MOVE_SCRATCH, allowed: FALSE); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("Wobbuffet used Scratch!");
-        MESSAGE("The opposing Wobbuffet used Disable!");
-        MESSAGE("Wobbuffet's Scratch was disabled!");
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("Wobbuffet used Scratch! ");
+        MESSAGE("The opposing Wobbuffet used Disable! ");
+        MESSAGE("Wobbuffet's Scratch was disabled! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
     }
 }
 
@@ -379,9 +379,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are immune to Torment")
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_TORMENT); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Torment!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Torment! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -394,9 +394,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are not immune to Knock Off")
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_KNOCK_OFF); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Knock Off!");
-        MESSAGE("The opposing Wobbuffet knocked off Wobbuffet's Potion!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Knock Off! ");
+        MESSAGE("The opposing Wobbuffet knocked off Wobbuffet's Potion! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
     }
@@ -411,10 +411,10 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon lose their substitutes")
         TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Substitute!");
-        MESSAGE("Wobbuffet put in a substitute!");
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("Wobbuffet used Substitute! ");
+        MESSAGE("Wobbuffet put in a substitute! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         HP_BAR(player);
     }
 }
@@ -506,10 +506,10 @@ DOUBLE_BATTLE_TEST("Dynamax: Feint bypasses Max Guard but doesn't break it")
                MOVE(opponentRight, MOVE_SCRATCH, target: playerLeft);
         }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Guard!");
-        MESSAGE("The opposing Wobbuffet used Feint!");
+        MESSAGE("Wobbuffet used Max Guard! ");
+        MESSAGE("The opposing Wobbuffet used Feint! ");
         HP_BAR(playerLeft);
-        MESSAGE("The opposing Wynaut used Scratch!");
+        MESSAGE("The opposing Wynaut used Scratch! ");
         NONE_OF { HP_BAR(playerLeft); }
     }
 }
@@ -526,9 +526,9 @@ DOUBLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are immune to Instruct")
                MOVE(playerRight, MOVE_INSTRUCT, target: playerLeft);
         }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("Wynaut used Instruct!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("Wynaut used Instruct! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -576,9 +576,9 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are not affected by Choice items"
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
         TURN { MOVE(player, MOVE_ARM_THRUST); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("Wobbuffet used Max Strike! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
-        MESSAGE("Wobbuffet used Max Knuckle!");
+        MESSAGE("Wobbuffet used Max Knuckle! ");
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
     }
@@ -594,8 +594,8 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot use Max Guard while holdin
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
         TURN { MOVE(player, MOVE_PROTECT, allowed: FALSE); MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
     }
 }
 
@@ -617,7 +617,7 @@ SINGLE_BATTLE_TEST("Dynamax: Endeavor uses a Pokemon's non-Dynamax HP", s16 dama
     } WHEN {
         TURN { MOVE(opponent, MOVE_ENDEAVOR); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Endeavor!");
+        MESSAGE("The opposing Wobbuffet used Endeavor! ");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -636,7 +636,7 @@ SINGLE_BATTLE_TEST("Dynamax: Super Fang uses a Pokemon's non-Dynamax HP", s16 da
     } WHEN {
         TURN { MOVE(opponent, MOVE_SUPER_FANG); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Super Fang!");
+        MESSAGE("The opposing Wobbuffet used Super Fang! ");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -655,7 +655,7 @@ SINGLE_BATTLE_TEST("Dynamax: Pain Split uses a Pokemon's non-Dynamax HP", s16 da
     } WHEN {
         TURN { MOVE(opponent, MOVE_PAIN_SPLIT); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Pain Split!");
+        MESSAGE("The opposing Wobbuffet used Pain Split! ");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -675,7 +675,7 @@ SINGLE_BATTLE_TEST("Dynamax: Sitrus Berries heal based on a Pokemon's non-Dynama
     } WHEN {
         TURN { MOVE(opponent, MOVE_FLING); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("Wobbuffet restored its health using its Sitrus Berry!");
+        MESSAGE("Wobbuffet restored its health using its Sitrus Berry! ");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -694,7 +694,7 @@ SINGLE_BATTLE_TEST("Dynamax: Heal Pulse heals based on a Pokemon's non-Dynamax H
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEAL_PULSE); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Heal Pulse!");
+        MESSAGE("The opposing Wobbuffet used Heal Pulse! ");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -714,14 +714,14 @@ SINGLE_BATTLE_TEST("Dynamax: Max Strike lowers single opponent's speed")
         TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         // turn 1
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         // turn 2
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("Wobbuffet used Max Strike! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }
@@ -744,21 +744,21 @@ DOUBLE_BATTLE_TEST("Dynamax: Max Strike lowers both opponents' speed")
                MOVE(opponentRight, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
         // turn 1
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         // turn 2
-        MESSAGE("Wobbuffet used Max Strike!");
+        MESSAGE("Wobbuffet used Max Strike! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Wobbuffet's Speed fell!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("The opposing Wobbuffet's Speed fell! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
     }
 }
 
@@ -781,24 +781,24 @@ DOUBLE_BATTLE_TEST("Dynamax: Max Knuckle raises both allies' attack")
                MOVE(playerRight, MOVE_SCRATCH, target: opponentRight); }
     } SCENE {
         // turn 1
-        MESSAGE("Wobbuffet used Max Knuckle!");
+        MESSAGE("Wobbuffet used Max Knuckle! ");
         HP_BAR(opponentLeft, captureDamage: &damage[0]);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wobbuffet's Attack rose!");
+        MESSAGE("Wobbuffet's Attack rose! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("Wynaut's Attack rose!");
-        MESSAGE("Wynaut used Scratch!");
+        MESSAGE("Wynaut's Attack rose! ");
+        MESSAGE("Wynaut used Scratch! ");
         HP_BAR(opponentRight, captureDamage: &damage[1]);
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wynaut used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wynaut used Celebrate! ");
         // turn 2
-        MESSAGE("Wobbuffet used Max Knuckle!");
+        MESSAGE("Wobbuffet used Max Knuckle! ");
         HP_BAR(opponentLeft, captureDamage: &damage[2]);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wobbuffet's Attack rose!");
+        MESSAGE("Wobbuffet's Attack rose! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("Wynaut's Attack rose!");
-        MESSAGE("Wynaut used Scratch!");
+        MESSAGE("Wynaut's Attack rose! ");
+        MESSAGE("Wynaut used Scratch! ");
         HP_BAR(opponentRight, captureDamage: &damage[3]);
     } THEN {
         EXPECT_GT(damage[2], damage[0]);
@@ -815,9 +815,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Flare sets up sunlight")
     } WHEN {
         TURN { MOVE(player, MOVE_EMBER, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Flare!");
-        MESSAGE("The sunlight turned harsh!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Max Flare! ");
+        MESSAGE("The sunlight turned harsh! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SUN_CONTINUES);
     }
 }
@@ -831,9 +831,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Geyser sets up heavy rain")
     } WHEN {
         TURN { MOVE(player, MOVE_WATER_GUN, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Geyser!");
-        MESSAGE("It started to rain!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Max Geyser! ");
+        MESSAGE("It started to rain! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_RAIN_CONTINUES);
     }
 }
@@ -847,9 +847,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Hailstorm sets up hail")
     } WHEN {
         TURN { MOVE(player, MOVE_POWDER_SNOW, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Hailstorm!");
-        MESSAGE("It started to hail!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Max Hailstorm! ");
+        MESSAGE("It started to hail! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HAIL_CONTINUES);
     }
 }
@@ -863,9 +863,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Rockfall sets up a sandstorm")
     } WHEN {
         TURN { MOVE(player, MOVE_ROCK_THROW, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Rockfall!");
-        MESSAGE("A sandstorm kicked up!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Max Rockfall! ");
+        MESSAGE("A sandstorm kicked up! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SANDSTORM_CONTINUES);
     }
 }
@@ -882,11 +882,11 @@ SINGLE_BATTLE_TEST("Dynamax: Max Overgrowth sets up Grassy Terrain")
         TURN { MOVE(player, MOVE_VINE_WHIP, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_VINE_WHIP); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Overgrowth!");
-        MESSAGE("Grass grew to cover the battlefield!");
-        MESSAGE("Wobbuffet is healed by the grassy terrain!");
+        MESSAGE("Wobbuffet used Max Overgrowth! ");
+        MESSAGE("Grass grew to cover the battlefield! ");
+        MESSAGE("Wobbuffet is healed by the grassy terrain! ");
         HP_BAR(player, damage: -maxHP/16);
-        MESSAGE("The opposing Wobbuffet is healed by the grassy terrain!");
+        MESSAGE("The opposing Wobbuffet is healed by the grassy terrain! ");
         HP_BAR(opponent, damage: -maxHP/16);
     }
 }
@@ -901,10 +901,10 @@ SINGLE_BATTLE_TEST("Dynamax: Max Mindstorm sets up Psychic Terrain")
         TURN { MOVE(opponent, MOVE_EXTREME_SPEED); MOVE(player, MOVE_PSYCHIC, gimmick: GIMMICK_DYNAMAX); }
         TURN { MOVE(opponent, MOVE_EXTREME_SPEED); MOVE(player, MOVE_PSYCHIC); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Extreme Speed!");
-        MESSAGE("Wobbuffet used Max Mindstorm!");
-        MESSAGE("The opposing Wobbuffet cannot use Extreme Speed!");
-        MESSAGE("Wobbuffet used Max Mindstorm!");
+        MESSAGE("The opposing Wobbuffet used Extreme Speed! ");
+        MESSAGE("Wobbuffet used Max Mindstorm! ");
+        MESSAGE("The opposing Wobbuffet cannot use Extreme Speed! ");
+        MESSAGE("Wobbuffet used Max Mindstorm! ");
     }
 }
 
@@ -917,9 +917,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Lightning sets up Electric Terrain")
     } WHEN {
         TURN { MOVE(player, MOVE_THUNDERBOLT, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SPORE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Lightning!");
-        MESSAGE("The opposing Wobbuffet used Spore!");
-        MESSAGE("Wobbuffet surrounds itself with electrified terrain!");
+        MESSAGE("Wobbuffet used Max Lightning! ");
+        MESSAGE("The opposing Wobbuffet used Spore! ");
+        MESSAGE("Wobbuffet surrounds itself with electrified terrain! ");
     }
 }
 
@@ -932,9 +932,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Starfall sets up Misty Terrain")
     } WHEN {
         TURN { MOVE(player, MOVE_MOONBLAST, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_TOXIC); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Starfall!");
-        MESSAGE("The opposing Wobbuffet used Toxic!");
-        MESSAGE("Wobbuffet surrounds itself with a protective mist!");
+        MESSAGE("Wobbuffet used Max Starfall! ");
+        MESSAGE("The opposing Wobbuffet used Toxic! ");
+        MESSAGE("Wobbuffet surrounds itself with a protective mist! ");
     }
 }
 
@@ -950,10 +950,10 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Stonesurge sets up Stealth Rocks")
         TURN { SWITCH(opponent, 1); }
     } SCENE {
         // turn 1
-        MESSAGE("Drednaw used G-Max Stonesurge!");
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Drednaw used G-Max Stonesurge! ");
+        MESSAGE("Pointed stones float in the air around the opposing team! ");
         // turn 2
-        MESSAGE("Pointed stones dug into the opposing Wobbuffet!");
+        MESSAGE("Pointed stones dug into the opposing Wobbuffet! ");
     }
 }
 
@@ -972,14 +972,14 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Steelsurge sets up sharp steel")
         TURN { MOVE(opponent, MOVE_DEFOG); }
     } SCENE {
         // turn 1
-        MESSAGE("Copperajah used G-Max Steelsurge!");
-        MESSAGE("Sharp-pointed pieces of steel started floating around the opposing Pokémon!");
+        MESSAGE("Copperajah used G-Max Steelsurge! ");
+        MESSAGE("Sharp-pointed pieces of steel started floating around the opposing Pokémon! ");
         // turn 2
-        MESSAGE("2 sent out Hatterene!");
-        MESSAGE("The sharp steel bit into the opposing Hatterene!");
+        MESSAGE("2 sent out Hatterene! ");
+        MESSAGE("The sharp steel bit into the opposing Hatterene! ");
         // turn 4
-        MESSAGE("The opposing Hatterene used Defog!");
-        MESSAGE("The pieces of steel surrounding the opposing Pokémon disappeared!");
+        MESSAGE("The opposing Hatterene used Defog! ");
+        MESSAGE("The pieces of steel surrounding the opposing Pokémon disappeared! ");
     } THEN {
         EXPECT_MUL_EQ(opponent->maxHP, Q_4_12(0.75), opponent->hp);
     }
@@ -998,7 +998,7 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Hydrosnipe has fixed power and ignores abilit
     } WHEN {
         TURN { MOVE(player, move, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Inteleon used G-Max Hydrosnipe!");
+        MESSAGE("Inteleon used G-Max Hydrosnipe! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -1016,13 +1016,13 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Volt Crash paralyzes both opponents")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_THUNDERBOLT, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Pikachu used G-Max Volt Crash!");
+        MESSAGE("Pikachu used G-Max Volt Crash! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PRZ, opponentLeft);
         STATUS_ICON(opponentLeft, paralysis: TRUE);
-        MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+        MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PRZ, opponentRight);
         STATUS_ICON(opponentRight, paralysis: TRUE);
-        MESSAGE("The opposing Wynaut is paralyzed, so it may be unable to move!");
+        MESSAGE("The opposing Wynaut is paralyzed, so it may be unable to move! ");
     }
 }
 
@@ -1044,26 +1044,26 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Stun Shock paralyzes or poisons both opponent
         TURN { MOVE(playerLeft, MOVE_THUNDERBOLT, target: opponentLeft, gimmick: GIMMICK_DYNAMAX, \
                WITH_RNG(RNG_G_MAX_STUN_SHOCK, rng)); }
     } SCENE {
-        MESSAGE("Toxtricity used G-Max Stun Shock!");
+        MESSAGE("Toxtricity used G-Max Stun Shock! ");
         // opponent left
         ANIMATION(ANIM_TYPE_STATUS, statusAnim, opponentLeft);
         if (statusAnim == B_ANIM_STATUS_PSN) {
             STATUS_ICON(opponentLeft, poison: TRUE);
-            MESSAGE("The opposing Wobbuffet was poisoned!");
+            MESSAGE("The opposing Wobbuffet was poisoned! ");
         }
         else {
             STATUS_ICON(opponentLeft, paralysis: TRUE);
-            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
         }
         // opponent right
         ANIMATION(ANIM_TYPE_STATUS, statusAnim, opponentRight);
         if (statusAnim == B_ANIM_STATUS_PSN) {
             STATUS_ICON(opponentRight, poison: TRUE);
-            MESSAGE("The opposing Wynaut was poisoned!");
+            MESSAGE("The opposing Wynaut was poisoned! ");
         }
         else {
             STATUS_ICON(opponentRight, paralysis: TRUE);
-            MESSAGE("The opposing Wynaut is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Wynaut is paralyzed, so it may be unable to move! ");
         }
     }
 }
@@ -1081,18 +1081,18 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Stun Shock chooses statuses before considerin
         TURN { MOVE(playerLeft, MOVE_NUZZLE, target: opponentLeft, gimmick: GIMMICK_DYNAMAX, \
                WITH_RNG(RNG_G_MAX_STUN_SHOCK, STATUS1_POISON)); }
     } SCENE {
-        MESSAGE("Toxtricity used G-Max Stun Shock!");
+        MESSAGE("Toxtricity used G-Max Stun Shock! ");
         NONE_OF {
             // opponent left
             STATUS_ICON(opponentLeft, poison: TRUE);
-            MESSAGE("The opposing Garbodor was poisoned!");
+            MESSAGE("The opposing Garbodor was poisoned! ");
             STATUS_ICON(opponentLeft, paralysis: TRUE);
-            MESSAGE("The opposing Garbodor is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Garbodor is paralyzed, so it may be unable to move! ");
             // opponent right
             STATUS_ICON(opponentRight, poison: TRUE);
-            MESSAGE("The opposing Trubbish was poisoned!");
+            MESSAGE("The opposing Trubbish was poisoned! ");
             STATUS_ICON(opponentRight, paralysis: TRUE);
-            MESSAGE("The opposing Trubbish is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Trubbish is paralyzed, so it may be unable to move! ");
         }
     }
 }
@@ -1114,34 +1114,34 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Befuddle paralyzes, poisons, or sleeps both o
         TURN { MOVE(playerLeft, MOVE_BUG_BITE, target: opponentLeft, gimmick: GIMMICK_DYNAMAX,
                WITH_RNG(RNG_G_MAX_BEFUDDLE, rng)); }
     } SCENE {
-        MESSAGE("Butterfree used G-Max Befuddle!");
+        MESSAGE("Butterfree used G-Max Befuddle! ");
         // opponent left
         ANIMATION(ANIM_TYPE_STATUS, statusAnim, opponentLeft);
         if (statusAnim == B_ANIM_STATUS_PSN) {
             STATUS_ICON(opponentLeft, poison: TRUE);
-            MESSAGE("The opposing Wobbuffet was poisoned!");
+            MESSAGE("The opposing Wobbuffet was poisoned! ");
         }
         else if (statusAnim == B_ANIM_STATUS_PRZ) {
             STATUS_ICON(opponentLeft, paralysis: TRUE);
-            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
         }
         else {
             STATUS_ICON(opponentLeft, sleep: TRUE);
-            MESSAGE("The opposing Wobbuffet fell asleep!");
+            MESSAGE("The opposing Wobbuffet fell asleep! ");
         }
         // opponent right
         ANIMATION(ANIM_TYPE_STATUS, statusAnim, opponentRight);
         if (statusAnim == B_ANIM_STATUS_PSN) {
             STATUS_ICON(opponentRight, poison: TRUE);
-            MESSAGE("The opposing Wobbuffet was poisoned!");
+            MESSAGE("The opposing Wobbuffet was poisoned! ");
         }
         else if (statusAnim == B_ANIM_STATUS_PRZ) {
             STATUS_ICON(opponentRight, paralysis: TRUE);
-            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+            MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
         }
         else {
             STATUS_ICON(opponentRight, sleep: TRUE);
-            MESSAGE("The opposing Wobbuffet fell asleep!");
+            MESSAGE("The opposing Wobbuffet fell asleep! ");
         }
     }
 }
@@ -1157,12 +1157,12 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Gold Rush confuses both opponents and generat
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Meowth used G-Max Gold Rush!");
+        MESSAGE("Meowth used G-Max Gold Rush! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponentLeft);
-        MESSAGE("The opposing Wobbuffet became confused!");
+        MESSAGE("The opposing Wobbuffet became confused! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponentRight);
-        MESSAGE("The opposing Wobbuffet became confused!");
-        MESSAGE("Coins were scattered everywhere!");
+        MESSAGE("The opposing Wobbuffet became confused! ");
+        MESSAGE("Coins were scattered everywhere! ");
     }
 }
 
@@ -1177,11 +1177,11 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Smite confuses both opponents")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_MOONBLAST, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Hatterene used G-Max Smite!");
+        MESSAGE("Hatterene used G-Max Smite! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponentLeft);
-        MESSAGE("The opposing Wobbuffet became confused!");
+        MESSAGE("The opposing Wobbuffet became confused! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponentRight);
-        MESSAGE("The opposing Wobbuffet became confused!");
+        MESSAGE("The opposing Wobbuffet became confused! ");
     }
 }
 
@@ -1196,12 +1196,12 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Cuddle infatuates both opponents, if possible
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Eevee used G-Max Cuddle!");
+        MESSAGE("Eevee used G-Max Cuddle! ");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_INFATUATION, opponentLeft);
-        MESSAGE("The opposing Wobbuffet fell in love!");
+        MESSAGE("The opposing Wobbuffet fell in love! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_INFATUATION, opponentRight);
-            MESSAGE("The opposing Wobbuffet fell in love!");
+            MESSAGE("The opposing Wobbuffet fell in love! ");
         }
     }
 }
@@ -1217,9 +1217,9 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Terror traps both opponents")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_LICK, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Gengar used G-Max Terror!");
-        MESSAGE("The opposing Wobbuffet can no longer escape!");
-        MESSAGE("The opposing Wobbuffet can no longer escape!");
+        MESSAGE("Gengar used G-Max Terror! ");
+        MESSAGE("The opposing Wobbuffet can no longer escape! ");
+        MESSAGE("The opposing Wobbuffet can no longer escape! ");
     } THEN { // Can't find good way to test trapping
         EXPECT(opponentLeft->status2 & STATUS2_ESCAPE_PREVENTION);
     }
@@ -1263,17 +1263,17 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Meltdown torments both opponents for 3 turns"
                MOVE(opponentRight, MOVE_SPLASH); }
     } SCENE {
         // turn 1
-        MESSAGE("Melmetal used G-Max Meltdown!");
-        MESSAGE("The opposing Wobbuffet was subjected to torment!");
-        MESSAGE("The opposing Wynaut was subjected to torment!");
-        MESSAGE("The opposing Wobbuffet used Splash!");
-        MESSAGE("The opposing Wynaut used Splash!");
+        MESSAGE("Melmetal used G-Max Meltdown! ");
+        MESSAGE("The opposing Wobbuffet was subjected to torment! ");
+        MESSAGE("The opposing Wynaut was subjected to torment! ");
+        MESSAGE("The opposing Wobbuffet used Splash! ");
+        MESSAGE("The opposing Wynaut used Splash! ");
         // turn 2
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wynaut used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wynaut used Celebrate! ");
         // end of turn 3
-        MESSAGE("The opposing Wobbuffet is no longer tormented!");
-        MESSAGE("The opposing Wynaut is no longer tormented!");
+        MESSAGE("The opposing Wobbuffet is no longer tormented! ");
+        MESSAGE("The opposing Wynaut is no longer tormented! ");
     }
 }
 
@@ -1296,28 +1296,28 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Wildfire sets a field effect that damages non
         TURN { }
     } SCENE {
         // turn 1
-        MESSAGE("Charizard used G-Max Wildfire!");
-        MESSAGE("The opposing Pokémon were surrounded by fire!");
-        MESSAGE("The opposing Wobbuffet is burning up within G-Max Wildfire's flames!");
+        MESSAGE("Charizard used G-Max Wildfire! ");
+        MESSAGE("The opposing Pokémon were surrounded by fire! ");
+        MESSAGE("The opposing Wobbuffet is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentLeft, captureDamage: &damage);
-        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames!");
+        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentRight);
         // turn 2
-        MESSAGE("The opposing Wobbuffet is burning up within G-Max Wildfire's flames!");
+        MESSAGE("The opposing Wobbuffet is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames!");
+        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentRight);
         // turn 3
-        NONE_OF { MESSAGE("The opposing Arcanine is burning up within G-Max Wildfire's flames!"); }
-        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames!");
+        NONE_OF { MESSAGE("The opposing Arcanine is burning up within G-Max Wildfire's flames! "); }
+        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentRight);
         // turn 4
-        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames!");
+        MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames! ");
         HP_BAR(opponentRight);
         // turn 5
         NONE_OF {
             HP_BAR(opponentRight);
-            MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames!");
+            MESSAGE("The opposing Wynaut is burning up within G-Max Wildfire's flames! ");
         }
     } THEN {
         EXPECT_EQ(damage, 100);
@@ -1341,14 +1341,14 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Replenish recycles allies' berries 50\% of th
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
         // turn 1
-        MESSAGE("Using Apicot Berry, the Sp. Def of Snorlax rose!");
-        MESSAGE("Using Apicot Berry, the Sp. Def of Munchlax rose!");
-        MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose!");
-        MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose!");
+        MESSAGE("Using Apicot Berry, the Sp. Def of Snorlax rose! ");
+        MESSAGE("Using Apicot Berry, the Sp. Def of Munchlax rose! ");
+        MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose! ");
+        MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose! ");
         // turn 2
-        MESSAGE("Snorlax used G-Max Replenish!");
-        MESSAGE("Snorlax found one Apicot Berry!");
-        MESSAGE("Munchlax found one Apicot Berry!");
+        MESSAGE("Snorlax used G-Max Replenish! ");
+        MESSAGE("Snorlax found one Apicot Berry! ");
+        MESSAGE("Munchlax found one Apicot Berry! ");
     }
 }
 
@@ -1367,11 +1367,11 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Snooze makes only the target drowsy")
         TURN { }
     } SCENE {
         // turn 1
-        MESSAGE("Grimmsnarl used G-Max Snooze!");
-        MESSAGE("The opposing Blissey grew drowsy!");
+        MESSAGE("Grimmsnarl used G-Max Snooze! ");
+        MESSAGE("The opposing Blissey grew drowsy! ");
         // turn 2
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_SLP, opponentLeft);
-        MESSAGE("The opposing Blissey fell asleep!");
+        MESSAGE("The opposing Blissey fell asleep! ");
         STATUS_ICON(opponentLeft, sleep: TRUE);
     }
 }
@@ -1388,7 +1388,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Finale heals allies by 1/6 of their health")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_MOONBLAST, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Alcremie used G-Max Finale!");
+        MESSAGE("Alcremie used G-Max Finale! ");
         HP_BAR(playerLeft, captureDamage: &damage1);
         HP_BAR(playerRight, captureDamage: &damage2);
     } THEN {
@@ -1413,7 +1413,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Sweetness cures allies' status conditions")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_VINE_WHIP, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Appletun used G-Max Sweetness!");
+        MESSAGE("Appletun used G-Max Sweetness! ");
         STATUS_ICON(playerLeft, none: TRUE);
         STATUS_ICON(playerRight, none: TRUE);
     } THEN {
@@ -1437,15 +1437,15 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Centiferno traps both opponents in Fire Spin"
         TURN { SWITCH(playerLeft, 2); }
     } SCENE {
         // turn 1
-        MESSAGE("Centiskorch used G-Max Centiferno!");
-        MESSAGE("The opposing Wobbuffet is hurt by Fire Spin!");
+        MESSAGE("Centiskorch used G-Max Centiferno! ");
+        MESSAGE("The opposing Wobbuffet is hurt by Fire Spin! ");
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wynaut is hurt by Fire Spin!");
+        MESSAGE("The opposing Wynaut is hurt by Fire Spin! ");
         HP_BAR(opponentRight);
         // turn 2 - Fire Spin continues even after Centiskorch switches out
-        MESSAGE("The opposing Wobbuffet is hurt by Fire Spin!");
+        MESSAGE("The opposing Wobbuffet is hurt by Fire Spin! ");
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wynaut is hurt by Fire Spin!");
+        MESSAGE("The opposing Wynaut is hurt by Fire Spin! ");
         HP_BAR(opponentRight);
     }
 }
@@ -1469,15 +1469,15 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Chi Strike boosts allies' crit chance by 1 st
     } SCENE {
         // turn 1 - 3
         for (j = 0; j < 3; ++j) {
-            MESSAGE("Machamp used G-Max Chi Strike!");
+            MESSAGE("Machamp used G-Max Chi Strike! ");
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-            MESSAGE("Machamp is getting pumped!");
+            MESSAGE("Machamp is getting pumped! ");
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-            MESSAGE("Machop is getting pumped!");
+            MESSAGE("Machop is getting pumped! ");
         }
         // turn 4
-        MESSAGE("Machop used Scratch!"); // Machop is at +5 crit stages
-        MESSAGE("A critical hit!");
+        MESSAGE("Machop used Scratch! "); // Machop is at +5 crit stages
+        MESSAGE("A critical hit! ");
     }
 }
 
@@ -1497,9 +1497,9 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Depletion takes away 2 PP from the target's l
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_DRAGON_CLAW, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("The opposing Sableye used Celebrate!");
-        MESSAGE("Duraludon used G-Max Depletion!");
-        MESSAGE("The opposing Sableye's PP was reduced!");
+        MESSAGE("The opposing Sableye used Celebrate! ");
+        MESSAGE("Duraludon used G-Max Depletion! ");
+        MESSAGE("The opposing Sableye's PP was reduced! ");
     } THEN {
         EXPECT_EQ(opponentLeft->pp[0], GetMovePP(MOVE_CELEBRATE) - 3); // 1 from regular use + 2 from G-Max Depletion
     }
@@ -1526,8 +1526,8 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max One Blow bypasses Max Guard for full damage",
                    MOVE(opponentLeft, MOVE_PSYCHIC, target: playerLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
         if (protect)
-            MESSAGE("The opposing Wobbuffet used Max Guard!");
-        MESSAGE("Urshifu used G-Max One Blow!");
+            MESSAGE("The opposing Wobbuffet used Max Guard! ");
+        MESSAGE("Urshifu used G-Max One Blow! ");
         HP_BAR(opponentLeft, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -1561,9 +1561,9 @@ SINGLE_BATTLE_TEST("Dynamax: Max Moves don't execute effects on fainted battlers
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_DYNAMAX_GROWTH, player);
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet fainted!");
-        NOT MESSAGE("The opposing Wobbuffet's Speed fell!");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet fainted! ");
+        NOT MESSAGE("The opposing Wobbuffet's Speed fell! ");
     }
 }
 
@@ -1577,9 +1577,9 @@ SINGLE_BATTLE_TEST("Dynamax: Moxie clones can be triggered by Max Moves fainting
     } WHEN {
         TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_WATERFALL, gimmick: GIMMICK_DYNAMAX); SEND_OUT(opponent, 1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         ABILITY_POPUP(player, ABILITY_MOXIE);
-        MESSAGE("Gyarados's Attack rose!");
+        MESSAGE("Gyarados's Attack rose! ");
     }
 }
 
@@ -1591,8 +1591,8 @@ SINGLE_BATTLE_TEST("Dynamax: Max Attacks prints a message when hitting into Max 
     } WHEN {
         TURN { MOVE(player, MOVE_GROWL, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Wobbuffet used Max Guard!");
-        MESSAGE("The opposing Wobbuffet used Max Strike!");
+        MESSAGE("Wobbuffet used Max Guard! ");
+        MESSAGE("The opposing Wobbuffet used Max Strike! ");
     }
 }
 
@@ -1644,7 +1644,7 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamax is reverted before switch out")
         TURN { SWITCH(player, 0); }
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Scratch!");
+        MESSAGE("Wobbuffet used Scratch! ");
     }
 }
 
@@ -1657,6 +1657,6 @@ SINGLE_BATTLE_TEST("Dynamax: Destiny Bond fails if a dynamaxed battler is presen
     } WHEN {
         TURN { MOVE(opponent, MOVE_DESTINY_BOND); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("The move was blocked by the power of Dynamax!");
+        MESSAGE("The move was blocked by the power of Dynamax! ");
     }
 }

@@ -25,11 +25,11 @@ SINGLE_BATTLE_TEST("Salac Berry raises the holder's Speed by one stage when HP d
         if (move == MOVE_SCRATCH) {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-                MESSAGE("Using Salac Berry, the Speed of Wobbuffet rose!");
+                MESSAGE("Using Salac Berry, the Speed of Wobbuffet rose! ");
             }
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Using Salac Berry, the Speed of Wobbuffet rose!");
+            MESSAGE("Using Salac Berry, the Speed of Wobbuffet rose! ");
         }
     } THEN {
         if (move == MOVE_DRAGON_RAGE)
@@ -47,7 +47,7 @@ SINGLE_BATTLE_TEST("Salac Berry raises Speed by one stage when HP drops to 1/2 o
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_RAGE, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Using Salac Berry, the Speed of Bellsprout rose!");
+        MESSAGE("Using Salac Berry, the Speed of Bellsprout rose! ");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_SPEED], DEFAULT_STAT_STAGE + 1);
     }
@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Salac Berry raises Speed by one stage when HP drops to 1/4 o
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_RAGE, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Using Salac Berry, the Speed of Applin sharply rose!");
+        MESSAGE("Using Salac Berry, the Speed of Applin sharply rose! ");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_SPEED], DEFAULT_STAT_STAGE + 2);
     }
@@ -80,10 +80,10 @@ DOUBLE_BATTLE_TEST("Salac Berry does not miss timing miss timing")
         TURN { MOVE(playerLeft, MOVE_FIRE_PLEDGE, target: opponentRight); MOVE(playerRight, MOVE_GRASS_PLEDGE, target: opponentRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRE_PLEDGE, playerRight);
-        MESSAGE("A sea of fire enveloped the opposing team!");
-        MESSAGE("The opposing Wynaut was hurt by the sea of fire!");
+        MESSAGE("A sea of fire enveloped the opposing team! ");
+        MESSAGE("The opposing Wynaut was hurt by the sea of fire! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Using Salac Berry, the Speed of the opposing Wynaut rose!");
-        MESSAGE("The opposing Wobbuffet was hurt by the sea of fire!");
+        MESSAGE("Using Salac Berry, the Speed of the opposing Wynaut rose! ");
+        MESSAGE("The opposing Wobbuffet was hurt by the sea of fire! ");
     }
 }

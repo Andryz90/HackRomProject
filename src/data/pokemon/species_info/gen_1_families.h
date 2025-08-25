@@ -11934,7 +11934,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             "Gengar's relationships are warped. It\n"
             "tries to take the lives of anyone and\n"
             "everyone. It will even try to curse the\n"
-            "Trainer who is its master!"),
+            "Trainer who is its master! "),
         .pokemonScale = 256,
         .pokemonOffset = 2,
         .trainerScale = 302,
@@ -19962,7 +19962,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             "Psychic power has augmented its muscles.\n"
             "It has a grip strength of one ton and can\n"
             "sprint a hundred meters in two seconds\n"
-            "flat!"),
+            "flat! "),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 309,

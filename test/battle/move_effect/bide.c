@@ -22,10 +22,10 @@ SINGLE_BATTLE_TEST("Bide deals twice the taken damage over two turns")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BIDE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player, captureDamage: &damage1);
-        MESSAGE("Wobbuffet is storing energy!");
+        MESSAGE("Wobbuffet is storing energy! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player, captureDamage: &damage2);
-        MESSAGE("Wobbuffet unleashed its energy!");
+        MESSAGE("Wobbuffet unleashed its energy! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BIDE, player);
         HP_BAR(opponent, captureDamage: &bideDamage);
     } THEN {

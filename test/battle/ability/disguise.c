@@ -37,9 +37,9 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes no damage from a confusion hit and c
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, opponent);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, player);
-        MESSAGE("Mimikyu became confused!");
-        MESSAGE("Mimikyu is confused!");
-        MESSAGE("It hurt itself in its confusion!");
+        MESSAGE("Mimikyu became confused! ");
+        MESSAGE("Mimikyu is confused! ");
+        MESSAGE("It hurt itself in its confusion! ");
         NOT HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_DISGUISE);
     } THEN {
@@ -56,11 +56,11 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu's Air Balloon will pop upon changing to it
     } WHEN {
         TURN { MOVE(opponent, MOVE_AERIAL_ACE); }
     } SCENE {
-        MESSAGE("Mimikyu floats in the air with its Air Balloon!");
+        MESSAGE("Mimikyu floats in the air with its Air Balloon! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AERIAL_ACE, opponent);
         NOT HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_DISGUISE);
-        MESSAGE("Mimikyu's Air Balloon popped!");
+        MESSAGE("Mimikyu's Air Balloon popped! ");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_BUSTED);
     }
@@ -79,7 +79,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from secondary damage without
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, opponent);
         HP_BAR(player);
-        MESSAGE("Pointed stones dug into Mimikyu!");
+        MESSAGE("Pointed stones dug into Mimikyu! ");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
@@ -98,7 +98,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from Rocky Helmet without bre
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         HP_BAR(player);
-        MESSAGE("Mimikyu was hurt by the opposing Wobbuffet's Rocky Helmet!");
+        MESSAGE("Mimikyu was hurt by the opposing Wobbuffet's Rocky Helmet! ");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
@@ -116,7 +116,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from Rough Skin without break
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
         HP_BAR(player);
-        MESSAGE("Mimikyu was hurt by the opposing Carvanha's Rough Skin!");
+        MESSAGE("Mimikyu was hurt by the opposing Carvanha's Rough Skin! ");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
@@ -146,12 +146,12 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu's types revert back to Ghost/Fairy when Di
         TURN { MOVE(opponent, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SHADOW_CLAW); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Soak!");
-        MESSAGE("Mimikyu transformed into the Water type!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("The opposing Wobbuffet used Soak! ");
+        MESSAGE("Mimikyu transformed into the Water type! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         ABILITY_POPUP(player, ABILITY_DISGUISE);
-        MESSAGE("The opposing Wobbuffet used Shadow Claw!");
-        MESSAGE("It's super effective!");
+        MESSAGE("The opposing Wobbuffet used Shadow Claw! ");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -167,7 +167,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu blocks a move after getting Gastro Acid Ba
         TURN { MOVE(opponent, MOVE_SHADOW_CLAW); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GASTRO_ACID, opponent);
-        MESSAGE("Wobbuffet's Ability was suppressed!");
+        MESSAGE("Wobbuffet's Ability was suppressed! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHADOW_CLAW, opponent);
         ABILITY_POPUP(player, ABILITY_DISGUISE);

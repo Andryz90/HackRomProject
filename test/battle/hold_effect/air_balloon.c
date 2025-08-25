@@ -17,8 +17,8 @@ SINGLE_BATTLE_TEST("Air Balloon prevents the holder from taking damage from grou
     } WHEN {
         TURN { MOVE(opponent, MOVE_EARTHQUAKE); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("The opposing Wobbuffet used Earthquake!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("The opposing Wobbuffet used Earthquake! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponent);
         MESSAGE("It doesn't affect Wobbuffet…");
     }
@@ -32,9 +32,9 @@ SINGLE_BATTLE_TEST("Air Balloon pops when the holder is hit by a move that is no
     } WHEN {
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("Wobbuffet's Air Balloon popped!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("Wobbuffet's Air Balloon popped! ");
     }
 }
 
@@ -47,10 +47,10 @@ SINGLE_BATTLE_TEST("Air Balloon no longer prevents the holder from taking damage
         TURN { MOVE(opponent, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_EARTHQUAKE); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("Wobbuffet's Air Balloon popped!");
-        MESSAGE("The opposing Wobbuffet used Earthquake!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("Wobbuffet's Air Balloon popped! ");
+        MESSAGE("The opposing Wobbuffet used Earthquake! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponent);
         NOT MESSAGE("It doesn't affect Wobbuffet…");
     }
@@ -67,11 +67,11 @@ SINGLE_BATTLE_TEST("Air Balloon can not be restored with Recycle after it has be
             MOVE(player, MOVE_RECYCLE);
         }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
-        MESSAGE("Wobbuffet's Air Balloon popped!");
-        MESSAGE("Wobbuffet used Recycle!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
+        MESSAGE("Wobbuffet's Air Balloon popped! ");
+        MESSAGE("Wobbuffet used Recycle! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -83,8 +83,8 @@ SINGLE_BATTLE_TEST("Air Balloon prevents the user from being healed by Grassy Te
     } WHEN {
         TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        NOT MESSAGE("Wobbuffet is healed by the Grassy Terrain!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        NOT MESSAGE("Wobbuffet is healed by the Grassy Terrain! ");
     }
 }
 
@@ -96,8 +96,8 @@ SINGLE_BATTLE_TEST("Air Balloon pops before it can be stolen with Magician")
     } WHEN {
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("Wobbuffet's Air Balloon popped!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("Wobbuffet's Air Balloon popped! ");
         NOT ABILITY_POPUP(opponent, ABILITY_MAGICIAN);
     }
 }
@@ -114,8 +114,8 @@ SINGLE_BATTLE_TEST("Air Balloon pops before it can be stolen with Thief or Covet
     } WHEN {
         TURN { MOVE(opponent, move); }
     } SCENE {
-        MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
-        MESSAGE("Wobbuffet's Air Balloon popped!");
-        NOT MESSAGE("The opposing Wobbuffet stole Wobbuffet's Air Balloon!");
+        MESSAGE("Wobbuffet floats in the air with its Air Balloon! ");
+        MESSAGE("Wobbuffet's Air Balloon popped! ");
+        NOT MESSAGE("The opposing Wobbuffet stole Wobbuffet's Air Balloon! ");
     }
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if ! [ $(id -u) = 0 ]; then
-  echo "Need root privilege to install!"
+  echo "Need root privilege to install! "
   exit 1
 fi
 

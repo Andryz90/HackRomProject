@@ -111,10 +111,10 @@ static const u8 *const sPlayerUnavailableTexts[] = {
 };
 
 ALIGNED(4) static const u8 sText_TrainerAppearsUnavailable[] = _("The other TRAINER appears\nunavailable…\p");
-ALIGNED(4) static const u8 sText_PlayerSentBackOK[] = _("{STR_VAR_1} sent back an “OK”!");
+ALIGNED(4) static const u8 sText_PlayerSentBackOK[] = _("{STR_VAR_1} sent back an “OK”! ");
 ALIGNED(4) static const u8 sText_PlayerOKdRegistration[] = _("{STR_VAR_1} OK'd your registration as\na member.");
 ALIGNED(4) static const u8 sText_PlayerRepliedNo[] = _("{STR_VAR_1} replied, “No…”\p");
-ALIGNED(4) static const u8 sText_AwaitingOtherMembers[] = _("{STR_VAR_1}!\nAwaiting other members!");
+ALIGNED(4) static const u8 sText_AwaitingOtherMembers[] = _("{STR_VAR_1}!\nAwaiting other members! ");
 ALIGNED(4) static const u8 sText_QuitBeingMember[] = _("Quit being a member?");
 ALIGNED(4) static const u8 sText_StoppedBeingMember[] = _("You stopped being a member.\p");
 
@@ -564,10 +564,10 @@ ALIGNED(4) static const u8 sText_ToughContest[] = _("TOUGH CONTEST");
 ALIGNED(4) static const u8 sText_BattleTowerLv50[] = _("BATTLE TOWER LV. 50");
 ALIGNED(4) static const u8 sText_BattleTowerOpenLv[] = _("BATTLE TOWER OPEN LEVEL");
 ALIGNED(4) static const u8 sText_ItsNormalCard[] = _("It's a NORMAL CARD.");
-ALIGNED(4) static const u8 sText_ItsBronzeCard[] = _("It's a BRONZE CARD!");
-ALIGNED(4) static const u8 sText_ItsCopperCard[] = _("It's a COPPER CARD!");
-ALIGNED(4) static const u8 sText_ItsSilverCard[] = _("It's a SILVER CARD!");
-ALIGNED(4) static const u8 sText_ItsGoldCard[] = _("It's a GOLD CARD!");
+ALIGNED(4) static const u8 sText_ItsBronzeCard[] = _("It's a BRONZE CARD! ");
+ALIGNED(4) static const u8 sText_ItsCopperCard[] = _("It's a COPPER CARD! ");
+ALIGNED(4) static const u8 sText_ItsSilverCard[] = _("It's a SILVER CARD! ");
+ALIGNED(4) static const u8 sText_ItsGoldCard[] = _("It's a GOLD CARD! ");
 
 static const u8 *const sCardColorTexts[] = {
     sText_ItsNormalCard,

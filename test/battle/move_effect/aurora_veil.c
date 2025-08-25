@@ -19,9 +19,9 @@ SINGLE_BATTLE_TEST("Aurora Veil can only be used in Hail and Snow")
         TURN { MOVE(opponent, move); MOVE(player, MOVE_AURORA_VEIL); }
     } SCENE {
         if (move == MOVE_CELEBRATE)
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         else
-            NOT MESSAGE("But it failed!");
+            NOT MESSAGE("But it failed! ");
     }
 }
 

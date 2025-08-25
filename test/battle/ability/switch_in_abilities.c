@@ -75,7 +75,7 @@ SINGLE_BATTLE_TEST("Switch-in abilities trigger in Speed Order after post-KO swi
         TURN { MOVE(player, MOVE_EXPLOSION); SEND_OUT(player, 1); SEND_OUT(opponent, 1); }
         TURN { ; }
     } SCENE {
-        MESSAGE("Wobbuffet used Explosion!");
+        MESSAGE("Wobbuffet used Explosion! ");
         if (spdPlayer > spdOpponent) {
             ABILITY_POPUP(player, ABILITY_INTIMIDATE);
             ABILITY_POPUP(opponent, ABILITY_DOWNLOAD);
@@ -107,7 +107,7 @@ DOUBLE_BATTLE_TEST("Switch-in abilities trigger in Speed Order after post-KO swi
         TURN { MOVE(playerLeft, MOVE_EXPLOSION); SEND_OUT(playerLeft, 2); SEND_OUT(opponentLeft, 2); SEND_OUT(playerRight, 3); SEND_OUT(opponentRight, 3); }
         TURN { ; }
     } SCENE {
-        MESSAGE("Wobbuffet used Explosion!");
+        MESSAGE("Wobbuffet used Explosion! ");
         if (spdPlayer1 == 5) {
             ABILITY_POPUP(playerLeft, ABILITY_SAND_STREAM);
             ABILITY_POPUP(playerRight, ABILITY_INTIMIDATE);

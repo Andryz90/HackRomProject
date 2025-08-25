@@ -43,7 +43,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers Water Gun over Bubble if it knows that foe has
                    if (abilityAI == ABILITY_MOLD_BREAKER) { SCORE_EQ(opponent, MOVE_WATER_GUN, MOVE_BUBBLE); }
                    else { SCORE_GT(opponent, MOVE_WATER_GUN, MOVE_BUBBLE); }}
     } SCENE {
-        MESSAGE("Shuckle's Defense fell!"); // Contrary activates
+        MESSAGE("Shuckle's Defense fell! "); // Contrary activates
     } THEN {
         EXPECT(gAiLogicData->abilities[B_POSITION_PLAYER_LEFT] == ABILITY_CONTRARY);
     }
@@ -128,7 +128,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers moves with better accuracy, but only if they b
                 break;
             }
     } SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -168,7 +168,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers moves which deal more damage instead of moves 
                 break;
             }
     } SCENE {
-        MESSAGE("Typhlosion fainted!");
+        MESSAGE("Typhlosion fainted! ");
     }
 }
 
@@ -187,7 +187,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers Earthquake over Drill Run if both require the 
         TURN { EXPECT_MOVE(opponent, MOVE_EARTHQUAKE); SEND_OUT(player, 1); }
     }
     SCENE {
-        MESSAGE("Typhlosion fainted!");
+        MESSAGE("Typhlosion fainted! ");
     }
 }
 
@@ -220,7 +220,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers a weaker move over a one with a downside effec
             break;
         }
     } SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -235,7 +235,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers moves with the best possible score, chosen ran
         TURN { EXPECT_MOVES(opponent, MOVE_THUNDERBOLT, MOVE_SLUDGE_BOMB); SEND_OUT(player, 1); }
     }
     SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -287,7 +287,7 @@ AI_SINGLE_BATTLE_TEST("AI chooses the safest option to faint the target, taking 
              }
     }
     SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -316,7 +316,7 @@ AI_SINGLE_BATTLE_TEST("AI chooses the safest option to faint the target, taking 
              }
     }
     SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -348,7 +348,7 @@ AI_SINGLE_BATTLE_TEST("AI won't use Solar Beam if there is no Sun up or the user
             TURN { EXPECT_MOVE(opponent, MOVE_GRASS_PLEDGE); SEND_OUT(player, 1); }
         }
     } SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -365,7 +365,7 @@ AI_SINGLE_BATTLE_TEST("AI won't use ground type attacks against flying type Poke
         TURN { MOVE(player, MOVE_GRAVITY); NOT_EXPECT_MOVE(opponent, MOVE_EARTHQUAKE); }
         TURN { EXPECT_MOVE(opponent, MOVE_EARTHQUAKE); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Gravity intensified!");
+        MESSAGE("Gravity intensified! ");
     }
 }
 
@@ -420,7 +420,7 @@ AI_SINGLE_BATTLE_TEST("AI will choose either Rock Tomb or Bulldoze if Stat drop 
             TURN { EXPECT_MOVES(opponent, MOVE_BULLDOZE, MOVE_ROCK_TOMB); }
             TURN { EXPECT_MOVES(opponent, MOVE_BULLDOZE, MOVE_ROCK_TOMB); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -485,8 +485,8 @@ AI_SINGLE_BATTLE_TEST("AI will only choose Surf 1/3 times if the opposing mon ha
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
     } SCENE {
-        MESSAGE("The opposing Lanturn used Surf!");
-        MESSAGE("The opposing Lanturn used Surf!");
+        MESSAGE("The opposing Lanturn used Surf! ");
+        MESSAGE("The opposing Lanturn used Surf! ");
     }
 }
 
@@ -502,8 +502,8 @@ AI_SINGLE_BATTLE_TEST("AI will choose Thunderbolt then Surf 2/3 times if the opp
         TURN { EXPECT_MOVE(opponent, MOVE_THUNDERBOLT); }
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
     } SCENE {
-        MESSAGE("The opposing Lanturn used Thunderbolt!");
-        MESSAGE("The opposing Lanturn used Surf!");
+        MESSAGE("The opposing Lanturn used Thunderbolt! ");
+        MESSAGE("The opposing Lanturn used Surf! ");
     }
 }
 
@@ -630,9 +630,9 @@ AI_SINGLE_BATTLE_TEST("AI uses a guaranteed KO move instead of the move with the
             TURN { EXPECT_MOVE(opponent, MOVE_SLASH); }
     } SCENE {
         if (flags & AI_FLAG_TRY_TO_FAINT)
-            MESSAGE("Wobbuffet fainted!");
+            MESSAGE("Wobbuffet fainted! ");
         else
-            NOT MESSAGE("Wobbuffet fainted!");
+            NOT MESSAGE("Wobbuffet fainted! ");
     }
 }
 

@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Critical hits without modifiers occur at different rates by 
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     }
 }
 
@@ -44,6 +44,6 @@ SINGLE_BATTLE_TEST("Crit Chance: Raising critical hit rate to 3 guarantees a cri
         TURN { MOVE(player, MOVE_SLASH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SLASH, player);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     }
 }

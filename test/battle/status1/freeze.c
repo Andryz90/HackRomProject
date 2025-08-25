@@ -23,8 +23,8 @@ SINGLE_BATTLE_TEST("Freeze is thawed by opponent's Fire-type attacks")
     } WHEN {
         TURN { MOVE(opponent, MOVE_EMBER); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Ember!");
-        MESSAGE("Wobbuffet thawed out!");
+        MESSAGE("The opposing Wobbuffet used Ember! ");
+        MESSAGE("Wobbuffet thawed out! ");
         STATUS_ICON(player, none: TRUE);
     }
 }
@@ -38,9 +38,9 @@ SINGLE_BATTLE_TEST("Freeze is thawed by user's Flame Wheel")
     } WHEN {
         TURN { MOVE(player, MOVE_FLAME_WHEEL); }
     } SCENE {
-        MESSAGE("Wobbuffet's Flame Wheel melted the ice!");
+        MESSAGE("Wobbuffet's Flame Wheel melted the ice! ");
         STATUS_ICON(player, none: TRUE);
-        MESSAGE("Wobbuffet used Flame Wheel!");
+        MESSAGE("Wobbuffet used Flame Wheel! ");
     }
 }
 
@@ -55,8 +55,8 @@ SINGLE_BATTLE_TEST("Freeze isn't thawed if opponent is asleep during thawing att
         TURN { MOVE(opponent, MOVE_EMBER); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The opposing Wobbuffet used Ember!");
-            MESSAGE("Wobbuffet thawed out!");
+            MESSAGE("The opposing Wobbuffet used Ember! ");
+            MESSAGE("Wobbuffet thawed out! ");
             STATUS_ICON(player, none: TRUE);
         }
     }
@@ -73,7 +73,7 @@ SINGLE_BATTLE_TEST("Freeze isn't thawed if opponent is asleep during thawing att
     } SCENE {
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_SCALD, opponent);
-            MESSAGE("Wobbuffet thawed out!");
+            MESSAGE("Wobbuffet thawed out! ");
             STATUS_ICON(player, none: TRUE);
         }
     }

@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Upper Hand succeeds if the target is using a priority attack
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_UPPER_HAND, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+        MESSAGE("The opposing Wobbuffet flinched and couldn't move! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EXTREME_SPEED, opponent);
     }
 }
@@ -36,11 +36,11 @@ SINGLE_BATTLE_TEST("Upper Hand fails if the target is using a status move")
         TURN { MOVE(opponent, MOVE_BABY_DOLL_EYES); MOVE(player, MOVE_UPPER_HAND); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_UPPER_HAND, player);
-        MESSAGE("Mienshao used Upper Hand!");
-        MESSAGE("But it failed!");
+        MESSAGE("Mienshao used Upper Hand! ");
+        MESSAGE("But it failed! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BABY_DOLL_EYES, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Mienshao's Attack fell!");
+        MESSAGE("Mienshao's Attack fell! ");
     }
 }
 
@@ -55,8 +55,8 @@ SINGLE_BATTLE_TEST("Upper Hand fails if the target is not using a priority move"
         TURN { MOVE(opponent, MOVE_DRAINING_KISS); MOVE(player, MOVE_UPPER_HAND); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_UPPER_HAND, player);
-        MESSAGE("Mienshao used Upper Hand!");
-        MESSAGE("But it failed!");
+        MESSAGE("Mienshao used Upper Hand! ");
+        MESSAGE("But it failed! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAINING_KISS, opponent);
         HP_BAR(player);
         HP_BAR(opponent);
@@ -75,7 +75,7 @@ SINGLE_BATTLE_TEST("Upper Hand succeeds if the target's move is boosted in prior
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_UPPER_HAND, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Comfey flinched and couldn't move!");
+        MESSAGE("The opposing Comfey flinched and couldn't move! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAINING_KISS, opponent);
     }
 }
@@ -94,8 +94,8 @@ SINGLE_BATTLE_TEST("Upper Hand fails if the target moves first")
         HP_BAR(player);
         HP_BAR(opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_UPPER_HAND, player);
-        MESSAGE("Mienshao used Upper Hand!");
-        MESSAGE("But it failed!");
+        MESSAGE("Mienshao used Upper Hand! ");
+        MESSAGE("But it failed! ");
     }
 }
 

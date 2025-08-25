@@ -46,8 +46,8 @@ SINGLE_BATTLE_TEST("Rototiller fails if there are no valid targets")
         TURN { MOVE(player, MOVE_ROTOTILLER); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
-        MESSAGE("Wobbuffet used Rototiller!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Rototiller! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -64,7 +64,7 @@ SINGLE_BATTLE_TEST("Rototiller doesn't affect pokemon that are semi-invulnerable
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("It won't have any effect on the opposing Tangela!");
+        MESSAGE("It won't have any effect on the opposing Tangela! ");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 1);
         EXPECT_EQ(player->statStages[STAT_SPATK], DEFAULT_STAT_STAGE + 1);
@@ -86,9 +86,9 @@ SINGLE_BATTLE_TEST("Rototiller fails if the only valid target is semi-invulnerab
         TURN { MOVE(opponent, MOVE_DIG); MOVE(player, MOVE_ROTOTILLER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
-        MESSAGE("Wobbuffet used Rototiller!");
+        MESSAGE("Wobbuffet used Rototiller! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(player->statStages[STAT_SPATK], DEFAULT_STAT_STAGE);

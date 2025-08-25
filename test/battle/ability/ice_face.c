@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Ice Face blocks physical moves, changing Eiscue into its Noi
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
     }
 }
 
@@ -46,11 +46,11 @@ SINGLE_BATTLE_TEST("Ice Face is restored if hail or snow begins while Noice Face
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
     }
 }
 
@@ -72,11 +72,11 @@ SINGLE_BATTLE_TEST("Ice Face is restored if Noice Face Eiscue is sent in while h
         TURN { SWITCH(player, 0); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
     }
 }
 
@@ -96,9 +96,9 @@ SINGLE_BATTLE_TEST("Ice Face is not restored if Eiscue changes into Noice Face f
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
-        MESSAGE("Eiscue used Celebrate!");
-        MESSAGE("Eiscue fainted!");
+        MESSAGE("Eiscue transformed! ");
+        MESSAGE("Eiscue used Celebrate! ");
+        MESSAGE("Eiscue fainted! ");
     }
 }
 
@@ -115,8 +115,8 @@ SINGLE_BATTLE_TEST("Ice Face form change persists after switching out")
         TURN { SWITCH(player, 0); MOVE(opponent, MOVE_SCRATCH); SEND_OUT(player, 1); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
-        MESSAGE("Eiscue fainted!");
+        MESSAGE("Eiscue transformed! ");
+        MESSAGE("Eiscue fainted! ");
     }
 }
 
@@ -131,8 +131,8 @@ SINGLE_BATTLE_TEST("Ice Face doesn't transform Eiscue if Cloud Nine/Air Lock is 
         TURN { MOVE(player, MOVE_SNOWSCAPE); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
-        MESSAGE("Eiscue fainted!");
+        MESSAGE("Eiscue transformed! ");
+        MESSAGE("Eiscue fainted! ");
     }
 }
 
@@ -154,14 +154,14 @@ SINGLE_BATTLE_TEST("Ice Face is not restored if hail or snow and Eiscue are alre
         TURN { SWITCH(opponent, 1); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         ABILITY_POPUP(player, ABILITY_ICE_FACE);
-        MESSAGE("Eiscue transformed!");
+        MESSAGE("Eiscue transformed! ");
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_ICE_FACE);
-            MESSAGE("Eiscue transformed!");
+            MESSAGE("Eiscue transformed! ");
         }
     }
 }

@@ -89,6 +89,6 @@ SINGLE_BATTLE_TEST("ignoresTargetAbility allows Pokémon with Battle Armor and S
         TURN { MOVE(player, MOVE_SUNSTEEL_STRIKE, criticalHit: TRUE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUNSTEEL_STRIKE, player);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     }
 }

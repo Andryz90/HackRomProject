@@ -17,13 +17,13 @@ SINGLE_BATTLE_TEST("Battle Message: Send-in message depends on foe HP")
         TURN { SWITCH(player, 1);  }
     } SCENE {
         if (hp > 69)
-            MESSAGE("Go! Wynaut!");
+            MESSAGE("Go! Wynaut! ");
         else if (hp > 39)
-            MESSAGE("You're in charge, Wynaut!");
+            MESSAGE("You're in charge, Wynaut! ");
         else if (hp > 9)
-            MESSAGE("Go for it, Wynaut!");
+            MESSAGE("Go for it, Wynaut! ");
         else
-            MESSAGE("Your opponent's weak! Get 'em, Wynaut!");
+            MESSAGE("Your opponent's weak! Get 'em, Wynaut! ");
     }
 }
 
@@ -37,12 +37,12 @@ TO_DO_BATTLE_TEST("Battle Message: Switch-out message changes based on condition
         TURN { SWITCH(player, 1);  }
     } SCENE {
         if (???)
-            MESSAGE("Wynaut, that's enough! Come back!");
+            MESSAGE("Wynaut, that's enough! Come back! ");
         else if (???)
-            MESSAGE("Wynaut, come back!");
+            MESSAGE("Wynaut, come back! ");
         else if (???)
-            MESSAGE("Wynaut, OK! Come back!");
+            MESSAGE("Wynaut, OK! Come back! ");
         else
-            MESSAGE("Wynaut, good! Come back!");
+            MESSAGE("Wynaut, good! Come back! ");
     }
 }*/

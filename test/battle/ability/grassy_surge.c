@@ -10,6 +10,6 @@ SINGLE_BATTLE_TEST("Grassy Surge creates Grassy Terrain when entering the battle
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_GRASSY_SURGE);
-        MESSAGE("Grass grew to cover the battlefield!");
+        MESSAGE("Grass grew to cover the battlefield! ");
     }
 }

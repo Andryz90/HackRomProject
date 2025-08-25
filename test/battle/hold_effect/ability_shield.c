@@ -20,14 +20,14 @@ SINGLE_BATTLE_TEST("Ability Shield prevents Neutralizing Gas")
         TURN { }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Neutralizing gas filled the area!");
+        MESSAGE("Neutralizing gas filled the area! ");
         if (item == ITEM_ABILITY_SHIELD) {
             ABILITY_POPUP(player, ABILITY_DROUGHT);
-            MESSAGE("Torkoal's Drought intensified the sun's rays!");
+            MESSAGE("Torkoal's Drought intensified the sun's rays! ");
         } else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_DROUGHT);
-                MESSAGE("Torkoal's Drought intensified the sun's rays!");
+                MESSAGE("Torkoal's Drought intensified the sun's rays! ");
             }
         }
     }
@@ -48,10 +48,10 @@ SINGLE_BATTLE_TEST("Ability Shield protects against Mold Breaker")
     } SCENE {
         if (item == ITEM_ABILITY_SHIELD) {
             NONE_OF {
-                MESSAGE("Shedinja fainted!");
+                MESSAGE("Shedinja fainted! ");
             }
         } else {
-            MESSAGE("Shedinja fainted!");
+            MESSAGE("Shedinja fainted! ");
         }
     }
 }
@@ -97,10 +97,10 @@ SINGLE_BATTLE_TEST("Ability Shield protects against Sunsteel Strike")
     } SCENE {
         if (item == ITEM_ABILITY_SHIELD) {
             NONE_OF {
-                MESSAGE("Shedinja fainted!");
+                MESSAGE("Shedinja fainted! ");
             }
         } else {
-            MESSAGE("Shedinja fainted!");
+            MESSAGE("Shedinja fainted! ");
         }
     }
 }

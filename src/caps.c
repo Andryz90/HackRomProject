@@ -19,7 +19,6 @@ u32 GetCurrentLevelCap(void)
         {FLAG_RIVAL_110,        30},
         {FLAG_BADGE03_GET,      34},
         {FLAG_HIDE_METEOR_FALLS_TEAM_AQUA, 38}, //Non Boss Level Cap Flag
-        //TODO Level 42ish for MT Chitney
         {FLAG_BADGE04_GET,      45},
         //TODO Level 50ish Desert for Regirock
         {FLAG_BADGE05_GET,      60},

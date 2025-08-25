@@ -34,7 +34,7 @@ SINGLE_BATTLE_TEST("Tar Shot doubles the effectiveness of Fire-type moves used o
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
         HP_BAR(opponent, captureDamage: &damage[1]);
         if (species != SPECIES_OMASTAR)
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
         else
             MESSAGE("It's not very effective…");
     } THEN {
@@ -58,7 +58,7 @@ SINGLE_BATTLE_TEST("Tar Shot does not affect Pokemon that are Terastallized")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TAR_SHOT, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
         HP_BAR(player, captureDamage: &damage[1]);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     } THEN {
         EXPECT_EQ(damage[0], damage[1]);
     }
@@ -80,7 +80,7 @@ SINGLE_BATTLE_TEST("Tar Shot does affect Pokemon that Terastallized after Tar Sh
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TAR_SHOT, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
         HP_BAR(player, captureDamage: &damage[1]);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     } THEN {
         EXPECT_MUL_EQ(damage[0], Q_4_12(2.0), damage[1]);
     }

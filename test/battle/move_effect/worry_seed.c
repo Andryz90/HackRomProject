@@ -69,6 +69,6 @@ SINGLE_BATTLE_TEST("Worry Seed fails if target has an ability that can't be over
         TURN { MOVE(player, MOVE_WORRY_SEED); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_WORRY_SEED, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }

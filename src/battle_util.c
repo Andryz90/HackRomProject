@@ -11797,7 +11797,9 @@ typedef enum Trainer_DynamicLevel_t
     LAWRENCE_CAMPER_R113    = 1u,  //Double battle + Back to Back
     WYATT_MANIAC_R113       = 2u,  //Double battle + Back to Back
     KAI_R114                = 3u,  //Double battle R114
-    CHARLOTTE_RR14          = 4u,  //Double battle R114
+    CHARLOTTE_R114          = 4u,  //Double battle R114
+    EDWIN_R110              = 5u,  //Double battle R110
+    JOSEPH_R110             = 6u,  //Double battle R110
 
 
     MAX_TRAINER_DYNAMIC_LEVEL
@@ -11810,7 +11812,9 @@ static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][T
     [LAWRENCE_CAMPER_R113]  = _("LAWRENCE"),
     [WYATT_MANIAC_R113]     =  _("WYATT"),
     [KAI_R114]              = _("KAI"),
-    [CHARLOTTE_RR14]        = _("CHARLOTTE"),
+    [CHARLOTTE_R114]        = _("CHARLOTTE"),
+    [EDWIN_R110]            =_("EDWIN"),
+    [JOSEPH_R110]           =_("JOSEPH"),
 
 };
 
@@ -11831,8 +11835,13 @@ bool8 SetTrainerLevelIfDynamic (const struct Trainer *trainer, u8* MonLevel)
                 if (species != SPECIES_NONE && species != SPECIES_EGG)
                 {
                     u8 LocalLevel = GetMonData(&gPlayerParty[j], MON_DATA_LEVEL);
-
-                    if (LocalLevel > MaxLevel)
+                    
+                    if (LocalLevel == 100)
+                    {
+                        MaxLevel = 100;
+                        break;
+                    }
+                    else if (LocalLevel > MaxLevel)
                     {
                         MaxLevel = LocalLevel;
                     }

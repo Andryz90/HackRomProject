@@ -11,7 +11,7 @@ DOUBLE_BATTLE_TEST("Aromatic Mist raises Sp. Defense of a target ally by 1 stage
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_AROMATIC_MIST); }
     } SCENE {
-        MESSAGE("Weezing used Aromatic Mist!");
+        MESSAGE("Weezing used Aromatic Mist! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_SPDEF], DEFAULT_STAT_STAGE);
@@ -29,8 +29,8 @@ SINGLE_BATTLE_TEST("Aromatic Mist fails in Single Battles")
     } WHEN {
         TURN { MOVE(player, MOVE_AROMATIC_MIST); }
     } SCENE {
-        MESSAGE("Weezing used Aromatic Mist!");
-        MESSAGE("But it failed!");
+        MESSAGE("Weezing used Aromatic Mist! ");
+        MESSAGE("But it failed! ");
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
     } THEN {
         EXPECT_EQ(player->statStages[STAT_SPDEF], DEFAULT_STAT_STAGE);

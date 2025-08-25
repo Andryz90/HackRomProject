@@ -14,9 +14,9 @@ SINGLE_BATTLE_TEST("Metronome picks a random move")
     } WHEN {
         TURN { MOVE(player, MOVE_METRONOME, WITH_RNG(RNG_METRONOME, MOVE_SCRATCH)); }
     } SCENE {
-        MESSAGE("Wobbuffet used Metronome!");
+        MESSAGE("Wobbuffet used Metronome! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_METRONOME, player);
-        MESSAGE("Waggling a finger let it use Scratch!");
+        MESSAGE("Waggling a finger let it use Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         HP_BAR(opponent);
     }
@@ -34,9 +34,9 @@ SINGLE_BATTLE_TEST("Metronome's called powder move fails against Grass Types")
     } WHEN {
         TURN { MOVE(player, MOVE_METRONOME, WITH_RNG(RNG_METRONOME, MOVE_POISON_POWDER)); }
     } SCENE {
-        MESSAGE("Wobbuffet used Metronome!");
+        MESSAGE("Wobbuffet used Metronome! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_METRONOME, player);
-        MESSAGE("Waggling a finger let it use Poison Powder!");
+        MESSAGE("Waggling a finger let it use Poison Powder! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_POISON_POWDER, player);
         MESSAGE("It doesn't affect the opposing Tangela…");
         NOT STATUS_ICON(opponent, poison: TRUE);
@@ -52,11 +52,11 @@ SINGLE_BATTLE_TEST("Metronome's called multi-hit move hits multiple times")
     } WHEN {
         TURN { MOVE(player, MOVE_METRONOME, WITH_RNG(RNG_METRONOME, MOVE_ROCK_BLAST)); }
     } SCENE {
-        MESSAGE("Wobbuffet used Metronome!");
+        MESSAGE("Wobbuffet used Metronome! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_METRONOME, player);
-        MESSAGE("Waggling a finger let it use Rock Blast!");
+        MESSAGE("Waggling a finger let it use Rock Blast! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROCK_BLAST, player);
         HP_BAR(opponent);
-        MESSAGE("The Pokémon was hit 5 time(s)!");
+        MESSAGE("The Pokémon was hit 5 time(s)! ");
     }
 }

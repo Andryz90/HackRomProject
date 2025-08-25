@@ -10,6 +10,6 @@ SINGLE_BATTLE_TEST("Psychic Surge creates Psychic Terrain when entering the batt
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_PSYCHIC_SURGE);
-        MESSAGE("The battlefield got weird!");
+        MESSAGE("The battlefield got weird! ");
     }
 }

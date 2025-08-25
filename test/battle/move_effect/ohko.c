@@ -46,7 +46,7 @@ SINGLE_BATTLE_TEST("OHKO moves can can be endured by Focus Sash")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("The opposing Wobbuffet hung on using its Focus Sash!");
+        MESSAGE("The opposing Wobbuffet hung on using its Focus Sash! ");
     }
 }
 
@@ -60,7 +60,7 @@ SINGLE_BATTLE_TEST("OHKO moves can can be endured by Sturdy")
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
         ABILITY_POPUP(opponent, ABILITY_STURDY);
-        MESSAGE("The opposing Geodude was protected by Sturdy!");
+        MESSAGE("The opposing Geodude was protected by Sturdy! ");
     }
 }
 

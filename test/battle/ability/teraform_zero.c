@@ -46,11 +46,11 @@ SINGLE_BATTLE_TEST("Teraform Zero can be replaced")
     } WHEN {
         TURN { MOVE(opponent, MOVE_WORRY_SEED); MOVE(player, MOVE_REST, gimmick: GIMMICK_TERA); }
     } SCENE {
-        MESSAGE("The opposing Whimsicott used Worry Seed!");
-        MESSAGE("Terapagos acquired Insomnia!");
-        MESSAGE("Terapagos used Rest!");
+        MESSAGE("The opposing Whimsicott used Worry Seed! ");
+        MESSAGE("Terapagos acquired Insomnia! ");
+        MESSAGE("Terapagos used Rest! ");
         ABILITY_POPUP(player, ABILITY_INSOMNIA);
-        MESSAGE("Terapagos stayed awake using its Insomnia!");
+        MESSAGE("Terapagos stayed awake using its Insomnia! ");
     }
 }
 
@@ -63,8 +63,8 @@ SINGLE_BATTLE_TEST("Teraform Zero cannot be swapped")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_SKILL_SWAP); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Skill Swap!");
-        MESSAGE("But it failed!");
+        MESSAGE("The opposing Wobbuffet used Skill Swap! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -77,8 +77,8 @@ SINGLE_BATTLE_TEST("Teraform Zero cannot be copied")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_ROLE_PLAY); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Role Play!");
-        MESSAGE("But it failed!");
+        MESSAGE("The opposing Wobbuffet used Role Play! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -93,9 +93,9 @@ DOUBLE_BATTLE_TEST("Teraform Zero shouldn't cause Neutralizing Gas to show it's 
     } WHEN {
         TURN {  SWITCH(playerRight, 2); MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
     } SCENE {
-        MESSAGE("Terapagos is storing energy!");
-        MESSAGE("Terapagos terastallized into the Stellar type!");
+        MESSAGE("Terapagos is storing energy! ");
+        MESSAGE("Terapagos terastallized into the Stellar type! ");
         NOT ABILITY_POPUP(playerRight, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Terapagos used Celebrate!");
+        MESSAGE("Terapagos used Celebrate! ");
     }
 }

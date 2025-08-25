@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Absorb fails if Heal Block applies")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEAL_BLOCK); MOVE(player, MOVE_ABSORB); }
     } SCENE {
-        MESSAGE("Wobbuffet was prevented from healing!");
+        MESSAGE("Wobbuffet was prevented from healing! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
             HP_BAR(opponent);
@@ -98,7 +98,7 @@ SINGLE_BATTLE_TEST("Absorb does not drain any HP if user flinched")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
-            MESSAGE("The opposing Wobbuffet had its energy drained!");
+            MESSAGE("The opposing Wobbuffet had its energy drained! ");
         }
     }
 }

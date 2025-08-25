@@ -42541,7 +42541,7 @@
       },
       {
         "Level": 38,
-        "Move": "MOVE_AGILITY"
+        "Move": "MOVE_LEECH_LIFE"
       },
       {
         "Level": 44,
@@ -42594,6 +42594,10 @@
   },
   "SCOLIPEDE": {
     "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_LEECH_LIFE"
+      },
       {
         "Level": 1,
         "Move": "MOVE_IRON_DEFENSE"

@@ -50,12 +50,12 @@ SINGLE_BATTLE_TEST("Normalize affects status moves")
         if (ability == ABILITY_CUTE_CHARM)
         {
             NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_THUNDER_WAVE, opponent); }
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
         else
         {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_THUNDER_WAVE, opponent);
-            NOT { MESSAGE("But it failed!"); }
+            NOT { MESSAGE("But it failed! "); }
         }
     }
 }
@@ -74,7 +74,7 @@ SINGLE_BATTLE_TEST("Normalize still makes Freeze-Dry do super effective damage t
     } WHEN {
         TURN { MOVE(opponent, MOVE_FREEZE_DRY); }
     } SCENE {
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(1.8), results[1].damage); // STAB + Ate
     }
@@ -197,7 +197,7 @@ SINGLE_BATTLE_TEST("Normalize doesn't affect Weather Ball's type", s16 damage)
     } SCENE {
         HP_BAR(opponent, captureDamage: &results[i].damage);
         if (move == MOVE_SUNNY_DAY)
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(4.0), results[1].damage); // double base power + type effectiveness + sun 50% boost - STAB
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(4.0), results[3].damage);

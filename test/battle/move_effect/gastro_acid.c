@@ -36,7 +36,7 @@ SINGLE_BATTLE_TEST("Gastro Acid fails if target has a banned ability")
         TURN { MOVE(player, MOVE_GASTRO_ACID); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_GASTRO_ACID, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 

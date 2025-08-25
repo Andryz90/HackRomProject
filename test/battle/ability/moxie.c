@@ -18,17 +18,17 @@ DOUBLE_BATTLE_TEST("Moxie/Chilling Neigh raises Attack by one stage after direct
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); SEND_OUT(opponentLeft, 2);  }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
-        MESSAGE("The opposing Glalie fainted!");
-        MESSAGE("Snorunt fainted!");
-        MESSAGE("The opposing Abra fainted!");
+        MESSAGE("The opposing Glalie fainted! ");
+        MESSAGE("Snorunt fainted! ");
+        MESSAGE("The opposing Abra fainted! ");
         ABILITY_POPUP(playerLeft, abilityPopUp);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         if (species == SPECIES_SALAMENCE)
-            MESSAGE("Salamence's Attack drastically rose!");
+            MESSAGE("Salamence's Attack drastically rose! ");
         else if (species == SPECIES_GLASTRIER)
-            MESSAGE("Glastrier's Attack drastically rose!");
+            MESSAGE("Glastrier's Attack drastically rose! ");
         else
-            MESSAGE("Calyrex's Attack drastically rose!");
+            MESSAGE("Calyrex's Attack drastically rose! ");
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 3);
     }
@@ -54,16 +54,16 @@ DOUBLE_BATTLE_TEST("Moxie/Chilling Neigh does not trigger if Pokemon faint to in
         ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, playerRight);
         for (i = 0; i < 3; i++) {
             ONE_OF {
-                MESSAGE("Snorunt fainted!");
-                MESSAGE("The opposing Glalie fainted!");
-                MESSAGE("The opposing Abra fainted!");
+                MESSAGE("Snorunt fainted! ");
+                MESSAGE("The opposing Glalie fainted! ");
+                MESSAGE("The opposing Abra fainted! ");
             }
             NONE_OF {
                 ABILITY_POPUP(playerLeft, abilityPopUp);
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-                MESSAGE("Salamence's Moxie raised its Attack!");
-                MESSAGE("Glastrier's Chilling Neigh raised its Attack!");
-                MESSAGE("Calyrex's Chilling Neigh raised its Attack!");
+                MESSAGE("Salamence's Moxie raised its Attack! ");
+                MESSAGE("Glastrier's Chilling Neigh raised its Attack! ");
+                MESSAGE("Calyrex's Chilling Neigh raised its Attack! ");
             }
         }
     } THEN {
@@ -89,19 +89,19 @@ SINGLE_BATTLE_TEST("Moxie/Chilling Neigh does not trigger when already at maximu
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BELLY_DRUM, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         if (species == SPECIES_SALAMENCE)
-            MESSAGE("Salamence cut its own HP and maximized its Attack!");
+            MESSAGE("Salamence cut its own HP and maximized its Attack! ");
         else if (species == SPECIES_GLASTRIER)
-            MESSAGE("Glastrier cut its own HP and maximized its Attack!");
+            MESSAGE("Glastrier cut its own HP and maximized its Attack! ");
         else
-            MESSAGE("Calyrex cut its own HP and maximized its Attack!");
+            MESSAGE("Calyrex cut its own HP and maximized its Attack! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player);
-        MESSAGE("The opposing Snorunt fainted!");
+        MESSAGE("The opposing Snorunt fainted! ");
         NONE_OF {
             ABILITY_POPUP(player, abilityPopUp);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-            MESSAGE("Salamence's Moxie raised its Attack!");
-            MESSAGE("Glastrier's Chilling Neigh raised its Attack!");
-            MESSAGE("Calyrex's Chilling Neigh raised its Attack!");
+            MESSAGE("Salamence's Moxie raised its Attack! ");
+            MESSAGE("Glastrier's Chilling Neigh raised its Attack! ");
+            MESSAGE("Calyrex's Chilling Neigh raised its Attack! ");
         }
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], MAX_STAT_STAGE);
@@ -130,15 +130,15 @@ DOUBLE_BATTLE_TEST("Moxie/Chilling Neigh does not increase damage done by the sa
         HP_BAR(opponentLeft, captureDamage: &damage[0]);
         HP_BAR(playerRight);
         HP_BAR(opponentRight, captureDamage: &damage[1]);
-        MESSAGE("Abra fainted!");
+        MESSAGE("Abra fainted! ");
         ABILITY_POPUP(playerLeft, abilityPopUp);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         if (species == SPECIES_SALAMENCE)
-            MESSAGE("Salamence's Attack rose!");
+            MESSAGE("Salamence's Attack rose! ");
         else if (species == SPECIES_GLASTRIER)
-            MESSAGE("Glastrier's Attack rose!");
+            MESSAGE("Glastrier's Attack rose! ");
         else
-            MESSAGE("Calyrex's Attack rose!");
+            MESSAGE("Calyrex's Attack rose! ");
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 1);
         EXPECT_EQ(damage[0], damage[1]);

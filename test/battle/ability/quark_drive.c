@@ -17,8 +17,8 @@ SINGLE_BATTLE_TEST("Quark Drive boosts the highest stat")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
         ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
-        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive!");
-        MESSAGE("Iron Moth's Sp. Atk was heightened!");
+        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive! ");
+        MESSAGE("Iron Moth's Sp. Atk was heightened! ");
     }
 }
 
@@ -69,19 +69,19 @@ SINGLE_BATTLE_TEST("Quark Drive ability pop up activates only once during the du
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
         ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
-        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive!");
-        MESSAGE("Iron Moth's Sp. Atk was heightened!");
+        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive! ");
+        MESSAGE("Iron Moth's Sp. Atk was heightened! ");
         NONE_OF {
             for (turns = 0; turns < 4; turns++) {
                 ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
-                MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive!");
-                MESSAGE("Iron Moth's Sp. Atk was heightened!");
+                MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive! ");
+                MESSAGE("Iron Moth's Sp. Atk was heightened! ");
             }
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
         ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
-        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive!");
-        MESSAGE("Iron Moth's Sp. Atk was heightened!");
+        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive! ");
+        MESSAGE("Iron Moth's Sp. Atk was heightened! ");
     }
 }
 
@@ -96,8 +96,8 @@ SINGLE_BATTLE_TEST("Quark Drive activates on switch-in")
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_ELECTRIC_SURGE);
         ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
-        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive!");
-        MESSAGE("Iron Moth's Sp. Atk was heightened!");
+        MESSAGE("The Electric Terrain activated Iron Moth's Quark Drive! ");
+        MESSAGE("Iron Moth's Sp. Atk was heightened! ");
     }
 }
 
@@ -133,16 +133,16 @@ SINGLE_BATTLE_TEST("Quark Drive prioritizes stats in the case of a tie in the fo
         ABILITY_POPUP(player, ABILITY_QUARK_DRIVE);
         switch(i) {
             case 0:
-                MESSAGE("Iron Treads's Attack was heightened!");
+                MESSAGE("Iron Treads's Attack was heightened! ");
                 break;
             case 1:
-                MESSAGE("Iron Treads's Defense was heightened!");
+                MESSAGE("Iron Treads's Defense was heightened! ");
                 break;
             case 2:
-                MESSAGE("Iron Treads's Sp. Atk was heightened!");
+                MESSAGE("Iron Treads's Sp. Atk was heightened! ");
                 break;
             case 3:
-                MESSAGE("Iron Treads's Sp. Def was heightened!");
+                MESSAGE("Iron Treads's Sp. Def was heightened! ");
                 break;
         }
     }

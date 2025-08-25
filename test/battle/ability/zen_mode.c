@@ -19,8 +19,8 @@ SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is half or less 
     } WHEN {
             TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Darmanitan used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("Darmanitan used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Scratch! ");
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_ZEN_MODE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
@@ -50,8 +50,8 @@ SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is half or less 
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ZEN_MODE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
-        MESSAGE("Darmanitan used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Darmanitan used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
     } THEN {
         EXPECT_LE(player->hp, player->maxHP / 2);
         EXPECT_EQ(player->species, zenSpecies);
@@ -78,8 +78,8 @@ SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is healed above 
     } SCENE {
         ABILITY_POPUP(player, ABILITY_ZEN_MODE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
-        MESSAGE("Darmanitan used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Heal Pulse!");
+        MESSAGE("Darmanitan used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Heal Pulse! ");
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_ZEN_MODE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);

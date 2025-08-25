@@ -174,7 +174,7 @@ void read_aif(struct Bytes *aif, AifData *aif_data)
 	pos += 4;
 	if (strcmp(chunk_type, "AIFF") != 0)
 	{
-		FATAL_ERROR("FORM Type is '%s', but it must be AIFF!", chunk_type);
+		FATAL_ERROR("FORM Type is '%s', but it must be AIFF! ", chunk_type);
 	}
 
 	struct Marker *markers = NULL;

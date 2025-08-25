@@ -22,11 +22,11 @@ SINGLE_BATTLE_TEST("Rapin Spin blows away Wrap, hazards and raises Speed (Gen 8+
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAPID_SPIN, player);
-        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap!");
-        MESSAGE("Wobbuffet blew away Stealth Rock!");
+        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap! ");
+        MESSAGE("Wobbuffet blew away Stealth Rock! ");
     #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Wobbuffet's Speed rose!");
+        MESSAGE("Wobbuffet's Speed rose! ");
     #endif
     }
 }
@@ -42,9 +42,9 @@ SINGLE_BATTLE_TEST("Mortal Spin blows away Wrap, hazards and poisons foe")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MORTAL_SPIN, player);
-        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap!");
-        MESSAGE("Wobbuffet blew away Stealth Rock!");
-        MESSAGE("The opposing Wobbuffet was poisoned!");
+        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap! ");
+        MESSAGE("Wobbuffet blew away Stealth Rock! ");
+        MESSAGE("The opposing Wobbuffet was poisoned! ");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }

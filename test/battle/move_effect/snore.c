@@ -20,11 +20,11 @@ SINGLE_BATTLE_TEST("Snore fails if not asleep")
     } SCENE {
         if (status == STATUS1_SLEEP) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_SNORE, player);
-            NOT MESSAGE("But it failed!");
+            NOT MESSAGE("But it failed! ");
         }
         else {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SNORE, player);
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
     }
 }
@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Snore works if user has Comatose")
         TURN { MOVE(player, MOVE_SNORE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNORE, player);
-        NOT MESSAGE("But it failed!");
+        NOT MESSAGE("But it failed! ");
     }
 }
 

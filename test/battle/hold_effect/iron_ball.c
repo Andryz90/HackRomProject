@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Ground-type moves do neutral damage to non-grounded Flying t
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
         NONE_OF {
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
         }
     }
 }

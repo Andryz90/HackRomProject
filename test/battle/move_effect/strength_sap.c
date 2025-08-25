@@ -19,12 +19,12 @@ SINGLE_BATTLE_TEST("Strength Sap lowers Attack by 1 and restores HP based on tar
     } WHEN {
         TURN { MOVE(player, MOVE_STRENGTH_SAP); }
     } SCENE {
-        MESSAGE("Wobbuffet used Strength Sap!");
+        MESSAGE("Wobbuffet used Strength Sap! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack fell!");
+        MESSAGE("The opposing Wobbuffet's Attack fell! ");
         HP_BAR(player, captureDamage: &results[i].hp);
-        MESSAGE("The opposing Wobbuffet had its energy drained!");
+        MESSAGE("The opposing Wobbuffet had its energy drained! ");
     } THEN {
         EXPECT_EQ(results[i].hp * -1, atkStat);
     }
@@ -46,13 +46,13 @@ SINGLE_BATTLE_TEST("Strength Sap works exactly the same when attacker is behind 
         TURN { MOVE(player, MOVE_STRENGTH_SAP); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        MESSAGE("Wobbuffet used Strength Sap!");
+        MESSAGE("Wobbuffet used Strength Sap! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack fell!");
+        MESSAGE("The opposing Wobbuffet's Attack fell! ");
         HP_BAR(player, captureDamage: &results[i].hp);
-        NOT MESSAGE("The substitute took damage for the opposing Wobbuffet!");
-        MESSAGE("The opposing Wobbuffet had its energy drained!");
+        NOT MESSAGE("The substitute took damage for the opposing Wobbuffet! ");
+        MESSAGE("The opposing Wobbuffet had its energy drained! ");
     } THEN {
         EXPECT_EQ(results[i].hp * -1, atkStat);
     }
@@ -94,12 +94,12 @@ SINGLE_BATTLE_TEST("Strength Sap lowers Attack by 1 and restores HP based on tar
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
             }
         }
-        MESSAGE("Wobbuffet used Strength Sap!");
+        MESSAGE("Wobbuffet used Strength Sap! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack fell!");
+        MESSAGE("The opposing Wobbuffet's Attack fell! ");
         HP_BAR(player, captureDamage: &results[i].hp);
-        MESSAGE("The opposing Wobbuffet had its energy drained!");
+        MESSAGE("The opposing Wobbuffet had its energy drained! ");
     } THEN {
         if (statStage < DEFAULT_STAT_STAGE) {
             EXPECT_EQ(results[i].hp * -1, (60 * gStatStageRatios[statStage + 1][0] / gStatStageRatios[statStage + 1][1]));
@@ -129,15 +129,15 @@ SINGLE_BATTLE_TEST("Strength Sap fails if target is at -6 Atk")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
-        MESSAGE("Wobbuffet used Strength Sap!");
+        MESSAGE("Wobbuffet used Strength Sap! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Wobbuffet's Attack fell!");
+            MESSAGE("The opposing Wobbuffet's Attack fell! ");
             HP_BAR(player);
-            MESSAGE("The opposing Wobbuffet had its energy drained!");
+            MESSAGE("The opposing Wobbuffet had its energy drained! ");
         }
-        MESSAGE("The opposing Wobbuffet's Attack won't go any lower!");
+        MESSAGE("The opposing Wobbuffet's Attack won't go any lower! ");
     }
 }
 
@@ -155,12 +155,12 @@ SINGLE_BATTLE_TEST("Strength Sap restores more HP if Big Root is held", s16 hp)
     } WHEN {
         TURN { MOVE(player, MOVE_STRENGTH_SAP); }
     } SCENE {
-        MESSAGE("Wobbuffet used Strength Sap!");
+        MESSAGE("Wobbuffet used Strength Sap! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack fell!");
+        MESSAGE("The opposing Wobbuffet's Attack fell! ");
         HP_BAR(player, captureDamage: &results[i].hp);
-        MESSAGE("The opposing Wobbuffet had its energy drained!");
+        MESSAGE("The opposing Wobbuffet had its energy drained! ");
     } FINALLY {
         EXPECT_GT(abs(results[1].hp), abs(results[0].hp));
     }

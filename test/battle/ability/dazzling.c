@@ -25,7 +25,7 @@ DOUBLE_BATTLE_TEST("Dazzling, Queenly Majesty and Armor Tail protect the user fr
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, opponentRight);
         ABILITY_POPUP(opponentLeft, ability);
-        MESSAGE("Wobbuffet cannot use Quick Attack!");
+        MESSAGE("Wobbuffet cannot use Quick Attack! ");
     }
 }
 
@@ -47,7 +47,7 @@ DOUBLE_BATTLE_TEST("Dazzling, Queenly Majesty and Armor Tail protect users partn
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, opponentRight);
         ABILITY_POPUP(opponentLeft, ability);
-        MESSAGE("Wobbuffet cannot use Quick Attack!");
+        MESSAGE("Wobbuffet cannot use Quick Attack! ");
     }
 }
 

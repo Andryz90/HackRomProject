@@ -19,20 +19,20 @@ SINGLE_BATTLE_TEST("Tailwind applies for 4 turns")
         TURN {}
         TURN {}
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("Wobbuffet used Tailwind!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("Wobbuffet used Tailwind! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("Wobbuffet used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("Wobbuffet used Celebrate! ");
     }
 }
 
@@ -47,9 +47,9 @@ DOUBLE_BATTLE_TEST("Tailwind affects partner on first turn")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_TAILWIND); }
     } SCENE {
-        MESSAGE("Wobbuffet used Tailwind!");
-        MESSAGE("Wynaut used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wynaut used Celebrate!");
+        MESSAGE("Wobbuffet used Tailwind! ");
+        MESSAGE("Wynaut used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wynaut used Celebrate! ");
     }
 }

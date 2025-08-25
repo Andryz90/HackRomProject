@@ -18,7 +18,7 @@ char *ReadFileToBuffer(const char *filename, bool isStdin, long *size)
     *size = 0;
     char *buffer = (char *)malloc(CHUNK_SIZE + 1);
     if (buffer == NULL) {
-        FATAL_ERROR("Failed to allocate memory to process file \"%s\"!", filename);
+        FATAL_ERROR("Failed to allocate memory to process file \"%s\"! ", filename);
     }
 
     std::size_t numAllocatedBytes = CHUNK_SIZE + 1;
@@ -37,7 +37,7 @@ char *ReadFileToBuffer(const char *filename, bool isStdin, long *size)
             bufferOffset += CHUNK_SIZE;
             buffer = (char *)realloc(buffer, numAllocatedBytes);
             if (buffer == NULL) {
-                FATAL_ERROR("Failed to allocate memory to process file \"%s\"!", filename);
+                FATAL_ERROR("Failed to allocate memory to process file \"%s\"! ", filename);
             }
         } else {
             FATAL_ERROR("Failed to read \"%s\". (error: %s)", filename, std::strerror(errno));

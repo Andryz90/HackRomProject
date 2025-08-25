@@ -10,10 +10,10 @@ SINGLE_BATTLE_TEST("Psychic Terrain protects grounded battlers from priority mov
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_QUICK_ATTACK); MOVE(opponent, MOVE_QUICK_ATTACK); }
     } SCENE {
-        MESSAGE("Claydol used Psychic Terrain!");
-        MESSAGE("Claydol cannot use Quick Attack!");
+        MESSAGE("Claydol used Psychic Terrain! ");
+        MESSAGE("Claydol cannot use Quick Attack! ");
         NOT { HP_BAR(opponent); }
-        MESSAGE("The opposing Wobbuffet used Quick Attack!");
+        MESSAGE("The opposing Wobbuffet used Quick Attack! ");
         HP_BAR(player);
     }
 }
@@ -29,9 +29,9 @@ SINGLE_BATTLE_TEST("Psychic Terrain activates Psychic Seed and Mimicry")
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Using Psychic Seed, the Sp. Def of Wobbuffet rose!");
+        MESSAGE("Using Psychic Seed, the Sp. Def of Wobbuffet rose! ");
         ABILITY_POPUP(opponent);
-        MESSAGE("The opposing Stunfisk's type changed to Psychic!");
+        MESSAGE("The opposing Stunfisk's type changed to Psychic! ");
     } THEN {
         EXPECT_EQ(gBattleMons[B_POSITION_OPPONENT_LEFT].types[0], TYPE_PSYCHIC);
     }
@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Psychic Terrain increases power of Psychic-type moves by 30/
             TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_CONFUSION); }
     } SCENE {
-        MESSAGE("Wobbuffet used Confusion!");
+        MESSAGE("Wobbuffet used Confusion! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         if (B_TERRAIN_TYPE_BOOST >= GEN_8)
@@ -69,8 +69,8 @@ SINGLE_BATTLE_TEST("Psychic Terrain doesn't block priority moves that target the
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_RECOVER); }
     } SCENE {
-        MESSAGE("Sableye used Psychic Terrain!");
-        MESSAGE("Sableye used Recover!");
+        MESSAGE("Sableye used Psychic Terrain! ");
+        MESSAGE("Sableye used Recover! ");
         HP_BAR(player);
     }
 }
@@ -84,8 +84,8 @@ SINGLE_BATTLE_TEST("Psychic Terrain doesn't block priority moves that target all
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_HAZE); }
     } SCENE {
-        MESSAGE("Sableye used Psychic Terrain!");
-        MESSAGE("Sableye used Haze!");
+        MESSAGE("Sableye used Psychic Terrain! ");
+        MESSAGE("Sableye used Haze! ");
     }
 }
 
@@ -98,8 +98,8 @@ SINGLE_BATTLE_TEST("Psychic Terrain doesn't block priority moves that target all
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_SPIKES); }
     } SCENE {
-        MESSAGE("Sableye used Psychic Terrain!");
-        MESSAGE("Sableye used Spikes!");
+        MESSAGE("Sableye used Psychic Terrain! ");
+        MESSAGE("Sableye used Spikes! ");
     }
 }
 
@@ -114,8 +114,8 @@ DOUBLE_BATTLE_TEST("Psychic Terrain doesn't block priority moves that target all
         TURN { MOVE(playerLeft, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(playerLeft, MOVE_HEAL_PULSE, target: playerRight); }
     } SCENE {
-        MESSAGE("Sableye used Psychic Terrain!");
-        MESSAGE("Sableye used Heal Pulse!");
+        MESSAGE("Sableye used Psychic Terrain! ");
+        MESSAGE("Sableye used Heal Pulse! ");
     }
 }
 
@@ -128,8 +128,8 @@ SINGLE_BATTLE_TEST("Psychic Terrain doesn't block priority field moves")
         TURN { MOVE(player, MOVE_PSYCHIC_TERRAIN); }
         TURN { MOVE(player, MOVE_SUNNY_DAY); }
     } SCENE {
-        MESSAGE("Sableye used Psychic Terrain!");
-        MESSAGE("Sableye used Sunny Day!");
+        MESSAGE("Sableye used Psychic Terrain! ");
+        MESSAGE("Sableye used Sunny Day! ");
     }
 }
 
@@ -145,19 +145,19 @@ SINGLE_BATTLE_TEST("Psychic Terrain lasts for 5 turns")
         TURN {}
         TURN {}
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCHIC_TERRAIN, player);
-        MESSAGE("The battlefield got weird!");
+        MESSAGE("The battlefield got weird! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("Wobbuffet used Celebrate! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
 
-        MESSAGE("The weirdness disappeared from the battlefield!");
+        MESSAGE("The weirdness disappeared from the battlefield! ");
     }
 }

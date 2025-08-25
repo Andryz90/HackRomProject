@@ -30,7 +30,7 @@ static const u8* const sFrontierTrainerSlides[DIFFICULTY_COUNT][FRONTIER_TRAINER
     {
 +        [TRAINER_ANABEL] =
 +        {
-+            [TRAINER_SLIDE_Z_MOVE] = COMPOUND_STRING("Victory...is ours!"), //{PAUSE_UNTIL_PRESS} is omitted, so the battle will continue as soon as the next is finished printing.
++            [TRAINER_SLIDE_Z_MOVE] = COMPOUND_STRING("Victory...is ours! "), //{PAUSE_UNTIL_PRESS} is omitted, so the battle will continue as soon as the next is finished printing.
 +        }
     },
 };
@@ -177,7 +177,7 @@ The actual usage of `TryInitializeTrainerSlideEnemyLandsFirstCriticalHit` is add
 +    } SCENE {
 +        ANIMATION(ANIM_TYPE_MOVE, MOVE_LASER_FOCUS, opponent);
 +        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, opponent);
-+        MESSAGE("A critical hit!");
++        MESSAGE("A critical hit! ");
 +        MESSAGE("This message plays after the enemy lands their first critical hit.{PAUSE_UNTIL_PRESS}");
 +    }
 +}

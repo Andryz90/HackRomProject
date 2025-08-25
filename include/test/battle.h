@@ -41,7 +41,7 @@
  *           TURN { MOVE(player, MOVE_STUN_SPORE); } // 3.
  *       } SCENE {
  *           ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
- *           MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!"); // 4
+ *           MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! "); // 4
  *           STATUS_ICON(opponent, paralysis: TRUE); // 4.
  *       }
  *   }
@@ -139,7 +139,7 @@
  *            if (raiseAttack) {
  *                ANIMATION(ANIM_TYPE_MOVE, MOVE_MEDITATE, player);
  *                ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player); // 5.
- *                MESSAGE("Wobbuffet's attack rose!"); // 5.
+ *                MESSAGE("Wobbuffet's attack rose! "); // 5.
  *            }
  *            ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
  *            HP_BAR(opponent, captureDamage: &results[i].damage); // 3 & 6.
@@ -256,7 +256,7 @@
  *         } WHEN {
  *             TURN { MOVE(player, MOVE_CELEBRATE); }
  *         } SCENE {
- *             MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *             MESSAGE("Wobbuffet is paralyzed, so it may be unable to move! ");
  *         }
  *     }
  * All BattleRandom calls involving tag will return the same number, so
@@ -379,7 +379,7 @@
  * of the description must match too, e.g.
  *     // ABILITY_POPUP followed by a MESSAGE
  *     ABILITY_POPUP(player, ABILITY_STURDY);
- *     MESSAGE("Geodude was protected by Sturdy!");
+ *     MESSAGE("Geodude was protected by Sturdy! ");
  *
  * ABILITY_POPUP(battler, [ability])
  * Causes the test to fail if the battler's ability pop-up is not shown.
@@ -422,8 +422,8 @@
  * Causes the test to fail if the message in pattern is not displayed.
  * Spaces in pattern match newlines (\n, \l, and \p) in the message.
  * Often used to check that a battler took its turn but it failed, e.g.:
- *     MESSAGE("Wobbuffet used Dream Eater!");
- *     MESSAGE("The opposing Wobbuffet wasn't affected!");
+ *     MESSAGE("Wobbuffet used Dream Eater! ");
+ *     MESSAGE("The opposing Wobbuffet wasn't affected! ");
  *
  * STATUS_ICON(battler, status1 | none: | sleep: | poison: | burn: | freeze: | paralysis:, badPoison:)
  * Causes the test to fail if the battler's status is not changed to the
@@ -441,16 +441,16 @@
  * Causes the test to fail if the SCENE command succeeds before the
  * following command succeeds.
  *     // Our Wobbuffet does not Celebrate before the foe's.
- *     NOT MESSAGE("Wobbuffet used Celebrate!");
- *     MESSAGE("The opposing Wobbuffet used Celebrate!");
+ *     NOT MESSAGE("Wobbuffet used Celebrate! ");
+ *     MESSAGE("The opposing Wobbuffet used Celebrate! ");
  * WARNING: NOT is an alias of NONE_OF, so it behaves surprisingly when
  *          applied to multiple commands wrapped in braces.
  *
  * ONE_OF
  * Causes the test to fail unless one of the SCENE commands succeeds.
  *     ONE_OF {
- *         MESSAGE("Wobbuffet used Celebrate!");
- *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *         MESSAGE("Wobbuffet used Celebrate! ");
+ *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move! ");
  *     }
  *
  * NONE_OF
@@ -458,10 +458,10 @@
  * the command after the NONE_OF succeeds.
  *     // Our Wobbuffet does not move before the foe's.
  *     NONE_OF {
- *         MESSAGE("Wobbuffet used Celebrate!");
- *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *         MESSAGE("Wobbuffet used Celebrate! ");
+ *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move! ");
  *     }
- *     MESSAGE("The opposing Wobbuffet used Celebrate!");
+ *     MESSAGE("The opposing Wobbuffet used Celebrate! ");
  *
  * PLAYER_PARTY and OPPONENT_PARTY
  * Refer to the party members defined in GIVEN, e.g.:
@@ -1026,17 +1026,17 @@ void SendOut(u32 sourceLine, struct BattlePokemon *, u32 partyIndex);
     (B_USE_FROSTBITE ? STATUS_ICON(battler, frostbite: isFrostbite) : STATUS_ICON(battler, freeze: isFrostbite))
 
 #define SWITCH_OUT_MESSAGE(name) ONE_OF {                                         \
-                                     MESSAGE(name ", that's enough! Come back!"); \
-                                     MESSAGE(name ", come back!");                \
-                                     MESSAGE(name ", OK! Come back!");            \
-                                     MESSAGE(name ", good! Come back!");          \
+                                     MESSAGE(name ", that's enough! Come back! "); \
+                                     MESSAGE(name ", come back! ");                \
+                                     MESSAGE(name ", OK! Come back! ");            \
+                                     MESSAGE(name ", good! Come back! ");          \
                                  }
 
 #define SEND_IN_MESSAGE(name)    ONE_OF {                                                   \
-                                     MESSAGE("Go! " name "!");                              \
-                                     MESSAGE("You're in charge, " name "!");                \
-                                     MESSAGE("Go for it, " name "!");                       \
-                                     MESSAGE("Your opponent's weak! Get 'em, " name "!");   \
+                                     MESSAGE("Go! " name "! ");                              \
+                                     MESSAGE("You're in charge, " name "! ");                \
+                                     MESSAGE("Go for it, " name "! ");                       \
+                                     MESSAGE("Your opponent's weak! Get 'em, " name "! ");   \
                                  }
 
 enum QueueGroupType

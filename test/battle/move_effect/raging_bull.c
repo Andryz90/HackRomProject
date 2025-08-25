@@ -28,7 +28,7 @@ SINGLE_BATTLE_TEST("Raging Bull removes Light Screen, Reflect and Aurora Veil fr
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-        MESSAGE("The wall shattered!");
+        MESSAGE("The wall shattered! ");
         HP_BAR(opponent);
     }
 }
@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -78,7 +78,7 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -103,7 +103,7 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            MESSAGE("The wall shattered! ");
             HP_BAR(opponent);
         }
     }
@@ -132,7 +132,7 @@ DOUBLE_BATTLE_TEST("Raging Bull can remove Light Screen, Reflect and Aurora Veil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, playerRight);
-        MESSAGE("The wall shattered!");
+        MESSAGE("The wall shattered! ");
         HP_BAR(playerLeft);
     }
 }

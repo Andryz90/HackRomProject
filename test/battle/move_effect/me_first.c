@@ -28,8 +28,8 @@ SINGLE_BATTLE_TEST("Me First fails if target uses a status move")
     } WHEN {
         TURN { MOVE(player, MOVE_ME_FIRST); MOVE(opponent, MOVE_GROWL); }
     } SCENE {
-        MESSAGE("Wobbuffet used Me First!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Me First! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -41,8 +41,8 @@ SINGLE_BATTLE_TEST("Me First fails if target moves first")
     } WHEN {
         TURN { MOVE(opponent, MOVE_TACKLE); MOVE(player, MOVE_ME_FIRST); }
     } SCENE {
-        MESSAGE("Wobbuffet used Me First!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Me First! ");
+        MESSAGE("But it failed! ");
     }
 }
 

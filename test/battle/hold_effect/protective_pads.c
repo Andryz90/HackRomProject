@@ -18,7 +18,7 @@ SINGLE_BATTLE_TEST("Protective Pads protected moves still make direct contact", 
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Scratch!");
+        MESSAGE("Wobbuffet used Scratch! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, UQ_4_12(0.5), results[1].damage);
@@ -36,7 +36,7 @@ SINGLE_BATTLE_TEST("Protective Pads doesn't reduce tough claws damage", s16 dama
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Binacle used Scratch!");
+        MESSAGE("Binacle used Scratch! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -69,7 +69,7 @@ SINGLE_BATTLE_TEST("Protective Pads protects from Rocly Helmet Damage")
         HP_BAR(opponent);
         NONE_OF {
             HP_BAR(player);
-            MESSAGE("Wobbuffet was hurt by the opposing Wobbuffet's Rocky Helmet!");
+            MESSAGE("Wobbuffet was hurt by the opposing Wobbuffet's Rocky Helmet! ");
         }
     }
 }
@@ -101,11 +101,11 @@ SINGLE_BATTLE_TEST("Protective Pads protects from Protect's secondary effects")
             } else if (move == MOVE_BURNING_BULWARK) {
                 STATUS_ICON(player, STATUS1_BURN);
             } else if (move == MOVE_KINGS_SHIELD) {
-                MESSAGE("Wobbuffet's Attack fell!");
+                MESSAGE("Wobbuffet's Attack fell! ");
             } else if (move == MOVE_SILK_TRAP) {
-                MESSAGE("Wobbuffet's Speed fell!");
+                MESSAGE("Wobbuffet's Speed fell! ");
             } else if (move == MOVE_OBSTRUCT) {
-                MESSAGE("Wobbuffet's Defense harshly fell!");
+                MESSAGE("Wobbuffet's Defense harshly fell! ");
             }
         }
     }

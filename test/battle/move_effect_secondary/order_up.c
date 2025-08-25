@@ -22,20 +22,20 @@ DOUBLE_BATTLE_TEST("Order Up increases a stat based on Tatsugiri's form")
         TURN { MOVE(opponentRight, MOVE_HAZE); MOVE(playerRight, MOVE_ORDER_UP, target: opponentLeft); }
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_COMMANDER);
-        MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
+        MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HAZE, opponentRight); // Remove previous stat boosts
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ORDER_UP, playerRight);
         switch (species)
         {
         case SPECIES_TATSUGIRI_CURLY:
-            MESSAGE("Dondozo's Attack rose!");
+            MESSAGE("Dondozo's Attack rose! ");
             break;
         case SPECIES_TATSUGIRI_DROOPY:
-            MESSAGE("Dondozo's Defense rose!");
+            MESSAGE("Dondozo's Defense rose! ");
             break;
         case SPECIES_TATSUGIRI_STRETCHY:
-            MESSAGE("Dondozo's Speed rose!");
+            MESSAGE("Dondozo's Speed rose! ");
             break;
         }
     } THEN {
@@ -71,23 +71,23 @@ DOUBLE_BATTLE_TEST("Order Up increases a stat based on Tatsugiri's form even if 
         TURN { MOVE(opponentRight, MOVE_HAZE); MOVE(playerRight, MOVE_ORDER_UP, target: opponentLeft); }
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_COMMANDER);
-        MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
+        MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("Tatsugiri was hurt by its poisoning!");
-        MESSAGE("Tatsugiri fainted!");
+        MESSAGE("Tatsugiri was hurt by its poisoning! ");
+        MESSAGE("Tatsugiri fainted! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HAZE, opponentRight); // Remove previous stat boosts
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ORDER_UP, playerRight);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         switch (species)
         {
         case SPECIES_TATSUGIRI_CURLY:
-            MESSAGE("Dondozo's Attack rose!");
+            MESSAGE("Dondozo's Attack rose! ");
             break;
         case SPECIES_TATSUGIRI_DROOPY:
-            MESSAGE("Dondozo's Defense rose!");
+            MESSAGE("Dondozo's Defense rose! ");
             break;
         case SPECIES_TATSUGIRI_STRETCHY:
-            MESSAGE("Dondozo's Speed rose!");
+            MESSAGE("Dondozo's Speed rose! ");
             break;
         }
     } THEN {
@@ -131,9 +131,9 @@ DOUBLE_BATTLE_TEST("Order Up is boosted by Sheer Force without removing the stat
     } WHEN {
         TURN { MOVE(opponentRight, MOVE_ENTRAINMENT, target: playerLeft); MOVE(playerLeft, MOVE_ORDER_UP, target: opponentLeft); }
     } SCENE {
-        MESSAGE("The opposing Tauros used Entrainment!");
-        MESSAGE("Dondozo acquired Sheer Force!");
-        MESSAGE("Dondozo used Order Up!");
+        MESSAGE("The opposing Tauros used Entrainment! ");
+        MESSAGE("Dondozo acquired Sheer Force! ");
+        MESSAGE("Dondozo used Order Up! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
     }
 }
@@ -157,13 +157,13 @@ DOUBLE_BATTLE_TEST("Order Up is always boosted by Sheer Force", s16 damage)
                MOVE(opponentLeft, move, target: playerLeft);
                MOVE(playerLeft, MOVE_ORDER_UP, target: opponentRight); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Haze!");
+        MESSAGE("The opposing Wobbuffet used Haze! ");
         if (move == MOVE_ENTRAINMENT)
         {
-            MESSAGE("The opposing Tauros used Entrainment!");
-            MESSAGE("Dondozo acquired Sheer Force!");
+            MESSAGE("The opposing Tauros used Entrainment! ");
+            MESSAGE("Dondozo acquired Sheer Force! ");
         }
-        MESSAGE("Dondozo used Order Up!");
+        MESSAGE("Dondozo used Order Up! ");
         HP_BAR(opponentRight, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, UQ_4_12(1.3), results[1].damage);

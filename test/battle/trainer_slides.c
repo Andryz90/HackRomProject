@@ -30,7 +30,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First Critical Hit")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LASER_FOCUS, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
         MESSAGE("This message plays after the player lands their first critical hit.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -49,7 +49,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Enemy Lands First Critical Hit")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LASER_FOCUS, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
         MESSAGE("This message plays after the enemy lands their first critical hit.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -65,7 +65,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First STAB Hit")
     } WHEN {
         TURN { MOVE(player, MOVE_VINE_WHIP); }
     } SCENE {
-        MESSAGE("Bulbasaur used Vine Whip!");
+        MESSAGE("Bulbasaur used Vine Whip! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VINE_WHIP, player);
         MESSAGE("Player lands their first STAB move.{PAUSE_UNTIL_PRESS}");
     }
@@ -84,7 +84,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First Super Effective Hit")
     } WHEN {
         TURN { MOVE(player, MOVE_BITE); }
     } SCENE {
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
         MESSAGE("This message plays after the player lands their first super effective hit.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -100,7 +100,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First Down")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEALING_WISH); SEND_OUT(opponent,1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         MESSAGE("This message plays after the player KOs one enemy mon.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -132,7 +132,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Last Switchin")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEALING_WISH); SEND_OUT(opponent,1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         MESSAGE("This message plays after the enemy switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -178,7 +178,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Mega Evolution")
     } SCENE {
         MESSAGE("This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny! ");
     }
 }
 
@@ -192,8 +192,8 @@ SINGLE_BATTLE_TEST("Trainer Slide: Z Move")
         TURN { MOVE(opponent, MOVE_QUICK_ATTACK, gimmick: GIMMICK_Z_MOVE); }
     } SCENE {
         MESSAGE("This message plays before the enemy activates the Z-Move gimmick.{PAUSE_UNTIL_PRESS}");
-        MESSAGE("The opposing Wobbuffet surrounded itself with its Z-Power!");
-        MESSAGE("The opposing Wobbuffet unleashes its full-force Z-Move!");
+        MESSAGE("The opposing Wobbuffet surrounded itself with its Z-Power! ");
+        MESSAGE("The opposing Wobbuffet unleashes its full-force Z-Move! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, opponent);
     }
 }

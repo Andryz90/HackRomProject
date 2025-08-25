@@ -14,9 +14,9 @@ SINGLE_BATTLE_TEST("Ally Switch fails in a single battle")
     } WHEN {
         TURN { MOVE(player, MOVE_ALLY_SWITCH); }
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -31,10 +31,10 @@ DOUBLE_BATTLE_TEST("Ally Switch fails if there is no partner")
         TURN { MOVE(opponentLeft, MOVE_SCRATCH, target:playerRight); }
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); }
     } SCENE {
-        MESSAGE("Wobbuffet fainted!");
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet fainted! ");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -50,17 +50,17 @@ DOUBLE_BATTLE_TEST("Ally Switch changes the position of battlers")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); MOVE(opponentLeft, MOVE_SCREECH, target:playerLeft); MOVE(opponentRight, MOVE_SCREECH, target:playerLeft); }
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
 
-        MESSAGE("The opposing Kadabra used Screech!");
+        MESSAGE("The opposing Kadabra used Screech! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wynaut's Defense harshly fell!");
+        MESSAGE("Wynaut's Defense harshly fell! ");
 
-        MESSAGE("The opposing Abra used Screech!");
+        MESSAGE("The opposing Abra used Screech! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wynaut's Defense harshly fell!");
+        MESSAGE("Wynaut's Defense harshly fell! ");
     } THEN {
         EXPECT_EQ(playerLeft->speed, 4);
         EXPECT_EQ(playerLeft->species, SPECIES_WYNAUT);
@@ -80,11 +80,11 @@ DOUBLE_BATTLE_TEST("Ally Switch does not redirect the target of Snipe Shot")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); MOVE(opponentLeft, MOVE_SNIPE_SHOT, target:playerLeft); } // Kadabra targets Wobb and Snipe Shot ignores Ally Switch position change.
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
 
-        MESSAGE("The opposing Kadabra used Snipe Shot!");
+        MESSAGE("The opposing Kadabra used Snipe Shot! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNIPE_SHOT, opponentLeft);
         HP_BAR(playerRight);
     }
@@ -105,11 +105,11 @@ DOUBLE_BATTLE_TEST("Ally Switch does not redirect moves done by pokemon with Sta
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); MOVE(opponentLeft, MOVE_SCRATCH, target:playerRight); } // Kadabra targets playerRight Wynaut.
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
 
-        MESSAGE("The opposing Kadabra used Scratch!");
+        MESSAGE("The opposing Kadabra used Scratch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         HP_BAR((ability == ABILITY_STALWART || ability == ABILITY_PROPELLER_TAIL) ? playerLeft : playerRight);
     }
@@ -133,9 +133,9 @@ DOUBLE_BATTLE_TEST("Ally Switch has no effect on partner's chosen move")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); MOVE(playerRight, chosenMove, target:chosenTarget); }
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
 
         ANIMATION(ANIM_TYPE_MOVE, chosenMove, playerLeft);
         HP_BAR(chosenTarget);
@@ -158,12 +158,12 @@ DOUBLE_BATTLE_TEST("Ally Switch - move fails if the target was ally which change
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); MOVE(playerRight, move, target:playerLeft); }
     } SCENE {
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
 
         NOT ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -211,11 +211,11 @@ DOUBLE_BATTLE_TEST("Ally Switch works if ally used two-turn move like Dig")
         TURN { MOVE(playerRight, MOVE_DIG, target:opponentRight); }
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); SKIP_TURN(playerRight); }
     } SCENE {
-        MESSAGE("Wynaut used Dig!");
-        MESSAGE("Wobbuffet used Ally Switch!");
+        MESSAGE("Wynaut used Dig! ");
+        MESSAGE("Wobbuffet used Ally Switch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
-        MESSAGE("Wobbuffet and Wynaut switched places!");
-        NOT MESSAGE("Wynaut used -!");
+        MESSAGE("Wobbuffet and Wynaut switched places! ");
+        NOT MESSAGE("Wynaut used -! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG);
         HP_BAR(opponentRight);
     }
@@ -234,16 +234,16 @@ DOUBLE_BATTLE_TEST("Ally switch swaps sky drop targets if being used by partner"
         TURN { MOVE(playerLeft, MOVE_SKY_DROP, target: opponentLeft); }
         TURN { MOVE(playerRight, MOVE_ALLY_SWITCH); SKIP_TURN(playerLeft); MOVE(opponentRight, MOVE_MUD_SPORT); MOVE(opponentLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
-        MESSAGE("Fearow used Sky Drop!");
-        MESSAGE("Fearow took the opposing Aron into the sky!");
+        MESSAGE("Fearow used Sky Drop! ");
+        MESSAGE("Fearow took the opposing Aron into the sky! ");
         // turn 2
-        MESSAGE("Xatu used Ally Switch!");
-        MESSAGE("Xatu and Fearow switched places!");
-        MESSAGE("Fearow used Sky Drop!");
+        MESSAGE("Xatu used Ally Switch! ");
+        MESSAGE("Xatu and Fearow switched places! ");
+        MESSAGE("Fearow used Sky Drop! ");
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wynaut used Mud Sport!");
+        MESSAGE("The opposing Wynaut used Mud Sport! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MUD_SPORT, opponentRight);
-        MESSAGE("The opposing Aron used Iron Defense!");
+        MESSAGE("The opposing Aron used Iron Defense! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_IRON_DEFENSE, opponentLeft);
     } THEN {
         // all battlers should be visible
@@ -271,16 +271,16 @@ DOUBLE_BATTLE_TEST("Ally switch swaps opposing sky drop targets if partner is be
         TURN { MOVE(opponentLeft, MOVE_SKY_DROP, target: playerLeft); }
         TURN { MOVE(opponentRight, MOVE_ALLY_SWITCH); SKIP_TURN(opponentLeft); MOVE(playerRight, MOVE_MUD_SPORT); MOVE(playerLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
-        MESSAGE("The opposing Fearow used Sky Drop!");
-        MESSAGE("The opposing Fearow took Aron into the sky!");
+        MESSAGE("The opposing Fearow used Sky Drop! ");
+        MESSAGE("The opposing Fearow took Aron into the sky! ");
         // turn 2
-        MESSAGE("The opposing Xatu used Ally Switch!");
-        MESSAGE("The opposing Xatu and the opposing Fearow switched places!");
-        MESSAGE("The opposing Fearow used Sky Drop!");
+        MESSAGE("The opposing Xatu used Ally Switch! ");
+        MESSAGE("The opposing Xatu and the opposing Fearow switched places! ");
+        MESSAGE("The opposing Fearow used Sky Drop! ");
         HP_BAR(playerLeft);
-        MESSAGE("Wynaut used Mud Sport!");
+        MESSAGE("Wynaut used Mud Sport! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MUD_SPORT, playerRight);
-        MESSAGE("Aron used Iron Defense!");
+        MESSAGE("Aron used Iron Defense! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_IRON_DEFENSE, playerLeft);
     } THEN {
         // all battlers should be visible

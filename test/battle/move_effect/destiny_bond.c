@@ -16,8 +16,8 @@ SINGLE_BATTLE_TEST("Destiny Bond faints the opposing mon if it fainted from the 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet took its attacker down with it!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("Wobbuffet took its attacker down with it! ");
+        MESSAGE("The opposing Wobbuffet fainted! ");
     }
 }
 
@@ -33,9 +33,9 @@ SINGLE_BATTLE_TEST("Destiny Bond fails if used sequentially in Gen 7+")
         TURN { MOVE(player, MOVE_DESTINY_BOND); SWITCH(opponent, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("2 sent out Zigzagoon! ");
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player); }
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -52,9 +52,9 @@ SINGLE_BATTLE_TEST("Destiny Bond does not fail if used repeatedly separated by o
         TURN { MOVE(player, MOVE_DESTINY_BOND); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("2 sent out Zigzagoon! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        NOT { MESSAGE("But it failed!"); }
+        NOT { MESSAGE("But it failed! "); }
     }
 }
 
@@ -71,9 +71,9 @@ SINGLE_BATTLE_TEST("Destiny Bond does not fail if used after failing in Gen 7+")
         TURN { MOVE(player, MOVE_DESTINY_BOND); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("2 sent out Zigzagoon! ");
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player); }
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
     }
 }
@@ -87,9 +87,9 @@ SINGLE_BATTLE_TEST("(DYNAMAX) Dynamaxed Pokemon are not affected by Destiny Bond
     } WHEN {
         TURN { MOVE(opponent, MOVE_DESTINY_BOND); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Destiny Bond!");
-        MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet used Destiny Bond! ");
+        MESSAGE("Wobbuffet used Max Strike! ");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         NONE_OF { HP_BAR(player); }
     }
 }

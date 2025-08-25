@@ -49,10 +49,10 @@ SINGLE_BATTLE_TEST("Stuff Cheeks raises Defense by 2 stages after consuming the 
     } WHEN {
         TURN { MOVE(player, MOVE_STUFF_CHEEKS); }
     } SCENE {
-        MESSAGE("Skwovet used Stuff Cheeks!");
+        MESSAGE("Skwovet used Stuff Cheeks! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STUFF_CHEEKS, player);
-        MESSAGE("Using Liechi Berry, the Attack of Skwovet rose!");
-        MESSAGE("Skwovet's Defense sharply rose!");
+        MESSAGE("Using Liechi Berry, the Attack of Skwovet rose! ");
+        MESSAGE("Skwovet's Defense sharply rose! ");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 2);
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -67,7 +67,7 @@ SINGLE_BATTLE_TEST("Stuff Cheeks can be used even if Unnerve is present")
     } WHEN {
         TURN { MOVE(player, MOVE_STUFF_CHEEKS); }
     } SCENE {
-        MESSAGE("Skwovet used Stuff Cheeks!");
+        MESSAGE("Skwovet used Stuff Cheeks! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STUFF_CHEEKS, player);
     }
 }
@@ -83,9 +83,9 @@ SINGLE_BATTLE_TEST("Stuff Cheeks can be used even if Magic Room is active")
             MOVE(player, MOVE_STUFF_CHEEKS);
         }
     } SCENE {
-        MESSAGE("Skwovet used Stuff Cheeks!");
+        MESSAGE("Skwovet used Stuff Cheeks! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STUFF_CHEEKS, player);
-        MESSAGE("Using Liechi Berry, the Attack of Skwovet rose!");
+        MESSAGE("Using Liechi Berry, the Attack of Skwovet rose! ");
     }
 }
 
@@ -99,7 +99,7 @@ SINGLE_BATTLE_TEST("Stuff Cheeks fails if the user's berry is removed before the
         TURN { MOVE(opponent, MOVE_KNOCK_OFF); MOVE(player, MOVE_STUFF_CHEEKS); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_KNOCK_OFF, opponent);
-        MESSAGE("Skwovet used Stuff Cheeks!");
-        MESSAGE("But it failed!");
+        MESSAGE("Skwovet used Stuff Cheeks! ");
+        MESSAGE("But it failed! ");
     }
 }

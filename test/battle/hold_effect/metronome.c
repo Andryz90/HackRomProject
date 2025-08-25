@@ -119,11 +119,11 @@ SINGLE_BATTLE_TEST("Metronome Item counts charging turn of moves for its attacki
         TURN { MOVE(player, MOVE_SOLAR_BEAM); }
         TURN { SKIP_TURN(player); }
     } SCENE {
-        MESSAGE("Wobbuffet used Solar Beam!");
-        MESSAGE("Wobbuffet absorbed light!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
-        MESSAGE("Congratulations, 1!");
-        MESSAGE("Wobbuffet used Solar Beam!");
+        MESSAGE("Wobbuffet used Solar Beam! ");
+        MESSAGE("Wobbuffet absorbed light! ");
+        MESSAGE("The opposing Wobbuffet used Celebrate! ");
+        MESSAGE("Congratulations, 1! ");
+        MESSAGE("Wobbuffet used Solar Beam! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, UQ_4_12(1.2), results[1].damage);
@@ -144,7 +144,7 @@ SINGLE_BATTLE_TEST("Metronome Item doesn't increase damage per hit of multi-hit 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_ATTACK, player);
         HP_BAR(opponent, captureDamage: &damage[0]);
         HP_BAR(opponent, captureDamage: &damage[1]);
-        MESSAGE("The Pokémon was hit 5 time(s)!");
+        MESSAGE("The Pokémon was hit 5 time(s)! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_ATTACK, player);
         HP_BAR(opponent, captureDamage: &damage[2]);
     } THEN {

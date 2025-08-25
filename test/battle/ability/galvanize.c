@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Galvanize turns a normal type move into Electric")
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -38,7 +38,7 @@ SINGLE_BATTLE_TEST("Galvanize can not turn certain moves into Electric type move
         TURN { MOVE(opponent, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
     }
 }
 
@@ -85,7 +85,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Weather Ball's type", s16 damage)
     } SCENE {
         HP_BAR(opponent, captureDamage: &results[i].damage);
         if (move == MOVE_SUNNY_DAY)
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(6.0), results[1].damage); // double base power + type effectiveness + sun 50% boost
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage);
@@ -137,11 +137,11 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Judgment / Techno Blast / Multi-Att
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
         if (move == MOVE_JUDGMENT)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Judgment useless!");
+            MESSAGE("The opposing Vaporeon's Water Absorb made Judgment useless! ");
         else if (move == MOVE_TECHNO_BLAST)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Techno Blast useless!");
+            MESSAGE("The opposing Vaporeon's Water Absorb made Techno Blast useless! ");
         else if (move == MOVE_MULTI_ATTACK)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Multi-Attack useless!");
+            MESSAGE("The opposing Vaporeon's Water Absorb made Multi-Attack useless! ");
     }
 }
 
@@ -157,7 +157,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("The opposing Vaporeon's Water Absorb made Hidden Power useless!");
+        MESSAGE("The opposing Vaporeon's Water Absorb made Hidden Power useless! ");
     }
 }
 

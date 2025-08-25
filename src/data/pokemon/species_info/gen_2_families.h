@@ -4765,7 +4765,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             "Gliscor observes prey while hanging\n"
             "upside down from branches. Its flight is\n"
             "soundless. When the chance presents\n"
-            "itself, it swoops!"),
+            "itself, it swoops! "),
         .pokemonScale = 261,
         .pokemonOffset = 1,
         .trainerScale = 334,

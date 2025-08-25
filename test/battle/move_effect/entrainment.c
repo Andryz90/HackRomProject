@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Entrainment fails if the user's ability has cantBeCopied fla
     } WHEN {
         TURN { MOVE(player, MOVE_ENTRAINMENT); }
     } SCENE {
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT(player->ability == ABILITY_MULTITYPE);
         EXPECT(opponent->ability == ABILITY_SHADOW_TAG);
@@ -51,7 +51,7 @@ SINGLE_BATTLE_TEST("Entrainment fails if the target's ability has cantBeOverwrit
     } WHEN {
         TURN { MOVE(player, MOVE_ENTRAINMENT); }
     } SCENE {
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT(player->ability   == ABILITY_TELEPATHY);
         EXPECT(opponent->ability == ABILITY_MULTITYPE);

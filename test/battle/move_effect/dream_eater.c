@@ -32,8 +32,8 @@ SINGLE_BATTLE_TEST("Dream Eater fails on awake targets")
     } WHEN {
         TURN { MOVE(player, MOVE_DREAM_EATER); }
     } SCENE {
-        MESSAGE("Wobbuffet used Dream Eater!");
-        MESSAGE("The opposing Wobbuffet wasn't affected!");
+        MESSAGE("Wobbuffet used Dream Eater! ");
+        MESSAGE("The opposing Wobbuffet wasn't affected! ");
     }
 }
 
@@ -46,7 +46,7 @@ SINGLE_BATTLE_TEST("Dream Eater fails if Heal Block applies")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEAL_BLOCK); MOVE(player, MOVE_DREAM_EATER); }
     } SCENE {
-        MESSAGE("Wobbuffet was prevented from healing!");
+        MESSAGE("Wobbuffet was prevented from healing! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DREAM_EATER, player);
             HP_BAR(opponent);
@@ -87,8 +87,8 @@ SINGLE_BATTLE_TEST("Dream Eater fails if the target is behind a Substitute (Gen 
         TURN { }
         TURN { MOVE(opponent, MOVE_DREAM_EATER); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Dream Eater!");
-        MESSAGE("Wobbuffet wasn't affected!");
+        MESSAGE("The opposing Wobbuffet used Dream Eater! ");
+        MESSAGE("Wobbuffet wasn't affected! ");
     }
 }
 #else

@@ -25,7 +25,7 @@ SINGLE_BATTLE_TEST("Ivy Cudgel changes the move type depending on the form of Og
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_IVY_CUDGEL, player);
         HP_BAR(opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -46,6 +46,6 @@ SINGLE_BATTLE_TEST("Ivy Cudgel does not change the move type if used by Pokémon
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_IVY_CUDGEL, player);
         HP_BAR(opponent);
-        MESSAGE("It's super effective!"); // Should be super effective everytime if type isnt being changed
+        MESSAGE("It's super effective! "); // Should be super effective everytime if type isnt being changed
     }
 }

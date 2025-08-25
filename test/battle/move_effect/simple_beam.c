@@ -69,6 +69,6 @@ SINGLE_BATTLE_TEST("Simple Beam fails if target has an ability that can't be ove
         TURN { MOVE(player, MOVE_SIMPLE_BEAM); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SIMPLE_BEAM, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }

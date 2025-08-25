@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Neutralizing Gas activates on switch-in")
         TURN { }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Neutralizing gas filled the area!");
+        MESSAGE("Neutralizing gas filled the area! ");
     }
 }
 
@@ -25,7 +25,7 @@ SINGLE_BATTLE_TEST("Neutralizing Gas prevents opponent's switch-in ability from 
         ABILITY_POPUP(player, ABILITY_NEUTRALIZING_GAS);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_TERAVOLT);
-            MESSAGE("The opposing Zekrom is radiating a bursting aura!");
+            MESSAGE("The opposing Zekrom is radiating a bursting aura! ");
         }
     }
 }
@@ -43,7 +43,7 @@ DOUBLE_BATTLE_TEST("Neutralizing Gas prevents ally's switch-in ability from acti
         ABILITY_POPUP(playerLeft, ABILITY_NEUTRALIZING_GAS);
         NONE_OF {
             ABILITY_POPUP(playerRight, ABILITY_TERAVOLT);
-            MESSAGE("Zekrom is radiating a bursting aura!");
+            MESSAGE("Zekrom is radiating a bursting aura! ");
         }
     }
 }
@@ -60,7 +60,7 @@ DOUBLE_BATTLE_TEST("Neutralizing Gas ignores all battlers' ability effects")
         TURN { MOVE(playerLeft, MOVE_SURF); MOVE(playerRight, MOVE_SURF); }
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Neutralizing gas filled the area!");
+        MESSAGE("Neutralizing gas filled the area! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SURF, playerLeft);
         NONE_OF {
             ABILITY_POPUP(playerRight, ABILITY_TELEPATHY);
@@ -180,9 +180,9 @@ DOUBLE_BATTLE_TEST("Neutralizing Gas leaving the field allows abilities to activ
         TURN { SWITCH(playerLeft, 2); }
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Neutralizing gas filled the area!");
+        MESSAGE("Neutralizing gas filled the area! ");
         SWITCH_OUT_MESSAGE("Weezing");
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of the neutralizing gas wore off! ");
         if (speedPlayerRight > speedOppLeft)
         {
             if (speedPlayerRight > speedOppRight) {

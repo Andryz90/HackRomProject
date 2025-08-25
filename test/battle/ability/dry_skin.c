@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Dry Skin causes 1/8th Max HP damage in Sun")
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
         HP_BAR(player, damage: 200 / 8);
-        MESSAGE("Parasect's Dry Skin takes its toll!");
+        MESSAGE("Parasect's Dry Skin takes its toll! ");
     }
 }
 
@@ -26,7 +26,7 @@ SINGLE_BATTLE_TEST("Dry Skin heals 1/8th Max HP in Rain")
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
-        MESSAGE("Parasect's Dry Skin restored its HP a little!");
+        MESSAGE("Parasect's Dry Skin restored its HP a little! ");
         HP_BAR(player, damage: -(200 / 8));
     }
 }
@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Dry Skin increases damage taken from Fire-type moves by 25%"
     } WHEN {
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
-        MESSAGE("Wobbuffet used Ember!");
+        MESSAGE("Wobbuffet used Ember! ");
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         // Due to numerics related to rounding on each applied multiplier,
@@ -72,7 +72,7 @@ SINGLE_BATTLE_TEST("Dry Skin heals 25% when hit by water type moves")
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
         HP_BAR(player, damage: -50);
-        MESSAGE("Parasect restored HP using its Dry Skin!");
+        MESSAGE("Parasect restored HP using its Dry Skin! ");
     }
 }
 
@@ -85,7 +85,7 @@ SINGLE_BATTLE_TEST("Dry Skin does not activate if protected")
     } WHEN {
         TURN { MOVE(player, MOVE_PROTECT); MOVE(opponent, MOVE_BUBBLE); }
     } SCENE {
-        NONE_OF { ABILITY_POPUP(player, ABILITY_DRY_SKIN); HP_BAR(player); MESSAGE("Parasect restored HP using its Dry Skin!"); }
+        NONE_OF { ABILITY_POPUP(player, ABILITY_DRY_SKIN); HP_BAR(player); MESSAGE("Parasect restored HP using its Dry Skin! "); }
     }
 }
 
@@ -101,7 +101,7 @@ SINGLE_BATTLE_TEST("Dry Skin is only triggered once on multi strike moves")
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
         HP_BAR(player, damage: -50);
-        MESSAGE("Parasect restored HP using its Dry Skin!");
+        MESSAGE("Parasect restored HP using its Dry Skin! ");
     }
 }
 
@@ -119,7 +119,7 @@ SINGLE_BATTLE_TEST("Dry Skin prevents Absorb Bulb and Luminous Moss from activat
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
         HP_BAR(player, damage: -50);
-        MESSAGE("Parasect restored HP using its Dry Skin!");
+        MESSAGE("Parasect restored HP using its Dry Skin! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);

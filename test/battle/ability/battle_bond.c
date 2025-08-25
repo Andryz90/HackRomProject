@@ -35,15 +35,15 @@ SINGLE_BATTLE_TEST("Battle Bond transforms player's Greninja - Singles")
 
     } SCENE {
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         if (monsCountOpponent != 1) {
             ABILITY_POPUP(player, ABILITY_BATTLE_BOND);
-            MESSAGE("Greninja became fully charged due to its bond with its trainer!");
-            MESSAGE("Greninja became Ash-Greninja!");
+            MESSAGE("Greninja became fully charged due to its bond with its trainer! ");
+            MESSAGE("Greninja became Ash-Greninja! ");
         } else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_BATTLE_BOND);
-                MESSAGE("Greninja became fully charged due to its bond with its trainer!");
+                MESSAGE("Greninja became fully charged due to its bond with its trainer! ");
             }
         }
     } FINALLY {
@@ -83,15 +83,15 @@ SINGLE_BATTLE_TEST("Battle Bond transforms opponent's Greninja - Singles")
 
     } SCENE {
         HP_BAR(player);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
         if (monsCountPlayer != 1) {
             ABILITY_POPUP(opponent, ABILITY_BATTLE_BOND);
-            MESSAGE("The opposing Greninja became fully charged due to its bond with its trainer!");
-            MESSAGE("The opposing Greninja became Ash-Greninja!");
+            MESSAGE("The opposing Greninja became fully charged due to its bond with its trainer! ");
+            MESSAGE("The opposing Greninja became Ash-Greninja! ");
         } else {
             NONE_OF {
                 ABILITY_POPUP(opponent, ABILITY_BATTLE_BOND);
-                MESSAGE("The opposing Greninja became fully charged due to its bond with its trainer!");
+                MESSAGE("The opposing Greninja became fully charged due to its bond with its trainer! ");
             }
         }
     } FINALLY {
@@ -133,10 +133,10 @@ DOUBLE_BATTLE_TEST("Battle Bond transforms player's Greninja when fainting its A
 
     } SCENE {
         HP_BAR(playerRight);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
         ABILITY_POPUP(playerLeft, ABILITY_BATTLE_BOND);
-        MESSAGE("Greninja became fully charged due to its bond with its trainer!");
-        MESSAGE("Greninja became Ash-Greninja!");
+        MESSAGE("Greninja became fully charged due to its bond with its trainer! ");
+        MESSAGE("Greninja became Ash-Greninja! ");
     } FINALLY {
         EXPECT(playerLeft->species == SPECIES_GRENINJA_ASH);
     }
@@ -153,7 +153,7 @@ SINGLE_BATTLE_TEST("Battle Bond increases Atk, SpAtk and Speed by 1 stage (Gen9+
         TURN { MOVE(player, MOVE_WATER_GUN); SEND_OUT(opponent, 1); }
     } SCENE {
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         ABILITY_POPUP(player, ABILITY_BATTLE_BOND);
     } THEN {
         EXPECT(player->species != SPECIES_GRENINJA_ASH);
@@ -180,7 +180,7 @@ SINGLE_BATTLE_TEST("Battle Bond increases a Stat even if only one can be increas
         TURN { MOVE(player, MOVE_WATER_GUN); SEND_OUT(opponent, 1); }
     } SCENE {
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
         ABILITY_POPUP(player, ABILITY_BATTLE_BOND);
     } THEN {
         EXPECT(player->species != SPECIES_GRENINJA_ASH);

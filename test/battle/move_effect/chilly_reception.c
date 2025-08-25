@@ -18,14 +18,14 @@ SINGLE_BATTLE_TEST("Chilly Reception sets up snow and switches the user out")
     } WHEN {
         TURN { MOVE(player, MOVE_CHILLY_RECEPTION); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
+        MESSAGE("Slowking is preparing to tell a chillingly bad joke! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
 #if B_PREFERRED_ICE_WEATHER == B_ICE_WEATHER_HAIL
-        MESSAGE("It started to hail!");
+        MESSAGE("It started to hail! ");
 #else
-        MESSAGE("It started to snow!");
+        MESSAGE("It started to snow! ");
 #endif
-        MESSAGE("Slowking went back to 1!");
+        MESSAGE("Slowking went back to 1! ");
         SEND_IN_MESSAGE("Slowpoke");
 #if B_PREFERRED_ICE_WEATHER == B_ICE_WEATHER_HAIL
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HAIL_CONTINUES);
@@ -46,10 +46,10 @@ SINGLE_BATTLE_TEST("Chilly Reception switches the user out, even if the weather 
     } WHEN {
         TURN { MOVE(player, MOVE_CHILLY_RECEPTION); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
+        MESSAGE("Slowking is preparing to tell a chillingly bad joke! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
-        MESSAGE("There is no relief from this heavy rain!");
-        MESSAGE("Slowking went back to 1!");
+        MESSAGE("There is no relief from this heavy rain! ");
+        MESSAGE("Slowking went back to 1! ");
         SEND_IN_MESSAGE("Slowpoke");
         MESSAGE("Rain continues to fall.");
     }
@@ -63,10 +63,10 @@ SINGLE_BATTLE_TEST("Chilly Reception does not switch the user out if no replacem
     } WHEN {
         TURN { MOVE(player, MOVE_CHILLY_RECEPTION); }
     } SCENE {
-        MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
+        MESSAGE("Slowking is preparing to tell a chillingly bad joke! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
-        MESSAGE("It started to snow!");
-        NOT MESSAGE("Slowking went back to 1!");
+        MESSAGE("It started to snow! ");
+        NOT MESSAGE("Slowking went back to 1! ");
     }
 }
 
@@ -79,10 +79,10 @@ SINGLE_BATTLE_TEST("Chilly Reception does not switch the user out if replacement
     } WHEN {
         TURN { MOVE(player, MOVE_CHILLY_RECEPTION); }
     } SCENE {
-        MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
+        MESSAGE("Slowking is preparing to tell a chillingly bad joke! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
-        MESSAGE("It started to snow!");
-        NOT MESSAGE("Slowking went back to 1!");
+        MESSAGE("It started to snow! ");
+        NOT MESSAGE("Slowking went back to 1! ");
     }
 }
 
@@ -94,14 +94,14 @@ SINGLE_BATTLE_TEST("Chilly Reception changes the weather, even if the user canno
     } WHEN {
         TURN { MOVE(player, MOVE_CHILLY_RECEPTION); }
     } SCENE {
-        MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
+        MESSAGE("Slowking is preparing to tell a chillingly bad joke! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
 #if B_PREFERRED_ICE_WEATHER == B_ICE_WEATHER_HAIL
-        MESSAGE("It started to hail!");
+        MESSAGE("It started to hail! ");
 #else
-        MESSAGE("It started to snow!");
+        MESSAGE("It started to snow! ");
 #endif
-        NOT MESSAGE("Slowking went back to 1!");
+        NOT MESSAGE("Slowking went back to 1! ");
     }
 }
 

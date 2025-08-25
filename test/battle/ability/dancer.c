@@ -49,8 +49,8 @@ DOUBLE_BATTLE_TEST("Dancer can copy Teeter Dance and confuse both opposing targe
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TEETER_DANCE, playerLeft);
         ABILITY_POPUP(opponentLeft, ABILITY_DANCER);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TEETER_DANCE, opponentLeft);
-        MESSAGE("Wobbuffet became confused!");
-        MESSAGE("Wynaut became confused!");
+        MESSAGE("Wobbuffet became confused! ");
+        MESSAGE("Wynaut became confused! ");
     }
 }
 
@@ -90,7 +90,7 @@ SINGLE_BATTLE_TEST("Dancer doesn't trigger if the original user flinches")
         TURN { MOVE(opponent, MOVE_FAKE_OUT); MOVE(player, MOVE_DRAGON_DANCE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
-        MESSAGE("Wobbuffet flinched and couldn't move!");
+        MESSAGE("Wobbuffet flinched and couldn't move! ");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_DANCER);
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, opponent);
@@ -114,14 +114,14 @@ DOUBLE_BATTLE_TEST("Dancer still triggers if another dancer flinches")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, playerRight);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         ABILITY_POPUP(playerLeft, ABILITY_DANCER);
-        MESSAGE("Oricorio flinched and couldn't move!");
+        MESSAGE("Oricorio flinched and couldn't move! ");
         NONE_OF {
-            MESSAGE("Oricorio used Dragon Dance!");
+            MESSAGE("Oricorio used Dragon Dance! ");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         }
         ABILITY_POPUP(opponentLeft, ABILITY_DANCER);
-        MESSAGE("The opposing Oricorio used Dragon Dance!");
+        MESSAGE("The opposing Oricorio used Dragon Dance! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
     }
@@ -142,7 +142,7 @@ SINGLE_BATTLE_TEST("Dancer-called attacks have their type updated")
         ABILITY_POPUP(opponent, ABILITY_DANCER);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REVELATION_DANCE, opponent);
         NOT MESSAGE("It's not very effective…");
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -260,13 +260,13 @@ DOUBLE_BATTLE_TEST("Dancer still activates after Red Card")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_FIERY_DANCE, target: opponentLeft); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fiery Dance!");
+        MESSAGE("Wobbuffet used Fiery Dance! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIERY_DANCE, playerLeft);
         HP_BAR(opponentLeft);
         // Red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
-        MESSAGE("Chansey was dragged out!");
+        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet! ");
+        MESSAGE("Chansey was dragged out! ");
         // Dancer
         ABILITY_POPUP(playerRight, ABILITY_DANCER);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIERY_DANCE, playerRight);
@@ -286,14 +286,14 @@ DOUBLE_BATTLE_TEST("Dancer still activate after Red Card even if blocked by Suct
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_FIERY_DANCE, target: opponentLeft); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fiery Dance!");
+        MESSAGE("Wobbuffet used Fiery Dance! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIERY_DANCE, playerLeft);
         HP_BAR(opponentLeft);
         // red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
-        MESSAGE("Wobbuffet anchors itself with Suction Cups!");
-        NOT MESSAGE("Chansey was dragged out!");
+        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet! ");
+        MESSAGE("Wobbuffet anchors itself with Suction Cups! ");
+        NOT MESSAGE("Chansey was dragged out! ");
         // Dancer
         ABILITY_POPUP(playerRight, ABILITY_DANCER);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIERY_DANCE, playerRight);

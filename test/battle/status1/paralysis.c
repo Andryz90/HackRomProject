@@ -18,15 +18,15 @@ SINGLE_BATTLE_TEST("Paralysis reduces Speed by 50% (Gen 7+) or 75% (Gen 1-6)")
     } SCENE {
         if (playerFirst) {
             ONE_OF {
-                MESSAGE("Wobbuffet used Celebrate!");
-                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+                MESSAGE("Wobbuffet used Celebrate! ");
+                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move! ");
             }
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
         } else {
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
             ONE_OF {
-                MESSAGE("Wobbuffet used Celebrate!");
-                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+                MESSAGE("Wobbuffet used Celebrate! ");
+                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move! ");
             }
         }
     }
@@ -41,7 +41,7 @@ SINGLE_BATTLE_TEST("Paralysis has a 25% chance of skipping the turn")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+        MESSAGE("Wobbuffet couldn't move because it's paralyzed! ");
     }
 }
 
@@ -73,7 +73,7 @@ SINGLE_BATTLE_TEST("Thunder Wave doesn't affect Electric types in Gen6+")
     } WHEN {
         TURN { MOVE(player, MOVE_THUNDER_WAVE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Thunder Wave!");
+        MESSAGE("Wobbuffet used Thunder Wave! ");
         MESSAGE("It doesn't affect the opposing Pikachu…");
     }
 }

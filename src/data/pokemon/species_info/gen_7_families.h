@@ -4258,7 +4258,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
             "It lives in shallow seas, such as areas\n"
             "near a beach. The sticky mucous that\n"
             "covers their bodies can be used to soothe\n"
-            "sunburned skin. How convenient!"),
+            "sunburned skin. How convenient! "),
         .pokemonScale = 530,
         .pokemonOffset = 13,
         .trainerScale = 256,

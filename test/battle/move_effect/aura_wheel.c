@@ -21,12 +21,12 @@ SINGLE_BATTLE_TEST("Aura Wheel raises Speed; fails if the user is not Morpeko")
         if (species != SPECIES_MORPEKO)
         {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_AURA_WHEEL, player);
-            MESSAGE("But Wobbuffet can't use the move!");
+            MESSAGE("But Wobbuffet can't use the move! ");
         }
         else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_AURA_WHEEL, player);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-            MESSAGE("Morpeko's Speed rose!");
+            MESSAGE("Morpeko's Speed rose! ");
         }
     }
 }
@@ -42,11 +42,11 @@ SINGLE_BATTLE_TEST("Aura Wheel changes type depending on Morpeko's form")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AURA_WHEEL, player);
         HP_BAR(opponent);
-        NOT MESSAGE("It's super effective!");
+        NOT MESSAGE("It's super effective! ");
         // Turn 2 (Hangry)
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AURA_WHEEL, player);
         HP_BAR(opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 

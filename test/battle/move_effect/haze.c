@@ -22,7 +22,7 @@ SINGLE_BATTLE_TEST("Haze resets stat changes", s16 damage)
     } SCENE {
         if (haze) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_HAZE, opponent);
-            MESSAGE("All stat changes were eliminated!");
+            MESSAGE("All stat changes were eliminated! ");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);

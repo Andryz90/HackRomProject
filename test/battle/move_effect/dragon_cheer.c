@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Dragon Cheer fails in a single battle")
     } WHEN {
         TURN { MOVE(player, MOVE_DRAGON_CHEER); }
     } SCENE {
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -43,10 +43,10 @@ DOUBLE_BATTLE_TEST("Dragon Cheer increases critical hit ratio by 1 on non-Dragon
     } SCENE {
         if (useDragonCheer) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_CHEER, playerLeft);
-            MESSAGE("Wobbuffet is getting pumped!");
+            MESSAGE("Wobbuffet is getting pumped! ");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     }
 }
 
@@ -78,10 +78,10 @@ DOUBLE_BATTLE_TEST("Dragon Cheer increases critical hit ratio by 2 on Dragon typ
     } SCENE {
         if (useDragonCheer) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_CHEER, playerLeft);
-            MESSAGE("Dratini is getting pumped!");
+            MESSAGE("Dratini is getting pumped! ");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
-        MESSAGE("A critical hit!");
+        MESSAGE("A critical hit! ");
     }
 }
 
@@ -98,7 +98,7 @@ DOUBLE_BATTLE_TEST("Dragon Cheer fails if critical hit stage was already increas
         TURN { MOVE(playerLeft, MOVE_FOCUS_ENERGY); MOVE(playerRight, MOVE_DRAGON_CHEER, target: playerLeft); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_ENERGY, playerLeft);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 

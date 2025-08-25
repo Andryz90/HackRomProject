@@ -10,9 +10,9 @@ SINGLE_BATTLE_TEST("Sturdy prevents OHKO moves")
     } WHEN {
         TURN { MOVE(opponent, MOVE_FISSURE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Fissure!");
+        MESSAGE("The opposing Wobbuffet used Fissure! ");
         ABILITY_POPUP(player, ABILITY_STURDY);
-        MESSAGE("Geodude was protected by Sturdy!");
+        MESSAGE("Geodude was protected by Sturdy! ");
     } THEN {
         EXPECT_EQ(player->hp, player->maxHP);
     }
@@ -29,7 +29,7 @@ SINGLE_BATTLE_TEST("Sturdy prevents OHKOs")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SEISMIC_TOSS, opponent);
         HP_BAR(player, hp: 1);
         ABILITY_POPUP(player, ABILITY_STURDY);
-        MESSAGE("Geodude endured the hit using Sturdy!");
+        MESSAGE("Geodude endured the hit using Sturdy! ");
     }
 }
 

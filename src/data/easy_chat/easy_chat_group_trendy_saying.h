@@ -1,11 +1,11 @@
 const u8 gEasyChatWord_KthxBye[] = _("KTHX, BYE.");
-const u8 gEasyChatWord_YesSirExcl[] = _("YES, SIR!");
+const u8 gEasyChatWord_YesSirExcl[] = _("YES, SIR! ");
 const u8 gEasyChatWord_AvantGarde[] = _("AVANT GARDE");
 const u8 gEasyChatWord_Couple[] = _("COUPLE");
 const u8 gEasyChatWord_MuchObliged[] = _("MUCH OBLIGED");
-const u8 gEasyChatWord_YeehawExcl[] = _("YEEHAW!");
+const u8 gEasyChatWord_YeehawExcl[] = _("YEEHAW! ");
 const u8 gEasyChatWord_Mega[] = _("MEGA");
-const u8 gEasyChatWord_1HitKOExcl[] = _("1-HIT KO!");
+const u8 gEasyChatWord_1HitKOExcl[] = _("1-HIT KO! ");
 const u8 gEasyChatWord_Destiny[] = _("DESTINY");
 const u8 gEasyChatWord_Cancel[] = _("CANCEL");
 const u8 gEasyChatWord_New[] = _("NEW");

@@ -21,17 +21,17 @@ SINGLE_BATTLE_TEST("Focus Punch activates only if not damaged")
         TURN { MOVE(player, MOVE_FOCUS_PUNCH); MOVE(opponent, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, player);
-        MESSAGE("Wobbuffet is tightening its focus!");
+        MESSAGE("Wobbuffet is tightening its focus! ");
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
 
         if (activate) {
-            MESSAGE("Wobbuffet used Focus Punch!");
+            MESSAGE("Wobbuffet used Focus Punch! ");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("Wobbuffet lost its focus and couldn't move!");
+            MESSAGE("Wobbuffet lost its focus and couldn't move! ");
             NONE_OF {
-                MESSAGE("Wobbuffet used Focus Punch!");
+                MESSAGE("Wobbuffet used Focus Punch! ");
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
                 HP_BAR(opponent);
             }
@@ -51,27 +51,27 @@ DOUBLE_BATTLE_TEST("Focus Punch activation is based on Speed")
     }
     SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, opponentRight);
-        MESSAGE("The opposing Wynaut is tightening its focus!");
+        MESSAGE("The opposing Wynaut is tightening its focus! ");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, playerRight);
-        MESSAGE("Wynaut is tightening its focus!");
+        MESSAGE("Wynaut is tightening its focus! ");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, playerLeft);
-        MESSAGE("Wobbuffet is tightening its focus!");
+        MESSAGE("Wobbuffet is tightening its focus! ");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, opponentLeft);
-        MESSAGE("The opposing Wobbuffet is tightening its focus!");
+        MESSAGE("The opposing Wobbuffet is tightening its focus! ");
 
-        MESSAGE("The opposing Wynaut used Focus Punch!");
+        MESSAGE("The opposing Wynaut used Focus Punch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, opponentRight);
         HP_BAR(playerLeft);
 
-        MESSAGE("Wynaut used Focus Punch!");
+        MESSAGE("Wynaut used Focus Punch! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, playerRight);
         HP_BAR(opponentLeft);
 
-        MESSAGE("Wobbuffet lost its focus and couldn't move!");
-        MESSAGE("The opposing Wobbuffet lost its focus and couldn't move!");
+        MESSAGE("Wobbuffet lost its focus and couldn't move! ");
+        MESSAGE("The opposing Wobbuffet lost its focus and couldn't move! ");
     }
 }
 

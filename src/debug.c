@@ -2248,7 +2248,7 @@ const u8 *GetWeatherName(u32 weatherId)
     return sWeatherNames[weatherId];
 }
 
-static const u8 sDebugText_WeatherNotDefined[] = _("NOT DEFINED!!!");
+static const u8 sDebugText_WeatherNotDefined[] = _("NOT DEFINED!!! ");
 static void DebugAction_Util_Weather(u8 taskId)
 {
     u8 windowId;

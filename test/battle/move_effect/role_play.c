@@ -82,9 +82,9 @@ SINGLE_BATTLE_TEST("Role Play and Doodle fail if target's ability can't be copie
         TURN { MOVE(player, MOVE_DOODLE); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROLE_PLAY, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_DOODLE, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -117,8 +117,8 @@ SINGLE_BATTLE_TEST("Role Play fails if user's ability can't be suppressed")
         TURN { MOVE(opponent, MOVE_DOODLE); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROLE_PLAY, opponent);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_DOODLE, opponent);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }

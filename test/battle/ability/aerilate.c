@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Aerilate turns a Normal-type move into Flying-type move")
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective! ");
     }
 }
 
@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Aerilate can not turn certain moves into Flying type moves")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
         }
     }
 }
@@ -93,7 +93,7 @@ SINGLE_BATTLE_TEST("Aerilate doesn't affect Weather Ball's type", s16 damage)
         ANIMATION(ANIM_TYPE_MOVE, move1, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);
         if (move1 == MOVE_SUNNY_DAY)
-            MESSAGE("It's super effective!");
+            MESSAGE("It's super effective! ");
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, Q_4_12(6.0), results[1].damage); // double base power + type effectiveness + sun 50% boost
         EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage);

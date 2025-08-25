@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Pickup grants an item used by another Pokémon")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ABILITY_POPUP(player, ABILITY_PICKUP);
-        MESSAGE("Zigzagoon found one Sitrus Berry!");
+        MESSAGE("Zigzagoon found one Sitrus Berry! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_SITRUS_BERRY);
     }
@@ -34,7 +34,7 @@ WILD_BATTLE_TEST("Pickup grants an item used by itself in wild battles (Gen 9)")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         ABILITY_POPUP(player, ABILITY_PICKUP);
-        MESSAGE("Zigzagoon found one Sitrus Berry!");
+        MESSAGE("Zigzagoon found one Sitrus Berry! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_SITRUS_BERRY);
     }
@@ -51,7 +51,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant the user their item outside wild battle
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(opponent->item, ITEM_NONE);
@@ -70,7 +70,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant another Pokémon's popped Air Balloon")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Air Balloon!");
+            MESSAGE("Zigzagoon found one Air Balloon! ");
         }
     } THEN {
         EXPECT_EQ(opponent->item, ITEM_NONE);
@@ -91,7 +91,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an item not used that turn")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -110,7 +110,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an item after its holder faints")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -135,7 +135,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an used item if holder is replaced")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -154,7 +154,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an item if it destroyed the item with I
         ANIMATION(ANIM_TYPE_MOVE, MOVE_INCINERATE, player);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -173,7 +173,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an item if it knocked off that item")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_KNOCK_OFF, player);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -192,7 +192,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an item if the user eats it with Bug Bi
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BUG_BITE, player);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -212,7 +212,7 @@ SINGLE_BATTLE_TEST("Pickup doesn't grant an used item if its user already restor
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RECYCLE, opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_PICKUP);
-            MESSAGE("Zigzagoon found one Sitrus Berry!");
+            MESSAGE("Zigzagoon found one Sitrus Berry! ");
         }
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
@@ -230,7 +230,7 @@ SINGLE_BATTLE_TEST("Pickup restores an item that has been Flinged")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, opponent);
         ABILITY_POPUP(player, ABILITY_PICKUP);
-        MESSAGE("Zigzagoon found one Sitrus Berry!");
+        MESSAGE("Zigzagoon found one Sitrus Berry! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_SITRUS_BERRY);
     }
@@ -247,7 +247,7 @@ SINGLE_BATTLE_TEST("Pickup restores an item that was used by Natural Gift")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_NATURAL_GIFT, opponent);
         ABILITY_POPUP(player, ABILITY_PICKUP);
-        MESSAGE("Zigzagoon found one Sitrus Berry!");
+        MESSAGE("Zigzagoon found one Sitrus Berry! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_SITRUS_BERRY);
     }

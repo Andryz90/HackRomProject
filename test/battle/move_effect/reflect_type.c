@@ -37,8 +37,8 @@ SINGLE_BATTLE_TEST("Reflect Type does not affect any of Arceus' forms")
     } WHEN {
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Reflect Type!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Reflect Type! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -78,8 +78,8 @@ SINGLE_BATTLE_TEST("Reflect Type does not affect any of Silvally's forms")
     } WHEN {
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("Wobbuffet used Reflect Type!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Reflect Type! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -95,12 +95,12 @@ SINGLE_BATTLE_TEST("Reflect Type fails if the target has no types")
     } WHEN {
         TURN { MOVE(player, MOVE_BURN_UP); MOVE(opponent, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("Arcanine used Burn Up!");
+        MESSAGE("Arcanine used Burn Up! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player);
         HP_BAR(opponent);
-        MESSAGE("Arcanine burned itself out!");
-        MESSAGE("The opposing Poliwrath used Reflect Type!");
-        MESSAGE("But it failed!");
+        MESSAGE("Arcanine burned itself out! ");
+        MESSAGE("The opposing Poliwrath used Reflect Type! ");
+        MESSAGE("But it failed! ");
     }
 }
 
@@ -116,9 +116,9 @@ SINGLE_BATTLE_TEST("Reflect Type copies a target's dual types")
     } WHEN {
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("Arcanine used Reflect Type!");
+        MESSAGE("Arcanine used Reflect Type! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Arcanine became the same type as the opposing Poliwrath!");
+        MESSAGE("Arcanine became the same type as the opposing Poliwrath! ");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_WATER);
         EXPECT_EQ(player->types[1], TYPE_FIGHTING);
@@ -138,9 +138,9 @@ SINGLE_BATTLE_TEST("Reflect Type copies a target's pure type")
     } WHEN {
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("Arcanine used Reflect Type!");
+        MESSAGE("Arcanine used Reflect Type! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Arcanine became the same type as the opposing Sudowoodo!");
+        MESSAGE("Arcanine became the same type as the opposing Sudowoodo! ");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_ROCK);
         EXPECT_EQ(player->types[1], TYPE_ROCK);
@@ -163,18 +163,18 @@ SINGLE_BATTLE_TEST("Reflect Type defaults to Normal type for the user's 1st and 
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
         // Turn 1
-        MESSAGE("The opposing Arcanine used Burn Up!");
+        MESSAGE("The opposing Arcanine used Burn Up! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, opponent);
         HP_BAR(player);
-        MESSAGE("The opposing Arcanine burned itself out!");
+        MESSAGE("The opposing Arcanine burned itself out! ");
         // Turn 2
-        MESSAGE("Wobbuffet used Forest's Curse!");
+        MESSAGE("Wobbuffet used Forest's Curse! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, player);
-        MESSAGE("Grass type was added to the opposing Arcanine!");
+        MESSAGE("Grass type was added to the opposing Arcanine! ");
         // Turn 3
-        MESSAGE("Wobbuffet used Reflect Type!");
+        MESSAGE("Wobbuffet used Reflect Type! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Wobbuffet became the same type as the opposing Arcanine!");
+        MESSAGE("Wobbuffet became the same type as the opposing Arcanine! ");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_NORMAL);
         EXPECT_EQ(player->types[1], TYPE_NORMAL);
@@ -190,8 +190,8 @@ SINGLE_BATTLE_TEST("Reflect Type fails if the user is Terastallized")
     } WHEN {
         TURN { MOVE(player, MOVE_REFLECT_TYPE, gimmick: GIMMICK_TERA); }
     } SCENE {
-        MESSAGE("Arcanine used Reflect Type!");
-        MESSAGE("But it failed!");
+        MESSAGE("Arcanine used Reflect Type! ");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_FIRE);
         EXPECT_EQ(player->types[1], TYPE_FIRE);
@@ -209,7 +209,7 @@ SINGLE_BATTLE_TEST("Reflect Type succeeds against a Terastallized target and cop
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_REFLECT_TYPE); }
     } SCENE {
-        MESSAGE("The opposing Poliwrath used Reflect Type!");
+        MESSAGE("The opposing Poliwrath used Reflect Type! ");
     } THEN {
         EXPECT_EQ(opponent->types[0], TYPE_NORMAL);
         EXPECT_EQ(opponent->types[1], TYPE_NORMAL);

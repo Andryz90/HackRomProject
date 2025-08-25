@@ -19,9 +19,9 @@ SINGLE_BATTLE_TEST("Eject Pack does not cause the new Pokémon to lose HP due to
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OVERHEAT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+        MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         SEND_IN_MESSAGE("Wynaut");
-        NOT MESSAGE("Wynaut was hurt by its Life Orb!");
+        NOT MESSAGE("Wynaut was hurt by its Life Orb! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
 }
@@ -38,7 +38,7 @@ SINGLE_BATTLE_TEST("Eject Pack does not activate if there are no Pokémon left t
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+            MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         }
     }
 }
@@ -58,7 +58,7 @@ SINGLE_BATTLE_TEST("Eject Pack is triggered by self-inflicting stat decreases")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+        MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         SEND_IN_MESSAGE("Wynaut");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }
@@ -78,7 +78,7 @@ SINGLE_BATTLE_TEST("Eject Pack will miss timing to switch out user if Emergency 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+            MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         }
         ABILITY_POPUP(opponent, ABILITY_EMERGENCY_EXIT);
     } THEN {
@@ -99,7 +99,7 @@ SINGLE_BATTLE_TEST("Eject Pack activates once intimidate mon switches in")
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+        MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
     }
 }
 
@@ -116,7 +116,7 @@ SINGLE_BATTLE_TEST("Eject Pack will not activate if Parting Shot user can switch
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+            MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         }
     }
 }
@@ -152,7 +152,7 @@ SINGLE_BATTLE_TEST("Eject Pack will miss timing to switch out user if Eject Butt
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Wobbuffet is switched out with the Eject Pack!");
+            MESSAGE("Wobbuffet is switched out with the Eject Pack! ");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
     } THEN {

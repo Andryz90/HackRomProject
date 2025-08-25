@@ -41,28 +41,28 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves make the user semi-invulnerable turn
             switch (move)
             {
                 case MOVE_FLY:
-                    NOT MESSAGE("Wobbuffet flew up high!");
-                    MESSAGE("Wobbuffet used Fly!");
+                    NOT MESSAGE("Wobbuffet flew up high! ");
+                    MESSAGE("Wobbuffet used Fly! ");
                     break;
                 case MOVE_DIG:
-                    NOT MESSAGE("Wobbuffet dug a hole!");
-                    MESSAGE("Wobbuffet used Dig!");
+                    NOT MESSAGE("Wobbuffet dug a hole! ");
+                    MESSAGE("Wobbuffet used Dig! ");
                     break;
                 case MOVE_BOUNCE:
-                    NOT MESSAGE("Wobbuffet sprang up!");
-                    MESSAGE("Wobbuffet used Bounce!");
+                    NOT MESSAGE("Wobbuffet sprang up! ");
+                    MESSAGE("Wobbuffet used Bounce! ");
                     break;
                 case MOVE_DIVE:
-                    NOT MESSAGE("Wobbuffet hid underwater!");
-                    MESSAGE("Wobbuffet used Dive!");
+                    NOT MESSAGE("Wobbuffet hid underwater! ");
+                    MESSAGE("Wobbuffet used Dive! ");
                     break;
                 case MOVE_PHANTOM_FORCE:
-                    NOT MESSAGE("Wobbuffet vanished instantly!");
-                    MESSAGE("Wobbuffet used Phantom Force!");
+                    NOT MESSAGE("Wobbuffet vanished instantly! ");
+                    MESSAGE("Wobbuffet used Phantom Force! ");
                     break;
                 case MOVE_SHADOW_FORCE:
-                    NOT MESSAGE("Wobbuffet vanished instantly!");
-                    MESSAGE("Wobbuffet used Shadow Force!");
+                    NOT MESSAGE("Wobbuffet vanished instantly! ");
+                    MESSAGE("Wobbuffet used Shadow Force! ");
                     break;
             }
         } else {
@@ -73,20 +73,20 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves make the user semi-invulnerable turn
             switch (move)
             {
                 case MOVE_FLY:
-                    MESSAGE("Wobbuffet flew up high!");
+                    MESSAGE("Wobbuffet flew up high! ");
                     break;
                 case MOVE_DIG:
-                    MESSAGE("Wobbuffet dug a hole!");
+                    MESSAGE("Wobbuffet dug a hole! ");
                     break;
                 case MOVE_BOUNCE:
-                    MESSAGE("Wobbuffet sprang up!");
+                    MESSAGE("Wobbuffet sprang up! ");
                     break;
                 case MOVE_DIVE:
-                    MESSAGE("Wobbuffet hid underwater!");
+                    MESSAGE("Wobbuffet hid underwater! ");
                     break;
                 case MOVE_PHANTOM_FORCE:
                 case MOVE_SHADOW_FORCE:
-                    MESSAGE("Wobbuffet vanished instantly!");
+                    MESSAGE("Wobbuffet vanished instantly! ");
                     break;
             }
         }
@@ -94,28 +94,28 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves make the user semi-invulnerable turn
             ANIMATION(ANIM_TYPE_MOVE, move, player);
 
         // Aerial Ace cannot miss unless the target is semi-invulnerable
-        MESSAGE("The opposing Wobbuffet used Aerial Ace!");
-        MESSAGE("The opposing Wobbuffet's attack missed!");
+        MESSAGE("The opposing Wobbuffet used Aerial Ace! ");
+        MESSAGE("The opposing Wobbuffet's attack missed! ");
         // Attack turn
         switch (move)
         {
             case MOVE_FLY:
-                MESSAGE("Wobbuffet used Fly!");
+                MESSAGE("Wobbuffet used Fly! ");
                 break;
             case MOVE_DIG:
-                MESSAGE("Wobbuffet used Dig!");
+                MESSAGE("Wobbuffet used Dig! ");
                 break;
             case MOVE_BOUNCE:
-                MESSAGE("Wobbuffet used Bounce!");
+                MESSAGE("Wobbuffet used Bounce! ");
                 break;
             case MOVE_DIVE:
-                MESSAGE("Wobbuffet used Dive!");
+                MESSAGE("Wobbuffet used Dive! ");
                 break;
             case MOVE_PHANTOM_FORCE:
-                MESSAGE("Wobbuffet used Phantom Force!");
+                MESSAGE("Wobbuffet used Phantom Force! ");
                 break;
             case MOVE_SHADOW_FORCE:
-                MESSAGE("Wobbuffet used Shadow Force!");
+                MESSAGE("Wobbuffet used Shadow Force! ");
                 break;
         }
         ANIMATION(ANIM_TYPE_MOVE, move, player);
@@ -146,28 +146,28 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves don't need to charge with Power Herb
             switch (move)
             {
                 case MOVE_FLY:
-                    NOT MESSAGE("Wobbuffet flew up high!");
-                    MESSAGE("Wobbuffet used Fly!");
+                    NOT MESSAGE("Wobbuffet flew up high! ");
+                    MESSAGE("Wobbuffet used Fly! ");
                     break;
                 case MOVE_DIG:
-                    NOT MESSAGE("Wobbuffet dug a hole!");
-                    MESSAGE("Wobbuffet used Dig!");
+                    NOT MESSAGE("Wobbuffet dug a hole! ");
+                    MESSAGE("Wobbuffet used Dig! ");
                     break;
                 case MOVE_BOUNCE:
-                    NOT MESSAGE("Wobbuffet sprang up!");
-                    MESSAGE("Wobbuffet used Bounce!");
+                    NOT MESSAGE("Wobbuffet sprang up! ");
+                    MESSAGE("Wobbuffet used Bounce! ");
                     break;
                 case MOVE_DIVE:
-                    NOT MESSAGE("Wobbuffet hid underwater!");
-                    MESSAGE("Wobbuffet used Dive!");
+                    NOT MESSAGE("Wobbuffet hid underwater! ");
+                    MESSAGE("Wobbuffet used Dive! ");
                     break;
                 case MOVE_PHANTOM_FORCE:
-                    NOT MESSAGE("Wobbuffet vanished instantly!");
-                    MESSAGE("Wobbuffet used Phantom Force!");
+                    NOT MESSAGE("Wobbuffet vanished instantly! ");
+                    MESSAGE("Wobbuffet used Phantom Force! ");
                     break;
                 case MOVE_SHADOW_FORCE:
-                    NOT MESSAGE("Wobbuffet vanished instantly!");
-                    MESSAGE("Wobbuffet used Shadow Force!");
+                    NOT MESSAGE("Wobbuffet vanished instantly! ");
+                    MESSAGE("Wobbuffet used Shadow Force! ");
                     break;
             }
         } else {
@@ -178,47 +178,47 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves don't need to charge with Power Herb
             switch (move)
             {
                 case MOVE_FLY:
-                    MESSAGE("Wobbuffet flew up high!");
+                    MESSAGE("Wobbuffet flew up high! ");
                     break;
                 case MOVE_DIG:
-                    MESSAGE("Wobbuffet dug a hole!");
+                    MESSAGE("Wobbuffet dug a hole! ");
                     break;
                 case MOVE_BOUNCE:
-                    MESSAGE("Wobbuffet sprang up!");
+                    MESSAGE("Wobbuffet sprang up! ");
                     break;
                 case MOVE_DIVE:
-                    MESSAGE("Wobbuffet hid underwater!");
+                    MESSAGE("Wobbuffet hid underwater! ");
                     break;
                 case MOVE_PHANTOM_FORCE:
                 case MOVE_SHADOW_FORCE:
-                    MESSAGE("Wobbuffet vanished instantly!");
+                    MESSAGE("Wobbuffet vanished instantly! ");
                     break;
             }
         }
         else
             ANIMATION(ANIM_TYPE_MOVE, move, player);
-        MESSAGE("Wobbuffet became fully charged due to its Power Herb!");
+        MESSAGE("Wobbuffet became fully charged due to its Power Herb! ");
         if (B_UPDATED_MOVE_DATA < GEN_5)
         {
             switch (move)
             {
                 case MOVE_FLY:
-                    MESSAGE("Wobbuffet used Fly!");
+                    MESSAGE("Wobbuffet used Fly! ");
                     break;
                 case MOVE_DIG:
-                    MESSAGE("Wobbuffet used Dig!");
+                    MESSAGE("Wobbuffet used Dig! ");
                     break;
                 case MOVE_BOUNCE:
-                    MESSAGE("Wobbuffet used Bounce!");
+                    MESSAGE("Wobbuffet used Bounce! ");
                     break;
                 case MOVE_DIVE:
-                    MESSAGE("Wobbuffet used Dive!");
+                    MESSAGE("Wobbuffet used Dive! ");
                     break;
                 case MOVE_PHANTOM_FORCE:
-                    MESSAGE("Wobbuffet used Phantom Force!");
+                    MESSAGE("Wobbuffet used Phantom Force! ");
                     break;
                 case MOVE_SHADOW_FORCE:
-                    MESSAGE("Wobbuffet used Shadow Force!");
+                    MESSAGE("Wobbuffet used Shadow Force! ");
                     break;
             }
         }

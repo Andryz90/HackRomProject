@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Pastel Veil immediately cures Mold Breaker poison")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC, player);
         STATUS_ICON(opponent, badPoison: TRUE);
         ABILITY_POPUP(opponent, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Ponyta's Pastel Veil cured its poison problem!");
+        MESSAGE("The opposing Ponyta's Pastel Veil cured its poison problem! ");
         STATUS_ICON(opponent, none: TRUE);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
@@ -78,9 +78,9 @@ SINGLE_BATTLE_TEST("Pastel Veil prevents Toxic bad poison")
     } WHEN {
         TURN { MOVE(player, MOVE_TOXIC); }
     } SCENE {
-        MESSAGE("Wobbuffet used Toxic!");
+        MESSAGE("Wobbuffet used Toxic! ");
         ABILITY_POPUP(opponent, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Ponyta is protected by a pastel veil!");
+        MESSAGE("The opposing Ponyta is protected by a pastel veil! ");
         NOT STATUS_ICON(opponent, badPoison: TRUE);
     }
 }
@@ -95,9 +95,9 @@ DOUBLE_BATTLE_TEST("Pastel Veil prevents Toxic bad poison on partner - right tar
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_TOXIC, target: opponentRight); }
     } SCENE {
-        MESSAGE("Wobbuffet used Toxic!");
+        MESSAGE("Wobbuffet used Toxic! ");
         ABILITY_POPUP(opponentLeft, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Wynaut is protected by a pastel veil!");
+        MESSAGE("The opposing Wynaut is protected by a pastel veil! ");
         NOT STATUS_ICON(opponentRight, badPoison: TRUE);
     }
 }
@@ -112,9 +112,9 @@ DOUBLE_BATTLE_TEST("Pastel Veil prevents Toxic bad poison on partner - left targ
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_TOXIC, target: opponentLeft); }
     } SCENE {
-        MESSAGE("Wobbuffet used Toxic!");
+        MESSAGE("Wobbuffet used Toxic! ");
         ABILITY_POPUP(opponentRight, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Wynaut is protected by a pastel veil!");
+        MESSAGE("The opposing Wynaut is protected by a pastel veil! ");
         NOT STATUS_ICON(opponentLeft, badPoison: TRUE);
     }
 }
@@ -130,7 +130,7 @@ SINGLE_BATTLE_TEST("Pastel Veil prevents Toxic Spikes poison")
         TURN { MOVE(player, MOVE_TOXIC_SPIKES); }
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("2 sent out Ponyta!");
+        MESSAGE("2 sent out Ponyta! ");
         NOT STATUS_ICON(opponent, poison: TRUE);
     }
 }
@@ -148,7 +148,7 @@ DOUBLE_BATTLE_TEST("Pastel Veil prevents Toxic Spikes poison on partner")
         TURN { MOVE(playerLeft, MOVE_TOXIC_SPIKES); }
         TURN { SWITCH(opponentRight, 2); }
     } SCENE {
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut! ");
         NOT STATUS_ICON(opponentRight, poison: TRUE);
     }
 }
@@ -163,9 +163,9 @@ DOUBLE_BATTLE_TEST("Pastel Veil cures partner's poison on initial switch in")
     } WHEN {
         TURN {}
     } SCENE {
-        MESSAGE("2 sent out Wobbuffet and Ponyta!");
+        MESSAGE("2 sent out Wobbuffet and Ponyta! ");
         ABILITY_POPUP(opponentRight, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Wobbuffet was cured of its poisoning!");
+        MESSAGE("The opposing Wobbuffet was cured of its poisoning! ");
         STATUS_ICON(opponentLeft, none: TRUE);
     }
 }
@@ -181,9 +181,9 @@ DOUBLE_BATTLE_TEST("Pastel Veil cures partner's poison on switch in")
     } WHEN {
         TURN { SWITCH(opponentRight, 2); }
     } SCENE {
-        MESSAGE("2 sent out Ponyta!");
+        MESSAGE("2 sent out Ponyta! ");
         ABILITY_POPUP(opponentRight, ABILITY_PASTEL_VEIL);
-        MESSAGE("The opposing Wobbuffet was cured of its poisoning!");
+        MESSAGE("The opposing Wobbuffet was cured of its poisoning! ");
         STATUS_ICON(opponentLeft, none: TRUE);
     }
 }

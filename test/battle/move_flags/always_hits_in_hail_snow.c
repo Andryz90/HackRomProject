@@ -14,6 +14,6 @@ SINGLE_BATTLE_TEST("Blizzard bypasses accuracy checks in Hail and Snow")
     } WHEN {
         TURN { MOVE(opponent, move); MOVE(player, MOVE_BLIZZARD); }
     } SCENE {
-        NOT MESSAGE("Wobbuffet's attack missed!");
+        NOT MESSAGE("Wobbuffet's attack missed! ");
     }
 }

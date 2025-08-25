@@ -250,7 +250,7 @@ static const u8 sText_Var1CantBeHeldHere[] = _("The {STR_VAR_1} can't be held\nh
 static const u8 sText_DepositHowManyVar1[] = _("Deposit how many\n{STR_VAR_1}?");
 static const u8 sText_DepositedVar2Var1s[] = _("Deposited {STR_VAR_2}\n{STR_VAR_1}.");
 static const u8 sText_NoRoomForItems[] = _("There's no room to\nstore items.");
-static const u8 sText_CantStoreImportantItems[] = _("Important items\ncan't be stored in\nthe PC!");
+static const u8 sText_CantStoreImportantItems[] = _("Important items\ncan't be stored in\nthe PC! ");
 static const struct BgTemplate sBgTemplates_ItemMenu[] =
 {
     {
@@ -317,8 +317,8 @@ static const u8 sMenuText_ByName[] = _("NAME");
 static const u8 sMenuText_ByType[] = _("TYPE");
 static const u8 sMenuText_ByAmount[] = _("QUANT");
 static const u8 sMenuText_ByNumber[] = _("ID");
-static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
-static const u8 sText_CannotOpenNow[] = _("Cannot open that now!");
+static const u8 sText_NothingToSort[] = _("There's nothing to sort! ");
+static const u8 sText_CannotOpenNow[] = _("Cannot open that now! ");
 static const u8 sMenuText_Select[] = _("SELECT");
 static const u8 sMenuText_L[] = _("LIST");
 static const struct MenuAction sItemMenuActions[] = {
@@ -2429,7 +2429,7 @@ static void ItemMenu_Cancel(u8 taskId)
 }
 
 //tx_registered_items_menu
-static const u8 gText_TooManyRegistered[] = _("You already have too\nmany items registered!");
+static const u8 gText_TooManyRegistered[] = _("You already have too\nmany items registered! ");
 static void ItemMenu_Cancel2(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
@@ -3184,7 +3184,7 @@ static const u8 sText_SortItemsHow[] = _("Sort items how?");
 static const u8 sText_Name[] = _("name");
 static const u8 sText_Type[] = _("type");
 static const u8 sText_Amount[] = _("amount");
-static const u8 sText_ItemsSorted[] = _("Items sorted by {STR_VAR_1}!");
+static const u8 sText_ItemsSorted[] = _("Items sorted by {STR_VAR_1}! ");
 
 static const u8 *const sSortTypeStrings[] = 
 {

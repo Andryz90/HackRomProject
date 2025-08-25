@@ -1509,17 +1509,32 @@ Music: Cool
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Wailmer  
+Ability: Water Veil  
+Level: 35   
+IVs: 0 Atk  
+- Water Spout  
+- Icy Wind  
+- Scald  
+- Protect  
 
-Wailmer
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Scolipede @ Bright Powder  
+Ability: Poison Point  
+Level: 35  
+- Leech Life  
+- Poison Jab  
+- Earthquake  
+- Aqua Tail  
 
-Makuhita
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Bewear @ Expert Belt  
+Ability: Fluffy  
+Level: 35   
+- Double-Edge  
+- Darkest Lariat  
+- Drain Punch  
+- Earthquake  
+
+
 
 === TRAINER_EDGAR ===
 Name: EDGAR
@@ -3494,9 +3509,22 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Machop
-Level: 19
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Machamp @ Flame Orb  
+Ability: Guts  
+Level: 35  
+Jolly Nature  
+- Close Combat  
+- Bullet Punch  
+- Detect  
+- Darkest Lariat  
+
+Crabominable  
+Ability: Iron Fist  
+Level: 35   
+- Ice Hammer  
+- Brick Break  
+- Return  
+- Facade  
 
 
 === TRAINER_ATSUSHI ===
@@ -10464,13 +10492,35 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Lombre
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Porygon-Z  
+Ability: Adaptability  
+Level: 1   
+Modest Nature  
+IVs: 0 Atk  
+- Tri Attack  
+- Dark Pulse  
+- Signal Beam  
 
-Nuzleaf
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Xatu @ Leftovers  
+Ability: Magic Bounce  
+Level: 1  
+Timid Nature  
+- Psychic  
+- Air Slash  
+- Wish  
+- Protect  
+
+Chimecho @ Leftovers  
+Ability: Levitate  
+Level: 1  
+Modest Nature  
+IVs: 0 Atk  
+- Psychic  
+- Heal Bell  
+- Dazzling Gleam  
+- Shadow Ball  
+
+
 
 === TRAINER_HECTOR ===
 Name: HECTOR
@@ -14898,13 +14948,33 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Electrike
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magnezone @ Leftovers  
+Ability: Analytic  
+Level: 1  
+Modest Nature  
+IVs: 0 Atk  
+- Thunder Wave  
+- Thunderbolt  
+- Volt Switch  
+- Flash Cannon  
 
-Voltorb
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bellibolt @ Leftovers  
+Ability: Electromorphosis  
+Level: 1  
+- Parabolic Charge  
+- Scald  
+- Thunder Wave  
+- Sucker Punch  
+
+Toxtricity @ Throat Spray  
+Ability: Punk Rock  
+Level: 1  
+- Overdrive  
+- Sludge Bomb  
+- Boomburst  
+- Volt Switch  
+
+
 
 === TRAINER_ALYSSA ===
 Name: ALYSSA

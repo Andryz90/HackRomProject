@@ -299,7 +299,7 @@ DOUBLE_BATTLE_TEST("Instructed move will be redirected by Rage Powder after inst
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(moveTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SOAK, opponentRight);
-        MESSAGE("Treecko transformed into the Water type!");
+        MESSAGE("Treecko transformed into the Water type! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_INSTRUCT, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(opponentLeft);

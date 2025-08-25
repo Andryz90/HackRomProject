@@ -27,8 +27,8 @@ SINGLE_BATTLE_TEST("Assist fails if there are no valid moves to choose from")
     } WHEN {
         TURN { MOVE(player, MOVE_ASSIST); }
     } SCENE {
-        MESSAGE("Wobbuffet used Assist!");
+        MESSAGE("Wobbuffet used Assist! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ASSIST, player);
-        MESSAGE("But it failed!");
+        MESSAGE("But it failed! ");
     }
 }

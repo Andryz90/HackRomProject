@@ -15,13 +15,13 @@ SINGLE_BATTLE_TEST("Bad Dreams causes the sleeping enemy Pokemon to lose 1/8 of 
     } SCENE {
         if (status == STATUS1_SLEEP) {
             ABILITY_POPUP(player, ABILITY_BAD_DREAMS);
-            MESSAGE("The opposing Wobbuffet is tormented!");
+            MESSAGE("The opposing Wobbuffet is tormented! ");
             HP_BAR(opponent);
         }
         else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_BAD_DREAMS);
-                MESSAGE("The opposing Wobbuffet is tormented!");
+                MESSAGE("The opposing Wobbuffet is tormented! ");
                 HP_BAR(opponent);
             };
         }
@@ -47,7 +47,7 @@ DOUBLE_BATTLE_TEST("Bad Dreams does not activate if only the partner Pokemon is 
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(playerLeft, ABILITY_BAD_DREAMS);
-            MESSAGE("Wobbuffet is tormented!");
+            MESSAGE("Wobbuffet is tormented! ");
             HP_BAR(playerRight);
         };
     } THEN {
@@ -68,9 +68,9 @@ DOUBLE_BATTLE_TEST("Bad Dreams activates for both sleeping pokemon on the player
         TURN {;}
     } SCENE {
         ABILITY_POPUP(opponentLeft, ABILITY_BAD_DREAMS);
-        MESSAGE("Wobbuffet is tormented!");
+        MESSAGE("Wobbuffet is tormented! ");
         HP_BAR(playerLeft);
-        MESSAGE("Wobbuffet is tormented!");
+        MESSAGE("Wobbuffet is tormented! ");
         HP_BAR(playerRight);
     } THEN {
         EXPECT_EQ(opponentLeft->hp, opponentLeft->maxHP);
@@ -93,12 +93,12 @@ DOUBLE_BATTLE_TEST("Bad Dreams faints both sleeping Pokemon on player side")
         TURN {SEND_OUT(playerLeft, 2); SEND_OUT(playerRight, 3);}
     } SCENE {
         ABILITY_POPUP(opponentLeft, ABILITY_BAD_DREAMS);
-        MESSAGE("Wobbuffet is tormented!");
+        MESSAGE("Wobbuffet is tormented! ");
         HP_BAR(playerLeft);
-        MESSAGE("Wobbuffet fainted!");
-        MESSAGE("Wobbuffet is tormented!");
+        MESSAGE("Wobbuffet fainted! ");
+        MESSAGE("Wobbuffet is tormented! ");
         HP_BAR(playerRight);
-        MESSAGE("Wobbuffet fainted!");
+        MESSAGE("Wobbuffet fainted! ");
     }
 }
 
@@ -115,11 +115,11 @@ DOUBLE_BATTLE_TEST("Bad Dreams faints both sleeping Pokemon on opponent side")
         TURN {SEND_OUT(opponentLeft, 2); SEND_OUT(opponentRight, 3);}
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_BAD_DREAMS);
-        MESSAGE("The opposing Wobbuffet is tormented!");
+        MESSAGE("The opposing Wobbuffet is tormented! ");
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wobbuffet fainted!");
-        MESSAGE("The opposing Wobbuffet is tormented!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
+        MESSAGE("The opposing Wobbuffet is tormented! ");
         HP_BAR(opponentRight);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
     }
 }

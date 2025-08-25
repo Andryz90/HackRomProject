@@ -19,12 +19,12 @@ SINGLE_BATTLE_TEST("Fling fails if pokemon holds no item")
     } WHEN {
         TURN { MOVE(player, MOVE_FLING);}
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         if (item != ITEM_NONE) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
     }
 }
@@ -46,12 +46,12 @@ SINGLE_BATTLE_TEST("Fling fails if pokemon is under the effects of Embargo or Ma
         TURN { MOVE(opponent, move); }
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         if (move == MOVE_CELEBRATE) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
     }
 }
@@ -70,12 +70,12 @@ SINGLE_BATTLE_TEST("Fling fails for pokemon with Klutz ability")
     } WHEN {
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("Buneary used Fling!");
+        MESSAGE("Buneary used Fling! ");
         if (ability != ABILITY_KLUTZ) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
     }
 }
@@ -91,13 +91,13 @@ SINGLE_BATTLE_TEST("Fling's thrown item can be regained with Recycle")
         TURN { MOVE(player, MOVE_RECYCLE);}
         TURN { MOVE(player, MOVE_FLING);}
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
         HP_BAR(opponent);
-        MESSAGE("Wobbuffet used Recycle!");
+        MESSAGE("Wobbuffet used Recycle! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RECYCLE, player);
-        MESSAGE("Wobbuffet found one Razor Claw!");
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet found one Razor Claw! ");
+        MESSAGE("Wobbuffet used Fling! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
         HP_BAR(opponent);
     }
@@ -114,15 +114,15 @@ SINGLE_BATTLE_TEST("Fling - Item is lost even when there is no target")
         TURN { MOVE(opponent, MOVE_SELF_DESTRUCT); MOVE(player, MOVE_FLING); SEND_OUT(opponent, 1); }
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Self-Destruct!");
+        MESSAGE("The opposing Wobbuffet used Self-Destruct! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SELF_DESTRUCT, opponent);
         HP_BAR(player);
-        MESSAGE("The opposing Wobbuffet fainted!");
-        MESSAGE("Wobbuffet used Fling!");
-        MESSAGE("But it failed!");
+        MESSAGE("The opposing Wobbuffet fainted! ");
+        MESSAGE("Wobbuffet used Fling! ");
+        MESSAGE("But it failed! ");
 
-        MESSAGE("Wobbuffet used Fling!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Fling! ");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
     }
@@ -138,13 +138,13 @@ SINGLE_BATTLE_TEST("Fling - Item is lost when target protects itself")
         TURN { MOVE(opponent, MOVE_PROTECT); MOVE(player, MOVE_FLING);}
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Protect!");
+        MESSAGE("The opposing Wobbuffet used Protect! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
-        MESSAGE("Wobbuffet used Fling!");
-        MESSAGE("The opposing Wobbuffet protected itself!");
+        MESSAGE("Wobbuffet used Fling! ");
+        MESSAGE("The opposing Wobbuffet protected itself! ");
 
-        MESSAGE("Wobbuffet used Fling!");
-        MESSAGE("But it failed!");
+        MESSAGE("Wobbuffet used Fling! ");
+        MESSAGE("But it failed! ");
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
     }
@@ -178,22 +178,22 @@ SINGLE_BATTLE_TEST("Fling doesn't consume the item if pokemon is asleep/frozen/p
         }
     } SCENE {
         if (status == STATUS1_FREEZE) {
-            MESSAGE("Wobbuffet is frozen solid!");
-            MESSAGE("Wobbuffet thawed out!");
+            MESSAGE("Wobbuffet is frozen solid! ");
+            MESSAGE("Wobbuffet thawed out! ");
         }
         else if (status == STATUS1_PARALYSIS) {
-            MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+            MESSAGE("Wobbuffet couldn't move because it's paralyzed! ");
         }
         else {
             MESSAGE("Wobbuffet is fast asleep.");
-            MESSAGE("Wobbuffet woke up!");
+            MESSAGE("Wobbuffet woke up! ");
         }
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         if (item != ITEM_NONE) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
             HP_BAR(opponent);
         } else {
-            MESSAGE("But it failed!");
+            MESSAGE("But it failed! ");
         }
 
     } THEN {
@@ -218,39 +218,39 @@ SINGLE_BATTLE_TEST("Fling applies special effects when throwing specific Items")
     } WHEN {
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
         HP_BAR(opponent);
         switch (item)
         {
         case ITEM_FLAME_ORB:
             {
-                MESSAGE("The opposing Wobbuffet was burned!");
+                MESSAGE("The opposing Wobbuffet was burned! ");
                 STATUS_ICON(opponent, STATUS1_BURN);
             }
             break;
         case ITEM_LIGHT_BALL:
             {
-                MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+                MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
                 STATUS_ICON(opponent, STATUS1_PARALYSIS);
             }
             break;
         case ITEM_POISON_BARB:
             {
-                MESSAGE("The opposing Wobbuffet was poisoned!");
+                MESSAGE("The opposing Wobbuffet was poisoned! ");
                 STATUS_ICON(opponent, STATUS1_POISON);
             }
             break;
         case ITEM_TOXIC_ORB:
             {
-                MESSAGE("The opposing Wobbuffet was badly poisoned!");
+                MESSAGE("The opposing Wobbuffet was badly poisoned! ");
                 STATUS_ICON(opponent, STATUS1_TOXIC_POISON);
             }
             break;
         case ITEM_RAZOR_FANG:
         case ITEM_KINGS_ROCK:
             {
-                MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+                MESSAGE("The opposing Wobbuffet flinched and couldn't move! ");
             }
             break;
         }
@@ -274,7 +274,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
     } WHEN {
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
         HP_BAR(opponent);
         switch (item)
@@ -282,7 +282,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
         case ITEM_FLAME_ORB:
             {
                 NONE_OF {
-                    MESSAGE("The opposing Wobbuffet was burned!");
+                    MESSAGE("The opposing Wobbuffet was burned! ");
                     STATUS_ICON(opponent, STATUS1_BURN);
                 }
                 MESSAGE("The Flame Orb was used up…");
@@ -291,7 +291,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
         case ITEM_LIGHT_BALL:
             {
                 NONE_OF {
-                    MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+                    MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move! ");
                     STATUS_ICON(opponent, STATUS1_PARALYSIS);
                 }
                 MESSAGE("The Light Ball was used up…");
@@ -300,7 +300,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
         case ITEM_POISON_BARB:
             {
                 NONE_OF {
-                    MESSAGE("The opposing Wobbuffet was poisoned!");
+                    MESSAGE("The opposing Wobbuffet was poisoned! ");
                     STATUS_ICON(opponent, STATUS1_POISON);
                 }
                 MESSAGE("The Poison Barb was used up…");
@@ -309,7 +309,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
         case ITEM_TOXIC_ORB:
             {
                 NONE_OF {
-                    MESSAGE("The opposing Wobbuffet was badly poisoned!");
+                    MESSAGE("The opposing Wobbuffet was badly poisoned! ");
                     STATUS_ICON(opponent, STATUS1_TOXIC_POISON);
                 }
                 MESSAGE("The Toxic Orb was used up…");
@@ -319,7 +319,7 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
         case ITEM_KINGS_ROCK:
             {
                 NONE_OF {
-                    MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+                    MESSAGE("The opposing Wobbuffet flinched and couldn't move! ");
                 }
                 switch (item)
                 {
@@ -368,58 +368,58 @@ SINGLE_BATTLE_TEST("Fling - thrown berry's effect activates for the target even 
     } WHEN {
         TURN { MOVE(player, MOVE_FLING); }
     } SCENE {
-        MESSAGE("Wobbuffet used Fling!");
+        MESSAGE("Wobbuffet used Fling! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
         HP_BAR(opponent);
         if (effect == HOLD_EFFECT_RESTORE_HP) {
             if (item == ITEM_ORAN_BERRY) {
-                MESSAGE("The opposing Wobbuffet restored its health using its Oran Berry!");
+                MESSAGE("The opposing Wobbuffet restored its health using its Oran Berry! ");
             } else if (item == ITEM_SITRUS_BERRY) {
-                MESSAGE("The opposing Wobbuffet restored its health using its Sitrus Berry!");
+                MESSAGE("The opposing Wobbuffet restored its health using its Sitrus Berry! ");
             } else {
-                MESSAGE("Wobbuffet restored its health using its Enigma Berry!");
+                MESSAGE("Wobbuffet restored its health using its Enigma Berry! ");
             }
             HP_BAR(opponent);
         }
         else if (effect == HOLD_EFFECT_RESTORE_PP) {
-            MESSAGE("The opposing Wobbuffet restored PP to its move Celebrate using its Leppa Berry!");
+            MESSAGE("The opposing Wobbuffet restored PP to its move Celebrate using its Leppa Berry! ");
         }
         else if (status1 != STATUS1_NONE) {
             if (status1 == STATUS1_BURN) {
-                MESSAGE("The opposing Wobbuffet's Rawst Berry cured its burn!");
+                MESSAGE("The opposing Wobbuffet's Rawst Berry cured its burn! ");
             } else if (status1 == STATUS1_SLEEP) {
-                MESSAGE("The opposing Wobbuffet's Chesto Berry woke it up!");
+                MESSAGE("The opposing Wobbuffet's Chesto Berry woke it up! ");
             } else if (status1 == STATUS1_FREEZE) {
-                MESSAGE("The opposing Wobbuffet's Aspear Berry defrosted it!");
+                MESSAGE("The opposing Wobbuffet's Aspear Berry defrosted it! ");
             } else if (status1 == STATUS1_FROSTBITE) {
-                MESSAGE("The opposing Wobbuffet's Aspear Berry cured its frostbite!");
+                MESSAGE("The opposing Wobbuffet's Aspear Berry cured its frostbite! ");
             } else if (status1 == STATUS1_PARALYSIS) {
-                MESSAGE("The opposing Wobbuffet's Cheri Berry cured its paralysis!");
+                MESSAGE("The opposing Wobbuffet's Cheri Berry cured its paralysis! ");
             } else if (status1 == STATUS1_TOXIC_POISON || status1 == STATUS1_POISON) {
-                MESSAGE("The opposing Wobbuffet's Pecha Berry cured its poison!");
+                MESSAGE("The opposing Wobbuffet's Pecha Berry cured its poison! ");
             }
             NOT STATUS_ICON(opponent, status1);
         }
         else if (statId != 0) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
             if (statId == STAT_ATK) {
-                MESSAGE("Using Liechi Berry, the Attack of the opposing Wobbuffet rose!");
+                MESSAGE("Using Liechi Berry, the Attack of the opposing Wobbuffet rose! ");
             } else if (statId == STAT_DEF) {
                 if (item == ITEM_GANLON_BERRY) {
-                    MESSAGE("Using Ganlon Berry, the Defense of the opposing Wobbuffet rose!");
+                    MESSAGE("Using Ganlon Berry, the Defense of the opposing Wobbuffet rose! ");
                 } else {
-                    MESSAGE("Using Kee Berry, the Defense of the opposing Wobbuffet rose!");
+                    MESSAGE("Using Kee Berry, the Defense of the opposing Wobbuffet rose! ");
                 }
             } else if (statId == STAT_SPDEF) {
                 if (item == ITEM_APICOT_BERRY) {
-                    MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose!");
+                    MESSAGE("Using Apicot Berry, the Sp. Def of the opposing Wobbuffet rose! ");
                 } else {
-                    MESSAGE("Using Maranga Berry, the Sp. Def of the opposing Wobbuffet rose!");
+                    MESSAGE("Using Maranga Berry, the Sp. Def of the opposing Wobbuffet rose! ");
                 }
             } else if (statId == STAT_SPEED) {
-                MESSAGE("Using Salac Berry, the Speed of the opposing Wobbuffet rose!");
+                MESSAGE("Using Salac Berry, the Speed of the opposing Wobbuffet rose! ");
             } else if (statId == STAT_SPATK) {
-                MESSAGE("Using Petaya Berry, the Sp. Atk of the opposing Wobbuffet rose!");
+                MESSAGE("Using Petaya Berry, the Sp. Atk of the opposing Wobbuffet rose! ");
             }
         }
     } THEN {

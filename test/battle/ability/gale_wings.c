@@ -17,12 +17,12 @@ SINGLE_BATTLE_TEST("Gale Wings only grants priority at full HP (Gen 7+)")
         TURN { MOVE(player, MOVE_AERIAL_ACE); }
     } SCENE {
         if (hp == 100 || config <= GEN_6) {
-            MESSAGE("Talonflame used Aerial Ace!");
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("Talonflame used Aerial Ace! ");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
         }
         else {
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
-            MESSAGE("Talonflame used Aerial Ace!");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
+            MESSAGE("Talonflame used Aerial Ace! ");
         }
     }
 }
@@ -41,12 +41,12 @@ SINGLE_BATTLE_TEST("Gale Wings only grants priority to Flying-type moves")
         TURN { MOVE(player, move); }
     } SCENE {
         if (move == MOVE_AERIAL_ACE) {
-            MESSAGE("Talonflame used Aerial Ace!");
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("Talonflame used Aerial Ace! ");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
         }
         else {
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
-            MESSAGE("Talonflame used Flare Blitz!");
+            MESSAGE("The opposing Wobbuffet used Celebrate! ");
+            MESSAGE("Talonflame used Flare Blitz! ");
         }
     }
 }
@@ -72,18 +72,18 @@ SINGLE_BATTLE_TEST("Gale Wings doesn't increase priority of Flying-type Natural 
     } WHEN {
         TURN { MOVE(opponent, move); }
     } SCENE {
-            MESSAGE("Wobbuffet used Celebrate!");
+            MESSAGE("Wobbuffet used Celebrate! ");
         if (move == MOVE_NATURAL_GIFT) {
-            MESSAGE("The opposing Talonflame used Natural Gift!");
+            MESSAGE("The opposing Talonflame used Natural Gift! ");
         }
         else if (move == MOVE_JUDGMENT) {
-            MESSAGE("The opposing Talonflame used Judgment!");
+            MESSAGE("The opposing Talonflame used Judgment! ");
         }
         else if (move == MOVE_HIDDEN_POWER) {
-            MESSAGE("The opposing Talonflame used Hidden Power!");
+            MESSAGE("The opposing Talonflame used Hidden Power! ");
         }
         else {
-            MESSAGE("The opposing Talonflame used Tera Blast!");
+            MESSAGE("The opposing Talonflame used Tera Blast! ");
         }
     }
 }

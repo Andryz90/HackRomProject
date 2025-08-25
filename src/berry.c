@@ -35,17 +35,17 @@ static void AddTreeBonus(struct BerryTree *tree, u8 bonus);
 
 // Check include/config/overworld.h configs and throw an error if illegal
 #if OW_BERRY_GROWTH_RATE < GEN_3 || (OW_BERRY_GROWTH_RATE > GEN_7 && OW_BERRY_GROWTH_RATE != GEN_6_ORAS)
-#error "OW_BERRY_GROWTH_RATE must be between GEN_3 and GEN_7!"
+#error "OW_BERRY_GROWTH_RATE must be between GEN_3 and GEN_7! "
 #endif
 
 #if OW_BERRY_YIELD_RATE < GEN_3 || (OW_BERRY_YIELD_RATE > GEN_6 && OW_BERRY_YIELD_RATE != GEN_6_ORAS)
-#error "OW_BERRY_YIELD_RATE must be between GEN_3 and GEN_6!"
+#error "OW_BERRY_YIELD_RATE must be between GEN_3 and GEN_6! "
 #elif OW_BERRY_YIELD_RATE == GEN_5
-#error "OW_BERRY_YIELD_RATE can not be GEN_5!"
+#error "OW_BERRY_YIELD_RATE can not be GEN_5! "
 #endif
 
 #if OW_BERRY_MOISTURE && OW_BERRY_DRAIN_RATE != GEN_4 && OW_BERRY_DRAIN_RATE != GEN_6_XY && OW_BERRY_DRAIN_RATE != GEN_6_ORAS
-#error "OW_BERRY_DRAIN_RATE must be GEN_5, GEN_6_XY or GEN_6_ORAS!"
+#error "OW_BERRY_DRAIN_RATE must be GEN_5, GEN_6_XY or GEN_6_ORAS! "
 #endif
 
 #define GROWTH_DURATION(g3, g4, g5, xy, oras, g7) OW_BERRY_GROWTH_RATE == GEN_3 ? g3 : OW_BERRY_GROWTH_RATE == GEN_4 ? g4 : OW_BERRY_GROWTH_RATE == GEN_5 ? g5 : OW_BERRY_GROWTH_RATE == GEN_6_XY ? xy : OW_BERRY_GROWTH_RATE == GEN_6_ORAS ? oras : g7

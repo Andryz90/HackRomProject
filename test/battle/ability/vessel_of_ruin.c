@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Vessel of Ruin reduces Sp. Atk if opposing mon's ability doe
         TURN { MOVE(opponent, MOVE_WATER_GUN); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_VESSEL_OF_RUIN);
-        MESSAGE("Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon!");
+        MESSAGE("Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, opponent);
         HP_BAR(player, captureDamage: &damage[0]);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENTRAINMENT, player);
@@ -45,10 +45,10 @@ SINGLE_BATTLE_TEST("Vessel of Ruin's message displays correctly after all battle
         HP_BAR(opponent, hp: 0);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, opponent);
         // Everyone faints.
-        MESSAGE("Go! Ting-Lu!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("Go! Ting-Lu! ");
+        MESSAGE("2 sent out Wobbuffet! ");
         ABILITY_POPUP(player, ABILITY_VESSEL_OF_RUIN);
-        MESSAGE("Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon!");
+        MESSAGE("Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon! ");
     }
 }
 
@@ -68,8 +68,8 @@ SINGLE_BATTLE_TEST("Vessel of Ruin's message displays correctly after all battle
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, player);
         // Everyone faints.
         SEND_IN_MESSAGE("Wobbuffet");
-        MESSAGE("2 sent out Ting-Lu!");
+        MESSAGE("2 sent out Ting-Lu! ");
         ABILITY_POPUP(opponent, ABILITY_VESSEL_OF_RUIN);
-        MESSAGE("The opposing Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon!");
+        MESSAGE("The opposing Ting-Lu's Vessel of Ruin weakened the Sp. Atk of all surrounding Pokémon! ");
     }
 }

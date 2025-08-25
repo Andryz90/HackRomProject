@@ -16,9 +16,9 @@ SINGLE_BATTLE_TEST("Spicy Extract raises target's Attack by 2 stages and lowers 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack sharply rose!");
+        MESSAGE("The opposing Wobbuffet's Attack sharply rose! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Defense harshly fell!");
+        MESSAGE("The opposing Wobbuffet's Defense harshly fell! ");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 2);
@@ -47,10 +47,10 @@ SINGLE_BATTLE_TEST("Spicy Extract is prevented by target's ability if it's Attac
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Wobbuffet used Spicy Extract!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
         if (ability == ABILITY_CLEAR_BODY) {
             ABILITY_POPUP(opponent, ABILITY_CLEAR_BODY);
-            MESSAGE("The opposing Beldum's Clear Body prevents stat loss!");
+            MESSAGE("The opposing Beldum's Clear Body prevents stat loss! ");
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
@@ -70,16 +70,16 @@ SINGLE_BATTLE_TEST("Spicy Extract Defense loss is prevented by Big Pecks")
     } WHEN {
         TURN { MOVE(player, MOVE_SPICY_EXTRACT); }
     } SCENE {
-        MESSAGE("Wobbuffet used Spicy Extract!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Pidgey's Attack sharply rose!");
+        MESSAGE("The opposing Pidgey's Attack sharply rose! ");
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Wobbuffet's Defense harshly fell!");
+            MESSAGE("The opposing Wobbuffet's Defense harshly fell! ");
         }
         ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-        MESSAGE("The opposing Pidgey's Big Pecks prevents Defense loss!");
+        MESSAGE("The opposing Pidgey's Big Pecks prevents Defense loss! ");
     }
 }
 
@@ -92,13 +92,13 @@ SINGLE_BATTLE_TEST("Spicy Extract bypasses accuracy checks")
     } WHEN {
         TURN { MOVE(player, MOVE_SPICY_EXTRACT); }
     } SCENE {
-        MESSAGE("Wobbuffet used Spicy Extract!");
-        NOT MESSAGE("Wobbuffet's attack missed!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
+        NOT MESSAGE("Wobbuffet's attack missed! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack sharply rose!");
+        MESSAGE("The opposing Wobbuffet's Attack sharply rose! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Defense harshly fell!");
+        MESSAGE("The opposing Wobbuffet's Defense harshly fell! ");
     }
 }
 
@@ -110,11 +110,11 @@ SINGLE_BATTLE_TEST("Spicy Extract will fail if target is in a semi-invulnerabili
     } WHEN {
         TURN { MOVE(opponent, MOVE_DIVE); MOVE(player, MOVE_SPICY_EXTRACT); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Dive!");
+        MESSAGE("The opposing Wobbuffet used Dive! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIVE, opponent);
-        MESSAGE("Wobbuffet used Spicy Extract!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
-        MESSAGE("Wobbuffet's attack missed!");
+        MESSAGE("Wobbuffet's attack missed! ");
     }
 }
 
@@ -126,14 +126,14 @@ SINGLE_BATTLE_TEST("Spicy Extract stat changes will be inverted by Contrary")
     } WHEN {
         TURN { MOVE(player, MOVE_SPICY_EXTRACT); }
     } SCENE {
-        MESSAGE("Wobbuffet used Spicy Extract!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Snivy's Attack harshly fell!");
+        MESSAGE("The opposing Snivy's Attack harshly fell! ");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Snivy's Defense sharply rose!");
+        MESSAGE("The opposing Snivy's Defense sharply rose! ");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE - 2);
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 2);
@@ -148,15 +148,15 @@ SINGLE_BATTLE_TEST("Spicy Extract against Clear Amulet and Contrary raises Defen
     } WHEN {
         TURN { MOVE(player, MOVE_SPICY_EXTRACT); }
     } SCENE {
-        MESSAGE("Wobbuffet used Spicy Extract!");
+        MESSAGE("Wobbuffet used Spicy Extract! ");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPICY_EXTRACT, player);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Snivy's Attack harshly fell!");
+            MESSAGE("The opposing Snivy's Attack harshly fell! ");
         }
-        MESSAGE("The effects of the Clear Amulet held by the opposing Snivy prevents its stats from being lowered!");
+        MESSAGE("The effects of the Clear Amulet held by the opposing Snivy prevents its stats from being lowered! ");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Snivy's Defense sharply rose!");
+        MESSAGE("The opposing Snivy's Defense sharply rose! ");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 2);
