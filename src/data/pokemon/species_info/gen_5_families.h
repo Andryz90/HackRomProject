@@ -7953,7 +7953,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_SAWSBUCK_SPRING] =
     {
         .baseHP        = 80,
-        .baseAttack    = 100,
+        .baseAttack    = 105,
         .baseDefense   = 70,
         .baseSpeed     = 105,
         .baseSpAttack  = 60,
@@ -8017,7 +8017,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_SAWSBUCK_SUMMER] =
     {
         .baseHP        = 80,
-        .baseAttack    = 100,
+        .baseAttack    = 105,
         .baseDefense   = 70,
         .baseSpeed     = 105,
         .baseSpAttack  = 60,
@@ -8081,7 +8081,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_SAWSBUCK_AUTUMN] =
     {
         .baseHP        = 80,
-        .baseAttack    = 100,
+        .baseAttack    = 105,
         .baseDefense   = 70,
         .baseSpeed     = 105,
         .baseSpAttack  = 60,
@@ -8145,7 +8145,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_SAWSBUCK_WINTER] =
     {
         .baseHP        = 80,
-        .baseAttack    = 100,
+        .baseAttack    = 105,
         .baseDefense   = 70,
         .baseSpeed     = 105,
         .baseSpAttack  = 60,

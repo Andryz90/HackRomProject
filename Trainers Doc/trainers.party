@@ -1509,17 +1509,32 @@ Music: Cool
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Electrike
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Wailmer  
+Ability: Water Veil  
+Level: 35   
+IVs: 0 Atk  
+- Water Spout  
+- Icy Wind  
+- Scald  
+- Protect  
 
-Wailmer
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Scolipede @ Bright Powder  
+Ability: Poison Point  
+Level: 35  
+- Leech Life  
+- Poison Jab  
+- Earthquake  
+- Aqua Tail  
 
-Makuhita
-Level: 17
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Bewear @ Expert Belt  
+Ability: Fluffy  
+Level: 35   
+- Double-Edge  
+- Darkest Lariat  
+- Drain Punch  
+- Earthquake  
+
+
 
 === TRAINER_EDGAR ===
 Name: EDGAR
@@ -3494,9 +3509,23 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Machop
-Level: 19
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Machamp @ Flame Orb  
+Ability: Guts  
+Level: 35  
+Jolly Nature  
+- Close Combat  
+- Bullet Punch  
+- Detect  
+- Darkest Lariat  
+
+Crabominable  
+Ability: Iron Fist  
+Level: 35   
+- Ice Hammer  
+- Brick Break  
+- Return  
+- Facade  
+
 
 === TRAINER_ATSUSHI ===
 Name: ATSUSHI
@@ -4118,9 +4147,33 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Shroomish
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Ceruledge @ Expert Belt  
+Ability: Sharpness  
+Level: 40    
+Jolly Nature  
+- Bitter Blade  
+- Poltergeist  
+- Shadow Sneak  
+- Brick Break  
+
+Leafeon @ Miracle Seed  
+Ability: Chlorophyll  
+Level: 40  
+Adamant Nature  
+- Synthesis  
+- Leaf Blade  
+- Body Slam  
+- Knock Off  
+
+Sunflora @ Charcoal  
+Ability: Solar Power  
+Level: 40   
+Modest Nature  
+IVs: 0 Atk  
+- Solar Beam  
+- Weather Ball  
+- Earth Power  
+- Sunny Day
 
 === TRAINER_TRAVIS ===
 Name: TRAVIS
@@ -5428,40 +5481,62 @@ Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+Double Battle: Yes
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Numel
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Take Down
-- Magnitude
-- Sunny Day
+Charizard @ Charizardite Y  
+Ability: Solar Power  
+Level: 45    
+Timid Nature  
+IVs: 0 Atk  
+- Protect  
+- Solar Beam  
+- Heat Wave  
+- Air Slash  
 
-Slugma
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Smog
-- Light Screen
-- Sunny Day
+Castform @ Charcoal  
+Ability: Forecast  
+Level: 43    
+IVs: 0 Atk  
+- Solar Beam  
+- Protect  
+- Will-O-Wisp  
+- Weather Ball  
 
-Camerupt
-Level: 26
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Tackle
-- Sunny Day
-- Attract
+Armarouge @ White Herb  
+Ability: Mega Launcher  
+Level: 43  
+IVs: 0 Atk  
+- Armor Cannon  
+- Aura Sphere  
+- Dark Pulse  
+- Energy Ball  
 
-Torkoal @ White Herb
-Level: 29
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Sunny Day
-- Body Slam
-- Attract
+Ceruledge @ Spell Tag  
+Ability: Sharpness  
+Level: 43  
+- Bitter Blade  
+- Poltergeist  
+- Swords Dance  
+- Will-O-Wisp  
+
+Scovillain @ Choice Specs  
+Ability: Chlorophyll  
+Level: 43  
+IVs: 0 Atk  
+- Giga Drain  
+- Overheat  
+
+Cherrim @ Life Orb  
+Ability: Flower Gift  
+Level: 44  
+Adamant Nature  
+- Solar Blade  
+- Temper Flare  
+- Morning Sun  
+- Protect  
+
+
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
@@ -6669,7 +6744,6 @@ Level: 15
 Modest Nature  
 IVs: 0 Atk  
 - Echoed Voice  
-- Noble Roar
 
 Bibarel  
 Ability: Moody  
@@ -9644,20 +9718,58 @@ Class: Picnicker
 Pic: Picnicker
 Gender: Female
 Music: Girl
-Double Battle: No
+Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Shroomish
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Oddish
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Plusle @ Magnet
+Ability: Plus
+Level: 40
+- Thunderbolt
+- Nuzzle
+- Helping Hand
+- Volt Switch
 
-Swablu
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Minun @ Magnet
+Ability: Minus
+Level: 40
+- Thunderbolt
+- Nuzzle
+- Helping Hand
+- Volt Switch
+
+Breloom @ Focus Sash
+Ability: Technician
+Level: 40
+- Spore
+- Mach Punch
+- Bullet Seed
+- Rock Tomb
+
+Delcatty @ Silk Scarf
+Ability: Cute Charm
+Level: 40
+- Fake Out
+- Double-Edge
+- Play Rough
+- Thunder Wave
+
+Ribombee @ Leftovers
+Ability: Shield Dust
+Level: 40
+- Moonblast
+- Bug Buzz
+- Stun Spore
+- Quiver Dance
+
+Slurpuff @ Sitrus Berry
+Ability: Sweet Veil
+Level: 40
+- Play Rough
+- Belly Drum
+- Body Slam
+- Encore
+
 
 === TRAINER_CEDRIC ===
 Name: CEDRIC
@@ -10401,13 +10513,35 @@ Music: Suspicious
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Lombre
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Porygon-Z  
+Ability: Adaptability  
+Level: 1   
+Modest Nature  
+IVs: 0 Atk  
+- Tri Attack  
+- Dark Pulse  
+- Signal Beam  
 
-Nuzleaf
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Xatu @ Leftovers  
+Ability: Magic Bounce  
+Level: 1  
+Timid Nature  
+- Psychic  
+- Air Slash  
+- Wish  
+- Protect  
+
+Chimecho @ Leftovers  
+Ability: Levitate  
+Level: 1  
+Modest Nature  
+IVs: 0 Atk  
+- Psychic  
+- Heal Bell  
+- Dazzling Gleam  
+- Shadow Ball  
+
+
 
 === TRAINER_HECTOR ===
 Name: HECTOR
@@ -11748,9 +11882,34 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Magnemite
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Armarouge 
+Ability: Mega Launcher  
+Level: 40   
+Modest Nature  
+IVs: 0 Atk  
+- Armor Cannon  
+- Psyshock  
+- Will-O-Wisp  
+- Aura Sphere  
+
+Charizard @ Charti Berry  
+Ability: Solar Power  
+Level: 40   
+IVs: 0 Atk  
+- Flamethrower  
+- Solar Beam  
+- Ancient Power  
+- Air Slash  
+
+Solrock @ Air Balloon  
+Ability: Drought  
+Level: 40  
+- Zen Headbutt  
+- Rock Slide  
+- Flare Blitz  
+- Protect  
+
+
 
 === TRAINER_GRUNT_SEAFLOOR_CAVERN_5 ===
 Name: GRUNT
@@ -11804,7 +11963,7 @@ Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_JAGGED_PASS ===
-Name: GRUNT
+Name: GUARDIAN GRUNT 
 Class: Team Magma
 Pic: Magma Grunt M
 Gender: Male
@@ -11812,13 +11971,35 @@ Music: Magma
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Poochyena
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Pangoro @ Punching Glove  
+Ability: Iron Fist  
+Level: 1  
+Tera Type: Fighting  
+Adamant Nature  
+- Knock Off  
+- Drain Punch  
+- Poison Jab  
+- Bullet Punch  
 
-Numel
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Marowak-Alola @ Expert Belt  
+Ability: Cursed Body  
+Level: 1  
+Tera Type: Fire  
+Adamant Nature  
+- Flare Blitz  
+- Poltergeist  
+- Brick Break  
+- Earthquake  
+
+Skuntank @ Rocky Helmet  
+Ability: Aftermath  
+Level: 1  
+Tera Type: Poison  
+Adamant Nature  
+- Gunk Shot  
+- Sucker Punch  
+- Knock Off  
+- Explosion  
 
 === TRAINER_MARC ===
 Name: MARC
@@ -13198,13 +13379,50 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Geodude
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gigalith @ Leftovers  
+Ability: Sturdy  
+Level: 38  
+Lonely Nature  
+- Earthquake  
+- Stone Edge  
+- Explosion  
+- Iron Head  
 
-Baltoy
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Houndoom @ Expert Belt  
+Ability: Flash Fire  
+Level: 39  
+- Dark Pulse  
+- Flamethrower  
+- Sludge Bomb  
+- Pursuit  
+
+Coalossal @ Air Balloon  
+Ability: Steam Engine  
+Level: 39  
+Adamant Nature  
+- Heat Crash  
+- Earthquake  
+- Heavy Slam  
+- Body Press  
+
+Ursaring @ Eviolite  
+Ability: Guts  
+Level: 39  
+Adamant Nature  
+- Rest  
+- Sleep Talk  
+- Facade  
+- Earthquake  
+
+Runerigus @ Leftovers  
+Ability: Wandering Spirit  
+Level: 39  
+- Will-O-Wisp  
+- Earthquake  
+- Shadow Claw  
+- Destiny Bond  
+
+
 
 === TRAINER_LUCAS_2 ===
 Name: LUCAS
@@ -14810,13 +15028,33 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Electrike
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Magnezone @ Leftovers  
+Ability: Analytic  
+Level: 1  
+Modest Nature  
+IVs: 0 Atk  
+- Thunder Wave  
+- Thunderbolt  
+- Volt Switch  
+- Flash Cannon  
 
-Voltorb
-Level: 14
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bellibolt @ Leftovers  
+Ability: Electromorphosis  
+Level: 1  
+- Parabolic Charge  
+- Scald  
+- Thunder Wave  
+- Sucker Punch  
+
+Toxtricity @ Throat Spray  
+Ability: Punk Rock  
+Level: 1  
+- Overdrive  
+- Sludge Bomb  
+- Boomburst  
+- Volt Switch  
+
+
 
 === TRAINER_ALYSSA ===
 Name: ALYSSA
@@ -15114,7 +15352,7 @@ IVs: 0 Atk
 - Follow Me  
 - Hyper Voice  
 - Thunder Wave  
-- Roost  
+- Air Cutter
 
 Whimsicott @ Leftovers  
 Ability: Prankster  

@@ -3759,9 +3759,33 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Sawsbuck-Summer @ Charcoal  
+Ability: Chlorophyll  
+Level: 42  
+Adamant Nature  
+- Horn Leech  
+- Season Power
+- Synthesis  
+- Swords Dance
+
+Delphox @ Life Orb  
+Ability: Magic Guard  
+Level: 42  
+Timid Nature  
+IVs: 0 Atk  
+- Heat Wave  
+- Mystical Fire  
+- Psyshock  
+- Solar Beam
+
+Arcanine @ Choice Band  
+Ability: Flash Fire  
+Level: 42  
+Jolly Nature  
+- Flare Blitz  
+- Extreme Speed  
+- Return  
+- Crunch
 
 === TRAINER_JEFF ===
 Name: JEFF
@@ -3789,9 +3813,44 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Whimsicott @ Heat Rock  
+Ability: Prankster  
+Level: 43   
+Modest Nature  
+IVs: 0 Atk  
+- Sunny Day  
+- Tailwind  
+- Encore  
+- Solar Beam  
+
+Camerupt @ Passho Berry  
+Ability: Solid Rock  
+Level: 43    
+Quiet Nature  
+IVs: 0 Atk  
+- Solar Beam  
+- Flamethrower  
+- Earth Power  
+- Ancient Power  
+
+Rotom-Heat @ Choice Specs  
+Ability: Levitate  
+Level: 43  
+Modest Nature
+IVs: 0 Atk  
+- Volt Switch  
+- Overheat  
+
+Blaziken  
+Ability: Speed Boost  
+Level: 43  
+Jolly Nature  
+- Swords Dance  
+- Close Combat  
+- Flare Blitz  
+- Earthquake  
+
+
 
 === TRAINER_JACE ===
 Name: JACE
@@ -3802,9 +3861,24 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Slugma
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Tropius @ Life Orb  
+Ability: Solar Power  
+Level: 40  
+Timid Nature  
+IVs: 0 Atk  
+- Solar Beam  
+- Synthesis  
+- Dragon Pulse  
+
+Bellossom @ Occa Berry  
+Ability: Chlorophyll  
+Level: 40  
+Modest Nature  
+IVs: 0 Atk  
+- Moonblast  
+- Solar Beam  
+- Encore  
+- Protect  
 
 === TRAINER_KEEGAN ===
 Name: KEEGAN
@@ -3815,9 +3889,56 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Slugma
-Level: 23
-IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+Ninetales @ Fairy Feather  
+Ability: Drought  
+Level: 43  
+IVs: 0 Atk  
+Timid Nature
+- Flamethrower  
+- Solar Beam  
+- Moonblast  
+- Nasty Plot  
+
+Volcarona @ Heavy-Duty Boots  
+Ability: Flame Body  
+Level: 43   
+Timid Nature  
+IVs: 0 Atk  
+- Fiery Dance  
+- Giga Drain  
+- Bug Buzz  
+- Morning Sun  
+
+Marowak-Alola @ Thick Club  
+Ability: Cursed Body  
+Level: 44  
+Brave Nature  
+- Flare Blitz  
+- Poltergeist  
+- Earthquake  
+- Body Slam  
+
+Magmortar @ Life Orb  
+Ability: Mega Launcher  
+Level: 43  
+Modest Nature  
+IVs: 0 Atk  
+- Flash Cannon  
+- Aura Sphere  
+- Earth Power  
+- Fire Blast  
+
+Venusaur @ Life Orb  
+Ability: Chlorophyll  
+Level: 43  
+Timid Nature  
+IVs: 0 Atk  
+- Weather Ball  
+- Giga Drain  
+- Growth  
+- Earth Power  
+
+
 
 === TRAINER_BERNIE_1 ===
 Name: BERNIE
@@ -5484,6 +5605,15 @@ Music: Female
 Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
+Castform @ Charcoal  
+Ability: Forecast  
+Level: 43    
+IVs: 0 Atk  
+- Solar Beam  
+- Protect  
+- Will-O-Wisp  
+- Weather Ball  
+
 Charizard @ Charizardite Y  
 Ability: Solar Power  
 Level: 45    
@@ -5493,15 +5623,6 @@ IVs: 0 Atk
 - Solar Beam  
 - Heat Wave  
 - Air Slash  
-
-Castform @ Charcoal  
-Ability: Forecast  
-Level: 43    
-IVs: 0 Atk  
-- Solar Beam  
-- Protect  
-- Will-O-Wisp  
-- Weather Ball  
 
 Armarouge @ White Herb  
 Ability: Mega Launcher  
@@ -10330,9 +10451,22 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Solrock @ Air Balloon  
+Ability: Drought
+Level: 40  
+- Flare Blitz  
+- Rock Slide  
+- Morning Sun  
+- Will-O-Wisp  
+
+Flareon @ Toxic Orb  
+Ability: Toxic Boost  
+Level: 40  
+Jolly Nature  
+- Protect  
+- Flare Blitz  
+- Facade  
+- Double Kick  
 
 === TRAINER_ANNIKA ===
 Name: ANNIKA
@@ -11974,7 +12108,6 @@ AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ H
 Pangoro @ Punching Glove  
 Ability: Iron Fist  
 Level: 1  
-Tera Type: Fighting  
 Adamant Nature  
 - Knock Off  
 - Drain Punch  
@@ -11984,7 +12117,6 @@ Adamant Nature
 Marowak-Alola @ Expert Belt  
 Ability: Cursed Body  
 Level: 1  
-Tera Type: Fire  
 Adamant Nature  
 - Flare Blitz  
 - Poltergeist  
@@ -11993,8 +12125,7 @@ Adamant Nature
 
 Skuntank @ Rocky Helmet  
 Ability: Aftermath  
-Level: 1  
-Tera Type: Poison  
+Level: 1   
 Adamant Nature  
 - Gunk Shot  
 - Sucker Punch  
@@ -13722,13 +13853,35 @@ Music: Cool
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Kecleon
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Flamethrower
-- Fury Swipes
-- Feint Attack
-- Bind
+Sunflora @ Leftovers  
+Ability: Drought  
+Level: 41  
+Calm Nature  
+IVs: 0 Atk  
+- Weather Ball  
+- Solar Beam  
+- Synthesis  
+- Earth Power
+
+Charizard @ Heavy-Duty Boots  
+Ability: Solar Power  
+Level: 42  
+Timid Nature  
+IVs: 0 Atk  
+- Solar Beam  
+- Heat Wave  
+- Air Slash  
+- Scorching Sands
+
+Turtonator @ Absorb Bulb  
+Ability: Shell Armor  
+Level: 42  
+Modest Nature  
+IVs: 0 Atk  
+- Shell Trap  
+- Flamethrower  
+- Solar Beam  
+- Dragon Pulse
 
 === TRAINER_VIVIAN ===
 Name: VIVIAN
@@ -13772,13 +13925,51 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Meditite
-Level: 23
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Bide
-- Detect
-- Confusion
-- Fire Punch
+Torkoal @ Leftovers  
+Ability: Drought  
+Level: 44   
+Quiet Nature  
+IVs: 0 Atk  
+- Stealth Rock  
+- Solar Beam  
+- Body Press  
+- Fire Blast  
+
+Arcanine-Hisui @ Choice Band  
+Ability: Rock Head  
+Level: 44   
+Jolly Nature  
+- Flare Blitz  
+- Head Smash  
+
+Medicham @ Muscle Band  
+Ability: Pure Power  
+Level: 44  
+Jolly Nature  
+- Fake Out  
+- Fire Punch  
+- High Jump Kick  
+- Zen Headbutt  
+
+Darmanitan @ Life Orb  
+Ability: Sheer Force  
+Level: 44    
+Jolly Nature  
+- Flare Blitz  
+- Iron Head  
+- Earthquake  
+- Hammer Arm  
+
+Lilligant-Hisui @ Occa Berry  
+Ability: Chlorophyll  
+Level: 44  
+Adamant Nature  
+- Victory Dance  
+- Solar Blade  
+- Close Combat  
+- Triple Axel  
+
+
 
 === TRAINER_HIDEO ===
 Name: HIDEO

@@ -79389,8 +79389,6 @@
       "MOVE_MUD_SHOT",
       "MOVE_DRAINING_KISS",
       "MOVE_ENDURE",
-      "MOVE_SUNNY_DAY",
-      "MOVE_RAIN_DANCE",
       "MOVE_DIG",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_BODY_SLAM",
@@ -79403,7 +79401,6 @@
       "MOVE_CRUNCH",
       "MOVE_PLAY_ROUGH",
       "MOVE_HELPING_HAND",
-      "MOVE_BATON_PASS",
       "MOVE_MISTY_TERRAIN",
       "MOVE_GIGA_IMPACT",
       "MOVE_HYPER_BEAM",
@@ -79412,7 +79409,9 @@
       "MOVE_PSYCH_UP",
       "MOVE_DOUBLE_EDGE",
       "MOVE_ENDEAVOR",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_ROCK_TOMB",
+      "MOVE_BULLDOZE"
     ],
     "EggMoves": [
       "MOVE_COPYCAT",

@@ -5,7 +5,7 @@ PKMN_Center_Move_Tutor_HeartScale::
 	message PKMN_Center_Move_Tutor_Text_HowCanHelp_HS
 	waitmessage
 	dynmultipush PKMN_Center_Tutor_Move, 	0
-	dynmultipush PKMN_Center_ChangeNature, 		1
+	dynmultipush PKMN_Center_ChangeNature, 	1
 	dynmultipush PKMN_Center_MaxIVs, 	2
 	dynmultipush PKMN_Center_Cancel, 		3
 	dynmultistack 0, 0, FALSE, 4, FALSE, 0, NULL
@@ -369,12 +369,12 @@ OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_1:
 	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_26, NATURE_SERIOUS
 	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_27, NATURE_TIMID
 	dynmultipush OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_Text_28, MULTI_B_PRESSED
-	dynmultistack 0, 0, FALSE, 6, FALSE, 3, DYN_MULTICHOICE_CB_NONE
+	dynmultistack 0, 0, FALSE, 6, FALSE, 3, NULL
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_8
 OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_7:
 	copyvar VAR_0x8005, VAR_RESULT
-	buffernaturename STR_VAR_2, VAR_RESULT
+	buffernaturename STR_VAR_2, VAR_0x8005
 	msgbox AreYouSureNatureChange, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq OldDaleTown_PokemonCenter_EventScript_SecondNurse_ChangeNature_11

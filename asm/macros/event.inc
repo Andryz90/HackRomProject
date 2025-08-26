@@ -1891,18 +1891,19 @@
 
 	@ Writes the name of the given nature to the specified buffer.
     .macro buffernaturename stringVarId:req, nature:req
-    .byte ScrCmd_buffernaturename
+    .byte SCR_OP_BUFFERNATURENAME
     stringvar \stringVarId
     .2byte \nature
     .endm
 
 	@ Checks if the player has enough space in their PC to hold quantity more of the specified item. Sets VAR_RESULT to
 	@ TRUE if there is room, or FALSE is there is no room.
-	.macro checkpcspace itemId:req, quantity=1
-	.byte ScrCmd_buffernaturename
-	.2byte \itemId
-	.2byte \quantity
-	.endm
+	@ Commented because had overlap with buffer nature name and this is not used
+	@.macro checkpcspace itemId:req, quantity=1
+	@.byte 0xe5 
+	@.2byte \itemId
+	@.2byte \quantity
+	@.endm
 
 @ Supplementary
 

@@ -2442,8 +2442,13 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = FALSE,
     },
-
-        [ABILITY_SPIRIT_BODY] =
+    [ABILITY_IRON_KICK] =
+    {
+        .name = _("Iron Kick"),
+        .description = COMPOUND_STRING("Boosts kicking moves."),
+        .aiRating = 6,
+    },
+    [ABILITY_SPIRIT_BODY] =
     {
  
         .name = _("Spirit Body"),

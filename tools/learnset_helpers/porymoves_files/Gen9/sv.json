@@ -24712,10 +24712,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_CLOSE_COMBAT"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_EMBER"
       },
       {
@@ -24767,6 +24763,10 @@
         "Move": "MOVE_FOCUS_ENERGY"
       },
       {
+        "Level": 38,
+        "Move": "MOVE_CLOSE_COMBAT"
+      },
+      {
         "Level": 42,
         "Move": "MOVE_BULK_UP"
       },
@@ -24787,8 +24787,16 @@
         "Move": "MOVE_FLARE_BLITZ"
       },
       {
+        "Level": 59,
+        "Move": "MOVE_JUMP_KICK"
+      },
+      {
         "Level": 63,
         "Move": "MOVE_BRAVE_BIRD"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_HIGH_JUMP_KICK"
       }
     ],
     "PreEvoMoves": [],
@@ -42936,10 +42944,6 @@
         "Level": 70,
         "Move": "MOVE_MAGMA_STORM"
       },
-      {
-        "Level": 78,
-        "Move": "MOVE_ARMOR_CANNON"
-      }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -65369,6 +65373,10 @@
         "Move": "MOVE_ROCK_SLIDE"
       },
       {
+        "Level": 39,
+        "Move": "MOVE_STEALTH_ROCK"
+      },
+      {
         "Level": 42,
         "Move": "MOVE_CRUNCH"
       },
@@ -65379,10 +65387,6 @@
       {
         "Level": 48,
         "Move": "MOVE_SCARY_FACE"
-      },
-      {
-        "Level": 54,
-        "Move": "MOVE_STEALTH_ROCK"
       },
       {
         "Level": 60,
@@ -79321,7 +79325,7 @@
       },
       {
         "Level": 29,
-        "Move": "MOVE_BATON_PASS"
+        "Move": "MOVE_BODY_PRESS"
       },
       {
         "Level": 33,
@@ -79361,8 +79365,6 @@
       "MOVE_MUD_SHOT",
       "MOVE_DRAINING_KISS",
       "MOVE_ENDURE",
-      "MOVE_SUNNY_DAY",
-      "MOVE_RAIN_DANCE",
       "MOVE_DIG",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_BODY_SLAM",
@@ -79375,7 +79377,6 @@
       "MOVE_CRUNCH",
       "MOVE_PLAY_ROUGH",
       "MOVE_HELPING_HAND",
-      "MOVE_BATON_PASS",
       "MOVE_MISTY_TERRAIN",
       "MOVE_GIGA_IMPACT",
       "MOVE_HYPER_BEAM",

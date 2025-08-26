@@ -6927,7 +6927,6 @@ static const struct LevelUpMove sCombuskenLevelUpLearnset[] = {
 
 static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
         LEVEL_UP_MOVE(0, MOVE_BLAZE_KICK),
-        LEVEL_UP_MOVE(1, MOVE_CLOSE_COMBAT),
         LEVEL_UP_MOVE(1, MOVE_EMBER),
         LEVEL_UP_MOVE(1, MOVE_FEATHER_DANCE),
         LEVEL_UP_MOVE(1, MOVE_SCRATCH),
@@ -6941,12 +6940,15 @@ static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
         LEVEL_UP_MOVE(25, MOVE_SLASH),
         LEVEL_UP_MOVE(30, MOVE_BOUNCE),
         LEVEL_UP_MOVE(35, MOVE_FOCUS_ENERGY),
+        LEVEL_UP_MOVE(38, MOVE_CLOSE_COMBAT),
         LEVEL_UP_MOVE(42, MOVE_BULK_UP),
         LEVEL_UP_MOVE(45, MOVE_FLAMETHROWER),
         LEVEL_UP_MOVE(49, MOVE_REVERSAL),
         LEVEL_UP_MOVE(52, MOVE_FIRE_PUNCH),
         LEVEL_UP_MOVE(56, MOVE_FLARE_BLITZ),
+        LEVEL_UP_MOVE(59, MOVE_JUMP_KICK),
         LEVEL_UP_MOVE(63, MOVE_BRAVE_BIRD),
+        LEVEL_UP_MOVE(70, MOVE_HIGH_JUMP_KICK),
         LEVEL_UP_END
 };
 #endif //P_FAMILY_TORCHIC
@@ -16768,10 +16770,10 @@ static const struct LevelUpMove sLycanrocMiddayLevelUpLearnset[] = {
         LEVEL_UP_MOVE(24, MOVE_ROCK_TOMB),
         LEVEL_UP_MOVE(30, MOVE_ROAR),
         LEVEL_UP_MOVE(36, MOVE_ROCK_SLIDE),
+        LEVEL_UP_MOVE(39, MOVE_STEALTH_ROCK),
         LEVEL_UP_MOVE(42, MOVE_CRUNCH),
         LEVEL_UP_MOVE(46, MOVE_EARTHQUAKE),
         LEVEL_UP_MOVE(48, MOVE_SCARY_FACE),
-        LEVEL_UP_MOVE(54, MOVE_STEALTH_ROCK),
         LEVEL_UP_MOVE(60, MOVE_STONE_EDGE),
         LEVEL_UP_MOVE(68, MOVE_SHORE_UP),
         LEVEL_UP_END
@@ -20274,7 +20276,7 @@ static const struct LevelUpMove sDachsbunLevelUpLearnset[] = {
         LEVEL_UP_MOVE(15, MOVE_BABY_DOLL_EYES),
         LEVEL_UP_MOVE(18, MOVE_PLAY_ROUGH),
         LEVEL_UP_MOVE(22, MOVE_WORK_UP),
-        LEVEL_UP_MOVE(29, MOVE_BATON_PASS),
+        LEVEL_UP_MOVE(29, MOVE_BODY_PRESS),
         LEVEL_UP_MOVE(33, MOVE_ROAR),
         LEVEL_UP_MOVE(38, MOVE_DOUBLE_EDGE),
         LEVEL_UP_MOVE(42, MOVE_CHARM),
