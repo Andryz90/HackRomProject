@@ -326,17 +326,7 @@ PetalburgWoods_Bugsy_Lost::
 	msgbox PetalburgWoods_Text_Bugsy_Explaining, MSGBOX_DEFAULT
 	releaseall
 	end
-PetalburgWoods_EventScript_Bugsy_CheckBadge::
-	goto_if_set FLAG_BADGE02_GET, PetalburgWoods_EventScript_Bugsy_BattleBegin
-	msgbox PetalburgWoods_Text_Bugsy_BadgeLow, MSGBOX_DEFAULT
-	releaseall
-	end
-PetalburgWoods_EventScript_Bugsy_CheckBadge_Fail::
-	msgbox PetalburgWoods_Text_Bugsy_BadgeBlock, MSGBOX_DEFAULT
-	releaseall
-	end
 PetalburgWoods_EventScript_Bugsy_BattleBegin::
-	goto_if_set FLAG_BADGE03_GET, PetalburgWoods_EventScript_Bugsy_CheckBadge_Fail
 	trainerbattle_single TRAINER_BUGSY, PetalburgWoods_Text_Bugsy_Accepted, PetalburgWoods_Text_Bugsy_Lost, PetalburgWoods_Bugsy_Lost, NO_MUSIC
 	releaseall
 	end
@@ -347,7 +337,7 @@ PetalburgWoods_Bugsy_NotReady::
 PetalburgWoods_EventScript_Bugsy_Begin::
 	msgbox PetalburgWoods_Text_Bugsy, MSGBOX_YESNO
 	switch VAR_RESULT
-	case YES, PetalburgWoods_EventScript_Bugsy_CheckBadge
+	case YES, PetalburgWoods_EventScript_Bugsy_BattleBegin
 	case NO, PetalburgWoods_Bugsy_NotReady
 	releaseall
 	end
@@ -526,9 +516,7 @@ PetalburgWoods_Text_TrainerTipsPP:
 PetalburgWoods_Text_Bugsy::
 	.string "I flew here in Hoenn doing research\n"
 	.string "and found interesting POKéMON.\p"
-	.string "Do you want to see what I discovered?\p"
-	.string "I battle only with unexperienced\n"
-	.string "trainers that have 2 Badges tough. $"
+	.string "Do you want to see what I discovered? $"
 
 
 PetalburgWoods_Text_Bugsy_NotReady::
@@ -544,7 +532,7 @@ PetalburgWoods_Text_Bugsy_Lost::
 	.string "Here, take this to prove that\n"
 	.string "you beat me, you can't find it here. $"
 PetalburgWoods_Text_Bugsy_Explaining::
-	.string "The MT is U-Turn, deals damage\n"
+	.string "The TM is U-Turn, deals damage\n"
 	.string "and allow your POKéMON to switch out!\p"
 	.string "It's my favorite move. $"
 PetalburgWoods_Text_Bugsy_BadgeBlock::

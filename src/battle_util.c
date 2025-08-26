@@ -11801,6 +11801,7 @@ typedef enum Trainer_DynamicLevel_t
     EDWIN_R110              = 5u,  //Double battle R110
     JOSEPH_R110             = 6u,  //Double battle R110
     GRUNT_JAGGED_PASS       = 7u,  //Single battle in front of team magma base
+    GYM_LEADER_BUGSY        = 8u,  //Boss fight in Petalburg Woods
 
 
     MAX_TRAINER_DYNAMIC_LEVEL
@@ -11817,6 +11818,7 @@ static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][T
     [EDWIN_R110]            =_("EDWIN"),
     [JOSEPH_R110]           =_("JOSEPH"),
     [GRUNT_JAGGED_PASS]     =_("GUARDIAN GRUNT"),
+    [GYM_LEADER_BUGSY]      =_("BUGSY"),
 
 };
 

@@ -5313,9 +5313,9 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
 
-Araquanid (F)   
+Araquanid @Focus Sash   
 Ability: Water Bubble  
-Level: 33    
+Level: 1    
 Careful Nature  
 - Sticky Web
 - Liquidation  
@@ -5324,16 +5324,16 @@ Careful Nature
 
 Ledian @ Punching Glove  
 Ability: Iron Fist  
-Level: 33  
+Level: 1  
 Jolly Nature  
 - Ice Punch  
-- Drain Punch  
 - U-turn  
+- Combo Punch  
 - Thunder Punch  
 
-Ariados @ Poison Barb  
+Ariados @ Life Orb  
 Ability: Adaptability  
-Level: 33    
+Level: 1    
 Adamant Nature  
 - Cross Poison  
 - Leech Life  
@@ -5342,7 +5342,7 @@ Adamant Nature
 
 Scyther @ Eviolite  
 Ability: Technician  
-Level: 34   
+Level: 1   
 Adamant Nature  
 - Cut  
 - Dual Wingbeat  
@@ -5351,18 +5351,18 @@ Adamant Nature
 
 Beautifly (F) @ Big Root  
 Ability: Lifedrainer  
-Level: 33   
+Level: 1   
 Timid Nature  
 IVs: 0 Atk  
-- Mega Drain  
-- Morning Sun  
-- Air Cutter  
-- Silver Wind  
+- Giga Drain  
+- Draining Kiss  
+- Air Slash  
+- Bug Buzz  
 
 Dustox @ Black Sludge  
 Ability: Shield Dust  
-Level: 33  
-- Poison Powder  
+Level: 1  
+- Toxic  
 - Protect  
 - Bug Bite  
 - Venoshock
@@ -5467,7 +5467,7 @@ Ledian
 Ability: Iron Fist  
 Level: 23  
 - Ice Punch  
-- U-turn  
+- Leech Life
 - Thunder Punch
 - Combo Punch
 
@@ -9746,7 +9746,7 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-SPECIES_SAWSBUCK_SUMMER @ Charcoal  
+Sawsbuck-Summer @ Charcoal  
 Level: 35
 Ability: Chlorophyll  
 Adamant Nature  
