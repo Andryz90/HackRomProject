@@ -4173,8 +4173,7 @@ IVs: 0 Atk
 - Solar Beam  
 - Weather Ball  
 - Earth Power  
-
-
+- Sunny Day
 
 === TRAINER_TRAVIS ===
 Name: TRAVIS
@@ -11883,7 +11882,7 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Armarouge @ White Herb  
+Armarouge 
 Ability: Mega Launcher  
 Level: 40   
 Modest Nature  
@@ -11964,7 +11963,7 @@ Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_GRUNT_JAGGED_PASS ===
-Name: GRUNT
+Name: GUARDIAN GRUNT 
 Class: Team Magma
 Pic: Magma Grunt M
 Gender: Male
@@ -11972,13 +11971,35 @@ Music: Magma
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Poochyena
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Pangoro @ Punching Glove  
+Ability: Iron Fist  
+Level: 1  
+Tera Type: Fighting  
+Adamant Nature  
+- Knock Off  
+- Drain Punch  
+- Poison Jab  
+- Bullet Punch  
 
-Numel
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Marowak-Alola @ Expert Belt  
+Ability: Cursed Body  
+Level: 1  
+Tera Type: Fire  
+Adamant Nature  
+- Flare Blitz  
+- Poltergeist  
+- Brick Break  
+- Earthquake  
+
+Skuntank @ Rocky Helmet  
+Ability: Aftermath  
+Level: 1  
+Tera Type: Poison  
+Adamant Nature  
+- Gunk Shot  
+- Sucker Punch  
+- Knock Off  
+- Explosion  
 
 === TRAINER_MARC ===
 Name: MARC
@@ -13358,13 +13379,50 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Geodude
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Gigalith @ Leftovers  
+Ability: Sturdy  
+Level: 38  
+Lonely Nature  
+- Earthquake  
+- Stone Edge  
+- Explosion  
+- Iron Head  
 
-Baltoy
-Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Houndoom @ Expert Belt  
+Ability: Flash Fire  
+Level: 39  
+- Dark Pulse  
+- Flamethrower  
+- Sludge Bomb  
+- Pursuit  
+
+Coalossal @ Air Balloon  
+Ability: Steam Engine  
+Level: 39  
+Adamant Nature  
+- Heat Crash  
+- Earthquake  
+- Heavy Slam  
+- Body Press  
+
+Ursaring @ Eviolite  
+Ability: Guts  
+Level: 39  
+Adamant Nature  
+- Rest  
+- Sleep Talk  
+- Facade  
+- Earthquake  
+
+Runerigus @ Leftovers  
+Ability: Wandering Spirit  
+Level: 39  
+- Will-O-Wisp  
+- Earthquake  
+- Shadow Claw  
+- Destiny Bond  
+
+
 
 === TRAINER_LUCAS_2 ===
 Name: LUCAS
@@ -15294,7 +15352,7 @@ IVs: 0 Atk
 - Follow Me  
 - Hyper Voice  
 - Thunder Wave  
-- Roost  
+- Air Cutter
 
 Whimsicott @ Leftovers  
 Ability: Prankster  

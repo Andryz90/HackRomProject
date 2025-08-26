@@ -21379,7 +21379,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_SPIKES"
+        "Move": "MOVE_IRON_HEAD"
       },
       {
         "Level": 48,
@@ -70699,7 +70699,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_COUNTER"
+        "Move": "MOVE_ROCK_SLIDE"
       },
       {
         "Level": 34,
@@ -70715,7 +70715,7 @@
       },
       {
         "Level": 57,
-        "Move": "MOVE_BODY_SLAM"
+        "Move": "MOVE_STONE_EDGE"
       },
       {
         "Level": 66,
@@ -80231,6 +80231,10 @@
     "LevelMoves": [
       {
         "Level": 0,
+        "Move": "MOVE_ARMOR_CANNON"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_PSYSHOCK"
       },
       {
@@ -80296,10 +80300,6 @@
       {
         "Level": 56,
         "Move": "MOVE_EXPANDING_FORCE"
-      },
-      {
-        "Level": 62,
-        "Move": "MOVE_ARMOR_CANNON"
       }
     ],
     "PreEvoMoves": [],
@@ -80364,6 +80364,10 @@
     "LevelMoves": [
       {
         "Level": 0,
+        "Move": "MOVE_BITTER_BLADE"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_SHADOW_CLAW"
       },
       {
@@ -80429,10 +80433,6 @@
       {
         "Level": 42,
         "Move": "MOVE_ALLY_SWITCH"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_BITTER_BLADE"
       },
       {
         "Level": 56,
