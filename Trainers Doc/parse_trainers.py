@@ -6,6 +6,10 @@ import re
 INPUT_FOLDER = "./"
 OUTPUT_CSV = "trainers.csv"
 
+dictionary_special_pokemon_name = 
+{
+    "porygon-z": "porygonz",
+}
 def normalize_pic_name(pic_str: str) -> str:
     return pic_str.strip().lower().replace(" ", "_") + ".png"
 
@@ -125,6 +129,11 @@ with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as csvfile:
             # Rimuove item e genere dal nome del Pokémon
             poke_name = p["lines"][0].split(" @")[0]
             poke_name = re.sub(r"\s*\([mfMF]\)", "", poke_name)
+            # Gestisci i nomi particolari: forme diverse
+            if poke_name in dictionary_special_pokemon_name:
+                poke_name = dictionary_special_pokemon_name[poke_name]
+            elif poke_name.startswith("furfrou-"):
+                poke_name = "furfrou"
             sprite_filename = normalize_pokemon_name(poke_name)
             image_formula = f'=IMAGE("https://play.pokemonshowdown.com/sprites/gen5/{sprite_filename}.png")'
             row_img.append(image_formula)

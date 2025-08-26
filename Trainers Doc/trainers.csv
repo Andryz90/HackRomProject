@@ -11,6 +11,38 @@ LUNG;Weezing @ Black Sludge;Muk-Alola @ Assault Vest
 ;- Explosion;- Ice Punch
 ;- Will-O-Wisp;- Thunder Punch
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""collector.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/porygon-z.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/xatu.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/chimecho.png"")"
+EDWIN;Porygon-Z;Xatu @ Leftovers;Chimecho @ Leftovers
+;Ability: Adaptability;Ability: Magic Bounce;Ability: Levitate
+;Level: 1;Level: 1;Level: 1
+;Modest Nature;Timid Nature;Modest Nature
+;IVs: 0 Atk;- Psychic;IVs: 0 Atk
+;- Tri Attack;- Air Slash;- Psychic
+;- Dark Pulse;- Wish;- Heal Bell
+;- Signal Beam;- Protect;- Dazzling Gleam
+;;;- Shadow Ball
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""magma_grunt_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/pangoro.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/marowak-alola.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/skuntank.png"")"
+GUARDIAN GRUNT;Pangoro @ Punching Glove;Marowak-Alola @ Expert Belt;Skuntank @ Rocky Helmet
+;Ability: Iron Fist;Ability: Cursed Body;Ability: Aftermath
+;Level: 1;Level: 1;Level: 1
+;Adamant Nature;Adamant Nature;Adamant Nature
+;- Knock Off;- Flare Blitz;- Gunk Shot
+;- Drain Punch;- Poltergeist;- Sucker Punch
+;- Poison Jab;- Brick Break;- Knock Off
+;- Bullet Punch;- Earthquake;- Explosion
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""guitarist.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/magnezone.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/bellibolt.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/toxtricity.png"")"
+JOSEPH;Magnezone @ Leftovers;Bellibolt @ Leftovers;Toxtricity @ Throat Spray
+;Ability: Analytic;Ability: Electromorphosis;Ability: Punk Rock
+;Level: 1;Level: 1;Level: 1
+;Modest Nature;- Parabolic Charge;- Overdrive
+;IVs: 0 Atk;- Scald;- Sludge Bomb
+;- Thunder Wave;- Thunder Wave;- Boomburst
+;- Thunderbolt;- Sucker Punch;- Volt Switch
+;- Volt Switch;;
+;- Flash Cannon;;
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""camper.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/weezing-galar.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/thievul.png"")"
 LAWRENCE;Weezing-Galar @ Black Sludge;Thievul @ Black Glasses
 ;Ability: Levitate;Ability: Stakeout
@@ -354,11 +386,6 @@ JASMINE;Magnemite;Magnemite;Voltorb
 ;Level: 14;Level: 14;Level: 6
 ;IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe;IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""collector.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lombre.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/nuzleaf.png"")"
-EDWIN;Lombre;Nuzleaf
-;Level: 14;Level: 14
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""lass.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/tangela.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/flaaffy.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/eevee.png"")"
 HALEY;Tangela (F);Flaaffy (F);Eevee (F)
 ;Ability: Thick Fat;Ability: Transistor;Ability: Adaptability
@@ -381,11 +408,6 @@ JOSE;Surskit;Dewpider @ Oran Berry;Paras @ Oran Berry
 ;- Water Gun;- Bubble Beam;- Fury Cutter
 ;- Quick Attack;- Bug Bite;- Spore
 ;- Struggle Bug;- Aqua Ring;- Seed Bomb
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""guitarist.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/electrike.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/voltorb.png"")"
-JOSEPH;Electrike;Voltorb
-;Level: 14;Level: 14
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""youngster.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/zigzagoon.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/aron.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/electrike.png"")"
 DEANDRE;Zigzagoon;Aron;Electrike
@@ -428,7 +450,7 @@ JOEY;Munchlax @ Sitrus Berry;Litleo @ Metronome;Bibarel;Roselia
 ;Adamant Nature;Modest Nature;- Aqua Jet;Modest Nature
 ;- Curse;IVs: 0 Atk;- Bite;IVs: 0 Atk
 ;- Bulldoze;- Echoed Voice;- Defense Curl;- Mega Drain
-;- Recycle;- Noble Roar;- Rollout;- Sludge Bomb
+;- Recycle;;- Rollout;- Sludge Bomb
 ;- Tackle;;;- Leech Seed
 ;;;;- Grass Whistle
 
@@ -605,11 +627,6 @@ TRENT;Geodude;Geodude;Geodude
 ;Level: 16;Level: 17;Level: 16
 ;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cooltrainer_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/electrike.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/wailmer.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/makuhita.png"")"
-WILTON;Electrike;Wailmer;Makuhita
-;Level: 17;Level: 17;Level: 17
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""school_kid_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ralts.png"")"
 TED;Ralts
 ;Level: 17
@@ -697,11 +714,6 @@ NOB;Machop
 ;Level: 19
 ;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""black_belt.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/machop.png"")"
-DAISUKE;Machop
-;Level: 19
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""youngster.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/aron.png"")"
 DILLON;Aron
 ;Level: 19
@@ -711,11 +723,6 @@ DILLON;Aron
 NOLAN;Barboach
 ;Level: 19
 ;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""picnicker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/shroomish.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/oddish.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/swablu.png"")"
-DIANA;Shroomish;Oddish;Swablu
-;Level: 19;Level: 19;Level: 19
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""camper.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sandshrew.png"")"
 TYRON;Sandshrew
@@ -741,11 +748,6 @@ ETHAN;Zigzagoon;Taillow
 GRUNT;Zubat
 ;Level: 20
 ;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""hiker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/geodude.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/baltoy.png"")"
-ERIC;Geodude;Baltoy
-;Level: 20;Level: 20
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""sailor.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/pelipper.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/palpitoad.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lombre.png"")"
 HUEY;Pelipper;Palpitoad @ Soft Sand;Lombre @ Oran Berry
@@ -785,20 +787,10 @@ BEAU;Baltoy;Sandshrew;Baltoy
 ;- Psybeam;- Scratch;- Psybeam
 ;- Rock Tomb;- Dig;- Rock Tomb
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""picnicker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/shroomish.png"")"
-AUTUMN;Shroomish
-;Level: 21
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""expert_f.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/meditite.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/makuhita.png"")"
 SHELBY;Meditite;Makuhita
 ;Level: 21;Level: 21
 ;IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe;IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cycling_triathlete_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/magnemite.png"")"
-JULIO;Magnemite
-;Level: 21
-;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""aqua_grunt_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lycanroc-midnight.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/noctowl.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/cramorant.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/mightyena.png"")"
 GRUNT;Lycanroc-Midnight;Noctowl @ Wise Glasses;Cramorant (M);Mightyena
@@ -961,11 +953,6 @@ LYDIA;Wingull;Shroomish;Marill;Roselia;Skitty;Goldeen
 ;Level: 22;Level: 22;Level: 22;Level: 22;Level: 22;Level: 22
 ;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe;IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""magma_grunt_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/poochyena.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/numel.png"")"
-GRUNT;Poochyena;Numel
-;Level: 22;Level: 22
-;IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe;IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""sailor.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/kubfu.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/croagunk.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/mankey.png"")"
 BRENDEN;Kubfu @ Black Belt;Croagunk;Mankey @ Scope Lens
 ;Ability: Inner Focus;Ability: Poison Touch;Ability: Vital Spirit
@@ -1068,26 +1055,6 @@ TAKAO;Hitmonchan;Timburr (M);Pawmo (M)
 ;- Ice Punch;- Dynamic Punch;- Fire Punch
 ;;;- Mach Punch
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/numel.png"")"
-COLE;Numel
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/numel.png"")"
-AXLE;Numel
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/slugma.png"")"
-JACE;Slugma
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/slugma.png"")"
-KEEGAN;Slugma
-;Level: 23
-;IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""camper.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sandshrew.png"")"
 DREW;Sandshrew
 ;Level: 23
@@ -1102,11 +1069,6 @@ MARTHA;Skitty;Swablu
 ;Level: 23;Level: 23
 ;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""hiker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/numel.png"")"
-ELI;Numel
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""black_belt.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lopunny.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/hitmontop.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/pinsir.png"")"
 CRISTIAN;Lopunny (M);Hitmontop  (M);Pinsir  (M)
 ;Ability: Cute Charm;Ability: Intimidate;Ability: Moxie
@@ -1115,24 +1077,6 @@ CRISTIAN;Lopunny (M);Hitmontop  (M);Pinsir  (M)
 ;- Double Kick;- Blaze Kick;- Bug Bite
 ;- Fake Out;- Double Kick;- Trailblaze
 ;- Work Up;- Fake Out;- Rock Tomb
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cooltrainer_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/kecleon.png"")"
-GERALD;Kecleon
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-;- Flamethrower
-;- Fury Swipes
-;- Feint Attack
-;- Bind
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""battle_girl.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/meditite.png"")"
-DANIELLE;Meditite
-;Level: 23
-;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-;- Bide
-;- Detect
-;- Confusion
-;- Fire Punch
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""battle_girl.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/hitmonlee.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/steenee.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/blitzle.png"")"
 JOCELYN;Hitmonlee;Steenee;Blitzle
@@ -1226,15 +1170,6 @@ ELLIOT;Tentacool;Gyarados;Gyarados
 KOICHI;Machop;Machoke
 ;Level: 24;Level: 28
 ;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe;IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""leader_flannery.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/numel.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/slugma.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/camerupt.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/torkoal.png"")"
-FLANNERY;Numel;Slugma;Camerupt;Torkoal @ White Herb
-;Level: 24;Level: 24;Level: 26;Level: 29
-;IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe;IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe;IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe;IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-;- Overheat;- Overheat;- Overheat;- Overheat
-;- Take Down;- Smog;- Tackle;- Sunny Day
-;- Magnitude;- Light Screen;- Sunny Day;- Body Slam
-;- Sunny Day;- Sunny Day;- Attract;- Attract
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""ruin_maniac.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sandshrew.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sandslash.png"")"
 FOSTER;Sandshrew;Sandslash
@@ -3699,6 +3634,16 @@ LOLA;Azumarill;Azumarill
 ;Level: 35;Level: 35
 ;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cooltrainer_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/wailmer.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/scolipede.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/bewear.png"")"
+WILTON;Wailmer;Scolipede @ Bright Powder;Bewear @ Expert Belt
+;Ability: Water Veil;Ability: Poison Point;Ability: Fluffy
+;Level: 35;Level: 35;Level: 35
+;IVs: 0 Atk;- Leech Life;- Double-Edge
+;- Water Spout;- Poison Jab;- Darkest Lariat
+;- Icy Wind;- Earthquake;- Drain Punch
+;- Scald;- Aqua Tail;- Earthquake
+;- Protect;;
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cooltrainer_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/manectric.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/wailmer.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/hariyama.png"")"
 WILTON;Manectric;Wailmer;Hariyama
 ;Level: 35;Level: 35;Level: 35
@@ -3722,6 +3667,16 @@ JESSICA;Kecleon;Seviper
 STEVE;Aggron;Rhydon
 ;Level: 35;Level: 35
 ;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""black_belt.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/machamp.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/crabominable.png"")"
+DAISUKE;Machamp @ Flame Orb;Crabominable
+;Ability: Guts;Ability: Iron Fist
+;Level: 35;Level: 35
+;Jolly Nature;- Ice Hammer
+;- Close Combat;- Brick Break
+;- Bullet Punch;- Return
+;- Detect;- Facade
+;- Darkest Lariat;
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""camper.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/solrock.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/centiskorch.png"")"
 LARRY;Solrock @ Air Balloon;Centiskorch @ Charcoal
@@ -4374,12 +4329,22 @@ ANGELINA;Clefairy @ Eviolite;Togekiss @ Leftovers;Whimsicott @ Leftovers
 ;- Follow Me;- Follow Me;- Tailwind
 ;- Life Dew;- Hyper Voice;- Taunt
 ;- Encore;- Thunder Wave;- Giga Drain
-;- Moonblast;- Roost;- Moonblast
+;- Moonblast;- Air Cutter;- Moonblast
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""beauty.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/luvdisc.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/wailmer.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/seadra.png"")"
 THALIA;Luvdisc;Wailmer;Seadra
 ;Level: 38;Level: 38;Level: 38
 ;IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe;IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe;IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""hiker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/gigalith.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/houndoom.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/coalossal.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ursaring.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/runerigus.png"")"
+ERIC;Gigalith @ Leftovers;Houndoom @ Expert Belt;Coalossal @ Air Balloon;Ursaring @ Eviolite;Runerigus @ Leftovers
+;Ability: Sturdy;Ability: Flash Fire;Ability: Steam Engine;Ability: Guts;Ability: Wandering Spirit
+;Level: 38;Level: 39;Level: 39;Level: 39;Level: 39
+;Lonely Nature;- Dark Pulse;Adamant Nature;Adamant Nature;- Will-O-Wisp
+;- Earthquake;- Flamethrower;- Heat Crash;- Rest;- Earthquake
+;- Stone Edge;- Sludge Bomb;- Earthquake;- Sleep Talk;- Shadow Claw
+;- Explosion;- Pursuit;- Heavy Slam;- Facade;- Destiny Bond
+;- Iron Head;;- Body Press;- Earthquake;
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""leader_flannery.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/magcargo.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ponyta.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/camerupt.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/torkoal.png"")"
 FLANNERY;Magcargo @ White Herb;Ponyta;Camerupt @ White Herb;Torkoal @ White Herb
@@ -4557,15 +4522,67 @@ BRIDGET;Azumarill
 ;Level: 40
 ;IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/tropius.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/bellossom.png"")"
+JACE;Tropius @ Life Orb;Bellossom @ Occa Berry
+;Ability: Solar Power;Ability: Chlorophyll
+;Level: 40;Level: 40
+;Timid Nature;Modest Nature
+;IVs: 0 Atk;IVs: 0 Atk
+;- Solar Beam;- Moonblast
+;- Synthesis;- Solar Beam
+;- Dragon Pulse;- Encore
+;;- Protect
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""picnicker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ceruledge.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/leafeon.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sunflora.png"")"
+AUTUMN;Ceruledge @ Expert Belt;Leafeon @ Miracle Seed;Sunflora @ Charcoal
+;Ability: Sharpness;Ability: Chlorophyll;Ability: Solar Power
+;Level: 40;Level: 40;Level: 40
+;Jolly Nature;Adamant Nature;Modest Nature
+;- Bitter Blade;- Synthesis;IVs: 0 Atk
+;- Poltergeist;- Leaf Blade;- Solar Beam
+;- Shadow Sneak;- Body Slam;- Weather Ball
+;- Brick Break;- Knock Off;- Earth Power
+;;;- Sunny Day
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""psychic_f.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/kadabra.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lunatone.png"")"
 JACKI;Kadabra;Lunatone
 ;Level: 40;Level: 40
 ;IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe;IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""picnicker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/plusle.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/minun.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/breloom.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/delcatty.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ribombee.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/slurpuff.png"")"
+DIANA;Plusle @ Magnet;Minun @ Magnet;Breloom @ Focus Sash;Delcatty @ Silk Scarf;Ribombee @ Leftovers;Slurpuff @ Sitrus Berry
+;Ability: Plus;Ability: Minus;Ability: Technician;Ability: Cute Charm;Ability: Shield Dust;Ability: Sweet Veil
+;Level: 40;Level: 40;Level: 40;Level: 40;Level: 40;Level: 40
+;- Thunderbolt;- Thunderbolt;- Spore;- Fake Out;- Moonblast;- Play Rough
+;- Nuzzle;- Nuzzle;- Mach Punch;- Double-Edge;- Bug Buzz;- Belly Drum
+;- Helping Hand;- Helping Hand;- Bullet Seed;- Play Rough;- Stun Spore;- Body Slam
+;- Volt Switch;- Volt Switch;- Rock Tomb;- Thunder Wave;- Quiver Dance;- Encore
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""picnicker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/breloom.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/vileplume.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/altaria.png"")"
 DIANA;Breloom;Vileplume;Altaria
 ;Level: 40;Level: 40;Level: 40
 ;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""hiker.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/solrock.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/flareon.png"")"
+ELI;Solrock @ Air Balloon;Flareon @ Toxic Orb
+;Ability: Drought;Ability: Toxic Boost
+;Level: 40;Level: 40
+;- Flare Blitz;Jolly Nature
+;- Rock Slide;- Protect
+;- Morning Sun;- Flare Blitz
+;- Will-O-Wisp;- Facade
+;;- Double Kick
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cycling_triathlete_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/armarouge.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/charizard.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/solrock.png"")"
+JULIO;Armarouge;Charizard @ Charti Berry;Solrock @ Air Balloon
+;Ability: Mega Launcher;Ability: Solar Power;Ability: Drought
+;Level: 40;Level: 40;Level: 40
+;Modest Nature;IVs: 0 Atk;- Zen Headbutt
+;IVs: 0 Atk;- Flamethrower;- Rock Slide
+;- Armor Cannon;- Solar Beam;- Flare Blitz
+;- Psyshock;- Ancient Power;- Protect
+;- Will-O-Wisp;- Air Slash;
+;- Aura Sphere;;
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""lass.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/luvdisc.png"")"
 ANDREA;Luvdisc
@@ -4692,6 +4709,17 @@ TATE&LIZA;Claydol;Xatu;Lunatone @ Sitrus Berry;Solrock @ Sitrus Berry
 ;- Psychic;- Confuse Ray;- Hypnosis;- Psychic
 ;- Light Screen;- Calm Mind;- Calm Mind;- Flamethrower
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""cooltrainer_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sunflora.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/charizard.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/turtonator.png"")"
+GERALD;Sunflora @ Leftovers;Charizard @ Heavy-Duty Boots;Turtonator @ Absorb Bulb
+;Ability: Drought;Ability: Solar Power;Ability: Shell Armor
+;Level: 41;Level: 42;Level: 42
+;Calm Nature;Timid Nature;Modest Nature
+;IVs: 0 Atk;IVs: 0 Atk;IVs: 0 Atk
+;- Weather Ball;- Solar Beam;- Shell Trap
+;- Solar Beam;- Heat Wave;- Flamethrower
+;- Synthesis;- Air Slash;- Solar Beam
+;- Earth Power;- Scorching Sands;- Dragon Pulse
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""aqua_leader_archie.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/mightyena.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/crobat.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sharpedo.png"")"
 ARCHIE;Mightyena;Crobat;Sharpedo
 ;Level: 41;Level: 41;Level: 43
@@ -4744,6 +4772,17 @@ JULIE;Sandslash;Ninetales;Tropius
 VALERIE;Duskull;Sableye;Grumpig
 ;Level: 42;Level: 42;Level: 42
 ;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/sawsbuck-summer.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/delphox.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/arcanine.png"")"
+COLE;Sawsbuck-Summer @ Charcoal;Delphox @ Life Orb;Arcanine @ Choice Band
+;Ability: Chlorophyll;Ability: Magic Guard;Ability: Flash Fire
+;Level: 42;Level: 42;Level: 42
+;Adamant Nature;Timid Nature;Jolly Nature
+;- Horn Leech;IVs: 0 Atk;- Flare Blitz
+;- Season Power;- Heat Wave;- Extreme Speed
+;- Synthesis;- Mystical Fire;- Return
+;- Swords Dance;- Psyshock;- Crunch
+;;- Solar Beam;
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""expert_m.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/hariyama.png"")"
 TIMOTHY;Hariyama
@@ -4819,6 +4858,17 @@ CAROLINE;Skarmory;Sableye
 ;Level: 43;Level: 43
 ;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe;IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/whimsicott.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/camerupt.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/rotom-heat.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/blaziken.png"")"
+AXLE;Whimsicott @ Heat Rock;Camerupt @ Passho Berry;Rotom-Heat @ Choice Specs;Blaziken
+;Ability: Prankster;Ability: Solid Rock;Ability: Levitate;Ability: Speed Boost
+;Level: 43;Level: 43;Level: 43;Level: 43
+;Modest Nature;Quiet Nature;Modest Nature;Jolly Nature
+;IVs: 0 Atk;IVs: 0 Atk;IVs: 0 Atk;- Swords Dance
+;- Sunny Day;- Solar Beam;- Volt Switch;- Close Combat
+;- Tailwind;- Flamethrower;- Overheat;- Flare Blitz
+;- Encore;- Earth Power;;- Earthquake
+;- Solar Beam;- Ancient Power;;
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""psychic_f.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lunatone.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/alakazam.png"")"
 JACKI;Lunatone;Alakazam
 ;Level: 43;Level: 43
@@ -4892,6 +4942,28 @@ KOJI;Hariyama;Machamp;Machamp
 ;Level: 43;Level: 43;Level: 43
 ;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe;IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""kindler.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ninetales.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/volcarona.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/marowak-alola.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/magmortar.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/venusaur.png"")"
+KEEGAN;Ninetales @ Fairy Feather;Volcarona @ Heavy-Duty Boots;Marowak-Alola @ Thick Club;Magmortar @ Life Orb;Venusaur @ Life Orb
+;Ability: Drought;Ability: Flame Body;Ability: Cursed Body;Ability: Mega Launcher;Ability: Chlorophyll
+;Level: 43;Level: 43;Level: 44;Level: 43;Level: 43
+;IVs: 0 Atk;Timid Nature;Brave Nature;Modest Nature;Timid Nature
+;Timid Nature;IVs: 0 Atk;- Flare Blitz;IVs: 0 Atk;IVs: 0 Atk
+;- Flamethrower;- Fiery Dance;- Poltergeist;- Flash Cannon;- Weather Ball
+;- Solar Beam;- Giga Drain;- Earthquake;- Aura Sphere;- Giga Drain
+;- Moonblast;- Bug Buzz;- Body Slam;- Earth Power;- Growth
+;- Nasty Plot;- Morning Sun;;- Fire Blast;- Earth Power
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""leader_flannery.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/castform.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/charizard.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/armarouge.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/ceruledge.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/scovillain.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/cherrim.png"")"
+FLANNERY;Castform @ Charcoal;Charizard @ Charizardite Y;Armarouge @ White Herb;Ceruledge @ Spell Tag;Scovillain @ Choice Specs;Cherrim @ Life Orb
+;Ability: Forecast;Ability: Solar Power;Ability: Mega Launcher;Ability: Sharpness;Ability: Chlorophyll;Ability: Flower Gift
+;Level: 43;Level: 45;Level: 43;Level: 43;Level: 43;Level: 44
+;IVs: 0 Atk;Timid Nature;IVs: 0 Atk;- Bitter Blade;IVs: 0 Atk;Adamant Nature
+;- Solar Beam;IVs: 0 Atk;- Armor Cannon;- Poltergeist;- Giga Drain;- Solar Blade
+;- Protect;- Protect;- Aura Sphere;- Swords Dance;- Overheat;- Temper Flare
+;- Will-O-Wisp;- Solar Beam;- Dark Pulse;- Will-O-Wisp;;- Morning Sun
+;- Weather Ball;- Heat Wave;- Energy Ball;;;- Protect
+;;- Air Slash;;;;
+
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""leader_winona.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/hoothoot.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/tropius.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/dragonair.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/pelipper.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/skarmory.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/altaria.png"")"
 WINONA;Hoothoot;Tropius;Dragonair @ Sitrus Berry;Pelipper;Skarmory;Altaria @ Chesto Berry
 ;Level: 43;Level: 43;Level: 45;Level: 46;Level: 48;Level: 50
@@ -4929,6 +5001,17 @@ NICOLAS;Altaria;Altaria
 PHILLIP;Tentacruel;Machoke
 ;Level: 44;Level: 44
 ;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe;IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+"=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""battle_girl.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/torkoal.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/arcanine-hisui.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/medicham.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/darmanitan.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/lilligant-hisui.png"")"
+DANIELLE;Torkoal @ Leftovers;Arcanine-Hisui @ Choice Band;Medicham @ Muscle Band;Darmanitan @ Life Orb;Lilligant-Hisui @ Occa Berry
+;Ability: Drought;Ability: Rock Head;Ability: Pure Power;Ability: Sheer Force;Ability: Chlorophyll
+;Level: 44;Level: 44;Level: 44;Level: 44;Level: 44
+;Quiet Nature;Jolly Nature;Jolly Nature;Jolly Nature;Adamant Nature
+;IVs: 0 Atk;- Flare Blitz;- Fake Out;- Flare Blitz;- Victory Dance
+;- Stealth Rock;- Head Smash;- Fire Punch;- Iron Head;- Solar Blade
+;- Solar Beam;;- High Jump Kick;- Earthquake;- Close Combat
+;- Body Press;;- Zen Headbutt;- Hammer Arm;- Triple Axel
+;- Fire Blast;;;;
 
 "=IFERROR(INDEX('ID Trainer Pics'!C:C; MATCH(""wally.png""; 'ID Trainer Pics'!A:A; 0)); """")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/altaria.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/delcatty.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/roselia.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/magneton.png"")";"=IMAGE(""https://play.pokemonshowdown.com/sprites/gen5/gardevoir.png"")"
 WALLY;Altaria;Delcatty;Roselia;Magneton;Gardevoir
