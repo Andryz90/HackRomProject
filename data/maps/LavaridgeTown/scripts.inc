@@ -24,8 +24,8 @@ LavaridgeTown_EventScript_CheckSetRivalPos::
 
 LavaridgeTown_EventScript_SetRivalPos::
 	setobjectxyperm LOCALID_LAVARIDGE_RIVAL, 11, 9
-	setobjectxyperm LOCALID_LAVARIDGE_RIVAL_ON_BIKE, 9, 8
-	setobjectmovementtype LOCALID_LAVARIDGE_RIVAL_ON_BIKE, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm LOCALID_LAVARIDGE_RIVAL_ON_BIKE, 19, 10
+	setobjectmovementtype LOCALID_LAVARIDGE_RIVAL_ON_BIKE, MOVEMENT_TYPE_FACE_LEFT
 	clearflag FLAG_HIDE_LAVARIDGE_TOWN_RIVAL
 	return
 
@@ -57,33 +57,113 @@ LavaridgeTown_EventScript_RivalGiveGoGoggles::
 	goto_if_eq VAR_RESULT, FEMALE, LavaridgeTown_EventScript_BrendanGiveGoGoggles
 	end
 
+Rival_WanderingAround_Movement::
+	emote_exclamation_mark
+	face_right
+	delay_16
+	face_down
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_player
+	step_end
+Rival_LookingFor_Movement::
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+Rival_Leaving_Movement::
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
 LavaridgeTown_EventScript_MayGiveGoGoggles::
 	msgbox LavaridgeTown_Text_MayNiceBadgesTakeThis, MSGBOX_DEFAULT
+	playbgm MUS_ENCOUNTER_MAGMA, TRUE
+	applymovement LOCALID_LAVARIDGE_RIVAL, Rival_WanderingAround_Movement
+	waitmovement 0
+	msgbox LavaridgeTown_Text_MayQuestioning, MSGBOX_DEFAULT
+	goto LavaridgeTown_EventScript_MayFinalInteraction
+	releaseall
+	end
+LavaridgeTown_Rival_DesertAkcnowledged::
+	delay_8
+	emote_exclamation_mark
+	face_player
+	step_end
+LavaridgeTown_EventScript_MayFinalInteraction::
+	applymovement LOCALID_LAVARIDGE_RIVAL, Rival_LookingFor_Movement
+	delay 1
+	applymovement LOCALID_PLAYER, Rival_LookingFor_Movement
+	waitmovement 0
+	applymovement LOCALID_LAVARIDGE_RIVAL, LavaridgeTown_Rival_DesertAkcnowledged
+	waitmovement 0
+	msgbox LavaridgeTown_Text_MayWorriedGivingGoggles, MSGBOX_DEFAULT
 	giveitem ITEM_GO_GOGGLES
 	setflag FLAG_RECEIVED_GO_GOGGLES
 	msgbox LavaridgeTown_Text_MayExplainGoGogglesChallengeDad, MSGBOX_DEFAULT
-	goto LavaridgeTown_EventScript_RivalExit
+	removeobject LOCALID_LAVARIDGE_RIVAL
+	addobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
+	delay 30
+	applymovement LOCALID_LAVARIDGE_RIVAL_ON_BIKE, Rival_Leaving_Movement
+	waitmovement 0
+	removeobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
+	setvar VAR_LAVARIDGE_TOWN_STATE, 2
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	fadedefaultbgm
+	releaseall
 	end
 
 LavaridgeTown_EventScript_BrendanGiveGoGoggles::
 	msgbox LavaridgeTown_Text_BrendanNiceBadgesTakeThis, MSGBOX_DEFAULT
+	playbgm MUS_ENCOUNTER_MAGMA, TRUE
+	applymovement LOCALID_LAVARIDGE_RIVAL, Rival_WanderingAround_Movement
+	waitmovement 0
+	msgbox LavaridgeTown_Text_BrendanQuestioning, MSGBOX_DEFAULT
+	goto LavaridgeTown_EventScript_BrendanFinalInteraction
+	releaseall
+	end
+LavaridgeTown_EventScript_BrendanFinalInteraction::
+	applymovement LOCALID_LAVARIDGE_RIVAL, Rival_LookingFor_Movement
+	delay 1
+	applymovement LOCALID_PLAYER, Rival_LookingFor_Movement
+	waitmovement 0
+	applymovement LOCALID_LAVARIDGE_RIVAL, LavaridgeTown_Rival_DesertAkcnowledged
+	waitmovement 0
+	msgbox LavaridgeTown_Text_BrendanWorriedGivingGoggles, MSGBOX_DEFAULT
 	giveitem ITEM_GO_GOGGLES
 	setflag FLAG_RECEIVED_GO_GOGGLES
 	msgbox LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad, MSGBOX_DEFAULT
-	goto LavaridgeTown_EventScript_RivalExit
-	end
-
-LavaridgeTown_EventScript_RivalExit::
-	closemessage
 	removeobject LOCALID_LAVARIDGE_RIVAL
 	addobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
 	delay 30
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit1
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit2
+	applymovement LOCALID_LAVARIDGE_RIVAL_ON_BIKE, Rival_Leaving_Movement
+	waitmovement 0
 	removeobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
 	end
@@ -284,43 +364,40 @@ LavaridgeTown_Text_MayNiceBadgesTakeThis:
 	.string "you got the LAVARIDGE GYM BADGE.\p"
 	.string "You must have collected\n"
 	.string "good POKéMON…\l"
-	.string "No, I believe you raised some.\p"
-	.string "I guess it would be okay for you to\n"
-	.string "have this. $"
+	.string "No, I believe you raised some... $"
 
+LavaridgeTown_Text_MayQuestioning::
+	.string "MAY: What's happening? $"
+
+LavaridgeTown_Text_MayWorriedGivingGoggles::
+	.string "MAY: It seems something's happening\nover the desert. \p"
+	.string "We need to go check it out! \p"
+	.string "Here {PLAYER}, take this. $"
 LavaridgeTown_Text_MayExplainGoGogglesChallengeDad:
 	.string "MAY: With those GO-GOGGLES, you'll\n"
 	.string "have no trouble getting through the\l"
-	.string "desert near ROUTE 111.\p"
-	.string "But, wow, {PLAYER}{KUN}…\n"
-	.string "Challenging GYMS…\p"
-	.string "You're trying hard because you don't\n"
-	.string "want to lose to me, I bet!\p"
-	.string "{PLAYER}{KUN}, I think I should challenge\n"
-	.string "your dad in PETALBURG GYM.\p"
-	.string "See you again! $"
+	.string "desert near ROUTE 111. \p"
+	.string "Lets meet there. $"
+
+LavaridgeTown_Text_BrendanWorriedGivingGoggles::
+	.string "BRENDAN: It seems something's happening\nover the desert. \p"
+	.string "We need to go check it out! \p"
+	.string "Here {PLAYER}, take this. $"
+
+LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
+	.string "BRENDAN: With those GO-GOGGLES, you'll\n"
+	.string "have no trouble getting through the\l"
+	.string "desert near ROUTE 111. \p"
+	.string "Lets meet there. $"
 
 LavaridgeTown_Text_BrendanNiceBadgesTakeThis:
 	.string "BRENDAN: {PLAYER}, hey, it's been a while.\n"
 	.string "How's it going?\p"
 	.string "Hmm…\n"
 	.string "That's a decent collection of BADGES.\p"
-	.string "All right, then.\n"
-	.string "You may as well have this. $"
-
-LavaridgeTown_Text_BrendanExplainGoGogglesChallengeDad:
-	.string "BRENDAN: Keep those with you if you're\n"
-	.string "planning on going into that desert near\l"
-	.string "ROUTE 111.\p"
-	.string "There should be some POKéMON that\n"
-	.string "are exclusively desert-dwellers.\l"
-	.string "You might look around for those.\p"
-	.string "As for me…\n"
-	.string "I'm considering challenging NORMAN,\l"
-	.string "the GYM LEADER of PETALBURG.\p"
-	.string "Unlike you, {PLAYER}, your dad looks like\n"
-	.string "he really is tough.\p"
-	.string "See you around! $"
+	.string "All right, then... $"
+LavaridgeTown_Text_BrendanQuestioning::
+	.string "BRENDAN: What's happening? $"
 
 LavaridgeTown_Text_HaveEggWillYouTakeIt:
 	.string "I have here an EGG.\p"
