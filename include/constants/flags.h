@@ -70,8 +70,8 @@
 #define FLAG_DUNE_CAVE_TEMP_ITEM                        0x38 
 #define FLAG_LOADEAD_DICE                               0x39
 #define FLAG_RECEIVED_VOLT_SWITCH                       0x3A 
-#define FLAG_UNUSED_0x03B                               0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C                               0x3C // Unused Flag
+#define FLAG_HIDE_MAGMA_GRUNT_DESERT                    0x3B
+#define FLAG_HIDE_TRAINER_DESERT                        0x3C 
 #define FLAG_UNUSED_0x03D                               0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E                               0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F                               0x3F // Unused Flag

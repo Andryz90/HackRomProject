@@ -37,6 +37,43 @@ Level: 21
 - Draining Kiss  
 - Thunder Shock  
 
+
+=== PARTNER_WALLY_DESERT ===
+Name: WALLY
+Class: Rival
+Pic: Wally
+Gender: Male
+Music: Male
+
+Gardevoir @ Life Orb  
+Ability: Trace  
+Level: 45  
+Timid Nature  
+IVs: 0 Atk  
+- Moonblast  
+- Psychic Noise  
+- Energy Ball  
+- Calm Mind  
+
+Gallade @ Expert Belt  
+Ability: Sharpness  
+Level: 45   
+Jolly Nature  
+- Psycho Cut  
+- Night Slash  
+- Drain Punch  
+- Ice Punch  
+
+Tinkaton @ Air Balloon  
+Ability: Mold Breaker  
+Level: 45    
+Adamant Nature  
+- Protect  
+- Fake Out  
+- Gigaton Hammer  
+- Play Rough  
+
+
 === PARTNER_STEVEN ===
 Name: STEVEN
 Class: Rival

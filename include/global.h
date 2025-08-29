@@ -654,7 +654,7 @@ struct WarpData
     s8 warpId;
     //u8 padding;
     s16 x, y;
-};
+}__attribute__((packed));
 
 struct ItemSlot
 {
@@ -671,7 +671,7 @@ struct Pokeblock
     u8 bitter;
     u8 sour;
     u8 feel;
-};
+}__attribute__((packed));
 
 struct Roamer
 {
@@ -699,13 +699,13 @@ struct RamScriptData
     u8 localId;
     u8 script[995];
     //u8 padding;
-};
+}__attribute__((packed));
 
 struct RamScript
 {
     u32 checksum;
     struct RamScriptData data;
-};
+}__attribute__((packed));
 
 // See dewford_trend.c
 struct DewfordTrend
@@ -721,7 +721,7 @@ struct DewfordTrend
 struct MauvilleManCommon
 {
     u8 id;
-};
+}__attribute__((packed));
 
 struct MauvilleManBard
 {

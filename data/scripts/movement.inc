@@ -27,6 +27,14 @@ Common_Movement_FaceOriginalDirection:
 	face_original_direction
 	step_end
 
+Common_Movement_LockFacingDirection:
+	lock_facing_direction
+	step_end
+
+Common_Movement_UnlockFacingDirection:
+	unlock_facing_direction
+	step_end
+	
 Common_Movement_WalkInPlaceFasterLeft:
 	walk_in_place_faster_left
 	step_end

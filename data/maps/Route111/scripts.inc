@@ -14,8 +14,9 @@ Route111_MapScripts::
 	.byte 0
 
 Route111_OnLoad:
-	call_if_unset FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_ShowTemporaryMirageTower
+	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 2, Route111_EventScript_MagmaDesertEvent
+	call_if_unset FLAG_REGI_DOORS_OPENED,   Route111_EventScript_CloseDesertRuins
+	call_if_eq VAR_MIRAGE_TOWER_STATE, 1,   Route111_EventScript_ShowTemporaryMirageTower
 	end
 
 Route111_EventScript_CloseDesertRuins::
@@ -46,6 +47,7 @@ Route111_EventScript_ShowTemporaryMirageTower::
 	return
 
 Route111_OnTransition:
+	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 2, Route111_EventScript_SetMusicForMagma
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
 	call_if_set FLAG_BADGE03_GET, Route111_EventScript_WallyWarp
@@ -56,6 +58,515 @@ Route111_OnTransition:
 	call GabbyAndTy_EventScript_UpdateLocation
 	@goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
 	end
+
+@ ***************	 TEAM MAGMA - DESERT BEGIN	********************
+
+@	Init Scripts of the map
+Route111_EventScript_MagmaDesertEvent::
+	clearflag FLAG_HIDE_MAGMA_GRUNT_DESERT 	@ Magma Grunts and other NPC Visible
+	setflag FLAG_REGI_DOORS_OPENED         	@ Temporary open the regi
+	setflag FLAG_HIDE_TRAINER_DESERT	   	@ Temporary hide trainer inside
+	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 0, Route111_Prepare_WallyEvent 
+	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 3, Route111_Move_NPC_Guard
+	return
+
+@ Prepare Wally Script for the start of the event
+Route111_Prepare_WallyEvent::
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 2
+	return
+
+Route111_Move_NPC_Guard::
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD1, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD2, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD3, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD4, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_WALLY_DESERT, 11, 37
+	return 
+
+@ Generic Grunt Scripts
+Route111_EventScript_MagmaGrunts_Text::
+	.string "What do you want now?\nWe'll get what we want \l"
+	.string "and nobody can't stop us! \p"
+	.string "Now get out! $"
+Route111_EventScript_MagmaGrunts::
+	lock
+	faceplayer
+	msgbox Route111_EventScript_MagmaGrunts_Text, MSGBOX_DEFAULT
+	release
+	end
+
+@ Edo scripts 
+Route111_SplitfaceInitial_Text::
+	.string "SPLITFACE: Why are these bozos here\nand why am I stuck here in this heat?!\p"
+	.string "{PLAYER}, I'll handle here,\nyou can take care the rest.\l"
+	.string "Please I don't want to stay here much.\p"
+	.string "DIO BOIAAAA $"
+Route111_Abomasnow_Text::
+	.string "Abomaaaa! $"
+Route111_Abomasnow_Interaction::
+	lock
+	applymovement LOCALID_ABOMASNOW_DESERT, Common_Movement_ExclamationMark
+	playmoncry SPECIES_ABOMASNOW, CRY_MODE_ENCOUNTER
+	message Route111_Abomasnow_Text
+	waitmoncry
+	release
+	end
+Route111_Glalie_Text::
+	.string "Grarieee! $"
+Route111_Glalie_Interaction::
+	lock
+	applymovement LOCALID_GLALIE_DESERT, Common_Movement_ExclamationMark
+	playmoncry SPECIES_GLALIE, CRY_MODE_ENCOUNTER
+	message Route111_Glalie_Text
+	waitmoncry
+	release
+	end
+Route111_SplitfaceInitial_EventScript::
+	lock
+	msgbox Route111_SplitfaceInitial_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_GLALIE_DESERT, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_ABOMASNOW_DESERT, Common_Movement_WalkInPlaceFasterDown
+	playmoncry SPECIES_ABOMASNOW, CRY_MODE_NORMAL
+	playmoncry SPECIES_GLALIE, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+Call_Player_Text::
+	.string "{PLAYER}! $"
+
+Player_Approaching_Wally1::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	face_left
+	step_end
+
+Player_Approaching_Wally2::
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+Player_Approaching_Wally3::
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+Player_Approaching_Wally4::
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+Player_Approaching_Wally5::
+	walk_up
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+Player_Approaching_Wally6::
+	walk_up
+	walk_up
+	walk_left
+	face_left
+	step_end
+
+Wally_Help_Text::
+	.string "WALLY: I was reached by your neighbour\nasking me for help. \l"
+	.string "But they're too many to handle alone! \p"
+	.string "Help me out and lets finish them! $"
+
+MagmaGrunts_Before_MultiBattle_Text::
+	.string "GRUNTS: You will not stop us! $"
+
+@ Wally Scripts 
+
+Route111_Wally_Desert_EventScript1::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally1 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+
+Route111_Wally_Desert_EventScript2::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally2 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+
+
+Route111_Wally_Desert_EventScript3::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally3 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+
+Route111_Wally_Desert_EventScript4::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally4 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+
+Route111_Wally_Desert_EventScript5::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally5 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+
+Route111_Wally_Desert_EventScript6::
+	lockall
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Call_Player_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Player_Approaching_Wally6 @Only difference in triggers
+	waitmovement 0
+	setweather WEATHER_SANDSTORM
+	doweather
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Wally_Help_Text, MSGBOX_DEFAULT
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FaceUp
+	waitmovement 0
+	call Route111_Wally_Desert_MultiBattle
+	call Route111_Wally_PostBattle
+	releaseall
+	end
+Route111_GuardianGrunts_Flees::
+	.string "GRUNT: It's too late now, we'll succeed $"
+Route111_GuardianGrunts_Finale::
+	.string "GRUNTS: You can't stop our boss now! $"
+
+@Note that the walk_fast_up are exagerated in order to guarantee the object are not in camera and will not be load in the middle of the desert
+Route111_GuardianGrunt4_Flee_Movement:
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route111_GuardianGrunt1_Flee_Movement:
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route111_GuardianGrunt3_Flee_Movement:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route111_GuardianGrunt2_Flee_Movement:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+
+Route111_Wally_Final_Text_Female::
+	.string "WALLY: Phew... \l"
+	.string "It wasn't easy thanks for the help. \p"
+	.string "We don't have time tough.\nI don't know what it's going on but \l"
+	.string "we need to stop it as soon as possible. \p"
+	.string "{PLAYER}, I'll go help MAY.\nYou try to stop TEAM MAGMA instead. \p"
+	.string "We'll join you as soon as we can. $"
+Route111_Wally_Final_Text_Male::
+	.string "WALLY: Phew... \l"
+	.string "It wasn't easy thanks for the help. \p"
+	.string "We don't have time tough.\nI don't know what it's going on but \l"
+	.string "we need to stop it as soon as possible. \p"
+	.string "{PLAYER}, I'll go help BRENDAN.\nYou try to stop TEAM MAGMA instead. \p"
+	.string "We'll join you as soon as we can. $"
+
+Route111_Wally_JoinRival::
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route111_Wally_PostBattle::
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 3
+	applymovement LOCALID_GRUNT_DESERT_GUARD4, Common_Movement_LockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD3, Common_Movement_LockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD2, Common_Movement_LockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD1, Common_Movement_LockFacingDirection
+	waitmovement LOCALID_GRUNT_DESERT_GUARD1
+	waitmovement LOCALID_GRUNT_DESERT_GUARD2
+	waitmovement LOCALID_GRUNT_DESERT_GUARD3
+	waitmovement LOCALID_GRUNT_DESERT_GUARD4
+	applymovement LOCALID_GRUNT_DESERT_GUARD4, Common_Movement_WalkUpSlow
+	applymovement LOCALID_GRUNT_DESERT_GUARD1, Common_Movement_WalkUpSlow
+	waitmovement LOCALID_GRUNT_DESERT_GUARD4
+	waitmovement LOCALID_GRUNT_DESERT_GUARD1
+	delay 5
+	applymovement LOCALID_GRUNT_DESERT_GUARD1, Common_Movement_WalkUpSlow
+	applymovement LOCALID_GRUNT_DESERT_GUARD4, Common_Movement_WalkUpSlow
+	applymovement LOCALID_GRUNT_DESERT_GUARD3, Common_Movement_WalkUpSlow
+	applymovement LOCALID_GRUNT_DESERT_GUARD2, Common_Movement_WalkUpSlow
+	waitmovement LOCALID_GRUNT_DESERT_GUARD4
+	waitmovement LOCALID_GRUNT_DESERT_GUARD1
+	waitmovement LOCALID_GRUNT_DESERT_GUARD3
+	waitmovement LOCALID_GRUNT_DESERT_GUARD2
+	message Route111_GuardianGrunts_Flees
+	applymovement LOCALID_GRUNT_DESERT_GUARD4, Common_Movement_UnlockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD3, Common_Movement_UnlockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD2, Common_Movement_UnlockFacingDirection
+	applymovement LOCALID_GRUNT_DESERT_GUARD1, Common_Movement_UnlockFacingDirection
+	waitmovement LOCALID_GRUNT_DESERT_GUARD4
+	waitmovement LOCALID_GRUNT_DESERT_GUARD3
+	waitmovement LOCALID_GRUNT_DESERT_GUARD2
+	waitmovement LOCALID_GRUNT_DESERT_GUARD1
+	applymovement LOCALID_GRUNT_DESERT_GUARD4, Route111_GuardianGrunt4_Flee_Movement
+	applymovement LOCALID_GRUNT_DESERT_GUARD1, Route111_GuardianGrunt1_Flee_Movement
+	waitmovement LOCALID_GRUNT_DESERT_GUARD4
+	waitmovement LOCALID_GRUNT_DESERT_GUARD1
+	closemessage
+	message Route111_GuardianGrunts_Finale
+	applymovement LOCALID_GRUNT_DESERT_GUARD3, Route111_GuardianGrunt3_Flee_Movement
+	applymovement LOCALID_GRUNT_DESERT_GUARD2, Route111_GuardianGrunt2_Flee_Movement
+	waitmovement LOCALID_GRUNT_DESERT_GUARD3
+	waitmovement LOCALID_GRUNT_DESERT_GUARD2
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD1, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD2, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD3, 0, 0 @Move temporarly in order to not be shown again
+	setobjectxyperm LOCALID_GRUNT_DESERT_GUARD4, 0, 0 @Move temporarly in order to not be shown again
+	closemessage
+	applymovement LOCALID_WALLY_DESERT, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route111_Wally_Final_Female
+	goto_if_eq VAR_RESULT, FEMALE, Route111_Wally_Final_Male
+	releaseall
+	end
+Route111_Wally_Final_Female::
+	msgbox Route111_Wally_Final_Text_Female, MSGBOX_DEFAULT
+	applymovement LOCALID_WALLY_DESERT, Route111_Wally_JoinRival
+	waitmovement 0
+	setobjectxyperm LOCALID_WALLY_DESERT, 11, 37
+	releaseall
+	end
+Route111_Wally_Final_Male::
+	msgbox Route111_Wally_Final_Text_Male, MSGBOX_DEFAULT
+	applymovement LOCALID_WALLY_DESERT, Route111_Wally_JoinRival
+	waitmovement 0
+	setobjectxyperm LOCALID_WALLY_DESERT, 11, 37
+	releaseall
+	end
+
+@@Multi Battle
+Route111_DesertGrunt1_Defeat::
+	.string "GRUNT: Grrr, it's not over! $"
+Route111_DesertGrunt2_Defeat::
+	.string "GRUNT: Tch... $"
+Route111_Wally_Desert_MultiBattle::
+	choose_mons
+	compare VAR_RESULT, FALSE
+	call_if_eq Route111_Wally_Desert_EventScript_ChooseMons
+	msgbox MagmaGrunts_Before_MultiBattle_Text, MSGBOX_DEFAULT
+    multi_2_vs_2 TRAINER_GRUNT_DESERT1, Route111_DesertGrunt1_Defeat, TRAINER_GRUNT_DESERT2, Route111_DesertGrunt2_Defeat,  PARTNER_WALLY_DESERT
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq RusturfTunnel_EventScript_Lost
+    return 
+
+Route111_Wally_Desert_EventScript_ChooseMons::
+    msgbox MeteorFalls_1F_1R_Text_ChooseMons, MSGBOX_DEFAULT
+    choose_mons
+	compare VAR_RESULT, FALSE
+	call_if_eq Route111_Wally_Desert_MultiBattle
+    return
+
+@ ***************	 TEAM MAGMA - DESERT END	********************
+
 
 Route111_EventScript_SetFallingPlayerGfx::
 	checkplayergender
@@ -119,6 +630,9 @@ Route111_OnWarp:
 Route111_EventScript_HidePlayerForMirageTower::
 	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
 	end
+Route111_EventScript_SetMusicForMagma::
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
+	return
 
 Route111_OnFrame:
 	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
@@ -265,14 +779,19 @@ Route111_Movement_PushRightFromRoute:
 
 Route111_EventScript_SunTrigger::
 	setweather WEATHER_SUNNY
+	setvar VAR_TEMP_3, 0
+	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 2, Route111_EventScript_KeepMagmaMusicTrigger
 	fadenewbgm MUS_ROUTE110
 	doweather
-	setvar VAR_TEMP_3, 0
 	end
 
 Route111_EventScript_SandstormTrigger::
 	setweather WEATHER_SANDSTORM
+	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 2, Route111_EventScript_KeepMagmaMusicTrigger
 	fadenewbgm MUS_DESERT
+	doweather
+	end
+Route111_EventScript_KeepMagmaMusicTrigger::
 	doweather
 	end
 

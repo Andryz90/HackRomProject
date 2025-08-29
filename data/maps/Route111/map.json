@@ -1,7 +1,7 @@
 {
   "id": "MAP_ROUTE111",
   "name": "Route111",
-  "layout": "LAYOUT_ROUTE111",
+  "layout": "LAYOUT_ROUTE111_NO_MIRAGE_TOWER",
   "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_ROUTE_111",
   "requires_flash": false,
@@ -93,7 +93,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route111_EventScript_Heidi",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
@@ -145,7 +145,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route111_EventScript_Drew",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -158,7 +158,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
       "script": "Route111_EventScript_Dusty",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
@@ -171,7 +171,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route111_EventScript_Beau",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
@@ -184,7 +184,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route111_EventScript_Becky",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "local_id": "LOCALID_ROUTE111_TY_1",
@@ -254,7 +254,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD_ITEM_BALL",
       "x": 33,
       "y": 104,
       "elevation": 3,
@@ -262,7 +262,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM_DIG",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_EARTHQUAKE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_111_TM_SANDSTORM"
     },
@@ -502,7 +502,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "7",
       "script": "Route111_EventScript_Bryan",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
@@ -515,7 +515,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route111_EventScript_Celia",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
@@ -528,7 +528,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "7",
       "script": "Route111_EventScript_Branden",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOLD_ITEM_BALL",
@@ -554,7 +554,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route111_EventScript_Hiker",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TRAINER_DESERT"
     },
     {
       "local_id": "LOCALID_WALLY_R111",
@@ -624,6 +624,431 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_ANDRY_ROUTE111"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 8,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 9,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 12,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 13,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 14,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 11,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 10,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_EDO_MAGMA_DESERT",
+      "graphics_id": "OBJ_EVENT_GFX_EDOCAP",
+      "x": 11,
+      "y": 71,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_SplitfaceInitial_EventScript",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_ABOMASNOW_DESERT",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ABOMASNOW)",
+      "x": 12,
+      "y": 71,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_Abomasnow_Interaction",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_WALLY_DESERT",
+      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "x": 12,
+      "y": 61,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_WALLY_ROUTE111"
+    },
+    {
+      "local_id": "LOCALID_GRUNT_DESERT_GUARD2",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 12,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_GRUNT_DESERT_GUARD3",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 13,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 11,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 10,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 9,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_EventScript_MagmaGrunts",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 10,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 21,
+      "y": 68,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 34,
+      "y": 68,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 16,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 22,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "7",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 28,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 23,
+      "y": 73,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 22,
+      "y": 88,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 36,
+      "y": 88,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 29,
+      "y": 88,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 30,
+      "y": 88,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_ANDRY_MAGMA_DESERT",
+      "graphics_id": "OBJ_EVENT_GFX_ANDRY",
+      "x": 37,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ANDRY_ROUTE111"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 28,
+      "y": 88,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 29,
+      "y": 75,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_GLALIE_DESERT",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GLALIE)",
+      "x": 10,
+      "y": 71,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route111_Glalie_Interaction",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_GRUNT_DESERT_GUARD4",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "x": 14,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
+    },
+    {
+      "local_id": "LOCALID_GRUNT_DESERT_GUARD1",
+      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "x": 11,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
     }
   ],
   "warp_events": [
@@ -1050,6 +1475,60 @@
       "var": "VAR_ROUTE111_STATE",
       "var_value": "1",
       "script": "Route111_AndryEdoEncounter4"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 64,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript3"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 63,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript2"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 62,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript1"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 64,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript4"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 64,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript5"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 63,
+      "elevation": 0,
+      "var": "VAR_WALLY_ROUTE111_TRIGGER",
+      "var_value": "2",
+      "script": "Route111_Wally_Desert_EventScript6"
     }
   ],
   "bg_events": [

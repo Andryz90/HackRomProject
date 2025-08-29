@@ -375,6 +375,84 @@ Level: 22
 - Poison Fang  
 - Thunder Fang  
 
+
+=== TRAINER_GRUNT_DESERT1 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Typhlosion @ Life Orb  
+Ability: Sand Rush  
+Level: 45  
+Modest Nature  
+IVs: 0 Atk  
+- Eruption  
+- Burning Jealousy  
+- Earth Power  
+- Sisma
+
+Nidoking @ Life Orb  
+Ability: Sheer Force  
+Level: 45   
+Jolly Nature  
+- Drill Run  
+- Rock Slide  
+- Thunder Punch  
+- Poison Drill
+
+Steelix @ Rocky Helmet  
+Ability: Rock Head  
+Level: 45  
+Tera Type: Steel  
+Adamant Nature  
+- Head Smash  
+- Double-Edge  
+- Heavy Slam  
+- Curse  
+
+=== TRAINER_GRUNT_DESERT2 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt F
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Gliscor @ Toxic Orb  
+Ability: Poison Heal  
+Level: 45  
+Adamant Nature  
+- Protect  
+- High Horsepower  
+- Knock Off  
+- Dual Wingbeat  
+
+Nidoqueen @ Life Orb  
+Ability: Sheer Force  
+Level: 45  
+Timid Nature  
+IVs: 0 Atk  
+- Sludge Wave  
+- Thunderbolt  
+- Ice Beam  
+- Tectonic Power
+
+Gastrodon @ Leftovers  
+Ability: Storm Drain  
+Level: 45  
+Quiet Nature  
+IVs: 0 Atk  
+- Scald  
+- Earth Power  
+- Ice Beam  
+- Recover  
+
+
 === TRAINER_GRUNT_WEATHER_INST_1 ===
 Name: GRUNT
 Class: Team Aqua

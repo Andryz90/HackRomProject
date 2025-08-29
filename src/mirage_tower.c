@@ -318,9 +318,9 @@ void SetMirageTowerVisibility(void)
     u16 rand;
     bool8 visible;
 
-    if (VarGet(VAR_MIRAGE_TOWER_STATE))
+    if (!FlagGet(FLAG_MAXIE_DESERT) || VarGet(VAR_MIRAGE_TOWER_STATE))
     {
-        // Mirage Tower event has already been completed, hide it
+        // Mirage Tower event has already been completed or Magma-Desert Event is in progress, hide it
         FlagClear(FLAG_MIRAGE_TOWER_VISIBLE);
         return;
     }

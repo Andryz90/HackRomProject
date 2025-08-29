@@ -853,64 +853,64 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 40,
+                "max_level": 45,
                 "species": "SPECIES_SANDSHREW"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 40,
+                "max_level": 45,
                 "species": "SPECIES_TRAPINCH"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
-                "species": "SPECIES_MARACTUS"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_HIPPOPOTAS"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
+                "min_level": 40,
+                "max_level": 45,
                 "species": "SPECIES_FENNEKIN"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 40,
+                "max_level": 45,
                 "species": "SPECIES_GIBLE"
               },
               {
-                "min_level": 21,
-                "max_level": 21,
+                "min_level": 40,
+                "max_level": 45,
                 "species": "SPECIES_BALTOY"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_SANDSHREW"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_TRAPINCH"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_RHYHORN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_BALTOY"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_DARUMAKA"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_CACNEA"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_ORTHWORM"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_CACNEA"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_PUPITAR"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
-                "species": "SPECIES_CACNEA"
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_PUPITAR"
               }
             ]
           },
