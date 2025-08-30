@@ -27,6 +27,10 @@ EWRAM_DATA u16 gSpecialVar_MonBoxPos = 0;
 EWRAM_DATA u16 gSpecialVar_Unused_0x8014 = 0;
 EWRAM_DATA static u8 sSpecialFlags[SPECIAL_FLAGS_SIZE] = {0};
 
+
+/*Note that this have the id of MAX_TRAINERS_COUNT + the enumeration value*/
+EWRAM_DATA u8 gPokemonTrainerFlags[TRAINERS_COUNT] = {0};
+
 #if TESTING
 #define TEST_FLAGS_SIZE     1
 #define TEST_VARS_SIZE      8
@@ -273,4 +277,33 @@ bool8 FlagGet(u16 id)
         return FALSE;
 
     return TRUE;
+}
+
+bool8 TrainerFlagGet (u16 id)
+{
+    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+
+    if (!ptr)
+        return FALSE;
+
+    if (!(((*ptr) >> (id & 7)) & 1))
+        return FALSE;
+
+    return TRUE;
+}
+
+u8 TrainerFlagSet(u16 id)
+{
+    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+    if (ptr)
+        *ptr |= 1 << (id & 7);
+    return 0;
+}
+
+u8 TrainerFlagClear(u16 id)
+{
+    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+    if (ptr)
+        *ptr &= ~(1 << (id & 7));
+    return 0;
 }

@@ -560,6 +560,7 @@ void SetObjEventTemplateCoords(u8 localId, s16 x, s16 y)
     }
 }
 
+
 void SetObjEventTemplateMovementType(u8 localId, u8 movementType)
 {
     s32 i;

@@ -68,6 +68,7 @@ Route111_EventScript_MagmaDesertEvent::
 	setflag FLAG_HIDE_TRAINER_DESERT	   	@ Temporary hide trainer inside
 	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 0, Route111_Prepare_WallyEvent 
 	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 3, Route111_Move_NPC_Guard
+	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Desert_SetObjectPositionAfterBattle
 	return
 
 @ Prepare Wally Script for the start of the event
@@ -542,6 +543,66 @@ Route111_Wally_Final_Male::
 	releaseall
 	end
 
+Route111_Wally_Desert_Script_Text::
+	.string "WALLY: {PLAYER}, hurry up! \nWe'll handle it here. $"
+Route111_Wally_Desert_Script_Text_Final::
+	.string "WALLY: {PLAYER}, we almost done it\n"
+	.string "Lets beat MAXIE. $"
+Route111_Wally_Desert_Script::
+	lock
+	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Wally_Desert_Script_Final
+	msgbox Route111_Wally_Desert_Script_Text, MSGBOX_DEFAULT
+	release
+	end
+Route111_Wally_Desert_Script_Final::
+	lock
+	faceplayer
+	msgbox Route111_Wally_Desert_Script_Text, MSGBOX_DEFAULT
+	release
+	end
+Route111_Desert_May_Text::
+	.string "MAY: {PLAYER}! Don't worry abous us, \n"
+	.string "we can handle them. \lBut there's no other time, \l"
+	.string "please go ahead and stop them! $"
+Route111_Desert_May_Text_Final::
+	.string "MAY: {PLAYER}, if we beat MAXIE\nwe end it. \p"
+	.string "Lets do it! $"
+Route111_Desert_Brendan_Text::
+	.string "BRENDAN: {PLAYER}! Don't worry abous us, \n"
+	.string "we can handle them. \lBut there's no other time, \l"
+	.string "please go ahead and stop them! $"
+Route111_Desert_Brendan_Text_Final::
+	.string "BRENDAN: {PLAYER}, if we beat MAXIE\nwe end it. \p"
+	.string "Lets do it! $"
+Route111_Rival_Desert_Script::
+	lock
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route111_Desert_May_Script
+	goto_if_eq VAR_RESULT, FEMALE, Route111_Desert_Brendan_Script
+	release
+	end
+
+Route111_Desert_May_Script::
+	call_if_defeated TRAINER_TABITHA_DESERT, Route111_May_Desert_Script_Final
+	msgbox Route111_Desert_May_Text, MSGBOX_DEFAULT
+	release
+	end 
+Route111_Desert_Brendan_Script::
+	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Brendan_Desert_Script_Final
+	msgbox Route111_Desert_Brendan_Text, MSGBOX_DEFAULT
+	release
+	end 
+
+Route111_May_Desert_Script_Final::
+	faceplayer
+	msgbox Route111_Desert_May_Text_Final, MSGBOX_DEFAULT
+	release
+	end
+Route111_Brendan_Desert_Script_Final::
+	faceplayer
+	msgbox Route111_Desert_Brendan_Text_Final, MSGBOX_DEFAULT
+	release
+	end
 @@Multi Battle
 Route111_DesertGrunt1_Defeat::
 	.string "GRUNT: Grrr, it's not over! $"
@@ -552,7 +613,7 @@ Route111_Wally_Desert_MultiBattle::
 	compare VAR_RESULT, FALSE
 	call_if_eq Route111_Wally_Desert_EventScript_ChooseMons
 	msgbox MagmaGrunts_Before_MultiBattle_Text, MSGBOX_DEFAULT
-    multi_2_vs_2 TRAINER_GRUNT_DESERT1, Route111_DesertGrunt1_Defeat, TRAINER_GRUNT_DESERT2, Route111_DesertGrunt2_Defeat,  PARTNER_WALLY_DESERT
+    multi_2_vs_2 TRAINER_GRUNT_DESERT_MULTI1, Route111_DesertGrunt1_Defeat, TRAINER_GRUNT_DESERT_MULTI2, Route111_DesertGrunt2_Defeat,  PARTNER_WALLY_DESERT
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_LOST
 	goto_if_eq RusturfTunnel_EventScript_Lost
@@ -565,8 +626,267 @@ Route111_Wally_Desert_EventScript_ChooseMons::
 	call_if_eq Route111_Wally_Desert_MultiBattle
     return
 
+@@ Enemy Grunts in Desert Scripts
+Roue111_Spinning_Grunt_EventScript::
+	trainerbattle_single TRAINER_MAGMA_GRUNT_DESERT_SPINNER1, Desert_Text_Grunt1Spinning, MtChimney_Text_Grunt1Defeat
+	msgbox MtChimney_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+	end
+Roue111_Grunt1_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT1, MtChimney_Text_Grunt2Intro, MtChimney_Text_Grunt2Defeat
+	msgbox MtChimney_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+@@ Double Battle 2 trainers
+Desert_Text_Grunt2Intro::
+	.string "You shouldn't be here and\nI can't let you pass. $"
+Desert_Text_Grunt2Defeat::
+	.string "BOSS, I'm sorry... $"
+Desert_Text_Grunt2PostBattle::
+	.string "Maxie will make everyone happy. $"
+Roue111_Grunt2_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT2, Desert_Text_Grunt2Intro, Desert_Text_Grunt2Defeat
+	msgbox Desert_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+Desert_Text_Grunt3Intro::
+	.string "You're not going anywhere! $"
+Desert_Text_Grunt3Defeat::
+	.string "No, it can't be! $"
+Desert_Text_Grunt3PostBattle::
+	.string "Our BOSS is too far ahead, \nyou'll not making in time. $"
+Roue111_Grunt3_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT3, Desert_Text_Grunt3Intro, Desert_Text_Grunt3Defeat
+	msgbox Desert_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Desert_Text_Grunt4Intro::
+	.string "MAXIE told us to protect the desert\nand it's exactly what I'm gonnna do. $"
+Desert_Text_Grunt4Defeat::
+	.string "I-I failed? $"
+Desert_Text_Grunt4PostBattle::
+	.string "The other GRUNTS will revenge me. $"
+Roue111_Grunt4_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT4, Desert_Text_Grunt4Intro, Desert_Text_Grunt4Defeat
+	msgbox Desert_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Desert_Text_Grunt2Spinning::
+	.string "I love deserts!\nIt's so warm here. $"
+Desert_Text_Grunt2SpinningDefeat::
+	.string "A-aargh W-why? $"
+Desert_Text_Grunt2SpinningPostBattle::
+	.string "You will not ruin my plan\nto stay here. $"
+Roue111_GruntSpinning2_EventScript::
+	trainerbattle_single TRAINER_MAGMA_GRUNT_DESERT_SPINNER2, Desert_Text_Grunt2Spinning, Desert_Text_Grunt2SpinningDefeat
+	msgbox Desert_Text_Grunt2SpinningPostBattle, MSGBOX_AUTOCLOSE
+	end
+Desert_Text_Grunt3Spinning::
+	.string "We're here to make everyone happy! $"
+Desert_Text_Grunt3SpinningDefeat::
+	.string "Wh-what?!"
+Desert_Text_Grunt3SpinningPostBattle::
+	.string "I didn't convince you enough. $"
+Roue111_GruntSpinning3_EventScript::
+	trainerbattle_single TRAINER_MAGMA_GRUNT_DESERT_SPINNER3, Desert_Text_Grunt3Spinning, Desert_Text_Grunt3SpinningDefeat
+	msgbox Desert_Text_Grunt3SpinningPostBattle, MSGBOX_AUTOCLOSE
+	end
+Desert_Text_CoupleIntro::
+	.string "We've decoded the messages\nin the cave. We understood\l"
+	.string "the secret behind it! $"
+Desert_Text_CoupleDefeat::
+	.string "How did you manage to defeat us? $"
+Desert_Text_CouplePostBattle::
+	.string "I disappointed MAXIE..."
+Roue111_Grunt5_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT5, Desert_Text_CoupleIntro, Desert_Text_CoupleDefeat
+	msgbox Desert_Text_CouplePostBattle, MSGBOX_AUTOCLOSE
+	end
+Roue111_Grunt6_EventScript::
+	trainerbattle_single TRAINER_GRUNT_DESERT6, Desert_Text_CoupleIntro, Desert_Text_CoupleDefeat
+	msgbox Desert_Text_CouplePostBattle, MSGBOX_AUTOCLOSE
+	end
+Route111_WingGuard_Text::
+	.string "You're not allowed to enter,\nour BOSS is there.\p"
+	.string "So get lost! $"
+Route111_WingGuard_EvenScript::
+	lock
+	msgbox Route111_WingGuard_Text, MSGBOX_DEFAULT
+	release
+	end
+Route111_Desert_Tabitha_Intro::
+	.string "TABITHA: Well well,\nso you're must be {PLAYER}. \p"
+	.string "MAXIE warned us about you,\nit seems you've cause a lot\l"
+	.string "of problems already. \p"
+	.string "We came here after using\nthe METEORITE in MT.CHIMNEY.\p"
+	.string "We used it in order to shake\nthe ground and wake REGIROCK up.\p"
+	.string "We figured it out how to\nunlock the chamber, gaining access\l"
+	.string "to the final room. \p"
+	.string "You've come too late,\nMAXIE is already there.\p"
+	.string "But I can't let you pass anyway,\nrisking to disturb the BOSS. $"
+
+Route111_Desert_Grunts_EndHere::
+	.string "GRUNTS: Your journey ends here\nfufufu... $"
+
+Route111_Desert_WallyReachPlayer::
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_down
+	walk_fast_left
+	face_up
+	step_end
+Route111_Desert_RivalReachPlayer::
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_down
+	walk_fast_right
+	face_up
+	step_end
+
+Route111_Tabitha_Battle_Intro_May::
+	.string "WALLY: {PLAYER}! It seems we made it\nin time!\p"
+	.string "MAY: We'll take care of them,\n"
+	.string "you just focus on moving ahead! $"
+Route111_Tabitha_Battle_Intro_Brendan::
+	.string "WALLY: {PLAYER}! It seems we made it\nin time!\p"
+	.string "BRENDAN: We'll take care of them,\n"
+	.string "you just focus on moving ahead! $"
+Route111_Tabitha_Battle_Intro::
+	.string "TABITHA: You're going nowhere! $"
+
+Route111_Tabitha_Battle_Defeat::
+	.string "H-how is possible?!\nWe will not lose! $"
+ Route111_Tabitha_Finale::
+	.string "TABITHA: Tch. Fine, you can go.\p"
+	.string "You'll perish from our BOSS anyway. $"
+
+Route111_Desert_Tabitha_EventScript::
+	lock
+	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 100, Route111_Desert_Tabitha_Final_Script
+	msgbox Route111_Desert_Tabitha_Intro, MSGBOX_DEFAULT
+	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_WalkDown
+	applymovement LOCALID_GRUNT_LEFT_WING, Common_Movement_WalkDown
+	waitmovement LOCALID_GRUNT_RIGHT_WING
+	waitmovement LOCALID_GRUNT_LEFT_WING
+	applymovement LOCALID_GRUNT_RIGHT_WING Common_Movement_FacePlayer
+	applymovement LOCALID_GRUNT_LEFT_WING Common_Movement_FacePlayer
+	waitmovement LOCALID_GRUNT_RIGHT_WING
+	waitmovement LOCALID_GRUNT_LEFT_WING
+	msgbox Route111_Desert_Grunts_EndHere, MSGBOX_DEFAULT
+	call RustboroCity_EventScript_PlayRivalMusic
+	setobjectxyperm LOCALID_WALLY_DESERT 31, 84
+	setobjectxyperm LOCALID_RIVAL_DESERT 27, 84
+	addobject LOCALID_WALLY_DESERT
+	addobject LOCALID_RIVAL_DESERT
+	applymovement LOCALID_WALLY_DESERT, Route111_Desert_WallyReachPlayer
+	applymovement LOCALID_RIVAL_DESERT, Route111_Desert_RivalReachPlayer
+	waitmovement LOCALID_WALLY_DESERT
+	waitmovement LOCALID_RIVAL_DESERT
+	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_FaceDown
+	applymovement LOCALID_GRUNT_LEFT_WING, Common_Movement_FaceDown
+	waitmovement LOCALID_GRUNT_RIGHT_WING
+	waitmovement LOCALID_GRUNT_LEFT_WING
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route111_Desert_Tabitha_May
+	goto_if_eq VAR_RESULT, FEMALE, Route111_Desert_Tabitha_Brendan
+	release 
+	end
+Route111_Desert_Tabitha_May::
+	msgbox Route111_Tabitha_Battle_Intro_May, MSGBOX_DEFAULT
+	goto Route111_Desert_Tabitha_Battle
+	release
+	end
+Route111_Desert_Tabitha_Brendan::
+	msgbox Route111_Tabitha_Battle_Intro_Brendan, MSGBOX_DEFAULT
+	goto Route111_Desert_Tabitha_Battle
+	release
+	end
+
+Route111_Desert_Tabitha_Battle::
+	playbgm MUS_ENCOUNTER_MAGMA, TRUE
+	trainerbattle_single TRAINER_TABITHA_DESERT, Route111_Tabitha_Battle_Intro, Route111_Tabitha_Battle_Defeat, Route111_Desert_Tabitha_OutEntrance, FALSE
+	Route111_Desert_Tabitha_OutEntrance:
+	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_WalkRight
+	applymovement LOCALID_GRUNT_LEFT_WING, Common_Movement_WalkLeft
+	waitmovement LOCALID_GRUNT_RIGHT_WING
+	waitmovement LOCALID_GRUNT_LEFT_WING
+	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_FaceLeft
+	applymovement LOCALID_GRUNT_LEFT_WING, Common_Movement_FaceRight
+	waitmovement LOCALID_GRUNT_RIGHT_WING
+	waitmovement LOCALID_GRUNT_LEFT_WING
+	msgbox Route111_Tabitha_Finale, MSGBOX_DEFAULT
+	applymovement LOCALID_TABITHA_DESERT, Common_Movement_WalkRight
+	waitmovement LOCALID_TABITHA_DESERT
+	applymovement LOCALID_TABITHA_DESERT, Common_Movement_FaceLeft
+	waitmovement LOCALID_TABITHA_DESERT
+	call Route111_Desert_SetObjectPositionAfterBattle
+	release 
+	end
+Route111_Desert_SetObjectPositionAfterBattle::
+	setobjectxyperm LOCALID_WALLY_DESERT 30, 90
+	setobjectxyperm LOCALID_RIVAL_DESERT 28, 90
+	setobjectxyperm LOCALID_TABITHA_DESERT 30, 88
+	setobjectxyperm LOCALID_GRUNT_LEFT_WING 27, 89
+	setobjectxyperm LOCALID_GRUNT_RIGHT_WING 31, 89
+	setobjectmovementtype LOCALID_WALLY_DESERT, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype LOCALID_RIVAL_DESERT, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype LOCALID_TABITHA_DESERT, MOVEMENT_TYPE_FACE_LEFT
+	setobjectmovementtype LOCALID_GRUNT_RIGHT_WING, MOVEMENT_TYPE_FACE_LEFT
+	setobjectmovementtype LOCALID_GRUNT_LEFT_WING, MOVEMENT_TYPE_FACE_RIGHT
+	return
+
+Route111_Desert_Tabitha_Final_Script::
+	lock
+	msgbox Route111_Tabitha_Finale, MSGBOX_DEFAULT
+	release
+	end
 @ ***************	 TEAM MAGMA - DESERT END	********************
 
+Route111_EventScript_Cacturne::
+	lockall
+	faceplayer
+	setwildbattle SPECIES_CACTURNE, 40
+	waitse
+	playmoncry SPECIES_CACTURNE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DewfordTown_EventScript_DefeatedSandy 
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DewfordTown_EventScript_DefeatedSandy
+	releaseall
+	end
+
+Route111_EventScript_Maractus::
+	lockall
+	faceplayer
+	setwildbattle SPECIES_MARACTUS, 40
+	waitse
+	playmoncry SPECIES_MARACTUS, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DewfordTown_EventScript_DefeatedSandy
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DewfordTown_EventScript_DefeatedSandy 
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, DewfordTown_EventScript_DefeatedSandy
+	releaseall
+	end
 
 Route111_EventScript_SetFallingPlayerGfx::
 	checkplayergender

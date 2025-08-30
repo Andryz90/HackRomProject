@@ -6363,6 +6363,10 @@
       {
         "Level": 54,
         "Move": "MOVE_STONE_EDGE"
+      },
+      {
+        "Level": 58,
+        "Move": "MOVE_HEAD_SMASH"
       }
     ],
     "PreEvoMoves": [],
@@ -6412,7 +6416,8 @@
       "MOVE_FOCUS_PUNCH",
       "MOVE_DOUBLE_EDGE",
       "MOVE_CURSE",
-      "MOVE_HARD_PRESS"
+      "MOVE_HARD_PRESS",
+      "MOVE_HEAD_SMASH"
     ],
     "EggMoves": [
       "MOVE_BLOCK",

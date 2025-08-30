@@ -68,7 +68,7 @@
 #define BAG_POKEBALLS_COUNT 16
 #define BAG_TMHM_COUNT 64
 #define BAG_BERRIES_COUNT 46
-#define OBJECT_EVENT_TEMPLATES_COUNT 80 //Custom: This is the max value that the define can be assumed for the assert in save.c
+#define OBJECT_EVENT_TEMPLATES_COUNT 83 //Custom: This is the max value that the define can be assumed for the assert in save.c
 #define DECOR_MAX_SECRET_BASE 16
 #define DECOR_MAX_PLAYERS_HOUSE 12
 #define APPRENTICE_COUNT 4

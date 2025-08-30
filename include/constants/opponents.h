@@ -600,12 +600,12 @@
 #define TRAINER_PAXTON                      594
 #define TRAINER_ISABELLA                    595
 #define TRAINER_GRUNT_WEATHER_INST_5        596
-#define TRAINER_TABITHA_MT_CHIMNEY          597
+#define TRAINER_TABITHA_DESERT              597
 #define TRAINER_JONATHAN                    598
 #define TRAINER_BRENDAN_RUSTBORO_TORCHIC    599
 #define TRAINER_MAY_RUSTBORO_MUDKIP         600
 #define TRAINER_MAXIE_MAGMA_HIDEOUT         601
-#define TRAINER_MAXIE_MT_CHIMNEY            602
+#define TRAINER_MAXIE_DESERT                602
 #define TRAINER_TIANA                       603
 #define TRAINER_HALEY_1                     604
 #define TRAINER_JANICE                      605
@@ -860,15 +860,39 @@
 #define TRAINER_MAY_PLACEHOLDER             854
 #define TRAINER_BUGSY                       855
 #define TRAINER_SPLITFACE_1                 856
-#define TRAINER_GRUNT_DESERT1               857 
-#define TRAINER_GRUNT_DESERT2               858
+#define TRAINER_GRUNT_DESERT_MULTI1         857 
+#define TRAINER_GRUNT_DESERT_MULTI2         858
+#define TRAINER_GRUNT_DESERT1               859
+#define TRAINER_GRUNT_DESERT2               860
+#define TRAINER_GRUNT_DESERT3               861
+#define TRAINER_GRUNT_DESERT4               862
+#define TRAINER_GRUNT_DESERT5               863
+#define TRAINER_GRUNTS_DESERT_REGIDOOR      864
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      859
+/*  Custom: MAX_TRAINERS_COUNT is 864 regardless in order to not alter the saveblock data. 
+    In that space portion are just unused flags
+*/
 #define MAX_TRAINERS_COUNT                  864
-#define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
+
+
+// Custom: Additional trainer handled in RAM and not in saveblock
+#define START_ADDITIONAL_TRAINER_FLAGS      (MAX_TRAINERS_COUNT)
+
+#define TRAINER_MAGMA_GRUNT_DESERT_SPINNER1  (START_ADDITIONAL_TRAINER_FLAGS + 1)
+#define TRAINER_MAGMA_GRUNT_DESERT_SPINNER2  (START_ADDITIONAL_TRAINER_FLAGS + 2)
+#define TRAINER_MAGMA_GRUNT_DESERT_SPINNER3  (START_ADDITIONAL_TRAINER_FLAGS + 3)
+#define TRAINER_GRUNT_DESERT6                (START_ADDITIONAL_TRAINER_FLAGS + 4)
+
+
+
+
+
+#define MAX_OPPONENTS_TRAINER_FLAGS         (TRAINER_MAGMA_GRUNT_DESERT_SPINNER2)
+#define TRAINERS_COUNT                      (MAX_TRAINERS_COUNT + MAX_OPPONENTS_TRAINER_FLAGS)
+#define TRAINER_PARTNER(partner)            (TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

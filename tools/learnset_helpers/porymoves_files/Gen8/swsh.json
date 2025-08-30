@@ -44607,6 +44607,14 @@
       {
         "Level": 60,
         "Move": "MOVE_SKILL_SWAP"
+      },
+      {
+        "Level": 62,
+        "Move": "MOVE_HURRICANE"
+      },
+      {
+        "Level": 64,
+        "Move": "MOVE_PSYCHO_BOOST"
       }
     ],
     "PreEvoMoves": [],

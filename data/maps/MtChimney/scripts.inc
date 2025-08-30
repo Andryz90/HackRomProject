@@ -451,10 +451,10 @@ MtChimney_EventScript_BusyAquaGrunt3::
 	msgbox MtChimney_Text_MagmasNameSimilar, MSGBOX_SIGN
 	end
 
-MtChimney_EventScript_Tabitha::
-	trainerbattle_single TRAINER_TABITHA_MT_CHIMNEY, MtChimney_Text_TabithaIntro, MtChimney_Text_TabithaDefeat
-	msgbox MtChimney_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
-	end
+@MtChimney_EventScript_Tabitha::
+@	trainerbattle_single TRAINER_TABITHA_MT_CHIMNEY, MtChimney_Text_TabithaIntro, MtChimney_Text_TabithaDefeat
+@	msgbox MtChimney_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
+@	end
 
 MtChimney_EventScript_Grunt2::
 	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_2, MtChimney_Text_Grunt2Intro, MtChimney_Text_Grunt2Defeat
@@ -561,10 +561,10 @@ MtChimney_EventScript_Shirley::
 	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtChimney_EventScript_Grunt1::
-	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_1, MtChimney_Text_Grunt1Intro, MtChimney_Text_Grunt1Defeat
-	msgbox MtChimney_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
-	end
+@MtChimney_EventScript_Grunt1::
+@	trainerbattle_single TRAINER_GRUNT_MT_CHIMNEY_1, MtChimney_Text_Grunt1Intro, MtChimney_Text_Grunt1Defeat
+@	msgbox MtChimney_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+@	end
 
 MtChimney_EventScript_Sawyer::
 	trainerbattle_single TRAINER_SAWYER_1, MtChimney_Text_SawyerIntro, MtChimney_Text_SawyerDefeat, MtChimney_EventScript_SawyerDefeated
@@ -617,7 +617,9 @@ MtChimney_Text_MaxieIntro:
 	.string "It is for further advancement of\n"
 	.string "humankind and POKéMON!\p"
 	.string "And for that, we need the power of\n"
-	.string "what sleeps within this mountain…\p"
+	.string "what sleeps within this crater\p"
+	.string "REGIROCK, the golem\n that protects the land. \p"
+	.string "With its power we'll able\nto achieve our goal."
 	.string "Oh! There was no need for you to\n"
 	.string "learn that much.\p"
 	.string "But, no matter!\n"
@@ -671,10 +673,10 @@ MtChimney_Text_Grunt2PostBattle:
 	.string "But why does everyone keep getting\n"
 	.string "in our way? $"
 
-MtChimney_Text_Grunt1Intro:
+Desert_Text_Grunt1Spinning:
 	.string "If there were more land, I'd be able\n"
 	.string "to get a big house of my own!\p"
-	.string "I'm going to build it on hardened lava! $"
+	.string "You're not interfere with us! $"
 
 MtChimney_Text_Grunt1Defeat:
 	.string "My dream of a big house… $"

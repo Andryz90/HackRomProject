@@ -1340,6 +1340,10 @@
 // Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused
 // See constants/opponents.h. The values there + FLAG_TRAINER_FLAG_START are the flag IDs
 
+/*  Custom: MAX_TRAINERS_COUNT is 864 regardless in order to not alter the saveblock data. 
+    In that space portion are just unused flags.
+    Trainers flags are handled in opponents.h and in event_data.c
+*/
 #define TRAINER_FLAGS_START                                         0x500
 #define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x85F
 

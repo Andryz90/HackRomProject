@@ -376,7 +376,7 @@ Level: 22
 - Thunder Fang  
 
 
-=== TRAINER_GRUNT_DESERT1 ===
+=== TRAINER_GRUNT_DESERT_MULTI1 ===
 Name: GRUNT
 Class: Team Magma
 Pic: Magma Grunt M
@@ -407,14 +407,13 @@ Jolly Nature
 Steelix @ Rocky Helmet  
 Ability: Rock Head  
 Level: 45  
-Tera Type: Steel  
 Adamant Nature  
 - Head Smash  
 - Double-Edge  
 - Heavy Slam  
 - Curse  
 
-=== TRAINER_GRUNT_DESERT2 ===
+=== TRAINER_GRUNT_DESERT_MULTI2 ===
 Name: GRUNT
 Class: Team Magma
 Pic: Magma Grunt F
@@ -451,6 +450,439 @@ IVs: 0 Atk
 - Earth Power  
 - Ice Beam  
 - Recover  
+
+=== TRAINER_GRUNT_DESERT1 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Palossand @ Leftovers  
+Ability: Water Compaction  
+Level: 45   
+IVs: 0 Atk  
+- Shore Up  
+- Earth Power  
+- Giga Drain  
+- Shadow Ball  
+
+Sandslash @ Life Orb  
+Ability: Sand Rush  
+Level: 46   
+- Swords Dance  
+- Earthquake  
+- Stone Edge  
+- Brick Break  
+
+Dugtrio @ Focus Sash  
+Ability: Arena Trap  
+Level: 45  
+- Earthquake  
+- Facade  
+- Stone Edge  
+- Throat Chop  
+
+Corviknight @ Leftovers  
+Ability: Mirror Armor  
+Level: 45  
+- Iron Defense  
+- Body Press  
+- Brave Bird  
+- U-turn  
+
+Seismitoad @ Absorb Bulb  
+Ability: Water Absorb  
+Level: 45   
+Modest Nature  
+IVs: 0 Atk  
+- Muddy Water  
+- Grass Knot  
+- Earth Power  
+- Icy Wind  
+
+
+
+=== TRAINER_GRUNT_DESERT2 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Maractus @ Absorb Bulb  
+Ability: Storm Drain  
+Level: 46  
+Modest Nature  
+- Giga Drain  
+- Earth Power  
+- Spiky Shield  
+- Knock Off  
+
+Donphan @ Bright Powder  
+Ability: Sand Veil  
+Level: 45   
+Impish Nature  
+- Earthquake  
+- Ice Spinner  
+- Ice Shard  
+- Body Press  
+
+Diggersby @ Soft Sand  
+Ability: Huge Power  
+Level: 45   
+Adamant Nature  
+- High Horsepower  
+- Swords Dance  
+- Quick Attack  
+- Body Slam  
+
+=== TRAINER_GRUNT_DESERT3 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Magcargo @ Air Balloon  
+Ability: Magma Armor  
+Level: 45  
+Quiet Nature  
+IVs: 0 Atk  
+- Meteor Beam  
+- Heat Wave  
+- Earth Power  
+- Shell Trap  
+
+Cacturne @ Bright Powder  
+Ability: Sand Veil  
+Level: 45   
+Adamant Nature  
+- Spiky Shield  
+- Stomping Tantrum  
+- Needle Arm  
+- Sucker Punch  
+
+Magmortar @ Wise Glasses  
+Ability: Mega Launcher  
+Level: 45   
+Modest Nature  
+IVs: 0 Atk  
+- Aura Sphere  
+- Armor Cannon  
+- Dark Pulse  
+- Earth Power  
+
+=== TRAINER_GRUNT_DESERT4 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Brambleghast @ Occa Berry  
+Ability: Wind Rider  
+Level: 45   
+- Spikes  
+- Poltergeist  
+- Power Whip  
+- Strength Sap  
+
+Excadrill @ Air Balloon  
+Ability: Sand Rush  
+Level: 45  
+Adamant Nature  
+- Earthquake  
+- Iron Head  
+- Rock Slide  
+- Strength  
+
+Ferrothorn @ Rocky Helmet  
+Ability: Iron Barbs  
+Level: 45  
+Impish Nature  
+IVs: 0 Spe  
+- Leech Seed  
+- Protect  
+- Gyro Ball  
+- Body Press  
+
+Coalossal @ Passho Berry  
+Ability: Flash Fire  
+Level: 45  
+Impish Nature  
+- Heat Crash  
+- Heavy Slam  
+- Stone Edge  
+- Body Press  
+
+Drapion @ Scope Lens  
+Ability: Sniper  
+Level: 45  
+Adamant Nature  
+- Night Slash  
+- X-Scissor  
+- Knock Off  
+- Earthquake  
+
+=== TRAINER_GRUNT_DESERT5 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Tyranitar @ Chople Berry  
+Ability: Battle Armor  
+Level: 46  
+Adamant Nature  
+- Dragon Dance  
+- Knock Off  
+- Stone Edge  
+- Ice Punch  
+
+Crustle (M) @ White Herb  
+Ability: Sturdy  
+Level: 45    
+- Shell Smash  
+- X-Scissor  
+- Earthquake  
+- Stone Edge  
+
+Sigilyph @ Life Orb  
+Ability: Tinted Lens  
+Level: 45    
+Modest Nature  
+IVs: 0 Atk  
+- Calm Mind  
+- Air Slash  
+- Psycho Boost  
+- Roost  
+
+Golem @ Muscle Band  
+Ability: Rock Head  
+Level: 46  
+- Earthquake  
+- Head Smash  
+- Double-Edge  
+- Explosion  
+
+Runerigus @ Leftovers  
+Ability: Wandering Spirit  
+Level: 46  
+Careful Nature  
+- Will-O-Wisp  
+- Earthquake  
+- Poltergeist  
+- Destiny Bond  
+
+=== TRAINER_GRUNT_DESERT6 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Tyranitar @ Chople Berry  
+Ability: Battle Armor  
+Level: 45    
+Adamant Nature  
+- Dragon Dance  
+- Knock Off  
+- Stone Edge  
+- Ice Punch  
+
+Golem-Alola @ Air Balloon  
+Ability: Galvanize  
+Level: 45   
+IVs: 0 Atk  
+- Meteor Beam  
+- Echoed Voice  
+- Earth Power  
+- Thunderbolt  
+
+Crustle (M) @ White Herb  
+Ability: Sturdy  
+Level: 45   
+- Shell Smash  
+- X-Scissor  
+- Earthquake  
+- Stone Edge  
+
+Marowak @ Thick Club  
+Ability: Rock Head  
+Level: 45  
+Happiness: 0  
+Jolly Nature  
+- Earthquake  
+- Fire Punch  
+- Frustration  
+- Trailblaze  
+
+Runerigus @ Leftovers  
+Ability: Wandering Spirit  
+Level: 46  
+Careful Nature  
+- Will-O-Wisp  
+- Earthquake  
+- Poltergeist  
+- Destiny Bond  
+
+=== TRAINER_MAGMA_GRUNT_DESERT_SPINNER1 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Claydol @ Light Clay  
+Ability: Levitate  
+Level: 45   
+IVs: 0 Atk  
+- Stealth Rock  
+- Psychic  
+- Reflect  
+- Light Screen  
+
+Lunatone @ Chople Berry  
+Ability: Levitate  
+Level: 45  
+IVs: 0 Atk  
+- Dark Pulse  
+- Nasty Plot  
+- Power Gem  
+- Meteor Beam  
+
+Solrock @ Passho Berry  
+Ability: Levitate  
+Level: 45   
+- Zen Headbutt  
+- Flare Blitz  
+- Stone Edge  
+- Earthquake  
+
+Heliolisk @ Expert Belt  
+Ability: Sand Veil  
+Level: 45  
+Modest Nature  
+IVs: 1 Atk / 30 SpA / 30 SpD  
+- Hyper Voice  
+- Hidden Power
+- Thunderbolt  
+- Grass Knot  
+
+=== TRAINER_MAGMA_GRUNT_DESERT_SPINNER2 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Cradily @ Leftovers  
+Ability: Storm Drain  
+Level: 45   
+Modest Nature  
+IVs: 0 Atk  
+- Meteor Beam  
+- Giga Drain  
+- Sludge Wave  
+- Recover  
+
+Armaldo @ Muscle Band  
+Ability: Battle Armor  
+Level: 45   
+Adamant Nature  
+- Swords Dance  
+- X-Scissor  
+- Stone Edge  
+- Liquidation  
+
+Bastiodon @ Leftovers  
+Ability: Sturdy  
+Level: 45   
+Adamant Nature  
+- Metal Burst  
+- Earthquake  
+- Stone Edge  
+- Heavy Slam  
+
+Rampardos @ Life Orb  
+Ability: Sheer Force  
+Level: 45  
+Adamant Nature  
+- Head Smash  
+- Fire Punch  
+- Rock Slide  
+- Earthquake  
+
+Tyrantrum @ Expert Belt  
+Ability: Strong Jaw  
+Level: 46  
+Jolly Nature  
+- Dragon Dance  
+- Thunder Fang  
+- Fire Fang  
+- Ice Fang  
+
+=== TRAINER_MAGMA_GRUNT_DESERT_SPINNER3 ===
+Name: GRUNT
+Class: Team Magma
+Pic: Magma Grunt M
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Mightyena @ Expert Belt  
+Ability: Strong Jaw  
+Level: 46  
+Adamant Nature  
+- Poison Fang  
+- Crunch  
+- Ice Fang  
+- Thunder Fang  
+
+Camerupt  
+Ability: Solid Rock  
+Level: 45  
+IVs: 0 Atk  
+- Earth Power  
+- Flamethrower  
+- Ancient Power  
+- Overheat  
+
+Crobat  
+Ability: Infiltrator  
+Level: 45  
+- Acrobatics  
+- Cross Poison  
+- U-turn  
+- Roost  
+
+Sandslash @ Bright Powder  
+Ability: Sand Veil  
+Level: 45  
+Jolly Nature  
+- Earthquake  
+- Stone Edge  
+- Focus Punch  
+- Substitute  
 
 
 === TRAINER_GRUNT_WEATHER_INST_1 ===
@@ -12719,7 +13151,7 @@ Poochyena
 Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_TABITHA_MT_CHIMNEY ===
+=== TRAINER_TABITHA_DESERT ===
 Name: TABITHA
 Class: Magma Admin
 Pic: Magma Admin
@@ -12728,21 +13160,62 @@ Music: Magma
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Numel
-Level: 18
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Glimmora @ Shuca Berry  
+Ability: Toxic Debris  
+Level: 46  
+Timid Nature  
+IVs: 0 Atk  
+- Stealth Rock  
+- Meteor Beam  
+- Sludge Wave  
+- Energy Ball  
 
-Poochyena
-Level: 20
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Cacturne @ Rocky Helmet  
+Ability: Rough Skin  
+Level: 46   
+Adamant Nature  
+- Spiky Shield  
+- Sucker Punch  
+- Seed Bomb  
+- Shore Up  
 
-Numel
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Clodsire @ Black Sludge  
+Ability: Water Absorb  
+Level: 46  
+Careful Nature  
+- Spikes  
+- Recover  
+- Earthquake  
+- Poison Jab  
 
-Zubat
-Level: 22
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Camerupt @ Passho Berry  
+Ability: Solid Rock  
+Level: 47    
+Modest Nature  
+IVs: 0 Atk  
+- Eruption  
+- Earth Power  
+- Flamethrower  
+- Will-O-Wisp  
+
+Flygon @ Life Orb  
+Ability: Sand Rush  
+Level: 47   
+Adamant Nature  
+- X-Scissor  
+- Fell Stinger  
+- Earthquake  
+- Dragon Claw  
+
+Rhyperior @ White Herb  
+Ability: Reckless  
+Level: 46   
+Brave Nature  
+- Double Iron Bash   
+- Head Smash  
+- Wild Charge  
+- Headlong Rush  
+
 
 === TRAINER_JONATHAN ===
 Name: JONATHAN
@@ -12885,7 +13358,7 @@ Camerupt
 Level: 39
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAXIE_MT_CHIMNEY ===
+=== TRAINER_MAXIE_DESERT ===
 Name: MAXIE
 Class: Magma Leader
 Pic: Magma Leader Maxie
@@ -12894,17 +13367,64 @@ Music: Magma
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Mightyena
-Level: 24
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Hippowdon @ Leftovers  
+Ability: Sand Stream  
+Level: 46   
+Adamant Nature  
+- Stealth Rock  
+- Roar  
+- Stone Edge  
+- Earthquake  
 
-Zubat
-Level: 24
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Maractus @ Absorb Bulb  
+Ability: Sand Force  
+Level: 47   
+Modest Nature  
+IVs: 0 Atk  
+- Shore Up  
+- Earth Power  
+- Giga Drain  
+- Weather Ball  
 
-Camerupt
-Level: 25
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Camerupt @ Cameruptite  
+Ability: Magma Armor  
+Level: 48   
+Modest Nature  
+IVs: 0 Atk  
+- Earth Power  
+- Heat Wave  
+- Hidden Power [Grass]  
+- Eruption  
+
+Volcarona @ Safety Goggles  
+Ability: Flame Body  
+Level: 47  
+Timid Nature  
+IVs: 0 Atk  
+- Quiver Dance  
+- Fiery Dance  
+- Bug Buzz  
+- Giga Drain  
+
+Garchomp @ Bright Powder  
+Ability: Sand Veil  
+Level: 47    
+Adamant Nature  
+- Dragon Dance  
+- Stone Edge  
+- Earthquake  
+- Brick Break  
+
+Regirock @ Leftovers  
+Ability: Clear Body  
+Level: 48  
+Impish Nature  
+- Stone Edge  
+- Body Press  
+- Earthquake  
+- Iron Defense  
+
+
 
 === TRAINER_TIANA ===
 Name: TIANA
