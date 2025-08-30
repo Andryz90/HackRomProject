@@ -756,7 +756,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route111_Wally_Desert_Script",
-      "flag": "FLAG_HIDE_WALLY_ROUTE111"
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
     },
     {
       "local_id": "LOCALID_GRUNT_DESERT_GUARD2",

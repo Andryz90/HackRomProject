@@ -74,6 +74,9 @@ struct
     SAVEBLOCK_CHUNK(struct PokemonStorage, 6),
     SAVEBLOCK_CHUNK(struct PokemonStorage, 7),
     SAVEBLOCK_CHUNK(struct PokemonStorage, 8), // SECTOR_ID_PKMN_STORAGE_END
+
+    //Custom
+    SAVEBLOCK_CHUNK(struct SaveBlockTrainerFlags, 0), // SECTOR_ID_TRAINER_FLAGS
 };
 
 // These will produce an error if a save struct is larger than the space
@@ -711,6 +714,11 @@ static void UpdateSaveAddresses(void)
         gRamSaveSectorLocations[i].data = (void *)(gPokemonStoragePtr) + sSaveSlotLayout[i].offset;
         gRamSaveSectorLocations[i].size = sSaveSlotLayout[i].size;
     }
+
+    //Custom: Save trainer flags in "flash"
+    i = SECTOR_ID_PKMN_TRAINER_FLAGS;
+    gRamSaveSectorLocations[i].data = (void*)(gSaveBlockTrainerFlagsPtr) + sSaveSlotLayout[i].offset;
+    gRamSaveSectorLocations[i].size = sSaveSlotLayout[i].size;
 }
 
 u8 HandleSavingData(u8 saveType)

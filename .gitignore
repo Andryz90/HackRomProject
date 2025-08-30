@@ -47,3 +47,4 @@ tools/trainerproc/trainerproc
 *.smolTM
 *.bak
 __pycache__
+src/data/trainers.h

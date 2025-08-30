@@ -596,7 +596,7 @@ MtChimney_Text_MeteoriteWillActivateVolcano:
 	.string "the crater and…\l"
 	.string "Fufufu… $"
 
-MtChimney_Text_MaxieIntro:
+MtChimney_Text_MaxieIntro: @Used in the Regi Chamber
 	.string "MAXIE: Hm?\n"
 	.string "Who are you?\p"
 	.string "… … … … … …\n"
@@ -617,9 +617,9 @@ MtChimney_Text_MaxieIntro:
 	.string "It is for further advancement of\n"
 	.string "humankind and POKéMON!\p"
 	.string "And for that, we need the power of\n"
-	.string "what sleeps within this crater\p"
-	.string "REGIROCK, the golem\n that protects the land. \p"
-	.string "With its power we'll able\nto achieve our goal."
+	.string "what sleeps within this crater.\p"
+	.string "REGIROCK, the golem\nthat protects the land. \p"
+	.string "With its power we'll able\nto achieve our goal. \p"
 	.string "Oh! There was no need for you to\n"
 	.string "learn that much.\p"
 	.string "But, no matter!\n"

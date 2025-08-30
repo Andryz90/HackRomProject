@@ -1178,6 +1178,14 @@ struct MapPosition
     s8 elevation;
 };
 
+//Custom
+struct SaveBlockTrainerFlags 
+{
+    u8 trainerFlags[TRAINERS_FLAGS_SIZE];
+};
+
+extern struct SaveBlockTrainerFlags* gSaveBlockTrainerFlagsPtr;
+
 #if T_SHOULD_RUN_MOVE_ANIM
 extern bool32 gLoadFail;
 #endif // T_SHOULD_RUN_MOVE_ANIM

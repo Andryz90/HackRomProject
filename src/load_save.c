@@ -48,7 +48,7 @@ COMMON_DATA struct SaveBlock1 *gSaveBlock1Ptr = NULL;
 COMMON_DATA struct SaveBlock2 *gSaveBlock2Ptr = NULL;
 IWRAM_INIT struct SaveBlock3 *gSaveBlock3Ptr = &gSaveblock3;
 COMMON_DATA struct PokemonStorage *gPokemonStoragePtr = NULL;
-
+IWRAM_INIT struct SaveBlockTrainerFlags* gSaveBlockTrainerFlagsPtr = &gPokemonTrainerFlags;
 // code
 void CheckForFlashMemory(void)
 {

@@ -15,6 +15,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_REGIROCK",
       "graphics_id": "OBJ_EVENT_GFX_REGIROCK",
       "x": 8,
       "y": 7,
@@ -26,6 +27,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DesertRuins_EventScript_Regirock",
       "flag": "FLAG_HIDE_REGIROCK"
+    },
+    {
+      "local_id": "LOCALID_MAXIE_REGIROCK_CHAMBER",
+      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_MAGMA_GRUNT_DESERT"
     }
   ],
   "warp_events": [

@@ -61,13 +61,18 @@ Route111_OnTransition:
 
 @ ***************	 TEAM MAGMA - DESERT BEGIN	********************
 
-@	Init Scripts of the map
+@	Init/End Scripts of the event
 Route111_EventScript_MagmaDesertEvent::
+	goto_if_unset FLAG_MAXIE_DESERT, Route111_EventScript_MagmDesert_Init
+	return
+
+@	Init Scripts of the event
+Route111_EventScript_MagmDesert_Init::
 	clearflag FLAG_HIDE_MAGMA_GRUNT_DESERT 	@ Magma Grunts and other NPC Visible
 	setflag FLAG_REGI_DOORS_OPENED         	@ Temporary open the regi
 	setflag FLAG_HIDE_TRAINER_DESERT	   	@ Temporary hide trainer inside
-	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 0, Route111_Prepare_WallyEvent 
-	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 3, Route111_Move_NPC_Guard
+	call_if_eq VAR_WALLY_ROUTE111_TRIGGER,  0, Route111_Prepare_WallyEvent 
+	call_if_ge VAR_WALLY_ROUTE111_TRIGGER,  3, Route111_Move_NPC_Guard
 	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Desert_SetObjectPositionAfterBattle
 	return
 
@@ -695,7 +700,7 @@ Desert_Text_CoupleIntro::
 Desert_Text_CoupleDefeat::
 	.string "How did you manage to defeat us? $"
 Desert_Text_CouplePostBattle::
-	.string "I disappointed MAXIE..."
+	.string "I disappointed MAXIE... $"
 Roue111_Grunt5_EventScript::
 	trainerbattle_single TRAINER_GRUNT_DESERT5, Desert_Text_CoupleIntro, Desert_Text_CoupleDefeat
 	msgbox Desert_Text_CouplePostBattle, MSGBOX_AUTOCLOSE
@@ -770,7 +775,8 @@ Route111_Tabitha_Battle_Defeat::
 
 Route111_Desert_Tabitha_EventScript::
 	lock
-	call_if_eq VAR_WALLY_ROUTE111_TRIGGER, 100, Route111_Desert_Tabitha_Final_Script
+	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Desert_Tabitha_Final_Script
+	hidefollower 0
 	msgbox Route111_Desert_Tabitha_Intro, MSGBOX_DEFAULT
 	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_WalkDown
 	applymovement LOCALID_GRUNT_LEFT_WING, Common_Movement_WalkDown
@@ -827,10 +833,14 @@ Route111_Desert_Tabitha_Battle::
 	waitmovement LOCALID_TABITHA_DESERT
 	applymovement LOCALID_TABITHA_DESERT, Common_Movement_FaceLeft
 	waitmovement LOCALID_TABITHA_DESERT
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 100
 	call Route111_Desert_SetObjectPositionAfterBattle
 	release 
 	end
 Route111_Desert_SetObjectPositionAfterBattle::
+	call_if_unset FLAG_MAXIE_DESERT, Route111_Desert_PrepareObjForMaxie
+	return
+Route111_Desert_PrepareObjForMaxie::
 	setobjectxyperm LOCALID_WALLY_DESERT 30, 90
 	setobjectxyperm LOCALID_RIVAL_DESERT 28, 90
 	setobjectxyperm LOCALID_TABITHA_DESERT 30, 88
@@ -955,9 +965,29 @@ Route111_EventScript_SetMusicForMagma::
 	return
 
 Route111_OnFrame:
+	map_script_2 VAR_WALLY_ROUTE111_TRIGGER, 5, Route111_CloseRegiDoors_After_MagmaDesert_EventScript
 	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
 	.2byte 0
 
+@After beating Maxie, reset the doors of Regirock and the state at the original one
+Route111_CloseRegiDoors_After_MagmaDesert_EventScript::
+	lock
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 12  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	clearflag FLAG_REGI_DOORS_OPENED
+	setvar VAR_LAVARIDGE_TOWN_STATE, 3
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 6
+	fadescreen FADE_TO_BLACK
+	setmetatile 29, 86, METATILE_General_RockWall_RockBase, TRUE
+	setmetatile 29, 87, METATILE_General_RockWall_SandBase, TRUE
+	special DrawWholeMapView
+	fadescreen FADE_FROM_BLACK
+	waitstate
+	release
+	end
 Route111_EventScript_MirageTowerDisappear::
 	lockall
 	special StartMirageTowerShake

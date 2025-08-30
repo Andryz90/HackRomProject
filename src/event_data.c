@@ -29,7 +29,7 @@ EWRAM_DATA static u8 sSpecialFlags[SPECIAL_FLAGS_SIZE] = {0};
 
 
 /*Note that this have the id of MAX_TRAINERS_COUNT + the enumeration value*/
-EWRAM_DATA u8 gPokemonTrainerFlags[TRAINERS_COUNT] = {0};
+EWRAM_DATA struct SaveBlockTrainerFlags gPokemonTrainerFlags = {0};
 
 #if TESTING
 #define TEST_FLAGS_SIZE     1
@@ -57,6 +57,7 @@ void InitEventData(void)
     memset(gSaveBlock1Ptr->flags, 0, sizeof(gSaveBlock1Ptr->flags));
     memset(gSaveBlock1Ptr->vars, 0, sizeof(gSaveBlock1Ptr->vars));
     memset(sSpecialFlags, 0, sizeof(sSpecialFlags));
+    memset(gPokemonTrainerFlags.trainerFlags, 0, sizeof(gPokemonTrainerFlags.trainerFlags));
 }
 
 void ClearTempFieldEventData(void)
@@ -281,7 +282,7 @@ bool8 FlagGet(u16 id)
 
 bool8 TrainerFlagGet (u16 id)
 {
-    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+    u8 *ptr = &gPokemonTrainerFlags.trainerFlags[id/ 8];
 
     if (!ptr)
         return FALSE;
@@ -294,7 +295,7 @@ bool8 TrainerFlagGet (u16 id)
 
 u8 TrainerFlagSet(u16 id)
 {
-    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+    u8 *ptr = &gPokemonTrainerFlags.trainerFlags[id/ 8];
     if (ptr)
         *ptr |= 1 << (id & 7);
     return 0;
@@ -302,7 +303,7 @@ u8 TrainerFlagSet(u16 id)
 
 u8 TrainerFlagClear(u16 id)
 {
-    u8 *ptr = &gPokemonTrainerFlags[id/ 8];
+    u8 *ptr = &gPokemonTrainerFlags.trainerFlags[id/ 8];
     if (ptr)
         *ptr &= ~(1 << (id & 7));
     return 0;
