@@ -20,7 +20,7 @@ u32 GetCurrentLevelCap(void)
         {FLAG_BADGE03_GET,      34},
         {FLAG_HIDE_METEOR_FALLS_TEAM_AQUA, 38}, //Non Boss Level Cap Flag
         {FLAG_BADGE04_GET,      45},
-        {FLAG_MAXIE_DESERT,     48},
+        {FLAG_MAXIE_DESERT,     50},
         {FLAG_BADGE05_GET,      60},
         {FLAG_BADGE06_GET,      60},
         {FLAG_BADGE07_GET,      60},

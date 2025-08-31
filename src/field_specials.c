@@ -4538,3 +4538,8 @@ void Script_GiveMonSpecial (void)
 {
     GiveMonSpecialIV(gSpecialVar_Result, gSpecialVar_0x8000, gSpecialVar_0x8001, gSpecialVar_0x8002, gSpecialVar_0x8003);
 }
+
+void UpdateMapForScript (void)
+{
+    //ResumeMap(TRUE);
+}
