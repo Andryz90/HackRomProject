@@ -45,5 +45,4 @@ bool32 SwapPokemonGender(void);
 void ChangeMonNature (void);
 void DamageMon (void);
 void Script_GiveMonSpecial (void);
-void UpdateLightForSprite (void);
 #endif // GUARD_FIELD_SPECIALS_H

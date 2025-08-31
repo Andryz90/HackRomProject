@@ -572,6 +572,5 @@ gSpecials::
 	def_special bufferIVname
 	def_special DamageMon
 	def_special Script_GiveMonSpecial
-	def_special UpdateMapForScript
 	def_special EnterCode
 	def_special GetCodeFeedback

@@ -975,21 +975,21 @@ Route111_CloseRegiDoors_After_MagmaDesert_EventScript::
 	lock
 	setvar VAR_0x8004, 1  @ vertical pan
 	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 12  @ num shakes
+	setvar VAR_0x8006, 12 @ num shakes
 	setvar VAR_0x8007, 5  @ shake delay
 	special ShakeCamera
 	clearflag FLAG_REGI_DOORS_OPENED
 	setvar VAR_LAVARIDGE_TOWN_STATE, 3 @Event no more triggerable in load
 	setvar VAR_WALLY_ROUTE111_TRIGGER, 6 @Event no more triggerable in map
 	clearflag FLAG_HIDE_ANDRY_ROUTE111 @Andry visible
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 	setmetatile 29, 86, METATILE_General_RockWall_RockBase, TRUE
 	setmetatile 29, 87, METATILE_General_RockWall_SandBase, TRUE
-	setobjectxyperm LOCALID_ANDRY_MAGMA_DESERT 31, 84
-	addobject LOCALID_ANDRY_MAGMA_DESERT
+	setobjectxyperm LOCALID_ANDRY_MAGMA_DESERT 31, 82
 	special DrawWholeMapView
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 	waitstate
+	addobject LOCALID_ANDRY_MAGMA_DESERT
 	@Andry Script:
 	applymovement LOCALID_ANDRY_MAGMA_DESERT, Route111_Desert_AndryReachPlayer
 	waitmovement 0
@@ -997,17 +997,19 @@ Route111_CloseRegiDoors_After_MagmaDesert_EventScript::
 	giveitem ITEM_LIFE_ORB
 	msgbox Route111_Andry_MagmDesert_Leave_Text, MSGBOX_DEFAULT
 	@Warp out of desert
-	fadescreen FADE_TO_BLACK
 	setobjectxyperm LOCALID_PLAYER 11, 67
 	setwarp MAP_ROUTE111, 11, 67
 	special DoContestHallWarp
-	playse SE_EXIT	
-	fadescreen FADE_FROM_BLACK
 	waitstate
 	release
 	end
 Route111_Andry_EventScript_OnFrame_Final::
 	lock
+	setweather WEATHER_SUNNY
+	setvar VAR_TEMP_3, 0
+	call_if_eq VAR_LAVARIDGE_TOWN_STATE, 2, Route111_EventScript_KeepMagmaMusicTrigger
+	fadenewbgm MUS_ROUTE110
+	doweather
 	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
 	waitmovement 0
 	applymovement LOCALID_ANDRY, Common_Movement_FacePlayer
@@ -1023,7 +1025,7 @@ Route111_Andry_MagmDesert_Speech::
 	.string "So you must be {PLAYER}. \p"
 	.string "I came here because Ed- \nI mean, SPLITFACE told me to, \l"
 	.string "but it looks like you've already\lhandled everything yourself. \p"
-	.string "Sorry I wasn't here sooner\nto give you a hand. \p"
+	.string "Sorry I wasn't here sooner\nto give you an hand. \p"
 	.string "You're strong, I like that.\n"
 	.string "By the way, I'm ANDRY. \p"
 	.string "ANDRY: Here, take this item.\nIt will help you on your journey. $"
@@ -1035,6 +1037,8 @@ Route111_Andry_MagmDesert_Finale::
 	.string "{PLAYER}, I have to go now.\n"
 	.string "Thank you, we'll meet again. $"
 Route111_Desert_AndryReachPlayer::
+	walk_down
+	walk_down
 	walk_right
 	walk_down
 	walk_down

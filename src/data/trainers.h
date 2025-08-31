@@ -1128,7 +1128,7 @@ F_TRAINER_FEMALE |
 #line 530
             .ability = ABILITY_SAND_VEIL,
 #line 531
-            .lvl = 45,
+            .lvl = 46,
 #line 532
             .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1151,7 +1151,7 @@ F_TRAINER_FEMALE |
 #line 539
             .ability = ABILITY_HUGE_POWER,
 #line 540
-            .lvl = 45,
+            .lvl = 46,
 #line 541
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1195,7 +1195,7 @@ F_TRAINER_FEMALE |
 #line 557
             .ability = ABILITY_MAGMA_ARMOR,
 #line 558
-            .lvl = 45,
+            .lvl = 46,
 #line 559
             .nature = NATURE_QUIET,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1218,7 +1218,7 @@ F_TRAINER_FEMALE |
 #line 567
             .ability = ABILITY_SAND_VEIL,
 #line 568
-            .lvl = 45,
+            .lvl = 46,
 #line 569
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1241,7 +1241,7 @@ F_TRAINER_FEMALE |
 #line 576
             .ability = ABILITY_MEGA_LAUNCHER,
 #line 577
-            .lvl = 45,
+            .lvl = 46,
 #line 578
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1285,7 +1285,7 @@ F_TRAINER_FEMALE |
 #line 595
             .ability = ABILITY_WIND_RIDER,
 #line 596
-            .lvl = 45,
+            .lvl = 46,
 #line 597
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1308,7 +1308,7 @@ F_TRAINER_FEMALE |
 #line 604
             .ability = ABILITY_SAND_RUSH,
 #line 605
-            .lvl = 45,
+            .lvl = 47,
 #line 606
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1331,7 +1331,7 @@ F_TRAINER_FEMALE |
 #line 613
             .ability = ABILITY_IRON_BARBS,
 #line 614
-            .lvl = 45,
+            .lvl = 46,
 #line 615
             .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1354,7 +1354,7 @@ F_TRAINER_FEMALE |
 #line 623
             .ability = ABILITY_FLASH_FIRE,
 #line 624
-            .lvl = 45,
+            .lvl = 46,
 #line 625
             .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1377,7 +1377,7 @@ F_TRAINER_FEMALE |
 #line 632
             .ability = ABILITY_SNIPER,
 #line 633
-            .lvl = 45,
+            .lvl = 46,
 #line 634
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1421,7 +1421,7 @@ F_TRAINER_FEMALE |
 #line 650
             .ability = ABILITY_BATTLE_ARMOR,
 #line 651
-            .lvl = 46,
+            .lvl = 48,
 #line 652
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1445,7 +1445,7 @@ F_TRAINER_FEMALE |
 #line 659
             .ability = ABILITY_STURDY,
 #line 660
-            .lvl = 45,
+            .lvl = 47,
 #line 661
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1468,7 +1468,7 @@ F_TRAINER_FEMALE |
 #line 668
             .ability = ABILITY_IRON_FIST,
 #line 669
-            .lvl = 45,
+            .lvl = 47,
 #line 670
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1558,7 +1558,7 @@ F_TRAINER_FEMALE |
 #line 705
             .ability = ABILITY_BATTLE_ARMOR,
 #line 706
-            .lvl = 45,
+            .lvl = 48,
 #line 707
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1581,7 +1581,7 @@ F_TRAINER_FEMALE |
 #line 714
             .ability = ABILITY_GALVANIZE,
 #line 715
-            .lvl = 45,
+            .lvl = 47,
 #line 716
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1605,7 +1605,7 @@ F_TRAINER_FEMALE |
 #line 724
             .ability = ABILITY_STURDY,
 #line 725
-            .lvl = 45,
+            .lvl = 47,
 #line 726
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1628,7 +1628,7 @@ F_TRAINER_FEMALE |
 #line 733
             .ability = ABILITY_ROCK_HEAD,
 #line 734
-            .lvl = 45,
+            .lvl = 47,
 #line 735
             .friendship = 0,
 #line 736
@@ -1697,7 +1697,7 @@ F_TRAINER_FEMALE |
 #line 761
             .ability = ABILITY_LEVITATE,
 #line 762
-            .lvl = 45,
+            .lvl = 46,
 #line 763
             .nature = NATURE_BOLD,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1720,7 +1720,7 @@ F_TRAINER_FEMALE |
 #line 771
             .ability = ABILITY_LEVITATE,
 #line 772
-            .lvl = 45,
+            .lvl = 46,
 #line 773
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1743,7 +1743,7 @@ F_TRAINER_FEMALE |
 #line 781
             .ability = ABILITY_LEVITATE,
 #line 782
-            .lvl = 45,
+            .lvl = 46,
 #line 783
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1766,7 +1766,7 @@ F_TRAINER_FEMALE |
 #line 790
             .ability = ABILITY_SAND_VEIL,
 #line 791
-            .lvl = 45,
+            .lvl = 46,
 #line 792
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1810,7 +1810,7 @@ F_TRAINER_FEMALE |
 #line 809
             .ability = ABILITY_STORM_DRAIN,
 #line 810
-            .lvl = 45,
+            .lvl = 47,
 #line 811
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1833,7 +1833,7 @@ F_TRAINER_FEMALE |
 #line 819
             .ability = ABILITY_BATTLE_ARMOR,
 #line 820
-            .lvl = 45,
+            .lvl = 47,
 #line 821
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1856,7 +1856,7 @@ F_TRAINER_FEMALE |
 #line 828
             .ability = ABILITY_STURDY,
 #line 829
-            .lvl = 45,
+            .lvl = 47,
 #line 830
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1879,7 +1879,7 @@ F_TRAINER_FEMALE |
 #line 837
             .ability = ABILITY_SHEER_FORCE,
 #line 838
-            .lvl = 45,
+            .lvl = 46,
 #line 839
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -1969,7 +1969,7 @@ F_TRAINER_FEMALE |
 #line 873
             .ability = ABILITY_SOLID_ROCK,
 #line 874
-            .lvl = 45,
+            .lvl = 48,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
@@ -1989,7 +1989,7 @@ F_TRAINER_FEMALE |
 #line 882
             .ability = ABILITY_INFILTRATOR,
 #line 883
-            .lvl = 45,
+            .lvl = 47,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
@@ -2011,7 +2011,7 @@ F_TRAINER_FEMALE |
 #line 890
             .ability = ABILITY_SAND_VEIL,
 #line 891
-            .lvl = 45,
+            .lvl = 46,
 #line 892
             .nature = NATURE_JOLLY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32688,7 +32688,7 @@ F_TRAINER_FEMALE |
 #line 13175
             .ability = ABILITY_TOXIC_DEBRIS,
 #line 13176
-            .lvl = 46,
+            .lvl = 47,
 #line 13177
             .nature = NATURE_TIMID,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32711,7 +32711,7 @@ F_TRAINER_FEMALE |
 #line 13185
             .ability = ABILITY_ROUGH_SKIN,
 #line 13186
-            .lvl = 46,
+            .lvl = 48,
 #line 13187
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32734,7 +32734,7 @@ F_TRAINER_FEMALE |
 #line 13194
             .ability = ABILITY_WATER_ABSORB,
 #line 13195
-            .lvl = 46,
+            .lvl = 47,
 #line 13196
             .nature = NATURE_CAREFUL,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32757,7 +32757,7 @@ F_TRAINER_FEMALE |
 #line 13203
             .ability = ABILITY_SOLID_ROCK,
 #line 13204
-            .lvl = 47,
+            .lvl = 49,
 #line 13205
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32780,7 +32780,7 @@ F_TRAINER_FEMALE |
 #line 13213
             .ability = ABILITY_SAND_RUSH,
 #line 13214
-            .lvl = 47,
+            .lvl = 48,
 #line 13215
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32803,7 +32803,7 @@ F_TRAINER_FEMALE |
 #line 13222
             .ability = ABILITY_RECKLESS,
 #line 13223
-            .lvl = 46,
+            .lvl = 48,
 #line 13224
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33201,7 +33201,7 @@ F_TRAINER_FEMALE |
 #line 13382
             .ability = ABILITY_SAND_STREAM,
 #line 13383
-            .lvl = 46,
+            .lvl = 48,
 #line 13384
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33224,7 +33224,7 @@ F_TRAINER_FEMALE |
 #line 13391
             .ability = ABILITY_SAND_FORCE,
 #line 13392
-            .lvl = 47,
+            .lvl = 48,
 #line 13393
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33247,7 +33247,7 @@ F_TRAINER_FEMALE |
 #line 13401
             .ability = ABILITY_MAGMA_ARMOR,
 #line 13402
-            .lvl = 48,
+            .lvl = 49,
 #line 13403
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33270,7 +33270,7 @@ F_TRAINER_FEMALE |
 #line 13411
             .ability = ABILITY_FLAME_BODY,
 #line 13412
-            .lvl = 47,
+            .lvl = 48,
 #line 13413
             .nature = NATURE_TIMID,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33293,7 +33293,7 @@ F_TRAINER_FEMALE |
 #line 13421
             .ability = ABILITY_SAND_VEIL,
 #line 13422
-            .lvl = 47,
+            .lvl = 49,
 #line 13423
             .nature = NATURE_ADAMANT,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -33316,7 +33316,7 @@ F_TRAINER_FEMALE |
 #line 13430
             .ability = ABILITY_CLEAR_BODY,
 #line 13431
-            .lvl = 48,
+            .lvl = 50,
 #line 13432
             .nature = NATURE_IMPISH,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
