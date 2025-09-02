@@ -330,7 +330,10 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_IN_GRASS] = MovementType_CopyPlayerInGrass,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS] = MovementType_CopyPlayerInGrass,
     [MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE_IN_GRASS] = MovementType_CopyPlayerInGrass,
-    [MOVEMENT_TYPE_BURIED] = MovementType_Buried,
+    [MOVEMENT_TYPE_BURIED_NORTH] = MovementType_Buried,
+    [MOVEMENT_TYPE_BURIED_SOUTH] = MovementType_Buried,
+    [MOVEMENT_TYPE_BURIED_EAST] = MovementType_Buried,
+    [MOVEMENT_TYPE_BURIED_WEST] = MovementType_Buried,
     [MOVEMENT_TYPE_WALK_IN_PLACE_DOWN] = MovementType_WalkInPlace,
     [MOVEMENT_TYPE_WALK_IN_PLACE_UP] = MovementType_WalkInPlace,
     [MOVEMENT_TYPE_WALK_IN_PLACE_LEFT] = MovementType_WalkInPlace,
@@ -459,7 +462,10 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_IN_GRASS] = DIR_SOUTH,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS] = DIR_WEST,
     [MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE_IN_GRASS] = DIR_EAST,
-    [MOVEMENT_TYPE_BURIED] = DIR_SOUTH,
+    [MOVEMENT_TYPE_BURIED_NORTH] = DIR_NORTH,
+    [MOVEMENT_TYPE_BURIED_SOUTH] = DIR_SOUTH,
+    [MOVEMENT_TYPE_BURIED_EAST] = DIR_EAST,
+    [MOVEMENT_TYPE_BURIED_WEST] = DIR_WEST,
     [MOVEMENT_TYPE_WALK_IN_PLACE_DOWN] = DIR_SOUTH,
     [MOVEMENT_TYPE_WALK_IN_PLACE_UP] = DIR_NORTH,
     [MOVEMENT_TYPE_WALK_IN_PLACE_LEFT] = DIR_WEST,
@@ -1467,6 +1473,7 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->mapNum = mapNum;
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
     objectEvent->previousMovementDirection = gInitialMovementTypeFacingDirections[template->movementType];
+    objectEvent->isBuried = 1u; //Custom
     SetObjectEventDirection(objectEvent, objectEvent->previousMovementDirection);
     if (sMovementTypeHasRange[objectEvent->movementType])
     {
@@ -8565,7 +8572,7 @@ bool8 MovementAction_EmoteHeart_Step0(struct ObjectEvent *objectEvent, struct Sp
 
 bool8 MovementAction_RevealTrainer_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (objectEvent->movementType == MOVEMENT_TYPE_BURIED)
+    if (objectEvent->movementType >= MOVEMENT_TYPE_BURIED_NORTH && objectEvent->movementType <= MOVEMENT_TYPE_BURIED_WEST)
     {
         SetBuriedTrainerMovement(objectEvent);
         return FALSE;

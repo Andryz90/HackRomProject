@@ -748,7 +748,7 @@ static bool8 WaitTrainerExclamationMark(u8 taskId, struct Task *task, struct Obj
         task->tFuncId++; // TRSEE_MOVE_TO_PLAYER
         if (trainerObj->movementType == MOVEMENT_TYPE_TREE_DISGUISE || trainerObj->movementType == MOVEMENT_TYPE_MOUNTAIN_DISGUISE)
             task->tFuncId = TRSEE_REVEAL_DISGUISE;
-        if (trainerObj->movementType == MOVEMENT_TYPE_BURIED)
+        if (trainerObj->movementType >= MOVEMENT_TYPE_BURIED_NORTH && trainerObj->movementType <= MOVEMENT_TYPE_BURIED_WEST)
             task->tFuncId = TRSEE_REVEAL_BURIED;
         return TRUE;
     }
@@ -880,6 +880,8 @@ static bool8 WaitRevealBuriedTrainer(u8 taskId, struct Task *task, struct Object
 {
     if (!FieldEffectActiveListContains(FLDEFF_ASH_PUFF))
         task->tFuncId = TRSEE_MOVE_TO_PLAYER;
+
+    trainerObj->isBuried = 0u; //Custom
 
     return FALSE;
 }

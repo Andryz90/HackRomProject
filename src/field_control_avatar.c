@@ -41,6 +41,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "constants/trainer_types.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -294,6 +295,15 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
     const u8 *script = GetInteractionScript(position, metatileBehavior, direction);
     if (script == NULL || Script_HasNoEffect(script))
         return FALSE;
+
+    //Custom: Buried type trainer are not interactable
+    u8 objectEventId = GetObjectEventIdByPosition(position->x, position->y, position->elevation);
+    if (objectEventId != OBJECT_EVENTS_COUNT)
+    {
+        struct ObjectEvent *objEvent = &gObjectEvents[objectEventId];
+        if (objEvent->active && objEvent->trainerType == TRAINER_TYPE_BURIED && objEvent->isBuried)
+            return FALSE;
+    }
 
     // Don't play interaction sound for certain scripts.
     if (script != LittlerootTown_BrendansHouse_2F_EventScript_PC

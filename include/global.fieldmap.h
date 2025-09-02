@@ -229,7 +229,8 @@ struct ObjectEvent
     /*0x21*/ u8 directionSequenceIndex;
     /*0x22*/ u8 playerCopyableMovement; // COPY_MOVE_*
     /*0x23*/ u8 spriteId;
-    /*size = 0x24*/
+    /*0x24*/ u8 isBuried:1;
+    /*size = 0x25*/
 };
 
 struct ObjectEventGraphicsInfo
