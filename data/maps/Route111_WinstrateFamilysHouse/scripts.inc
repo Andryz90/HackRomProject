@@ -13,16 +13,52 @@ Route111_WinstrateFamilysHouse_EventScript_Victoria::
 	lock
 	faceplayer
 	setvar VAR_0x8008, LOCALID_WINSTRATE_HOUSE_VICTORIA
-	goto_if_set FLAG_RECEIVED_MACHO_BRACE, Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace
+	goto_if_set FLAG_RECEIVED_CHOICE_ITEM, Route111_ChoiceItemGive_EventScript
 	msgbox Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace, MSGBOX_DEFAULT
-	giveitem ITEM_MACHO_BRACE
+	dynmultipush Choice_Scarf_Text, 0
+	dynmultipush Choice_Band_Text, 1
+	dynmultipush Choice_Specs_Text, 2
+	dynmultipush PKMN_Center_Cancel, 3
+	dynmultistack 0, 0, FALSE, 4, FALSE, 0, NULL
+	compare VAR_RESULT, MULTI_B_PRESSED
+	switch VAR_RESULT
+	case 0, Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceScarf
+	case 1, Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceBand
+	case 2, Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceSpecs
+	case 3, Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles
+	goto_if_eq Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles
+	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
+	release
+	end
+
+Route111_ChoiceItemGive_EventScript::
+	lock
+	msgbox Route111_WinstrateFamilyHouse_Text_ChoiceItemGiven, MSGBOX_DEFAULT
+	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
+	release
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceScarf::
+	giveitem ITEM_CHOICE_SCARF
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_MACHO_BRACE
+	setflag FLAG_RECEIVED_CHOICE_ITEM
+	msgbox Route111_WinstrateFamilyHouse_Text_ChoiceItemGiven, MSGBOX_DEFAULT
 	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
 	end
 
-Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace::
-	msgbox Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles, MSGBOX_DEFAULT
+Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceBand::
+	giveitem ITEM_CHOICE_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_CHOICE_ITEM
+	msgbox Route111_WinstrateFamilyHouse_Text_ChoiceItemGiven, MSGBOX_DEFAULT
+	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
+	end
+
+Route111_WinstrateFamilysHouse_EventScript_ReceivedChoiceSpecs::
+	giveitem ITEM_CHOICE_SPECS
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_CHOICE_ITEM
+	msgbox Route111_WinstrateFamilyHouse_Text_ChoiceItemGiven, MSGBOX_DEFAULT
 	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
 	end
 
@@ -65,12 +101,12 @@ Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou:
 	.string "challenge, I'll have you know. $"
 
 Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace:
-	.string "We use this MACHO BRACE to more\n"
+	.string "We use this choice items to be more\n"
 	.string "effectively strengthen our POKéMON\l"
-	.string "in training.\p"
+	.string "in battle.\p"
 	.string "Since you've beaten all of us here,\n"
 	.string "I don't know if you need it, but we\l"
-	.string "would like you to have our MACHO BRACE. $"
+	.string "would like you to have one?. $"
 
 Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles:
 	.string "When it comes to POKéMON battles,\n"
@@ -100,3 +136,12 @@ Route111_WinstrateFamilysHouse_Text_GrandsonStrongShort:
 	.string "Knowing my grandson, he could be the\n"
 	.string "CHAMPION already! $"
 
+Route111_WinstrateFamilyHouse_Text_ChoiceItemGiven::
+	.string "I hope this item help you as well. $"
+
+Choice_Scarf_Text::
+	.string "CHOICE SCARF $"
+Choice_Band_Text::
+	.string "CHOICE BAND $"
+Choice_Specs_Text::
+	.string "CHOICE SPECS $"

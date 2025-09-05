@@ -6772,13 +6772,32 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Taillow @ Oran Berry
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Swellow @ Flame Orb  
+Ability: Guts  
+Level: 1  
+Adamant Nature  
+- Protect  
+- Facade  
+- Brave Bird  
+- Quick Attack  
 
-Zigzagoon @ Oran Berry
-Level: 16
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
+Obstagoon @ Flame Orb  
+Ability: Guts  
+Level: 1  
+Jolly Nature  
+- Obstruct  
+- Facade  
+- Knock Off  
+- Fire Punch  
+
+Pinsir @ Coba Berry  
+Ability: Moxie  
+Level: 1  
+- Drain Punch  
+- Flying Press  
+- Bulk Up  
+- Earthquake  
+
 
 === TRAINER_MIGUEL_1 ===
 Name: MIGUEL
@@ -6911,9 +6930,34 @@ Music: Twins
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Roselia @ Oran Berry
-Level: 17
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+Arboliva @ Grassy Seed  
+Ability: Seed Sower  
+Level: 1  
+Calm Nature  
+IVs: 0 Atk  
+- Hyper Voice  
+- Leech Seed  
+- Giga Drain  
+- Strength Sap  
+
+Trevenant @ Sitrus Berry  
+Ability: Harvest  
+Level: 1  
+- Protect  
+- Substitute  
+- Drain Punch  
+- Horn Leech  
+
+Sceptile @ Choice Band  
+Ability: Technician  
+Level: 1  
+Adamant Nature  
+- Dual Chop  
+- Bullet Seed  
+- Trailblaze  
+- Brick Break  
+
+
 
 === TRAINER_VANESSA ===
 Name: VANESSA
@@ -7135,13 +7179,33 @@ Music: Intense
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Meditite
-Level: 18
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- High Jump Kick
-- Meditate
-- Confusion
-- Detect
+Medicham @ Choice Scarf  
+Ability: Pure Power  
+Level: 1  
+Adamant Nature  
+- High Jump Kick  
+- Zen Headbutt  
+- Ice Punch  
+- Thunder Punch  
+
+Hawlucha @ White Herb  
+Ability: Unburden  
+Level: 1  
+Adamant Nature  
+- Acrobatics  
+- Close Combat  
+- Swords Dance  
+- Steel Wing  
+
+Scizor @ Life Orb  
+Ability: Technician  
+Level: 1  
+Adamant Nature  
+- Bullet Punch  
+- U-turn  
+- Knock Off  
+- Swords Dance  
+
 
 === TRAINER_SHELBY_1 ===
 Name: SHELBY
@@ -13524,17 +13588,33 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Marill
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Lopunny @ Choice Band  
+Ability: Scrappy  
+Level: 1  
+- Return  
+- High Jump Kick  
+- Drain Punch  
+- Play Rough  
 
-Shroomish
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Azumarill @ Sitrus Berry  
+Ability: Huge Power  
+Level: 1  
+Adamant Nature  
+- Play Rough  
+- Liquidation  
+- Aqua Jet  
+- Ice Punch  
 
-Numel
-Level: 15
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Breloom @ Focus Band  
+Ability: Technician  
+Level: 1  
+Jolly Nature  
+- Mach Punch  
+- Rock Tomb  
+- Bullet Seed  
+- Spore  
+
+
 
 === TRAINER_HALEY_2 ===
 Name: HALEY

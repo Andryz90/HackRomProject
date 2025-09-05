@@ -11802,6 +11802,10 @@ typedef enum Trainer_DynamicLevel_t
     JOSEPH_R110             = 6u,  //Double battle R110
     GRUNT_JAGGED_PASS       = 7u,  //Single battle in front of team magma base
     GYM_LEADER_BUGSY        = 8u,  //Boss fight in Petalburg Woods
+    WINSTON_FAMILY_VICTOR   = 9u,  // Winstrate R111 (Mispelled) Family back to back
+    WINSTON_FAMILY_VICTORIA = 10u, // Winstrate R111 (Mispelled) Family back to back
+    WINSTON_FAMILY_VIVI     = 11u, // Winstrate R111 (Mispelled) Family back to back
+    WINSTON_FAMILY_VICKY    = 12u, // Winstrate R111 (Mispelled) Family back to back
 
 
     MAX_TRAINER_DYNAMIC_LEVEL
@@ -11810,15 +11814,19 @@ typedef enum Trainer_DynamicLevel_t
 
 static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][TRAINER_NAME_LENGTH + 1] = 
 {
-    [LUNG_NINJABOY_R113]    = _("LUNG"),
-    [LAWRENCE_CAMPER_R113]  = _("LAWRENCE"),
-    [WYATT_MANIAC_R113]     =  _("WYATT"),
-    [KAI_R114]              = _("KAI"),
-    [CHARLOTTE_R114]        = _("CHARLOTTE"),
-    [EDWIN_R110]            =_("EDWIN"),
-    [JOSEPH_R110]           =_("JOSEPH"),
-    [GRUNT_JAGGED_PASS]     =_("GUARDIAN GRUNT"),
-    [GYM_LEADER_BUGSY]      =_("BUGSY"),
+    [LUNG_NINJABOY_R113]        = _("LUNG"),
+    [LAWRENCE_CAMPER_R113]      = _("LAWRENCE"),
+    [WYATT_MANIAC_R113]         =  _("WYATT"),
+    [KAI_R114]                  = _("KAI"),
+    [CHARLOTTE_R114]            = _("CHARLOTTE"),
+    [EDWIN_R110]                =_("EDWIN"),
+    [JOSEPH_R110]               =_("JOSEPH"),
+    [GRUNT_JAGGED_PASS]         =_("GUARDIAN GRUNT"),
+    [GYM_LEADER_BUGSY]          =_("BUGSY"),
+    [WINSTON_FAMILY_VICTOR]     =_("VICTOR"),
+    [WINSTON_FAMILY_VICTORIA]   =_("VICTORIA"),
+    [WINSTON_FAMILY_VIVI]       =_("VIVI"),
+    [WINSTON_FAMILY_VICKY]      =_("VICKY"),
 
 };
 
