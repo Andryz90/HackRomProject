@@ -22,9 +22,6 @@ export interface SpeciesData {
   readonly forceTeraType?: I.TypeName;
 }
 
-
-
-
 const RBY_PATCH: {[name: string]: SpeciesData} = {
   'Abra': {types: ['Psychic'], bs: {hp: 25, at: 20, df: 15, sa: 105, sd: 55, sp: 90}, weightkg: 19.5},
   'Aerodactyl': {types: ['Rock', 'Flying'], bs: {hp: 80, at: 105, df: 65, sa: 60, sd: 0, sp: 130}, weightkg: 59.0},
