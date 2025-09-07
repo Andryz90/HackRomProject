@@ -14,8 +14,8 @@ import {Field} from '../field';
 import {Move} from '../move';
 import {Pokemon} from '../pokemon';
 import {Result} from '../result';
-import {
-  chainMods,
+
+import {chainMods,
   checkAirLock,
   checkDauntlessShield,
   checkDownload,
@@ -44,7 +44,17 @@ import {
   OF16, OF32,
   pokeRound,
   isQPActive,
+  checkWindGlider
 } from './util';
+  //checkDistorsionData
+
+  // Custom helper: moves considered 'kick' for Iron Kick ability.
+function isKickMove(move: Move) {
+  return (move.named('Jump Kick') || move.named('High Jump Kick') || move.named('Low Kick')
+      || move.named('Double Kick') || move.named('Triple Kick') || move.named('Blaze Kick')
+      || move.named('Mega Kick') || move.named('Rolling Kick') || move.named('Thunderous Kick')
+      || move.named('Axe Kick') || move.named('Triple Axel'));
+}
 
 export function calculateSMSSSV(
   gen: Generation,
@@ -53,6 +63,13 @@ export function calculateSMSSSV(
   move: Move,
   field: Field
 ) {
+  
+  // Custom: abilities that set field state upon entry
+  checkWindGlider(attacker, field.attackerSide);
+  checkWindGlider(defender, field.defenderSide);
+  //checkDistorsionData(attacker, field);
+  //checkDistorsionData(defender, field);
+
   // #region Initial
 
   checkAirLock(attacker, field);
@@ -102,6 +119,12 @@ export function calculateSMSSSV(
     return result;
   }
 
+  // Custom: Formation turns single-hit moves into 3 hits by default
+  if (attacker.hasAbility('Formation') && move.category !== 'Status' && !move.hits) {
+    (move as any).hits = 3;
+    desc.attackerAbility = attacker.ability;
+  }
+
   const breaksProtect = move.breaksProtect || move.isZ || attacker.isDynamaxed ||
   (attacker.hasAbility('Unseen Fist') && move.flags.contact);
 
@@ -134,6 +157,7 @@ export function calculateSMSSSV(
       defender.ability = '' as AbilityName;
       desc.attackerAbility = attacker.ability;
     }
+
     if (moveIgnoresAbility) {
       defender.ability = '' as AbilityName;
     }
@@ -210,6 +234,7 @@ export function calculateSMSSSV(
   let isPixilate = false;
   let isRefrigerate = false;
   let isGalvanize = false;
+  let isIgnite = false;
   let isLiquidVoice = false;
   let isNormalize = false;
   const noTypeChange = move.named(
@@ -238,11 +263,12 @@ export function calculateSMSSSV(
     } else if ((isNormalize = attacker.hasAbility('Normalize'))) { // Boosts any type
       type = 'Normal';
     }
-    if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize) {
+    else if ((isIgnite = attacker.hasAbility('Ignite') && normal)) {
+      type = 'Fire';
+    }
+    if (isGalvanize || isPixilate || isRefrigerate || isAerilate || isNormalize || isIgnite || isLiquidVoice) {
       desc.attackerAbility = attacker.ability;
       hasAteAbilityTypeChange = true;
-    } else if (isLiquidVoice) {
-      desc.attackerAbility = attacker.ability;
     }
   }
 
@@ -372,7 +398,8 @@ export function calculateSMSSSV(
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
       (move.priority > 0 && defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail')) ||
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
-      (move.flags.wind && defender.hasAbility('Wind Rider'))
+      (move.flags.wind && defender.hasAbility('Wind Rider')) || 
+      (move.flags.contact && !move.hasType('Ghost', 'Dark') && defender.hasAbility('Spirit Body') && !attacker.hasAbility('Scrappy'))
   ) {
     desc.defenderAbility = defender.ability;
     return result;
@@ -444,7 +471,8 @@ export function calculateSMSSSV(
     desc.hits = move.hits;
   }
 
-  const turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
+  // const trickRoomActive = field.isTrickRoom || attacker.hasAbility('Distorsion Data') || defender.hasAbility('Distorsion Data');
+  // const turnOrder = trickRoomActive ? (attacker.stats.spe < defender.stats.spe ? 'first' : 'last') : (attacker.stats.spe > defender.stats.spe ? 'first' : 'last');
 
   // #endregion
   // #region Base Power
@@ -600,7 +628,7 @@ export function calculateSMSSSV(
       getFinalDamage(baseDamage, i, typeEffectiveness, applyBurn, stabMod, finalMod, protect);
   }
 
-  if (move.dropsStats && move.timesUsed! > 1) {
+if (move.dropsStats && move.timesUsed! > 1) {
     const simpleMultiplier = attacker.hasAbility('Simple') ? 2 : 1;
 
     desc.moveTurns = `over ${move.timesUsed} turns`;
@@ -868,6 +896,7 @@ export function calculateBasePowerSMSSSV(
     hasAteAbilityTypeChange,
     turnOrder
   );
+  
   basePower = OF16(Math.max(1, pokeRound((basePower * chainMods(bpMods, 41, 2097152)) / 4096)));
   if (
     attacker.teraType && move.type === attacker.teraType &&
@@ -1016,7 +1045,7 @@ export function calculateBPModsSMSSSV(
     (attacker.hasAbility('Mega Launcher') && move.flags.pulse) ||
     (attacker.hasAbility('Strong Jaw') && move.flags.bite) ||
     (attacker.hasAbility('Steely Spirit') && move.hasType('Steel')) ||
-    (attacker.hasAbility('Sharpness') && move.flags.slicing)
+    (attacker.hasAbility('Sharpness') && move.flags.slicing) || (attacker.hasAbility('Mind Power') && move.hasType('Psychic'))
   ) {
     bpMods.push(6144);
     desc.attackerAbility = attacker.ability;
@@ -1052,7 +1081,7 @@ export function calculateBPModsSMSSSV(
     (attacker.hasAbility('Analytic') &&
       (turnOrder !== 'first' || field.defenderSide.isSwitching === 'out')) ||
     (attacker.hasAbility('Tough Claws') && move.flags.contact) ||
-    (attacker.hasAbility('Punk Rock') && move.flags.sound)
+    (attacker.hasAbility('Punk Rock') && move.flags.sound) || (attacker.hasAbility('Wind Glider') && move.flags.wind)
   ) {
     bpMods.push(5325);
     desc.attackerAbility = attacker.ability;
@@ -1086,7 +1115,7 @@ export function calculateBPModsSMSSSV(
   }
 
   if ((attacker.hasAbility('Reckless') && (move.recoil || move.hasCrashDamage)) ||
-      (attacker.hasAbility('Iron Fist') && move.flags.punch)
+      (attacker.hasAbility('Iron Fist') && move.flags.punch) || (attacker.hasAbility('Iron Kick') && isKickMove(move))
   ) {
     bpMods.push(4915);
     desc.attackerAbility = attacker.ability;
@@ -1112,6 +1141,24 @@ export function calculateBPModsSMSSSV(
     desc.alliesFainted = attacker.alliesFainted;
   }
 
+// Formation: per-hit scaling 100/70/50/40% (apply as BP modifier BEFORE chainMods)
+if (attacker.hasAbility('Formation') && move.bp > 0 && !move.isMultiHit) {
+  // Se la UI non ha passato hits, usiamo un default sensato, altrimenti rispettiamo la UI
+  const n = (move.hits != null && move.hits > 1)
+    ? move.hits
+    : (attacker.hasAbility('Skill Link') ? 6 : 3);
+
+  if (n > 1) {
+    let W = 1.0;                 // 1st = 100%
+    if (n >= 2) W += 0.7;        // 2nd = 70%
+    if (n >= 3) W += 0.5;        // 3rd = 50%
+    if (n >= 4) W += 0.4 * (n - 3); // 4th+ = 40% each
+    const perHit = W / n;        // factor per hit so total matches weights
+    const FP = Math.max(1, Math.round(0x1000 * perHit)); // 0x1000 = 4096
+    bpMods.push(FP);
+    desc.attackerAbility = attacker.ability;
+  }
+}
   // Items
 
   if (attacker.hasItem(`${move.type} Gem`)) {
@@ -1461,6 +1508,12 @@ export function calculateDfModsSMSSSV(
     }
   }
 
+  // Custom Pelts: Misty Sp.Def side boosts
+  if (defender.hasAbility('Misty Pelt') && field.hasTerrain('Misty') && move.category === 'Special') {
+    dfMods.push(6144); // 1.5x
+    desc.defenderAbility = defender.ability;
+  }
+
   if ((defender.hasItem('Eviolite') &&
       (defender.name === 'Dipplin' || gen.species.get(toID(defender.name))?.nfe)) ||
       (!hitsPhysical && defender.hasItem('Assault Vest') )) {
@@ -1575,6 +1628,16 @@ export function calculateFinalModsSMSSSV(
       finalMods.push(8192);
     }
     desc.attackerItem = attacker.item;
+  }
+
+    // Custom Pelts: Electric/Psychic Pelt attack-side boosts
+  if (attacker.hasAbility('Electric Pelt') && field.hasTerrain('Electric') && move.category === 'Physical') {
+    finalMods.push(6144); // 1.5x
+    desc.attackerAbility = attacker.ability;
+  }
+  if (attacker.hasAbility('Psychic Pelt') && field.hasTerrain('Psychic') && move.category === 'Special') {
+    finalMods.push(6144); // 1.5x
+    desc.attackerAbility = attacker.ability;
   }
 
   if (move.hasType(getBerryResistType(defender.item)) &&

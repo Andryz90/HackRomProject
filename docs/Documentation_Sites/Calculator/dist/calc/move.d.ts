@@ -35,6 +35,7 @@ export declare class Move implements State.Move {
     breaksProtect: boolean;
     isZ: boolean;
     isMax: boolean;
+    isMultiHit?: boolean;
     constructor(gen: I.Generation, name: string, options?: Partial<State.Move> & {
         ability?: I.AbilityName;
         item?: I.ItemName;

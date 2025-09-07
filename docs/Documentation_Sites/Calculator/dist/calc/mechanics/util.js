@@ -128,11 +128,18 @@ function computeFinalStats(gen, attacker, defender, field) {
     }
 }
 exports.computeFinalStats = computeFinalStats;
+function checkWindGlider(pokemon, side) {
+    if (pokemon.hasAbility('Wind Glider')) {
+        side.isTailwind = true;
+    }
+}
+exports.checkWindGlider = checkWindGlider;
 function getFinalSpeed(gen, pokemon, field, side) {
     var weather = field.weather || '';
     var terrain = field.terrain;
     var speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen);
     var speedMods = [];
+    checkWindGlider(pokemon, side);
     if (side.isTailwind)
         speedMods.push(8192);
     if ((pokemon.hasAbility('Unburden') && pokemon.abilityOn) ||

@@ -369,6 +369,17 @@ var SV = SS.concat([
     'Wind Power',
     'Wind Rider',
     'Zero to Hero',
+    'Wind Glider',
+    'Spirit Body',
+    'Mind Power',
+    'Lifedrainer',
+    'Psychic Pelt',
+    'Electric Pelt',
+    'Misty Pelt',
+    'Iron Kick',
+    'Formation',
+    'Ignite',
+    'Distorsion Data',
 ]);
 exports.ABILITIES = [[], RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
 var Abilities = (function () {

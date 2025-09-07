@@ -41,6 +41,7 @@ export class Move implements State.Move {
   breaksProtect: boolean;
   isZ: boolean;
   isMax: boolean;
+  isMultiHit?: boolean;
 
   constructor(
     gen: I.Generation,
@@ -91,7 +92,17 @@ export class Move implements State.Move {
         category: data.category,
       });
     } else {
-      if (data.multihit) {
+    // Custom: Formation — make all non-Status, non-already-multihit moves multi-hit (2..6) by default.
+    if (options.ability === 'Formation' && data.category !== 'Status' && !data.multihit) {
+      this.isMultiHit = false;
+        if (typeof data.multihit === 'number') {
+          this.hits = data.multihit;
+        } else if (options.hits) {
+          this.hits = options.hits;
+        }
+    }
+    else if (data.multihit) {
+        this.isMultiHit = true;
         if (typeof data.multihit === 'number') {
           this.hits = data.multihit;
         } else if (options.hits) {

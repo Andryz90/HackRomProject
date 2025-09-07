@@ -204,7 +204,7 @@ class Move implements I.Move {
     if (move.self?.boosts && move.self.boosts[stat] && move.self.boosts[stat]! < 0) {
       this.self = move.self;
     }
-
+    
     if (move.multihit) this.multihit = move.multihit;
     if (move.drain) this.drain = move.drain;
     if (move.willCrit) this.willCrit = move.willCrit;
@@ -350,6 +350,7 @@ class Specie implements I.Specie {
     }
 
     if (dex.gen > 2) this.abilities = {0: species.abilities[0] as I.AbilityName};
+
   }
 }
 

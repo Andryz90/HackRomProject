@@ -89,11 +89,22 @@ export function computeFinalStats(
   }
 }
 
+export function checkWindGlider(pokemon: Pokemon, side: Side) 
+{
+  // Custom: Wind Glider sets Tailwind on entry/mega.
+  if (pokemon.hasAbility('Wind Glider')) 
+  {
+    side.isTailwind = true;
+  }
+}
+
 export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, side: Side) {
   const weather = field.weather || '';
   const terrain = field.terrain;
   let speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen);
   const speedMods = [];
+
+  checkWindGlider(pokemon, side);
 
   if (side.isTailwind) speedMods.push(8192);
   // Pledge swamp would get applied here when implemented
@@ -167,7 +178,15 @@ export function checkTeraformZero(pokemon: Pokemon, field: Field) {
     field.weather = undefined;
     field.terrain = undefined;
   }
+
+// export function checkDistorsionData(pokemon: Pokemon, field: Field) {
+//   // Custom: Distorsion Data sets Trick Room on entry.
+//   if (pokemon.hasAbility('Distorsion Data') && pokemon.abilityOn) {
+//     field.isTrickRoom = true;
+//   }
+// }
 }
+
 
 export function checkForecast(pokemon: Pokemon, weather?: Weather) {
   if (pokemon.hasAbility('Forecast') && pokemon.named('Castform')) {

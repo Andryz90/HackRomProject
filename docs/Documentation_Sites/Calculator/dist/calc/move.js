@@ -39,7 +39,17 @@ var Move = (function () {
             });
         }
         else {
-            if (data.multihit) {
+            if (options.ability === 'Formation' && data.category !== 'Status' && !data.multihit) {
+                this.isMultiHit = false;
+                if (typeof data.multihit === 'number') {
+                    this.hits = data.multihit;
+                }
+                else if (options.hits) {
+                    this.hits = options.hits;
+                }
+            }
+            else if (data.multihit) {
+                this.isMultiHit = true;
                 if (typeof data.multihit === 'number') {
                     this.hits = data.multihit;
                 }
