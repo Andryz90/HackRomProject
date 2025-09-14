@@ -17,8 +17,7 @@
     <a class="toplink" href="https://andryz90.github.io/HackRomProject/Documentation_Sites/Calculator/dist/index.html" target="_blank" rel="noopener">Calculator</a>
     <a class="toplink" href="trainer_sheet.html" aria-current="page">Trainer Sheet</a>
     <a class="toplink" href="#" title="Dex coming soon">Dex (soon)</a>
-    <span class="fx1"></span>
-   <button type="button" class="toplink" onclick="forceUpdate()" title="Forza aggiornamento (bypass cache)">Aggiorna</button></nav>
+    <span class="fx1"></span></nav>
   <nav class="splitbar" id="splitbar">
     <button type="button" data-target="Aqua Grunt">Aqua Grunt</button> <button type="button" data-target="Roxanne">Roxanne</button> <button type="button" data-target="GruntMulti">GruntMulti</button> <button type="button" data-target="Brawly">Brawly</button> <button type="button" data-target="Rival 110">Rival 110</button> <button type="button" data-target="Wattson">Wattson</button> <button type="button" data-target="Wally Mauville">Wally Mauville</button> <button type="button" data-target="Meteor Falls">Meteor Falls</button> <button type="button" data-target="Flannery">Flannery</button> <button type="button" data-target="Magma Desert">Magma Desert</button> <button type="button" data-target="Optional">Optional</button>
   </nav>
@@ -114,14 +113,7 @@
         }
       } catch (e) { /* ignore */ }
     }
-    setInterval(checkUpdate, CHECK_EVERY_MS);
-    // Manual refresh helper
-    window.forceUpdate = function() {
-      var url = new URL(location.href);
-      url.searchParams.set('v', Date.now());
-      location.replace(url.toString());
-    };
-  })();
+    setInterval(checkUpdate, CHECK_EVERY_MS);})();
   </script>
 
 </body>

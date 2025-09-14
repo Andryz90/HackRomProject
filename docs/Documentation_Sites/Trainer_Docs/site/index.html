@@ -43260,14 +43260,7 @@
         }
       } catch (e) { /* ignore */ }
     }
-    setInterval(checkUpdate, CHECK_EVERY_MS);
-    // Manual refresh helper
-    window.forceUpdate = function() {
-      var url = new URL(location.href);
-      url.searchParams.set('v', Date.now());
-      location.replace(url.toString());
-    };
-  })();
+    setInterval(checkUpdate, CHECK_EVERY_MS);})();
   </script>
 
 </body>
