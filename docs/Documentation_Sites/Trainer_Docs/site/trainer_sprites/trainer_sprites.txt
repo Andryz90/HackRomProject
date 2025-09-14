@@ -1,0 +1,6 @@
+# regex => filename.png
+^Developer\s+Andry$     => Andry_front_pic.png
+^Developer\s+Splitface$ => Splitface_front.png
+
+# (opzionale) fallback per qualunque "Developer <Nome>"
+# ^Developer\b.*         => default_dev.png
