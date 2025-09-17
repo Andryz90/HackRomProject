@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Path-agnostic createsitefromindx.py
-
-- Allineamento delle righe copiato da index.html generato da main.py:
-  immagini, specie, livello, [items?], abilità, [IVs?], [natura?], mosse.
-- Sprite detection con fallback multipli per:
-  Team Aqua (Grunt M/F), Team Magma (Grunt, Maxie, Tabitha), Bug Maniac, Kindler,
-  Cooltrainer (M/F), Sr and Jr, Pkmn Breeder, Rival Wally.
-- Supporta custom locali: "Developer Andry" e "Developer Splitface" da site/trainer_sprites/.
-- Eseguibile da root (autodetect di site/) o con CLI --site/--in/--out/--splits.
+createsitefromindx.py (clean, path-agnostic)
+- Parse site/index.html like main.py does (row-wise)
+- Build site/trainer_sheet.html using site/splits.txt
+- Robust trainer sprite detection (Maxie, Cooltrainer, Parasol Lady, Sr & Jr, etc.)
 """
 
 from __future__ import annotations
@@ -130,8 +125,25 @@ def is_nature_row(tds) -> bool:
 # ===== Sprite mapping =====
 TRAINER_SPRITES_BASE = "https://play.pokemonshowdown.com/sprites/trainers"
 TRAINER_SPRITES = [
-    # Team Aqua
+    # Specific teams/characters first
     (re.compile(r"\bteam\s+aqua\s+grunt\b", re.I),   "aquagrunt"),
+    (re.compile(r"\bteam\s+magma\s+grunt\b", re.I),  "magmagrunt"),
+    (re.compile(r"^\s*(?:Team\s+)?Magma\s+(?:Leader|Boss)\s+Maxie\b", re.I), "maxie"),
+    (re.compile(r"^\s*(?:Team\s+)?Magma\s+Admin\s+Tabitha\b", re.I), "tabitha"),
+
+    # Parasol Lady
+    (re.compile(r"^\s*Parasol\s*Lady\b", re.I), "parasollady"),
+
+    # Cooltrainer / Ace Trainer (space or no-space; with/without M/F)
+    (re.compile(r"^\s*Cool\s*Trainer\s*M\b", re.I),  "cooltrainerm"),
+    (re.compile(r"^\s*Cool\s*Trainer\s*F\b", re.I),  "cooltrainerf"),
+    (re.compile(r"^\s*Cooltrainer\s*M\b", re.I),     "cooltrainerm"),
+    (re.compile(r"^\s*Cooltrainer\s*F\b", re.I),     "cooltrainerf"),
+    (re.compile(r"^\s*Cool\s*Trainer\b", re.I),      "cooltrainerm"),
+    (re.compile(r"^\s*Cooltrainer\b", re.I),         "cooltrainerm"),
+    (re.compile(r"^\s*Ace\s*Trainer\s*M\b", re.I),   "cooltrainerm"),
+    (re.compile(r"^\s*Ace\s*Trainer\s*F\b", re.I),   "cooltrainerf"),
+    (re.compile(r"^\s*Ace\s*Trainer\b", re.I),       "cooltrainerm"),
 
     # Common classes
     (re.compile(r"^\s*Youngster\b", re.I),           "youngster"),
@@ -161,50 +173,66 @@ TRAINER_SPRITES = [
     (re.compile(r"^\s*Bird\s*Keeper\b", re.I),       "birdkeeper"),
     (re.compile(r"^\s*Bug\s*Maniac\b", re.I),        "bugmaniac"),
     (re.compile(r"^\s*Pok[eé]?maniac\b", re.I),      "pokemaniac"),
-    (re.compile(r"^\s*Cool\s*Trainer\s*M\b", re.I),  "cooltrainerm"),
-    (re.compile(r"^\s*Cool\s*Trainer\s*F\b", re.I),  "cooltrainerf"),
-    (re.compile(r"^\s*Ace\s*Trainer\s*M\b", re.I),   "cooltrainerm"),
-    (re.compile(r"^\s*Ace\s*Trainer\s*F\b", re.I),   "cooltrainerf"),
-    (re.compile(r"^\s*Triathlete\b", re.I),          "triathlete"),
     (re.compile(r"^\s*Guitarist\b", re.I),           "guitarist"),
     (re.compile(r"^\s*Kindler\b", re.I),             "kindler"),
     (re.compile(r"^\s*Scientist\b", re.I),           "scientist"),
     (re.compile(r"^\s*Pok[eé]?fan\b", re.I),         "pokefan"),
     (re.compile(r"^\s*School\s*Kid\b", re.I),        "schoolkid"),
+    (re.compile(r"^\s*Triathlete\b", re.I),          "triathlete"),
+    # Sr. and Jr.
     (re.compile(r"^\s*Sr\s*(?:\.|and)?\s*&?\s*Jr", re.I), "srandjr"),
+    # Breeder
     (re.compile(r"^\s*(Pkmn\s*Breeder|Pok[eé]?mon\s*Breeder)\b", re.I), "pkmnbreeder"),
-    # Team Magma e leader
-    (re.compile(r"\bteam\s+magma\s+grunt\b", re.I),  "magmagrunt"),
-    (re.compile(r"^\s*(?:Team\s+)?Magma\s+Leader\s+MAXIE\b", re.I), "maxie"),
-    (re.compile(r"^\s*(?:Team\s+)?Magma\s+Admin\s+TABITHA\b", re.I), "tabitha"),
-    # Leader generico (fallback sul nome catturato)
+    # Leaders (fallback by captured name)
     (re.compile(r"^\s*Leader\s+([A-Za-z]+)", re.I),  None),
-    # Rivali
+    # Rivals / Partners
     (re.compile(r"^\s*Rival\s+WALLY\b", re.I),       "wally"),
     (re.compile(r"^\s*Rival\s+MAY\b", re.I),         "may"),
     (re.compile(r"^\s*Rival\s+BRENDAN\b", re.I),     "brendan"),
-    # Partner
     (re.compile(r"^\s*Partner\b.*\bWALLY\b", re.I),  "wally"),
     (re.compile(r"^\s*Partner\b.*\bSTEVEN\b", re.I), "steven"),
     (re.compile(r"^\s*Partner\b", re.I),             "tagteam"),
 ]
 
 def read_custom_sprites_map(sprites_map: Path):
+    """Parse trainer_sprites.txt.
+
+    Syntax per line (ignoring blank lines and comments starting with '#'):
+
+        <regex> => <candidate>[ | <candidate> ...]
+
+    Each <candidate> can be:
+      - a local filename relative to the sprites folder (png/jpg/gif). Case-insensitive.
+      - a full URL (http/https).
+      - the special token 'showdown:<name>' which expands to
+            f"{TRAINER_SPRITES_BASE}/{name}.png" and a couple of common variants
+            (e.g., '-rse', '-oras' for some well-known characters).
+
+    Examples:
+        ^Developer\s+Andry$ => Andry_front_pic.png
+        ^\s*Parasol\s*Lady\b => parasol_custom.png | showdown:parasollady
+        ^\s*(?:Team\s+)?Magma\s+(?:Leader|Boss)\s+Maxie\b => showdown:maxie | maxie.png
+    """
     rules = []
     if not sprites_map.exists():
         return rules
-    for raw in sprites_map.read_text(encoding="utf-8").splitlines():
+
+    for ln_no, raw in enumerate(sprites_map.read_text(encoding="utf-8").splitlines(), 1):
         line = raw.strip()
-        if not line or line.startswith("#"): continue
-        if "=>" not in line:
-            print(f"[warn] trainer_sprites.txt: invalid line (missing =>): {line}", file=sys.stderr)
+        if not line or line.startswith('#'):
             continue
-        pat, relname = line.split("=>", 1)
+        if '=>' not in line:
+            print(f"[warn] trainer_sprites.txt:{ln_no}: missing '=>': {line}", file=sys.stderr)
+            continue
+        pat, rhs = line.split('=>', 1)
         try:
             rx = re.compile(pat.strip(), re.I)
         except re.error as e:
-            print(f"[warn] invalid regex: {pat} ({e})", file=sys.stderr); continue
-        rules.append((rx, relname.strip()))
+            print(f"[warn] trainer_sprites.txt:{ln_no}: invalid regex: {pat} ({e})", file=sys.stderr)
+            continue
+        # Split candidates by | and commas, keep order
+        cand_tokens = [t.strip() for t in re.split(r"[|,]", rhs) if t.strip()]
+        rules.append((rx, cand_tokens))
     return rules
 
 def _find_custom_sprite_ci(sprites_dir: Path, *names: str) -> Path|None:
@@ -217,9 +245,48 @@ def _find_custom_sprite_ci(sprites_dir: Path, *names: str) -> Path|None:
                     return f
     return None
 
+
+def _expand_candidate_token(token: str, sprites_dir: Path, out_parent: Path) -> list[str]:
+    """Expand one token from trainer_sprites.txt into one or more URL candidates."""
+    t = token.strip()
+    out = []
+
+    # Full URL
+    if re.match(r'^https?://', t):
+        out.append(t)
+        return out
+
+    # 'showdown:<name>'
+    m = re.match(r'^(?:showdown|ps|trainer):\s*([\w\-]+)$', t, re.I)
+    if m:
+        name = m.group(1)
+        # add a few common variants: base, -rse, -oras (for Hoenn bosses), gendered M/F variants
+        base = f"{TRAINER_SPRITES_BASE}/{name}.png"
+        out.append(base)
+        # common alternates
+        for suf in ("-rse", "-oras", "-gen3", "-m", "-f"):
+            out.append(f"{TRAINER_SPRITES_BASE}/{name}{suf}.png")
+        return out
+
+    # Local file in sprites_dir (case-insensitive)
+    # Fill extension if omitted
+    if not os.path.splitext(t)[1]:
+        t = t + ".png"
+    p = _find_custom_sprite_ci(sprites_dir, t)
+    if p:
+        out.append(_rel_to_output(p, out_parent))
+
+    # Also try showdown fallbacks using the (extensionless) basename
+    base_name = os.path.splitext(os.path.basename(t))[0]
+    out.append(f"{TRAINER_SPRITES_BASE}/{base_name}.png")
+    for suf in ("-rse", "-oras", "-gen3", "-m", "-f"):
+        out.append(f"{TRAINER_SPRITES_BASE}/{base_name}{suf}.png")
+    return out
+
 def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, out_parent: Path) -> list[str]:
     """Return a candidate list of sprite urls to try in order."""
     txt = caption_text or ""
+    low = canonicalize(txt)
 
     # Custom "Developer ..."
     if re.search(r"^\s*Developer\s+Andry\b", txt, re.I):
@@ -229,20 +296,34 @@ def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, ou
         p = _find_custom_sprite_ci(sprites_dir, "splitface.png","splitface_front.png","Splitface_front.png")
         if p: return [_rel_to_output(p, out_parent)]
 
-    # Regole utente
-    for rx, relname in custom_rules:
+    
+    # User overrides from trainer_sprites.txt
+    for rx, tokens in custom_rules:
         if rx.search(txt):
-            p = sprites_dir / relname
-            if p.exists():
-                return [_rel_to_output(p, out_parent)]
+            candidates = []
+            for tok in tokens:
+                candidates.extend(_expand_candidate_token(tok, sprites_dir, out_parent))
+            # Deduplicate preserving order
+            dedup = []
+            seen = set()
+            for u in candidates:
+                if u not in seen:
+                    dedup.append(u); seen.add(u)
+            if dedup:
+                return dedup
 
-    # File locale (slug del caption)
+
     base = re.sub(r"\s*\[.*?\]\s*$", "", txt).strip()
     for key in (slugify(base), slugify(txt)):
         p = sprites_dir / f"{key}.png"
         if p.exists(): return [_rel_to_output(p, out_parent)]
 
-    # Mapping predefinito con catene di candidati
+    # Special direct-name catches
+    if "maxie" in low:
+        return [f"{TRAINER_SPRITES_BASE}/maxie.png",
+                f"{TRAINER_SPRITES_BASE}/maxie-gen3.png",
+                f"{TRAINER_SPRITES_BASE}/maxie-oras.png"]
+
     def both(main: str):
         return [f"{TRAINER_SPRITES_BASE}/{main}.png",
                 f"{TRAINER_SPRITES_BASE}/{main}-rse.png"]
@@ -252,10 +333,10 @@ def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, ou
         if not m: continue
 
         if key is None:
-            # Leader <Name>
             name = (m.group(1) or "").lower()
             return both(name)
 
+        # Rich fallbacks per class
         if key == "triathlete":
             return [
                 f"{TRAINER_SPRITES_BASE}/triathlete.png",
@@ -265,27 +346,38 @@ def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, ou
                 f"{TRAINER_SPRITES_BASE}/cyclist.png",
                 f"{TRAINER_SPRITES_BASE}/biker.png",
             ]
-        if key == "bugmaniac":
-            return both("bugmaniac") + [f"{TRAINER_SPRITES_BASE}/bugcatcher.png"]
-        if key == "kindler":
+        if key == "cooltrainerm":
             return [
-                f"{TRAINER_SPRITES_BASE}/kindler.png",
-                f"{TRAINER_SPRITES_BASE}/kindler-rse.png",
-                f"{TRAINER_SPRITES_BASE}/firebreather.png",
-            ]
-        if key in ("cooltrainerm","cooltrainerf"):
-            basek = "cooltrainerm" if key.endswith("m") else "cooltrainerf"
-            return [
-                f"{TRAINER_SPRITES_BASE}/{basek}.png",
-                f"{TRAINER_SPRITES_BASE}/{basek}-rse.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerm.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerm-rse.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerf.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerf-rse.png",
                 f"{TRAINER_SPRITES_BASE}/acetrainer.png",
+                f"{TRAINER_SPRITES_BASE}/acetrainer-m.png",
+                f"{TRAINER_SPRITES_BASE}/acetrainer-f.png",
+            ]
+        if key == "cooltrainerf":
+            return [
+                f"{TRAINER_SPRITES_BASE}/cooltrainerf.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerf-rse.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerm.png",
+                f"{TRAINER_SPRITES_BASE}/cooltrainerm-rse.png",
+                f"{TRAINER_SPRITES_BASE}/acetrainer.png",
+                f"{TRAINER_SPRITES_BASE}/acetrainer-f.png",
+                f"{TRAINER_SPRITES_BASE}/acetrainer-m.png",
+            ]
+        if key == "parasollady":
+            return [
+                f"{TRAINER_SPRITES_BASE}/parasollady.png",
+                f"{TRAINER_SPRITES_BASE}/parasollady-rse.png",
             ]
         if key == "srandjr":
             return [
                 f"{TRAINER_SPRITES_BASE}/srandjr.png",
                 f"{TRAINER_SPRITES_BASE}/srandjr-rse.png",
+                f"{TRAINER_SPRITES_BASE}/srandjr-gen3.png",
+                f"{TRAINER_SPRITES_BASE}/twins.png",
                 f"{TRAINER_SPRITES_BASE}/sisterandbro.png",
-                f"{TRAINER_SPRITES_BASE}/tuber.png",
             ]
         if key == "pkmnbreeder":
             return [
@@ -300,16 +392,7 @@ def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, ou
                 f"{TRAINER_SPRITES_BASE}/magma-grunt.png",
             ]
         if key == "aquagrunt":
-            # prova M/F entrambe; se nel titolo c'è F/female/♀ tenta femmina prima
-            fem_hint = bool(re.search(r"(female|\bf\b|♀)", txt, re.I))
-            if fem_hint:
-                return [
-                    f"{TRAINER_SPRITES_BASE}/aquagruntf-rse.png",
-                    f"{TRAINER_SPRITES_BASE}/aquagruntf.png",
-                    f"{TRAINER_SPRITES_BASE}/aquagrunt-rse.png",
-                    f"{TRAINER_SPRITES_BASE}/aquagrunt.png",
-                    f"{TRAINER_SPRITES_BASE}/aqua-grunt.png",
-                ]
+            # try both genders
             return [
                 f"{TRAINER_SPRITES_BASE}/aquagrunt-rse.png",
                 f"{TRAINER_SPRITES_BASE}/aquagrunt.png",
@@ -317,20 +400,20 @@ def detect_trainer_sprite(caption_text: str, custom_rules, sprites_dir: Path, ou
                 f"{TRAINER_SPRITES_BASE}/aquagruntf.png",
                 f"{TRAINER_SPRITES_BASE}/aqua-grunt.png",
             ]
-        if key == "maxie":
-            return both("maxie") + [f"{TRAINER_SPRITES_BASE}/maxie-oras.png"]
-        if key == "tabitha":
-            return both("tabitha")
-        if key == "tuber":
-            return [f"{TRAINER_SPRITES_BASE}/tuber.png", f"{TRAINER_SPRITES_BASE}/tuberf.png"]
+        if key == "kindler":
+            return [
+                f"{TRAINER_SPRITES_BASE}/kindler.png",
+                f"{TRAINER_SPRITES_BASE}/kindler-rse.png",
+                f"{TRAINER_SPRITES_BASE}/firebreather.png",
+            ]
         if key == "fisherman":
             return [f"{TRAINER_SPRITES_BASE}/fisherman.png", f"{TRAINER_SPRITES_BASE}/fisher.png"]
-
-        # Generico
+        if key == "bugmaniac":
+            return [f"{TRAINER_SPRITES_BASE}/bugmaniac-gen3.png", f"{TRAINER_SPRITES_BASE}/bugmaniac-gen6.png"]
+        # generics
         return both(key)
 
     # Partner fallback
-    low = canonicalize(txt)
     if "partner" in low:
         if "wally" in low:  return [f"{TRAINER_SPRITES_BASE}/wally.png"]
         if "steven" in low: return [f"{TRAINER_SPRITES_BASE}/steven.png"]
@@ -357,9 +440,6 @@ def set_img_with_fallbacks(img_tag, urls: list[str]):
 
 # ===== Parse source table (row-wise) =====
 def parse_table_columns(tbl):
-    """
-    rows: 0 images, 1 species, 2 level, 3 [items?], 4 ability, 5 [IVs?], 6 [nature?], then moves...
-    """
     cols = []
     rows = tbl.select("tbody > tr")
     if not rows or len(rows) < 3:
@@ -431,7 +511,7 @@ def build_table_from_columns(title, columns, trainer_pic_lists, themed="single",
     cap = tbl.caption
     tbody = tbl.tbody
 
-    # Sprites (ogni elemento può essere una lista di candidati)
+    # Sprites (each element may be a list of candidates)
     for candidates in trainer_pic_lists:
         if isinstance(candidates, str):
             candidates = [candidates]
@@ -554,7 +634,6 @@ def main(argv=None):
 
     custom_rules = read_custom_sprites_map(sprites_map)
 
-    # Pre-scan captions to map substring → Nth occurrence
     def cap_title(t):
         cap = t.find("caption", class_="caption-content") or t.find("caption")
         title = (cap.get_text(" ", strip=True) if cap else "Trainer")
@@ -584,7 +663,6 @@ def main(argv=None):
                 if key not in found:
                     found[key] = (title, BeautifulSoup(str(t), "html.parser").table)
 
-    # Build panels
     buttons, panels = [], []
     default_active = splits_cfg[0][0]
 
@@ -608,7 +686,7 @@ def main(argv=None):
                 rebuilt["class"] = (rebuilt.get("class", []) + ["trainer-block"])
                 items.append(str(rebuilt))
 
-            else:  # merge
+            else:
                 _, s1, o1, s2, o2 = tk
                 occ1 = (o1 if o1 is not None else totals.get(s1, 1))
                 occ2 = (o2 if o2 is not None else totals.get(s2, 1))
