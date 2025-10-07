@@ -48,3 +48,4 @@ tools/trainerproc/trainerproc
 *.bak
 __pycache__
 src/data/trainers.h
+/docs/Documentation_Sites/Calculator/calc/node_modules/.bin

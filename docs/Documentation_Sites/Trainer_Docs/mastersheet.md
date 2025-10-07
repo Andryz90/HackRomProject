@@ -1866,7 +1866,7 @@ Wobbuffet: Destiny Bond, Safeguard, Counter, Mirror Coat [Lv.32]
 Lombre:  [Lv.32]  
 Nuzleaf:  [Lv.32]  
 
-## Pkmn Breeder ISAAC
+## Scientist ISAAC
 Dipplin @Sitrus Berry: Recycle, Giga Drain, Dragon Pulse, Sucker Punch [Lv.32 | Gluttony]  
 Porygon-Z @Expert Belt: Tri Attack, Discharge, Icy Wind, Shadow Ball [Lv.32 | Analytic]  
 Klinklang @Metal Coat: Volt Switch, Wild Charge, Gear Grind [Lv.32 | Clear Body]  
@@ -2392,7 +2392,7 @@ Boltund @Expert Belt: Thunder Fang, Psychic Fangs, Crunch, Shock Wave [Lv.34 | S
 Dunsparce @Eviolite: Shock Wave, Ancient Power, Body Slam [Lv.34 | Serene Grace]  
 Exploud @Silk Scarf: Shock Wave, Hyper Voice, Surf, Incinerate [Punk Rock]  
 
-## Psychic BRANDI
+## Lass BRANDI
 Politoed: Muddy Water, Giga Drain, Flip Turn, Icy Wind [Lv.34 | Drizzle]  
 Swanna @Wacan Berry: Rest, Weather Ball, Air Slash [Lv.34 | Hydration]  
 Quagsire @Leftovers: Earthquake, Liquidation, Toxic, Protect [Lv.34 | Water Absorb]  
