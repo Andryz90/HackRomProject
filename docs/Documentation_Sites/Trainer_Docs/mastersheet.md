@@ -1866,7 +1866,7 @@ Wobbuffet: Destiny Bond, Safeguard, Counter, Mirror Coat [Lv.32]
 Lombre:  [Lv.32]  
 Nuzleaf:  [Lv.32]  
 
-## Pkmn Breeder ISAAC
+## Scientist ISAAC
 Dipplin @Sitrus Berry: Recycle, Giga Drain, Dragon Pulse, Sucker Punch [Lv.32 | Gluttony]  
 Porygon-Z @Expert Belt: Tri Attack, Discharge, Icy Wind, Shadow Ball [Lv.32 | Analytic]  
 Klinklang @Metal Coat: Volt Switch, Wild Charge, Gear Grind [Lv.32 | Clear Body]  
@@ -2392,7 +2392,7 @@ Boltund @Expert Belt: Thunder Fang, Psychic Fangs, Crunch, Shock Wave [Lv.34 | S
 Dunsparce @Eviolite: Shock Wave, Ancient Power, Body Slam [Lv.34 | Serene Grace]  
 Exploud @Silk Scarf: Shock Wave, Hyper Voice, Surf, Incinerate [Punk Rock]  
 
-## Psychic BRANDI
+## Lass BRANDI
 Politoed: Muddy Water, Giga Drain, Flip Turn, Icy Wind [Lv.34 | Drizzle]  
 Swanna @Wacan Berry: Rest, Weather Ball, Air Slash [Lv.34 | Hydration]  
 Quagsire @Leftovers: Earthquake, Liquidation, Toxic, Protect [Lv.34 | Water Absorb]  
@@ -3807,4 +3807,21 @@ Claydol: Reflect, Light Screen, Ancient Power, Earthquake [Lv.75]
 Aggron: Thunder, Earthquake, Solar Beam, Dragon Claw [Lv.76]  
 Cradily: Giga Drain, Ancient Power, Ingrain, Confuse Ray [Lv.76]  
 Armaldo: Water Pulse, Ancient Power, Aerial Ace, Slash [Lv.76]  
-Metagross @Sitrus Berry: Earthquake, Psychic, Meteor Mash, Shadow Ball [Lv.78]
+Metagross @Sitrus Berry: Earthquake, Psychic, Meteor Mash, Shadow Ball [Lv.78]  
+
+## Partner Pkmn Trainer 1
+
+## Partner Rival WALLY
+Kirlia @Sitrus Berry: Psybeam, Life Dew, Draining Kiss [Lv.22 | Trace]  
+Azumarill (M): Helping Hand, Aqua Tail, Bounce, Charm [Lv.21 | Huge Power]  
+Dedenne @Oran Berry: Nuzzle, Draining Kiss, Thunder Shock [Lv.21 | Cheek Pouch]  
+
+## Partner Rival WALLY
+Gardevoir @Life Orb: Moonblast, Psychic Noise, Energy Ball, Calm Mind [Lv.45 | Trace]  
+Gallade @Expert Belt: Psycho Cut, Night Slash, Drain Punch, Ice Punch [Lv.45 | Sharpness]  
+Tinkaton @Air Balloon: Protect, Fake Out, Gigaton Hammer, Play Rough [Lv.45 | Mold Breaker]  
+
+## Partner Rival STEVEN
+Metang: Light Screen, Psychic, Reflect, Metal Claw [Lv.42]  
+Skarmory: Toxic, Aerial Ace, Protect, Steel Wing [Lv.43]  
+Aggron: Thunder, Protect, Solar Beam, Dragon Claw [Lv.44]

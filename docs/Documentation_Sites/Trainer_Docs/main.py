@@ -16,8 +16,8 @@ class Pokemon:
         self.gender: Optional[str] = None
         self.item: Optional[str] = None
         self.nature: Optional[str] = None
-        self.ivs: Optional[dict] = None           # dict with keys hp,at,df,sa,sd,sp
-        self.ivs_specified: bool = False          # True if IVs: line was explicitly in source
+        self.ivs: Optional[dict] = None
+        self.ivs_specified: bool = False
         self.teraType: Optional[str] = None
         self.status: Optional[str] = None
         self.index: Optional[int] = None
@@ -49,7 +49,7 @@ def write_file(s: str, path: str, encoding="utf-8"):
         f.write(s)
 
 # =============================
-# Comment remover: // and /*...*/
+# Comment remover
 # =============================
 _COMMENT_RE = re.compile(
     r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"',
@@ -64,7 +64,7 @@ def strip_c_style_comments(text: str) -> str:
     return re.sub(_COMMENT_RE, _comment_replacer, text)
 
 # =============================
-# Input: trainers.party
+# Input
 # =============================
 def get_party_contents(path: str) -> List[str]:
     with open(path, "r", encoding="utf-8") as f:
@@ -73,7 +73,7 @@ def get_party_contents(path: str) -> List[str]:
     return cleaned.splitlines(keepends=True)
 
 # =============================
-# Parser
+# Parser (come il tuo)
 # =============================
 IGNORED_PREFIXES = (
     "Pic:", "Gender:", "Music:", "AI Flags:", "Battle Type:", "Text:",
@@ -81,7 +81,6 @@ IGNORED_PREFIXES = (
 )
 
 def ensure_default_ivs(mon: Pokemon):
-    """Set IVs to 31 if not already present. Does not change ivs_specified flag."""
     if mon.ivs is None:
         mon.ivs = {"hp": 31, "at": 31, "df": 31, "sa": 31, "sd": 31, "sp": 31}
 
@@ -111,15 +110,18 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             trainer_parties.append(trainer)
 
     for line in lines:
+        # ignora blocchi marcatori tipo "=== PARTNER_WALLY_DESERT ==="
+        if line.strip().startswith("===") and "TRAINER_" not in line:
+            prev_line = line
+            continue
+        
         if "REGULAR TRAINERS END" in line:
             break
 
-        # Trainer header
         if line.startswith("Name:"):
             trainer_name = line.split(":", 1)[1].strip()
         elif line.startswith("Class:"):
             trainer_class = line.split(":", 1)[1].strip()
-            # New trainer -> close the previous one
             close_mon()
             close_trainer()
             trainer = Trainer()
@@ -131,7 +133,6 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             if trainer:
                 trainer.double_battle = line.split(":", 1)[1].strip()
 
-        # Marker for a new trainer block
         elif line.startswith("=== TRAINER_") and (prev_line == "\n" or prev_line is None):
             close_mon()
             close_trainer()
@@ -139,7 +140,6 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             trainer_name = None
             trainer_class = None
 
-        # Start of a Pokémon block
         elif (prev_line == "\n") and not any(line.startswith(p) for p in ("Name:", "Class:", "Double Battle:") + IGNORED_PREFIXES) and line.strip():
             parsing_mon = True
             pokemon = Pokemon()
@@ -147,7 +147,6 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             pokemon.species = parts[0].strip()
             pokemon.item = parts[1].strip() if len(parts) > 1 and parts[1].strip() else None
 
-        # Pokémon fields
         elif parsing_mon:
             if line == "\n":
                 close_mon()
@@ -164,7 +163,6 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             elif line.startswith("IVs:"):
                 ival = line.split(":", 1)[1].strip()
                 chunks = [seg.split(" ")[0].strip() for seg in ival.split(" / ")]
-                # Fill missing values with 31
                 while len(chunks) < 6:
                     chunks.append("31")
                 pokemon.ivs = {
@@ -179,11 +177,10 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
             elif line.startswith("- "):
                 pokemon.moves.append(line[2:].strip())
             else:
-                pass  # ignore other fields
+                pass
 
         prev_line = line
 
-    # Close last Pokémon/trainer
     if parsing_mon and pokemon:
         ensure_default_ivs(pokemon)
         pokemon.index = mon_index
@@ -198,9 +195,6 @@ def parse_parties(lines: List[str]) -> List[Trainer]:
 # Helpers: when to show IVs
 # =============================
 def needs_ivs_row(mon: Pokemon) -> bool:
-    """
-    Show IVs only if the Pokémon has a Hidden Power move.
-    """
     if not mon.moves:
         return False
     return any(m.lower().startswith("hidden power") for m in mon.moves)
@@ -210,17 +204,11 @@ def needs_ivs_row(mon: Pokemon) -> bool:
 # =============================
 def get_mon_suffix(mon: Pokemon) -> str:
     bits = []
-    if mon.level:
-        bits.append(f"Lv.{mon.level}")
-    if mon.ability:
-        bits.append(mon.ability)
-    if mon.nature:
-        bits.append(f"{mon.nature} Nature")
-    if mon.teraType:
-        bits.append(f"Tera: {mon.teraType}")
-    if mon.status:
-        bits.append(f"Status: {mon.status}")
-    # IVs only if Hidden Power
+    if mon.level:   bits.append(f"Lv.{mon.level}")
+    if mon.ability: bits.append(mon.ability)
+    if mon.nature:  bits.append(f"{mon.nature} Nature")
+    if mon.teraType:bits.append(f"Tera: {mon.teraType}")
+    if mon.status:  bits.append(f"Status: {mon.status}")
     if needs_ivs_row(mon) and mon.ivs:
         ivs = mon.ivs
         bits.append("IVs " + "/".join(str(ivs[k]) for k in ("hp","at","df","sa","sd","sp")))
@@ -238,11 +226,11 @@ def generate_mastersheet(trainers: List[Trainer]) -> str:
                 out.append(f"{mon.species}{item}: {', '.join(mon.moves) if mon.moves else ''} [{suffix}]  ")
             else:
                 out.append(f"{mon.species}{item}: {', '.join(mon.moves) if mon.moves else ''}  ")
-        out.append("")  # blank line
+        out.append("")
     return "\n".join(out).rstrip() + "\n"
 
 # =============================
-# Output: JS (for UI or other uses)
+# Output: JS (per calculator)
 # =============================
 def generate_cals_sets(trainers: List[Trainer]) -> str:
     data = {}
@@ -265,15 +253,10 @@ def generate_cals_sets(trainers: List[Trainer]) -> str:
 # HTML helpers
 # =============================
 def get_html_header() -> List[str]:
-    """
-    Load header.html from project root if present; otherwise use a minimal fallback.
-    (Remember: CSS files referenced must be next to site/index.html)
-    """
     header_path = "./header.html"
     if os.path.exists(header_path):
         with open(header_path, "r", encoding="utf-8") as f:
             return f.read().splitlines(keepends=True)
-    # fallback header
     return [
         "<!DOCTYPE html>\n",
         "<html lang=\"en\">\n",
@@ -286,24 +269,13 @@ def get_html_header() -> List[str]:
     ]
 
 def sprite_url(species: str) -> str:
-    """
-    Return the URL to the Showdown gen5 sprite for the given species.
-    Handles special cases like Porygon-Z -> porygonz, Mr. Mime -> mrmime, etc.
-    """
     if not species:
         return "https://play.pokemonshowdown.com/sprites/gen5/.png"
-
-    # Remove gender suffix like (M)/(F)/(Male)/(Female)
     s = re.sub(r"\s*\((?:M|F|Male|Female)\)\s*$", "", species, flags=re.I)
-
-    # Normalize accents (e.g. Flabébé -> Flabebe)
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
-
     s = s.lower().strip()
-    s = re.sub(r"[.\'’_:]", "", s)  # remove punctuation
+    s = re.sub(r"[.\'’_:]", "", s)
     s = s.replace(" ", "")
-
-    # Aliases for exceptions
     aliases = {
         "porygon-z": "porygonz",
         "mr-mime": "mrmime",
@@ -315,7 +287,6 @@ def sprite_url(species: str) -> str:
         "nidoran-m": "nidoranm",
     }
     s = aliases.get(s, s)
-
     return f"https://play.pokemonshowdown.com/sprites/gen5/{s}.png"
 
 # =============================
@@ -325,7 +296,6 @@ def generate_webpage(trainers: List[Trainer]) -> str:
     html_parts: List[str] = ["".join(get_html_header()) + "\n"]
 
     for tr in trainers:
-        # Filter out empty slots and skip trainers without Pokémon
         real_party = [m for m in tr.party if m and (m.species or "").strip()]
         if not real_party:
             continue
@@ -335,45 +305,38 @@ def generate_webpage(trainers: List[Trainer]) -> str:
         html_parts.append(f'<caption class="caption-content">{caption}</caption>')
         html_parts.append("<tbody>")
 
-        # Exactly 6 slots
         mons = real_party[:6] + [Pokemon() for _ in range(max(0, 6 - len(real_party[:6])))]
 
-        # Images
         html_parts.append('<tr> <!-- Images -->')
         for m in mons:
             html_parts.append(f"<td><img src=\"{sprite_url(m.species)}\" alt=\"\"></img></td>")
         html_parts.append("</tr>")
 
-        # Species
         html_parts.append('<tr> <!-- Species -->')
         for m in mons:
             html_parts.append(f"<th>{m.species or ''}</th>")
         html_parts.append("</tr>")
 
-        # Level
         html_parts.append("<tr>")
         for m in mons:
             html_parts.append(f"<td>{m.level or ''}</td>")
         html_parts.append("</tr>")
 
-        # Item row only if at least one Pokémon has an item
         if any((m.item or "").strip() for m in mons):
             html_parts.append("<tr>")
             for m in mons:
                 html_parts.append(f"<td>{m.item or ''}</td>")
             html_parts.append("</tr>")
 
-        # Ability
         html_parts.append("<tr>")
         for m in mons:
             html_parts.append(f"<td>{m.ability or ''}</td>")
         html_parts.append("</tr>")
 
-        # IVs row only if at least one Pokémon with Hidden Power
-        if any(needs_ivs_row(m) for m in mons):
+        if any(any(move.lower().startswith("hidden power") for move in m.moves) for m in mons):
             html_parts.append("<tr>")
             for m in mons:
-                if needs_ivs_row(m) and m.ivs:
+                if any(move.lower().startswith("hidden power") for move in m.moves) and m.ivs:
                     ivs = m.ivs
                     iv_txt = "/".join(str(ivs[k]) for k in ("hp","at","df","sa","sd","sp"))
                     html_parts.append(f"<td>{iv_txt}</td>")
@@ -381,14 +344,12 @@ def generate_webpage(trainers: List[Trainer]) -> str:
                     html_parts.append("<td></td>")
             html_parts.append("</tr>")
 
-        # Nature row only if at least one has a nature
         if any((m.nature or "").strip() for m in mons):
             html_parts.append("<tr>")
             for m in mons:
                 html_parts.append(f"<td>{m.nature or ''}</td>")
             html_parts.append("</tr>")
 
-        # Moves (up to 4 rows)
         max_moves = min(max((len(m.moves) for m in mons), default=0), 4)
         for r in range(max_moves):
             if not any(len(m.moves) > r for m in mons):
@@ -412,12 +373,21 @@ def generate_webpage(trainers: List[Trainer]) -> str:
 # =============================
 if __name__ == "__main__":
     source = "./trainers.party"
+    partners = "./battle_partners.party"  # [NEW]
     mastersheet = "./mastersheet.md"
     calc_sets = "./gen9.js"
     webpage = "./site/index.html"
 
     parsed_trainers = parse_parties(get_party_contents(source))
     print("Num of trainers:", len(parsed_trainers))
+
+    # [NEW] Partner: se esiste, parse e prefissa "Partner " al nome (per caption/tokens)
+    if os.path.exists(partners):
+        partner_trainers = parse_parties(get_party_contents(partners))
+        for tr in partner_trainers:
+            tr.name = ("Partner " + tr.name).strip()
+        print("Num of partners:", len(partner_trainers))
+        parsed_trainers.extend(partner_trainers)
 
     delete_file(mastersheet)
     write_file(generate_mastersheet(parsed_trainers), mastersheet)

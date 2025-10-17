@@ -11950,8 +11950,8 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_ISAAC_1 ===
 Name: ISAAC
-Class: Pkmn Breeder
-Pic: Pokemon Breeder M
+Class: Scientist
+Pic: Scientist
 Gender: Male
 Music: Male
 Double Battle: No
@@ -17058,8 +17058,8 @@ IVs: 0 Atk
 
 === TRAINER_BRANDI ===
 Name: BRANDI
-Class: Psychic
-Pic: Psychic F
+Class: Lass
+Pic: Lass
 Gender: Female
 Music: Intense
 Double Battle: No
