@@ -513,6 +513,7 @@ Route109_EventScript_StaticCursola2::
 	release
 	end
 
+
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
 	.string "MR. BRINEY: Ahoy!\n"
 	.string "We've made land in SLATEPORT!\p"
