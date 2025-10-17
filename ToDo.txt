@@ -16,4 +16,3 @@ After Test:
 - Nuovi sprite di Edo e Andry
 - Modificare il mercatino di Slateport City, aggiungendo un negoziante che scambia un item per Heart Scale
 - Eliminare tutte le mosse apprendibili dai Pokemon come attrazione, smokescreen, double team, minimize etc.
-- Aggiungere NPC che ti dia Charcadet in Lavaridge dopo aver battuto Flannery

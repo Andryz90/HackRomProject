@@ -805,7 +805,7 @@ EWRAM_DATA u16 gSpecialVar_ItemId = 0;
 static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
 //tx_registered_items_menu
 static EWRAM_DATA bool8 sRegisterSubMenu = FALSE;
-static EWRAM_DATA u8 UNUSED sRegisteredItemsMenuIcon = 0xFF;
+//static EWRAM_DATA u8 UNUSED sRegisteredItemsMenuIcon = 0xFF;
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 // used to hold the palette for the 4th (clockwise) item in the key item wheel
 // so it can be scanline-copied into place

@@ -8205,8 +8205,19 @@ static void Cmd_switchhandleorder(void)
         }
         // fall through
     case 3:
+
+        u8 switch_mon = gBattleResources->bufferB[battler][1];
         gBattleCommunication[0] = gBattleResources->bufferB[battler][1];
-        gBattleStruct->monToSwitchIntoId[battler] = gBattleResources->bufferB[battler][1];
+
+        //Custom: patch in order to resolve the switch in bug
+        if (!IsOnPlayerSide(battler) && (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS))) 
+        {
+            // Se è il flank destro (battler 3 di solito) e l'indice è offsettato, rimuovi l'offset di 6
+            if (((battler & BIT_FLANK) >> 1) == 1 && switch_mon >= PARTY_SIZE)
+                switch_mon -= PARTY_SIZE;
+        }
+
+        gBattleStruct->monToSwitchIntoId[battler] = switch_mon;
 
         if (gBattleTypeFlags & BATTLE_TYPE_LINK && gBattleTypeFlags & BATTLE_TYPE_MULTI)
         {

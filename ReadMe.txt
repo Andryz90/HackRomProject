@@ -1,1 +1,0 @@
-Per buildare usare il comando "make agbcc" perché usa un compilatore diverso rispetto alla directory base del gioco
