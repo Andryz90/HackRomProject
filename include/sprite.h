@@ -1,6 +1,7 @@
 #ifndef GUARD_SPRITE_H
 #define GUARD_SPRITE_H
 
+#define SPRITE_DATA_SIZE        8u
 #define OAM_MATRIX_COUNT 32
 #define MAX_SPRITES 64
 #define SPRITE_NONE 0xFF
@@ -183,6 +184,7 @@ struct SpriteTemplate
     SpriteCallback callback;
 };
 
+
 // UB: template pointer is often used to point to temporary storage,
 // then later dereferenced after being freed. Usually this won't
 // be visible in-game, but this is (part of) what causes the item
@@ -210,7 +212,7 @@ struct Sprite
     /*0x2D*/ u8 animLoopCounter;
 
     // general purpose data fields
-    /*0x2E*/ s16 data[8];
+    /*0x2E*/ s16 data[SPRITE_DATA_SIZE];
 
     /*0x3E*/ u16 inUse:1;                   //1
              u16 coordOffsetEnabled:1;      //2

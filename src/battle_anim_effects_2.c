@@ -3203,7 +3203,7 @@ void AnimTask_StretchTargetUp(u8 taskId)
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
     if (++gTasks[taskId].data[0] == 1)
     {
-        PrepareAffineAnimInTaskData(&gTasks[taskId], GetAnimBattlerSpriteId(ANIM_TARGET), sAffineAnims_StretchBattlerUp);
+        PrepareAffineAnimInTaskData(&gTasks[taskId], spriteId, sAffineAnims_StretchBattlerUp);
         gSprites[spriteId].x2 = 4;
     }
     else

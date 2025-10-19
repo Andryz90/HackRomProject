@@ -2685,7 +2685,10 @@ void BtlController_HandleFaintAnimation(u32 battler)
             // The player's sprite is removed in Controller_FaintPlayerMon. Controller_FaintOpponentMon only removes the healthbox once the sprite is removed by SpriteCB_FaintOpponentMon.
         }
     }
-    AnimateMonAfterKnockout(battler);
+    /*Custom: This is commented in due to animation errors for sprite->data[0] modified for the shaking
+    * if wants to use it, need to handle it properly, avoiding overriding the data
+    */
+    //AnimateMonAfterKnockout(battler);
 }
 
 #undef sSpeedX
@@ -3121,6 +3124,8 @@ static void LaunchKOAnimation(u32 battlerId, u16 animId, bool32 isFront)
 {
     u32 species = GetBattlerVisualSpecies(battlerId);
     u32 spriteId = gBattlerSpriteIds[battlerId];
+
+    gBattleStruct->battlerKOAnimsRunning++;
 
     if (isFront)
     {

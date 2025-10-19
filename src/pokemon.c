@@ -6380,9 +6380,8 @@ static void Task_PokemonSummaryAnimateAfterDelay(u8 taskId)
         if (gTasks[taskId].tIsShadow)
             SummaryScreen_SetShadowAnimDelayTaskId_BW(TASK_NONE); // needed to track anim delay task for mon shadow in BW summary screen
         else
-        #endif
             SummaryScreen_SetAnimDelayTaskId(TASK_NONE);
-
+        #endif
         DestroyTask(taskId);
     }
 }

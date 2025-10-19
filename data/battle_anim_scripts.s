@@ -35000,8 +35000,8 @@ gBattleAnimMove_GMaxDrumSolo::
 gBattleAnimMove_GMaxTartness::
 gBattleAnimMove_GMaxSweetness::
 gBattleAnimMove_MaxOvergrowth::
-	@createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
-	@waitforvisualfinish
+	createvisualtask AnimTask_DynamaxGrowth, 0x5, 0x1, 0x1
+	waitforvisualfinish
 	goto gBattleAnimMove_FrenzyPlant
 	end
 

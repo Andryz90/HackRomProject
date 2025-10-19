@@ -2623,7 +2623,7 @@ static void Cmd_waitanimation(void)
 {
     CMD_ARGS();
 
-    if (gBattleControllerExecFlags == 0)
+    if (gBattleControllerExecFlags == 0 && gBattleStruct->battlerKOAnimsRunning == 0)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
