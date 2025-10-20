@@ -1206,9 +1206,10 @@ u16 GetCurrLocationDefaultMusic(void)
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE111)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE111))
     {
+        //Custom: Changing music wheter is in Magma Desert Event or not
         if(GetSavedWeather() == WEATHER_SANDSTORM && FlagGet(FLAG_MAXIE_DESERT))
             return MUS_DESERT;
-        else
+        else if (VarGet(VAR_LAVARIDGE_TOWN_STATE) >= 2u)
             return MUS_ENCOUNTER_MAGMA;
     }
 

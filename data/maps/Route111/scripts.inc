@@ -1981,7 +1981,7 @@ Route111_Text_Wally_SomethingForMe::
 	.string "You have something for me?\p"
 	.string "Oh, I see...  $"
 Route111_Text_Wally_GiveHM03::
-	.string "{PLAYER} handed over HM03 to WALLY!  $"
+	.string "{PLAYER} handed over HM06 to WALLY!  $"
 Route111_Text_Wally_AfterGivenHM03::
 	.string "I forgot about that.\nSo my uncle asked you to gave it to me?\p"
 	.string "That's so sweet,\nthanks a lot {PLAYER}.\p"
