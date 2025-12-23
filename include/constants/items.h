@@ -996,10 +996,14 @@
 #define ITEM_HISUIAN_AMULET 830
 #define ITEM_POKE_VIAL   831
 #define ITEM_STRANGE_BALL 832
+
+// Custom: megastone for Z-A
+#define ITEM_FERALIGATITE               833
+#define POKEMON_LEGENDS_ZA_ITEM_COUNT   (ITEM_FERALIGATITE + 1)
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 833
+#define ITEMS_COUNT POKEMON_LEGENDS_ZA_ITEM_COUNT
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

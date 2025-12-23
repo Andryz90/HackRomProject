@@ -1,7 +1,4 @@
-.equ LOCALID_WANDAS_BF, 1
 .set LOCALID_BRINEY, 5
-.set LOCALID_PEEKO, 7
-.equ LOCALID_WANDA, 10
 
 RusturfTunnel_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RusturfTunnel_OnTransition

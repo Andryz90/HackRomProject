@@ -1086,12 +1086,7 @@
     "TutorMoves": []
   },
   "BEEDRILL": {
-    "LevelMoves": [
-      {
-        "Level": 19,
-        "Move": "MOVE_CROSS_POISON"
-      }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -5457,10 +5452,7 @@
     "TutorMoves": []
   },
   "MACHAMP": {
-    "LevelMoves": [      {
-      "Level": 70,
-      "Move": "MOVE_G_MAX_CHI_STRIKE"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -8268,7 +8260,7 @@
       }, 
       {
         "Level": 70,
-        "Move": "MOVE_G_MAX_CHI_STRIKE"
+        "Move": "MOVE_G_MAX_TERROR"
       }
     ],
     "PreEvoMoves": [],
@@ -42948,7 +42940,7 @@
       {
         "Level": 70,
         "Move": "MOVE_MAGMA_STORM"
-      },
+      }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -43018,16 +43010,7 @@
     "TutorMoves": []
   },
   "TOGEKISS": {
-    "LevelMoves": [      
-    {
-      "Level": 1,
-      "Move": "MOVE_RAZOR_WIND"
-    },
-    {
-      "Level": 0,
-      "Move": "MOVE_AIR_SLASH"
-    }
-    ],
+    "LevelMoves": [],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -93359,22 +93342,9 @@
     "TutorMoves": []
   },
   "SIRFETCHD": {
-    "LevelMoves": [      
-      {
-      "Level": 0,
-      "Move": "MOVE_ROYAL_GUARD"
-    },
-    {
-      "Level": 40,
-      "Move": "MOVE_SACRED_SWORD"
-    },
-    {
-      "Level": 45,
-      "Move": "MOVE_SACRED_SWORD"
-    }],
+    "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [
-      "MOVE_U_TURN"],
+    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },

@@ -228,6 +228,15 @@ static const struct FormChange sMewtwoFormChangeTable[] = {
 };
 #endif //P_FAMILY_MEWTWO
 
+#if P_FAMILY_TOTODILE
+static const struct FormChange sFeraligatrFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FERALIGATR_MEGA, ITEM_FERALIGATITE},
+#endif
+    {FORM_CHANGE_TERMINATOR},
+};
+#endif
+
 #if P_FAMILY_MAREEP
 static const struct FormChange sAmpharosFormChangeTable[] = {
 #if P_MEGA_EVOLUTIONS

@@ -6093,6 +6093,22 @@ const struct Item gItemsInfo[] =
                 .iconPic = gItemIcon_Diancite,
                 .iconPalette = gItemIconPalette_Diancite,
             },
+        [ITEM_FERALIGATITE] =
+            {
+                .name = _("Feraligatite"),
+                .price = 0,
+                .holdEffect = HOLD_EFFECT_MEGA_STONE,
+                .description = COMPOUND_STRING(
+                    "This stone enables\n"
+                    "Feraligatr to Mega\n"
+                    "Evolve in battle."),
+                .pocket = POCKET_ITEMS,
+                .type = ITEM_USE_BAG_MENU,
+                .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+                .flingPower = 80,
+                .iconPic = gItemIcon_Diancite,
+                .iconPalette = gItemIconPalette_Diancite,
+            },
 
         // Gems
 

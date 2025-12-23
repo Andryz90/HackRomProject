@@ -5915,7 +5915,11 @@
       {
         "Level": 66,
         "Move": "MOVE_DOUBLE_EDGE"
-      }
+      },
+    {
+      "Level": 70,
+      "Move": "MOVE_G_MAX_CHI_STRIKE"
+    }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -37098,7 +37102,11 @@
       {
         "Level": 1,
         "Move": "MOVE_LIFE_DEW"
-      }
+      },
+    {
+      "Level": 1,
+      "Move": "MOVE_RAZOR_WIND"
+    }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
@@ -74015,6 +74023,10 @@
         "Move": "MOVE_IRON_DEFENSE"
       },
       {
+      "Level": 0,
+      "Move": "MOVE_ROYAL_GUARD"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_IRON_DEFENSE"
       },
@@ -74059,6 +74071,10 @@
         "Move": "MOVE_DEFOG"
       },
       {
+        "Level": 37,
+        "Move": "MOVE_SLAM"
+      },
+      {
         "Level": 40,
         "Move": "MOVE_BRICK_BREAK"
       },
@@ -74068,7 +74084,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SLAM"
+        "Move": "MOVE_SACRED_SWORD"
       },
       {
         "Level": 55,

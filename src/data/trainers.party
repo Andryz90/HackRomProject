@@ -16056,6 +16056,7 @@ Quiet Nature
 
 Exploud @ Silk Scarf  
 Ability: Punk Rock  
+Level: 34 
 Modest Nature  
 IVs: 0 Atk  
 - Shock Wave  
@@ -20155,3 +20156,17 @@ Level: 24
 - Mud-Slap  
 - Powder Snow
 - Hoarfrost
+
+=== TRAINER_FERALIGATR_MEGA ===
+Name: Andry
+Pic: Andry
+Class: Developer
+Gender: Male
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices / Omniscient
+
+Feraligatr  @ Feraligatite  
+- Liquidation
+- Ice Punch
+- Dragon Dance
+- Crunch

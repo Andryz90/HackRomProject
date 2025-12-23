@@ -4514,33 +4514,6 @@ u32 GetGMaxTargetSpecies(u32 species)
     }
     return SPECIES_NONE;
 }
-#define EVO_ITEM_HOLD_SIZE_TABLE 8
-//The function make the pokemon evolving only while holding the item and reaching a certain level
-static u8 LevelEvoHoldingItem (u16 species)
-{
-    u8 i;
-
-    // The global definition caused build issues
-static const Pokemon_Level_evo Pokemon_Level_evos[EVO_ITEM_HOLD_SIZE_TABLE] = 
-{
-    {SPECIES_QUILAVA,   36},
-    {SPECIES_DEWOTT,    36},
-    {SPECIES_PETILIL,   30},
-    {SPECIES_RUFFLET,   35},
-    {SPECIES_GOOMY,     40},
-    {SPECIES_BERGMITE,  37},
-    {SPECIES_DARTRIX,   36},
-    {SPECIES_URSARING,  45}
-};
-    for (i = 0u; i < EVO_ITEM_HOLD_SIZE_TABLE; i++)
-    {
-        if (species == Pokemon_Level_evos[i].species)
-            return Pokemon_Level_evos[i].level;
-    }
-    return 0;
-}
-#undef EVO_ITEM_HOLD_SIZE_TABLE
-
 
 bool32 DoesMonMeetAdditionalConditions(struct Pokemon *mon, const struct EvolutionParam *params, struct Pokemon *tradePartner, u32 partyId, bool32 *canStopEvo, enum EvoState evoState)
 {
@@ -4624,20 +4597,8 @@ bool32 DoesMonMeetAdditionalConditions(struct Pokemon *mon, const struct Evoluti
         case IF_HOLD_ITEM:
             if (heldItem == params[i].arg1)
             {
-                //Custom: Handling Hisuian Amulet
-                u8 Evo_level = LevelEvoHoldingItem(species);
-                u8 Level = GetMonData(mon, MON_DATA_LEVEL, 0);
-                if (Evo_level == 0) //is not hisuian form
-                {
-                    currentCondition = TRUE;
-                    removeHoldItem = TRUE;
-                }
-                else if (Level >= Evo_level)
-                {
-                    currentCondition = TRUE;
-                    removeHoldItem = TRUE;
-                }
-
+                currentCondition = TRUE;
+                removeHoldItem = TRUE;
             }
             break;
         // Gen 3

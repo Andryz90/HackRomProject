@@ -365,7 +365,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sQuilavaLevelUpLearnset,
         .teachableLearnset = sQuilavaTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_TYPHLOSION},
-                                {EVO_ITEM, ITEM_HISUIAN_AMULET, SPECIES_TYPHLOSION_HISUI}),
+                                {EVO_LEVEL, 35, SPECIES_TYPHLOSION_HISUI,
+                                CONDITIONS({IF_HOLD_ITEM, ITEM_HISUIAN_AMULET})}),
     },
 
 #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -728,7 +729,90 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sFeraligatrLevelUpLearnset,
         .teachableLearnset = sFeraligatrTeachableLearnset,
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
     },
+
+#define MEGA_FERALIGATR_ATTACK_DIFF (45u)
+#define MEGA_FERALIGATR_DEF_DIFF    (25u)
+#define MEGA_FERALIGATR_SPDEF_DIFF  (10u)
+#define MEGA_FERALIGATR_SPEED_DIFF  (20u)
+
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_FERALIGATR_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = (115 + MEGA_FERALIGATR_ATTACK_DIFF), //160
+        .baseDefense   = (100 + MEGA_FERALIGATR_DEF_DIFF), //125
+        .baseSpeed     = (98  + MEGA_FERALIGATR_SPEED_DIFF), //118
+        .baseSpAttack  = 49,
+        .baseSpDefense = (83 + MEGA_FERALIGATR_SPDEF_DIFF), //93
+        .types = MON_TYPES(TYPE_WATER, TYPE_DRAGON),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 265,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 239,
+    #else
+        .expYield = 210,
+    #endif
+        .evYield_Attack = 2,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_SWIFT_SWIM, ABILITY_SWIFT_SWIM },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Feraligatr"),
+        .cryId = CRY_FERALIGATR,
+        .natDexNum = NATIONAL_DEX_FERALIGATR,
+        .categoryName = _("Big Jaw"),
+        .height = 23,
+        .weight = 888,
+        .description = COMPOUND_STRING(
+            "It opens its huge mouth to intimidate\n"
+            "enemies. In battle, it runs using its thick\n"
+            "and powerful hind legs to charge the\n"
+            "foe with incredible speed."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 342,
+        .trainerOffset = 7,
+        .frontPic = gMonFrontPic_FeraligatrMega,
+        .frontPicSize = MON_COORDS_SIZE(80, 80),
+        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 0 : 1,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 5,
+        .backPic = gMonBackPic_Feraligatr,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 64) : MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 1 : 2,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_FeraligatrMega,
+        .shinyPalette = gMonShinyPalette_Feraligatr,
+        .iconSprite = gMonIcon_Feraligatr,
+        .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 2 : 0,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(3, 11, SHADOW_SIZE_XL_BATTLE_ONLY)
+        FOOTPRINT(Feraligatr)
+        OVERWORLD(
+            sPicTable_Feraligatr,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Feraligatr,
+            gShinyOverworldPalette_Feraligatr
+        )
+        .isMegaEvolution = TRUE,
+        .levelUpLearnset = sFeraligatrLevelUpLearnset,
+        .teachableLearnset = sFeraligatrTeachableLearnset,
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
+    },
+#endif
 #endif //P_FAMILY_TOTODILE
 
 #if P_FAMILY_SENTRET
@@ -5882,7 +5966,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sUrsaringLevelUpLearnset,
         .teachableLearnset = sUrsaringTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_PEAT_BLOCK, SPECIES_URSALUNA},
+        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_URSALUNA,
+                                CONDITIONS({IF_HOLD_ITEM, ITEM_PEAT_BLOCK})},
                                 {EVO_NONE, 0, SPECIES_URSALUNA_BLOODMOON}),
     },
 

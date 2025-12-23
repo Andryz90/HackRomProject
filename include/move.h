@@ -18,6 +18,7 @@ struct __attribute__((packed, aligned(2))) BattleMoveEffect
     u16 padding:9;
 };
 
+// Versione reale usata per compilare la ROM
 #define EFFECTS_ARR(...) (const struct AdditionalEffect[]) {__VA_ARGS__}
 #define ADDITIONAL_EFFECTS(...) EFFECTS_ARR( __VA_ARGS__ ), .numAdditionalEffects = ARRAY_COUNT(EFFECTS_ARR( __VA_ARGS__ ))
 

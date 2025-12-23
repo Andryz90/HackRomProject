@@ -10,7 +10,6 @@
 #include "constants/contest.h"
 
 // The Gen. 4+ contest data comes from urpg's contest movedex.
-
 #if B_BINDING_TURNS >= GEN_5
 #define BINDING_TURNS "4 or 5"
 #else
@@ -23342,8 +23341,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Season Power"),
         .description = COMPOUND_STRING(
-            "The power of the season,\n"
-            "changing type for each form."),
+            "Uses the power of the current\nseason, changing the type."),
         .effect = EFFECT_CHANGE_TYPE,
         .power = 90,
         .type = TYPE_NORMAL,

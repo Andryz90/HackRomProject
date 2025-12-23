@@ -73930,6 +73930,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_U_TURN",
       "MOVE_ROCK_SMASH",
       "MOVE_SOLAR_BLADE",
       "MOVE_REST",
