@@ -240,26 +240,15 @@ Route116_EventScript_Jose::
 	end
 
 Route116_EventScript_Jerry::
-	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_EventScript_TryRegisterJerryAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchJerry
-	setvar VAR_0x8004, TRAINER_JERRY_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterJerry
+	@goto_if_set FLAG_BADGE02_GET, Route116_EventScript_Jerry_2
+	trainerbattle_single TRAINER_JERRY_1, Route116_Text_JerryIntro, Route116_Text_JerryDefeat
 	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route116_EventScript_TryRegisterJerryAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerryAfterBattle
-	release
-	end
-
-Route116_EventScript_RegisterJerryAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route116_Text_JerryRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JERRY_1
+Route116_EventScript_Jerry_2::
+	trainerbattle_single TRAINER_JERRY_2, Route116_Text_JerryIntro, Route116_Text_JerryDefeat
+	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
@@ -286,10 +275,16 @@ Route116_EventScript_Clark::
 	end
 
 Route116_EventScript_Janice::
+	@goto_if_set FLAG_BADGE02_GET, Route116_EventScript_Janice_2
 	trainerbattle_single TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat
 	msgbox Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE
+	release
 	end
-
+Route116_EventScript_Janice_2::
+	trainerbattle_single TRAINER_JANICE_2, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat
+	msgbox Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE
+	release
+	end
 Route116_EventScript_Karen::
 	trainerbattle_single TRAINER_KAREN_1, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_EventScript_TryRegisterKarenAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
@@ -315,7 +310,7 @@ Route116_EventScript_RegisterKarenAfterBattle::
 	end
 
 Route116_EventScript_TryRegisterKaren::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKaren
+	@goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKaren
 	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -331,15 +326,33 @@ Route116_EventScript_RematchKaren::
 	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route116_EventScript_Sarah2:: 
+	trainerbattle_single TRAINER_SARAH_2, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
+	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
+	release
+	end
+
 Route116_EventScript_Sarah::
+	@goto_if_set FLAG_BADGE02_GET, Route116_EventScript_Sarah2
 	trainerbattle_single TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
 	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
+	release
+	end
+
+
+Route116_EventScript_Dawson2::
+	trainerbattle_single TRAINER_DAWSON_2, Route116_Text_DawsonIntro, Route116_Text_DawsonDefeat
+	msgbox Route116_Text_DawsonPostBattle, MSGBOX_AUTOCLOSE
+	release
 	end
 
 Route116_EventScript_Dawson::
+	@goto_if_set FLAG_BADGE02_GET, Route116_EventScript_Dawson2
 	trainerbattle_single TRAINER_DAWSON, Route116_Text_DawsonIntro, Route116_Text_DawsonDefeat
 	msgbox Route116_Text_DawsonPostBattle, MSGBOX_AUTOCLOSE
+	release
 	end
+
 
 Route116_EventScript_Devan::
 	trainerbattle_single TRAINER_DEVAN, Route116_Text_DevanIntro, Route116_Text_DevanDefeat

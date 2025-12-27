@@ -6369,9 +6369,68 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Ralts
-Level: 9
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+Kirlia  
+Ability: Trace  
+Level: 1  
+IVs: 0 Atk  
+- Psybeam  
+- Draining Kiss  
+- Future Sight  
+- Light Screen  
+
+Darumaka-Galar  
+Ability: Hustle  
+Level: 1  
+- Ice Punch  
+- Brick Break  
+- Rock Slide  
+- Power-Up Punch  
+
+Hattrem  
+Ability: Magic Bounce  
+Level: 1    
+Modest Nature  
+IVs: 0 Atk  
+- Reflect  
+- Psybeam  
+- Draining Kiss  
+- Future Sight  
+
+=== TRAINER_JERRY_6 ===
+Name: JERRY
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Gardevoir  
+Ability: Trace  
+Level: 1  
+IVs: 0 Atk  
+- Psychic  
+- Draining Kiss  
+- Moonblast
+- Light Screen  
+
+Darmanitan-Galar  
+Ability: Gorilla Tactics  
+Level: 1  
+- Ice Punch  
+- Brick Break  
+- Rock Slide  
+- Power-Up Punch  
+
+Hatterene  
+Ability: Magic Bounce  
+Level: 1    
+Modest Nature  
+IVs: 0 Atk  
+- Reflect  
+- Psychic  
+- Draining Kiss  
+- Moonblast  
 
 === TRAINER_TED ===
 Name: TED
@@ -13575,9 +13634,63 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Marill
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Marill (F)  
+Ability: Huge Power  
+Level: 1  
+- Aqua Jet  
+- Play Rough  
+- Trailblaze  
+- Protect  
+
+Skiploom (F)  
+Ability: Infiltrator  
+Level: 1  
+- Acrobatics  
+- Substitute  
+- Leech Seed  
+- Protect  
+
+Darumaka (F)  
+Ability: Hustle  
+Level: 1   
+- Fire Punch  
+- Brick Break  
+- Power-Up Punch  
+- Rock Slide  
+
+=== TRAINER_JANICE_2 ===
+Name: JANICE
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Azumarill (F)  
+Ability: Huge Power  
+Level: 1  
+- Aqua Jet  
+- Play Rough  
+- Liquidation  
+- Protect  
+
+Jumpluff (F)  
+Ability: Infiltrator  
+Level: 1   
+- Acrobatics  
+- Substitute  
+- Leech Seed  
+- Protect  
+
+Darmanitan (F)  
+Ability: Sheer Force  
+Level: 1   
+- Fire Punch  
+- Brick Break  
+- Power-Up Punch  
+- Rock Slide  
+
 
 === TRAINER_VIVI ===
 Name: VIVI
@@ -15773,13 +15886,31 @@ Music: Rich
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Zigzagoon @ Nugget
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Aipom (M)  
+Ability: Skill Link  
+Level: 1  
+- Fake Out  
+- Return  
+- Seed Bomb  
+- Acrobatics  
 
-Poochyena
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clamperl  
+Ability: Shell Armor  
+Level: 1  
+- Barrier  
+- Protect  
+- Water Pulse  
+- Secret Power  
+
+Sableye @ Sitrus Berry  
+Ability: Prankster  
+Level: 1  
+Impish Nature  
+IVs: 0 Atk  
+- Night Shade  
+- Thunder Wave  
+- Will-O-Wisp  
+- Pain Split  
 
 === TRAINER_SARAH ===
 Name: SARAH
@@ -15790,13 +15921,105 @@ Music: Female
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Lotad
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zigzagoon (F) @ Liechi Berry  
+Ability: Gluttony  
+Level: 1  
+Adamant Nature  
+- Covet  
+- Return  
+- Pursuit  
+- Protect  
 
-Zigzagoon @ Nugget
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lotad (F) @ Oran Berry  
+Ability: Swift Swim  
+Level: 1  
+IVs: 0 Atk  
+- Mega Drain  
+- Bubble Beam  
+- Protect  
+- Leech Seed  
+
+Sandshrew (F)  
+Ability: Sand Veil  
+Level: 1  
+Brave Nature  
+IVs: 0 Spe  
+- Gyro Ball  
+- Dig  
+- Detect  
+- Knock Off  
+
+=== TRAINER_DAWSON_2 ===
+Name: DAWSON
+Class: Rich Boy
+Pic: Rich Boy
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Ambipom (M)  
+Ability: Skill Link  
+Level: 1  
+- Fake Out  
+- Return  
+- Seed Bomb  
+- Acrobatics  
+
+Clamperl  
+Ability: Shell Armor  
+Level: 1  
+- Barrier  
+- Protect  
+- Water Pulse  
+- Secret Power  
+
+Sableye @ Sitrus Berry  
+Ability: Prankster  
+Level: 1  
+Impish Nature  
+IVs: 0 Atk  
+- Night Shade  
+- Thunder Wave  
+- Will-O-Wisp  
+- Pain Split  
+
+=== TRAINER_SARAH_2 ===
+Name: SARAH
+Class: Lady
+Pic: Lady
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
+
+Linoone (F) @ Sitrus Berry  
+Ability: Gluttony  
+Level: 1 
+Adamant Nature  
+- Belly Drum  
+- Return  
+- Pursuit  
+- Protect  
+
+Ludicolo (F) @ Sitrus Berry  
+Ability: Swift Swim  
+Level: 1  
+IVs: 0 Atk  
+- Giga Drain  
+- Bubble Beam  
+- Protect  
+- Fake Out  
+
+Sandslash (F) @ Muscle Band
+Ability: Sand Veil  
+Level: 1  
+Brave Nature  
+IVs: 0 Spe  
+- Gyro Ball  
+- Dig  
+- Detect  
+- Knock Off  
 
 === TRAINER_DARIAN ===
 Name: DARIAN

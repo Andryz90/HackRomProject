@@ -4433,7 +4433,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .teachableLearnset = sGoomyTeachableLearnset,
         .eggMoveLearnset = sGoomyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_SLIGGOO},
-                                {EVO_LEVEL, 35, SPECIES_SLIGGOO_HISUI,
+                                {EVO_LEVEL, 40, SPECIES_SLIGGOO_HISUI,
                                 CONDITIONS({IF_HOLD_ITEM, ITEM_HISUIAN_AMULET})}),
     },
 

@@ -11806,11 +11806,15 @@ typedef enum Trainer_DynamicLevel_t
     WINSTON_FAMILY_VICTORIA = 10u, // Winstrate R111 (Mispelled) Family back to back
     WINSTON_FAMILY_VIVI     = 11u, // Winstrate R111 (Mispelled) Family back to back
     WINSTON_FAMILY_VICKY    = 12u, // Winstrate R111 (Mispelled) Family back to back
-
+    DAWSON_R116             = 13u, // Double Battle R116 for mints 
+    SARAH_R116              = 14u, // Double Battle R116 for mints
+    JANICE_R116             = 15u, // Double Battle R116 for mints
+    JERRY_R166              = 16u, // Double Battle R116 for mints
 
     MAX_TRAINER_DYNAMIC_LEVEL
 
 } Trainer_DynamicLevel_Enum_t;
+
 
 static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][TRAINER_NAME_LENGTH + 1] = 
 {
@@ -11827,8 +11831,13 @@ static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][T
     [WINSTON_FAMILY_VICTORIA]   =_("VICTORIA"),
     [WINSTON_FAMILY_VIVI]       =_("VIVI"),
     [WINSTON_FAMILY_VICKY]      =_("VICKY"),
+    [DAWSON_R116]               =_("DAWSON"),
+    [SARAH_R116]                =_("SARAH"),
+    [JANICE_R116]               =_("JANICE"),
+    [JERRY_R166]                =_("JERRY"),
 
 };
+
 
 bool8 SetTrainerLevelIfDynamic (const struct Trainer *trainer, u8* MonLevel)
 {
