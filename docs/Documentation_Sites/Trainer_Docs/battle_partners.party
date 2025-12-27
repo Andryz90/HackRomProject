@@ -1,0 +1,112 @@
+=== PARTNER_NONE ===
+Name:
+Class: Pkmn Trainer 1
+Pic: Brendan
+Gender: Male
+Music: Male
+
+=== PARTNER_WALLY ===
+Name: WALLY
+Class: Rival
+Pic: Wally
+Gender: Male
+Music: Male
+
+Kirlia @ Sitrus Berry  
+Ability: Trace  
+Level: 22   
+Bold Nature  
+IVs: 0 Atk  
+- Psybeam  
+- Life Dew  
+- Draining Kiss  
+
+Azumarill (M)
+Ability: Huge Power  
+Level: 21    
+Adamant Nature  
+- Helping Hand  
+- Aqua Tail  
+- Bounce  
+- Charm  
+
+Dedenne @ Oran Berry  
+Ability: Cheek Pouch  
+Level: 21  
+- Nuzzle  
+- Draining Kiss  
+- Thunder Shock  
+
+
+=== PARTNER_WALLY_DESERT ===
+Name: WALLY
+Class: Rival
+Pic: Wally
+Gender: Male
+Music: Male
+
+Gardevoir @ Life Orb  
+Ability: Trace  
+Level: 45  
+Timid Nature  
+IVs: 0 Atk  
+- Moonblast  
+- Psychic Noise  
+- Energy Ball  
+- Calm Mind  
+
+Gallade @ Expert Belt  
+Ability: Sharpness  
+Level: 45   
+Jolly Nature  
+- Psycho Cut  
+- Night Slash  
+- Drain Punch  
+- Ice Punch  
+
+Tinkaton @ Air Balloon  
+Ability: Mold Breaker  
+Level: 45    
+Adamant Nature  
+- Protect  
+- Fake Out  
+- Gigaton Hammer  
+- Play Rough  
+
+
+=== PARTNER_STEVEN ===
+Name: STEVEN
+Class: Rival
+Pic: Steven
+Gender: Male
+Music: Male
+
+Metang
+Brave Nature
+Level: 42
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 252 Def / 6 SpA
+- Light Screen
+- Psychic
+- Reflect
+- Metal Claw
+
+Skarmory
+Impish Nature
+Level: 43
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 6 SpA / 252 SpD
+- Toxic
+- Aerial Ace
+- Protect
+- Steel Wing
+
+Aggron
+Adamant Nature
+Level: 44
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 252 SpA / 6 SpD
+- Thunder
+- Protect
+- Solar Beam
+- Dragon Claw
