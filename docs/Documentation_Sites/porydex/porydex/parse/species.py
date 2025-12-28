@@ -185,7 +185,7 @@ def _apply_form_table_to_group(base_name: str, mons_sorted: list[dict], form_lab
         ]
 
     # Cosmetic Formes
-    cosmetics = COSMETIC_FORME_SPECIES.get(base_mon['name'], None)
+    cosmetics = None if base_mon.get('name') in NON_COSMETIC_FORM_BASES else COSMETIC_FORME_SPECIES.get(base_mon['name'], None)
     if cosmetics:
         if cosmetics.alts is not None:
             base_mon['cosmeticFormes'] = [
@@ -244,6 +244,11 @@ COSMETIC_FORME_SPECIES: dict[str, CosmeticFormes] = {
     'Minior': CosmeticFormes('Red', ['Meteor'], r'Meteor-*'),
     'Alcremie': CosmeticFormes('Vanilla-Cream', ['Gmax'], None),
 }
+
+# Some hacks implement these 'forms' as gameplay-relevant (different typing/stats),
+# so they must not be treated as cosmetic-only.
+NON_COSMETIC_FORM_BASES: set[str] = {'Deerling', 'Sawsbuck'}
+
 
 @dataclass
 class SpecialAbilities:
@@ -427,6 +432,10 @@ def parse_mon(struct_init: NamedInitializer,
                 lvlup_learnset = level_up_learnsets.get(extract_id(field_expr), {})
             case 'teachableLearnset':
                 teach_learnset = teachable_learnsets.get(extract_id(field_expr), {})
+
+    # Sprite packs use "-hisui" rather than "-hisuian" in filenames (e.g. lilligant-hisui.png).
+    if "name" in mon and "-Hisuian" in mon["name"]:
+        mon.setdefault("spriteid", mon["name"].replace("-Hisuian", "-Hisui").lower())
 
     return mon, evos, lvlup_learnset, teach_learnset
 
@@ -667,7 +676,7 @@ def parse_species_data(species_data: ExprList,
 
         if mon['name'].rfind('-') != -1:
             base_name = mon['name'].split('-')[0]
-            cosmetics = COSMETIC_FORME_SPECIES.get(base_name, None)
+            cosmetics = None if base_name in NON_COSMETIC_FORM_BASES else COSMETIC_FORME_SPECIES.get(base_name, None)
             if cosmetics and any(map(lambda s: s[0].get('name') == base_name, all_species_data.values())):
                 if cosmetics.alts is None or mon['name'] not in map(lambda alt: f'{base_name}-{alt}', cosmetics.alts):
                     mon['cosmetic'] = True
