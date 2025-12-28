@@ -134,6 +134,32 @@ def _pretty_forme_from_symbol_suffix(base_name: str, suffix: str) -> str:
     return '-'.join(pretty_tokens)
 
 
+
+
+def _normalize_form_label(label: str) -> str:
+    """Normalize form labels to Pokémon Showdown naming conventions.
+
+    Some datasets use demonyms like 'Hisuian/Alolan/Galarian/Paldean' while Showdown
+    sprite and dex naming typically use the region name: 'Hisui/Alola/Galar/Paldea'.
+    """
+    if not label:
+        return label
+
+    regional = {
+        'Hisuian': 'Hisui',
+        'Alolan': 'Alola',
+        'Galarian': 'Galar',
+        'Paldean': 'Paldea',
+    }
+
+    for src, dst in regional.items():
+        if label == src:
+            return dst
+        if label.startswith(src + '-'):
+            return dst + label[len(src):]  # keep suffix (e.g. '-Tera')
+    return label
+
+
 def _apply_form_table_to_group(base_name: str, mons_sorted: list[dict], form_labels: list[str]) -> None:
     """Apply form metadata to a group of mons sharing the same formSpeciesIdTable."""
     if len(mons_sorted) <= 1:
@@ -532,11 +558,18 @@ def zip_evos(all_data: dict,
                     | ExpansionEvoMethod.LEVEL_DARK_TYPE_MON_IN_PARTY \
                     | ExpansionEvoMethod.LEVEL_NATURE_AMPED \
                     | ExpansionEvoMethod.LEVEL_NATURE_LOW_KEY \
+                    | ExpansionEvoMethod.LEVEL_TWO_SEGMENT \
+                    | ExpansionEvoMethod.LEVEL_THREE_SEGMENT \
+                    | ExpansionEvoMethod.LEVEL_CRITICAL_HITS \
+                    | ExpansionEvoMethod.LEVEL_USE_MOVE_TWENTY_TIMES \
+                    | ExpansionEvoMethod.LEVEL_DEF_EQ_ATK \
+                    | ExpansionEvoMethod.LEVEL_ATK_EQ_DEF \
+                    | ExpansionEvoMethod.LEVEL_ATK_GT_DEF \
+                    | ExpansionEvoMethod.LEVEL_ATK_LT_DEF \
                     | ExpansionEvoMethod.LEVEL_FOG \
                     | ExpansionEvoMethod.LEVEL_FAMILY_OF_THREE \
                     | ExpansionEvoMethod.LEVEL_FAMILY_OF_FOUR:
                     parent_mon['evoLevel'] = param
-
                 # These evo methods interpret the parameter as a specific item
                 case ExpansionEvoMethod.TRADE_ITEM \
                     | ExpansionEvoMethod.ITEM \
@@ -653,6 +686,7 @@ def parse_species_data(species_data: ExprList,
                         base_mon.get('name', ''),
                         (species_id_to_symbol.get(m['num'], '') or '').replace((species_id_to_symbol.get(base_mon['num'], '') or '') + '_', '', 1)
                     )
+                label = _normalize_form_label(label)
                 labels.append(label)
         else:
             base_sym = species_id_to_symbol.get(base_mon['num'], '')
@@ -787,4 +821,3 @@ def parse_species(fname: pathlib.Path,
         included_mons,
         species_info_path=fname,
     )
-
