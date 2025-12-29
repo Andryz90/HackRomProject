@@ -58915,6 +58915,9 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_LEECH_LIFE",
+      "MOVE_POISON_FANG",
+      "MOVE_POISON_DRAIN",
       "MOVE_TOXIC",
       "MOVE_HIDDEN_POWER",
       "MOVE_SUNNY_DAY",

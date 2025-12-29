@@ -601,6 +601,106 @@ def parse_mon(struct_init: NamedInitializer,
 
     return mon, evos, lvlup_learnset, teach_learnset
 
+
+
+def _pretty_identifier(name: str) -> str:
+    # Convert constant-like identifiers into a readable label.
+    # Examples: MAP_PETALBURG_WOODS -> Petalburg Woods
+    s = str(name)
+    s = re.sub(r'^(MAPSEC|MAP|ITEM|MOVE|SPECIES)_', '', s)
+    s = s.replace('_', ' ').strip()
+    return s.title() if s else str(name)
+
+
+def _safe_extract_int_or_id(expr):
+    try:
+        return extract_int(expr)
+    except Exception:
+        try:
+            return extract_id(expr)
+        except Exception:
+            return str(expr)
+
+
+def _describe_alt_evo(method, param, conds, items, moves, map_sections) -> str:
+    """Return a human-friendly description for an alternate evolution method.
+
+    Used when multiple evolution entries lead to the same child, so we can render
+    '... or use Leaf Stone' etc without needing UI changes.
+    """
+    # method can be an int (preprocessed) or an ID node ('EVO_ITEM', ...).
+    if hasattr(method, 'name'):
+        method_name = method.name
+        method_id = _RHH_EVO_METHOD_BY_NAME.get(method_name)
+    elif isinstance(method, int):
+        method_id = int(method)
+        method_name = None
+        # Build an inverse map on demand
+        if method_id in _RHH_EVO_METHOD_BY_NAME.values():
+            method_name = {v: k for k, v in _RHH_EVO_METHOD_BY_NAME.items()}[method_id]
+    else:
+        method_name = str(method)
+        method_id = _RHH_EVO_METHOD_BY_NAME.get(method_name)
+
+    p = _safe_extract_int_or_id(param)
+
+    # Base description from method
+    base = ''
+    if method_name == 'EVO_ITEM' or method_id == _RHH_EVO_METHOD_BY_NAME.get('EVO_ITEM'):
+        try:
+            base = f"use {items[int(p)]}"
+        except Exception:
+            base = f"use {_pretty_identifier(p)}"
+    elif method_name == 'EVO_LEVEL' or method_id == _RHH_EVO_METHOD_BY_NAME.get('EVO_LEVEL'):
+        try:
+            lvl = int(p)
+        except Exception:
+            lvl = 0
+        base = f"level {lvl}" if lvl else "level-up"
+    elif method_name == 'EVO_MOVE' or method_id == _RHH_EVO_METHOD_BY_NAME.get('EVO_MOVE'):
+        try:
+            base = f"know {moves[int(p)]}"
+        except Exception:
+            base = f"know {_pretty_identifier(p)}"
+    else:
+        # Fallback (rare). Still try to say something.
+        if method_name:
+            base = _pretty_identifier(method_name)
+        else:
+            base = 'evolve'
+
+    # Conditions
+    notes: list[str] = []
+    for key, cparam in (conds or []):
+        c = cparam
+        # cparam can be already an int, an ID, or an expression.
+        c = _safe_extract_int_or_id(c)
+        if key == 'IF_HOLD_ITEM':
+            try:
+                notes.append(f"while holding {items[int(c)]}")
+            except Exception:
+                notes.append(f"while holding {_pretty_identifier(c)}")
+        elif key == 'IF_IN_MAP':
+            notes.append(f"in {_pretty_identifier(c)}")
+        elif key == 'IF_TIME':
+            # TIME_* may be numeric after preprocessing; also accept names.
+            t = str(c)
+            tmap = {
+                'TIME_MORNING': 'in the morning',
+                'TIME_DAY': 'during the day',
+                'TIME_NIGHT': 'at night',
+                'TIME_EVENING': 'in the evening',
+                'TIME_DUSK': 'at dusk',
+                'TIME_DAWN': 'at dawn',
+            }
+            notes.append(tmap.get(t, _pretty_identifier(t)))
+        else:
+            # Keep unknown conditions readable.
+            notes.append(_pretty_identifier(key).lower())
+
+    if notes:
+        return (base + ' ' + ' '.join(notes)).strip()
+    return base.strip()
 def zip_evos(all_data: dict,
              items: list[str],
              moves: list[str],
@@ -621,15 +721,22 @@ def zip_evos(all_data: dict,
                 continue
 
             # if the mon is already listed as evolving into this parent, continue
-            # we only want to register a single evolution method per child-parent pair
+            method, param = evo[0], evo[1]
+
+            conds = evo[3] if len(evo) > 3 else []
+
+            # A parent can have multiple evolution entries that lead to the same child (e.g. Eevee -> Leafeon
+            # via map condition OR via stone). We keep mon['evos'] unique for the evolution table, but we also
+            # append alternate methods to the child's evoCondition so the UI can show all of them.
             if parent_mon['name'] in mon['evos']:
+                alt_desc = _describe_alt_evo(method, param, conds, items, moves, map_sections)
+                if alt_desc:
+                    cur = parent_mon.get('evoCondition', '').strip()
+                    parent_mon['evoCondition'] = (cur + (' or ' if cur else '') + alt_desc).strip()
                 continue
 
             mon['evos'].append(parent_mon['name'])
             parent_mon['prevo'] = mon['name']
-            method, param = evo[0], evo[1]
-
-            conds = evo[3] if len(evo) > 3 else []
 
             method_val = method.value if hasattr(method, 'value') else method
 

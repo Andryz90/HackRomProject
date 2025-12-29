@@ -2440,6 +2440,8 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_DIRE_CLAW",
+      "MOVE_IRON_HEAD",
       "MOVE_MEGA_PUNCH",
       "MOVE_MEGA_KICK",
       "MOVE_PAY_DAY",
@@ -45494,6 +45496,7 @@
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_DETERIO",
       "MOVE_HYPER_BEAM",
       "MOVE_GIGA_IMPACT",
       "MOVE_SOLAR_BEAM",

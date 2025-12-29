@@ -2386,6 +2386,14 @@
         "Move": "MOVE_MEGAHORN"
       },
       {
+        "Level": 0,
+        "Move": "MOVE_POISON_DRILL"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_MEGAHORN"
+      }
+      {
         "Level": 1,
         "Move": "MOVE_MEGAHORN"
       },
@@ -45478,7 +45486,7 @@
       },
       {
         "Level": 24,
-        "Move": "MOVE_TAKE_DOWN"
+        "Move": "MOVE_POISON_DRAIN"
       },
       {
         "Level": 27,
@@ -45494,7 +45502,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_PAIN_SPLIT"
+        "Move": "MOVE_TAKE_DOWN"
       },
       {
         "Level": 39,
@@ -45503,6 +45511,10 @@
       {
         "Level": 42,
         "Move": "MOVE_EXPLOSION"
+      },
+      {
+        "Level": 45,
+        "Move": "MOVE_PAIN_SPLIT"
       }
     ],
     "PreEvoMoves": [],
@@ -45548,6 +45560,10 @@
   },
   "GARBODOR": {
     "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_POISON_DRAIN"
+      },
       {
         "Level": 1,
         "Move": "MOVE_POUND"
@@ -45623,6 +45639,10 @@
       {
         "Level": 48,
         "Move": "MOVE_EXPLOSION"
+      },
+      {
+        "Level": 70,
+        "Move": "MOVE_G_MAX_MALODOR"
       }
     ],
     "PreEvoMoves": [],
@@ -66494,6 +66514,10 @@
   },
   "NIHILEGO": {
     "LevelMoves": [
+     {
+        "Level": 0,
+        "Move": "MOVE_POISON_DRAIN"
+      },
       {
         "Level": 1,
         "Move": "MOVE_WRAP"

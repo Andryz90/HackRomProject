@@ -22349,7 +22349,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Max Terror"),
         .description = COMPOUND_STRING(
-            "Scare the target making\n."
+            "Scare the target making\n"
             "it unable to switch."
         ),
         .effect = EFFECT_MAX_MOVE,
