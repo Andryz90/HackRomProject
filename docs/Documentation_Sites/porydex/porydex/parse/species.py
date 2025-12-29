@@ -11,7 +11,6 @@ from porydex.common import name_key
 from porydex.model import ExpansionEvoMethod, DAMAGE_TYPE, EGG_GROUP, BODY_COLOR, EVO_METHOD
 from porydex.parse import load_truncated, extract_id, extract_int, extract_u8_str
 
-
 _RHH_EVO_METHOD_BY_NAME: dict[str, int] = {
     # constants/pokemon.h enum EvolutionMethods order in RHH 1.12
     'EVO_NONE': 0,
@@ -24,6 +23,118 @@ _RHH_EVO_METHOD_BY_NAME: dict[str, int] = {
     'EVO_BATTLE_END': 7,
     'EVO_SPIN': 8,
 }
+
+
+_RHH_EVO_METHOD_IDS = set(_RHH_EVO_METHOD_BY_NAME.values())
+
+def _guess_pokemon_h_path(species_info_path: pathlib.Path | None = None) -> pathlib.Path | None:
+    # Try common repo layouts
+    candidates: list[pathlib.Path] = []
+    here = pathlib.Path(__file__).resolve()
+    for p in [here] + list(here.parents):
+        candidates.extend([
+            p / 'include' / 'constants' / 'pokemon.h',
+            p / 'constants' / 'pokemon.h',
+        ])
+    if species_info_path is not None:
+        for p in [species_info_path] + list(species_info_path.parents):
+            candidates.extend([
+                p / 'include' / 'constants' / 'pokemon.h',
+                p / 'constants' / 'pokemon.h',
+            ])
+    cwd = pathlib.Path.cwd()
+    candidates.extend([
+        cwd / 'include' / 'constants' / 'pokemon.h',
+        cwd / 'constants' / 'pokemon.h',
+    ])
+    for c in candidates:
+        if c.exists():
+            return c
+    return None
+
+def _load_rhh_evo_condition_id_to_name(pokemon_h: pathlib.Path) -> dict[int, str]:
+    text = _safe_read_text(pokemon_h)
+    if not text:
+        return {}
+    m = re.search(r'enum\s+EvolutionConditions\s*\{(.*?)\};', text, flags=re.S)
+    if not m:
+        return {}
+    body = m.group(1)
+    names: list[str] = []
+    for line in body.splitlines():
+        line = line.split('//', 1)[0].strip()
+        if not line:
+            continue
+        line = line.rstrip(',')
+        if '=' in line:
+            name = line.split('=', 1)[0].strip()
+        else:
+            name = line.strip()
+        if name:
+            names.append(name)
+    return {i: n for i, n in enumerate(names)}
+
+_RHH_COND_ID_TO_NAME: dict[int, str] | None = None
+
+def _cond_name(cond_id: int) -> str | None:
+    global _RHH_COND_ID_TO_NAME
+    if _RHH_COND_ID_TO_NAME is None:
+        p = _guess_pokemon_h_path()
+        _RHH_COND_ID_TO_NAME = _load_rhh_evo_condition_id_to_name(p) if p else {}
+    return _RHH_COND_ID_TO_NAME.get(cond_id)
+
+def _peel(node):
+    # unwrap Cast / CompoundLiteral-like wrappers produced by pycparser/preprocessor
+    for _ in range(8):
+        if node is None:
+            return None
+        if hasattr(node, 'expr') and not hasattr(node, 'exprs'):
+            node = getattr(node, 'expr')
+            continue
+        if hasattr(node, 'init'):
+            node = getattr(node, 'init')
+            continue
+        if hasattr(node, 'args'):
+            node = getattr(node, 'args')
+            continue
+        break
+    return node
+
+def _extract_conditions(cond_expr):
+    """Return list of (cond_name, cond_param) from CONDITIONS(...) pointer initializer."""
+    out = []
+    if cond_expr is None:
+        return out
+    node = _peel(cond_expr)
+    exprs = getattr(node, 'exprs', None)
+    if exprs is None and hasattr(node, 'expr') and hasattr(node.expr, 'exprs'):
+        exprs = node.expr.exprs
+    if exprs is None:
+        return out
+
+    for entry in exprs:
+        entry_node = _peel(entry)
+        e = getattr(entry_node, 'exprs', None)
+        if not e:
+            continue
+        # terminator is usually a single-field {CONDITIONS_END}
+        if len(e) < 2:
+            break
+        try:
+            cid = extract_id(e[0])
+        except Exception:
+            cid = extract_int(e[0])
+        if isinstance(cid, int):
+            cid = _cond_name(cid) or f'IF_{cid}'
+        if cid == 'CONDITIONS_END':
+            break
+        try:
+            cparam = extract_int(e[1])
+        except Exception:
+            cparam = extract_id(e[1])
+        out.append((cid, cparam))
+        
+    return out
 
 
 def _safe_read_text(path: pathlib.Path) -> str | None:
@@ -412,30 +523,51 @@ def parse_mon(struct_init: NamedInitializer,
                 # We'll resolve these tables after the first parsing pass.
                 mon['_formTableId'] = extract_id(field_expr)
             case 'evolutions':
-                # general schema from expansion: [method_id, method_param, target_species]
+
+                # general schema from RHH 1.12: {method_id, method_param, target_species, optional CONDITIONS(...)}
+
                 for evo_method in field_expr.init.exprs:
+
                     method_raw = evo_method.exprs[0]
+
                     is_rhh_method = False
-                    try:
-                        method_id = extract_int(method_raw)
-                    except Exception:
-                        # RHH 1.12: EVO_* are enum tokens (enum), not macros.
-                        method_name = extract_id(method_raw)
-                        if method_name in _RHH_EVO_METHOD_BY_NAME:
-                            method_id = _RHH_EVO_METHOD_BY_NAME[method_name]
-                            is_rhh_method = True
-                        else:
-                            # Unknown evo method token in this build: skip instead of mislabeling
-                            # it as ExpansionEvoMethod(0) (friendship) by accident.
-                            # We'll just ignore it for now.
-                            continue
+
+                    method_raw = evo_method.exprs[0]                    
+
+                    # FIX: se è un token RHH EVO_*, NON passare da extract_int (evita collisione con ExpansionEvoMethod)
+                    if hasattr(method_raw, "name") and method_raw.name in _RHH_EVO_METHOD_BY_NAME:
+                        method_id = _RHH_EVO_METHOD_BY_NAME[method_raw.name]
+                        is_rhh_method = True
+                    else:
+                        try:
+
+                            method_id = extract_int(method_raw)
+
+                        except Exception:
+
+                            method_name = extract_id(method_raw)
+
+                            if method_name in _RHH_EVO_METHOD_BY_NAME:
+
+                                method_id = _RHH_EVO_METHOD_BY_NAME[method_name]
+
+                                is_rhh_method = True
+
+                            else:
+
+                                continue
+
                     if method_id == 0xFFFF:
                         break
 
                     if method_id == 0xFFFE:
                         continue
+                    
+                    # If preprocessing expanded EVO_* to integers, avoid ExpansionEvoMethod collisions.
 
-                    # If we parsed a RHH enum token, keep the raw int (RHH ids do not match ExpansionEvoMethod values).
+                    if method_id in _RHH_EVO_METHOD_IDS:
+                        is_rhh_method = True
+
                     method = method_id
                     if not is_rhh_method:
                         try:
@@ -447,11 +579,15 @@ def parse_mon(struct_init: NamedInitializer,
                     try:
                         param = extract_int(param_expr)
                     except Exception:
-                        # RHH 1.12: param può essere un enum token (es. SPIN_CW_SHORT)
                         param = extract_id(param_expr)
 
                     target = extract_int(evo_method.exprs[2])
-                    evos.append([method, param, target])
+                    conds = []
+
+                    if len(evo_method.exprs) >= 4:
+                        conds = _extract_conditions(evo_method.exprs[3])
+
+                    evos.append([method, param, target, conds])
 
                 evos.sort(key=lambda evo: evo[2])
             case 'levelUpLearnset':
@@ -493,6 +629,14 @@ def zip_evos(all_data: dict,
             parent_mon['prevo'] = mon['name']
             method, param = evo[0], evo[1]
 
+            conds = evo[3] if len(evo) > 3 else []
+
+            method_val = method.value if hasattr(method, 'value') else method
+
+            if isinstance(method_val, int) and method_val in _RHH_EVO_METHOD_IDS:
+
+                method = method_val
+
             # RHH 1.12: evolution methods are a small enum (EVO_LEVEL/EVO_ITEM/...).
             # When we fail to cast to ExpansionEvoMethod we keep the raw int.
             if isinstance(method, int):
@@ -521,6 +665,64 @@ def zip_evos(all_data: dict,
                 else:
                     parent_mon['evoType'] = 'other'
                     parent_mon['evoCondition'] = ''
+                # Apply RHH CONDITIONS(...)
+                for c_name, c_param in conds:
+                    if c_name == 'IF_HOLD_ITEM':
+                        # RHH: this is a *condition* on a level/trade evolution, not an item-use evolution.
+                        try:
+                            held_item = items[int(c_param)]
+                        except Exception:
+                            held_item = str(c_param)
+
+                        parent_mon['evoItem'] = held_item
+
+                        note = f"while holding {held_item}"
+                        parent_mon['evoCondition'] = (
+                            (parent_mon.get('evoCondition') + ', ' if parent_mon.get('evoCondition') else '') + note
+                        ).strip()
+                    elif c_name == 'IF_TIME':
+                        # RHH: time-of-day gate for level evolutions (e.g. Lycanroc forms).
+                        t = c_param
+                        note = None                 
+
+                        if isinstance(t, int):
+                            _tmap = {
+                                0: 'during the day',
+                                1: 'at night',
+                                2: 'at dusk',
+                                3: 'at dawn',
+                                4: 'in the morning',
+                                5: 'in the evening',
+                            }
+                            note = _tmap.get(t, f'time {t}')
+                        else:
+                            s = str(t)
+                            if s.startswith('TIME_'):
+                                s = s[5:]
+                            key = s.strip().lower()                 
+
+                            _smap = {
+                                'day': 'during the day',
+                                'night': 'at night',
+                                'dusk': 'at dusk',
+                                'dawn': 'at dawn',
+                                'morning': 'in the morning',
+                                'evening': 'in the evening',
+                                'noon': 'at noon',
+                            }
+                            note = _smap.get(key, f'at {key.replace("_", " ")}')                    
+
+                        parent_mon['evoCondition'] = (
+                            (parent_mon.get('evoCondition') + ', ' if parent_mon.get('evoCondition') else '') + note
+                        ).strip()
+
+                    elif c_name == 'IF_MIN_FRIENDSHIP':
+                        if parent_mon.get('evoType', '').startswith('level'):
+                            parent_mon['evoType'] = 'friendship'
+                    else:
+                        note = c_name.replace('IF_', '').lower().replace('_', ' ')
+                        if note:
+                            parent_mon['evoCondition'] = (parent_mon.get('evoCondition','') + (', ' if parent_mon.get('evoCondition') else '') + note).strip()
                 continue
 
             match method:
@@ -797,8 +999,18 @@ def parse_species(fname: pathlib.Path,
                   teachable_learnsets: dict[str, dict[str, list[str]]],
                   national_dex: dict[str, int],
                   included_mons: list[str]) -> tuple[dict, dict]:
+    # If a preprocessed/minimal header is available next to species_info.h, prefer it.
+    try:
+        fpath = pathlib.Path(fname)
+        if fpath.name == 'species_info.h':
+            alt = fpath.with_name('porydex_species.h')
+            if alt.exists():
+                fname = alt
+    except Exception:
+        pass
     species_data: ExprList
     with yaspin(text=f'Loading species data: {fname}', color='cyan') as spinner:
+
         species_data = load_truncated(fname, extra_includes=[
             r'-include', r'constants/moves.h',
             # RHH 1.12 uses EVO_* enum tokens from constants/pokemon.h in EVOLUTION() macros.

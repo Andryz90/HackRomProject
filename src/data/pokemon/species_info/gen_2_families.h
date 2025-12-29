@@ -733,10 +733,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .formChangeTable = sFeraligatrFormChangeTable,
     },
 
-#define MEGA_FERALIGATR_ATTACK_DIFF (45u)
-#define MEGA_FERALIGATR_DEF_DIFF    (25u)
-#define MEGA_FERALIGATR_SPDEF_DIFF  (10u)
-#define MEGA_FERALIGATR_SPEED_DIFF  (20u)
+#define MEGA_FERALIGATR_ATTACK_DIFF (45)
+#define MEGA_FERALIGATR_DEF_DIFF    (25)
+#define MEGA_FERALIGATR_SPDEF_DIFF  (10)
+#define MEGA_FERALIGATR_SPEED_DIFF  (20)
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_FERALIGATR_MEGA] =

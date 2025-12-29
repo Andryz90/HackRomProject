@@ -7,6 +7,80 @@ import porydex.config
 
 _MAPSEC_ENUM_VALUES: dict[str, int] | None = None
 
+from pycparser import c_ast
+
+_C_INT_SUFFIX_RE = re.compile(r'(?i)^(?P<num>0x[0-9a-f]+|[0-9]+)(?P<suf>[uUlL]+)?$')
+
+def _parse_c_int_literal(s: str) -> int:
+    s = s.strip()
+    m = _C_INT_SUFFIX_RE.match(s)
+    if not m:
+        return int(s, 0)  # last resort
+    return int(m.group('num'), 0)
+
+
+def eval_c_expr(expr) -> int:
+    # Constant
+    if isinstance(expr, c_ast.Constant):
+        if expr.type in ('int', 'unsigned int', 'long', 'unsigned long', 'long long', 'unsigned long long'):
+            return _parse_c_int_literal(expr.value)
+        if expr.type in ('double', 'float'):
+            return int(float(expr.value))
+        return _parse_c_int_literal(str(expr.value))
+
+    # ID
+    if isinstance(expr, c_ast.ID):
+        return extract_int(expr)  # usa la tua logica esistente per macro/enum/lookup
+
+    # Cast: ignora il tipo, valuta l'expr
+    if isinstance(expr, c_ast.Cast):
+        return eval_c_expr(expr.expr)
+
+    # Unary
+    if isinstance(expr, c_ast.UnaryOp):
+        v = eval_c_expr(expr.expr)
+        if expr.op == '+':
+            return +v
+        if expr.op == '-':
+            return -v
+        if expr.op == '~':
+            return ~v
+        if expr.op == '!':
+            return int(not bool(v))
+        # altri unary: fallback
+        return v
+
+    # Ternary
+    if isinstance(expr, c_ast.TernaryOp):
+        cond = eval_c_expr(expr.cond)
+        return eval_c_expr(expr.iftrue) if cond else eval_c_expr(expr.iffalse)
+
+    # Binary
+    if isinstance(expr, c_ast.BinaryOp):
+        op = expr.op
+        if op not in BINARY_BOOL_OPS:
+            raise KeyError(f"Unsupported BinaryOp: {op}")
+        a = eval_c_expr(expr.left)
+        b = eval_c_expr(expr.right)
+        return BINARY_BOOL_OPS[op](a, b)
+
+    # fallback: se arriva qualcosa di imprevisto, prova string->int
+    raise TypeError(f"Unsupported AST node for eval: {type(expr)}")
+
+def eval_binary_operand(expr):
+    if isinstance(expr, c_ast.Constant):
+        if expr.type in ('int', 'unsigned int', 'long', 'unsigned long', 'long long', 'unsigned long long'):
+            return _parse_c_int_literal(expr.value)  
+        if expr.type in ('double', 'float'):
+            return float(expr.value)
+        # fallback conservativo
+        return int(str(expr.value), 0)
+
+    if isinstance(expr, c_ast.ID):
+        return extract_int(expr)
+
+    return int(eval_c_expr(expr))
+
 def _get_mapsec_enum_values() -> dict[str, int]:
     """
     Legge include/constants/region_map_sections.h e costruisce una
@@ -180,12 +254,6 @@ def load_data_and_start(fname: pathlib.Path,
 
     return (all_data, start)
 
-def eval_binary_operand(expr) -> int:
-    if isinstance(expr, BinaryOp):
-        return int(process_binary(expr))
-    elif isinstance(expr, TernaryOp):
-        return int(process_ternary(expr).value)
-    return int(expr.value)
 
 def process_binary(expr: BinaryOp) -> int | bool:
     left = eval_binary_operand(expr.left)
@@ -284,33 +352,33 @@ def extract_int(expr) -> int:
     try:
         return int(expr.value)
     except ValueError:
-        # try hexadecimal; if that doesn't work, just fail
-        return int(expr.value, 16)
 
+        if isinstance(expr, UnaryOp):
+            # we only care about the negative symbol
+            if expr.op != '-':
+                raise ValueError(f'unrecognized unary operator: {expr.op}')
+            return -1 * int(expr.expr.value)
 
-    if isinstance(expr, UnaryOp):
-        # we only care about the negative symbol
-        if expr.op != '-':
-            raise ValueError(f'unrecognized unary operator: {expr.op}')
-        return -1 * int(expr.expr.value)
+        if isinstance(expr, BinaryOp):
+            return int(process_binary(expr))
 
-    if isinstance(expr, BinaryOp):
-        return int(process_binary(expr))
+        try:
+            return int(expr.value)
+        except ValueError:
+            # try hexadecimal; if that doesn't work, just fail
+            return int(expr.value, 16)
 
-    try:
-        return int(expr.value)
-    except ValueError:
-        # try hexadecimal; if that doesn't work, just fail
-        return int(expr.value, 16)
+def extract_id(expr):
+    if isinstance(expr, c_ast.ID):
+        return expr.name
+    if isinstance(expr, c_ast.Constant):
+        return str(expr.value)
+    if isinstance(expr, c_ast.UnaryOp):
+        return f"{expr.op}{extract_id(expr.expr)}"
+    if isinstance(expr, c_ast.BinaryOp):
+        return f"{extract_id(expr.left)}{expr.op}{extract_id(expr.right)}"
+    return str(expr)
 
-def extract_id(expr) -> str:
-    if isinstance(expr, TernaryOp):
-        return process_ternary(expr).name
-
-    if isinstance(expr, BinaryOp):
-        return str(expr.op).join([expr.left.name, expr.right.name])
-
-    return expr.name
 
 def extract_prefixed(prefix: str | re.Pattern, val: str, mod_if_match: typing.Callable[[str], str]=lambda x: x) -> str:
     match = re.match(prefix, val)
