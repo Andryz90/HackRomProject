@@ -22223,7 +22223,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_CANNONADE] =
     {
-        .name = COMPOUND_STRING("Canonade"),
+        .name = COMPOUND_STRING("Cannonade"),
         .description = COMPOUND_STRING(
             "Uses its cannon to deal damage\n"
             "Foes side take damage overtime."
@@ -22862,7 +22862,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_FINALE] =
     {
-        .name = COMPOUND_STRING("Finale"),
+        .name = COMPOUND_STRING("Max Finale"),
         .description = COMPOUND_STRING(
             "A final exhibition that\n"
             "deal damage and heals allies."

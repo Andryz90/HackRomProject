@@ -161,11 +161,23 @@ def _pickle_target(fname: pathlib.Path) -> pathlib.Path:
 
 def _load_pickled(fname: pathlib.Path) -> ExprList | None:
     target = _pickle_target(fname)
-    exts = None
-    if target.exists():
+    if not target.exists():
+        return None
+
+    # Invalidate cache if the source file is newer than the pickle.
+    # (This does not track changes in transitive includes, but it's a big improvement over "never".)
+    try:
+        if fname.exists() and target.stat().st_mtime < fname.stat().st_mtime:
+            return None
+    except Exception:
+        # If we can't stat files for any reason, fall back to re-parsing.
+        return None
+
+    try:
         with open(target, 'rb') as f:
-            exts = pickle.load(f)
-    return exts
+            return pickle.load(f)
+    except Exception:
+        return None
 
 def _dump_pickled(fname: pathlib.Path, exts: list):
     PICKLE_PATH.mkdir(parents=True, exist_ok=True)

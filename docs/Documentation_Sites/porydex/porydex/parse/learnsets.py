@@ -10,6 +10,26 @@ from yaspin import yaspin
 from porydex.common import name_key
 from porydex.parse import extract_int, load_data_and_start
 
+
+def _prefer_levelup_gen9(fname: pathlib.Path) -> pathlib.Path:
+    """Prefer the generated Gen 9 level-up learnset header if present.
+
+    This avoids relying on aggregate headers that may not include the latest generated file.
+    """
+    candidates = [
+        porydex.config.expansion / 'src' / 'data' / 'pokemon' / 'level_up_learnsets' / 'gen_9.h',
+        fname.parent / 'gen_9.h',
+        fname.parent / 'level_up_learnsets' / 'gen_9.h',
+        fname,
+    ]
+    for c in candidates:
+        try:
+            if c and c.exists():
+                return c
+        except Exception:
+            pass
+    return fname
+
 def parse_level_up_learnset(decl: Decl,
                             move_names: list[str]) -> dict[str, list[int]]:
     learnset = collections.defaultdict(list)
@@ -62,6 +82,7 @@ def parse_teachable_learnsets_data(decls: list[Decl],
 
 def parse_level_up_learnsets(fname: pathlib.Path,
                              move_names: list[str]) -> dict[str, dict[str, list[int]]]:
+    fname = _prefer_levelup_gen9(fname)
     pattern = re.compile(r's(\w+)LevelUpLearnset')
     data: ExprList
     start: int
