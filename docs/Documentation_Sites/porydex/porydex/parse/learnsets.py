@@ -11,6 +11,40 @@ from porydex.common import name_key
 from porydex.parse import extract_int, load_data_and_start
 
 
+def _resolve_move_key(move_id: int,
+                      move_names: list[str],
+                      valid_move_keys: set[str] | None = None) -> str | None:
+    """Resolve the canonical move key for a numeric move id.
+
+    Some ROMs keep the MOVE_G_MAX_* constant names but rename the in-game move
+    (e.g. "G-Max Vine Lash" -> "Vine Lash"). We prefer the key derived from
+    the in-game name, and (optionally) fall back by stripping 'gmax'/'max'
+    prefixes if needed.
+    """
+    if move_id < 0 or move_id >= len(move_names):
+        return None
+
+    move_name = (move_names[move_id] or '').strip()
+    if not move_name:
+        return None
+
+    key = name_key(move_name)
+    if valid_move_keys is None or key in valid_move_keys:
+        return key
+
+    # Fallback: strip common Max/G-Max prefixes used by Showdown ids.
+    if key.startswith('gmax'):
+        alt = key[4:]
+        if alt in valid_move_keys:
+            return alt
+    if key.startswith('max'):
+        alt = key[3:]
+        if alt in valid_move_keys:
+            return alt
+
+    return key
+
+
 def _prefer_levelup_gen9(fname: pathlib.Path) -> pathlib.Path:
     """Prefer the generated Gen 9 level-up learnset header if present.
 
@@ -30,8 +64,11 @@ def _prefer_levelup_gen9(fname: pathlib.Path) -> pathlib.Path:
             pass
     return fname
 
-def parse_level_up_learnset(decl: Decl,
-                            move_names: list[str]) -> dict[str, list[int]]:
+def parse_level_up_learnset(
+    decl: Decl,
+    move_names: list[str],
+    valid_move_keys: set[str] | None = None,
+) -> dict[str, list[int]]:
     learnset = collections.defaultdict(list)
     entry_inits = decl.init.exprs
     for entry in entry_inits:
@@ -40,13 +77,19 @@ def parse_level_up_learnset(decl: Decl,
             break
 
         level = extract_int(entry.exprs[1].expr)
-        learnset[name_key(move_names[move])].append(level)
+        move_key = _resolve_move_key(move, move_names, valid_move_keys)
+        if move_key is None:
+            continue
+        learnset[move_key].append(level)
 
     return learnset
 
-def parse_teachable_learnset(decl: Decl,
-                             move_names: list[str],
-                             tm_moves: list[str]) -> dict[str, list[str]]:
+def parse_teachable_learnset(
+    decl: Decl,
+    move_names: list[str],
+    tm_moves: list[str],
+    valid_move_keys: set[str] | None = None,
+) -> dict[str, list[str]]:
     learnset = {
         'm': [],
         't': [],
@@ -57,31 +100,45 @@ def parse_teachable_learnset(decl: Decl,
         if move == 0xFFFF:
             break
 
-        move_name = move_names[move]
+        move_name = move_names[move] if 0 <= move < len(move_names) else ''
+        if not move_name:
+            continue
+
+        move_key = _resolve_move_key(move, move_names, valid_move_keys)
+        if move_key is None:
+            continue
+
         if move_name in tm_moves:
-            learnset['m'].append(name_key(move_name))
+            learnset['m'].append(move_key)
         else:
-            learnset['t'].append(name_key(move_name))
+            learnset['t'].append(move_key)
 
     return learnset
 
-def parse_level_up_learnsets_data(decls: list[Decl],
-                                  move_names: list[str]) -> dict[str, dict[str, list[int]]]:
+def parse_level_up_learnsets_data(
+    decls: list[Decl],
+    move_names: list[str],
+    valid_move_keys: set[str] | None = None,
+) -> dict[str, dict[str, list[int]]]:
     return {
-        decl.name: parse_level_up_learnset(decl, move_names)
+        decl.name: parse_level_up_learnset(decl, move_names, valid_move_keys)
         for decl in decls
     }
 
-def parse_teachable_learnsets_data(decls: list[Decl],
-                                   move_names: list[str],
-                                   tm_moves: list[str]) -> dict[str, dict[str, list[str]]]:
+def parse_teachable_learnsets_data(
+    decls: list[Decl],
+    move_names: list[str],
+    tm_moves: list[str],
+    valid_move_keys: set[str] | None = None,
+) -> dict[str, dict[str, list[str]]]:
     return {
-        decl.name: parse_teachable_learnset(decl, move_names, tm_moves)
+        decl.name: parse_teachable_learnset(decl, move_names, tm_moves, valid_move_keys)
         for decl in decls
     }
 
 def parse_level_up_learnsets(fname: pathlib.Path,
-                             move_names: list[str]) -> dict[str, dict[str, list[int]]]:
+                             move_names: list[str],
+                             valid_move_keys: set[str] | None = None) -> dict[str, dict[str, list[int]]]:
     fname = _prefer_levelup_gen9(fname)
     pattern = re.compile(r's(\w+)LevelUpLearnset')
     data: ExprList
@@ -98,10 +155,11 @@ def parse_level_up_learnsets(fname: pathlib.Path,
         )
         spinner.ok("✅")
 
-    return parse_level_up_learnsets_data(data[start:], move_names)
+    return parse_level_up_learnsets_data(data[start:], move_names, valid_move_keys)
 
 def parse_teachable_learnsets(fname: pathlib.Path,
-                              move_names: list[str]) -> dict[str, dict[str, list[str]]]:
+                              move_names: list[str],
+                              valid_move_keys: set[str] | None = None) -> dict[str, dict[str, list[str]]]:
     pattern = re.compile(r's(\w+)TeachableLearnset')
     data: ExprList
     start: int
@@ -126,5 +184,5 @@ def parse_teachable_learnsets(fname: pathlib.Path,
         })
         spinner.ok("✅")
 
-    return parse_teachable_learnsets_data(data[start:], move_names, tm_moves)
+    return parse_teachable_learnsets_data(data[start:], move_names, tm_moves, valid_move_keys)
 
