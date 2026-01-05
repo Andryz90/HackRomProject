@@ -1526,7 +1526,7 @@ const struct Item gItemsInfo[] =
         [ITEM_ABILITY_CAPSULE] =
             {
         .name = _("Ability Capsule"),
-                .price = (I_PRICE < GEN_7) ? 1000 : ((I_PRICE < GEN_9) ? 10000 : 100000),
+                .price = 10000,
                 .holdEffectParam = 0,
                 .description = COMPOUND_STRING(
                     "Switches a Poké-\n"
@@ -1542,7 +1542,7 @@ const struct Item gItemsInfo[] =
             {
                 .name = _("Ability Patch"),
                 .pluralName = _("Ability Patches"),
-                .price = 2500,
+                .price = 15000,
                 .holdEffectParam = 0,
                 .description = COMPOUND_STRING(
                     "Turns the ability\n"

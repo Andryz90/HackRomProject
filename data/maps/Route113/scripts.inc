@@ -140,6 +140,9 @@ Route113_EventScript_Wyatt::
 	waitmovement 0
 	end
 
+Route113_Follower_NPC_1::
+	setfollowernpc LOCALID_SKARMORY_R113, 0x1
+	end
 
 Route113_Text_AshCanBeFashionedIntoGlass:
 	.string "Wahahaha! Today's technology is a\n"

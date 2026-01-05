@@ -1410,7 +1410,6 @@ u8 AllocOamMatrix(void)
 
 void FreeOamMatrix(u8 matrixNum)
 {
-    MgbaPrintf(MGBA_LOG_ERROR, "matrix: %u", matrixNum);
     u8 i = 0;
     u32 bit = 1;
 
@@ -1429,7 +1428,6 @@ void InitSpriteAffineAnim(struct Sprite *sprite)
     u8 matrixNum = AllocOamMatrix();
     if (matrixNum != 0xFF)
     {
-        MgbaPrintf(MGBA_LOG_ERROR, "matrix: %u", matrixNum);
         CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, sprite->oam.affineMode);
         sprite->oam.matrixNum = matrixNum;
         sprite->affineAnimBeginning = TRUE;

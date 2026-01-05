@@ -15,6 +15,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "pokeball.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -31,7 +32,7 @@
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
 static void HealPlayerBoxes(void);
-u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg);
+u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg, u8 location);
 
 void HealPlayerParty(void)
 {
@@ -334,7 +335,7 @@ void SetTeraType(struct ScriptContext *ctx)
  * if slot == PARTY_SIZE, it will give the mon to first available party or storage slot
  */
 
-u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg)
+u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg, u8 location)
 {
     u16 nationalDexNum;
     int sentToPc;
@@ -358,6 +359,19 @@ u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item
     {
         CreateMon(&mon, species, EGG_HATCH_LEVEL, 32, TRUE, 0, OT_ID_PLAYER_ID, 0);
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+
+        if (location != POKEMON_NO_LOCATION_DEFINED)
+        {
+            mon.box.locationdefined = TRUE;
+            
+            if (location == METLOC_FATEFUL_ENCOUNTER)
+            {
+                bool32 isModernFatefulEncounter = TRUE;
+                SetMonData(&mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
+            }
+            SetMonData(&mon, MON_DATA_MET_LOCATION, &location);
+            
+        }
     }
     else if ((gender == MON_MALE && genderRatio != MON_FEMALE && genderRatio != MON_GENDERLESS)
      || (gender == MON_FEMALE && genderRatio != MON_MALE && genderRatio != MON_GENDERLESS)
@@ -486,7 +500,7 @@ u32 ScriptGiveMon(u16 species, u8 level, u16 item)
                                 MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1};  // ScriptGiveMonParameterized won't touch the stats' IV.
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
 
-    return ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0, FALSE);
+    return ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0, FALSE, POKEMON_NO_LOCATION_DEFINED);
 }
 
 #define PARSE_FLAG(n, default_) (flags & (1 << (n))) ? VarGet(ScriptReadHalfword(ctx)) : (default_)
@@ -519,6 +533,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     u8 spAtkIv        = Random() % (MAX_PER_STAT_IVS + 1);
     u8 spDefIv        = Random() % (MAX_PER_STAT_IVS + 1);
 
+    enum PokeBall pokeball = ball;
     // Perfect IV calculation
     u32 i;
     u8 availableIVs[NUM_STATS];
@@ -573,7 +588,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     else
         Script_RequestEffects(SCREFF_V1);
 
-    gSpecialVar_Result = ScriptGiveMonParameterized(side, slot, species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, isShiny, gmaxFactor, teraType, dmaxLevel, 0);
+    gSpecialVar_Result = ScriptGiveMonParameterized(side, slot, species, level, item, pokeball, nature, abilityNum, gender, evs, ivs, moves, isShiny, gmaxFactor, teraType, dmaxLevel, FALSE, POKEMON_NO_LOCATION_DEFINED);
 }
 
 #undef PARSE_FLAG

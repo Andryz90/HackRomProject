@@ -1,6 +1,9 @@
 #ifndef GUARD_SCRIPT_H
 #define GUARD_SCRIPT_H
 
+#define POKEMON_NO_LOCATION_DEFINED     (FALSE)
+#define POKEMON_IS_FATEFUL_ENCOUNTER    (0xFFu)
+
 struct ScriptContext;
 
 typedef bool8 (*ScrCmdFunc)(struct ScriptContext *);

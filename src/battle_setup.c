@@ -85,7 +85,7 @@ static const u8 *GetIntroSpeechOfApproachingTrainer(void);
 static const u8 *GetTrainerCantBattleSpeech(void);
 
 //Custom function to give the starter 3 random IV
-extern void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg);
+extern void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg, u8 location);
 
 EWRAM_DATA TrainerBattleParameter gTrainerBattleParameter = {0};
 EWRAM_DATA u16 gPartnerTrainerId = 0;
@@ -877,7 +877,7 @@ static void CB2_GiveStarter(void)
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
     //ScriptGiveMon(starterMon, 5, ITEM_NONE);
-    GiveMonSpecialIV(starterMon, 5u, ITEM_NONE, 3u, FALSE);
+    GiveMonSpecialIV(starterMon, 5u, ITEM_NONE, 3u, FALSE, POKEMON_NO_LOCATION_DEFINED);
     ResetTasks();
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);

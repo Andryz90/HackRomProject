@@ -51,6 +51,20 @@ FallarborTown_EventScript_MoveTutorSign::
 	msgbox FallarborTown_Text_MoveTutorSign, MSGBOX_SIGN
 	end
 
+FallarborTown_EventScript_Hiker::
+	lock
+	faceplayer
+	goto_if_set FLAG_HEAVVY_DUTY_BOOTS, FallarborTown_EventScript_Hiker_End
+	msgbox FallarborTown_Text_Hiker, MSGBOX_DEFAULT
+	giveitem ITEM_HEAVY_DUTY_BOOTS 
+	setflag FLAG_HEAVVY_DUTY_BOOTS
+	release
+	end
+FallarborTown_EventScript_Hiker_End::
+	msgbox FallarborTown_Text_Hiker2, MSGBOX_DEFAULT
+	release
+	end
+
 FallarborTown_Text_ShadyCharactersCozmosHome:
 	.string "Something's happening,\n"
 	.string "and I don't like it!\p"
@@ -93,3 +107,8 @@ FallarborTown_Text_MoveTutorSign:
 	.string "MOVE TUTOR'S HOUSE\n"
 	.string "“New moves taught to POKéMON.” $"
 
+FallarborTown_Text_Hiker:
+	.string "Yo! A real hiker can't miss\nthese out. $"
+
+FallarborTown_Text_Hiker2::
+	.string "Are you enjoying those booties? $"

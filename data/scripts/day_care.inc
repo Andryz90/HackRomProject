@@ -277,10 +277,11 @@ EventScript_GiveBabyEgg::
 	msgbox Text_GiveBabyEgg, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_GiveBabyEgg_ISee
 	randomelement SPECIES_PICHU, SPECIES_SMOOCHUM, SPECIES_MAGBY, SPECIES_ELEKID, SPECIES_TOGEPI, SPECIES_WYNAUT, SPECIES_EEVEE, SPECIES_BONSLY @store the species in VAR_RESULT
-	setvar VAR_0x8000, 5 						@store level 
-	setvar VAR_0x8001, ITEM_NONE 				@store the item
-	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
-	setvar VAR_0x8003, TRUE 					@Store if I want an egg or not 
+	setvar VAR_0x8000, 5 								@store level 
+	setvar VAR_0x8001, ITEM_NONE 						@store the item
+	setvar VAR_0x8002, 3 								@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 							@Store if I want an egg or not 
+	setvar VAR_0x8004, MAPSEC_POKEMON_DAY_CARE 			@Set the location
 	special Script_GiveMonSpecial
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg

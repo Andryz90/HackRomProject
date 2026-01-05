@@ -619,10 +619,11 @@ Route110_EventScript_BirchScene_End::
 	msgbox Route110_Text_BadgeOk, MSGBOX_DEFAULT
 	closemessage
 	randomelement SPECIES_CYNDAQUIL, SPECIES_TOTODILE, SPECIES_CHIKORITA @store the species in VAR_RESULT
-	setvar VAR_0x8000, 5 						@store level 
-	setvar VAR_0x8001, ITEM_NONE 				@store the item
-	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
-	setvar VAR_0x8003, TRUE 					@Store if I want an egg or not 
+	setvar VAR_0x8000, 5 							@store level 
+	setvar VAR_0x8001, ITEM_NONE 					@store the item
+	setvar VAR_0x8002, 3 							@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 						@Store if I want an egg or not 
+	setvar VAR_0x8004, METLOC_FATEFUL_ENCOUNTER 	@Set the location
 	special Script_GiveMonSpecial
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg

@@ -14338,7 +14338,11 @@
         "Move": "MOVE_SLASH"
       },
       {
-        "Level": 44,
+        "Level": 40,
+        "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 48,
         "Move": "MOVE_THROAT_CHOP"
       },
       {
@@ -17879,15 +17883,15 @@
         "Move": "MOVE_SLAM"
       },
       {
+        "Level": 18,
+        "Move": "MOVE_WATER_PULSE"
+      },
+      {
         "Level": 21,
         "Move": "MOVE_YAWN"
       },
       {
-        "Level": 24,
-        "Move": "MOVE_AQUA_TAIL"
-      },
-      {
-        "Level": 28,
+        "Level": 30,
         "Move": "MOVE_MUDDY_WATER"
       },
       {
@@ -17974,6 +17978,10 @@
   "QUAGSIRE": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_RECOVER"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_TAIL_WHIP"
       },
@@ -18002,16 +18010,20 @@
         "Move": "MOVE_SLAM"
       },
       {
+        "Level": 18,
+        "Move": "MOVE_WATER_PULSE"
+      },
+      {
         "Level": 23,
         "Move": "MOVE_YAWN"
       },
       {
         "Level": 28,
-        "Move": "MOVE_AQUA_TAIL"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 34,
-        "Move": "MOVE_MUDDY_WATER"
+        "Move": "MOVE_EARTH_POWER"
       },
       {
         "Level": 40,
@@ -51887,6 +51899,10 @@
         "Move": "MOVE_ASTONISH"
       },
       {
+        "Level": 1,
+        "Move": "MOVE_CLEAR_SMOG"
+      },
+      {
         "Level": 4,
         "Move": "MOVE_GROWTH"
       },
@@ -51904,11 +51920,15 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_CLEAR_SMOG"
+        "Move": "MOVE_SLUDGE"
       },
       {
-        "Level": 24,
+        "Level": 22,
         "Move": "MOVE_SWEET_SCENT"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_POISON_DRAIN"
       },
       {
         "Level": 28,
@@ -51916,6 +51936,10 @@
       },
       {
         "Level": 32,
+        "Move": "MOVE_RAGE_POWDER"
+      },
+      {
+        "Level": 34,
         "Move": "MOVE_INGRAIN"
       },
       {
@@ -51923,8 +51947,8 @@
         "Move": "MOVE_TOXIC"
       },
       {
-        "Level": 40,
-        "Move": "MOVE_RAGE_POWDER"
+        "Level": 38,
+        "Move": "MOVE_SLUDGE_BOMB"
       },
       {
         "Level": 44,
@@ -51978,6 +52002,10 @@
       },
       {
         "Level": 1,
+        "Move": "MOVE_POISON_DRAIN"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_GROWTH"
       },
       {
@@ -52010,6 +52038,10 @@
       },
       {
         "Level": 32,
+        "Move": "MOVE_RAGE_POWDER"
+      },
+      {
+        "Level": 34,
         "Move": "MOVE_INGRAIN"
       },
       {
@@ -52017,15 +52049,15 @@
         "Move": "MOVE_TOXIC"
       },
       {
-        "Level": 42,
-        "Move": "MOVE_RAGE_POWDER"
+        "Level": 38,
+        "Move": "MOVE_SLUDGE_BOMB"
       },
       {
-        "Level": 48,
+        "Level": 40,
         "Move": "MOVE_SOLAR_BEAM"
       },
       {
-        "Level": 54,
+        "Level": 50,
         "Move": "MOVE_SPORE"
       }
     ],
@@ -85245,6 +85277,10 @@
     "LevelMoves": [
       {
         "Level": 0,
+        "Move": "MOVE_RECOVER"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_AMNESIA"
       },
       {

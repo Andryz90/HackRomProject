@@ -146,7 +146,7 @@ static void Task_CloseBattlePikeCurtain(u8);
 static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
 static u16 PlayerGainRandomTrainerFan(void);
-void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg);
+void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg, u8 location);
 #if FREE_LINK_BATTLE_RECORDS == FALSE
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
 #else
@@ -4515,9 +4515,9 @@ void DamageMon (void)
     gTasks[taskId].func = Debug_Custom_Menu;
 }
 
-extern u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg);
+extern u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u8 *evs, u8 *ivs, u16 *moves, bool8 isShiny, bool8 gmaxFactor, u8 teraType, u8 dmaxLevel, bool8 isEgg, u8 location);
 
-void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg)
+void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEgg, u8 location)
 {
     u8 hpIv                  = Random() % (MAX_PER_STAT_IVS + 1);
     u8 atkIv                 = Random() % (MAX_PER_STAT_IVS + 1);
@@ -4530,11 +4530,12 @@ void GiveMonSpecialIV (u16 species, u8 level, u16 item, u8 numberIVs, bool8 isEg
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
     
-    RandomizeIVto31(3u, ivs);
-    gSpecialVar_Result = ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, BALL_POKE, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0, isEgg);
+    RandomizeIVto31(numberIVs, ivs);
+
+    gSpecialVar_Result = ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, BALL_POKE, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES, 0, isEgg, location);
 }
 
 void Script_GiveMonSpecial (void)
 {
-    GiveMonSpecialIV(gSpecialVar_Result, gSpecialVar_0x8000, gSpecialVar_0x8001, gSpecialVar_0x8002, gSpecialVar_0x8003);
+    GiveMonSpecialIV(gSpecialVar_Result, gSpecialVar_0x8000, gSpecialVar_0x8001, gSpecialVar_0x8002, gSpecialVar_0x8003, gSpecialVar_0x8004);
 }

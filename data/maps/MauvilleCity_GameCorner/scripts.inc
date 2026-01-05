@@ -8,7 +8,7 @@ MauvilleCity_GameCorner_MapScripts::
 	.set TM_THUNDERBOLT_COINS, 4000
 	.set TM_ICE_BEAM_COINS, 4000
 	.set DOLL_COINS, 1000
-	.set POKE_BADGE2, 100
+	.set POKE_BADGE, 100
 
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
@@ -645,17 +645,17 @@ MauvilleCity_GameCorner_EventScript_CoinsPokemonClerk::
 	dynmultipush MauvilleCity_GameCorner_Text_Badge2, 0
 	dynmultipush MauvilleCity_GameCorner_Text_Badge3, 1
 	dynmultipush MauvilleCity_GameCorner_Text_Badge4, 2
-	dynmultipush MauvilleCity_GameCorner_Text_Badge7, 3
-	dynmultipush MauvilleCity_GameCorner_Text_Badge8, 4	
-	dynmultistack 0, 0, FALSE, 5, FALSE, 0, NULL
+	@dynmultipush MauvilleCity_GameCorner_Text_Badge7, 3
+	@dynmultipush MauvilleCity_GameCorner_Text_Badge8, 4	
+	dynmultistack 0, 0, FALSE, 3, FALSE, 0, NULL
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_eq  MauvilleCity_GameCorner_GeneralExit @temp 
 	switch VAR_RESULT
 	case 0, MauvilleCity_GameCorner_EventScript_Badge2Selection
 	case 1, MauvilleCity_GameCorner_EventScript_Badge3Selection
 	case 2, MauvilleCity_GameCorner_EventScript_Badge4Selection
-	case 3, MauvilleCity_GameCorner_EventScript_Badge7Selection
-	case 4, MauvilleCity_GameCorner_EventScript_Badge8Selection
+	@case 3, MauvilleCity_GameCorner_EventScript_Badge7Selection
+	@case 4, MauvilleCity_GameCorner_EventScript_Badge8Selection
 	case MULTI_B_PRESSED, MauvilleCity_GameCorner_GeneralExit
 	releaseall
 	end
@@ -665,13 +665,14 @@ MauvilleCity_GameCorner_EventScript_Badge2Selection::
 	msgbox MauvilleCity_GameCorner_Text_BadgePokemonExchange, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CoinsPokemonClerk
 	checkcoins VAR_TEMP_2
-	goto_if_lt VAR_TEMP_2, POKE_BADGE2, MauvilleCity_GameCorner_NotEnoughCoins
-	removecoins POKE_BADGE2
-	randomelement SPECIES_DRILBUR, SPECIES_HIPPOPOTAS, SPECIES_DIGLETT, SPECIES_MUDBRAY, SPECIES_WOOPER, SPECIES_SANDSHREW, SPECIES_BARBOACH, SPECIES_STUNFISK @store the species in VAR_RESULT
-	setvar VAR_0x8000, 1 						@store level 
-	setvar VAR_0x8001, ITEM_NONE 				@store the item
-	setvar VAR_0x8002, 3 						@Store how many randomly chosen IVs I want to set to 31
-	setvar VAR_0x8003, TRUE 					@Store if I want an egg or not 
+	goto_if_lt VAR_TEMP_2, POKE_BADGE, MauvilleCity_GameCorner_NotEnoughCoins
+	removecoins POKE_BADGE
+	randomelement SPECIES_DRILBUR, SPECIES_HIPPOPOTAS, SPECIES_DIGLETT, SPECIES_MUDBRAY, SPECIES_WOOPER_PALDEAN, SPECIES_SANDSHREW, SPECIES_BARBOACH, SPECIES_STUNFISK @store the species in VAR_RESULT
+	setvar VAR_0x8000, 1 								@store level 
+	setvar VAR_0x8001, ITEM_NONE 						@store the item
+	setvar VAR_0x8002, 3 								@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 							@Store if I want an egg or not 
+	setvar VAR_0x8004, MAPSEC_GAME_CORNER 	@Set the location
 	special Script_GiveMonSpecial
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg
@@ -685,13 +686,55 @@ MauvilleCity_GameCorner_NotEnoughCoins::
 	releaseall
 	end
 MauvilleCity_GameCorner_EventScript_Badge3Selection::
-
+	msgbox MauvilleCity_GameCorner_Text_Badge3Pokemon, MSGBOX_DEFAULT
+	waitmessage
+	msgbox MauvilleCity_GameCorner_Text_BadgePokemonExchange, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CoinsPokemonClerk
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, POKE_BADGE, MauvilleCity_GameCorner_NotEnoughCoins
+	removecoins POKE_BADGE
+	randomelement  SPECIES_WOOPER, SPECIES_AZURILL, SPECIES_GROWLITHE, SPECIES_VULPIX, SPECIES_MAGBY, SPECIES_CLOBBOPUS, SPECIES_SKRELP, SPECIES_SURSKIT @store the species in VAR_RESULT
+	setvar VAR_0x8000, 1 								@store level 
+	setvar VAR_0x8001, ITEM_NONE 						@store the item
+	setvar VAR_0x8002, 3 								@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 							@Store if I want an egg or not 
+	setvar VAR_0x8004, MAPSEC_GAME_CORNER 	@Set the location
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	releaseall
+	end
 MauvilleCity_GameCorner_EventScript_Badge4Selection::
-
+	msgbox MauvilleCity_GameCorner_Text_Badge4Pokemon, MSGBOX_DEFAULT
+	waitmessage
+	msgbox MauvilleCity_GameCorner_Text_BadgePokemonExchange, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CoinsPokemonClerk
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, POKE_BADGE, MauvilleCity_GameCorner_NotEnoughCoins
+	removecoins POKE_BADGE
+	randomelement  SPECIES_FALINKS, SPECIES_MANKEY, SPECIES_FARFETCHD_GALARIAN, SPECIES_TYROGUE, SPECIES_ELEKID, SPECIES_LEDYBA, SPECIES_SNUBBULL, SPECIES_SNEASEL_HISUIAN @store the species in VAR_RESULT
+	setvar VAR_0x8000, 1 								@store level 
+	setvar VAR_0x8001, ITEM_NONE 						@store the item
+	setvar VAR_0x8002, 3 								@Store how many randomly chosen IVs I want to set to 31
+	setvar VAR_0x8003, TRUE 							@Store if I want an egg or not 
+	setvar VAR_0x8004, MAPSEC_GAME_CORNER 	@Set the location
+	special Script_GiveMonSpecial
+	playfanfare MUS_OBTAIN_ITEM
+	message LavaridgeTown_Text_ReceivedTheEgg
+	waitfanfare
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	releaseall
+	end
 MauvilleCity_GameCorner_EventScript_Badge7Selection::
-
+	releaseall
+	end
 MauvilleCity_GameCorner_EventScript_Badge8Selection::
-
+	releaseall
+	end
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner:
 	.string "This is MAUVILLE GAME CORNER.  $"
@@ -785,8 +828,8 @@ MauvilleCity_GameCorner_Text_CantWinJackpot:
 MauvilleCity_GameCorner_Text_NeedCoinCaseGoNextDoor:
 	.string "Hey, kid, if you want to play here,\n"
 	.string "you need a COIN CASE.\p"
-	.string "I think the young lady next door\n"
-	.string "had one. Go see her!  $"
+	.string "There's a strange guy next door.\n"
+	.string "He loves to gamble. $"
 
 MauvilleCity_GameCorner_Text_LuckOnlyLastSoLongTakeCoins:
 	.string "My luck can only last so long.\n"
@@ -865,6 +908,19 @@ MauvilleCity_GameCorner_Text_Badge2Pokemon::
 	.string "The possibilities are:\p"
 	.string "Drillbur, Hippopotas, Diglett, Mudbray,\n"
 	.string "Wooper, Sandshrew, Barboach and Stunfisk.  $"
+
+MauvilleCity_GameCorner_Text_Badge3Pokemon::
+	.string "You have selected the BADGE 3 POKéMON.\n"
+	.string "The possibilities are:\p"
+	.string "Wooper, Azurill, Growlithe, Vulpix,\n"
+	.string "Magby, Clobbopus, Skrelp and Surskit.  $"
+
+MauvilleCity_GameCorner_Text_Badge4Pokemon::
+	.string "You have selected the BADGE 4 POKéMON.\n"
+	.string "The possibilities are:\p"
+	.string "Falinks, Mankey, Farfetchd-Galar,\n"
+	.string "Tyrogue, Elekid, Ledyba, Granbull\pand Sneasel-Hisui.  $"
+
 MauvilleCity_GameCorner_Text_BadgePokemonExchange::
 	.string "Would you like to exchange your coins\n"
 	.string "for one of this POKéMON?  $"

@@ -7321,7 +7321,6 @@ void RandomizeIVto31 (u8 numberofstat, u8* ivs)
     for (int i = 0; i < numberofstat; i++)
     {
         rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
-        // MgbaPrintf(MGBA_LOG_ERROR, "Pos: %u", rand_number[i]);
         if (i == 0)
         {
             ivs[rand_number[i]] = 31;
@@ -7330,12 +7329,9 @@ void RandomizeIVto31 (u8 numberofstat, u8* ivs)
         //Check if it's not already extracted
         for (int k = 0; k < i; k++)
         {
-           //MgbaPrintf(MGBA_LOG_ERROR, "k: %u", k);
             if (rand_number[k] == rand_number[i])
             {
-                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted: %u", rand_number[i]);
                 rand_number[i] = Random() % 6;  //min + Random() % (max - min + 1);
-                //MgbaPrintf(MGBA_LOG_ERROR, "Value Substituted Aft: %u", rand_number[i]);
                 k = -1;
             }
         }

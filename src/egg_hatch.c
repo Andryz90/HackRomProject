@@ -368,7 +368,7 @@ static void AddHatchedMonToParty(u8 id)
     u8 metLocation;
     struct Pokemon *mon = &gPlayerParty[id];
 
-    CreateHatchedMon(mon, &gEnemyParty[0]);
+    //CreateHatchedMon(mon, &gEnemyParty[0]);
     SetMonData(mon, MON_DATA_IS_EGG, &isEgg);
 
     species = GetMonData(mon, MON_DATA_SPECIES);
@@ -385,9 +385,11 @@ static void AddHatchedMonToParty(u8 id)
     metLevel = 0;
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
 
-    metLocation = GetCurrentRegionMapSectionId();
-    SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
-
+    if (!mon->box.locationdefined)
+    {
+        metLocation = GetCurrentRegionMapSectionId();
+        SetMonData(mon, MON_DATA_MET_LOCATION, &metLocation);
+    }
     MonRestorePP(mon);
     CalculateMonStats(mon);
 }

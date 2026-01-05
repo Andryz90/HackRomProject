@@ -71,7 +71,7 @@ Route111_EventScript_MagmDesert_Init::
 	clearflag FLAG_HIDE_MAGMA_GRUNT_DESERT 	@ Magma Grunts and other NPC Visible
 	setflag FLAG_REGI_DOORS_OPENED         	@ Temporary open the regi
 	setflag FLAG_HIDE_TRAINER_DESERT	   	@ Temporary hide trainer inside
-	call_if_eq VAR_WALLY_ROUTE111_TRIGGER,  0, Route111_Prepare_WallyEvent 
+	call_if_eq VAR_WALLY_ROUTE111_TRIGGER,  0xFF, Route111_Prepare_WallyEvent 
 	call_if_ge VAR_WALLY_ROUTE111_TRIGGER,  3, Route111_Move_NPC_Guard
 	call_if_defeated TRAINER_TABITHA_DESERT, Route111_Desert_SetObjectPositionAfterBattle
 	return
@@ -191,15 +191,14 @@ Player_Approaching_Wally6::
 	step_end
 
 Wally_Help_Text::
-	.string "WALLY: I was reached by your neighbour\nasking me for help. \l"
-	.string "But they're too many to handle alone! \p"
+	.string "WALLY: I was reached by your neighbour,\nasking me for help. \l"
+	.string "But they're too many to handle! \p"
 	.string "Help me out and lets finish them! $"
 
 MagmaGrunts_Before_MultiBattle_Text::
 	.string "GRUNTS: You will not stop us! $"
 
 @ Wally Scripts 
-
 Route111_Wally_Desert_EventScript1::
 	lockall
 	applymovement LOCALID_WALLY_DESERT, Common_Movement_ExclamationMark
@@ -436,15 +435,15 @@ Route111_GuardianGrunt2_Flee_Movement:
 
 Route111_Wally_Final_Text_Female::
 	.string "WALLY: Phew... \l"
-	.string "It wasn't easy thanks for the help. \p"
-	.string "We don't have time tough.\nI don't know what it's going on but \l"
+	.string "It wasn't easy, thanks for the help. \p"
+	.string "We don't have time though.\nI don't know what it's going on, but \l"
 	.string "we need to stop it as soon as possible. \p"
 	.string "{PLAYER}, I'll go help MAY.\nYou try to stop TEAM MAGMA instead. \p"
 	.string "We'll join you as soon as we can. $"
 Route111_Wally_Final_Text_Male::
 	.string "WALLY: Phew... \l"
-	.string "It wasn't easy thanks for the help. \p"
-	.string "We don't have time tough.\nI don't know what it's going on but \l"
+	.string "It wasn't easy, thanks for the help. \p"
+	.string "We don't have time though.\nI don't know what it's going on, but \l"
 	.string "we need to stop it as soon as possible. \p"
 	.string "{PLAYER}, I'll go help BRENDAN.\nYou try to stop TEAM MAGMA instead. \p"
 	.string "We'll join you as soon as we can. $"
@@ -551,7 +550,7 @@ Route111_Wally_Final_Male::
 Route111_Wally_Desert_Script_Text::
 	.string "WALLY: {PLAYER}, hurry up! \nWe'll handle it here. $"
 Route111_Wally_Desert_Script_Text_Final::
-	.string "WALLY: {PLAYER}, we almost done it\n"
+	.string "WALLY: {PLAYER}, we've almost done it\n"
 	.string "Lets beat MAXIE. $"
 Route111_Wally_Desert_Script::
 	lock
@@ -817,7 +816,7 @@ Route111_Desert_Tabitha_Brendan::
 	end
 
 Route111_Desert_Tabitha_Battle::
-	playbgm MUS_ENCOUNTER_MAGMA, TRUE
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	trainerbattle_single TRAINER_TABITHA_DESERT, Route111_Tabitha_Battle_Intro, Route111_Tabitha_Battle_Defeat, Route111_Desert_Tabitha_OutEntrance, FALSE
 	Route111_Desert_Tabitha_OutEntrance:
 	applymovement LOCALID_GRUNT_RIGHT_WING, Common_Movement_WalkRight
@@ -925,15 +924,12 @@ Route111_EventScript_EndCheckSetSandstorm::
 	return
 
 Route111_EventScript_SetWallyRoute111::
+	goto_if_set FLAG_HIDE_WALLY_ROUTE111, Common_EventScript_Return
 	setobjectxyperm LOCALID_WALLY_R111, 19, 101
 	setvar VAR_WALLY_ROUTE111_TRIGGER, 1
-	goto_if_set FLAG_HIDE_WALLY_ROUTE111, Route111_EventScript_OverwriteWallyVar
 	return
 Route111_EventScript_WallyWarp::
 	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Route111_EventScript_SetWallyRoute111
-	return
-Route111_EventScript_OverwriteWallyVar::
-	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
 	return
 Route111_EventScript_SetWinstratesNotDefeated::
 	clearflag FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE
@@ -1576,7 +1572,7 @@ Route111_EventScript_Wally_PostBattle::
 	applymovement LOCALID_WALLY_R111, Wally_Ending_Scene
 	waitmovement 0
 	setflag FLAG_HIDE_WALLY_ROUTE111
-	setvar VAR_WALLY_ROUTE111_TRIGGER, 0
+	setvar VAR_WALLY_ROUTE111_TRIGGER, 0xFF
 	setvar VAR_ROUTE111_STATE, 1 @Handle the Andry/Edo Triggers
 	removeobject LOCALID_WALLY_R111
 	release
@@ -2009,3 +2005,6 @@ Route111_EdoMiddleInteraction_Text3::
 	.string "See ya.  $"
 Route111_EdoInteractionExit_Text::
 	.string "Dio porco che caldo.  $"
+
+Common_Script_End::
+	end

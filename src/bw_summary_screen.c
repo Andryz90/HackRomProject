@@ -4054,7 +4054,7 @@ static void BufferMonTrainerMemo(void)
 
         text = gText_XNature;
 
-        if (DoesMonOTMatchOwner() == TRUE)
+        if (DoesMonOTMatchOwner() == TRUE && sum->metLocation != METLOC_FATEFUL_ENCOUNTER)
         {
             if (sum->metLevel == 0)
                 text = (!locationFound) ? gText_XNatureHatchedSomewhereAt : gText_XNatureHatchedAtYZ;
