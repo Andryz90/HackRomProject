@@ -2,9 +2,81 @@ import argparse
 import json
 import pathlib
 import os
+from copy import deepcopy
 
 import porydex.config
 import porydex.showdown
+
+from typing import Optional, Set, Dict, Any
+
+
+def _strip_max_prefix_from_key(key: str) -> Optional[str]:
+    if key.startswith("gmax") and len(key) > 4:
+        return key[4:]
+    if key.startswith("max") and len(key) > 3:
+        return key[3:]
+    return None
+
+
+def _strip_max_prefix_from_name(name: str) -> str:
+    if name.startswith("G-Max "):
+        return name[6:]
+    if name.startswith("Max "):
+        return name[4:]
+    return name
+
+
+def _iter_learnset_move_keys(learnsets: Dict[str, Any]) -> Set[str]:
+    refs: Set[str] = set()
+    for _, mon_data in learnsets.items():
+        ls = mon_data.get("learnset")
+        if isinstance(ls, dict):
+            refs.update(ls.keys())
+    return refs
+
+
+def _fixup_moves_missing_from_learnsets(moves: Dict[str, Any], learnsets: Dict[str, Any]) -> None:
+    # If learnsets reference a move key that doesn't exist in moves,
+    # try to resolve it by stripping Max/G-Max prefixes (or the reverse).
+    refs = _iter_learnset_move_keys(learnsets)
+
+    for key in sorted(refs):
+        if key in moves:
+            continue
+
+        base = _strip_max_prefix_from_key(key)
+        if base and base in moves:
+            moves[key] = deepcopy(moves[base])
+            continue
+
+        # Reverse: learnsets might reference a stripped key, while moves only has max/gmax.
+        for pref in ("gmax", "max"):
+            alt = pref + key
+            if alt in moves:
+                m2 = deepcopy(moves[alt])
+                if "name" in m2:
+                    m2["name"] = _strip_max_prefix_from_name(m2["name"])
+                moves[key] = m2
+                break
+
+    for key in sorted(refs):
+        if key in moves:
+            continue
+
+        base = _strip_max_prefix_from_key(key)
+        if base and base in moves:
+            moves[key] = deepcopy(moves[base])
+            continue
+
+        # Reverse: learnsets might reference a stripped key, while moves only has max/gmax.
+        for pref in ("gmax", "max"):
+            alt = pref + key
+            if alt in moves:
+                m = deepcopy(moves[alt])
+                if "name" in m:
+                    m["name"] = _strip_max_prefix_from_name(m["name"])
+                moves[key] = m
+                break
 
 from porydex.common import PICKLE_PATH, name_key
 from porydex.parse.abilities import parse_abilities
@@ -81,14 +153,21 @@ def extract(args):
     expansion_data = porydex.config.expansion / 'src' / 'data'
     custom_headers = pathlib.Path('custom_headers')
     moves = parse_moves(expansion_data / 'moves_info.h')
-    move_names = [move['name'] for move in sorted(moves.values(), key=lambda m: m['num'])]
-
+    # Dense array indexed by move id (num). This prevents misalignment if the moves
+    # mapping ever contains duplicates/aliases.
+    max_num = max((int(m.get('num', 0)) for m in moves.values()), default=0)
+    move_names = [''] * (max_num + 1)
+    for m in moves.values():
+        num = int(m.get('num', 0))
+        if 0 <= num <= max_num:
+            move_names[num] = str(m.get('name', ''))
     abilities = parse_abilities(expansion_data / 'abilities.h')
     items = parse_items(expansion_data / 'items.h')
     forms = parse_form_tables(expansion_data / 'pokemon' / 'form_species_tables.h')
     map_sections = parse_maps(expansion_data / 'region_map' / 'region_map_entries.h')
-    lvlup_learnsets = parse_level_up_learnsets(porydex.config.expansion / 'src' / 'data' / 'pokemon' / 'level_up_learnsets' / 'gen_9.h', move_names)
-    teach_learnsets = parse_teachable_learnsets(expansion_data / 'pokemon' / 'teachable_learnsets.h', move_names)
+    valid_move_keys = set(moves.keys())
+    lvlup_learnsets = parse_level_up_learnsets(porydex.config.expansion / 'src' / 'data' / 'pokemon' / 'level_up_learnsets' / 'gen_9.h', move_names, valid_move_keys)
+    teach_learnsets = parse_teachable_learnsets(expansion_data / 'pokemon' / 'teachable_learnsets.h', move_names, valid_move_keys)
     national_dex = parse_national_dex_enum(porydex.config.expansion / 'include' / 'constants' / 'pokedex.h')
 
     included_mons = []
@@ -108,6 +187,7 @@ def extract(args):
         national_dex,
         included_mons,
     )
+    _fixup_moves_missing_from_learnsets(moves, learnsets)
 
     species_names = ['????????????'] * (MAX_SPECIES_EXPANSION + 1)
     for mon in species.values():

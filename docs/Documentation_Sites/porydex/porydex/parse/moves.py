@@ -129,6 +129,13 @@ def parse_move(struct_init: NamedInitializer, desc_by_id: dict) -> dict:
 
             case 'category':
                 move['category'] = DAMAGE_CATEGORY[extract_int(field_expr)]
+            case 'isMaxMove':
+                # Some custom headers keep TRUE/FALSE as identifiers.
+                if isinstance(field_expr, ID):
+                    move['_isMaxMove'] = field_expr.name.upper() == 'TRUE'
+                else:
+                    move['_isMaxMove'] = bool(extract_int(field_expr))
+
 
             case 'criticalHitStage':
                 # expansion: "additional" stage; showdown: include implicit +1
@@ -173,12 +180,33 @@ def parse_move(struct_init: NamedInitializer, desc_by_id: dict) -> dict:
     return move
 
 
+def _move_key(move: dict) -> str:
+    """Return the Showdown key under which this move should be stored.
+
+    Showdown uses keys like 'gmaxdepletion' for G-Max moves. In RHH/expansion
+    headers it's common to set .name = "Depletion" while marking .isMaxMove = TRUE.
+    If we only key by name, we won't override Showdown's existing G-Max entry.
+
+    Rule:
+      - if isMaxMove and name doesn't already start with (G-Max / Max / Giga),
+        store under 'gmax' + name_key(name) and also prefix the display name with 'G-Max '.
+      - otherwise, store under name_key(name).
+    """
+    name = (move.get('name') or '').strip()
+    low = name.lower()
+    is_max = bool(move.get('_isMaxMove'))
+    if is_max and name and not (low.startswith('g-max') or low.startswith('max ') or low.startswith('giga ')):
+        move['name'] = name
+        return "gmax" + name_key(name)
+    return name_key(move.get('name', ''))
+
+
 def parse_moves_data(moves_data: ExprList, desc_by_id: dict) -> dict:
     all_moves = {}
     for move_init in moves_data:
         try:
             move = parse_move(move_init, desc_by_id)
-            key = name_key(move['name'])
+            key = _move_key(move)
             all_moves[key] = move
         except Exception as err:
             print('error parsing move')
@@ -268,7 +296,6 @@ def _prepare_moves_file_for_porydex(src: pathlib.Path) -> pathlib.Path:
 def parse_moves(fname: pathlib.Path) -> dict:
     sanitized_fname = _prepare_moves_file_for_porydex(fname)
 
-    # ✅ Prima raccogliamo tutte le sXDescription dal TESTO
     desc_by_id = _collect_descriptions_from_source(sanitized_fname)
 
     moves_data: ExprList

@@ -49,3 +49,8 @@ tools/trainerproc/trainerproc
 __pycache__
 src/data/trainers.h
 /docs/Documentation_Sites/Calculator/calc/node_modules/.bin
+/src/data/moves_info_porydex_tmp.h
+/Trainers Doc/trainers.party
+/Trainers Doc/trainers_sorted.party
+/package-lock.json
+/session.log
