@@ -1,12 +1,10 @@
 1) Programmare le nuove mega. (Impossibile senza sprite)
-2) Fare un googlesheet con annotati gli allenatori e la loro squadra (che andranno implementate in futuro)
-3) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
-
+2) Aggiustare i Level Caps non appena si hanno ultimati eventi e allenatori.
+- Sistemare allenatori sopra Rustboro City
 ------------------------------------------
 Map Editing:
 - Aggiustare i team nemici
 - Aggiungere le mt/mn
-
 --------------------------------------------
 After Test:
 

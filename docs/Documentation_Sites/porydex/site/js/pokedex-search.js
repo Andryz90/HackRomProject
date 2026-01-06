@@ -17,6 +17,11 @@
 			s = s.replace(/\s+0\s*$/i, '');
 		}
 	
+		// Prevent BattleSearch from grouping all "Route X" entries under a single "Route" tree node.
+		// Use NBSP between "Route" and the number so the grouping heuristic (split on ASCII space) doesn't trigger.
+		if (/^Route\s+\d+$/i.test(s)) {
+		}
+
 		return s.trim();
 	};
 
@@ -28,7 +33,7 @@
 			if (!dict) return;
 
 			// versioned normalization (so changes apply even if already normalized before)
-			if (dict.__porydexNamesNormalizedVersion === 2) return;
+			if (dict.__porydexNamesNormalizedVersion === 3) return;
 
 			for (var id in dict) {
 				if (!Object.prototype.hasOwnProperty.call(dict, id)) continue;
@@ -49,7 +54,15 @@
 				loc.name = cleaned;
 			}
 
-			dict.__porydexNamesNormalizedVersion = 2;
+			try {
+    Object.defineProperty(dict, '__porydexNamesNormalizedVersion', {
+        value: 3,
+        writable: true,
+        configurable: true
+    });
+} catch (e2) {
+    dict.__porydexNamesNormalizedVersion = 3;
+}
 		} catch (e) {
 			// fail silently
 		}
@@ -61,7 +74,7 @@
 			if (!window.BattleLocationdex) return;
 		
 			// versioned normalization (so changes apply even if already normalized before)
-			if (BattleLocationdex.__porydexNamesNormalizedVersion === 2) return;
+			if (BattleLocationdex.__porydexNamesNormalizedVersion === 3) return;
 		
 			for (var zoneid in BattleLocationdex) {
 				if (!Object.prototype.hasOwnProperty.call(BattleLocationdex, zoneid)) continue;
@@ -88,7 +101,15 @@
 				z.name = cleaned;
 			}
 		
-			BattleLocationdex.__porydexNamesNormalizedVersion = 2;
+			try {
+    Object.defineProperty(BattleLocationdex, '__porydexNamesNormalizedVersion', {
+        value: 3,
+        writable: true,
+        configurable: true
+    });
+} catch (e2) {
+    BattleLocationdex.__porydexNamesNormalizedVersion = 3;
+}
 		} catch (e) {
 			// fail silently
 		}
