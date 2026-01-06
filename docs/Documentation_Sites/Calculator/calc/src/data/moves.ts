@@ -2831,7 +2831,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Amnesia': { bp: 0, type: 'Psychic', category: 'Status', priority: 0 },
   'Aqua Cutter': { bp: 70, type: 'Water', category: 'Physical', isSlicing: true, priority: 0 },
   'Aqua Step': { bp: 80, type: 'Water', category: 'Physical', makesContact: true, priority: 0, secondaries: true },
-  'Armor Cannon': { bp: 120, type: 'Fire', category: 'Special', priority: 0, secondaries: true },
+  'Armor Cannon': { bp: 120, type: 'Fire', category: 'Special', isPulse: true, priority: 0, secondaries: true },
   'Aromatherapy': { bp: 0, type: 'Grass', category: 'Status', priority: 0 },
   'Assist': { bp: 0, type: 'Normal', category: 'Status', priority: 0 },
   'Assurance': { bp: 0, type: 'Dark', category: 'Physical', makesContact: true, priority: 0 },
