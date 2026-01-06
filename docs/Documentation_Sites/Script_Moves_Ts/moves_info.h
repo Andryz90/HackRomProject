@@ -10,7 +10,6 @@
 #include "constants/contest.h"
 
 // The Gen. 4+ contest data comes from urpg's contest movedex.
-
 #if B_BINDING_TURNS >= GEN_5
 #define BINDING_TURNS "4 or 5"
 #else
@@ -22224,7 +22223,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_CANNONADE] =
     {
-        .name = COMPOUND_STRING("Canonade"),
+        .name = COMPOUND_STRING("Cannonade"),
         .description = COMPOUND_STRING(
             "Uses its cannon to deal damage\n"
             "Foes side take damage overtime."
@@ -22350,7 +22349,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Max Terror"),
         .description = COMPOUND_STRING(
-            "Scare the target making\n."
+            "Scare the target making\n"
             "it unable to switch."
         ),
         .effect = EFFECT_MAX_MOVE,
@@ -22863,7 +22862,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_G_MAX_FINALE] =
     {
-        .name = COMPOUND_STRING("Finale"),
+        .name = COMPOUND_STRING("Max Finale"),
         .description = COMPOUND_STRING(
             "A final exhibition that\n"
             "deal damage and heals allies."
@@ -23342,8 +23341,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Season Power"),
         .description = COMPOUND_STRING(
-            "The power of the season,\n"
-            "changing type for each form."),
+            "Uses the power of the current\nseason, changing the type."),
         .effect = EFFECT_CHANGE_TYPE,
         .power = 90,
         .type = TYPE_NORMAL,

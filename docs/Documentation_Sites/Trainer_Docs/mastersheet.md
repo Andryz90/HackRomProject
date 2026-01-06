@@ -1,5 +1,8 @@
 ## Pkmn Trainer 1
 
+## Developer Andry
+Feraligatr @Feraligatite: Liquidation, Ice Punch, Dragon Dance, Crunch  
+
 ## Leader BUGSY
 Araquanid @Focus Sash: Sticky Web, Liquidation, Leech Life, Mirror Coat [Lv.1 | Water Bubble]  
 Ledian @Punching Glove: Ice Punch, U-turn, Combo Punch, Thunder Punch [Lv.1 | Iron Fist]  
@@ -7,6 +10,16 @@ Ariados @Life Orb: Cross Poison, Leech Life, Trailblaze, Swords Dance [Lv.1 | Ad
 Scyther @Eviolite: Cut, Dual Wingbeat, U-turn, Roost [Lv.1 | Technician]  
 Beautifly (F) @Big Root: Giga Drain, Draining Kiss, Air Slash, Bug Buzz [Lv.1 | Lifedrainer]  
 Dustox @Black Sludge: Toxic, Protect, Bug Bite, Venoshock [Lv.1 | Shield Dust]  
+
+## School Kid JERRY
+Kirlia: Psybeam, Draining Kiss, Future Sight, Light Screen [Lv.1 | Trace]  
+Darumaka-Galar: Ice Punch, Brick Break, Rock Slide, Power-Up Punch [Lv.1 | Hustle]  
+Hattrem: Reflect, Psybeam, Draining Kiss, Future Sight [Lv.1 | Magic Bounce]  
+
+## School Kid JERRY
+Gardevoir: Psychic, Draining Kiss, Moonblast, Light Screen [Lv.1 | Trace]  
+Darmanitan-Galar: Ice Punch, Brick Break, Rock Slide, Power-Up Punch [Lv.1 | Gorilla Tactics]  
+Hatterene: Reflect, Psychic, Draining Kiss, Moonblast [Lv.1 | Magic Bounce]  
 
 ## Winstrate VICTOR
 Swellow @Flame Orb: Protect, Facade, Brave Bird, Quick Attack [Lv.1 | Guts]  
@@ -37,10 +50,40 @@ Pangoro @Punching Glove: Knock Off, Drain Punch, Poison Jab, Bullet Punch [Lv.1 
 Marowak-Alola @Expert Belt: Flare Blitz, Poltergeist, Brick Break, Earthquake [Lv.1 | Cursed Body]  
 Skuntank @Rocky Helmet: Gunk Shot, Sucker Punch, Knock Off, Explosion [Lv.1 | Aftermath]  
 
+## Lass JANICE
+Marill (F): Aqua Jet, Play Rough, Trailblaze, Protect [Lv.1 | Huge Power]  
+Skiploom (F): Acrobatics, Substitute, Leech Seed, Protect [Lv.1 | Infiltrator]  
+Darumaka (F): Fire Punch, Brick Break, Power-Up Punch, Rock Slide [Lv.1 | Hustle]  
+
+## Lass JANICE
+Azumarill (F): Aqua Jet, Play Rough, Liquidation, Protect [Lv.1 | Huge Power]  
+Jumpluff (F): Acrobatics, Substitute, Leech Seed, Protect [Lv.1 | Infiltrator]  
+Darmanitan (F): Fire Punch, Brick Break, Power-Up Punch, Rock Slide [Lv.1 | Sheer Force]  
+
 ## Winstrate VIVI
 Lopunny @Choice Band: Return, High Jump Kick, Drain Punch, Play Rough [Lv.1 | Scrappy]  
 Azumarill @Sitrus Berry: Play Rough, Liquidation, Aqua Jet, Ice Punch [Lv.1 | Huge Power]  
 Breloom @Focus Band: Mach Punch, Rock Tomb, Bullet Seed, Spore [Lv.1 | Technician]  
+
+## Rich Boy DAWSON
+Aipom (M): Fake Out, Return, Seed Bomb, Acrobatics [Lv.1 | Skill Link]  
+Clamperl: Barrier, Protect, Water Pulse, Secret Power [Lv.1 | Shell Armor]  
+Sableye @Sitrus Berry: Night Shade, Thunder Wave, Will-O-Wisp, Pain Split [Lv.1 | Prankster]  
+
+## Lady SARAH
+Zigzagoon (F) @Liechi Berry: Covet, Return, Pursuit, Protect [Lv.1 | Gluttony]  
+Lotad (F) @Oran Berry: Mega Drain, Bubble Beam, Protect, Leech Seed [Lv.1 | Swift Swim]  
+Sandshrew (F): Gyro Ball, Dig, Detect, Knock Off [Lv.1 | Sand Veil]  
+
+## Rich Boy DAWSON
+Ambipom (M): Fake Out, Return, Seed Bomb, Acrobatics [Lv.1 | Skill Link]  
+Clamperl: Barrier, Protect, Water Pulse, Secret Power [Lv.1 | Shell Armor]  
+Sableye @Sitrus Berry: Night Shade, Thunder Wave, Will-O-Wisp, Pain Split [Lv.1 | Prankster]  
+
+## Lady SARAH
+Linoone (F) @Sitrus Berry: Belly Drum, Return, Pursuit, Protect [Lv.1 | Gluttony]  
+Ludicolo (F) @Sitrus Berry: Giga Drain, Bubble Beam, Protect, Fake Out [Lv.1 | Swift Swim]  
+Sandslash (F) @Muscle Band: Gyro Ball, Dig, Detect, Knock Off [Lv.1 | Sand Veil]  
 
 ## Guitarist JOSEPH
 Magnezone @Leftovers: Thunder Wave, Thunderbolt, Volt Switch, Flash Cannon [Lv.1 | Analytic]  
@@ -128,23 +171,9 @@ Zigzagoon @Oran Berry: Tackle, Sand Attack, Covet, Baby-Doll Eyes [Lv.7 | Glutto
 Yamper: Nuzzle, Tackle, Bite, Tail Whip [Lv.7 | Rattled]  
 Zigzagoon-Galar @Oran Berry: Lick, Pursuit, Sand Attack, Headbutt [Lv.8 | Gluttony]  
 
-## Rich Boy DAWSON
-Zigzagoon @Nugget:  [Lv.8]  
-Poochyena:  [Lv.8]  
-
-## Lady SARAH
-Lotad:  [Lv.8]  
-Zigzagoon @Nugget:  [Lv.8]  
-
-## School Kid JERRY
-Ralts:  [Lv.9]  
-
 ## Twins AMY & LIV [Double Battle]
 Plusle:  [Lv.9]  
 Minun:  [Lv.9]  
-
-## Lass JANICE
-Marill:  [Lv.9]  
 
 ## Bug Catcher RICK
 Ledyba: Tackle, Supersonic, Light Screen, Reflect [Lv.8 | Swarm]  
@@ -1866,7 +1895,7 @@ Wobbuffet: Destiny Bond, Safeguard, Counter, Mirror Coat [Lv.32]
 Lombre:  [Lv.32]  
 Nuzleaf:  [Lv.32]  
 
-## Scientist ISAAC
+## Pkmn Breeder ISAAC
 Dipplin @Sitrus Berry: Recycle, Giga Drain, Dragon Pulse, Sucker Punch [Lv.32 | Gluttony]  
 Porygon-Z @Expert Belt: Tri Attack, Discharge, Icy Wind, Shadow Ball [Lv.32 | Analytic]  
 Klinklang @Metal Coat: Volt Switch, Wild Charge, Gear Grind [Lv.32 | Clear Body]  
@@ -2390,9 +2419,9 @@ Carvanha:  [Lv.33]
 ## Kindler HAYDEN
 Boltund @Expert Belt: Thunder Fang, Psychic Fangs, Crunch, Shock Wave [Lv.34 | Strong Jaw]  
 Dunsparce @Eviolite: Shock Wave, Ancient Power, Body Slam [Lv.34 | Serene Grace]  
-Exploud @Silk Scarf: Shock Wave, Hyper Voice, Surf, Incinerate [Punk Rock]  
+Exploud @Silk Scarf: Shock Wave, Hyper Voice, Surf, Incinerate [Lv.34 | Punk Rock]  
 
-## Lass BRANDI
+## Psychic BRANDI
 Politoed: Muddy Water, Giga Drain, Flip Turn, Icy Wind [Lv.34 | Drizzle]  
 Swanna @Wacan Berry: Rest, Weather Ball, Air Slash [Lv.34 | Hydration]  
 Quagsire @Leftovers: Earthquake, Liquidation, Toxic, Protect [Lv.34 | Water Absorb]  
