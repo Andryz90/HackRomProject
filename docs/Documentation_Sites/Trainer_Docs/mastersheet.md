@@ -1,8 +1,5 @@
 ## Pkmn Trainer 1
 
-## Developer Andry
-Feraligatr @Feraligatite: Liquidation, Ice Punch, Dragon Dance, Crunch  
-
 ## Leader BUGSY
 Araquanid @Focus Sash: Sticky Web, Liquidation, Leech Life, Mirror Coat [Lv.1 | Water Bubble]  
 Ledian @Punching Glove: Ice Punch, U-turn, Combo Punch, Thunder Punch [Lv.1 | Iron Fist]  

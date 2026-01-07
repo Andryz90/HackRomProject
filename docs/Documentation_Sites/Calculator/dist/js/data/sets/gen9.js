@@ -1,27 +1,4 @@
 var SETDEX_SV = {
-  "Feraligatr": {
-    "Developer Andry": {
-      "level": null,
-      "ivs": {
-        "hp": 31,
-        "at": 31,
-        "df": 31,
-        "sa": 31,
-        "sd": 31,
-        "sp": 31
-      },
-      "ivsSpecified": false,
-      "item": "Feraligatite",
-      "ability": null,
-      "nature": null,
-      "moves": [
-        "Liquidation",
-        "Ice Punch",
-        "Dragon Dance",
-        "Crunch"
-      ]
-    }
-  },
   "Araquanid": {
     "Leader BUGSY": {
       "level": "1",
@@ -13293,7 +13270,7 @@ var SETDEX_SV = {
       ]
     }
   },
-  "Hitmontop ": {
+  "Hitmontop": {
     "Black Belt CRISTIAN": {
       "level": "23",
       "ivs": {
@@ -13316,7 +13293,7 @@ var SETDEX_SV = {
       ]
     }
   },
-  "Pinsir ": {
+  "Pinsir": {
     "Black Belt CRISTIAN": {
       "level": "23",
       "ivs": {
