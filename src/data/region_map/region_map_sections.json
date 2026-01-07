@@ -1750,6 +1750,22 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_GAME_CORNER",
+      "name": "GAME CORNER",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_POKEMON_DAY_CARE",
+      "name": "GAME PKMN DAYCARE",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
   ]
 }
