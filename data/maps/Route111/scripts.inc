@@ -997,6 +997,7 @@ Route111_CloseRegiDoors_After_MagmaDesert_EventScript::
 	setwarp MAP_ROUTE111, 11, 67
 	special DoContestHallWarp
 	waitstate
+	msgbox Demo_IsFinished_Text, MSGBOX_DEFAULT
 	release
 	end
 Route111_Andry_EventScript_OnFrame_Final::
@@ -2008,3 +2009,10 @@ Route111_EdoInteractionExit_Text::
 
 Common_Script_End::
 	end
+
+Demo_IsFinished_Text::
+	.string "The demo is finished.\nThanks for playing!\p"
+	.string "The game now is identical\nto the vanilla one.\p"
+	.string "If you encountered bugs or want\nto report something\p"
+	.string "Message on Discord: andryz90.\p"
+	.string ":3$"

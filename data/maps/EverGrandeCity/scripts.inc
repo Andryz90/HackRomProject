@@ -23,10 +23,6 @@ EverGrandeCity_EventScript_SetVisitedEverGrande::
 	setvar VAR_TEMP_1, 1
 	end
 
-MegaFeraligatr_prova::
-	trainerbattle_single TRAINER_FERALIGATR_MEGA, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat
-	msgbox AbandonedShip_Corridors_1F_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
-	end
 
 EverGrandeCity_Text_EnteringVictoryRoad:
 	.string "ENTERING VICTORY ROAD $"

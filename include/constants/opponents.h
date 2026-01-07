@@ -889,7 +889,6 @@ enum Opponents_Additional_Trainer_enum
     TRAINER_MAGMA_GRUNT_DESERT_SPINNER2,
     TRAINER_MAGMA_GRUNT_DESERT_SPINNER3,
     TRAINER_GRUNT_DESERT6,
-    TRAINER_FERALIGATR_MEGA,
     //Double Battle Route 116 (late game)
     TRAINER_DAWSON_2,
     TRAINER_SARAH_2,
@@ -908,7 +907,6 @@ enum Opponents_Additional_Trainer_enum
 // #define TRAINER_SARAH_2                      (START_ADDITIONAL_TRAINER_FLAGS + 6)
 // #define TRAINER_JERRY_6                      (START_ADDITIONAL_TRAINER_FLAGS + 7)
 // #define TRAINER_JANICE_2                     (START_ADDITIONAL_TRAINER_FLAGS + 8)
-// #define TRAINER_FERALIGATR_MEGA              (START_ADDITIONAL_TRAINER_FLAGS + 9)
 
 
 #define MAX_OPPONENTS_TRAINER_FLAGS         (ADDITIONAL_OPPONENTS_TRAINER_COUNT)
