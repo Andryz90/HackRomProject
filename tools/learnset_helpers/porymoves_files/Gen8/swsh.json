@@ -12659,6 +12659,10 @@
   "KABUTO": {
     "LevelMoves": [
       {
+        "Level": 0,
+        "Move": "MOVE_AQUA_CUTTER"
+      },
+      {
         "Level": 1,
         "Move": "MOVE_ABSORB"
       },

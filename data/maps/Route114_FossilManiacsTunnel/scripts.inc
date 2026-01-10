@@ -4,16 +4,21 @@ Route114_FossilManiacsTunnel_MapScripts::
 	.byte 0
 
 Route114_FossilManiacsTunnel_OnTransition:
-	call_if_set FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac
+	call_if_set FLAG_MAXIE_DESERT, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac
 	end
 
 Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac::
 	setobjectxyperm LOCALID_FOSSIL_MANIAC, 6, 5
 	setobjectmovementtype LOCALID_FOSSIL_MANIAC, MOVEMENT_TYPE_FACE_DOWN
+	call_if_eq VAR_FOSSIL_MANIAC_STATE, 0, Route114_FossilManiacsTunnel_EventScript_ChangeState
+	return
+	
+Route114_FossilManiacsTunnel_EventScript_ChangeState::
+	setvar VAR_FOSSIL_MANIAC_STATE, 1
 	return
 
 Route114_FossilManiacsTunnel_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass
+	call_if_unset FLAG_MAXIE_DESERT, Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass
 	end
 
 Route114_FossilManiacsTunnel_EventScript_CloseDesertUnderpass::

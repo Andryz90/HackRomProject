@@ -4500,6 +4500,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DuneCave/border.bin",
       "blockdata_filepath": "data/layouts/DuneCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_AREA_ZERO_OUT_SIDE",
+      "name": "AreaZero_OutSide_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/AreaZero_OutSide/border.bin",
+      "blockdata_filepath": "data/layouts/AreaZero_OutSide/map.bin"
     }
   ]
 }

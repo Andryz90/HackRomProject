@@ -50,3 +50,7 @@ $(foreach line,$(shell cat $(MID_CFG_PATH) | sed "s/ /__SPACE__/g"),$(call MID_E
 # Warn users building without a .cfg - build will fail at link time
 $(MID_ASM_DIR)/%.s: $(MID_SUBDIR)/%.mid
 	$(warning $< does not have an associated entry in midi.cfg! It cannot be built)
+
+#custom
+$(MID_SUBDIR)/mus_areazero.s: $(MID_SUBDIR)/custom/mus_areazero_custom.s
+	cp $< $@

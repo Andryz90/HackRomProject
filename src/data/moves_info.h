@@ -10620,22 +10620,18 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Dragon Rush"),
         .description = COMPOUND_STRING(
-            "Tackles the foe with menace.\n"
-            "May cause flinching."),
-        .effect = EFFECT_HIT,
-        .power = 100,
+            "Tackles the foe with menace,\n"
+            "that also hurts the user."),
+        .effect = EFFECT_RECOIL,
+        .power = 120,
         .type = TYPE_DRAGON,
-        .accuracy = 75,
+        .accuracy = 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_6,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_FLINCH,
-            .chance = 20,
-        }),
         .contestEffect = CONTEST_EFFECT_BETTER_IF_FIRST,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = COMBO_STARTER_DRAGON_RUSH,
@@ -22201,7 +22197,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Wildfire"),
         .description = COMPOUND_STRING(
-            "Uses its fury to deal damage\n"
+            "Uses its fury to deal damage.\n"
             "Foes side take damage overtime."
         ),
         .effect = EFFECT_MAX_MOVE,

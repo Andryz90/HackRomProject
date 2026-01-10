@@ -592,7 +592,8 @@
     "TrainerHill_Elevator",
     "DewfordMeadow",
     "DewfordMEadowHouse",
-    "DewfordMeadowHouse1F"
+    "DewfordMeadowHouse1F",
+    "AreaZero_OutSide"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

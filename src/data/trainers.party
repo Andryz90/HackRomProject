@@ -1375,16 +1375,27 @@ Class: Ruin Maniac
 Pic: Ruin Maniac
 Gender: Male
 Music: Hiker
-Double Battle: No
+Double Battle: Yes
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandslash
-Level: 23
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dig
-- Slash
-- Sand Attack
-- Poison Sting
+Kabutops @ Expert Belt  
+Ability: Sharpness  
+Level: 52  
+- Aqua Cutter  
+- Ceaseless Edge  
+- Stone Axe  
+
+Omastar @ Rindo Berry  
+Ability: Solid Rock  
+Level: 52 
+Modest Nature  
+IVs: 0 Atk  
+- Meteor Beam  
+- Muddy Water  
+- Earth Power  
+- Protect  
+
+
 
 === TRAINER_CHIP ===
 Name: CHIP
@@ -4633,13 +4644,32 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandshrew
-Level: 23
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Dig
-- Sand Attack
-- Poison Sting
-- Slash
+Runerigus @ Leftovers  
+Ability: Wandering Spirit  
+Level: 50  
+IVs: 0 Atk  
+- Pain Split  
+- Will-O-Wisp  
+- Shadow Ball  
+- Destiny Bond  
+
+Absol @ Scope Lens  
+Ability: Super Luck  
+Level: 50  
+- Night Slash  
+- Sucker Punch  
+- Facade  
+
+Sigilyph @ Life Orb  
+Ability: Magic Guard  
+Level: 50  
+IVs: 0 Atk  
+- Psychic  
+- Air Slash  
+- Ancient Power  
+- Calm Mind  
+
+
 
 === TRAINER_BEAU ===
 Name: BEAU
@@ -4650,29 +4680,32 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Baltoy
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Cofagrigus @ Leftovers  
+Ability: Mummy  
+Level: 50  
+IVs: 0 Atk  
+- Pain Split  
+- Will-O-Wisp  
+- Shadow Ball  
+- Destiny Bond  
 
-Sandshrew
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Poison Sting
-- Sand Attack
-- Scratch
-- Dig
+Claydol @ Leftovers  
+Ability: Levitate  
+Level: 50   
+Modest Nature  
+- Earth Power  
+- Psychic  
+- Ancient Power  
+- Explosion  
 
-Baltoy
-Level: 21
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Golurk @ Punching Glove  
+Ability: Iron Fist  
+Level: 50  
+Jolly Nature  
+- Shadow Punch  
+- Drain Punch  
+- Ice Punch  
+- Thunder Punch  
 
 === TRAINER_LARRY ===
 Name: LARRY
@@ -5827,7 +5860,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_BUGSY ===
 Name: BUGSY
-Class: Leader
+Class: Leader Johto
 Pic: Leader Bugsy
 Gender: Male
 Music: Male
@@ -10340,21 +10373,23 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Dig
-- Sand Attack
-- Poison Sting
-- Slash
+Gogoat @ Safety Goggles  
+Ability: Sap Sipper  
+Level: 50   
+Jolly Nature  
+- Bulk Up  
+- Horn Leech  
+- Milk Drink  
+- Earthquake  
 
-Baltoy
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rapid Spin
-- Mud Slap
-- Psybeam
-- Rock Tomb
+Arcanine @ Muscle Band  
+Ability: Flash Fire  
+Level: 50  
+- Flare Blitz  
+- Extreme Speed  
+- Facade  
+- Close Combat  
+
 
 === TRAINER_BECKY ===
 Name: BECKY
@@ -10365,21 +10400,41 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Sand Attack
-- Poison Sting
-- Slash
-- Dig
+Sudowoodo  
+Ability: Water Absorb  
+Level: 50  
+- Wood Hammer  
+- Head Smash  
+- Horn Leech  
 
-Marill
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Rollout
-- Bubble Beam
-- Tail Whip
-- Defense Curl
+Sandslash @ Muscle Band  
+Ability: Sand Rush  
+Level: 50  
+Adamant Nature  
+- Earthquake  
+- Stone Edge  
+- Leech Life  
+- Knock Off  
+
+Sandaconda @ Loaded Dice  
+Ability: Shed Skin  
+Level: 50   
+Adamant Nature  
+- Rest  
+- Earthquake  
+- Scale Shot  
+- Coil  
+
+Krookodile @ Choice Band  
+Ability: Moxie  
+Level: 50  
+Adamant Nature  
+- Earthquake  
+- Knock Off  
+- Darkest Lariat  
+- Brick Break  
+
+
 
 === TRAINER_CAROL ===
 Name: CAROL
@@ -16995,13 +17050,26 @@ Music: Girl
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Marill
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Skarmory @ Sharp Beak  
+Ability: Weak Armor  
+Level: 50  
+Bold Nature  
+- Brave Bird  
+- Iron Head  
+- Body Press  
+- Protect  
 
-Lombre
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kilowattrel @ Safety Goggles  
+Ability: Volt Absorb  
+Level: 50    
+Modest Nature  
+- Air Slash  
+- Discharge  
+- U-turn  
+- Protect  
+
+
+
 
 === TRAINER_BRYAN ===
 Name: BRYAN
@@ -17012,13 +17080,34 @@ Music: Hiker
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Sandshrew
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Lycanroc  
+Ability: Sand Rush  
+Level: 50 
+Adamant Nature  
+- Protect  
+- Accelerock  
+- Stone Edge  
+- Drill Run  
 
-Sandslash
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Stunfisk @ Air Balloon  
+Ability: Sand Veil  
+Level: 50  
+Bold Nature  
+IVs: 0 Atk  
+- Discharge  
+- Earth Power  
+- Scald  
+- Protect  
+
+Stunfisk-Galar @ Air Balloon  
+Ability: Sand Veil  
+Level: 50   
+Adamant Nature  
+- Snap Trap  
+- Earthquake  
+- Protect  
+- Pain Split  
+
 
 === TRAINER_BRANDEN ===
 Name: BRANDEN
@@ -17029,13 +17118,23 @@ Music: Male
 Double Battle: No
 AI: Check bad Move/ Try To Faint/ Prefer Highest Damage Move/ Check Viability/ HP Aware/ Smart Switching/ Smart Mon Choices
 
-Taillow
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Donphan  
+Ability: Sturdy  
+Level: 50  
+Adamant Nature  
+- Rapid Spin  
+- Ice Spinner  
+- High Horsepower  
+- Head Smash  
 
-Nuzleaf
-Level: 22
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Marowak @ Thick Club  
+Ability: Battle Armor  
+Level: 50  
+Adamant Nature  
+- Poltergeist  
+- Bonemerang  
+- Brick Break  
+- Protect  
 
 === TRAINER_BRYANT ===
 Name: BRYANT

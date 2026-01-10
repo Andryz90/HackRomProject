@@ -12767,8 +12767,16 @@
         "Move": "MOVE_PROTECT"
       },
       {
+        "Level": 46,
+        "Move": "MOVE_STONE_EDGE"
+      },
+      {
         "Level": 49,
         "Move": "MOVE_LEECH_LIFE"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_STONE_AXE"
       },
       {
         "Level": 56,
@@ -12777,14 +12785,12 @@
       {
         "Level": 63,
         "Move": "MOVE_METAL_SOUND"
-      },
-      {
-        "Level": 70,
-        "Move": "MOVE_STONE_EDGE"
       }
     ],
     "PreEvoMoves": [],
     "TMMoves": [
+      "MOVE_CEASELESS_EDGE",
+      "MOVE_STONE_AXE",
       "MOVE_MEGA_KICK",
       "MOVE_HYPER_BEAM",
       "MOVE_GIGA_IMPACT",

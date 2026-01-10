@@ -2,7 +2,6 @@
 .set LOCALID_MOM, 4
 .set LOCALID_RIVAL, 7
 .set LOCALID_BIRCH, 8
-.set LOCALID_WINGULL, 9
 
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
@@ -97,6 +96,7 @@ Wingull_GuardPosRoute::
 	return 
 LittlerootTown_EventScript_SetTwinGuardingRoutePos::
 	setobjectxyperm LOCALID_TWIN, 7, 2
+	setobjectmovementtype LOCALID_TWIN, MOVEMENT_TYPE_FACE_DOWN
 	special Handle_Wingull_Flag
 	goto_if_set FLAG_WINGULL_STATE, Wingull_GuardPosRoute
 	return
