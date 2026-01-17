@@ -72,7 +72,7 @@
 #define FLAG_RECEIVED_VOLT_SWITCH                       0x3A 
 #define FLAG_HIDE_MAGMA_GRUNT_DESERT                    0x3B
 #define FLAG_HIDE_TRAINER_DESERT                        0x3C 
-#define FLAG_UNUSED_0x03D                               0x3D // Unused Flag
+#define FLAG_MINTS_DESERT_UNDERPASS                     0x3D
 #define FLAG_UNUSED_0x03E                               0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F                               0x3F // Unused Flag
 #define FLAG_UNUSED_0x040                               0x40 // Unused Flag

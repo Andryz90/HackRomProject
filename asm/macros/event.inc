@@ -1896,6 +1896,13 @@
     .2byte \nature
     .endm
 
+	@ Checks if the player has quantity or more of the specified item in their Bag. Sets VAR_RESULT to TRUE if the player has
+	@ enough of the item, or FALSE if they have fewer than quantity of the item.
+	.macro checkitemslist table:req
+	.byte SCR_OP_CHECKITEMSLIST
+    .4byte \table
+	.endm
+
 	@ Checks if the player has enough space in their PC to hold quantity more of the specified item. Sets VAR_RESULT to
 	@ TRUE if there is room, or FALSE is there is no room.
 	@ Commented because had overlap with buffer nature name and this is not used

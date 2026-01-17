@@ -359,19 +359,6 @@ u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item
     {
         CreateMon(&mon, species, EGG_HATCH_LEVEL, 32, TRUE, 0, OT_ID_PLAYER_ID, 0);
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
-
-        if (location != POKEMON_NO_LOCATION_DEFINED)
-        {
-            mon.box.locationdefined = TRUE;
-            
-            if (location == METLOC_FATEFUL_ENCOUNTER)
-            {
-                bool32 isModernFatefulEncounter = TRUE;
-                SetMonData(&mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
-            }
-            SetMonData(&mon, MON_DATA_MET_LOCATION, &location);
-            
-        }
     }
     else if ((gender == MON_MALE && genderRatio != MON_FEMALE && genderRatio != MON_GENDERLESS)
      || (gender == MON_FEMALE && genderRatio != MON_MALE && genderRatio != MON_GENDERLESS)
@@ -450,6 +437,19 @@ u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u16 item
     // assign OT name and gender
     SetMonData(&mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetMonData(&mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+
+    /*Custom: change location of the pokemon, if set*/
+    if (location != POKEMON_NO_LOCATION_DEFINED)
+    {
+        mon.box.locationdefined = TRUE;
+        
+        if (location == METLOC_FATEFUL_ENCOUNTER)
+        {
+            bool32 isModernFatefulEncounter = TRUE;
+            SetMonData(&mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
+        }
+        SetMonData(&mon, MON_DATA_MET_LOCATION, &location);
+    }
 
     if (slot < PARTY_SIZE)
     {

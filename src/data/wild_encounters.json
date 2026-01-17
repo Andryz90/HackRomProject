@@ -7589,6 +7589,26 @@
               {
                 "min_level": 30,
                 "max_level": 35,
+                "species": "SPECIES_NACLI"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_PAWNIARD"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
                 "species": "SPECIES_SOLROCK"
               },
               {
@@ -7599,22 +7619,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_NACLI"
-              },
-              {
-                "min_level": 30,
-                "max_level": 35,
-                "species": "SPECIES_SABLEYE"
-              },
-              {
-                "min_level": 30,
-                "max_level": 35,
-                "species": "SPECIES_ARON"
-              },
-              {
-                "min_level": 30,
-                "max_level": 35,
-                "species": "SPECIES_ARON"
+                "species": "SPECIES_TEDDIURSA"
               },
               {
                 "min_level": 30,
@@ -7624,27 +7629,22 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_PAWNIARD"
+                "species": "SPECIES_CLEFAIRY"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_BAGON"
+                "species": "SPECIES_TEDDIURSA"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_BAGON"
+                "species": "SPECIES_DRATINI"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_GIBLE"
-              },
-              {
-                "min_level": 30,
-                "max_level": 35,
-                "species": "SPECIES_GIBLE"
+                "species": "SPECIES_DRATINI"
               }
             ]
           },

@@ -11809,7 +11809,7 @@ typedef enum Trainer_DynamicLevel_t
     DAWSON_R116             = 13u, // Double Battle R116 for mints 
     SARAH_R116              = 14u, // Double Battle R116 for mints
     JANICE_R116             = 15u, // Double Battle R116 for mints
-    JERRY_R166              = 16u, // Double Battle R116 for mints
+    JERRY_R116              = 16u, // Double Battle R116 for mints
 
     MAX_TRAINER_DYNAMIC_LEVEL
 
@@ -11834,7 +11834,7 @@ static const u8 LookupTable_TrainerWithDynamicLevel[MAX_TRAINER_DYNAMIC_LEVEL][T
     [DAWSON_R116]               =_("DAWSON"),
     [SARAH_R116]                =_("SARAH"),
     [JANICE_R116]               =_("JANICE"),
-    [JERRY_R166]                =_("JERRY"),
+    [JERRY_R116]                =_("JERRY"),
 
 };
 

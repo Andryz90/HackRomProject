@@ -1177,3 +1177,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DuneCave/scripts.inc"
 
 	.include "data/maps/AreaZero_OutSide/scripts.inc"
+
+	.include "data/maps/DesertUnderpass_Tunnel/scripts.inc"

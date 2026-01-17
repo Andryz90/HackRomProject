@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/AreaZero_OutSide/border.bin",
       "blockdata_filepath": "data/layouts/AreaZero_OutSide/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_UNDERPASS_TUNNEL",
+      "name": "DesertUnderpass_Tunnel_Layout",
+      "width": 19,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DesertUnderpass_Tunnel/border.bin",
+      "blockdata_filepath": "data/layouts/DesertUnderpass_Tunnel/map.bin"
     }
   ]
 }

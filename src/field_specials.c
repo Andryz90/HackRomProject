@@ -4539,3 +4539,23 @@ void Script_GiveMonSpecial (void)
 {
     GiveMonSpecialIV(gSpecialVar_Result, gSpecialVar_0x8000, gSpecialVar_0x8001, gSpecialVar_0x8002, gSpecialVar_0x8003, gSpecialVar_0x8004);
 }
+
+void RegisterTalkedFossil (void)
+{
+    static const u8 FossilName_LookUpTable[][TRAINER_NAME_LENGTH + 1] =
+    {
+        [DESERT_UNDERPASS_HELIX_FOSSIL] = _("Helix Fossil"),
+        [DESERT_UNDERPASS_DOME_FOSSIL]  = _("Dome Fossil"),
+        [DESERT_UNDERPASS_OLD_AMBER]    = _("Old Amber"),
+        [DESERT_UNDERPASS_ROOT_FOSSIL]  = _("Root Fossil"),
+        [DESERT_UNDERPASS_CLAW_FOSSIL]  = _("Claw Fossil"),
+        [DESERT_UNDERPASS_ARMOR_FOSSIL] = _("Armor Fossil"),
+        [DESERT_UNDERPASS_SKULL_FOSSIL] = _("Skull Fossil"),
+        [DESERT_UNDERPASS_COVER_FOSSIL] = _("Cover Fossil"),
+        [DESERT_UNDERPASS_PLUME_FOSSIL] = _("Plume Fossil"),
+        [DESERT_UNDERPASS_JAW_FOSSIL]   = _("Jaw Fossil"),
+        [DESERT_UNDERPASS_SAIL_FOSSIL]  = _("Sail Fossil"),
+    };
+
+    StringCopy(gStringVar1, FossilName_LookUpTable[gSpecialVar_Unused_0x8014]);
+}

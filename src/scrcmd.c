@@ -660,6 +660,35 @@ bool8 ScrCmd_checkitem(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkitemslist(struct ScriptContext *ctx)
+{
+    const u16* list = (const u16 *)ScriptReadWord(ctx);
+
+    Script_RequestEffects(SCREFF_V1);
+
+    for (;;)
+    {
+        u16 itemId = *list++;
+        u16 qtyArg = *list++;
+
+        // terminatore
+        if (itemId == ITEM_NONE)
+            break;
+
+        itemId = VarGet(itemId);
+        qtyArg = VarGet(qtyArg);
+
+        if (CheckBagHasItem(itemId, qtyArg))
+        {
+            gSpecialVar_Result = TRUE;
+            return FALSE;
+        }
+    }
+
+    gSpecialVar_Result = FALSE;
+    return FALSE;
+}
+
 bool8 ScrCmd_checkitemtype(struct ScriptContext *ctx)
 {
     u16 itemId = VarGet(ScriptReadHalfword(ctx));

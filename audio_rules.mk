@@ -54,3 +54,6 @@ $(MID_ASM_DIR)/%.s: $(MID_SUBDIR)/%.mid
 #custom
 $(MID_SUBDIR)/mus_areazero.s: $(MID_SUBDIR)/custom/mus_areazero_custom.s
 	cp $< $@
+
+$(MID_SUBDIR)/mus_gymleader_johto.s: $(MID_SUBDIR)/custom/mus_gymleader_johto_custom.s
+	cp $< $@

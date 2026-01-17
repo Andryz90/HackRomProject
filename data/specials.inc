@@ -574,3 +574,4 @@ gSpecials::
 	def_special Script_GiveMonSpecial
 	def_special EnterCode
 	def_special GetCodeFeedback
+	def_special RegisterTalkedFossil

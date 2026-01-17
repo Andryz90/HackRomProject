@@ -24795,7 +24795,7 @@
       },
       {
         "Level": 49,
-        "Move": "MOVE_REVERSAL"
+        "Move": "MOVE_JUMP_KICK"
       },
       {
         "Level": 52,
@@ -24807,7 +24807,7 @@
       },
       {
         "Level": 59,
-        "Move": "MOVE_JUMP_KICK"
+        "Move": "MOVE_REVERSAL"
       },
       {
         "Level": 63,
