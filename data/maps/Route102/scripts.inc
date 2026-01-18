@@ -15,6 +15,7 @@ Route102_EventScript_RouteSignPetalburg::
 
 Route102_EventScript_Boy::
 	lock
+	faceplayer
 	msgbox Route102_Text_CatchWholeBunchOfPokemon, MSGBOX_NPC
 	giveitem ITEM_POKE_BALL
 	release

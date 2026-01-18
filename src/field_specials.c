@@ -20,6 +20,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "graphics.h"
+#include "global.fieldmap.h"
 #include "international_string_util.h"
 #include "item_icon.h"
 #include "link.h"

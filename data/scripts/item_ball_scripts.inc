@@ -24,6 +24,11 @@ Common_EventScript_FindItem_Temp::
 	finditem VAR_RESULT, VAR_0x8009
 	release
 	end
+
+Common_EventScript_GimmighoulCoin::
+	finditem ITEM_GIMMIGHOUL_COIN, 100
+	end
+
 QuitItemPick::
 	release
 	end

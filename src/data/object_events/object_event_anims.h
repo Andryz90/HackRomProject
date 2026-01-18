@@ -1739,3 +1739,11 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {},
 };
+
+//Chest animation custom
+static const union AnimCmd *const sAnimTable_Chest[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceSouth,
+};

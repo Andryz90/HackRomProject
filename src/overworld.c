@@ -1578,13 +1578,14 @@ void CB1_Overworld(void)
 }
 
 #define TINT_NIGHT Q_8_8(0.456) | Q_8_8(0.456) << 8 | Q_8_8(0.615) << 16
+#define TINT_TWILIGHT 0xA8B0E0
 
 const struct BlendSettings gTimeOfDayBlend[] =
 {
-    [TIME_MORNING] = {.coeff = 4,  .blendColor = 0xA8B0E0,   .isTint = TRUE},
-    [TIME_DAY]     = {.coeff = 0,  .blendColor = 0,          .isTint = FALSE},
-    [TIME_EVENING] = {.coeff = 4,  .blendColor = 0xA8B0E0,   .isTint = TRUE},
-    [TIME_NIGHT]   = {.coeff = 10, .blendColor = TINT_NIGHT, .isTint = TRUE},
+    [TIME_MORNING] = {.coeff = 4,  .blendColor = TINT_TWILIGHT,     .isTint = TRUE},
+    [TIME_DAY]     = {.coeff = 0,  .blendColor = 0,                 .isTint = FALSE},
+    [TIME_EVENING] = {.coeff = 4,  .blendColor = TINT_TWILIGHT,     .isTint = TRUE},
+    [TIME_NIGHT]   = {.coeff = 10, .blendColor = TINT_NIGHT,        .isTint = TRUE},
 };
 
 #define DEFAULT_WEIGHT 256

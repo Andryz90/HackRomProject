@@ -1418,3 +1418,14 @@ static const struct SpriteFrameImage sPicTable_EdoCap[] = {
 static const struct SpriteFrameImage sPicTable_Andry[] = {
     overworld_ascending_frames(gTrainerPic_Andry, 2, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_Chest[] = {
+    
+    overworld_frame(gObjectEventPic_Chest, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ChestOpen, 2, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_Chest_Open[] = {
+    
+    overworld_ascending_frames(gObjectEventPic_ChestOpen, 2, 4),
+};

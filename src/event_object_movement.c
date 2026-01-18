@@ -536,6 +536,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gTrainerPal_Bugsy,                     OBJ_EVENT_PAL_BUGSY},
     {gTrainerPal_EdoCap,                    OBJ_EVENT_PAL_EDOCAP},
     {gTrainerPal_Andry,                     OBJ_EVENT_PAL_ANDRY},
+    {gObjectEventPal_Chest,                 OBJ_EVENT_PAL_CHEST},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -2616,6 +2617,7 @@ void UpdateLightSprite(struct Sprite *sprite)
     s16 y = sprite->sLightYPos;
     u16 sheetTileStart;
     u32 paletteNum;
+    
     if (!(x >= left && x <= right && y >= top && y <= bottom))
     {
         sheetTileStart = sprite->sheetTileStart;

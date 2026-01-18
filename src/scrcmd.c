@@ -2325,10 +2325,9 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
         if (!species)
             break;
-        //Custom: HMs now check if the pokemon already knows the move or can learn it and has the move in the bag
-        if ((!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonHasMoveinMoveset(&gPlayerParty[i], move))
-            ||((!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonCanLearnMove(&gPlayerParty[i], move))
-            && (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && PlayerHasMove(move))))
+        //Custom: HMs now check if the player have the hm and have a pokemon that has it in the moveset or can learn it
+        if (PlayerHasMove(move) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && 
+            (MonHasMoveinMoveset(&gPlayerParty[i], move) || MonCanLearnMove(&gPlayerParty[i], move)))
         {
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;

@@ -15026,7 +15026,7 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 6092
-                MOVE_PLASMA_FISTS,
+                MOVE_THUNDER_PUNCH,
                 MOVE_DRAIN_PUNCH,
                 MOVE_MACH_PUNCH,
                 MOVE_ICE_PUNCH,

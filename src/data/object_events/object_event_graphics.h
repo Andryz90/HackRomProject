@@ -391,6 +391,10 @@ const u16 gObjectEventPal_TempItemBall[] = INCBIN_U16("graphics/object_events/pi
 const u32 gObjectEventPic_MegaStone[] = INCBIN_U32("graphics/object_events/pics/misc/mega_stone.4bpp");
 const u32 gObjectEventPic_RollingSpheal[] = INCBIN_U32("graphics/object_events/pics/people/spheal.4bpp");
 const u16 gObjectEventPal_RollingSpheal[] = INCBIN_U16("graphics/object_events/pics/people/spheal.gbapal");
+const u32 gObjectEventPic_Chest[] = INCBIN_U32("graphics/object_events/pics/misc/chest.4bpp");
+const u16 gObjectEventPal_Chest[] = INCBIN_U16("graphics/object_events/pics/misc/chest.gbapal");
+const u32 gObjectEventPic_ChestOpen[] = INCBIN_U32("graphics/object_events/pics/misc/chest_open.4bpp");
+const u16 gObjectEventPal_ChestOpen[] = INCBIN_U16("graphics/object_events/pics/misc/chest_open.gbapal");
 
 //Custom
 const u32 gTrainerPic_EdoCap[] = INCBIN_U32("graphics/object_events/pics/people/edo_cap_sprite.4bpp");   //Edo Cappellino LMFAO
