@@ -73,10 +73,10 @@
 #define FLAG_HIDE_MAGMA_GRUNT_DESERT                    0x3B
 #define FLAG_HIDE_TRAINER_DESERT                        0x3C 
 #define FLAG_MINTS_DESERT_UNDERPASS                     0x3D
-#define FLAG_UNUSED_0x03E                               0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F                               0x3F // Unused Flag
-#define FLAG_UNUSED_0x040                               0x40 // Unused Flag
-#define FLAG_UNUSED_0x041                               0x41 // Unused Flag
+#define FLAG_CHEST_DESERT_UNDERPASS                     0x3E
+#define FLAG_CHEST_DESERT_MIRAGE_TOWER                  0x3F
+#define FLAG_THICK_CLUB_UNDERPASS_TUNNEL                0x40
+#define FLAG_LEEK_UNDERPASS_TUNNEL                      0x41
 #define FLAG_UNUSED_0x042                               0x42 // Unused Flag
 #define FLAG_UNUSED_0x043                               0x43 // Unused Flag
 #define FLAG_UNUSED_0x044                               0x44 // Unused Flag
@@ -1233,7 +1233,7 @@
 #define FLAG_ABILITY_PATCH_HEART_SCALE_R112                         0x49B
 #define FLAG_RARE_CANDY_HEART_SCALE_MTCH                            0x49C
 #define FLAG_SEASPRAY_HEART_SCALE                                   0x49D
-#define FLAG_CHEST_OPENED                                           0x49E 
+#define FLAG_UNUSED_0x49E                                           0x49E 
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag

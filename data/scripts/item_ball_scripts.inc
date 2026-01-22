@@ -26,9 +26,11 @@ Common_EventScript_FindItem_Temp::
 	end
 
 Common_EventScript_GimmighoulCoin::
+	lock 
 	finditem ITEM_GIMMIGHOUL_COIN, 100
+	release
 	end
-
+	
 QuitItemPick::
 	release
 	end

@@ -53,7 +53,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_THICK_CLUB",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_THICK_CLUB_UNDERPASS_TUNNEL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
@@ -66,9 +66,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_LEEK",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_LEEK_UNDERPASS_TUNNEL"
     },
     {
+      "local_id": "LOCALID_CHEST_DESERT_UNDERPASS",
       "graphics_id": "OBJ_EVENT_GFX_CHEST",
       "x": 9,
       "y": 2,
@@ -79,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_GIMMIGHOUL_COIN",
       "script": "Common_EventScript_GimmighoulCoin",
-      "flag": "0"
+      "flag": "FLAG_CHEST_DESERT_UNDERPASS"
     }
   ],
   "warp_events": [
