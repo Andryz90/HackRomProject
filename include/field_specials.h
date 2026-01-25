@@ -62,4 +62,5 @@ void ChangeMonNature (void);
 void DamageMon (void);
 void Script_GiveMonSpecial (void);
 void RegisterTalkedFossil (void);
+void ReturnPokemonSpeciesFromOW (void);
 #endif // GUARD_FIELD_SPECIALS_H

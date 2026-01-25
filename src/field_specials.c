@@ -4560,3 +4560,22 @@ void RegisterTalkedFossil (void)
 
     StringCopy(gStringVar1, FossilName_LookUpTable[gSpecialVar_Unused_0x8014]);
 }
+
+void ReturnPokemonSpeciesFromOW (void)
+{
+    u16 pokemon = 0u;
+    u8 i;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (gObjectEvents[i].active && gObjectEvents[i].localId == gSpecialVar_LastTalked)
+            pokemon = gObjectEvents[i].graphicsId;
+    }
+
+    MgbaPrintf(MGBA_LOG_ERROR, "pkmn: %u", gSpecialVar_Result);
+    if (pokemon & OBJ_EVENT_MON)
+    {
+        gSpecialVar_Result = pokemon & OBJ_EVENT_MON_SPECIES_MASK;
+        MgbaPrintf(MGBA_LOG_ERROR, "species: %u", gSpecialVar_Result);
+    }
+}

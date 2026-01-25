@@ -80,7 +80,7 @@ $(TILESETGFXDIR)/secondary/pokemon_school/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/pokemon_fan_club/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 319 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/unused_1/tiles.4bpp: %.4bpp: %.png
+$(TILESETGFXDIR)/secondary/area_zero/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 17 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/meteor_falls/tiles.4bpp: %.4bpp: %.png

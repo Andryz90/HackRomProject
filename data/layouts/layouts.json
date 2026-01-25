@@ -4502,16 +4502,6 @@
       "blockdata_filepath": "data/layouts/DuneCave/map.bin"
     },
     {
-      "id": "LAYOUT_AREA_ZERO_OUT_SIDE",
-      "name": "AreaZero_OutSide_Layout",
-      "width": 30,
-      "height": 30,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/AreaZero_OutSide/border.bin",
-      "blockdata_filepath": "data/layouts/AreaZero_OutSide/map.bin"
-    },
-    {
       "id": "LAYOUT_DESERT_UNDERPASS_TUNNEL",
       "name": "DesertUnderpass_Tunnel_Layout",
       "width": 19,
@@ -4520,6 +4510,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DesertUnderpass_Tunnel/border.bin",
       "blockdata_filepath": "data/layouts/DesertUnderpass_Tunnel/map.bin"
+    },
+    {
+      "id": "LAYOUT_AREA_ZERO_OUTSIDE",
+      "name": "AreaZero_Outside_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AreaZero",
+      "border_filepath": "data/layouts/AreaZero_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/AreaZero_Outside/map.bin"
     }
   ]
 }

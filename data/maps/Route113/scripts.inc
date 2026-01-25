@@ -139,11 +139,6 @@ Route113_EventScript_Wyatt::
 	applymovement LOCALID_WYATT, Route113_EventScript_Wyatt_Movement
 	waitmovement 0
 	end
-
-Route113_Follower_NPC_1::
-	setfollowernpc LOCALID_SKARMORY_R113, 0x1
-	end
-
 Route113_Text_AshCanBeFashionedIntoGlass:
 	.string "Wahahaha! Today's technology is a\n"
 	.string "wondrous thing!\p"

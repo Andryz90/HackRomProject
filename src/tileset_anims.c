@@ -494,10 +494,10 @@ const u16 gTilesetAnims_Sootopolis_StormyWater_Frame6[] = INCBIN_U16("data/tiles
 const u16 gTilesetAnims_Sootopolis_StormyWater_Frame7[] = INCBIN_U16("data/tilesets/secondary/sootopolis/anim/stormy_water/7_kyogre.4bpp", "data/tilesets/secondary/sootopolis/anim/stormy_water/7_groudon.4bpp");
 const u16 tileset_anims_space_8[16] = {};
 
-const u16 gTilesetAnims_Unused1_Frame0[] = INCBIN_U16("data/tilesets/secondary/unused_1/0.4bpp");
-const u16 gTilesetAnims_Unused1_Frame1[] = INCBIN_U16("data/tilesets/secondary/unused_1/1.4bpp");
-const u16 gTilesetAnims_Unused1_Frame2[] = INCBIN_U16("data/tilesets/secondary/unused_1/2.4bpp");
-const u16 gTilesetAnims_Unused1_Frame3[] = INCBIN_U16("data/tilesets/secondary/unused_1/3.4bpp");
+const u16 gTilesetAnims_Area_Zero_Frame0[] = INCBIN_U16("data/tilesets/secondary/area_zero/0.4bpp");
+const u16 gTilesetAnims_Area_Zero_Frame1[] = INCBIN_U16("data/tilesets/secondary/area_zero/1.4bpp");
+const u16 gTilesetAnims_Area_Zero_Frame2[] = INCBIN_U16("data/tilesets/secondary/area_zero/2.4bpp");
+const u16 gTilesetAnims_Area_Zero_Frame3[] = INCBIN_U16("data/tilesets/secondary/area_zero/3.4bpp");
 
 const u16 *const gTilesetAnims_Sootopolis_StormyWater[] = {
     gTilesetAnims_Sootopolis_StormyWater_Frame0,

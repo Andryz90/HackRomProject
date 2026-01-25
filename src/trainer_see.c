@@ -61,6 +61,7 @@ COMMON_DATA bool8 gTrainerApproachedPlayer = 0;
 
 // EWRAM
 EWRAM_DATA u8 gApproachingTrainerId = 0;
+static EWRAM_DATA bool8 PokemonFollower = FALSE;
 
 //Custom
 static EWRAM_DATA struct ApproachingTrainer allApproachingTrainers[MAX_APPROACHING_TRAINERS] = {0};
@@ -669,19 +670,39 @@ static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 ap
     return 0;
 }
 
-#define tFuncId             data[0]
-#define tTrainerRange       data[3]
-#define tOutOfAshSpriteId   data[4]
-#define tTrainerObjectEventId data[7]
+#define tFuncId                 data[0]
+#define tTrainerRange           data[3]
+#define tOutOfAshSpriteId       data[4]
+#define tTrainerObjectEventId   data[7]
+#define tPokemonObjectEventId   data[6]
 
 static void InitTrainerApproachTask(struct ObjectEvent *trainerObj, u8 range)
 {
     struct Task *task;
+    u8 i;
+    struct ObjectEvent* pokemonfollowerObj = NULL;
+
+    PokemonFollower = FALSE;
+
+    // Custom: Look for pokemon follower associated with this trainer
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if ((gObjectEvents[i].graphicsId & OBJ_EVENT_MON) && (gObjectEvents[i].trainerType == TRAINER_TYPE_NPC_FOLLOWER) &&
+             gObjectEvents[i].trainerRange_berryTreeId == trainerObj->localId)
+        {
+            pokemonfollowerObj = &gObjectEvents[i];
+            pokemonfollowerObj->facingDirectionLocked = TRUE;
+            PokemonFollower = TRUE;
+            break;
+        }
+    }
 
     gApproachingTrainers[gNoOfApproachingTrainers].taskId = CreateTask(Task_RunTrainerSeeFuncList, 0x50);
     task = &gTasks[gApproachingTrainers[gNoOfApproachingTrainers].taskId];
     task->tTrainerRange = range;
     task->tTrainerObjectEventId = gApproachingTrainers[gNoOfApproachingTrainers].objectEventId;
+    if (PokemonFollower)
+        task->tPokemonObjectEventId = pokemonfollowerObj - gObjectEvents;
 }
 
 static void StartTrainerApproach(TaskFunc followupFunc)
@@ -757,16 +778,38 @@ static bool8 WaitTrainerExclamationMark(u8 taskId, struct Task *task, struct Obj
 // TRSEE_MOVE_TO_PLAYER
 static bool8 TrainerMoveToPlayer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
 {
+    struct ObjectEvent* pokemonfollowerObj = NULL;
+        
     if (!ObjectEventIsMovementOverridden(trainerObj) || ObjectEventClearHeldMovementIfFinished(trainerObj))
     {
+        if (PokemonFollower)
+        {
+            pokemonfollowerObj = &gObjectEvents[task->tPokemonObjectEventId];
+
+            if (pokemonfollowerObj != NULL && ObjectEventIsMovementOverridden(pokemonfollowerObj) && ObjectEventClearHeldMovementIfFinished(pokemonfollowerObj))
+            {
+                return FALSE;
+            }
+        }
+
         if (task->tTrainerRange)
         {
             ObjectEventSetHeldMovement(trainerObj, GetWalkNormalMovementAction(trainerObj->facingDirection));
+
+            if (pokemonfollowerObj != NULL)
+            {
+                ObjectEventSetHeldMovement(pokemonfollowerObj, GetWalkNormalMovementAction(pokemonfollowerObj->facingDirection));
+            }
             task->tTrainerRange--;
         }
         else
         {
             ObjectEventSetHeldMovement(trainerObj, MOVEMENT_ACTION_FACE_PLAYER);
+
+            if (pokemonfollowerObj != NULL)
+            {
+                ObjectEventSetHeldMovement(pokemonfollowerObj, MOVEMENT_ACTION_FACE_PLAYER);
+            }
             task->tFuncId++; // TRSEE_PLAYER_FACE
         }
     }
@@ -777,6 +820,7 @@ static bool8 TrainerMoveToPlayer(u8 taskId, struct Task *task, struct ObjectEven
 static bool8 PlayerFaceApproachingTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
 {
     struct ObjectEvent *playerObj;
+    struct ObjectEvent* pokemonfollowerObj = NULL;
 
     if (ObjectEventIsMovementOverridden(trainerObj) && !ObjectEventClearHeldMovementIfFinished(trainerObj))
         return FALSE;
@@ -786,12 +830,22 @@ static bool8 PlayerFaceApproachingTrainer(u8 taskId, struct Task *task, struct O
     TryOverrideTemplateCoordsForObjectEvent(trainerObj, GetTrainerFacingDirectionMovementType(trainerObj->facingDirection));
     OverrideTemplateCoordsForObjectEvent(trainerObj);
 
+    if (PokemonFollower)
+    {
+        pokemonfollowerObj = &gObjectEvents[task->tPokemonObjectEventId];
+        if (ObjectEventIsMovementOverridden(pokemonfollowerObj) && !ObjectEventClearHeldMovementIfFinished(pokemonfollowerObj))
+            return FALSE;
+        // SetTrainerMovementType(pokemonfollowerObj, GetTrainerFacingDirectionMovementType(pokemonfollowerObj->facingDirection));
+        // TryOverrideTemplateCoordsForObjectEvent(pokemonfollowerObj, GetTrainerFacingDirectionMovementType(pokemonfollowerObj->facingDirection));
+        // OverrideTemplateCoordsForObjectEvent(pokemonfollowerObj);
+    }
+
     playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (ObjectEventIsMovementOverridden(playerObj) && !ObjectEventClearHeldMovementIfFinished(playerObj))
         return FALSE;
 
     CancelPlayerForcedMovement();
-    ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], GetFaceDirectionMovementAction(GetOppositeDirection(trainerObj->facingDirection)));
+    ObjectEventSetHeldMovement(playerObj, GetFaceDirectionMovementAction(GetOppositeDirection(trainerObj->facingDirection)));
     task->tFuncId++; // TRSEE_PLAYER_FACE_WAIT
     return FALSE;
 }
@@ -801,6 +855,10 @@ static bool8 WaitPlayerFaceApproachingTrainer(u8 taskId, struct Task *task, stru
 {
     struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
 
+    if (PokemonFollower)
+    {
+        gObjectEvents[task->tPokemonObjectEventId].facingDirectionLocked = FALSE;
+    }
     if (!ObjectEventIsMovementOverridden(playerObj)
      || ObjectEventClearHeldMovementIfFinished(playerObj))
         SwitchTaskToFollowupFunc(taskId);

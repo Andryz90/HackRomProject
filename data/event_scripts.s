@@ -1094,6 +1094,16 @@ Common_EventScript_LegendaryFlewAway::
 	release
 	end
 
+Common_EventScript_PokemonPartner::
+	lock
+	faceplayer
+	special ReturnPokemonSpeciesFromOW
+	playmoncry VAR_RESULT, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	release
+	end
+
 EventScript_VsSeekerChargingDone::
 	special VsSeekerFreezeObjectsAfterChargeComplete
 	waitstate
@@ -1176,6 +1186,6 @@ EventScript_VsSeekerChargingDone::
 
 	.include "data/maps/DuneCave/scripts.inc"
 
-	.include "data/maps/AreaZero_OutSide/scripts.inc"
-
 	.include "data/maps/DesertUnderpass_Tunnel/scripts.inc"
+
+	.include "data/maps/AreaZero_Outside/scripts.inc"

@@ -27,6 +27,13 @@
 #define FNPC_ALL_WATER                        FOLLOWER_NPC_FLAG_ALL_WATER
 #define FNPC_ALL                              FOLLOWER_NPC_FLAG_ALL
 
+enum Follower_NPC_Flags_Enum_t
+{
+    FOLLOWER_NCP_LAND = FOLLOWER_NPC_FLAG_ALL_LAND,
+    FOLLOWER_NCP_WATER = FOLLOWER_NPC_FLAG_ALL_WATER,
+    FOLLOWER_NCP_ALL = FOLLOWER_NPC_FLAG_ALL,
+};
+
 
 #define FNPC_NONE   0
 #define FNPC_ALWAYS 2
